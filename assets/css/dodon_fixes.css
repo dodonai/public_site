@@ -1,0 +1,152 @@
+/* Additional CSS fixes for slider and YouTube thumbnails */
+
+/* Slider fixes */
+.w-slider {
+  position: relative;
+  width: 100%;
+}
+
+.w-slider-mask {
+  position: relative;
+  display: block;
+  overflow: hidden;
+  z-index: 1;
+  left: 0;
+  right: 0;
+  height: auto;
+  min-height: 300px; /* Adjust based on your slider's actual content */
+}
+
+.w-slide {
+  position: absolute;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  width: 100%;
+  height: 100%;
+  display: block;
+  transition: transform 0.5s ease, opacity 0.5s ease;
+  z-index: 0;
+}
+
+.w-slide.active-slide {
+  z-index: 1;
+  opacity: 1;
+}
+
+/* Slider navigation controls */
+.w-slider-arrow-left,
+.w-slider-arrow-right {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.w-slider-arrow-left:hover,
+.w-slider-arrow-right:hover {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.w-slider-arrow-left {
+  left: 10px;
+}
+
+.w-slider-arrow-right {
+  right: 10px;
+}
+
+.w-slider-nav {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  padding: 10px 0;
+  z-index: 2;
+}
+
+.w-slider-nav div {
+  width: 10px;
+  height: 10px;
+  background-color: rgba(0, 0, 0, 0.3);
+  border-radius: 50%;
+  margin: 0 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.w-slider-nav div.w-active {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+/* YouTube thumbnail fixes */
+.w-lightbox {
+  cursor: pointer;
+  position: relative;
+  display: block;
+  overflow: hidden;
+}
+
+img.ytfacade {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: cover;
+}
+
+.yt-play-button {
+  /* Styles set inline in the JS for better compatibility */
+}
+
+.w-lightbox:hover .yt-play-button {
+  transform: translate(-50%, -50%) scale(1.1) !important;
+}
+
+/* Lightbox styles */
+.lightbox-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.lightbox-content {
+  width: 80%;
+  max-width: 940px;
+  position: relative;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 40px;
+  cursor: pointer;
+  font-weight: bold;
+  padding: 0;
+  line-height: 1;
+}
+
+/* Fix for any images that still aren't showing */
+img[src*="./assets/"] {
+  content: attr(src);
+  src: attr(src);
+}
