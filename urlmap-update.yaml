@@ -1,0 +1,32 @@
+name: dodonai-landing
+defaultService: https://www.googleapis.com/compute/v1/projects/dodonai/global/backendBuckets/dodonai-landing
+hostRules:
+- hosts:
+  - '*'  # Match any host
+  pathMatcher: main
+pathMatchers:
+- name: main
+  defaultService: https://www.googleapis.com/compute/v1/projects/dodonai/global/backendBuckets/dodonai-landing
+  routeRules:
+  - priority: 1
+    matchRules:
+    - pathTemplateMatch: '*/index.html'
+    urlRedirect:
+      pathRedirect: '/'
+      redirectResponseCode: FOUND  # 302 redirect for testing
+      stripQuery: false
+  - priority: 2
+    matchRules:
+    - pathTemplateMatch: '*subdir'
+      queryParameterMatches: []
+    urlRedirect:
+      pathRedirect: '/subdir/'
+      redirectResponseCode: FOUND  # 302 redirect for testing
+      stripQuery: false
+  - priority: 3
+    matchRules:
+    - pathTemplateMatch: '*'
+    routeAction:
+      urlRewrite:
+        hostRewrite: /index.html
+        pathPrefixRewrite: /
