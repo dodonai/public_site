@@ -1,0 +1,209 @@
+{
+  "seo": {
+    "title": "AI Deposition Summary Software | Dodonai",
+    "description": "Accelerate your legal practice with Dodonai's AI-powered deposition summary software. Transform lengthy transcripts into concise summaries in minutes, saving you time and reducing costs. Ideal for attorneys and paralegals. Starting at $30/month with a free trial.",
+    "canonical": "https://dodon.ai/deposition-summary-software"
+  },
+  "hero": {
+    "headline": "Get an AI Deposition Summary in 5 Minutes",
+    "subheadline": "Dodonai's deposition summary software converts a deposition transcript to an AI deposition summary in minutes. High-quality AI deposition summaries for a fraction of what deposition summary services cost.",
+    "bullets": [],
+    "ctaText": "Free Summary",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "features": [],
+  "howItWorks": [
+    {
+      "title": "Upload your Deposition Transcript",
+      "description": "Upload your PDF, TXT, or Word deposition transcript to Dodonai. Generally, Dodonai can create a deposition summary from a 100-page deposition transcript in 3 minutes."
+    },
+    {
+      "title": "Select Format Type and enter Key Topics",
+      "description": "Select between a Narrative or Page-Line summary format and enter any key topics that you want the deposition summary to highlight. Dodonai's deposition summary software will include additional focus on these topics in the summary, where relevant."
+    },
+    {
+      "title": "Download the Deposition Summary",
+      "description": "Download the deposition summary in PDF, TXT, or Word. Dodonai saves the deposition summary to your account for easy access later."
+    }
+  ],
+  "educationalContent": [
+    {
+      "heading": "What is a deposition summary?",
+      "paragraphs": [
+        "A deposition summary condenses hours of testimony into a digestible format, highlighting the most pertinent information for quick reference. It distills the essence of what was said, preserving the factual backbone of the deposition without the extraneous detail found in full transcripts.",
+        "The Page-Line deposition summary method is a detailed and comprehensive approach to summarizing deposition transcripts. A Page-Line summary includes a table with a column for the summary of a section of the testimony and a citation to the relevant page number and line numbers from the transcript. Each row in the table represents a different section of the testimony and is organized chronologically.",
+        "Page-Line deposition summaries are popular because they ensure that every piece of crucial information is easily accessible, provide a clear and concise overview of the deposition's most important aspects, and allow for quick reference and review. This method is also time-consuming and labor-intensive... until now.",
+        "Dodonai's AI deposition summary tool creates high-quality Page-Line deposition summaries in minutes for a fraction of the cost of traditional deposition summary services."
+      ]
+    },
+    {
+      "heading": "What is deposition summary software?",
+      "paragraphs": [
+        "Dodonai's deposition summary software uses artificial intelligence to summarize the most important testimony from a deposition transcript.",
+        "A valuable tool for lawyers, this deposition summary, also known as a deposition digest, can be used in litigation and trial preparation as a reference for clients and team members alongside Medical Record Summaries and other evidentiary tools, saving attorney time and reducing costs."
+      ]
+    }
+  ],
+  "examples": {
+    "sectionTitle": "Example Deposition Summaries",
+    "sectionDescription": "Dodonai asked a litigation attorney review the five publicly available deposition transcripts below and manually create deposition summaries. We then uploaded the transcripts to Dodonai to create AI deposition summaries.",
+    "sectionQuote": {
+      "text": "I'm a little embarrassed to say that the AI deposition summaries created by Dodonai were even better summaries than the ones I wrote.",
+      "author": "Reviewing Attorney"
+    },
+    "items": [
+      {
+        "title": "Corporate Rep",
+        "description": "The corporate representative testifies as to the circumstances surrounding an automobile accident involving the company's employee and the plaintiff.",
+        "pageCount": 64,
+        "manualTime": "1 hr 48 min",
+        "aiTime": "84 seconds",
+        "links": [
+          { "label": "Transcript", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Transcript%20(Corporate%20Rep).pdf" },
+          { "label": "Page-Line Summary", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Summary%20(Corporate%20Rep).pdf" },
+          { "label": "Narrative Summary", "url": "https://storage.cloud.google.com/dodonai_assets/Examples/Example%20Narrative%20Deposition%20Summary%20(Corporate%20Rep).pdf" }
+        ]
+      },
+      {
+        "title": "Insurance Investigator",
+        "description": "The insurance investigator testifies about her inspection of the plaintiff's property related to an insurance claim for property damage.",
+        "pageCount": 44,
+        "manualTime": "1 hr 50 min",
+        "aiTime": "79 seconds",
+        "links": [
+          { "label": "Transcript", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Transcript%20(Insurance%20Claim%20Dispute).pdf" },
+          { "label": "Page-Line Summary", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Summary%20(Insurance%20Claim%20Dispute).pdf" }
+        ]
+      },
+      {
+        "title": "Truck Driver",
+        "description": "The truck driver testifies as to the circumstances surrounding an automobile accident involving himself and the plaintiffs.",
+        "pageCount": 37,
+        "manualTime": "1 hr 26 min",
+        "aiTime": "61 seconds",
+        "links": [
+          { "label": "Transcript", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Transcript%20(Truck%20Accident).pdf" },
+          { "label": "Page-Line Summary", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Summary%20(Truck%20Accident).pdf" },
+          { "label": "Narrative Summary", "url": "https://storage.cloud.google.com/dodonai_assets/Examples/Example%20Narrative%20Deposition%20Summary%20(Truck%20Accident).pdf" }
+        ]
+      },
+      {
+        "title": "Petitioner for Divorce",
+        "description": "The petitioner testifies as to her employment and medical history and the circumstances of her children as part of her claim for child support and alimony.",
+        "pageCount": 52,
+        "manualTime": "1 hr 52 min",
+        "aiTime": "90 seconds",
+        "links": [
+          { "label": "Transcript", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Transcript%20(Divorce).pdf" },
+          { "label": "Page-Line Summary", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Summary%20(Divorce).pdf" },
+          { "label": "Narrative Summary", "url": "https://storage.cloud.google.com/dodonai_assets/Examples/Example%20Narrative%20Deposition%20Summary%20(Divorce).pdf" }
+        ]
+      },
+      {
+        "title": "Damages Expert",
+        "description": "The economic damages expert in this case testified as to the value of the plaintiff's rehabilitation life care plan.",
+        "pageCount": 40,
+        "manualTime": "1 hr 45 min",
+        "aiTime": "74 seconds",
+        "links": [
+          { "label": "Transcript", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Transcript%20(Damages%20Expert).pdf" },
+          { "label": "Page-Line Summary", "url": "https://storage.googleapis.com/dodonai_assets/Examples/Example%20Deposition%20Summary%20(Damages%20Expert).pdf" }
+        ]
+      }
+    ]
+  },
+  "service": {
+    "heading": "Deposition Summary Service",
+    "paragraphs": [
+      "Not ready for deposition summary software? Consider Dodonai's deposition summary service. Our team produces deposition summaries at your direction and customized to your needs. Dodonai's deposition summary service combines AI with human oversight by qualified legal professionals to produce high quality and timely summaries.",
+      "To get started, simply email hello@dodon.ai with your transcripts and a description of your needs. We will help you to set up your payment method and walk you through the process.",
+      "Starting at $1 per page, our typical turnaround time is 24-hours. Rush service is available."
+    ],
+    "ctaText": "Contact Us",
+    "ctaUrl": "mailto:hello@dodon.ai"
+  },
+  "valueProposition": {
+    "heading": "Litigate Better with AI Deposition Summaries",
+    "cards": [
+      {
+        "icon": "clock",
+        "title": "Save attorney time",
+        "description": "Dodonai's AI Deposition Summaries provide the key aspects of deposition testimony without having to comb through the transcript."
+      },
+      {
+        "icon": "users",
+        "title": "Save paralegal time",
+        "description": "It can take a paralegal hours to create a deposition summary comparable to what Dodonai can create in minutes."
+      },
+      {
+        "icon": "dollar",
+        "title": "Save on Vendor Cost",
+        "description": "Deposition summary services can cost anywhere from $300 to $2000 per transcript. Dodonai starts at $30 per month for up to 200 pages."
+      },
+      {
+        "icon": "growth",
+        "title": "Grow your practice",
+        "description": "Focus your resources on trial strategy, client service, and marketing your practice, not on tedious summarization tasks."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "What file types can Dodonai summarize?",
+      "answer": "Dodonai can summarize the following file types: .pdf, .txt, .doc, .docx., .csv, and .pptx. Dodonai can also summarize general texts, and there is a specific feature for summarizing medical records."
+    },
+    {
+      "question": "What file type will the deposition summary be?",
+      "answer": "The summary saves to .txt, but you can download it as a .pdf or .doc file."
+    },
+    {
+      "question": "Is Dodonai secure?",
+      "answer": "Yes, Dodonai is completely secure. We follow all cloud security best practices and are SOC 2 certified and HIPAA compliant."
+    },
+    {
+      "question": "What will you do with our data?",
+      "answer": "As stated in our Terms & Conditions, we will only use your data to accomplish the purposes of the Dodonai app. Neither Dodonai nor our partners will use your data to train our models or for any other purpose."
+    },
+    {
+      "question": "How much does Dodonai charge for a deposition summary services?",
+      "answer": "Dodonai charges $1 per page for the service. The first summary is free."
+    },
+    {
+      "question": "Why is a Deposition Summary valuable?",
+      "answer": "Deposition summaries are an indispensable tool for attorneys at various stages of the litigation process. They serve as concise, easy-to-navigate documents that distill the most crucial information from lengthy deposition transcripts. Below, we explore why deposition summaries are a must-have resource for every legal professional.Time EfficiencyDeposition transcripts can span hundreds of pages and can be time-consuming to sift through. Summaries distill this information into a compact format, helping attorneys quickly identify key points and themes. This enables them to make more effective use of their time, which is often billed by the hour.Enhanced Focus on StrategyWith a well-crafted summary at hand, attorneys can devote more energy to the strategic aspects of a case. They can identify strengths and weaknesses more swiftly, plan cross-examinations, and make more informed decisions on which lines of questioning to pursue further.Improved Team CommunicationDeposition summaries are easily shareable among the legal team. They serve as a common reference point that ensures everyone is on the same page. This aids in collaboration and helps prevent misunderstandings or overlooked details that could impact the case.Cost-EffectivenessWhile there's an initial cost involved in generating a deposition summary, the long-term benefits often outweigh this expenditure. By reducing the time required to analyze transcripts, attorneys can focus on other billable activities, ultimately driving cost efficiencies for clients.AccessibilityA well-structured summary allows for easy access to essential information. Whether in court or in client meetings, having a quick reference guide can be invaluable for making points effectively and authoritatively.Support for Witnesses and ExpertsSummaries can serve as an excellent preparation tool for witnesses or expert consultants involved in a case. They provide a snapshot of what has been said under oath, making it easier to prepare for trial testimony or to identify areas requiring further expert analysis.In an arena where every minute counts and the stakes are high, deposition summaries are not just a luxury; they're a necessity. By providing a streamlined, focused view of deposition testimony, they offer legal professionals a competitive edge that can make a significant difference in the outcome of a case."
+    },
+    {
+      "question": "What is Deposition Software?",
+      "answer": "Deposition software is a specialized tool designed to assist legal professionals in the deposition process, an integral component of litigation and dispute resolution. The software aims to streamline various facets of depositions, from transcription and annotation to summarization.Here are some types of deposition software:Deposition Summary Software - Dodonai automates the process of summarizing deposition transcripts.Transcript Management - capabilities for managing transcripts include full-text search, bookmarking, and annotation.Video and Audio Integration - the ability to integrate audio and video files.Real-Time Collaboration -collaboration features like shared annotations, chat, and live-feed options allow team members to work together on a deposition in real-time.Exhibit Management - allows for easy categorization, tagging, and linking of evidence to specific parts of a transcript, making it more accessible during proceedings."
+    },
+    {
+      "question": "I have more questions. Where can I find answers?",
+      "answer": "We'd love to help. You can contact us at our email - hello@dodon.ai - with any questions."
+    }
+  ],
+  "testimonials": [
+    {
+      "headline": "Best AI deposition summary software I have tried thus far by a lot.",
+      "quote": "Great product and great pricing.",
+      "author": "Camille",
+      "role": "Business Litigator",
+      "company": ""
+    },
+    {
+      "quote": "\"I've been having this modified-goldilocks problem with these AI deposition summary tools where the narrative summary is either not detailed enough to be useful, or more detailed than I think a narrative summary should be. [Dodonai's narrative deposition summary] strikes a good balance.\"",
+      "author": "Anthony",
+      "role": "Civil Litigator",
+      "company": ""
+    },
+    {
+      "quote": "\"The first day I used Dodonai it provided summaries of all of the deposition transcripts from one of my cases in seconds, saving hours of my time and hundreds of client dollars. This is the future of the legal practice.\"",
+      "author": "Ben",
+      "role": "Commercial Litigator",
+      "company": ""
+    }
+  ],
+  "videoUrl": ""
+}

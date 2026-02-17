@@ -1,0 +1,26 @@
+[
+  {
+    "question": "What is Dodonai?",
+    "answer": "Dodonai is an AI-powered document processing platform built specifically for legal professionals. It automates time-intensive tasks like deposition summarization, medical record chronology creation, OCR extraction, and e-discovery review -- reducing turnaround times from days to minutes while maintaining the accuracy your firm demands."
+  },
+  {
+    "question": "How does Dodonai ensure the accuracy of AI-generated summaries?",
+    "answer": "Dodonai uses a multi-layered approach to accuracy. Our AI models are trained on millions of legal documents, and every summary includes source citations tied back to the original transcript or record. Our custom rule engine lets your firm define specific formatting and content standards, and the platform supports human-in-the-loop review workflows so your attorneys always have the final say."
+  },
+  {
+    "question": "Is my data secure on Dodonai?",
+    "answer": "Absolutely. Dodonai is SOC-2 Type II certified and HIPAA compliant. All data is encrypted at rest and in transit using AES-256 encryption. We maintain strict access controls, conduct regular third-party security audits, and never use your documents to train our AI models. Your data belongs to you and is never shared with third parties."
+  },
+  {
+    "question": "What file formats does Dodonai support?",
+    "answer": "Dodonai supports over 30 file formats including PDF, DOCX, XLSX, TIFF, PNG, JPG, and scanned documents. Our AI-powered OCR engine can extract text from low-quality scans, handwritten notes, and multi-page documents. You can upload individual files or entire case folders for batch processing."
+  },
+  {
+    "question": "Can I try Dodonai before committing to a paid plan?",
+    "answer": "Yes. Every plan includes a free trial period so you can experience the platform with your own documents before committing. During the trial you have full access to all features in your selected tier. No credit card is required to start, and you can upgrade, downgrade, or cancel at any time."
+  },
+  {
+    "question": "How does Dodonai integrate with my existing workflow?",
+    "answer": "Dodonai is designed to fit into the tools your firm already uses. You can upload documents directly from your desktop or cloud storage, and export summaries and chronologies in PDF, DOCX, and CSV formats compatible with case management systems. For Enterprise customers, we offer custom API integrations and SSO to connect Dodonai with your existing infrastructure."
+  }
+]

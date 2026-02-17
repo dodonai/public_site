@@ -1,0 +1,135 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Plus Jakarta Display font */
+@font-face {
+	font-family: 'Plus Jakarta Display';
+	src: url('/fonts/PlusJakartaDisplay-Regular.ttf') format('truetype');
+	font-weight: 400;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Plus Jakarta Display';
+	src: url('/fonts/PlusJakartaDisplay-Medium.ttf') format('truetype');
+	font-weight: 500;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Plus Jakarta Display';
+	src: url('/fonts/PlusJakartaDisplay-Bold.ttf') format('truetype');
+	font-weight: 700;
+	font-style: normal;
+	font-display: swap;
+}
+@font-face {
+	font-family: 'Plus Jakarta Display';
+	src: url('/fonts/PlusJakartaDisplay-Light.ttf') format('truetype');
+	font-weight: 300;
+	font-style: normal;
+	font-display: swap;
+}
+
+@layer base {
+	:root {
+		--midnight-blue: #282876;
+		--light-slate-grey: #8181ac;
+		--royal-blue: #216fed;
+		--medium-slate-blue: #836ae4;
+		--ghost-white: #f4f5fd;
+		--medium-purple: #a994fa;
+		--thistle: #f9e1ff;
+		--alice-blue: #e1f4ff;
+		--thistle-2: #ffe6e9;
+	}
+
+	html {
+		scroll-behavior: smooth;
+	}
+
+	body {
+		font-family: 'Plus Jakarta Display', system-ui, -apple-system, sans-serif;
+		font-size: 18px;
+		line-height: 32px;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+}
+
+@layer components {
+	/* Top promo banner - Webflow: var(--thistle) */
+	.promo-banner {
+		background-color: var(--thistle);
+	}
+
+	/* Brand button styles - Webflow: #216fed, border-radius: 32px, padding: 16px 42px */
+	.btn-brand-primary {
+		color: #fff;
+		text-align: center;
+		background-color: var(--royal-blue);
+		border-radius: 32px;
+		padding: 16px 42px;
+		font-size: 18px;
+		font-weight: 500;
+		transition: background-color 0.2s;
+		display: inline-block;
+	}
+	.btn-brand-primary:hover {
+		background-color: var(--midnight-blue);
+	}
+
+	.btn-brand-outline {
+		color: var(--midnight-blue);
+		font-size: 18px;
+		font-weight: 500;
+		transition: color 0.2s;
+		display: inline-block;
+	}
+	.btn-brand-outline:hover {
+		color: #282876bf;
+	}
+
+	/* Navbar CTA button */
+	.btn-brand-nav {
+		color: #fff;
+		background-color: var(--royal-blue);
+		border-radius: 27px;
+		padding: 11px 40px;
+		font-size: 16px;
+		font-weight: 500;
+		transition: background-color 0.2s;
+		display: inline-block;
+	}
+	.btn-brand-nav:hover {
+		background-color: #216fedd9;
+	}
+
+	/* Card shadows - Webflow patterns */
+	.shadow-brand-card {
+		box-shadow: 11px 11px 30px #dcddf340;
+	}
+	.shadow-brand-card-hover {
+		box-shadow: 11px 11px 30px #dcddf366;
+	}
+	.shadow-brand-pricing {
+		box-shadow: 0 25px 50px #b2b2b229;
+	}
+	.shadow-brand-testimonial {
+		box-shadow: 8px 8px 31px #8c969d29;
+	}
+
+	/* Section spacing - Webflow: 100px top/bottom */
+	.section-padding {
+		padding-top: 100px;
+		padding-bottom: 100px;
+	}
+
+	/* Decorative curved line */
+	.decorative-line {
+		position: absolute;
+		pointer-events: none;
+		z-index: 0;
+	}
+}
