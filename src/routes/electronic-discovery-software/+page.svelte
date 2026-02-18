@@ -10,11 +10,8 @@
 	import HowItWorks from '$lib/components/features/HowItWorks.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
-	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import data from '$lib/data/services/e-discovery.json';
 </script>
-
-<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'E-Discovery Software' }]} background="bg-transparent" />
 
 <SEOHead
 	title={data.seo.title}
@@ -44,6 +41,14 @@
 					text: item.answer
 				}
 			}))
+		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
+				{ '@type': 'ListItem', position: 2, name: 'E-Discovery Software' }
+			]
 		}
 	]}
 />

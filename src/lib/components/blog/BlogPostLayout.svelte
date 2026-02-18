@@ -64,8 +64,6 @@
 	}}
 />
 
-<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog' }, { name: title }]} />
-
 <div class="pt-20 lg:pt-24">
 	<!-- Hero Header Section -->
 	<div class="relative overflow-hidden bg-white">
@@ -84,6 +82,9 @@
 		/>
 
 		<header class="relative z-10 mx-auto w-[85%] max-w-[1250px] py-16 text-center sm:py-20">
+			<div class="mb-8">
+				<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog' }, { name: title }]} />
+			</div>
 			<!-- Category + Reading Time -->
 			<div class="mb-6 flex items-center justify-center gap-3">
 				<BlogCategoryTag {category} />

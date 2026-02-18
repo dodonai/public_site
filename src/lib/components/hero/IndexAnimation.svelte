@@ -289,9 +289,9 @@
 							<span>Setup</span>
 						</div>
 						<div class="how-divider" style="animation-delay: 700ms">
-							<svg width="24" height="12" viewBox="0 0 24 12"
+							<svg width="12" height="24" viewBox="0 0 12 24"
 								><path
-									d="M0 6h18m0 0l-5-4m5 4l-5 4"
+									d="M6 0v18m0 0l-4-5m4 5l4-5"
 									stroke="#2B78B1"
 									stroke-width="1.5"
 									fill="none"
@@ -305,9 +305,9 @@
 							<span>Upload</span>
 						</div>
 						<div class="how-divider" style="animation-delay: 1100ms">
-							<svg width="24" height="12" viewBox="0 0 24 12"
+							<svg width="12" height="24" viewBox="0 0 12 24"
 								><path
-									d="M0 6h18m0 0l-5-4m5 4l-5 4"
+									d="M6 0v18m0 0l-4-5m4 5l4-5"
 									stroke="#2B78B1"
 									stroke-width="1.5"
 									fill="none"
@@ -321,9 +321,9 @@
 							<span>Process</span>
 						</div>
 						<div class="how-divider" style="animation-delay: 1500ms">
-							<svg width="24" height="12" viewBox="0 0 24 12"
+							<svg width="12" height="24" viewBox="0 0 12 24"
 								><path
-									d="M0 6h18m0 0l-5-4m5 4l-5 4"
+									d="M6 0v18m0 0l-4-5m4 5l4-5"
 									stroke="#2B78B1"
 									stroke-width="1.5"
 									fill="none"
@@ -952,6 +952,18 @@
 		width: 100%;
 	}
 
+	@media (max-width: 640px) {
+		.solution-scene {
+			transform: scale(0.78);
+		}
+	}
+
+	@media (max-width: 480px) {
+		.solution-scene {
+			transform: scale(0.62);
+		}
+	}
+
 	.solution-chaos-mini {
 		position: relative;
 		width: 120px;
@@ -1116,7 +1128,7 @@
 		flex-direction: column;
 		align-items: center;
 		justify-content: center;
-		gap: 32px;
+		gap: 20px;
 		height: 100%;
 	}
 
@@ -1141,8 +1153,9 @@
 
 	.how-steps {
 		display: flex;
+		flex-direction: column;
 		align-items: center;
-		gap: 12px;
+		gap: 4px;
 	}
 
 	.how-step {

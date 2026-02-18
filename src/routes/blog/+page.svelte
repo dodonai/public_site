@@ -40,8 +40,6 @@
 	url="/blog"
 />
 
-<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog' }]} />
-
 <div class="pt-20 lg:pt-24">
 	<!-- Hero Header -->
 	<section class="relative overflow-hidden bg-white">
@@ -60,6 +58,9 @@
 		/>
 
 		<div class="relative z-10 mx-auto w-[85%] max-w-[1250px] py-16 text-center sm:py-20">
+			<div class="mb-8">
+				<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog' }]} />
+			</div>
 			<h1 class="text-4xl font-extrabold tracking-tight text-[#282876] sm:text-5xl">
 				Dodonai Briefs:<br />A Summary of Legal AI Insights
 			</h1>
