@@ -1,4 +1,4 @@
-import adapter from '@sveltejs/adapter-node';
+import adapter from '@sveltejs/adapter-static';
 import { mdsvex } from 'mdsvex';
 import { dirname, join } from 'path';
 import { fileURLToPath } from 'url';
@@ -18,7 +18,9 @@ const config = {
 	extensions: ['.svelte', '.md'],
 	preprocess: [mdsvex(mdsvexOptions)],
 	kit: {
-		adapter: adapter(),
+		adapter: adapter({
+			fallback: '404.html'
+		}),
 		prerender: {
 			handleHttpError: 'warn'
 		}
