@@ -4,7 +4,7 @@
 	import PricingTable from '$lib/components/pricing/PricingTable.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
 
-	let isYearly = $state(false);
+	let isYearly = $state(true);
 
 	const faqItems = [
 		{
@@ -224,7 +224,7 @@
 			</p>
 			<div class="mt-8">
 				<a
-					href="mailto:hello@dodon.ai"
+					href="https://calendly.com/nick-dodonai"
 					class="inline-block rounded-full bg-[#836ae4] px-8 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#282876] hover:shadow-lg"
 				>
 					Contact Us

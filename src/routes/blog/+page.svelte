@@ -1,5 +1,6 @@
 <script>
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
+	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import BlogCard from '$lib/components/blog/BlogCard.svelte';
 	import BlogCategoryTag from '$lib/components/blog/BlogCategoryTag.svelte';
 
@@ -57,6 +58,9 @@
 		/>
 
 		<div class="relative z-10 mx-auto w-[85%] max-w-[1250px] py-16 text-center sm:py-20">
+			<div class="mb-8">
+				<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog' }]} />
+			</div>
 			<h1 class="text-4xl font-extrabold tracking-tight text-[#282876] sm:text-5xl">
 				Dodonai Briefs:<br />A Summary of Legal AI Insights
 			</h1>

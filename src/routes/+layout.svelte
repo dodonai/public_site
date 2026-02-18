@@ -5,7 +5,23 @@
 	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
 
 	let { children } = $props();
+
+	const websiteSchema = {
+		'@context': 'https://schema.org',
+		'@type': 'WebSite',
+		name: 'Dodonai',
+		url: 'https://www.dodon.ai',
+		publisher: {
+			'@type': 'Organization',
+			name: 'Dodonai, Inc.',
+			url: 'https://www.dodon.ai'
+		}
+	};
 </script>
+
+<svelte:head>
+	{@html `<script type="application/ld+json">${JSON.stringify(websiteSchema)}</script>`}
+</svelte:head>
 
 <div class="sticky top-0 z-[100]">
 	<a

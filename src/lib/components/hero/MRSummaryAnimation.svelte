@@ -546,6 +546,18 @@
 		padding: 0 8px;
 	}
 
+	@media (max-width: 640px) {
+		.upload-scene {
+			transform: scale(0.78);
+		}
+	}
+
+	@media (max-width: 480px) {
+		.upload-scene {
+			transform: scale(0.62);
+		}
+	}
+
 	.upload-docs {
 		display: flex;
 		flex-direction: column;
