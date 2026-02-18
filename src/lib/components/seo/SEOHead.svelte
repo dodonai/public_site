@@ -10,7 +10,7 @@
 		jsonLd = null
 	} = $props();
 
-	const fullUrl = $derived(url ? `${BASE_URL}${url}` : BASE_URL);
+	const fullUrl = $derived(url ? (url.startsWith('http') ? url : `${BASE_URL}${url}`) : BASE_URL);
 	const fullImage = $derived(image.startsWith('http') ? image : `${BASE_URL}${image}`);
 	const fullTitle = $derived(title ? `${title} | Dodonai` : 'Dodonai');
 </script>

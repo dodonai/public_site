@@ -10,8 +10,11 @@
 	import HowItWorks from '$lib/components/features/HowItWorks.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import data from '$lib/data/services/e-discovery.json';
 </script>
+
+<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'E-Discovery Software' }]} background="bg-transparent" />
 
 <SEOHead
 	title={data.seo.title}

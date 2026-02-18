@@ -1,5 +1,6 @@
 <script>
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
+	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import BlogCard from '$lib/components/blog/BlogCard.svelte';
 	import BlogCategoryTag from '$lib/components/blog/BlogCategoryTag.svelte';
 
@@ -38,6 +39,8 @@
 	description="Insights on AI-powered legal document processing, deposition summaries, medical records, and more from the Dodonai team."
 	url="/blog"
 />
+
+<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog' }]} />
 
 <div class="pt-20 lg:pt-24">
 	<!-- Hero Header -->

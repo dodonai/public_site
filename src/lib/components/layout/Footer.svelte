@@ -4,7 +4,8 @@
 		{ name: 'AI Deposition Software', href: '/ai-deposition-transcript-software' },
 		{ name: 'AI E-Discovery Software', href: '/electronic-discovery-software' },
 		{ name: 'AI Medical Record Summaries', href: '/ai-medical-record-summaries-chronologies' },
-		{ name: 'AI-Powered PDF to Text OCR', href: '/ai-pdf-ocr' }
+		{ name: 'AI-Powered PDF to Text OCR', href: '/ai-pdf-ocr' },
+		{ name: 'Extract & Draft Agents', href: '/dodonai-extract-and-draft-agents' }
 	];
 
 	const resourceLinks = [

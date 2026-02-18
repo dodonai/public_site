@@ -1,10 +1,13 @@
 <script>
+	import { page } from '$app/state';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
+	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import BlogCategoryTag from './BlogCategoryTag.svelte';
 
 	let {
 		title,
 		date,
+		dateModified = '',
 		author,
 		category,
 		image = null,
@@ -32,6 +35,7 @@
 	{title}
 	{description}
 	type="article"
+	url={page.url.pathname}
 	image={image || '/images/og-default.jpg'}
 	jsonLd={{
 		'@context': 'https://schema.org',
@@ -40,6 +44,11 @@
 		description,
 		image: image ? `https://www.dodon.ai${image}` : undefined,
 		datePublished: date,
+		dateModified: dateModified || date,
+		mainEntityOfPage: {
+			'@type': 'WebPage',
+			'@id': `https://www.dodon.ai${page.url.pathname}`
+		},
 		author: {
 			'@type': 'Person',
 			name: author
@@ -54,6 +63,8 @@
 		}
 	}}
 />
+
+<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog' }, { name: title }]} />
 
 <div class="pt-20 lg:pt-24">
 	<!-- Hero Header Section -->

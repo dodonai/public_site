@@ -17,8 +17,8 @@
 </script>
 
 <SEOHead
-	title="AI-Powered Document Processing for Legal Professionals"
-	description="Transform depositions, medical records, and legal documents into actionable summaries in minutes. AI-powered document processing built for legal teams."
+	title="AI Deposition Summaries & Medical Record Chronologies"
+	description="Transform depositions and medical records into actionable summaries in minutes. AI-powered document processing built for legal teams. Free trial."
 	url="/"
 	jsonLd={[
 		{
@@ -50,6 +50,21 @@
 			logo: 'https://www.dodon.ai/images/brand/logo-main.png',
 			description:
 				'AI-powered document processing platform built for legal professionals. Summarize depositions, medical records, and legal documents in minutes.',
+			sameAs: [
+				'https://www.linkedin.com/company/dodon-ai',
+				'https://twitter.com/Dodon_ai',
+				'https://www.youtube.com/@dodon-ai'
+			],
+			areaServed: 'US',
+			knowsAbout: [
+				'Deposition Summaries',
+				'Medical Record Summaries',
+				'Medical Chronologies',
+				'Legal Document Processing',
+				'AI OCR',
+				'E-Discovery',
+				'Legal AI Tools'
+			],
 			contactPoint: {
 				'@type': 'ContactPoint',
 				email: 'hello@dodon.ai',

@@ -8,8 +8,11 @@
 	import ValueProposition from '$lib/components/features/ValueProposition.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import data from '$lib/data/services/medical-records.json';
 </script>
+
+<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Medical Record Summaries' }]} background="bg-transparent" />
 
 <SEOHead
 	title={data.seo.title}
