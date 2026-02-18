@@ -10,6 +10,8 @@
 	function handleSubmit(e) {
 		e.preventDefault();
 		if (!email) return;
+		// Email is captured by HubSpot's Collected Forms feature via the HS tracking script
+		// (loaded in analytics.js). No explicit API call needed — HS intercepts form submissions automatically.
 		submitted = true;
 	}
 </script>
