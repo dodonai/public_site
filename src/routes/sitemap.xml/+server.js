@@ -47,6 +47,9 @@ export async function GET() {
 
 	const allStaticPages = [...staticPages, ...hubPages];
 
+	// Ensure all URLs have trailing slashes to match SvelteKit's trailingSlash: 'always' config
+	const trail = (path) => (path && !path.endsWith('/') ? `${path}/` : path || '/');
+
 	const sitemap = `<?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
         xmlns:image="http://www.google.com/schemas/sitemap-image/1.1">
@@ -54,7 +57,7 @@ export async function GET() {
 		.map(
 			(page) =>
 				`<url>
-    <loc>${baseUrl}${page.path}</loc>
+    <loc>${baseUrl}${trail(page.path)}</loc>
     <lastmod>${page.lastmod}</lastmod>
     <priority>${page.priority}</priority>
   </url>`
@@ -64,7 +67,7 @@ export async function GET() {
 		.map(
 			(post) =>
 				`<url>
-    <loc>${baseUrl}/blog/${post.slug}</loc>
+    <loc>${baseUrl}/blog/${post.slug}/</loc>
     <lastmod>${post.date}</lastmod>
     <priority>0.6</priority>${
 		post.image

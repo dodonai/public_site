@@ -8,6 +8,9 @@
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<!-- STAGING: Prevent search engine indexing (remove when live) -->
 		<meta name="robots" content="noindex, nofollow" />
+		<!-- Font preloads to prevent FOUT and improve LCP -->
+		<link rel="preload" href="/fonts/PlusJakartaDisplay-Regular.ttf" as="font" type="font/ttf" crossorigin />
+		<link rel="preload" href="/fonts/PlusJakartaDisplay-Bold.ttf" as="font" type="font/ttf" crossorigin />
 		%sveltekit.head%
 	</head>
 	<body>
