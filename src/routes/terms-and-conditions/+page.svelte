@@ -6,7 +6,7 @@
 <SEOHead
 	title="Terms and Conditions"
 	description="Dodonai terms and conditions for use of our AI-powered document processing platform."
-	url="/terms-and-conditions"
+	url="/terms-and-conditions/"
 />
 
 <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">

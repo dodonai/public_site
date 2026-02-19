@@ -1,49 +1,49 @@
 <script>
 	const servicesLinks = [
-		{ name: 'AI Deposition Summary', href: '/deposition-summary-software' },
-		{ name: 'AI Deposition Software', href: '/ai-deposition-transcript-software' },
-		{ name: 'AI E-Discovery Software', href: '/electronic-discovery-software' },
-		{ name: 'AI Medical Record Summaries', href: '/ai-medical-record-summaries-chronologies' },
-		{ name: 'AI-Powered PDF to Text OCR', href: '/ai-pdf-ocr' },
-		{ name: 'Extract & Draft Agents', href: '/dodonai-extract-and-draft-agents' }
+		{ name: 'AI Deposition Summary', href: '/deposition-summary-software/' },
+		{ name: 'AI Deposition Software', href: '/ai-deposition-transcript-software/' },
+		{ name: 'AI E-Discovery Software', href: '/electronic-discovery-software/' },
+		{ name: 'AI Medical Record Summaries', href: '/ai-medical-record-summaries-chronologies/' },
+		{ name: 'AI-Powered PDF to Text OCR', href: '/ai-pdf-ocr/' },
+		{ name: 'Extract & Draft Agents', href: '/dodonai-extract-and-draft-agents/' }
 	];
 
 	const resourceLinks = [
-		{ name: 'Pricing', href: '/pricing' },
-		{ name: 'Blog', href: '/blog' },
+		{ name: 'Pricing', href: '/pricing/' },
+		{ name: 'Blog', href: '/blog/' },
 		{ name: 'Sign Up', href: 'https://app.dodon.ai/signup', external: true },
 		{ name: 'Log In', href: 'https://app.dodon.ai/login', external: true }
 	];
 
 	const legalLinks = [
-		{ name: 'Terms & Conditions', href: '/terms-and-conditions' },
-		{ name: 'Privacy Policy', href: '/privacy-policy' }
+		{ name: 'Terms & Conditions', href: '/terms-and-conditions/' },
+		{ name: 'Privacy Policy', href: '/privacy-policy/' }
 	];
 
 	const blogPosts = [
 		{
 			name: "Writing Winning Deposition Summaries: Dodonai's Comprehensive Guide",
-			href: '/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide'
+			href: '/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/'
 		},
 		{
 			name: '6 Ways Deposition Summaries Provide Value in Litigation',
-			href: '/blog/6-ways-deposition-summaries-provide-value-in-litigation'
+			href: '/blog/6-ways-deposition-summaries-provide-value-in-litigation/'
 		},
 		{
 			name: 'How to Draft a Page-Line Deposition Summary',
-			href: '/blog/how-to-draft-a-page-line-deposition-summary'
+			href: '/blog/how-to-draft-a-page-line-deposition-summary/'
 		},
 		{
 			name: 'How to Draft an Issue-Based Deposition Summary',
-			href: '/blog/how-to-draft-a-issue-based-deposition-summary'
+			href: '/blog/how-to-draft-a-issue-based-deposition-summary/'
 		},
 		{
 			name: 'Understanding Depositions: A Comprehensive Guide',
-			href: '/blog/understanding-depositions-a-comprehensive-guide'
+			href: '/blog/understanding-depositions-a-comprehensive-guide/'
 		},
 		{
 			name: 'Crafting Effective Deposition Summaries: Expert Tips and Strategies',
-			href: '/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies'
+			href: '/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies/'
 		}
 	];
 </script>

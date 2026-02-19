@@ -71,7 +71,7 @@
 <SEOHead
 	title="Pricing"
 	description="Simple, transparent pricing for AI-powered legal document processing. Choose the plan that fits your firm's needs, from solo practitioners to enterprise teams."
-	url="/pricing"
+	url="/pricing/"
 	jsonLd={{
 		'@context': 'https://schema.org',
 		'@type': 'Product',

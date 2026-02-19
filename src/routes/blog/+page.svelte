@@ -37,7 +37,7 @@
 <SEOHead
 	title="Blog"
 	description="Insights on AI-powered legal document processing, deposition summaries, medical records, and more from the Dodonai team."
-	url="/blog"
+	url="/blog/"
 />
 
 <div class="pt-20 lg:pt-24">

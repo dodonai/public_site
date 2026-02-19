@@ -6,12 +6,12 @@
 	const scrolled = $derived(scrollY > 20);
 
 	const services = [
-		{ name: 'Deposition Summaries', description: 'Get deposition transcripts summarized in minutes.', href: '/deposition-summary-software', icon: '/images/webflow/Group-572.svg' },
-		{ name: 'Deposition Transcript Management', description: 'Manage citations and annotations. AI-powered search and analysis.', href: '/ai-deposition-transcript-software', icon: '/images/webflow/Group-572.svg' },
-		{ name: 'Medical Records Summaries', description: 'Get instant medical records summaries and chronologies.', href: '/ai-medical-record-summaries-chronologies', icon: '/images/webflow/Group-569.svg' },
-		{ name: 'AI-Powered OCR', description: 'Next-generation OCR to extract text, handwriting, tables, images, and more.', href: '/ai-pdf-ocr', icon: '/images/webflow/Group-565.svg' },
-		{ name: 'Dodonai XD Agents', description: 'Create templates for common report formats and our AI agents will extract data from your documents and build your reports.', href: '/dodonai-extract-and-draft-agents', icon: '/images/webflow/Group-564.svg' },
-		{ name: 'E-Discovery', description: 'Use semantic search over documents to find exactly what you are looking for.', href: '/electronic-discovery-software', icon: '/images/webflow/Group-569.svg' }
+		{ name: 'Deposition Summaries', description: 'Get deposition transcripts summarized in minutes.', href: '/deposition-summary-software/', icon: '/images/webflow/Group-572.svg' },
+		{ name: 'Deposition Transcript Management', description: 'Manage citations and annotations. AI-powered search and analysis.', href: '/ai-deposition-transcript-software/', icon: '/images/webflow/Group-572.svg' },
+		{ name: 'Medical Records Summaries', description: 'Get instant medical records summaries and chronologies.', href: '/ai-medical-record-summaries-chronologies/', icon: '/images/webflow/Group-569.svg' },
+		{ name: 'AI-Powered OCR', description: 'Next-generation OCR to extract text, handwriting, tables, images, and more.', href: '/ai-pdf-ocr/', icon: '/images/webflow/Group-565.svg' },
+		{ name: 'Dodonai XD Agents', description: 'Create templates for common report formats and our AI agents will extract data from your documents and build your reports.', href: '/dodonai-extract-and-draft-agents/', icon: '/images/webflow/Group-564.svg' },
+		{ name: 'E-Discovery', description: 'Use semantic search over documents to find exactly what you are looking for.', href: '/electronic-discovery-software/', icon: '/images/webflow/Group-569.svg' }
 	];
 
 	function closeMobileMenu() {
