@@ -56,6 +56,7 @@
 					<div class="mt-10 flex flex-wrap items-center gap-4 max-lg:justify-center sm:gap-6">
 						<a
 							href={ctaUrl}
+							{...ctaUrl.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
 							class="btn-brand-primary inline-block"
 						>
 							{ctaText}
@@ -118,6 +119,7 @@
 				<div class="mt-10 flex flex-wrap items-center gap-4 max-lg:justify-center sm:gap-6">
 					<a
 						href={ctaUrl}
+						{...ctaUrl.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {}}
 						class="btn-brand-primary inline-block"
 					>
 						{ctaText}

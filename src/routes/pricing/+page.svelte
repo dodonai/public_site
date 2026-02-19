@@ -225,6 +225,8 @@
 			<div class="mt-8">
 				<a
 					href="https://calendly.com/nick-dodonai"
+					target="_blank"
+					rel="noopener noreferrer"
 					class="inline-block rounded-full bg-[#836ae4] px-8 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#282876] hover:shadow-lg"
 				>
 					Contact Us
