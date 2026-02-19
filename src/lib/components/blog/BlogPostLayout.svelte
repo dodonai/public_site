@@ -148,7 +148,7 @@
 	<!-- Back to Blog -->
 	<div class="mx-auto max-w-3xl px-4 pb-16">
 		<a
-			href="/blog"
+			href="/blog/"
 			class="inline-flex items-center gap-2 text-sm font-semibold text-[#216fed] transition-colors hover:text-[#282876]"
 		>
 			<svg class="h-4 w-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">

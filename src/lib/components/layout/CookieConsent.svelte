@@ -35,7 +35,7 @@
 			<p class="mb-4 text-sm leading-relaxed text-[#8181ac]">
 				We use cookies to analyze site traffic and optimize your experience. By accepting, you
 				consent to our use of cookies.
-				<a href="/privacy-policy" class="text-[#216fed] underline hover:text-[#282876]"
+				<a href="/privacy-policy/" class="text-[#216fed] underline hover:text-[#282876]"
 					>Privacy Policy</a
 				>
 			</p>

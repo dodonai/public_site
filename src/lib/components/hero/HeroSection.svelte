@@ -93,7 +93,7 @@
 					>
 						Free Summary
 					</a>
-					<a href="/pricing" class="btn-brand-outline inline-block">
+					<a href="/pricing/" class="btn-brand-outline inline-block">
 						See Pricing
 					</a>
 				</div>

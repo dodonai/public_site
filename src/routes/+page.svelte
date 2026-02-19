@@ -114,7 +114,7 @@
 					what matters so you can focus on strategy.
 				</p>
 				<a
-					href="/deposition-summary-software"
+					href="/deposition-summary-software/"
 					class="mt-8 inline-block text-base font-semibold text-[#216fed] hover:text-[#282876]"
 				>
 					Learn more &rarr;
@@ -144,7 +144,7 @@
 					organized timeline your team can use immediately.
 				</p>
 				<a
-					href="/ai-medical-record-summaries-chronologies"
+					href="/ai-medical-record-summaries-chronologies/"
 					class="mt-8 inline-block text-base font-semibold text-[#216fed] hover:text-[#282876]"
 				>
 					Learn more &rarr;
@@ -166,7 +166,7 @@
 					assistant that knows every word of your transcript.
 				</p>
 				<a
-					href="/ai-deposition-transcript-software"
+					href="/ai-deposition-transcript-software/"
 					class="mt-8 inline-block text-base font-semibold text-[#216fed] hover:text-[#282876]"
 				>
 					Learn more &rarr;
@@ -196,7 +196,7 @@
 					text extraction to understand document structure and layout.
 				</p>
 				<a
-					href="/ai-pdf-ocr"
+					href="/ai-pdf-ocr/"
 					class="mt-8 inline-block text-base font-semibold text-[#216fed] hover:text-[#282876]"
 				>
 					Learn more &rarr;
@@ -218,7 +218,7 @@
 					of pulling structured information from unstructured documents.
 				</p>
 				<a
-					href="/dodonai-extract-and-draft-agents"
+					href="/dodonai-extract-and-draft-agents/"
 					class="mt-8 inline-block text-base font-semibold text-[#216fed] hover:text-[#282876]"
 				>
 					Learn more &rarr;
@@ -248,7 +248,7 @@
 					terms — so no critical document is ever out of reach.
 				</p>
 				<a
-					href="/electronic-discovery-software"
+					href="/electronic-discovery-software/"
 					class="mt-8 inline-block text-base font-semibold text-[#216fed] hover:text-[#282876]"
 				>
 					Learn more &rarr;

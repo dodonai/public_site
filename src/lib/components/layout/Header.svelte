@@ -88,14 +88,14 @@
 			</div>
 
 			<a
-				href="/pricing"
+				href="/pricing/"
 				class="nav-link text-base font-medium transition-colors"
 				style="color: var(--midnight-blue);"
 			>
 				Pricing
 			</a>
 			<a
-				href="/blog"
+				href="/blog/"
 				class="nav-link text-base font-medium transition-colors"
 				style="color: var(--midnight-blue);"
 			>
@@ -181,7 +181,7 @@
 				</div>
 
 				<a
-					href="/pricing"
+					href="/pricing/"
 					class="block border-b border-gray-100 py-3 text-base font-medium"
 					style="color: var(--midnight-blue);"
 					onclick={closeMobileMenu}
@@ -189,7 +189,7 @@
 					Pricing
 				</a>
 				<a
-					href="/blog"
+					href="/blog/"
 					class="block border-b border-gray-100 py-3 text-base font-medium"
 					style="color: var(--midnight-blue);"
 					onclick={closeMobileMenu}

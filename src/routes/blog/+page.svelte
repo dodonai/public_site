@@ -115,7 +115,7 @@
 				<!-- Featured Post -->
 				{#if featuredPost}
 					<a
-						href="/blog/{featuredPost.slug}"
+						href="/blog/{featuredPost.slug}/"
 						class="group mb-16 block overflow-hidden rounded-xl bg-white shadow-brand-card transition-all duration-300 hover:-translate-y-1 hover:shadow-brand-card-hover"
 					>
 						<div class="grid grid-cols-1 lg:grid-cols-2">
