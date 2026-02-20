@@ -14,7 +14,7 @@ imageAlt: "AI Deposition Summaries"
 
 AI deposition summaries are only useful if reviewers can confirm what they’re relying on. In real litigation prep, summaries move fast—from first review to outlines to internal memos—and once they circulate, assumptions harden quickly. That’s why experienced teams don’t ask whether a summary is “accurate.” They ask whether it can be verified before use.
 
-Verification, not automation claims, is what determines whether a [deposition summary](https://www.dodon.ai/deposition-summary-software) is safe to rely on.
+Verification, not automation claims, is what determines whether a [deposition summary](/deposition-summary-software/) is safe to rely on.
 
 ## **Why teams hesitate to rely on AI deposition summaries**
 
@@ -103,7 +103,7 @@ In both cases, verification happens **before** summaries influence outlines, pre
 
 ## **How teams verify deposition summaries with Dodon.ai**
 
-Dodon.ai is built around this verification workflow, not around blind trust. Teams can now use software designed for [**AI deposition transcript review**](https://www.dodon.ai/ai-deposition-transcript-software) to move from summary to source page without friction.
+Dodon.ai is built around this verification workflow, not around blind trust. Teams can now use software designed for [**AI deposition transcript review**](/ai-deposition-transcript-software/) to move from summary to source page without friction.
 
 -   **Page-line citations by default  
     **Deposition summaries present citations alongside statements so reviewers always know where to look.  
@@ -140,7 +140,7 @@ AI deposition summaries are most valuable when they’re easy to verify. Trust c
 
 Software that supports verification allows teams to move faster without guessing, which is exactly what litigation prep demands.
 
-[View a cited sample to see how deposition summary verification works in practice.](https://www.dodon.ai/deposition-summary-software)
+[View a cited sample to see how deposition summary verification works in practice.](/deposition-summary-software/)
 
 ### **FAQs**
 

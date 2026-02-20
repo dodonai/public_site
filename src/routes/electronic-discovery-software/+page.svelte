@@ -9,7 +9,9 @@
 	import ValueProposition from '$lib/components/features/ValueProposition.svelte';
 	import HowItWorks from '$lib/components/features/HowItWorks.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
+	import RelatedServices from '$lib/components/features/RelatedServices.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import { linkify } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/e-discovery.json';
 </script>
 
@@ -128,7 +130,7 @@
 					</div>
 				{/if}
 				{#if data.legalAiContent.closing}
-					<p class="mt-10 text-base leading-7 text-[#8181ac] sm:text-lg">{data.legalAiContent.closing}</p>
+					<p class="mt-10 text-base leading-7 text-[#8181ac] sm:text-lg">{@html linkify(data.legalAiContent.closing)}</p>
 				{/if}
 			</div>
 		</section>
@@ -137,6 +139,11 @@
 	<!-- 8. FAQ -->
 	{#if data.faq.length > 0}
 		<FAQAccordion items={data.faq} background="bg-transparent" />
+	{/if}
+
+	<!-- Related Services -->
+	{#if data.relatedServices}
+		<RelatedServices services={data.relatedServices} background="bg-transparent" />
 	{/if}
 </BlobBackground>
 

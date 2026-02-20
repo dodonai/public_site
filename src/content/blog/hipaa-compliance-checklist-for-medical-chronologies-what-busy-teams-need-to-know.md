@@ -14,7 +14,7 @@ imageAlt: "HIPAA compliance and medical chronologies"
 
 When litigation or independent medical exams depend on medical records, accuracy isn’t the only concern. Protecting patient information is just as critical. That’s where HIPAA comes in - though not always in the way teams assume.
 
-A [**medical chronology**](https://www.dodon.ai/ai-medical-record-summaries-chronologies) is a structured timeline of a patient’s care - diagnoses, treatments, and key events - used by attorneys, IME doctors, and litigation support teams to evaluate causation and damages. Because medical chronologies rely on patient records, HIPAA-level safeguards are expected in almost every case - even when the law doesn’t technically apply to the end user.
+A [**medical chronology**](/ai-medical-record-summaries-chronologies/) is a structured timeline of a patient’s care - diagnoses, treatments, and key events - used by attorneys, IME doctors, and litigation support teams to evaluate causation and damages. Because medical chronologies rely on patient records, HIPAA-level safeguards are expected in almost every case - even when the law doesn’t technically apply to the end user.
 
 HIPAA applies directly to:
 
@@ -89,6 +89,6 @@ Most law firms are not directly bound by HIPAA because records typically flow th
 
 **Dodon.ai is built to align with HIPAA requirements by default**, giving law firms, IME doctors, and litigation vendors the security protections they need, without slowing down preparation.
 
-**Try Dodon.ai free for 7 days and see how secure, audit-ready medical chronologies streamline your case prep →** [**dodon.ai**](http://dodon.ai)
+**Try Dodon.ai free for 7 days and see how secure, audit-ready medical chronologies streamline your case prep →** [**dodon.ai**](/)
 
 ‍

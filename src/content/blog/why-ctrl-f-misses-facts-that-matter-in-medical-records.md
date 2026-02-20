@@ -26,7 +26,7 @@ A single condition may appear as:
 -   **Shorthand term** in a progress note
 -   **Symptom description** in an urgent care record
 
-Keyword search treats these as unrelated, even though they describe the same underlying fact. This gap creates the real medical record search limitations teams encounter during review. For end‑to‑end [**AI-powered medical record summaries and chronologies**](https://www.dodon.ai/ai-medical-record-summaries-chronologies) that support litigation and IME prep, see our dedicated solution
+Keyword search treats these as unrelated, even though they describe the same underlying fact. This gap creates the real medical record search limitations teams encounter during review. For end‑to‑end [**AI-powered medical record summaries and chronologies**](/ai-medical-record-summaries-chronologies/) that support litigation and IME prep, see our dedicated solution
 
 ## **Terminology drift hides facts across providers and time**
 
@@ -101,6 +101,6 @@ Semantic search supports stronger preparation by surfacing related information a
 
 **Try semantic search on your next medical record packet.** 
 
-[**Learn more about medical record summaries and chronologies →**](https://www.dodon.ai/ai-medical-record-summaries-chronologies)
+[**Learn more about medical record summaries and chronologies →**](/ai-medical-record-summaries-chronologies/)
 
 ‍

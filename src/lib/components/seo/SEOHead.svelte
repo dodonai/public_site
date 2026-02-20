@@ -10,7 +10,19 @@
 		jsonLd = null
 	} = $props();
 
-	const fullUrl = $derived(url ? (url.startsWith('http') ? url : `${BASE_URL}${url}`) : BASE_URL);
+	// Ensure URLs have trailing slashes to match SvelteKit's trailingSlash: 'always' config
+	function ensureTrailingSlash(path) {
+		if (!path || path === '/') return path;
+		return path.endsWith('/') ? path : `${path}/`;
+	}
+
+	const fullUrl = $derived(
+		url
+			? url.startsWith('http')
+				? ensureTrailingSlash(url)
+				: `${BASE_URL}${ensureTrailingSlash(url)}`
+			: `${BASE_URL}/`
+	);
 	const fullImage = $derived(image.startsWith('http') ? image : `${BASE_URL}${image}`);
 	const fullTitle = $derived(title ? `${title} | Dodonai` : 'Dodonai');
 </script>

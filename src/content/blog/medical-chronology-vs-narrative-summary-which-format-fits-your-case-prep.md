@@ -14,7 +14,7 @@ imageAlt: "medical chronology vs narrative summary"
 
 ### **Two formats, one purpose**
 
-When you’re buried in stacks of medical records, the real question isn’t whether you need a summary; it’s what _format_ makes the review usable. Attorneys, paralegals, and IME doctors all rely on [**medical chronologies**](https://www.dodon.ai/ai-medical-record-summaries-chronologies) to turn raw records into something manageable.
+When you’re buried in stacks of medical records, the real question isn’t whether you need a summary; it’s what _format_ makes the review usable. Attorneys, paralegals, and IME doctors all rely on [**medical chronologies**](/ai-medical-record-summaries-chronologies/) to turn raw records into something manageable.
 
 There are two main formats:
 
@@ -107,6 +107,6 @@ Manual summarization can take hours, sometimes days. Dodon.ai changes that:
 
 **Medical chronologies**, whether table or narrative, are essential for case prep. The table format gives you the Cliff’s Notes view. The narrative format gives you the finished story. Together, they save time, reduce errors, and help you move cases forward with confidence.
 
-**Try** [**Dodon.ai**](https://www.dodon.ai/) **today: upload a record set and get both formats, in minutes.**
+**Try** [**Dodon.ai**](/) **today: upload a record set and get both formats, in minutes.**
 
 ‍

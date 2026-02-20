@@ -12,7 +12,7 @@ cardText: "Upload provider records to a Matter, run a Medical Record summary, th
 imageAlt: "timeline"
 ---
 
-When records arrive as mixed PDFs - scans, portal printouts, imaging notes - building a clean chronology fast is the difference between spinning wheels and moving a case forward. A usable timeline, for our purposes, is a concise sequence of dates, providers, diagnoses/treatments, and key events that links back to the exact page you’ll cite later in discovery responses, demand packages, or expert memos. It’s not courtroom evidence - it’s **litigation prep you can trust** because every entry traces back to the original page.**‍**
+When records arrive as mixed PDFs - scans, portal printouts, imaging notes - building a clean [medical chronology](/ai-medical-record-summaries-chronologies/) fast is the difference between spinning wheels and moving a case forward. A usable timeline, for our purposes, is a concise sequence of dates, providers, diagnoses/treatments, and key events that links back to the exact page you’ll cite later in discovery responses, demand packages, or expert memos. It’s not courtroom evidence - it’s **litigation prep you can trust** because every entry traces back to the original page.**‍**
 
 ## The fastest path: from upload to timeline you can check in under 10 minutes
 

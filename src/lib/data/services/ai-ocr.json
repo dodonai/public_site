@@ -24,12 +24,12 @@
     {
       "title": "How Can Lawyers Use PDF Document AI OCR?",
       "icon": "briefcase",
-      "description": "PDF Document AI OCR is invaluable for lawyers and legal professionals, enhancing the efficiency and accuracy of case preparation. By converting PDFs into fully searchable and editable text, attorneys can quickly identify critical evidence, efficiently prepare deposition summaries, and seamlessly integrate text into case management systems. Dodonai's AI OCR significantly reduces manual document processing, enabling legal teams to concentrate on strategic analysis and case-building, ultimately improving outcomes in litigation."
+      "description": "PDF Document AI OCR is invaluable for lawyers and legal professionals, enhancing the efficiency and accuracy of case preparation. By converting PDFs into fully searchable and editable text, attorneys can quickly identify critical evidence, efficiently prepare {{link:/deposition-summary-software/|deposition summaries}}, and seamlessly integrate text into case management systems. Dodonai's AI OCR significantly reduces manual document processing, enabling legal teams to concentrate on strategic analysis and case-building, ultimately improving outcomes in litigation."
     },
     {
       "title": "How is Dodonai's OCR different?",
       "icon": "sparkles",
-      "description": "Dodonai OCR doesn't just extract text; it understands context, transcribes handwriting accurately, identifies and formats tables clearly, and provides meaningful descriptions of images. Additionally, our AI-powered summarization, medical chronologies, and document indexing tools allow immediate indexing and summarizing within multi-document PDFs."
+      "description": "Dodonai OCR doesn't just extract text; it understands context, transcribes handwriting accurately, identifies and formats tables clearly, and provides meaningful descriptions of images. Additionally, our AI-powered summarization, {{link:/ai-medical-record-summaries-chronologies/|medical chronologies}}, and document indexing tools allow immediate indexing and summarizing within multi-document PDFs."
     },
     {
       "title": "Why is legacy OCR insufficient?",
@@ -126,5 +126,22 @@
       "company": ""
     }
   ],
-  "videoUrl": ""
+  "videoUrl": "",
+  "relatedServices": [
+    {
+      "name": "AI Deposition Summaries",
+      "description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
+      "href": "/deposition-summary-software/"
+    },
+    {
+      "name": "Medical Record Summaries",
+      "description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
+      "href": "/ai-medical-record-summaries-chronologies/"
+    },
+    {
+      "name": "AI eDiscovery",
+      "description": "Search thousands of documents by meaning with AI-powered semantic search for litigation teams.",
+      "href": "/electronic-discovery-software/"
+    }
+  ]
 }

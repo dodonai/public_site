@@ -34,7 +34,7 @@ Here is an example with the 2-column approach:
 -   **50:22 – 53:6**: Witness details their professional relationship with Davis, noting their role as an independent contractor and not directly involved in the contractual matters.
 -   **53:7 – 54:9**: Confirms absence during the signing of the disputed contract but mentions a conversation with Lee expressing concerns about the terms.
 
-We provide 5 AI-created [deposition summary examples here](https://www.dodon.ai/deposition-summary-software#example-summaries), including both Page-Line and Narrative deposition summary examples in PDF and deposition summary templates word documents, along with the corresponding transcripts so you can see exactly how the summary should correspond with the text of the transcript.
+We provide 5 AI-created [deposition summary examples here](/deposition-summary-software/), including both Page-Line and Narrative deposition summary examples in PDF and deposition summary templates word documents, along with the corresponding transcripts so you can see exactly how the summary should correspond with the text of the transcript.
 
 ## Conclusion
 

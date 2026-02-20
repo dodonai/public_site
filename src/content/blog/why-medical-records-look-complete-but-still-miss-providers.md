@@ -16,7 +16,7 @@ Medical records often arrive in large, well-organized PDFs that appear complete.
 
 These missing medical records providers create gaps that affect damages analysis, causation opinions, and expert review. The failure isn’t usually negligence. It’s structural.
 
-This article explains **why medical record gaps happen in litigation**, how teams can spot them earlier, and where **provider cross reference** fits into a defensible [**medical chronology**](https://www.dodon.ai/ai-medical-record-summaries-chronologies) workflow.
+This article explains **why medical record gaps happen in litigation**, how teams can spot them earlier, and where **provider cross reference** fits into a defensible [**medical chronology**](/ai-medical-record-summaries-chronologies/) workflow.
 
 ## **Why “complete” medical records still have gaps**
 
@@ -198,4 +198,4 @@ Medical records can look complete and still miss providers. The problem isn’t 
 
 Teams that cross-reference providers during chronology prep catch gaps earlier, reduce surprises, and maintain control heading into expert review. Software like Dodon.ai supports this by presenting records in a format teams can actually validate.
 
-For a deeper look at how chronologies fit into this workflow, see [**AI Medical Record Summaries &  Chronologies**](https://www.dodon.ai/ai-medical-record-summaries-chronologies) in the Medical Chronologies Hub.
+For a deeper look at how chronologies fit into this workflow, see [**AI Medical Record Summaries &  Chronologies**](/ai-medical-record-summaries-chronologies/) in the Medical Chronologies Hub.

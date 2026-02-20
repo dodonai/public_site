@@ -25,7 +25,7 @@ Depositions typically involve the witness (deponent), attorneys from both sides,
 3.  **Recording Testimony**: A court reporter (or stenographer) records the entire deposition, ensuring a word-for-word transcript is available. Sometimes, depositions are also video-recorded.
 
 ‍[Learn more about the deposition process in our post "How Do Depositions Work? An In-Depth Exploration".  
-‍](https://www.dodon.ai/blog/how-do-depositions-work-an-in-depth-exploration)
+‍](/blog/how-do-depositions-work-an-in-depth-exploration)
 
 ### The Role of Depositions in Litigation
 
@@ -38,7 +38,7 @@ Depositions play a multifaceted role in litigation, serving both discovery and e
 -   Provide a basis for impeachment of witnesses if their in-court testimony differs from their deposition
 
 [Learn more about how depositions are used in litigation in our post "The Role of Depositions in Litigation: A Closer Look"  
-](https://www.dodon.ai/blog/the-role-of-depositions-in-litigation-a-closer-look)‍
+](/blog/the-role-of-depositions-in-litigation-a-closer-look)‍
 
 ### Rules Governing Depositions
 
@@ -50,7 +50,7 @@ The rules surrounding depositions vary by jurisdiction but are generally outline
 -   **Objections**: Attorneys may object to questions during depositions, but, with few exceptions, the witness is still required to answer. The validity of objections is typically ruled on later by a judge.
 
 [Learn more about the rules governing depositions in our post "Rules Governing Depositions: Navigating the Legal Framework"  
-](https://www.dodon.ai/blog/rules-governing-depositions-navigating-the-legal-framework)‍
+](/blog/rules-governing-depositions-navigating-the-legal-framework)‍
 
 ### Using Depositions as Evidence
 
@@ -61,7 +61,7 @@ Deposition testimony can be used in court under certain circumstances, such as:
 -   **To Refresh Memory**: A witness can review their deposition to refresh their memory of certain details.
 
 [Learn more about how depositions are used as evidence in our post "Using Depositions as Evidence: A Deep Dive"  
-](https://www.dodon.ai/blog/using-depositions-as-evidence-a-deep-dive)‍
+](/blog/using-depositions-as-evidence-a-deep-dive)‍
 
 ### Conclusion
 

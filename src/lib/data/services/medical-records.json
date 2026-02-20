@@ -18,15 +18,15 @@
   "howItWorks": [
     {
       "title": "Upload the Medical Records",
-      "description": "Upload the medical records file to Dodonai, hit Summarize on the document, and select Medical Record from the drop down. Enter any key topics that you want the summary to highlight."
+      "description": "Upload your medical records file to Dodonai and select the Medical Record summary type. Enter any key topics, diagnoses, or providers you want the summary to highlight. Dodonai accepts PDFs — including scanned documents — and handles multi-hundred-page files with ease."
     },
     {
       "title": "Process the Records",
-      "description": "After hitting \"Summarize Document\", Dodonai generally processes 2-4 pages per minute. The output will include a General Summary of the records and a Medical Chronology"
+      "description": "After hitting Summarize, Dodonai's AI processes your records and generates a general summary of the patient's healthcare history alongside a detailed medical chronology. Key events like diagnoses, surgeries, prescriptions, and provider visits are extracted and organized chronologically."
     },
     {
-      "title": "Download the Summary",
-      "description": "Download the Medical Records Summary in PDF, TXT, or Word."
+      "title": "Review and Download",
+      "description": "Review your summary in the interactive viewer with side-by-side source linking, sort and filter entries by provider or date, then download the finished summary in PDF, Word, or TXT format ready for case preparation."
     }
   ],
   "educationalContent": [
@@ -43,7 +43,7 @@
     {
       "title": "How Do Lawyers Use Medical Record Summaries?",
       "icon": "briefcase",
-      "description": "Medical record summaries and chronologies are indispensable for many types of litigation alongside deposition summaries and other evidentiary tools. They provide attorneys with essential health information formatted in a way that supports case analysis, evidence gathering, and trial preparation. Accurate and timely access to summarized medical data can significantly influence the outcome of legal proceedings by clarifying the medical aspects of a case."
+      "description": "Medical record summaries and chronologies are indispensable for many types of litigation alongside {{link:/deposition-summary-software/|deposition summaries}} and other evidentiary tools. They provide attorneys with essential health information formatted in a way that supports case analysis, evidence gathering, and trial preparation. Accurate and timely access to summarized medical data can significantly influence the outcome of legal proceedings by clarifying the medical aspects of a case."
     },
     {
       "title": "Challenges of Manual Medical Record Summaries",
@@ -55,6 +55,56 @@
     "heading": "AI Medical Record Summarization & Medical Chronologies",
     "paragraphs": [
       "Dodonai's AI-driven summarization software redefines the process of creating medical record summaries and chronologies. By leveraging GPT and advanced algorithms, our tool efficiently processes complex medical data, creating a general summary of the patient's health care history and a chronology of key events such as doctors visits, injuries, and illnesses with high accuracy and consistency. Our solution not only speeds up the preparation of these essential documents but also enhances their reliability, making them indispensable tools for legal and medical professionals alike."
+    ]
+  },
+  "workflowComparison": {
+    "heading": "Medical Record Summaries Built for Your Workflow",
+    "description": "Attorneys and medical professionals are particular about how their {{link:/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/|medical record summaries}} are formatted — and they should be. Every firm has its own preferences for layout, detail level, and terminology. Dodonai is built to match the way you already work, not force you into a one-size-fits-all template.",
+    "basicFeatures": [
+      "Upload & auto-summarize medical documents",
+      "Standard data field extraction",
+      "Table or narrative output format",
+      "Download in PDF, Word, XLS, or TXT",
+      "Sort and filter entries",
+      "Interactive index tables",
+      "Side-by-side document review with source linking",
+      "Customizable executive summary"
+    ],
+    "advancedFeatures": [
+      "Organize voluminous and scattered document sets into sorted, deduplicated, and labeled records",
+      "Custom data fields per document type",
+      "Visual graphic timeline",
+      "Reusable workflow templates"
+    ],
+    "fullService": {
+      "title": "Full-Service Option",
+      "description": "Don't want to use the software yourself? Upload your records and let our team of professionals do the work for you. Same quality, zero learning curve."
+    }
+  },
+  "securitySection": {
+    "heading": "HIPAA Compliant Medical Record Processing",
+    "description": "Medical records contain some of the most sensitive data in any legal workflow. Dodonai is built from the ground up to keep that data safe.",
+    "cards": [
+      {
+        "title": "End-to-End Encryption",
+        "icon": "shield",
+        "description": "All medical records are encrypted in transit and at rest using AES-256 encryption."
+      },
+      {
+        "title": "SOC 2 Type II Certified",
+        "icon": "document",
+        "description": "Our infrastructure and processes are independently audited and SOC 2 Type II certified."
+      },
+      {
+        "title": "HIPAA Compliant",
+        "icon": "heart",
+        "description": "Full HIPAA compliance with signed Business Associate Agreements (BAAs) for every client."
+      },
+      {
+        "title": "Total Control Over Your Data",
+        "icon": "clipboard",
+        "description": "You decide how long your data is stored and when it's deleted. Dodonai never uses your documents to train AI models, and you can purge your records at any time."
+      }
     ]
   },
   "customerWins": {
@@ -150,11 +200,11 @@
     },
     {
       "question": "Can AI Medical Record Summaries be customized for specific legal cases?",
-      "answer": "Yes, AI medical record summaries can be customized to meet the specific needs of different legal cases. The AI systems can be instructed to recognize and emphasize information that is most relevant to the user, whether it's a personal injury claim, a medical malpractice case, or a disability claim, ensuring that the summaries provide targeted and useful information for legal professionals."
+      "answer": "Yes, AI medical record summaries can be customized to meet the specific needs of different legal cases. The AI systems can be instructed to recognize and emphasize information that is most relevant to the user, whether it's a personal injury claim, a medical malpractice case, or a disability claim, ensuring that the summaries provide targeted and useful information for legal professionals. Learn more about {{link:/blog/understanding-medical-chronology-clear-actionable-timelines/|how customizable timelines work}}."
     },
     {
       "question": "Is patient data secure when using AI summarization tools?",
-      "answer": "Security is a top priority when using AI summarization tools. Dodonai employs robust security measures including data encryption, secure data storage, and compliance with HIPAA and other relevant privacy regulations to ensure that patient data is protected against unauthorized access and breaches."
+      "answer": "Security is a top priority when using AI summarization tools. Dodonai employs robust security measures including data encryption, secure data storage, and compliance with HIPAA and other relevant privacy regulations to ensure that patient data is protected against unauthorized access and breaches. Read our guide on {{link:/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know/|HIPAA compliance for medical chronologies}}."
     },
     {
       "question": "I have more questions. Where can I find answers?",
@@ -175,5 +225,17 @@
       "company": ""
     }
   ],
-  "videoUrl": ""
+  "videoUrl": "",
+  "relatedServices": [
+    {
+      "name": "AI Deposition Summaries",
+      "description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
+      "href": "/deposition-summary-software/"
+    },
+    {
+      "name": "AI eDiscovery",
+      "description": "Search thousands of documents by meaning with AI-powered semantic search for litigation teams.",
+      "href": "/electronic-discovery-software/"
+    }
+  ]
 }

@@ -16,7 +16,7 @@ When a case hinges on testimony, transcripts become both the backbone of discove
 
 ## **The Hidden Cost of Manual Transcript Review**
 
-Every deposition transcript is hundreds of pages. For a mid-size litigation firm, reviewing even five depositions a month can translate into dozens of billable hours redirected to page-turning. Paralegals or associates must read every line, highlight testimony, and cross-reference citations.
+Every [deposition transcript](/ai-deposition-transcript-software/) is hundreds of pages. For a mid-size litigation firm, reviewing even five depositions a month can translate into dozens of billable hours redirected to page-turning. Paralegals or associates must read every line, highlight testimony, and cross-reference citations.
 
 The math adds up fast:
 
@@ -42,7 +42,7 @@ Even conservative estimates reveal five-figure annual costs dedicated purely to 
 
 ## **How Dodon.ai Speeds Review with Citations**
 
-Dodon.ai was built to reduce that waste. Instead of paging line-by-line:
+Dodon.ai's [deposition summary software](/deposition-summary-software/) was built to reduce that waste. Instead of paging line-by-line:
 
 -   Upload the full transcript (PDF, scanned, or typed).
 

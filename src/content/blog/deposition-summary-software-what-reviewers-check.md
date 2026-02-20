@@ -71,7 +71,7 @@ If the software forces too many steps (download, search, scroll, guess where the
 
 **With linked page-line citations:** 5–8 minutes to spot-check the same summary (click, confirm, continue).
 
-[**View how page-line citations work in practice →**](https://www.dodon.ai/deposition-summary-software)
+[**View how page-line citations work in practice →**](/deposition-summary-software/)
 
 ### **3) Does it make it clear what's summarized vs what's quoted?**
 
@@ -173,7 +173,7 @@ Why this format works:
 -   each material statement is anchored to a page-line reference
 -   it's easy to reuse in prep notes and outlines once verified
 
-[**View a cited sample output →**](https://www.dodon.ai/deposition-summary-software)
+[**View a cited sample output →**](/deposition-summary-software/)
 
 ## **Common Questions About Deposition Summary Software Accuracy**
 
@@ -222,7 +222,7 @@ Most litigation teams evaluate deposition summary software against two costs:
 
 Dodon.ai pricing starts at **$25/month (billed annually)**—typically **30–70% less** than outsourced per-summary costs for teams handling regular deposition volume.
 
-[**View transparent pricing →**](https://www.dodon.ai/pricing)
+[**View transparent pricing →**](/pricing/)
 
 ## **FAQ**
 

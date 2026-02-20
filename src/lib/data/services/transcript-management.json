@@ -19,7 +19,7 @@
     {
       "heading": "What is deposition transcript software?",
       "paragraphs": [
-        "Dodonai's deposition transcript software, or deposition transcript management software, enables users to upload deposition transcripts, highlight relevant passages, copy those passages with the correct Blue Book citation, and utilize artificial intelligence to search and analyze the testimony in the chat window. Our transcript management software is the perfect complement to Dodonai's automated deposition summaries."
+        "Dodonai's deposition transcript software, or deposition transcript management software, enables users to upload deposition transcripts, highlight relevant passages, copy those passages with the correct Blue Book citation, and utilize artificial intelligence to search and analyze the testimony in the chat window. Our transcript management software is the perfect complement to Dodonai's {{link:/deposition-summary-software/|automated deposition summaries}}."
       ]
     }
   ],
@@ -81,7 +81,7 @@
     },
     {
       "question": "How much does Dodonai charge to manage depositions?",
-      "answer": "Dodonai charges a monthly fee for the use of the entire platform - including the deposition transcript management software, the deposition summarizer and other features such as e-discovery - starting at $30/month to process up to 200 pages, and there is a free trial available when you sign up here."
+      "answer": "Dodonai charges a monthly fee for the use of the entire platform - including the deposition transcript management software, the {{link:/deposition-summary-software/|deposition summarizer}} and other features such as {{link:/electronic-discovery-software/|e-discovery}} - starting at $30/month to process up to 200 pages, and there is a free trial available when you sign up here."
     },
     {
       "question": "Why is Dodonai's AI deposition copilot feature valuable?",
@@ -89,7 +89,7 @@
     },
     {
       "question": "What is Deposition Software?",
-      "answer": "Deposition software is a specialized tool designed to assist legal professionals in the deposition process, an integral component of litigation and dispute resolution. The software aims to streamline various facets of depositions, from transcription and annotation to summarization.Here are some types of deposition software:Deposition Summary Software - Dodonai automates the process of summarizing deposition transcripts.Transcript Management - capabilities for managing transcripts include full-text search, bookmarking, and annotation.Video and Audio Integration - the ability to integrate audio and video files.Real-Time Collaboration -collaboration features like shared annotations, chat, and live-feed options allow team members to work together on a deposition in real-time.Exhibit Management - allows for easy categorization, tagging, and linking of evidence to specific parts of a transcript, making it more accessible during proceedings."
+      "answer": "Deposition software is a specialized tool designed to assist legal professionals in the deposition process, an integral component of litigation and dispute resolution. The software aims to streamline various facets of depositions, from transcription and annotation to summarization.Here are some types of deposition software:{{link:/deposition-summary-software/|Deposition Summary Software}} - Dodonai automates the process of summarizing deposition transcripts.Transcript Management - capabilities for managing transcripts include full-text search, bookmarking, and annotation.Video and Audio Integration - the ability to integrate audio and video files.Real-Time Collaboration -collaboration features like shared annotations, chat, and live-feed options allow team members to work together on a deposition in real-time.Exhibit Management - allows for easy categorization, tagging, and linking of evidence to specific parts of a transcript, making it more accessible during proceedings."
     },
     {
       "question": "I have more questions. Where can I find answers?",
@@ -104,5 +104,17 @@
       "company": ""
     }
   ],
-  "videoUrl": ""
+  "videoUrl": "",
+  "relatedServices": [
+    {
+      "name": "AI Deposition Summaries",
+      "description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
+      "href": "/deposition-summary-software/"
+    },
+    {
+      "name": "AI eDiscovery",
+      "description": "Search thousands of documents by meaning with AI-powered semantic search for litigation teams.",
+      "href": "/electronic-discovery-software/"
+    }
+  ]
 }

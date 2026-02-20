@@ -8,7 +8,9 @@
 	import HowItWorks from '$lib/components/features/HowItWorks.svelte';
 	import ValueProposition from '$lib/components/features/ValueProposition.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
+	import RelatedServices from '$lib/components/features/RelatedServices.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import { linkify } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/extract-draft-agents.json';
 </script>
 
@@ -117,7 +119,7 @@
 						<div class="flex gap-5 rounded-2xl border border-[#dcddf340] bg-white p-7 shadow-brand-card">
 							<div>
 								<h4 class="text-base font-bold text-[#282876]">{card.title}</h4>
-								<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{card.description}</p>
+								<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{@html linkify(card.description)}</p>
 							</div>
 						</div>
 					{/each}
@@ -144,6 +146,11 @@
 	<!-- 9. FAQ -->
 	{#if data.faq.length > 0}
 		<FAQAccordion items={data.faq} background="bg-transparent" />
+	{/if}
+
+	<!-- Related Services -->
+	{#if data.relatedServices}
+		<RelatedServices services={data.relatedServices} background="bg-transparent" />
 	{/if}
 </BlobBackground>
 

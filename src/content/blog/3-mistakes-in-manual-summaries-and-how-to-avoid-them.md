@@ -64,6 +64,6 @@ By combining automation with attorney oversight, litigation teams can maintain h
 
 ## **Learn more about Dodon.ai**
 
-See how Dodon.ai [Deposition Summary Software](https://www.dodon.ai/deposition-summary-software) automates citation-ready summaries, or explore how it extends to AI Medical Record Summaries and Chronologies for full-case prep efficiency.
+See how Dodon.ai [Deposition Summary Software](/deposition-summary-software/) automates citation-ready summaries, or explore how it extends to [AI Medical Record Summaries and Chronologies](/ai-medical-record-summaries-chronologies/) for full-case prep efficiency.
 
-### [**Start your 7-day trial today at Dodon.ai.**](http://dodon.ai)
+### [**Start your 7-day trial today at Dodon.ai.**](/)

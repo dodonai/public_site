@@ -32,7 +32,7 @@
       },
       {
         "title": "Health",
-        "description": "Extract common data from medical records and automate medical record reviews."
+        "description": "Extract common data from medical records and automate {{link:/ai-medical-record-summaries-chronologies/|medical record reviews}}."
       },
       {
         "title": "Insurance",
@@ -143,5 +143,17 @@
       "company": ""
     }
   ],
-  "videoUrl": ""
+  "videoUrl": "",
+  "relatedServices": [
+    {
+      "name": "AI Deposition Summaries",
+      "description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
+      "href": "/deposition-summary-software/"
+    },
+    {
+      "name": "Medical Record Summaries",
+      "description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
+      "href": "/ai-medical-record-summaries-chronologies/"
+    }
+  ]
 }

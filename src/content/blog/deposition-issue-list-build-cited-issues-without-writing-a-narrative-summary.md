@@ -60,7 +60,7 @@ Search results include a "Print Table" button for direct export. Summaries can b
 
 ## **Why Skip the Narrative?**
 
-Traditional [deposition summaries](https://www.dodon.ai/deposition-summary-software) serve a purpose, they help attorneys who weren't at the deposition understand what happened. But for motion teams and associates preparing outlines, narratives create extra work. You summarize the testimony, extract the issues, then find the citations again when drafting.
+Traditional [deposition summaries](/deposition-summary-software/) serve a purpose, they help attorneys who weren't at the deposition understand what happened. But for motion teams and associates preparing outlines, narratives create extra work. You summarize the testimony, extract the issues, then find the citations again when drafting.
 
 The issue-first approach collapses these steps. When you search for "breach of duty" and get a table of every mention with page-line citations, you've already built your issue list. When the Page-Line Summary extracts topics like "Company Structure and Ownership" or "Business Operations and Hiring Practices" alongside citations, you're looking at the skeleton of your motion outline. This streamlined approach to issue spotting eliminates redundant work.
 
@@ -76,6 +76,6 @@ For associates handling multiple depositions per case and motion teams coordinat
 
 Try issue spotting on one deposition to see how the transcript-to-table workflow fits your practice.
 
-[**Learn more about deposition transcript issue spotting software →**](https://www.dodon.ai/ai-deposition-transcript-software)
+[**Learn more about deposition transcript issue spotting software →**](/ai-deposition-transcript-software/)
 
 ‍

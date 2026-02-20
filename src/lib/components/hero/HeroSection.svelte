@@ -89,6 +89,8 @@
 				<div class="mt-8 flex flex-wrap items-center gap-4 max-lg:justify-center sm:gap-6">
 					<a
 						href="https://app.dodon.ai/signup"
+						target="_blank"
+						rel="noopener noreferrer"
 						class="btn-brand-primary inline-block"
 					>
 						Free Summary

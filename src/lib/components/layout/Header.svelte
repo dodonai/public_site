@@ -107,6 +107,8 @@
 		<div class="hidden items-center gap-6 lg:flex">
 			<a
 				href="https://app.dodon.ai/login"
+				target="_blank"
+				rel="noopener noreferrer"
 				class="nav-link text-base font-medium transition-colors"
 				style="color: var(--midnight-blue);"
 			>
@@ -114,6 +116,8 @@
 			</a>
 			<a
 				href="https://app.dodon.ai/signup"
+				target="_blank"
+				rel="noopener noreferrer"
 				class="btn-brand-nav"
 			>
 				Get Started
@@ -200,6 +204,8 @@
 				<div class="mt-4 flex flex-col gap-3">
 					<a
 						href="https://app.dodon.ai/login"
+						target="_blank"
+						rel="noopener noreferrer"
 						class="block py-2 text-center text-base font-medium"
 						style="color: var(--midnight-blue);"
 						onclick={closeMobileMenu}
@@ -208,6 +214,8 @@
 					</a>
 					<a
 						href="https://app.dodon.ai/signup"
+						target="_blank"
+						rel="noopener noreferrer"
 						class="btn-brand-nav block text-center"
 						onclick={closeMobileMenu}
 					>

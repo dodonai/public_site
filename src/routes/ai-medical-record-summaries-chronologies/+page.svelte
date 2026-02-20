@@ -6,8 +6,12 @@
 	import BlobBackground from '$lib/components/layout/BlobBackground.svelte';
 	import VideoEmbed from '$lib/components/video/VideoEmbed.svelte';
 	import ValueProposition from '$lib/components/features/ValueProposition.svelte';
+	import HowItWorks from '$lib/components/features/HowItWorks.svelte';
+	import WorkflowComparison from '$lib/components/features/WorkflowComparison.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
+	import RelatedServices from '$lib/components/features/RelatedServices.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import { linkify } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/medical-records.json';
 </script>
 
@@ -73,12 +77,24 @@
 		<TestimonialSection testimonials={data.testimonials} showBgImage={false} />
 	{/if}
 
-	<!-- 3. Video -->
+	<!-- 3. Workflow Comparison (Basic vs Advanced) -->
+	{#if data.workflowComparison}
+		<WorkflowComparison
+			heading={data.workflowComparison.heading}
+			description={data.workflowComparison.description}
+			basicFeatures={data.workflowComparison.basicFeatures}
+			advancedFeatures={data.workflowComparison.advancedFeatures}
+			fullService={data.workflowComparison.fullService}
+			background="bg-transparent"
+		/>
+	{/if}
+
+	<!-- 4. Video -->
 	{#if data.videoUrl}
 		<VideoEmbed url={data.videoUrl} title="See Dodonai in Action" background="bg-transparent" />
 	{/if}
 
-	<!-- 4. Educational Content (4 cards + AI solution card) -->
+	<!-- 5. Educational Content (4 cards + AI solution card) -->
 	{#if data.educationalContent}
 		<section class="py-20 sm:py-28">
 			<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
@@ -112,7 +128,7 @@
 							</div>
 							<div>
 								<h3 class="text-lg font-bold text-[#282876]">{card.title}</h3>
-								<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{card.description}</p>
+								<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{@html linkify(card.description)}</p>
 							</div>
 						</div>
 					{/each}
@@ -140,7 +156,22 @@
 		</section>
 	{/if}
 
-	<!-- 6. Customer Wins -->
+	<!-- 6. How It Works -->
+	{#if data.howItWorks.length > 0}
+		<HowItWorks steps={data.howItWorks} background="bg-transparent" />
+	{/if}
+
+	<!-- 7. Security Section -->
+	{#if data.securitySection}
+		<ValueProposition
+			heading={data.securitySection.heading}
+			cards={data.securitySection.cards}
+			columns={2}
+			background="bg-transparent"
+		/>
+	{/if}
+
+	<!-- 8. Customer Wins -->
 	{#if data.customerWins}
 		<ValueProposition
 			heading={data.customerWins.heading}
@@ -150,7 +181,7 @@
 		/>
 	{/if}
 
-	<!-- 7. Practice Areas -->
+	<!-- 9. Practice Areas -->
 	{#if data.practiceAreas}
 		<ValueProposition
 			heading={data.practiceAreas.heading}
@@ -160,9 +191,14 @@
 		/>
 	{/if}
 
-	<!-- 9. FAQ -->
+	<!-- 10. FAQ -->
 	{#if data.faq.length > 0}
 		<FAQAccordion items={data.faq} background="bg-transparent" />
+	{/if}
+
+	<!-- Related Services -->
+	{#if data.relatedServices}
+		<RelatedServices services={data.relatedServices} background="bg-transparent" />
 	{/if}
 </BlobBackground>
 
