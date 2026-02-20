@@ -1,26 +1,72 @@
 <script>
 	import { slide } from 'svelte/transition';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
-	import PricingTable from '$lib/components/pricing/PricingTable.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
 
 	let isYearly = $state(true);
+
+	const plans = [
+		{
+			credits: 200,
+			monthly: 30,
+			yearly: 300,
+			yCredits: 4800,
+			desc: 'For solo practitioners and small teams getting started.',
+			support: 'Chat & email support'
+		},
+		{
+			credits: 1000,
+			monthly: 60,
+			yearly: 600,
+			yCredits: 24000,
+			desc: 'For growing teams that need more capacity.',
+			support: 'Chat & email support'
+		},
+		{
+			credits: 5000,
+			monthly: 100,
+			yearly: 1000,
+			yCredits: 120000,
+			desc: 'For teams handling high-volume workloads with demanding deadlines.',
+			support: 'Chat, email & phone support',
+			recommended: true
+		}
+	];
+
+	function perPage(plan) {
+		return isYearly ? plan.yearly / plan.yCredits : plan.monthly / plan.credits;
+	}
+
+	function fmtPerPage(val) {
+		return '$' + val.toFixed(val < 0.01 ? 3 : 2);
+	}
+
+	const decimals = $derived(isYearly ? 3 : 2);
+	const pps = $derived(plans.map((p) => perPage(p)));
+
+	function fmt(perCredit, multiplier) {
+		const cost = perCredit * multiplier;
+		const factor = Math.pow(10, decimals);
+		return '$' + (Math.round(cost * factor) / factor).toFixed(decimals);
+	}
+
+	function fmtRange(perCredit, low, high) {
+		const factor = Math.pow(10, decimals);
+		const lo = (Math.round(perCredit * low * factor) / factor).toFixed(decimals);
+		const hi = (Math.round(perCredit * high * factor) / factor).toFixed(decimals);
+		return '$' + lo + '–' + hi;
+	}
 
 	const faqItems = [
 		{
 			question: 'What is a credit?',
 			answer:
-				'A credit is the universal unit for all Dodonai processing. 1 credit is approximately equal to 1 page, or roughly 400 words of document content. Your monthly or annual credit allocation can be used across any combination of process types.'
+				'A credit is the universal unit for all Dodonai processing. 1 credit equals approximately 1 page, or roughly 400 tokens of text. Your monthly or annual credit allocation can be used across any combination of process types.'
 		},
 		{
 			question: 'How do credits work with different process types?',
 			answer:
 				'Standard summaries (deposition, medical record, and general document) use 1 credit per page. Custom summaries use 2 credits per page. Advanced and index-based analysis uses 3-4 credits per page. OCR and transcription are always free and included with every plan.'
-		},
-		{
-			question: 'What counts as a "page"?',
-			answer:
-				'A page is approximately 400 words of document content. For scanned documents processed with OCR, each physical page of the document counts as one page regardless of word count. Credits are deducted based on the number of pages in your uploaded document.'
 		},
 		{
 			question: 'Do unused credits roll over?',
@@ -41,36 +87,42 @@
 
 	let faqOpen = $state(faqItems.map(() => false));
 
-	const matrixData = $derived(
-		isYearly
-			? { lite: 300 / 4800, basic: 600 / 24000, pro: 1000 / 120000 }
-			: { lite: 0.15, basic: 0.06, pro: 0.02 }
-	);
-
-	const decimals = $derived(isYearly ? 3 : 2);
-
-	function fmt(perCredit, multiplier) {
-		const cost = perCredit * multiplier;
-		const factor = Math.pow(10, decimals);
-		return '$' + (Math.round(cost * factor) / factor).toFixed(decimals) + '/pg';
-	}
-
-	function fmtRange(perCredit, low, high) {
-		const factor = Math.pow(10, decimals);
-		const lo = (Math.round(perCredit * low * factor) / factor).toFixed(decimals);
-		const hi = (Math.round(perCredit * high * factor) / factor).toFixed(decimals);
-		return '$' + lo + '-' + hi + '/pg';
-	}
-
-	function fmtCr(value) {
-		const factor = Math.pow(10, decimals);
-		return '$' + (Math.round(value * factor) / factor).toFixed(decimals) + '/cr';
-	}
+	const features = [
+		{
+			title: 'AI Deposition Summaries',
+			desc: 'Page-line summaries with citations',
+			icon: 'document'
+		},
+		{
+			title: 'Medical Chronologies',
+			desc: 'Structured timelines from records',
+			icon: 'timeline'
+		},
+		{ title: 'AI-Powered OCR', desc: 'Always free with every plan', icon: 'scan' },
+		{
+			title: 'Extract & Draft Agents',
+			desc: 'Custom AI agents for your workflows',
+			icon: 'agent'
+		},
+		{ title: 'E-Discovery Tools', desc: 'Search, tag, and organize collections', icon: 'search' },
+		{
+			title: 'Transcript Management',
+			desc: 'Upload, search, and analyze',
+			icon: 'waveform'
+		},
+		{ title: 'Custom Rule Engine', desc: 'Define rules for your summaries', icon: 'rules' },
+		{
+			title: 'Batch Processing',
+			desc: 'Process multiple documents at once',
+			icon: 'grid'
+		},
+		{ title: 'Chat & Email Support', desc: 'Help when you need it', icon: 'chat' }
+	];
 </script>
 
 <SEOHead
 	title="Pricing"
-	description="Simple, transparent pricing for AI-powered legal document processing. Choose the plan that fits your firm's needs, from solo practitioners to enterprise teams."
+	description="Simple, usage-based pricing for AI-powered document processing. Every feature included in every plan. Starting at 2 cents per page."
 	url="/pricing/"
 	jsonLd={{
 		'@context': 'https://schema.org',
@@ -157,8 +209,7 @@
 						priceCurrency: 'USD',
 						billingDuration: 'P1M'
 					},
-					description:
-						'For litigation teams handling high-volume caseloads. 5,000 credits per month.',
+					description: 'For high-volume teams. 5,000 credits per month.',
 					url: 'https://app.dodon.ai/signup'
 				},
 				{
@@ -172,14 +223,13 @@
 						priceCurrency: 'USD',
 						billingDuration: 'P1Y'
 					},
-					description:
-						'For litigation teams handling high-volume caseloads. 5,000 credits per month, billed annually.',
+					description: 'For high-volume teams. 5,000 credits per month, billed annually.',
 					url: 'https://app.dodon.ai/signup'
 				},
 				{
 					'@type': 'Offer',
 					name: 'Enterprise',
-					description: 'Custom pricing for large firms with unlimited volume.',
+					description: 'Custom pricing for large organizations.',
 					url: 'https://app.dodon.ai/signup'
 				}
 			]
@@ -187,47 +237,335 @@
 	}}
 />
 
-<!-- Hero section -->
-<section class="bg-[#f4f5fd] pb-8 pt-28 sm:pb-12 sm:pt-36">
+<!-- Hero -->
+<section class="bg-[#f4f5fd] pb-5 pt-28 sm:pt-36">
 	<div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
+		<p
+			class="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-[#836ae4] sm:text-sm"
+		>
+			Usage-Based Pricing
+		</p>
 		<h1 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl lg:text-5xl">
-			Packages to Fit Your Needs
+			Every Feature. Every Plan.<br />Starting at <span class="text-[#836ae4]">2&cent; per page.</span>
 		</h1>
-		<p class="mx-auto mt-4 max-w-2xl text-lg text-[#8181ac]">
-			Dodonai's low-overhead, highly-efficient approach to software enables us to pass big cost
-			savings on to our customers, generating the highest quality summaries and document analysis on
-			the market for less than a penny per page.
+		<p class="mx-auto mt-4 max-w-xl text-base text-[#8181ac] sm:text-lg">
+			No per-seat fees. No feature gates. Choose the volume that fits your workload — the more you
+			process, the less you pay per page.
 		</p>
 	</div>
 </section>
 
-<!-- Pricing table -->
-<section class="bg-[#f4f5fd] px-4 pb-20 sm:px-6 sm:pb-28 lg:px-8">
-	<div class="mx-auto max-w-7xl">
-		<PricingTable bind:isYearly />
+<!-- Billing toggle -->
+<div class="flex items-center justify-center gap-3 bg-[#f4f5fd] pb-10 pt-8">
+	<button
+		type="button"
+		class="text-sm font-semibold transition-colors {isYearly
+			? 'text-[#9898b8]'
+			: 'text-[#282876]'}"
+		onclick={() => (isYearly = false)}
+	>
+		Monthly
+	</button>
+	<button
+		type="button"
+		role="switch"
+		aria-checked={isYearly}
+		aria-label="Toggle annual billing"
+		class="relative inline-flex h-6 w-11 shrink-0 cursor-pointer items-center rounded-full bg-[#836ae4] transition-colors"
+		onclick={() => (isYearly = !isYearly)}
+	>
+		<span
+			class="pointer-events-none inline-block h-[18px] w-[18px] rounded-full bg-white shadow-sm transition-transform duration-200 {isYearly
+				? 'translate-x-[22px]'
+				: 'translate-x-[3px]'}"
+		></span>
+	</button>
+	<button
+		type="button"
+		class="text-sm font-semibold transition-colors {isYearly
+			? 'text-[#282876]'
+			: 'text-[#9898b8]'}"
+		onclick={() => (isYearly = true)}
+	>
+		Annual
+	</button>
+	<span
+		class="rounded px-2.5 py-0.5 text-[0.7rem] font-bold tracking-wide text-[#836ae4]"
+		style="background: rgba(131, 106, 228, 0.06)"
+	>
+		Save up to 58%
+	</span>
+</div>
+
+<!-- Pricing cards -->
+<section class="bg-[#f4f5fd] px-4 pb-16 sm:px-6 lg:px-8">
+	<div class="mx-auto grid max-w-[1080px] grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
+		{#each plans as plan}
+			{@const pp = perPage(plan)}
+			{@const price = isYearly ? Math.round(plan.yearly / 12) : plan.monthly}
+			{@const savings = isYearly
+				? Math.round((1 - plan.yearly / (plan.monthly * 12)) * 100)
+				: 0}
+			<div
+				class="relative flex flex-col rounded-[10px] border bg-white p-7 transition-all sm:p-8 {plan.recommended
+					? 'border-[#836ae4] shadow-[0_1px_24px_rgba(131,106,228,0.1)]'
+					: 'border-[#e8e8f0] hover:border-[#d0d0e0]'}"
+			>
+				{#if plan.recommended}
+					<span
+						class="absolute -top-2.5 left-7 rounded bg-[#836ae4] px-3 py-0.5 text-[0.7rem] font-bold tracking-wide text-white"
+					>
+						Recommended
+					</span>
+				{/if}
+
+				<div class="mb-1">
+					<span class="text-xl font-extrabold text-[#836ae4] sm:text-2xl"
+						>{fmtPerPage(pp)}</span
+					>
+					<span class="text-sm text-[#9898b8]"> / page*</span>
+					<span class="mt-0.5 block text-xs text-[#9898b8]">(standard summaries)</span>
+				</div>
+				<p class="mb-1 text-xs text-[#9898b8]">
+					{isYearly
+						? plan.yCredits.toLocaleString() + ' credits per year'
+						: plan.credits.toLocaleString() + ' credits per month'}
+				</p>
+
+				<div class="my-5 h-px bg-[#f0f0f4]"></div>
+
+				<div class="text-[2.5rem] font-extrabold leading-none tracking-tight text-[#282876]">
+					${price}<span class="text-sm font-medium text-[#9898b8]"> /mo</span>
+				</div>
+				<div class="mt-1 min-h-[36px] text-xs text-[#9898b8]">
+					{isYearly ? `Billed annually at $${plan.yearly}` : 'Billed monthly'}
+					{#if savings > 0}
+						&middot; <span class="font-semibold text-[#836ae4]">Save {savings}%</span>
+					{/if}
+				</div>
+
+				<p class="mt-3 flex-1 text-sm leading-relaxed text-[#8181ac]">{plan.desc}</p>
+				<p class="mt-3 mb-5 text-xs font-semibold text-[#282876]">{plan.support}</p>
+
+				<a
+					href="https://app.dodon.ai/signup"
+					class="block rounded-md py-2.5 text-center text-sm font-bold transition-colors {plan.recommended
+						? 'bg-[#836ae4] text-white hover:bg-[#7059cc]'
+						: 'bg-[#216fed] text-white hover:bg-[#1b5ad4]'}"
+				>
+					Get Started
+				</a>
+			</div>
+		{/each}
+
+		<!-- Enterprise -->
+		<div
+			class="relative flex flex-col rounded-[10px] border border-[#e8e8f0] bg-[#fafafe] p-7 sm:p-8"
+		>
+			<div class="mb-1">
+				<span class="text-lg font-extrabold text-[#282876]">Custom pricing</span>
+			</div>
+			<p class="mb-1 text-xs text-[#9898b8]">Tailored to your volume</p>
+
+			<div class="my-5 h-px bg-[#f0f0f4]"></div>
+
+			<div class="text-2xl font-bold text-[#282876]">Let's talk</div>
+			<div class="mt-1 min-h-[36px] text-xs text-[#9898b8]">
+				Custom integrations &middot; SLA guarantees
+			</div>
+
+			<p class="mt-3 flex-1 text-sm leading-relaxed text-[#8181ac]">
+				For large organizations with custom requirements and dedicated support needs.
+			</p>
+			<p class="mt-3 mb-5 text-xs font-semibold text-[#282876]">
+				Chat, email & phone support<br />
+				<span class="font-medium text-[#8181ac]">Dedicated onboarding included</span>
+			</p>
+
+			<a
+				href="https://calendly.com/nick-dodonai"
+				target="_blank"
+				rel="noopener noreferrer"
+				class="block rounded-md border-[1.5px] border-[#d0d0e0] py-2.5 text-center text-sm font-bold text-[#282876] transition-colors hover:border-[#282876]"
+			>
+				Contact Us
+			</a>
+		</div>
 	</div>
 </section>
 
-<!-- Full Service section -->
+<!-- Every Plan Includes -->
 <section class="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-	<div class="mx-auto max-w-4xl">
-		<div
-			class="rounded-2xl border border-[#836ae41a] bg-gradient-to-br from-[#f4f5fd] to-[#f9e1ff33] p-8 text-center shadow-sm sm:p-12"
-		>
-			<h2 class="text-2xl font-extrabold tracking-tight text-[#282876] sm:text-3xl">
+	<div class="mx-auto max-w-[960px]">
+		<h2 class="text-center text-2xl font-extrabold tracking-tight text-[#282876] sm:text-3xl">
+			Every Plan Includes
+		</h2>
+		<p class="mx-auto mt-2 max-w-lg text-center text-sm text-[#9898b8]">
+			No feature gates. No upsells. Everything below from day one.
+		</p>
+
+		<div class="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
+			{#each features as feature}
+				<div
+					class="flex items-start gap-3 rounded-lg border border-[#f0f0f4] bg-[#fafafe] px-4 py-4"
+				>
+					<div class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center">
+						{#if feature.icon === 'document'}
+							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M4 2h8a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1z"/><path d="M6 5h4M6 8h4M6 11h2"/></svg>
+						{:else if feature.icon === 'timeline'}
+							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M3 4h2v8H3M7 6h2v6H7M11 2h2v10h-2"/></svg>
+						{:else if feature.icon === 'scan'}
+							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6" stroke-width="1.2"/><circle cx="8" cy="8" r="3" stroke-dasharray="1.5 1.5"/></svg>
+						{:else if feature.icon === 'agent'}
+							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M4 13V8l4-5 4 5v5"/><path d="M7 13v-3h2v3"/><circle cx="8" cy="5" r="1" fill="#836ae4" stroke="none"/></svg>
+						{:else if feature.icon === 'search'}
+							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><circle cx="7" cy="7" r="4"/><path d="M10 10l3.5 3.5"/></svg>
+						{:else if feature.icon === 'waveform'}
+							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M8 2v2M8 12v2M5 5v6M11 4v8M3 7v2M13 6v4"/></svg>
+						{:else if feature.icon === 'rules'}
+							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M2 5h5M9 5h5M2 8h3M7 8h7M2 11h8M12 11h2"/><circle cx="6" cy="5" r="1" fill="#836ae4" stroke="none"/><circle cx="5" cy="8" r="1" fill="#836ae4" stroke="none"/><circle cx="11" cy="11" r="1" fill="#836ae4" stroke="none"/></svg>
+						{:else if feature.icon === 'grid'}
+							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+						{:else if feature.icon === 'chat'}
+							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M2 3h10a1 1 0 011 1v5a1 1 0 01-1 1H5l-3 3V4a1 1 0 011-1z"/><path d="M5 6h4"/></svg>
+						{/if}
+					</div>
+					<div>
+						<h4 class="text-sm font-bold text-[#282876]">{feature.title}</h4>
+						<p class="text-xs leading-snug text-[#9898b8]">{feature.desc}</p>
+					</div>
+				</div>
+			{/each}
+		</div>
+	</div>
+</section>
+
+<!-- Cost Per Page by Process Type -->
+<section class="bg-[#f4f5fd] px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+	<div class="mx-auto max-w-[820px]">
+		<h2 class="text-center text-2xl font-extrabold tracking-tight text-[#282876] sm:text-3xl">
+			Cost Per Page by Process Type
+		</h2>
+		<p class="mx-auto mt-2 text-center text-sm text-[#9898b8]">
+			Different processes use different page multipliers.
+		</p>
+
+		<div class="mt-8 overflow-x-auto rounded-lg border border-[#e8e8f0]">
+			<table class="w-full">
+				<thead>
+					<tr>
+						<th
+							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-left text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
+						>
+							Process
+						</th>
+						<th
+							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
+						>
+							Multiplier*
+						</th>
+						<th
+							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
+						>
+							{isYearly ? '4,800 cr/yr' : '200 cr/mo'}
+						</th>
+						<th
+							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
+						>
+							{isYearly ? '24,000 cr/yr' : '1,000 cr/mo'}
+						</th>
+						<th
+							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
+						>
+							{isYearly ? '120,000 cr/yr' : '5,000 cr/mo'}
+						</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr class="border-b border-[#f0f0f4]">
+						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
+							>Standard Summaries</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">1x</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
+							>{fmt(pps[0], 1)}</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
+							>{fmt(pps[1], 1)}</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
+							>{fmt(pps[2], 1)}</td
+						>
+					</tr>
+					<tr class="border-b border-[#f0f0f4]">
+						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
+							>Custom Summaries</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">2x</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
+							>{fmt(pps[0], 2)}</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
+							>{fmt(pps[1], 2)}</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
+							>{fmt(pps[2], 2)}</td
+						>
+					</tr>
+					<tr class="border-b border-[#f0f0f4]">
+						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
+							>Advanced Analysis</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">3–4x</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
+							>{fmtRange(pps[0], 3, 4)}</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
+							>{fmtRange(pps[1], 3, 4)}</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
+							>{fmtRange(pps[2], 3, 4)}</td
+						>
+					</tr>
+					<tr>
+						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
+							>OCR & Transcription</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">—</td>
+						<td class="px-4 py-3.5 text-center text-sm font-semibold text-[#16a34a] sm:px-5"
+							>Free</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm font-semibold text-[#16a34a] sm:px-5"
+							>Free</td
+						>
+						<td class="px-4 py-3.5 text-center text-sm font-semibold text-[#16a34a] sm:px-5"
+							>Free</td
+						>
+					</tr>
+				</tbody>
+			</table>
+		</div>
+		<p class="mt-4 text-center text-xs text-[#9898b8]">*1 "page" ≈ 400 tokens of text.</p>
+	</div>
+</section>
+
+<!-- Full Service -->
+<section class="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
+	<div class="mx-auto max-w-[820px]">
+		<div class="rounded-[10px] border border-[#e8e8f0] bg-[#fafafe] p-8 text-center sm:p-10">
+			<h2 class="text-xl font-extrabold tracking-tight text-[#282876] sm:text-2xl">
 				Need Full-Service Document Processing?
 			</h2>
-			<p class="mx-auto mt-4 max-w-2xl text-base text-[#8181ac] sm:text-lg">
-				Dodonai offers human-assisted summaries combining AI efficiency with expert review. Get
-				professionally reviewed document summaries with custom formatting, quality assurance, and
-				dedicated support — all at competitive pricing.
+			<p class="mx-auto mt-3 max-w-lg text-sm leading-relaxed text-[#8181ac]">
+				AI efficiency combined with expert human review. Custom formatting, quality assurance, and
+				dedicated support.
 			</p>
-			<div class="mt-8">
+			<div class="mt-6">
 				<a
 					href="https://calendly.com/nick-dodonai"
 					target="_blank"
 					rel="noopener noreferrer"
-					class="inline-block rounded-full bg-[#836ae4] px-8 py-3 text-sm font-semibold text-white shadow-md transition-all hover:bg-[#282876] hover:shadow-lg"
+					class="inline-block rounded-md border-[1.5px] border-[#d0d0e0] px-7 py-2.5 text-sm font-bold text-[#282876] transition-colors hover:border-[#282876]"
 				>
 					Contact Us
 				</a>
@@ -236,78 +574,11 @@
 	</div>
 </section>
 
-<!-- Credit Cost Breakdown -->
-<section class="bg-[#f4f5fd] px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
-	<div class="mx-auto max-w-5xl">
-		<h2
-			class="text-center text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl"
-		>
-			Credit Cost Breakdown
-		</h2>
-		<p class="mx-auto mt-4 max-w-2xl text-center text-lg text-[#8181ac]">
-			See exactly what you pay per page across each plan and process type.
-		</p>
-
-		<div class="mt-12 overflow-x-auto rounded-xl border border-[#e5e5e5] bg-white shadow-sm">
-			<table class="w-full text-left text-sm">
-				<thead>
-					<tr class="border-b border-[#e5e5e5] bg-[#f4f5fd]">
-						<th class="px-6 py-4 font-bold text-[#282876]">Process</th>
-						<th class="px-6 py-4 text-center font-bold text-[#282876]">Credits/Page</th>
-						<th class="px-6 py-4 text-center font-bold text-[#282876]">
-							Lite
-							<span class="block text-xs font-normal text-[#8181ac]">{fmtCr(matrixData.lite)}</span>
-						</th>
-						<th class="px-6 py-4 text-center font-bold text-[#282876]">
-							Basic
-							<span class="block text-xs font-normal text-[#8181ac]">{fmtCr(matrixData.basic)}</span>
-						</th>
-						<th class="px-6 py-4 text-center font-bold text-[#282876]">
-							Pro
-							<span class="block text-xs font-normal text-[#8181ac]">{fmtCr(matrixData.pro)}</span>
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="border-b border-[#e5e5e5]">
-						<td class="px-6 py-4 font-medium text-[#282876]">Standard Summaries</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">1</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">{fmt(matrixData.lite, 1)}</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">{fmt(matrixData.basic, 1)}</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">{fmt(matrixData.pro, 1)}</td>
-					</tr>
-					<tr class="border-b border-[#e5e5e5]">
-						<td class="px-6 py-4 font-medium text-[#282876]">Custom Summaries</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">2</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">{fmt(matrixData.lite, 2)}</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">{fmt(matrixData.basic, 2)}</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">{fmt(matrixData.pro, 2)}</td>
-					</tr>
-					<tr class="border-b border-[#e5e5e5]">
-						<td class="px-6 py-4 font-medium text-[#282876]">Advanced Analysis</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">3-4</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">{fmtRange(matrixData.lite, 3, 4)}</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">{fmtRange(matrixData.basic, 3, 4)}</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">{fmtRange(matrixData.pro, 3, 4)}</td>
-					</tr>
-					<tr>
-						<td class="px-6 py-4 font-medium text-[#282876]">OCR & Transcription</td>
-						<td class="px-6 py-4 text-center text-[#8181ac]">—</td>
-						<td class="px-6 py-4 text-center font-medium text-[#22c55e]">Free</td>
-						<td class="px-6 py-4 text-center font-medium text-[#22c55e]">Free</td>
-						<td class="px-6 py-4 text-center font-medium text-[#22c55e]">Free</td>
-					</tr>
-				</tbody>
-			</table>
-		</div>
-	</div>
-</section>
-
 <!-- FAQ -->
-<section class="bg-white px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
+<section class="bg-[#f4f5fd] px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
 	<div class="mx-auto max-w-3xl">
 		<h2
-			class="mb-8 text-center text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl"
+			class="mb-8 text-center text-2xl font-extrabold tracking-tight text-[#282876] sm:text-3xl"
 		>
 			Frequently Asked Questions
 		</h2>
@@ -322,15 +593,13 @@
 					aria-expanded={isOpen}
 				>
 					<span
-						class="pr-4 text-xl font-semibold leading-8 text-[#152c5b] sm:max-md:text-[17px] sm:max-md:leading-7"
+						class="pr-4 text-lg font-semibold leading-7 text-[#282876] sm:text-xl sm:leading-8"
 					>
 						{item.question}
 					</span>
-					<div
-						class="flex h-6 w-6 flex-shrink-0 items-center justify-center sm:max-md:h-[18px] sm:max-md:w-[18px]"
-					>
+					<div class="flex h-6 w-6 flex-shrink-0 items-center justify-center">
 						<svg
-							class="h-4 w-4 text-[#152c5b] transition-transform duration-200 {isOpen
+							class="h-4 w-4 text-[#282876] transition-transform duration-200 {isOpen
 								? 'rotate-180'
 								: ''}"
 							fill="none"
@@ -343,7 +612,7 @@
 					</div>
 				</button>
 				{#if isOpen}
-					<div transition:slide={{ duration: 250 }} class="mb-5 overflow-hidden sm:max-md:mt-4">
+					<div transition:slide={{ duration: 250 }} class="mb-5 overflow-hidden">
 						<p class="text-sm font-medium leading-relaxed text-[#8181ac]">{item.answer}</p>
 					</div>
 				{/if}
@@ -352,7 +621,7 @@
 	</div>
 </section>
 
-<!-- CTA section -->
+<!-- CTA -->
 <CTASection
 	headline="Ready to Get Started?"
 	description="Try Dodonai free and see how AI-powered document processing can save your team hours on every case."
