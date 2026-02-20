@@ -14,7 +14,7 @@ imageAlt: "Medical Chronologies Without Burnout"
 
 When litigation turns into a document marathon, paralegals often carry the weight through long nights, endless PDFs, and the constant risk of missing a detail that could decide a case. Burnout slows settlement prep and drives up costs.
 
-A medical chronology should be a tool for clarity, not exhaustion. At its core, it’s a structured timeline of a patient’s care, compiled from records to show diagnoses, treatments, and key turning points. Ultimately, a good “med chron” aids a litigation team in constructing a case for or against a plaintiff’s claim to damages. Every chronology begins with the **Medical Records Request**, the formal step of gathering provider records before any analysis can begin.
+A [medical chronology](/ai-medical-record-summaries-chronologies/) should be a tool for clarity, not exhaustion. At its core, it’s a structured timeline of a patient’s care, compiled from records to show diagnoses, treatments, and key turning points. Ultimately, a good “med chron” aids a litigation team in constructing a case for or against a plaintiff’s claim to damages. Every chronology begins with the **Medical Records Request**, the formal step of gathering provider records before any analysis can begin.
 
 ## **Case Example 1: The Manual Grind**
 
@@ -42,4 +42,4 @@ Upload entire record sets—scans, notes, lab results—messy or not. Dodon.ai p
 
 Medical chronologies don’t need to burn out your staff. By automating repetitive review, firms turn hours of manual work into minutes of preparation. The result: happier teams, faster case strategy, and stronger outcomes.
 
-**Software like** [**Dodon.ai**](http://dodon.ai) **accelerates litigation preparation and reduces paralegal workload, giving attorneys more time to focus on strategy.** [**Try it FREE today**](https://app.dodon.ai/signup)**.**
+**Software like** [**Dodon.ai**](/) **accelerates litigation preparation and reduces paralegal workload, giving attorneys more time to focus on strategy.** [**Try it FREE today**](https://app.dodon.ai/signup)**.**

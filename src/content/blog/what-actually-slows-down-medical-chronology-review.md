@@ -14,7 +14,7 @@ imageAlt: "Compare manual vs automated prep"
 
 Medical chronology review rarely slows down because of analysis. It slows down because of preparation. Before anyone evaluates damages or causation, teams lose days assembling, cleaning, and organizing records that were assumed to be “ready.”
 
-A [medical chronology](https://www.dodon.ai/ai-medical-record-summaries-chronologies) is meant to give a litigation team a clear timeline of care, so they can assess treatment gaps, causation, and exposure. In practice, most delays happen _before_ that first review even starts.
+A [medical chronology](/ai-medical-record-summaries-chronologies/) is meant to give a litigation team a clear timeline of care, so they can assess treatment gaps, causation, and exposure. In practice, most delays happen _before_ that first review even starts.
 
 This article breaks down the real bottlenecks that stretch medical chronology review time, and how teams shorten first-pass review without cutting corners.
 
@@ -135,4 +135,4 @@ Ultimately, a good medical chronology aids a litigation team in evaluating damag
 
 The goal isn’t automation for its own sake. It’s getting to a defensible timeline faster, with clear citations back to the source records.
 
-Software like [**Dodon.ai**](https://dodon.ai/) accelerates preparation so teams can spend their time analyzing facts, not assembling them.
+Software like [**Dodon.ai**](/) accelerates preparation so teams can spend their time analyzing facts, not assembling them.

@@ -1,5 +1,6 @@
 <script>
 	import { slide } from 'svelte/transition';
+	import { linkify } from '$lib/utils/linkify.js';
 
 	let { question, answer, groupName = 'faq-group', checked = false } = $props();
 	let isOpen = $state(checked);
@@ -29,7 +30,7 @@
 	</button>
 	{#if isOpen}
 		<div transition:slide={{ duration: 250 }} class="mb-5 overflow-hidden sm:max-md:mt-4">
-			<p class="text-sm font-medium leading-relaxed text-[#8181ac]">{answer}</p>
+			<p class="text-sm font-medium leading-relaxed text-[#8181ac]">{@html linkify(answer)}</p>
 		</div>
 	{/if}
 </div>

@@ -75,7 +75,7 @@ Document automation doesn’t remove your compliance responsibilities, but it el
 -   **Audit-ready outputs**: Page-line citations and logs make every chronology defensible in compliance reviews.  
       
     
--   **Ready to use**: Upload text, handwriting, or scanned documents, and receive a structured chronology in minutes.
+-   **Ready to use**: Upload text, handwriting, or scanned documents, and receive a structured [medical chronology](/ai-medical-record-summaries-chronologies/) in minutes.
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ca97f2afcf4d500eaffac9_995ad115.png)
 
@@ -83,4 +83,4 @@ Document automation doesn’t remove your compliance responsibilities, but it el
 
 A well-built medical chronology should accelerate litigation preparation, not create compliance headaches. HIPAA is a checklist you can master, and with the right technology, it can run quietly in the background while your team focuses on strategy.
 
-**Software like Dodon.ai accelerates secure preparation for law firms and IME doctors. Try it free for 7 days →** [**dodon.ai**](http://dodon.ai)
+**Software like Dodon.ai accelerates secure preparation for law firms and IME doctors. Try it free for 7 days →** [**dodon.ai**](/)

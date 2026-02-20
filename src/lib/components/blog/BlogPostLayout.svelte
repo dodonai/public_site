@@ -112,7 +112,7 @@
 	<!-- Hero Image (below header, wider) -->
 	{#if image}
 		<div class="mx-auto -mt-2 max-w-4xl px-4 pb-12 pt-8">
-			<img src={image} alt={imageAlt || title} class="h-auto w-full rounded-xl shadow-lg" />
+			<img src={image} alt={imageAlt || title} width="1200" height="630" class="h-auto w-full rounded-xl shadow-lg" />
 		</div>
 	{/if}
 

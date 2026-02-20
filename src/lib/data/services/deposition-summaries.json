@@ -43,7 +43,7 @@
       "heading": "What is deposition summary software?",
       "paragraphs": [
         "Dodonai's deposition summary software uses artificial intelligence to summarize the most important testimony from a deposition transcript.",
-        "A valuable tool for lawyers, this deposition summary, also known as a deposition digest, can be used in litigation and trial preparation as a reference for clients and team members alongside Medical Record Summaries and other evidentiary tools, saving attorney time and reducing costs."
+        "A valuable tool for lawyers, this deposition summary, also known as a deposition digest, can be used in litigation and trial preparation as a reference for clients and team members alongside {{link:/ai-medical-record-summaries-chronologies/|Medical Record Summaries}} and other evidentiary tools, saving attorney time and reducing costs."
       ]
     }
   ],
@@ -153,7 +153,7 @@
   "faq": [
     {
       "question": "What file types can Dodonai summarize?",
-      "answer": "Dodonai can summarize the following file types: .pdf, .txt, .doc, .docx., .csv, and .pptx. Dodonai can also summarize general texts, and there is a specific feature for summarizing medical records."
+      "answer": "Dodonai can summarize the following file types: .pdf, .txt, .doc, .docx., .csv, and .pptx. Dodonai can also summarize general texts, and there is a specific feature for {{link:/ai-medical-record-summaries-chronologies/|summarizing medical records}}."
     },
     {
       "question": "What file type will the deposition summary be?",
@@ -177,7 +177,7 @@
     },
     {
       "question": "What is Deposition Software?",
-      "answer": "Deposition software is a specialized tool designed to assist legal professionals in the deposition process, an integral component of litigation and dispute resolution. The software aims to streamline various facets of depositions, from transcription and annotation to summarization.Here are some types of deposition software:Deposition Summary Software - Dodonai automates the process of summarizing deposition transcripts.Transcript Management - capabilities for managing transcripts include full-text search, bookmarking, and annotation.Video and Audio Integration - the ability to integrate audio and video files.Real-Time Collaboration -collaboration features like shared annotations, chat, and live-feed options allow team members to work together on a deposition in real-time.Exhibit Management - allows for easy categorization, tagging, and linking of evidence to specific parts of a transcript, making it more accessible during proceedings."
+      "answer": "Deposition software is a specialized tool designed to assist legal professionals in the deposition process, an integral component of litigation and dispute resolution. The software aims to streamline various facets of depositions, from transcription and annotation to summarization.Here are some types of deposition software:Deposition Summary Software - Dodonai automates the process of summarizing deposition transcripts.{{link:/ai-deposition-transcript-software/|Transcript Management}} - capabilities for managing transcripts include full-text search, bookmarking, and annotation.Video and Audio Integration - the ability to integrate audio and video files.Real-Time Collaboration -collaboration features like shared annotations, chat, and live-feed options allow team members to work together on a deposition in real-time.Exhibit Management - allows for easy categorization, tagging, and linking of evidence to specific parts of a transcript, making it more accessible during proceedings."
     },
     {
       "question": "I have more questions. Where can I find answers?",
@@ -205,5 +205,17 @@
       "company": ""
     }
   ],
-  "videoUrl": ""
+  "videoUrl": "",
+  "relatedServices": [
+    {
+      "name": "Transcript Management",
+      "description": "Manage deposition transcripts with AI-powered search, annotations, and automated blue book citations.",
+      "href": "/ai-deposition-transcript-software/"
+    },
+    {
+      "name": "Medical Record Summaries",
+      "description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
+      "href": "/ai-medical-record-summaries-chronologies/"
+    }
+  ]
 }

@@ -83,7 +83,7 @@
         "description": "AI tools can be tailored to specific legal tasks and workflows. They learn from interactions and adapt to the unique needs and preferences of each legal professional or firm. This personalized assistance means that AI tools become more effective and valuable over time."
       }
     ],
-    "closing": "Dodonai's Legal AI tools are specifically designed to address the needs of modern legal practices, offering solutions such as AI eDiscovery, AI deposition summaries, and AI medical record summaries. With Dodonai, legal professionals not only save time and resources but gain a competitive edge by leveraging the latest advancements in artificial intelligence. Dodonai starts at $30 per month, includes many services and features, and offers a free trial."
+    "closing": "Dodonai's Legal AI tools are specifically designed to address the needs of modern legal practices, offering solutions such as AI eDiscovery, {{link:/deposition-summary-software/|AI deposition summaries}}, and {{link:/ai-medical-record-summaries-chronologies/|AI medical record summaries}}. With Dodonai, legal professionals not only save time and resources but gain a competitive edge by leveraging the latest advancements in artificial intelligence. Dodonai starts at $30 per month, includes many services and features, and offers a free trial."
   },
   "faq": [
     {
@@ -127,5 +127,22 @@
       "company": ""
     }
   ],
-  "videoUrl": ""
+  "videoUrl": "",
+  "relatedServices": [
+    {
+      "name": "AI Deposition Summaries",
+      "description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
+      "href": "/deposition-summary-software/"
+    },
+    {
+      "name": "Medical Record Summaries",
+      "description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
+      "href": "/ai-medical-record-summaries-chronologies/"
+    },
+    {
+      "name": "Transcript Management",
+      "description": "Manage deposition transcripts with AI-powered search, annotations, and automated blue book citations.",
+      "href": "/ai-deposition-transcript-software/"
+    }
+  ]
 }

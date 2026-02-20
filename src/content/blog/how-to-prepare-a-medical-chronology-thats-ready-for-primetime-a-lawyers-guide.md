@@ -14,7 +14,7 @@ imageAlt: "medical chronology"
 
 In personal injury, malpractice, and insurance defense, the strength of your case often hinges on a single question: **_can you clearly prove the timeline?_**
 
-A **medical chronology** gives attorneys, insurers, and medical experts a clear, reliable roadmap of a patient’s care. It compiles records into a clear sequence of events, helping teams spot gaps, inconsistencies, and key turning points. Ultimately, a good “[med chron](https://www.dodon.ai/blog/understanding-medical-chronology-clear-actionable-timelines)” aids a litigation team in constructing a case for or against a plaintiff’s claim to damages.
+A **medical chronology** gives attorneys, insurers, and medical experts a clear, reliable roadmap of a patient’s care. It compiles records into a clear sequence of events, helping teams spot gaps, inconsistencies, and key turning points. Ultimately, a good “[med chron](/blog/understanding-medical-chronology-clear-actionable-timelines)” aids a litigation team in constructing a case for or against a plaintiff’s claim to damages.
 
 Traditionally, building chronologies is slow, manual, and error-prone. This guide walks you through the process and shows how document automation software can dramatically simplify each step, speeding up and improving **discovery** so your team has reliable timelines ready when it matters most.
 
@@ -26,7 +26,7 @@ Every chronology begins with the “Medical Records Request,” typically a writ
 -   Lab reports, imaging, and prescriptions
 -   ER visits, surgeries, and follow-ups
 
-‍**Pro Tip:** Incomplete records = incomplete chronology. Ask for full disclosures early to avoid gaps. When reviewing records, keep an eye out for other providers mentioned that were not part of those disclosures. A good [medical chronology software](https://www.dodon.ai/ai-medical-record-summaries-chronologies) like Dodon.ai will automatically flag such providers.
+‍**Pro Tip:** Incomplete records = incomplete chronology. Ask for full disclosures early to avoid gaps. When reviewing records, keep an eye out for other providers mentioned that were not part of those disclosures. A good [medical chronology software](/ai-medical-record-summaries-chronologies/) like Dodon.ai will automatically flag such providers.
 
  👉 **Note:** Requesting medical records often involves regulated processes that vary by state. Many firms specialize in this. Be aware of those constraints when planning timelines. 
 
@@ -89,4 +89,4 @@ Medical chronologies are all about clarity, efficiency, and accuracy. When prepa
 
 Automating the time-consuming parts of document review allows your team to spend more time on what counts: analyzing the facts and building a winning case. 
 
-**Try out** [**Dodon.ai**](http://dodon.ai) **to automate your preparation. Free 7-day trial.**
+**Try out** [**Dodon.ai**](/) **to automate your preparation. Free 7-day trial.**

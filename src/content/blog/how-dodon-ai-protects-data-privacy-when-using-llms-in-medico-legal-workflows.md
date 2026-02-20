@@ -90,4 +90,4 @@ US customers can focus on winning cases or delivering accurate IME reports, know
     
 -   Never used beyond the purpose you intend**‍**
 
-**Want to use a platform that keeps your data safe when processing sensitive medico-legal documents?** Sign up at [Dodon.ai](https://www.dodon.ai/)
+**Want to use a platform that keeps your data safe when processing sensitive medico-legal documents?** Sign up at [Dodon.ai](/)

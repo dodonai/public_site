@@ -12,7 +12,7 @@ cardText: "A search-first deposition review workflow to find contradictions in d
 imageAlt: "Finding contradictions in deposition transcripts"
 ---
 
-Finding contradictions in a [deposition transcript](https://www.dodon.ai/ai-deposition-transcript-software) is one of the slowest parts of litigation prep. When testimony shifts across witnesses or changes subtly over time, teams are often forced to re-read the transcript page by page just to confirm inconsistencies.
+Finding contradictions in a [deposition transcript](/ai-deposition-transcript-software/) is one of the slowest parts of litigation prep. When testimony shifts across witnesses or changes subtly over time, teams are often forced to re-read the transcript page by page just to confirm inconsistencies.
 
 A search-first deposition review workflow helps teams **find contradictions in deposition transcripts** quickly, verify them with source citations, and move straight into analysis instead of rereading hundreds of pages.
 
@@ -43,7 +43,7 @@ Each step narrows attention to disputed facts while keeping the original testimo
 
 ### **Step 1: Group related deposition transcripts**
 
-To find contradictions in [deposition transcripts](https://www.dodon.ai/ai-deposition-transcript-software), testimony must be reviewed in context. Start by grouping transcripts that address the same facts, such as:
+To find contradictions in [deposition transcripts](/ai-deposition-transcript-software/), testimony must be reviewed in context. Start by grouping transcripts that address the same facts, such as:
 
 -   Multiple witnesses to the same incident
 -   Plaintiff and defense witnesses covering overlapping timelines
@@ -118,7 +118,7 @@ These materials support litigation preparation and discovery, not courtroom evid
 
 ## **Why this method works**
 
-A search-first deposition review workflow helps teams **find contradictions in** [**deposition transcripts**](https://www.dodon.ai/ai-deposition-transcript-software) without rereading, while keeping citations visible for verification.
+A search-first deposition review workflow helps teams **find contradictions in** [**deposition transcripts**](/ai-deposition-transcript-software/) without rereading, while keeping citations visible for verification.
 
 The result:
 

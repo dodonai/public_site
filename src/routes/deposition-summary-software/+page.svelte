@@ -10,7 +10,9 @@
 	import ExampleSummaries from '$lib/components/features/ExampleSummaries.svelte';
 	import ValueProposition from '$lib/components/features/ValueProposition.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
+	import RelatedServices from '$lib/components/features/RelatedServices.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import { linkify } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/deposition-summaries.json';
 </script>
 
@@ -94,7 +96,7 @@
 							<div class="mt-8 space-y-6">
 								{#each section.paragraphs as paragraph}
 									<p class="text-base leading-7 text-[#8181ac] sm:text-lg">
-										{paragraph}
+										{@html linkify(paragraph)}
 									</p>
 								{/each}
 							</div>
@@ -161,6 +163,11 @@
 	<!-- 10. FAQ -->
 	{#if data.faq.length > 0}
 		<FAQAccordion items={data.faq} sectionTitle="Deposition Summarizer: Asked & Answered" background="bg-transparent" />
+	{/if}
+
+	<!-- 11. Related Services -->
+	{#if data.relatedServices}
+		<RelatedServices services={data.relatedServices} background="bg-transparent" />
 	{/if}
 </BlobBackground>
 

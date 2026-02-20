@@ -50,7 +50,7 @@ To keep adoption simple and the table usable across matters, include:
 6.  **Next Action** - follow-up, confirmation, or request  
     
 
-These match the core elements used in Dodon.ai’s medical record chronology and deposition summary outputs.
+These match the core elements used in Dodon.ai's [medical record chronology](/ai-medical-record-summaries-chronologies/) and [deposition summary](/deposition-summary-software/) outputs.
 
 If your workflow requires billing amounts, codes, or facility details, treat them as optional extensions—not core fields.
 
@@ -182,9 +182,9 @@ Dodon.ai lets you export either style from the same review set.
 
 For more, visit:
 
--   [**AI Medical Record Summaries & Chronologies**](https://www.dodon.ai/ai-medical-record-summaries-chronologies?utm_source=website&utm_medium=blog&utm_content=document summary)  
+-   [**AI Medical Record Summaries & Chronologies**](/ai-medical-record-summaries-chronologies/)  
     
--   [**Pricing**](https://www.dodon.ai/pricing?utm_source=website&utm_medium=blog&utm_content=document summary)  
+-   [**Pricing**](/pricing/)  
     
 
 ## **Build your next summary table inside Dodon.ai -> try it now at** [**app.dodon.ai**](https://app.dodon.ai/?utm_source=website&utm_medium=blog&utm_content=document summary)

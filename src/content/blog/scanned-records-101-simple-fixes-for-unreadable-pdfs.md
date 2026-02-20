@@ -101,13 +101,13 @@ Clear pages let you present dates, providers, diagnoses, treatments, and events 
 
 ## **Where Dodon.ai helps**
 
--   **Reads scanned PDFs and (when legible) handwriting; recognizes tables and interprets images; can convert scans to editable Word.** These capabilities improve downstream review, search, and extraction on messy PDFs. [](https://www.dodon.ai/ai-pdf-ocr?utm_source=chatgpt.com)
--   **Medical record summaries & chronologies** to speed litigation prep with organized, review-ready outputs. [](https://www.dodon.ai/ai-medical-record-summaries-chronologies?utm_source=chatgpt.com)
--   **“Chat with your documents”** so you can ask case questions against uploaded files when you need quick retrieval and follow-ups. [](https://www.dodon.ai/?utm_source=chatgpt.com)
--   **Semantic search for e-discovery-style review** across document sets.  
+-   **[AI PDF OCR](/ai-pdf-ocr/)** — Reads scanned PDFs and (when legible) handwriting; recognizes tables and interprets images; can convert scans to editable Word. These capabilities improve downstream review, search, and extraction on messy PDFs.
+-   **[Medical record summaries & chronologies](/ai-medical-record-summaries-chronologies/)** to speed litigation prep with organized, review-ready outputs.
+-   **“Chat with your documents”** so you can ask case questions against uploaded files when you need quick retrieval and follow-ups. [](/)
+-   **[Semantic search for e-discovery-style review](/electronic-discovery-software/)** across document sets.  
     
 
-_Handwriting transcription works best when the writing is reasonably legible; as with any automation, verify important excerpts against the original page._ [](https://www.dodon.ai/ai-pdf-ocr?utm_source=chatgpt.com)
+_Handwriting transcription works best when the writing is reasonably legible; as with any automation, verify important excerpts against the original page._
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69033e4c231d535bebfa8fe0_2dd8b749.png)
 
@@ -144,4 +144,4 @@ _Handwriting transcription works best when the writing is reasonably legible; as
 A few scan habits at intake save hours in discovery. Clean, upright, legible pages make **citations to original records** straightforward and speed up your chronologies and deposition prep.
 
 [**See how our software reads scanned documents & handwriting →**  
-](https://www.dodon.ai/ai-pdf-ocr)[**Ready to roll this out for your team? Check our pricing.**](https://www.dodon.ai/pricing)
+](/ai-pdf-ocr/)[**Ready to roll this out for your team? Check our pricing.**](/pricing/)

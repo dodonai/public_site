@@ -16,7 +16,7 @@ imageAlt: "Image of the justices of the US Supreme Court"
 
 On the [NY Times podcast _The Daily_](https://www.nytimes.com/2023/10/10/podcasts/the-daily/supreme-court-conservative.html?), Sabrina Tavernise and Adam Liptak discuss the cases that the Supreme Court will hear in its Fall term.
 
-We [summarized](https://www.dodon.ai/deposition-summary-software) the transcript of this pocast using Dodonai's Legal AI document summarizer - used to summarize documents like deposition transcripts and medical records - and posted the results below.
+We [summarized](/deposition-summary-software/) the transcript of this pocast using Dodonai's Legal AI document summarizer - used to summarize documents like deposition transcripts and medical records - and posted the results below.
 
 ### AI Significantly Improves the Speed of Legal Task Completion
 
@@ -30,4 +30,4 @@ The discussion also touches on the broader context of the Supreme Court's conser
 
 ‍
 
-[Learn more](https://www.dodon.ai/) about how you can leverage Dodonai's legal AI tools to automate [deposition summaries](https://www.dodon.ai/deposition-summary-software) and make your practice more efficient.
+[Learn more](/) about how you can leverage Dodonai's legal AI tools to automate [deposition summaries](/deposition-summary-software/) and make your practice more efficient.

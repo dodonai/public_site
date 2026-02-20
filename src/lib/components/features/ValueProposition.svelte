@@ -1,4 +1,5 @@
 <script>
+	import { linkify } from '$lib/utils/linkify.js';
 	let { heading, cards = [], columns = 0, background = 'bg-[#f4f5fd]' } = $props();
 
 	const colClass = $derived(
@@ -55,7 +56,7 @@
 					</div>
 					<div>
 						<h3 class="text-lg font-bold text-[#282876]">{card.title}</h3>
-						<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{card.description}</p>
+						<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{@html linkify(card.description)}</p>
 					</div>
 				</div>
 			{/each}

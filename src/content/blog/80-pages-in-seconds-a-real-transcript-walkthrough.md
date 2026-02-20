@@ -18,7 +18,7 @@ For most litigation teams, reviewing one transcript takes **three to four hours*
 
 It’s essential work, but also **the most repetitive, time-consuming part of case preparation.**
 
-So we put it to the test: the same 80-page deposition, summarized manually versus summarized by **Dodon.ai’s automated deposition summary software**.
+So we put it to the test: the same 80-page deposition, summarized manually versus summarized by **Dodon.ai's automated [deposition summary software](/deposition-summary-software/)**.
 
 Here’s what we found.
 
@@ -116,4 +116,4 @@ Dodon.ai doesn’t replace professional judgment but it accelerates it.The softw
 
 If your team still spends hours summarizing depositions manually, it’s time to see what’s possible.
 
-**Upload your next transcript and see it summarized in seconds.** [**Try Dodon.ai Deposition Summary Software today.**](https://www.dodon.ai/deposition-summary-software)
+**Upload your next transcript and see it summarized in seconds.** [**Try Dodon.ai Deposition Summary Software today.**](/deposition-summary-software/)

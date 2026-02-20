@@ -12,7 +12,7 @@ cardText: "A practical guide for litigation and med-legal teams on sharing summa
 imageAlt: "Simple PHI-Safe Handoffs"
 ---
 
-When teams share a medical chronology with co-counsel, forward a deposition summary to an expert, or prepare an IME packet, PHI often travels across multiple systems. One unsecured handoff can introduce compliance gaps, client concerns, and avoidable risk.
+When teams share a [medical chronology](/ai-medical-record-summaries-chronologies/) with co-counsel, forward a [deposition summary](/deposition-summary-software/) to an expert, or prepare an IME packet, PHI often travels across multiple systems. One unsecured handoff can introduce compliance gaps, client concerns, and avoidable risk.
 
 A secure workflow doesn’t require complex infrastructure. With a few baseline safeguards and clear access principles, litigation and med-legal teams can exchange summaries confidently without slowing down case work.
 

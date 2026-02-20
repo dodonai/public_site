@@ -81,7 +81,7 @@ Most teams end up toggling both methods inside a single workflow—search for pr
 -   One-click verification – jump to any cited page instantly
 -   Multiple export formats – PDF, DOCX, and TXT for discovery and case prep
 -   Audio transcription – upload recordings (MP3, WAV, and more) for automatic transcription
--   [OCR processing](https://www.dodon.ai/ai-pdf-ocr?utm_source=google&utm_medium=blog&utm_campaign=searchvscroll) – automatic text extraction from scanned documents
+-   [OCR processing](/ai-pdf-ocr/) – automatic text extraction from scanned documents
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69299a52aa58615e72177261_244a9300.png)
 

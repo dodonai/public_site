@@ -12,7 +12,7 @@ cardText: "A clear explainer of page-line citations, why partners insist on them
 imageAlt: "Page-line citations"
 ---
 
-When you hand a partner a [deposition summary](https://www.dodon.ai/deposition-summary-software?utm_source=google&utm_medium=blog&utm_campaign=page_line), the first question is almost always the same:
+When you hand a partner a [deposition summary](/deposition-summary-software/), the first question is almost always the same:
 
 **“Where did they say this?”**
 
@@ -22,7 +22,7 @@ Below is the plain-English breakdown of what page-line means, why partners expec
 
 ## **The Coordinate System of Deposition Transcripts**
 
-A [deposition transcript](https://www.dodon.ai/deposition-summary-software?utm_source=google&utm_medium=blog&utm_campaign=page_line) is structured like a grid:
+A [deposition transcript](/deposition-summary-software/) is structured like a grid:
 
 -   Each **page** is numbered
 -   Each **line** on that page is numbered (typically 1–25)
@@ -76,7 +76,7 @@ This is the kind of work that burns out junior staff and delays downstream tasks
 
 ## **How Modern Software Speeds Up Page-Line Work**
 
-[Dodon.ai](https://www.dodon.ai/?utm_source=google&utm_medium=blog&utm_campaign=page_line) is built around the actual structure of a transcript. The software:
+[Dodon.ai](/) is built around the actual structure of a transcript. The software:
 
 -   Reads the page and line layout out of the box
 -   Anchors each summarized point to the original testimony
@@ -113,4 +113,4 @@ Dodon.ai presents page-line summaries automatically, linking every point back to
 
 [**Try Dodon.ai FREE for 7 days**.](https://app.dodon.ai/?utm_source=google&utm_medium=blog&utm_campaign=page_line)
 
-[**View Pricing**](https://www.dodon.ai/pricing?utm_source=google&utm_medium=blog&utm_campaign=page_line)
+[**View Pricing**](/pricing/)
