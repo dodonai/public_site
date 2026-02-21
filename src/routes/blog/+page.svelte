@@ -40,7 +40,7 @@
 	url="/blog/"
 />
 
-<div class="pt-20 lg:pt-24">
+<div>
 	<!-- Hero Header -->
 	<section class="relative overflow-hidden bg-white">
 		<!-- Decorative blur blobs -->
