@@ -64,7 +64,7 @@
 	}}
 />
 
-<div class="pt-20 lg:pt-24">
+<div>
 	<!-- Hero Header Section -->
 	<div class="relative overflow-hidden bg-white">
 		<!-- Decorative blur blobs -->
@@ -81,7 +81,7 @@
 			aria-hidden="true"
 		/>
 
-		<header class="relative z-10 mx-auto w-[85%] max-w-[1250px] py-16 text-center sm:py-20">
+		<header class="relative z-10 mx-auto w-[85%] max-w-[1250px] pb-16 pt-2 text-center sm:pb-20">
 			<div class="mb-8">
 				<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog/' }, { name: title }]} />
 			</div>
