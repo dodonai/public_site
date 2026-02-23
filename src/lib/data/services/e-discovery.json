@@ -23,6 +23,14 @@
         "It quickly sorts and organizes data, uses semantic search that understands meaning rather than just keywords, provides more accurate and relevant results, and improves through continuous learning.",
         "In short, AI eDiscovery makes the process of sifting through digital evidence faster, more accurate, and a lot easier."
       ]
+    },
+    {
+      "heading": "Semantic Search vs. Keyword Search in eDiscovery",
+      "paragraphs": [
+        "Traditional eDiscovery tools rely on keyword matching — you type a term and the software returns documents containing that exact word. This approach misses relevant documents that use synonyms, abbreviations, or describe the same concept in different language. It also returns irrelevant hits when keywords appear in unrelated contexts.",
+        "Dodonai's semantic search understands the meaning behind your query. Ask for documents about 'breach of contract disputes' and the system finds relevant evidence even when the exact phrase never appears. This approach dramatically reduces both false positives and missed documents, giving legal teams more confidence that their review is comprehensive.",
+        "For litigation teams managing large document collections, semantic search reduces the time spent on document review while improving the quality of results. Instead of running dozens of keyword variations, you describe what you are looking for in plain language and let the AI handle the matching."
+      ]
     }
   ],
   "howItWorks": [
@@ -116,7 +124,7 @@
     },
     {
       "question": "I have more questions. Where can I find answers?",
-      "answer": "We'd love to help. You can contact us at our email - hello@dodon.ai - with any questions."
+      "answer": "Visit our {{link:https://app.dodon.ai/help|Help Center}} for detailed guides on uploading and searching documents. You can also contact us at hello@dodon.ai with any questions."
     }
   ],
   "testimonials": [

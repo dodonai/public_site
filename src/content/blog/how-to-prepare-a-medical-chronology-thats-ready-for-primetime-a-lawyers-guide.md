@@ -12,7 +12,7 @@ cardText: "A step-by-step guide for attorneys on building accurate, efficient me
 imageAlt: "medical chronology"
 ---
 
-In personal injury, malpractice, and insurance defense, the strength of your case often hinges on a single question: **_can you clearly prove the timeline?_**
+In [personal injury](/practice-areas/personal-injury/), [malpractice](/practice-areas/medical-malpractice/), and insurance defense, the strength of your case often hinges on a single question: **_can you clearly prove the timeline?_**
 
 A **medical chronology** gives attorneys, insurers, and medical experts a clear, reliable roadmap of a patient’s care. It compiles records into a clear sequence of events, helping teams spot gaps, inconsistencies, and key turning points. Ultimately, a good “[med chron](/blog/understanding-medical-chronology-clear-actionable-timelines)” aids a litigation team in constructing a case for or against a plaintiff’s claim to damages.
 

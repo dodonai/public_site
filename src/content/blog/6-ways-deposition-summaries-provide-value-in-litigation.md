@@ -20,7 +20,7 @@ Litigation can often feel like navigating an ocean of information, where crucial
 
 ## Time Efficiency
 
-One of the most immediate benefits of deposition summaries is the significant time savings they offer. Legal professionals can focus on the heart of the matter without sifting through extensive transcripts. This efficiency is not just about convenience; it translates into real cost savings for clients, as attorneys can allocate their hours to more strategic tasks rather than document review.
+One of the most immediate benefits of deposition summaries is the significant time savings they offer. Legal professionals can focus on the heart of the matter without sifting through extensive transcripts. This efficiency is not just about convenience; it translates into real cost savings for clients, as attorneys can allocate their hours to more strategic tasks rather than document review. AI-powered tools have made this even more dramatic — see our [comparison of the best deposition summary software](/compare/best-deposition-summary-software/) for a detailed breakdown of speed and cost differences.
 
 ## Strategic Preparation and Clarity
 

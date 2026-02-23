@@ -50,10 +50,10 @@ Medical chronologies deliver tangible value in efficiency, clarity, and legal st
 
 A wide range of professionals benefit from streamlined, accurate medical chronologies.
 
-\- Personal injury and malpractice attorneys    
+\- [Personal injury](/practice-areas/personal-injury/) and [malpractice](/practice-areas/medical-malpractice/) attorneys    
 \- Insurance case handlers    
 \- Medical experts building reports    
-\- Legal nurse consultants and IME professionals  
+\- Legal nurse consultants and [IME professionals](/industries/ime-companies/)  
 
 ### How Dodon.ai Supercharges Medical Chronologies
 

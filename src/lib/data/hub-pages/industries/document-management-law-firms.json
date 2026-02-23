@@ -1,0 +1,131 @@
+{
+  "seo": {
+    "title": "AI Document Management for Law Firms — Intelligent Search, OCR, and Extraction",
+    "description": "Go beyond basic file storage with AI-powered document management for law firms. Dodonai automates summarization, OCR, search, and data extraction across case files, discovery, and medical records.",
+    "canonical": "/industries/document-management-law-firms/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Industries", "href": null },
+    { "name": "Document Management for Law Firms" }
+  ],
+  "hero": {
+    "headline": "Intelligent Document Management for Law Firms",
+    "subheadline": "Traditional document management systems store files. Dodonai processes them. Upload case documents and get AI-powered summaries, searchable transcripts, OCR-corrected scans, and structured data extracts — turning passive file storage into an active intelligence layer that helps attorneys find what they need and prepare cases faster.",
+    "ctaText": "Free Trial",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Why Law Firms Need More Than File Storage",
+      "paragraphs": [
+        "Every law firm has a document management problem, and it is not about storage. Firms have no trouble saving files to shared drives, case management platforms, or cloud folders. The problem is that the documents sitting in those systems are largely unprocessed — unread transcripts, unsummarized medical records, scanned files that are not searchable, and discovery productions that no one has time to review page by page. The documents are stored, but the information inside them is not accessible.",
+        "AI-powered document management changes this equation. Instead of treating documents as static files to be stored and retrieved by filename, Dodonai processes the content of every document you upload. Medical records become structured chronologies. Deposition transcripts become searchable, cited summaries. Scanned PDFs become fully readable text through {{link:/ai-pdf-ocr/|AI-powered OCR}}. Discovery productions become filterable, reviewable datasets. The information locked inside your documents becomes organized, searchable, and immediately useful.",
+        "For firms handling litigation, this is not incremental improvement — it is a structural change in how document-heavy work gets done. Attorneys and paralegals spend less time reading and more time analyzing. Case preparation timelines compress. And the quality of work product improves because AI-generated outputs include source-linked citations back to the original documents, ensuring every data point is verifiable."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "AI Document Management Capabilities",
+      "cards": [
+        {
+          "icon": "search",
+          "title": "AI-Powered Document Search",
+          "description": "Search across case documents using natural language queries instead of keyword matching. Dodonai's {{link:/ai-deposition-transcript-software/|transcript search}} and document review tools find relevant information based on meaning, not just exact terms — so a search for 'plaintiff's shoulder injury' returns results even when the records use different medical terminology."
+        },
+        {
+          "icon": "document",
+          "title": "Automated Document Summarization",
+          "description": "Upload deposition transcripts, medical records, or any case file and receive structured summaries within minutes. {{link:/deposition-summary-software/|Deposition summaries}} include page-line citations. {{link:/ai-medical-record-summaries-chronologies/|Medical chronologies}} organize every provider visit, diagnosis, and treatment in chronological order with source references."
+        },
+        {
+          "icon": "squares",
+          "title": "AI OCR for Scanned and Legacy Files",
+          "description": "Law firms receive scanned records, faxed documents, and image-only PDFs regularly. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} converts these into fully searchable, extractable text — including handwritten notes and poor-quality scans that defeat standard OCR tools. Every document in your system becomes readable and processable."
+        },
+        {
+          "icon": "adjustments",
+          "title": "Structured Data Extraction",
+          "description": "Use {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} to pull specific data points from documents at scale. Extract party names from pleadings, key dates from contracts, billing totals from medical records, or any other structured data your firm needs — then export to Excel, Word, or PDF."
+        },
+        {
+          "icon": "briefcase",
+          "title": "E-Discovery Document Review",
+          "description": "Process large discovery productions with {{link:/electronic-discovery-software/|Dodonai's e-discovery tools}}. Search, filter, and review thousands of documents to identify the materials that matter most, reducing the volume that requires manual attorney review and accelerating the discovery phase of litigation."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Documents from Any Source",
+          "description": "Upload case files directly to Dodonai from your document management system, local drive, or email. The platform accepts PDFs, Word documents, text files, scanned images, and mixed-format files. No preprocessing, renaming, or reformatting is required — upload files exactly as you receive them."
+        },
+        {
+          "title": "AI Processes and Structures the Content",
+          "description": "Select the processing type you need: deposition summary, medical chronology, transcript search, OCR conversion, data extraction, or e-discovery review. Dodonai's AI reads the full document, identifies the relevant information, and produces a structured output. Add key topics or date ranges to customize results for your specific case needs."
+        },
+        {
+          "title": "Export Organized Work Product",
+          "description": "Download the processed output as PDF, Word, Excel, or plain text and save it back to your document management system. Every output includes source-linked citations so attorneys can verify any data point against the original document. Your case files go from raw uploads to organized, actionable work product."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Dodonai replace our existing document management system?",
+      "answer": "No. Dodonai is a document processing layer that works alongside your existing DMS, case management platform, or cloud storage system. You continue to use your current system for file storage, access control, and organization. Dodonai handles the AI-powered processing — summarization, OCR, search, and extraction — and delivers structured outputs that you save back into your existing system."
+    },
+    {
+      "question": "What types of documents can Dodonai process?",
+      "answer": "Dodonai processes deposition transcripts, medical records, discovery productions, contracts, correspondence, pleadings, expert reports, and virtually any other PDF or Word document used in litigation. The {{link:/ai-pdf-ocr/|AI OCR}} feature handles scanned documents, faxed records, and image-only PDFs, so you can upload files in any format you receive them."
+    },
+    {
+      "question": "How does Dodonai handle document security and confidentiality?",
+      "answer": "Dodonai is SOC 2 Type II certified and HIPAA compliant. All documents are encrypted in transit and at rest using AES-256 encryption. Your data is never used to train AI models, and you retain full control over data retention and deletion. We execute Business Associate Agreements for firms handling protected health information."
+    },
+    {
+      "question": "Can multiple people at the firm use the same account?",
+      "answer": "Yes. Dodonai supports team accounts where attorneys, paralegals, and staff share a single credit pool. Administrators can manage team access and monitor usage. Plans are based on page volume, not user seats, so adding team members does not increase your cost."
+    },
+    {
+      "question": "How does Dodonai compare to traditional document management systems like iManage or NetDocuments?",
+      "answer": "Traditional DMS platforms focus on file storage, version control, and access management. Dodonai focuses on what happens after a document is stored — processing the content through AI summarization, OCR, search, and extraction. The two systems are complementary. Dodonai processes your documents and delivers structured outputs that you save into your DMS for organized, searchable access. See our {{link:/industries/law-firm-case-management/|law firm case management page}} for more on how Dodonai fits into existing workflows."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "Law Firm Case Management",
+      "href": "/industries/law-firm-case-management/",
+      "description": "See how Dodonai integrates with your case management workflow for document processing."
+    },
+    {
+      "title": "Electronic Discovery Software",
+      "href": "/electronic-discovery-software/",
+      "description": "Search, filter, and review large discovery document sets with AI."
+    },
+    {
+      "title": "AI PDF OCR",
+      "href": "/ai-pdf-ocr/",
+      "description": "Convert scanned documents and image-only PDFs into searchable, extractable text."
+    },
+    {
+      "title": "Extract & Draft Agents",
+      "href": "/dodonai-extract-and-draft-agents/",
+      "description": "Build reusable agents that extract structured data from any document type."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/",
+    "/blog/document-summary-table-101-a-one-page-starter-you-can-reuse/"
+  ],
+  "ctaOverride": {
+    "headline": "Turn Your Document Storage into Document Intelligence",
+    "description": "Upload a case file and see how Dodonai processes it into organized, searchable, citable work product. Free trial with no credit card required."
+  }
+}

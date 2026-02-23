@@ -1,0 +1,148 @@
+{
+  "seo": {
+    "title": "Litigation Cost Reduction with AI — Cut Document Processing Costs by 80%+",
+    "description": "Reduce litigation costs with AI-powered document processing. Dodonai delivers deposition summaries, medical chronologies, and e-discovery review at a fraction of traditional vendor pricing.",
+    "canonical": "/use-cases/litigation-cost-management/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Use Cases", "href": null },
+    { "name": "Litigation Cost Management" }
+  ],
+  "hero": {
+    "headline": "Reduce Litigation Costs with AI Document Processing",
+    "subheadline": "Document processing is one of the largest controllable expenses in litigation. Deposition summaries, medical record reviews, transcript analysis, and e-discovery review consume thousands of dollars per case when handled manually or outsourced to vendors. Dodonai processes documents at a fraction of the cost — starting at pennies per page — so firms can reduce overhead, improve margins on contingency cases, and deliver more competitive billing to hourly clients.",
+    "ctaText": "Free Trial",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Where Litigation Costs Accumulate — and Where AI Cuts Them",
+      "paragraphs": [
+        "The majority of litigation spending goes to people reading documents. Paralegals spending days building medical chronologies. Associates spending hours drafting deposition summaries. Contract reviewers working through discovery productions page by page. These are essential tasks, but the manual approach is inherently expensive because it scales linearly — twice the documents means twice the time and twice the cost. Outsourcing does not solve the problem; it just shifts the expense to a vendor charging $5 to $25 per page.",
+        "AI-powered document processing breaks this cost curve. Dodonai processes documents at a fixed cost per page regardless of complexity, delivering structured outputs that would take a human reviewer hours to produce. A 300-page {{link:/deposition-summary-software/|deposition summary}} that costs $1,500 to $7,500 from a vendor costs under $10 with Dodonai. A 500-page {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} that takes a paralegal two full days costs under $15. At scale, these per-case savings compound into substantial cost reductions across a firm's entire caseload.",
+        "This is not about cutting corners. Dodonai's AI-generated outputs include source-linked citations to the original documents, enabling attorneys to verify every data point. The quality of the work product is comparable to a skilled human reviewer, but the cost and turnaround time are fundamentally different. Firms that adopt AI document processing gain a structural cost advantage that improves profitability on contingency cases and competitiveness on hourly matters."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Cost-Saving Capabilities Across Litigation Tasks",
+      "cards": [
+        {
+          "icon": "document",
+          "title": "Deposition Summaries at Pennies Per Page",
+          "description": "Traditional deposition summary vendors charge $5 to $25 per page with multi-day turnaround. Dodonai generates {{link:/deposition-summary-software/|page-line and narrative deposition summaries}} in minutes at approximately $0.02 to $0.06 per page depending on your plan — a cost reduction of over 99% on every transcript."
+        },
+        {
+          "icon": "heart",
+          "title": "Medical Chronologies Without Outsourcing Fees",
+          "description": "Medical record review vendors charge $8 to $20 per page for chronology preparation. Dodonai builds {{link:/ai-medical-record-summaries-chronologies/|complete medical chronologies}} with provider timelines, diagnoses, and source citations at the same per-page rate as every other document type — eliminating the premium pricing that makes outsourced medical record review so expensive."
+        },
+        {
+          "icon": "briefcase",
+          "title": "E-Discovery Review Cost Reduction",
+          "description": "Contract attorney review for e-discovery typically costs $25 to $75 per hour, and large productions require hundreds of review hours. Dodonai's {{link:/electronic-discovery-software/|e-discovery tools}} reduce the volume of documents requiring manual review by identifying the most relevant materials first, cutting total review hours and cost significantly."
+        },
+        {
+          "icon": "clock",
+          "title": "Time Savings That Convert to Cost Savings",
+          "description": "Every hour your paralegals and associates spend on manual document review is an hour not spent on billable work or case strategy. Dodonai processes documents in minutes instead of hours, freeing your team to handle more cases, prepare more thoroughly, and focus on the tasks that require human judgment."
+        },
+        {
+          "icon": "growth",
+          "title": "Scalable Pricing That Rewards Volume",
+          "description": "Dodonai's per-page cost decreases as your plan size increases. The Lite plan processes pages at approximately $0.15 each, the Basic plan at $0.06, and the Pro plan at $0.02. Enterprise plans offer custom pricing for firms processing tens of thousands of pages monthly. Visit our {{link:/pricing/|pricing page}} for full details."
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "Cost Per Task: Dodonai vs. Traditional Approaches",
+      "columns": ["Task", "Traditional Cost", "Dodonai Cost (Pro Plan)", "Savings"],
+      "rows": [
+        ["300-page deposition summary", "$1,500 – $7,500", "~$6", "99%+"],
+        ["500-page medical chronology", "$4,000 – $10,000", "~$10", "99%+"],
+        ["1,000-page e-discovery review", "$500 – $1,500 (contract attorneys)", "~$20", "96%+"],
+        ["100-page scanned document OCR", "$200 – $500 (outsourced)", "~$2", "99%+"],
+        ["50-contract data extraction", "$2,500 – $5,000 (manual review)", "~$30", "99%+"]
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Case Documents",
+          "description": "Upload deposition transcripts, medical records, discovery productions, contracts, or any other litigation documents to Dodonai. The platform handles PDFs, Word files, scanned documents, and mixed-format uploads. No preprocessing or vendor coordination is required."
+        },
+        {
+          "title": "AI Processes at a Fraction of the Cost",
+          "description": "Select the output you need — deposition summary, medical chronology, transcript search, document extraction, or e-discovery review — and Dodonai's AI processes the documents in minutes. Each page of processing uses one credit, and credits cost between $0.02 and $0.15 depending on your plan."
+        },
+        {
+          "title": "Download Work Product and Reinvest the Savings",
+          "description": "Export the structured output as PDF, Word, Excel, or text. Every result includes source-linked citations for attorney verification. The cost savings on each case are immediate and measurable — freeing budget for case strategy, expert witnesses, or additional case intake."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How much can a law firm realistically save by using Dodonai?",
+      "answer": "The savings depend on your current document processing costs and volume. A firm that outsources 10 deposition summaries per month at an average of $3,000 each spends $30,000 monthly on that task alone. With Dodonai's Pro plan at $100 per month, the same work costs a fraction of that amount. Medical chronology outsourcing, contract attorney review hours, and manual paralegal time all see similar cost reductions. Most firms see a return on their Dodonai subscription within the first case processed."
+    },
+    {
+      "question": "Does lower cost mean lower quality?",
+      "answer": "No. Dodonai's AI generates structured outputs with source-linked citations to the original documents, enabling the same verification process you would use with any vendor or associate work product. The outputs include page-line references for deposition summaries, source-page citations for medical chronologies, and document references for extraction results. Quality is comparable to skilled human reviewers, with the added benefit of consistent formatting and faster turnaround."
+    },
+    {
+      "question": "How does Dodonai pricing work?",
+      "answer": "Dodonai charges based on page volume. The Lite plan is $30 per month for 200 pages (credits), the Basic plan is $60 per month for 1,000 pages, and the Pro plan is $100 per month for 5,000 pages. One credit processes approximately one page of a document (roughly 400 words). Enterprise plans with custom volumes and dedicated support are available for high-volume firms. See our {{link:/pricing/|pricing page}} for full details."
+    },
+    {
+      "question": "Can Dodonai handle the volume of a large litigation practice?",
+      "answer": "Yes. The Pro plan covers 5,000 pages per month, which is enough for approximately 15 to 20 deposition summaries or 10 medical chronologies per month. Enterprise plans support custom page volumes for firms processing tens of thousands of pages monthly. The platform is built to handle high-volume document processing without performance degradation."
+    },
+    {
+      "question": "What about cost savings on contingency cases specifically?",
+      "answer": "Contingency firms absorb all case preparation costs until settlement or verdict. Every dollar spent on deposition summaries, medical record review, and document organization reduces the firm's margin on each case. By cutting document processing costs by 90% or more, Dodonai directly improves profitability on contingency cases — especially high-volume {{link:/practice-areas/personal-injury/|personal injury}} and {{link:/practice-areas/mass-tort/|mass tort}} practices where document processing costs are a major expense line."
+    },
+    {
+      "question": "Is Dodonai secure enough for confidential litigation documents?",
+      "answer": "Yes. Dodonai is SOC 2 Type II certified and HIPAA compliant. All documents are encrypted in transit and at rest using AES-256 encryption. Your data is never used to train AI models, and you retain full control over data retention and deletion. These security standards meet the requirements of firms handling privileged communications, protected health information, and sensitive litigation materials."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "Generate page-line and narrative deposition summaries in minutes at a fraction of vendor costs."
+    },
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "Build structured medical chronologies without outsourcing to expensive review services."
+    },
+    {
+      "title": "Electronic Discovery Software",
+      "href": "/electronic-discovery-software/",
+      "description": "Reduce e-discovery review costs by identifying relevant documents with AI."
+    },
+    {
+      "title": "Pricing",
+      "href": "/pricing/",
+      "description": "See Dodonai plan details and per-page cost breakdowns."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/how-many-hours-do-you-lose-reading-transcripts/",
+    "/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week/",
+    "/blog/80-pages-in-seconds-a-real-transcript-walkthrough/"
+  ],
+  "ctaOverride": {
+    "headline": "See How Much Your Firm Can Save",
+    "description": "Upload a deposition transcript or medical record set and compare the cost and turnaround to your current process. Free trial with no credit card required."
+  }
+}

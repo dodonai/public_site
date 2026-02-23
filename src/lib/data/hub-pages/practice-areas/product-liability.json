@@ -1,0 +1,132 @@
+{
+  "seo": {
+    "title": "AI Document Processing for Product Liability Litigation — Dodonai",
+    "description": "Process discovery documents, medical records from injury claims, and expert deposition transcripts in product liability cases. AI-powered summaries and chronologies. HIPAA compliant. Try free.",
+    "canonical": "/practice-areas/product-liability/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Practice Areas", "href": null },
+    { "name": "Product Liability" }
+  ],
+  "hero": {
+    "headline": "AI Document Processing for Product Liability Attorneys",
+    "subheadline": "Product liability cases demand rapid analysis of complex discovery sets — from corporate manufacturing documents and regulatory filings to plaintiff medical records and expert witness depositions. Dodonai processes these documents at scale, delivering organized summaries, medical chronologies, and searchable text so your team can build stronger cases faster.",
+    "ctaText": "Free Trial",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Why Product Liability Firms Need AI Document Processing",
+      "paragraphs": [
+        "Product liability litigation is document-intensive by nature. Whether you are pursuing a design defect, manufacturing defect, or failure-to-warn claim, the discovery phase produces enormous volumes of records — corporate emails, engineering specifications, quality control logs, regulatory submissions, and internal testing data from the defendant, alongside medical records, treatment histories, and expert reports on the plaintiff side. The attorneys and paralegals who can process this material efficiently are the ones who identify the evidence that wins cases.",
+        "Manual document review in product liability cases is not just slow; it is a strategic risk. When your team is buried in thousands of pages of medical records or wading through dozens of deposition transcripts from corporate witnesses, critical details get missed. A treating physician's note about the mechanism of injury, a quality control engineer's admission during a deposition, or a gap in the defendant's document production — these are the facts that shape case outcomes, and they are easy to overlook in a manual review process.",
+        "Dodonai gives product liability teams the tools to process both sides of the case file. Upload plaintiff medical records and receive detailed {{link:/ai-medical-record-summaries-chronologies/|medical chronologies}} that document the full injury timeline with source citations. Upload deposition transcripts from corporate representatives, expert witnesses, and treating physicians and get {{link:/deposition-summary-software/|structured deposition summaries}} organized by topic or page-line reference. Run scanned manufacturing documents and regulatory filings through {{link:/ai-pdf-ocr/|AI-powered OCR}} to make every page searchable and ready for {{link:/electronic-discovery-software/|e-discovery}} workflows. All processing is HIPAA compliant, SOC 2 Type II certified, and encrypted with AES-256."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Product Liability Document Processing Capabilities",
+      "cards": [
+        {
+          "icon": "heart",
+          "title": "Medical Chronologies for Injury Claims",
+          "description": "Generate comprehensive medical chronologies documenting the plaintiff's injury, treatment, surgeries, and recovery timeline. Each entry includes source-page citations so attorneys can verify details when drafting complaints, responding to motions, or preparing for trial."
+        },
+        {
+          "icon": "document",
+          "title": "Deposition Summaries for Corporate and Expert Witnesses",
+          "description": "Process transcripts from 30(b)(6) corporate depositions, expert witness testimony, and treating physician depositions into structured summaries. Choose page-line or narrative format and add key topics like product defect, causation, or damages to focus the AI on the issues that matter most to your theory of the case."
+        },
+        {
+          "icon": "search",
+          "title": "AI OCR for Manufacturing and Regulatory Records",
+          "description": "Product liability discovery often includes scanned engineering drawings, handwritten quality control logs, and older regulatory filings. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} extracts text from these documents so your team can search, summarize, and cross-reference them alongside digital records."
+        },
+        {
+          "icon": "folder",
+          "title": "Organize Large Discovery Sets",
+          "description": "Product cases involving corporate defendants can produce tens of thousands of pages in discovery. Dodonai helps your team process and organize these documents into searchable, summarized outputs that make it easier to identify the key evidence for design defect, manufacturing defect, or failure-to-warn theories."
+        },
+        {
+          "icon": "shield",
+          "title": "Enterprise-Grade Security for Sensitive Case Files",
+          "description": "Product liability cases involve confidential medical records, proprietary manufacturing data, and documents subject to protective orders. Dodonai is SOC 2 Type II certified, HIPAA compliant, encrypts all data with AES-256, and never uses your documents to train AI models."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Discovery Documents and Medical Records",
+          "description": "Upload plaintiff medical records, deposition transcripts, corporate discovery documents, or expert reports to Dodonai's secure platform. The system accepts PDFs of any size, including scanned and image-based files, and processes them without manual preprocessing."
+        },
+        {
+          "title": "AI Extracts, Summarizes, and Organizes",
+          "description": "Dodonai's AI reads through each document set, extracts key information — medical events, deposition testimony, document metadata — and produces structured outputs. Medical records become chronologies with provider timelines. Depositions become page-line or narrative summaries. Scanned documents become searchable text. You can specify key topics like product defect type, causation, or damages categories to guide the AI's focus."
+        },
+        {
+          "title": "Review, Export, and Build Your Case",
+          "description": "Review all outputs in the interactive viewer with side-by-side source linking. Export finished summaries, chronologies, and extracted text as PDF, Word, or Excel files. Use the organized outputs for demand letters, expert report preparation, mediation briefs, and trial exhibits."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does Dodonai help product liability attorneys process medical records?",
+      "answer": "Dodonai processes plaintiff medical records and generates detailed {{link:/ai-medical-record-summaries-chronologies/|medical chronologies}} that document the injury, every treatment, surgery, medication, and provider visit in chronological order. Each entry includes a source-page citation, so attorneys can quickly verify details when drafting complaints, preparing experts, or building damages presentations."
+    },
+    {
+      "question": "Can Dodonai summarize depositions from corporate representatives and expert witnesses?",
+      "answer": "Yes. Dodonai processes deposition transcripts from any witness — corporate 30(b)(6) representatives, expert witnesses, treating physicians, or fact witnesses — and produces {{link:/deposition-summary-software/|structured summaries}} in page-line or narrative format. You can add key topics to focus the summary on specific issues like product design, manufacturing processes, or failure-to-warn claims."
+    },
+    {
+      "question": "How does Dodonai handle scanned manufacturing documents in discovery?",
+      "answer": "Product liability discovery frequently includes scanned engineering drawings, quality control logs, and regulatory filings. Dodonai's {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text from scanned and image-based PDFs, making them fully searchable. This eliminates the need for a separate OCR step before document review."
+    },
+    {
+      "question": "Is Dodonai secure enough for documents under protective orders?",
+      "answer": "Yes. Dodonai is SOC 2 Type II certified and HIPAA compliant. All data is encrypted with AES-256 in transit and at rest. Your documents are never used to train AI models, and you retain full control over data retention and deletion. These controls meet the security standards required for handling documents subject to protective orders and confidentiality agreements."
+    },
+    {
+      "question": "What does product liability document processing cost with Dodonai?",
+      "answer": "Dodonai uses credit-based pricing where 1 credit equals approximately 1 page. Plans start at $30 per month for 200 credits on the Lite plan, $60 per month for 1,000 credits on the Basic plan, and $100 per month for 5,000 credits on the Pro plan. Enterprise pricing with custom credit allocations is available for firms with higher volumes. This is significantly less expensive than outsourced document review services, which typically charge $5 to $15 per page for medical record review."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "Generate page-line and narrative deposition summaries from expert and corporate witness transcripts in minutes."
+    },
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "Build detailed medical chronologies for plaintiff injury claims with source-linked citations."
+    },
+    {
+      "title": "Electronic Discovery Software",
+      "href": "/electronic-discovery-software/",
+      "description": "Process and organize large discovery sets from corporate defendants with AI-powered e-discovery tools."
+    },
+    {
+      "title": "Mass Tort",
+      "href": "/practice-areas/mass-tort/",
+      "description": "Scale document processing across hundreds or thousands of plaintiffs in product liability mass tort cases."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/6-ways-deposition-summaries-provide-value-in-litigation/",
+    "/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week/",
+    "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/"
+  ],
+  "ctaOverride": {
+    "headline": "Process Your Product Liability Case Documents Faster",
+    "description": "Upload medical records, deposition transcripts, or discovery documents and get organized summaries in minutes. Free trial with no credit card required."
+  }
+}

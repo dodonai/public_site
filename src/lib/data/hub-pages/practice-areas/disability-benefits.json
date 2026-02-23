@@ -1,0 +1,135 @@
+{
+  "seo": {
+    "title": "AI Document Processing for Disability Benefits Cases — Dodonai",
+    "description": "Dodonai helps disability benefits attorneys organize medical records into chronologies and summaries. Process SSDI, LTD, and VA disability claims faster with AI-powered document review.",
+    "canonical": "/practice-areas/disability-benefits/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Practice Areas", "href": null },
+    { "name": "Disability Benefits" }
+  ],
+  "hero": {
+    "headline": "AI Document Processing for Disability Benefits Attorneys",
+    "subheadline": "Disability benefits cases hinge on thorough medical documentation. Dodonai processes thousands of pages of medical records into organized chronologies and summaries in minutes, helping your team build stronger SSDI, LTD, and VA disability claims.",
+    "ctaText": "Free Trial",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "How Disability Benefits Firms Use AI Document Processing",
+      "paragraphs": [
+        "Disability benefits cases — whether Social Security Disability Insurance (SSDI), long-term disability (LTD) insurance claims, or VA disability — require exhaustive medical documentation to prove that a claimant's condition prevents them from working. Attorneys and representatives must review years of treatment records from multiple providers, identify relevant diagnoses and functional limitations, and present this evidence in a clear narrative that administrative law judges and insurance reviewers can follow.",
+        "This document-heavy work is where most disability practices spend the bulk of their time. A single SSDI case can involve thousands of pages of records from primary care physicians, specialists, hospitals, therapists, and government agencies. Reviewing and organizing all of that manually is slow, expensive, and error-prone.",
+        "Dodonai's AI document processing tools compress this work from days into minutes. Upload a claimant's medical records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} organized by date, provider, diagnosis, and treatment. The chronology includes source-page citations so your team can verify every data point against the original records before submitting to the Social Security Administration or an insurance carrier.",
+        "Dodonai is SOC 2 Type II certified and HIPAA compliant, ensuring your claimants' protected health information stays secure throughout the review process."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Dodonai Tools for Disability Benefits Practices",
+      "cards": [
+        {
+          "icon": "heart",
+          "title": "Medical Chronologies for Disability Claims",
+          "description": "Generate detailed medical chronologies that document the full history of a claimant's conditions, treatments, and functional limitations. Each entry links to the source page so you can verify findings before submitting evidence to the SSA, insurance carriers, or VA."
+        },
+        {
+          "icon": "document",
+          "title": "Narrative Medical Summaries",
+          "description": "Get provider-by-provider narrative summaries that tell the story of a claimant's medical history. These summaries help you draft hearing briefs, pre-hearing memoranda, and appeals that present the medical evidence in a clear, persuasive format."
+        },
+        {
+          "icon": "dollar",
+          "title": "Reduce Per-Case Costs",
+          "description": "Outsourced medical record review services charge $5 to $15 per page. Dodonai delivers organized chronologies and summaries starting at $30 per month, dramatically lowering the cost of case preparation for high-volume disability practices."
+        },
+        {
+          "icon": "clock",
+          "title": "Meet Tight Filing Deadlines",
+          "description": "Disability claims and appeals have strict deadlines. Process medical records in minutes rather than days so you can submit complete evidence packages on time, whether for initial applications, reconsideration requests, or ALJ hearings."
+        },
+        {
+          "icon": "shield",
+          "title": "HIPAA Compliant Processing",
+          "description": "Disability case files contain sensitive medical and personal information. Dodonai is HIPAA compliant with signed Business Associate Agreements, SOC 2 Type II certified, and encrypts all data at rest and in transit."
+        },
+        {
+          "icon": "growth",
+          "title": "Handle More Claims Without More Staff",
+          "description": "Disability practices that rely on manual record review are limited by paralegal capacity. Dodonai automates the most time-intensive part of case preparation, letting your existing team manage a larger caseload."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload the Claimant's Medical Records",
+          "description": "Upload medical records from all treating providers to Dodonai. The platform handles PDFs, Word files, text files, and scanned documents with built-in AI OCR. No preprocessing or reformatting is required — upload records exactly as you receive them."
+        },
+        {
+          "title": "AI Extracts and Organizes the Medical History",
+          "description": "Dodonai's AI reads through the records, extracts dates, providers, diagnoses, treatments, medications, and functional assessments, then organizes everything into structured chronologies and narrative summaries. You can add key topics to focus the AI on specific conditions or time periods relevant to the claim."
+        },
+        {
+          "title": "Review, Download, and Submit",
+          "description": "Review the output in the interactive viewer with side-by-side source linking. Download finished chronologies and summaries as PDF, Word, or Excel files ready for submission to the SSA, insurance carriers, or VA as part of your evidence package."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does Dodonai help with SSDI medical record review?",
+      "answer": "Dodonai processes your claimant's medical records and generates a detailed chronology that organizes every diagnosis, treatment, provider visit, and medication by date. It also produces narrative summaries by provider. Both outputs include source-page citations so your team can verify any data point against the original records before submitting evidence to the Social Security Administration."
+    },
+    {
+      "question": "Can Dodonai handle records from many different providers?",
+      "answer": "Yes. Disability cases often involve records from primary care physicians, specialists, hospitals, mental health providers, and government agencies. You can upload records from all providers, and Dodonai will extract and organize the information into a unified chronology. The interactive viewer lets you filter entries by provider, date range, or diagnosis."
+    },
+    {
+      "question": "Does Dodonai work for long-term disability insurance claims?",
+      "answer": "Yes. The medical chronologies and summaries Dodonai generates are useful for any disability claim type, including employer-sponsored LTD claims, individual disability insurance claims, SSDI applications, and VA disability claims. The organized documentation helps you present medical evidence clearly regardless of the reviewing body."
+    },
+    {
+      "question": "How much can a disability benefits practice save?",
+      "answer": "Most disability practices spend significant time on manual medical record review or pay outsourced vendors $5 to $15 per page. Dodonai plans start at $30 per month and even the Pro plan at $100 per month handles up to 5,000 pages. For practices handling dozens of active claims, the cost savings are substantial."
+    },
+    {
+      "question": "Is Dodonai secure enough for claimant medical records?",
+      "answer": "Yes. Dodonai is HIPAA compliant with signed Business Associate Agreements and SOC 2 Type II certified. All documents are encrypted with AES-256 in transit and at rest. Your data is never used to train AI models, and you have full control over data retention and deletion."
+    },
+    {
+      "question": "Does Dodonai handle scanned medical records?",
+      "answer": "Yes. Dodonai includes built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} that extracts text from scanned PDFs and image-based documents. Many disability claimants' records arrive as scans from provider offices — you can upload them directly without running a separate OCR step first."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "Generate AI-powered medical record summaries and chronologies with source-linked citations."
+    },
+    {
+      "title": "Personal Injury",
+      "href": "/practice-areas/personal-injury/",
+      "description": "See how Dodonai supports personal injury case preparation."
+    },
+    {
+      "title": "Workers' Compensation",
+      "href": "/practice-areas/workers-compensation/",
+      "description": "See how Dodonai helps workers' compensation attorneys organize medical evidence."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/understanding-medical-chronology-clear-actionable-timelines/"
+  ],
+  "ctaOverride": {
+    "headline": "Organize Your Disability Claims Documentation in Minutes",
+    "description": "Upload medical records and get structured chronologies and summaries ready for SSDI applications, LTD claims, and VA disability filings. Free trial with no credit card required."
+  }
+}

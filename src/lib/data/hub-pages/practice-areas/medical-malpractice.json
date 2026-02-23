@@ -1,0 +1,140 @@
+{
+  "seo": {
+    "title": "AI for Medical Malpractice Cases — Record Analysis & Deposition Prep",
+    "description": "Dodonai helps medical malpractice attorneys process voluminous medical records and prepare for depositions faster. AI chronologies, summaries, and expert witness prep tools.",
+    "canonical": "/practice-areas/medical-malpractice/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Practice Areas", "href": null },
+    { "name": "Medical Malpractice" }
+  ],
+  "hero": {
+    "headline": "AI-Powered Document Processing for Medical Malpractice Litigation",
+    "subheadline": "Medical malpractice cases demand comprehensive analysis of voluminous medical records, expert depositions, and clinical documentation. Dodonai helps medmal attorneys organize, summarize, and analyze case documents in minutes instead of weeks.",
+    "ctaText": "Free Trial",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "The Discovery Challenge in Medical Malpractice Cases",
+      "paragraphs": [
+        "Medical malpractice litigation involves some of the most document-intensive discovery in all of civil practice. A single case can generate thousands of pages of hospital records, physician notes, lab results, imaging reports, pharmacy records, and nursing documentation spanning years of treatment. The sheer volume makes it easy to miss critical details that could make or break a case.",
+        "Beyond the volume, medmal discovery presents unique complexity. Your team needs to understand the standard of care for the relevant specialty, identify deviations from that standard, and trace a causal chain from the provider's actions to the patient's harm. Doing this manually requires reading every page, cross-referencing providers and dates, and building a coherent timeline from records that often arrive disorganized and out of order.",
+        "AI document processing tools like Dodonai address both the volume and complexity challenges. The software extracts key medical events, organizes them chronologically, and produces {{link:/ai-medical-record-summaries-chronologies/|detailed medical chronologies}} with source-page citations. This gives your team a structured foundation for identifying the standard of care issues and causation evidence that drive medical malpractice claims.",
+        "With organized chronologies and {{link:/deposition-summary-software/|deposition summaries}} generated in minutes rather than weeks, your attorneys can focus on the medical and legal analysis that determines case outcomes, rather than spending their time on document organization."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Dodonai Tools for Medical Malpractice Attorneys",
+      "cards": [
+        {
+          "icon": "document",
+          "title": "Voluminous Records Handling",
+          "description": "Upload hundreds or thousands of pages of medical records and receive organized summaries in minutes. Dodonai handles multi-provider record sets, scanned documents, and disorganized files without requiring manual preprocessing."
+        },
+        {
+          "icon": "calendar",
+          "title": "Detailed Medical Chronologies",
+          "description": "Generate chronological timelines of every diagnosis, treatment, procedure, medication, and provider visit. Each entry includes source-page citations so you can trace any data point back to the original record for verification."
+        },
+        {
+          "icon": "briefcase",
+          "title": "Expert Witness Preparation",
+          "description": "Provide your expert witnesses with organized medical chronologies and deposition summaries instead of thousands of pages of raw records. Structured documentation helps experts focus their review on the clinical issues that matter most."
+        },
+        {
+          "icon": "search",
+          "title": "Standard of Care Analysis Support",
+          "description": "Filter and search chronology entries by provider, specialty, date range, or event type. This makes it faster to identify the specific treatment decisions and clinical events relevant to your standard of care arguments."
+        },
+        {
+          "icon": "clipboard",
+          "title": "Deposition Preparation",
+          "description": "Generate page-line deposition summaries from treating physician, expert witness, and party depositions. Highlight key topics like diagnosis timing, treatment decisions, or informed consent to tailor summaries for cross-examination prep."
+        },
+        {
+          "icon": "shield",
+          "title": "HIPAA Compliant and SOC 2 Certified",
+          "description": "Medical malpractice records contain some of the most sensitive PHI in litigation. Dodonai is HIPAA compliant with signed BAAs, SOC 2 Type II certified, and encrypts all data with AES-256 at rest and in transit."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Medical Records and Transcripts",
+          "description": "Upload your case documents to Dodonai, including medical records from hospitals, clinics, and specialists, as well as deposition transcripts from treating physicians, expert witnesses, and parties. The platform handles PDFs, Word files, and scanned documents."
+        },
+        {
+          "title": "AI Analyzes and Organizes the Records",
+          "description": "Dodonai's AI extracts dates, providers, diagnoses, procedures, medications, and clinical findings from the records and organizes them into a chronological timeline. For deposition transcripts, it generates page-line or narrative summaries with key topic highlighting."
+        },
+        {
+          "title": "Review and Prepare Your Case",
+          "description": "Use the interactive viewer to review chronologies side-by-side with source documents. Filter by provider or date range to focus on specific treatment periods. Download the finished chronologies and summaries as PDF, Word, or Excel files for expert review, deposition preparation, and trial binders."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does Dodonai help with medical malpractice case preparation?",
+      "answer": "Dodonai processes voluminous medical records and deposition transcripts, producing organized chronologies and summaries in minutes. This structured output helps your team identify standard of care deviations, trace causation, and prepare for expert and party depositions without spending days or weeks reading through raw records."
+    },
+    {
+      "question": "Can Dodonai handle records from multiple hospitals and specialists?",
+      "answer": "Yes. You can upload records from multiple providers, and Dodonai will extract and organize the information into a unified, date-ordered chronology. The interactive viewer allows you to filter by provider, so you can isolate a specific physician's treatment decisions when preparing for a targeted deposition or building your standard of care argument."
+    },
+    {
+      "question": "How accurate are the AI-generated medical chronologies?",
+      "answer": "Dodonai's chronologies include source-page citations for every entry, so your team can verify any extracted data point against the original record. We recommend that attorneys or qualified reviewers confirm key findings, just as they would with a chronology prepared by a nurse reviewer or paralegal. Read more about {{link:/blog/understanding-medical-chronology-clear-actionable-timelines/|building actionable medical chronologies}}."
+    },
+    {
+      "question": "Can I use Dodonai to prepare exhibits for expert witnesses?",
+      "answer": "Yes. The chronologies and summaries Dodonai produces are designed to be shared with expert witnesses as organized reference documents. Instead of sending an expert thousands of pages of raw records, you can provide a structured timeline that helps them focus their review on the clinically relevant events."
+    },
+    {
+      "question": "Is Dodonai secure enough for medical malpractice records?",
+      "answer": "Dodonai is HIPAA compliant with signed Business Associate Agreements and SOC 2 Type II certified. All documents are encrypted with AES-256 in transit and at rest. Your data is never used to train AI models, and you control when your data is deleted."
+    },
+    {
+      "question": "How does AI document processing reduce costs for medmal firms?",
+      "answer": "Medical malpractice firms often spend thousands of dollars per case on outsourced record review and deposition summary services. Dodonai plans start at $30 per month for up to 200 pages, and the Pro plan handles 5,000 pages at $100 per month. For firms managing multiple active medmal cases, this represents substantial savings compared to per-page vendor pricing."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "Generate AI-powered medical chronologies and summaries with source-linked citations."
+    },
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "Get page-line and narrative deposition summaries from expert and party depositions."
+    },
+    {
+      "title": "Personal Injury",
+      "href": "/practice-areas/personal-injury/",
+      "description": "See how Dodonai supports personal injury case preparation and medical record review."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "Learn how legal teams use Dodonai to review and summarize medical records faster."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/understanding-medical-chronology-clear-actionable-timelines/"
+  ],
+  "ctaOverride": {
+    "headline": "Organize Your Medmal Records in Minutes",
+    "description": "Upload medical records and deposition transcripts and receive organized chronologies and summaries ready for expert review and trial preparation. Free trial with no credit card required."
+  }
+}

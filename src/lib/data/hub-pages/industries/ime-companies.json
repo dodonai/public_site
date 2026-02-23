@@ -1,0 +1,144 @@
+{
+  "seo": {
+    "title": "AI Medical Record Summaries for IME Companies",
+    "description": "Process IME medical record summaries at scale with AI. Reduce turnaround time, cut costs, and deliver consistent quality. HIPAA compliant. Try free.",
+    "canonical": "/industries/ime-companies/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Industries", "href": null },
+    { "name": "IME Companies" }
+  ],
+  "hero": {
+    "headline": "AI Medical Record Summaries for IME Companies",
+    "subheadline": "Independent Medical Examination companies handle thousands of medical record sets every month. Dodonai's AI platform processes, summarizes, and organizes those records at scale — delivering consistent IME medical record summaries in minutes instead of hours, so your physicians can focus on evaluations rather than paperwork.",
+    "ctaText": "Free Trial",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "The IME Workflow Challenge",
+      "paragraphs": [
+        "IME companies operate under constant pressure to deliver thorough, timely medical evaluations. Before a physician can conduct an examination, someone on the team must review the claimant's complete medical history — often hundreds of pages of clinical notes, imaging reports, lab results, and specialist correspondence. This pre-exam record review is a bottleneck that drives up costs and delays turnaround times.",
+        "Traditional approaches to IME medical record summarization rely on in-house staff or outsourced review services, both of which struggle with consistency and scalability. When volume spikes, quality drops or deadlines slip. When you hire more reviewers, training and oversight costs climb. The fundamental problem is that manual record review does not scale efficiently.",
+        "Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical record summarization platform}} eliminates this bottleneck. By automating the extraction and organization of key medical data, Dodonai gives IME physicians a structured, chronological summary they can review in minutes before each examination. The result is faster turnaround, lower per-case costs, and a level of consistency that manual processes cannot match."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Built for IME Operations at Scale",
+      "cards": [
+        {
+          "icon": "clock",
+          "title": "Fast Turnaround",
+          "description": "Process medical record sets in minutes, not hours. Dodonai's AI generates a complete summary and chronology from even the largest files, giving IME physicians the pre-exam context they need without delays."
+        },
+        {
+          "icon": "shield",
+          "title": "Consistent Output Quality",
+          "description": "Every summary follows the same structured format regardless of volume or complexity. Unlike manual reviewers whose quality varies with fatigue and experience, Dodonai delivers uniform results across every case."
+        },
+        {
+          "icon": "heart",
+          "title": "HIPAA-Compliant Infrastructure",
+          "description": "Dodonai is SOC 2 Type II certified and signs Business Associate Agreements with every client. All data is encrypted in transit and at rest, meeting the strict compliance requirements IME companies must uphold."
+        },
+        {
+          "icon": "squares",
+          "title": "Bulk Processing",
+          "description": "Upload and process hundreds of record sets simultaneously. Whether your IME company handles 50 cases a week or 5,000, the platform scales to match your volume without requiring additional staff."
+        },
+        {
+          "icon": "adjustments",
+          "title": "Customizable Report Templates",
+          "description": "Configure summary output to match your organization's reporting requirements. Use Dodonai's {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} to build reusable templates that align with your physicians' preferred format and level of detail."
+        },
+        {
+          "icon": "dollar",
+          "title": "Significant Cost Reduction",
+          "description": "Replace expensive outsourced review services or reduce the overhead of in-house review teams. Dodonai's per-page pricing model means you only pay for what you process, with costs a fraction of traditional medical record summarization."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload the Claimant's Medical Records",
+          "description": "Upload the complete medical record set for each IME case to Dodonai's secure platform. The system handles PDFs of any size — including scanned documents and handwritten notes — and allows you to specify focus areas such as specific injuries, treatment providers, or date ranges."
+        },
+        {
+          "title": "AI Generates the Summary and Chronology",
+          "description": "Dodonai's AI reads every page, identifies key medical events, and produces a structured chronological timeline alongside a narrative summary. Diagnoses, procedures, medications, and provider encounters are extracted and organized automatically so the reviewing physician has a complete picture."
+        },
+        {
+          "title": "Review, Adjust, and Distribute",
+          "description": "Use the interactive viewer to verify the AI output with side-by-side source linking. Filter by date, provider, or event type, make any needed adjustments, and export the final IME medical record summary in PDF, Word, or Excel format for distribution to examining physicians."
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "Dodonai vs. Traditional IME Record Review",
+      "columns": ["Capability", "Dodonai AI", "Manual / Outsourced"],
+      "rows": [
+        ["Turnaround time under 30 minutes per case", true, false],
+        ["Consistent formatting across all cases", true, false],
+        ["Scales to thousands of cases per month", true, false],
+        ["Handles scanned and handwritten records", true, false],
+        ["Per-page pricing with no minimum commitment", true, false],
+        ["Source-linked citations for verification", true, false],
+        ["HIPAA-compliant with signed BAAs", true, true],
+        ["No staff training or onboarding required", true, false]
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does Dodonai handle the volume of records IME companies process?",
+      "answer": "Dodonai is built for high-volume operations. You can upload and process hundreds of medical record sets simultaneously, and the platform scales automatically to handle demand spikes. There are no per-user seat limits or batch size restrictions, so your throughput is limited only by how fast you can upload files."
+    },
+    {
+      "question": "Can we customize the summary format to match our physicians' preferences?",
+      "answer": "Yes. Dodonai supports multiple output formats and allows you to configure the structure, level of detail, and focus areas of each summary. For more advanced customization, the {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} feature lets you create reusable templates that match your organization's exact reporting standards."
+    },
+    {
+      "question": "What types of medical records can the AI process?",
+      "answer": "Dodonai processes digital PDFs, scanned documents, faxed records, and files containing handwritten physician notes. The AI OCR engine extracts text from even low-quality scans, ensuring that no relevant medical information is missed during the summarization process."
+    },
+    {
+      "question": "How does Dodonai ensure HIPAA compliance for IME workflows?",
+      "answer": "All data is encrypted using AES-256 in transit and at rest. Dodonai holds SOC 2 Type II certification and provides signed Business Associate Agreements for every client. You maintain full control over your data, including the ability to set retention policies and delete records at any time."
+    },
+    {
+      "question": "What is the cost compared to outsourced medical record review?",
+      "answer": "Dodonai operates on a per-page pricing model that is significantly lower than traditional outsourced review services. Most IME companies see cost reductions of 70-90% per record set compared to their existing vendors. Visit our {{link:/pricing/|pricing page}} for current rates."
+    },
+    {
+      "question": "Can Dodonai integrate with our existing case management system?",
+      "answer": "Dodonai offers API access and integrations with common document management platforms. If your current system is not already supported, our team can work with you to build a custom integration that fits your existing IME workflow."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "Medical Record Retrieval Companies",
+      "href": "/industries/medical-record-retrieval/",
+      "description": "Add AI-powered summarization to your record retrieval services and create new revenue streams."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "Learn how AI transforms the medical record review process for legal teams and review services."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/understanding-medical-chronology-clear-actionable-timelines/"
+  ],
+  "ctaOverride": {
+    "headline": "See How Dodonai Works for IME Companies",
+    "description": "Upload a sample medical record set and get a complete AI-generated summary and chronology in minutes. No credit card required to start your free trial."
+  }
+}
