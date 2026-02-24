@@ -29,6 +29,7 @@
 
 <svelte:head>
 	<title>{fullTitle}</title>
+	<meta name="robots" content="index, follow" />
 	<meta name="description" content={description} />
 
 	<!-- Canonical URL -->
