@@ -10,7 +10,7 @@
     { "name": "IME Doctors" }
   ],
   "hero": {
-    "headline": "Pre-Exam Record Review in Minutes, Not Hours",
+    "headline": "IME Record Review in Minutes — AI Summaries for IME Physicians",
     "subheadline": "You shouldn't spend more time reading records than performing the evaluation. Dodonai's AI summarizes claimant medical records into structured chronologies so you walk into every IME fully prepared.",
     "ctaText": "Start Free Trial",
     "ctaUrl": "https://app.dodon.ai/signup",
@@ -22,7 +22,7 @@
       "type": "content",
       "heading": "The Pre-Exam Prep Bottleneck",
       "paragraphs": [
-        "A typical IME case file runs 200 to 1,000+ pages of treatment records, imaging reports, operative notes, and pharmacy logs. Reviewing all of that before an evaluation takes time you don't have — especially when you're scheduled for multiple exams per day.",
+        "A typical IME case file lands on the doctor's desk with 200 to 1,000+ pages of treatment records, imaging reports, operative notes, and pharmacy logs. Reviewing all of that before an evaluation takes time you don't have — especially when you're scheduled for multiple exams per day.",
         "Most IME physicians either skim the records and risk missing something relevant, or spend their evenings catching up on chart review. Neither approach is sustainable when case volume is high.",
         "Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical record summarization}} reads the entire record set and produces a structured chronological summary you can review in minutes. Every diagnosis, procedure, medication change, and provider encounter is extracted and organized — with page references back to the source documents when you need to verify a detail."
       ]
@@ -59,7 +59,7 @@
         {
           "icon": "shield",
           "title": "HIPAA Compliant",
-          "description": "HIPAA compliant with signed BAAs on every account. SOC 2 Type II certified, AES-256 encrypted, and you control retention and deletion."
+          "description": "HIPAA compliant with signed BAAs on every account. SOC 2 Type II certified and AES-256 encrypted — your claimant records never touch a training pipeline."
         }
       ]
     },
@@ -104,7 +104,7 @@
     },
     {
       "question": "Is the platform HIPAA compliant?",
-      "answer": "HIPAA compliant on SOC 2 Type II certified infrastructure. AES-256 encrypted end to end. BAAs signed with every client. Your records stay out of any training pipeline, and you control when data is deleted."
+      "answer": "IME records contain claimant PHI that falls under strict federal and state privacy rules. We sign a BAA before your first upload, encrypt everything with AES-256, and hold SOC 2 Type II certification. Your records never enter any training pipeline — and you choose when they're deleted."
     }
   ],
   "relatedPages": [

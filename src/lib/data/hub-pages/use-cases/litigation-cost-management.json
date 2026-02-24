@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "Reduce Litigation Document Costs with AI — Cut Document Processing Costs by 80%+",
-    "description": "Reduce litigation costs with AI-powered document processing. Dodonai delivers deposition summaries, medical chronologies, and e-discovery review at a fraction of traditional vendor pricing. AI litigation cost savings start on your first case.",
+    "title": "Reduce Litigation Costs with AI Document Processing — Save 80%+ Per Case",
+    "description": "Reduce litigation costs with AI-powered document processing. Dodonai delivers deposition summaries, medical chronologies, and e-discovery review at a fraction of traditional vendor pricing. ROI starts on your first case.",
     "canonical": "/use-cases/litigation-cost-management/"
   },
   "breadcrumbs": [
@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "Where Litigation Costs Accumulate — and Where AI Cuts Them",
       "paragraphs": [
-        "The largest share of litigation costs goes to people reading documents. Paralegals spending days building medical chronologies. Associates drafting deposition summaries. Contract reviewers working through discovery page by page. The manual approach scales linearly — twice the documents means twice the cost. Outsourcing just shifts the expense to a vendor charging $5 to $25 per page.",
+        "The largest share of litigation costs goes to people reading documents. Paralegals spending days building medical chronologies. Associates drafting deposition summaries. Contract reviewers working through discovery page by page. The manual approach scales linearly — twice the documents means twice the cost. Outsourcing just shifts the expense to nurse reviewers and summary services charging $5 to $25 per page.",
         "AI-powered document processing breaks this cost curve. Dodonai processes documents at a fixed cost per page, delivering structured outputs in minutes. A 300-page {{link:/deposition-summary-software/|deposition summary}} that costs $1,500-$7,500 from a vendor costs under $10 with Dodonai. A 500-page {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} that takes a paralegal two full days costs under $15. These per-case savings compound across a firm's entire caseload to reduce litigation document costs substantially.",
-        "The quality holds up. Dodonai's AI outputs include page citations so you can verify against the source document. The work product is on par with a skilled human reviewer, but the cost and turnaround aren't in the same universe. Firms that adopt AI document processing gain a structural advantage — better margins on contingency, more competitive billing on hourly matters."
+        "The quality holds up. Dodonai's AI outputs include page citations so you can verify against the source document. The work product is on par with a skilled human reviewer, but the cost and turnaround aren't in the same universe. Firms that adopt AI document processing gain an edge that compounds across every case — better margins on contingency, more competitive billing on hourly matters."
       ]
     },
     {
@@ -67,7 +67,8 @@
         ["500-page medical chronology", "$4,000 – $10,000", "~$10", "99%+"],
         ["1,000-page e-discovery review", "$500 – $1,500 (contract attorneys)", "~$20", "96%+"],
         ["100-page scanned document OCR", "$200 – $500 (outsourced)", "~$2", "99%+"],
-        ["50-contract data extraction", "$2,500 – $5,000 (manual review)", "~$30", "99%+"]
+        ["50-contract data extraction", "$2,500 – $5,000 (manual review)", "~$30", "99%+"],
+        ["Free trial available", "Yes — no credit card", "No", "N/A"]
       ]
     },
     {
@@ -111,7 +112,7 @@
     },
     {
       "question": "Is Dodonai secure enough for confidential litigation documents?",
-      "answer": "SOC 2 Type II certified, HIPAA compliant with signed BAAs, and AES-256 encrypted in transit and at rest. Your documents never train our models, and you set the retention schedule."
+      "answer": "Lower cost doesn't mean lower security. SOC 2 Type II certified, HIPAA compliant with signed BAAs, AES-256 encrypted. Your documents never train our models. You control retention and deletion."
     }
   ],
   "relatedPages": [
@@ -143,6 +144,6 @@
   ],
   "ctaOverride": {
     "headline": "See How Much Your Firm Can Save",
-    "description": "Upload a deposition transcript or medical record set and compare the cost and turnaround to your current process. Free trial with no credit card required."
+    "description": "Upload a deposition transcript or medical record set and compare the cost and speed to your current process. No credit card required."
   }
 }

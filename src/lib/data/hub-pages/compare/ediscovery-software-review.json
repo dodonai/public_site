@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "eDiscovery Software Review (2026) — AI-Native vs. Legacy Platforms Compared",
-    "description": "Compare eDiscovery software options for law firms and legal teams. See how AI-native tools like Dodonai offer semantic search and document review at a fraction of legacy platform costs.",
+    "title": "eDiscovery Software Comparison (2026) — AI vs. Legacy Platforms",
+    "description": "Compare eDiscovery software for law firms. See how AI-native eDiscovery tools like Dodonai deliver semantic search and document review at a fraction of legacy platform costs.",
     "canonical": "/compare/ediscovery-software-review/"
   },
   "breadcrumbs": [
@@ -23,8 +23,8 @@
       "heading": "What to Look for in eDiscovery Software",
       "paragraphs": [
         "Opposing counsel just produced 50,000 documents and the review deadline is three weeks out. Your choice of eDiscovery software decides whether your team finds the critical evidence or drowns in keyword-only search results with production bottlenecks.",
-        "Search quality is the most important capability to evaluate. Traditional eDiscovery platforms rely on keyword and Boolean search — you only find documents containing your exact terms. AI-native electronic discovery platforms like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning, catching synonyms, paraphrased concepts, and contextual references that keyword search misses. That's often where the strongest evidence lives.",
-        "Cost is the other make-or-break factor. Legacy platforms from vendors like Relativity and Everlaw require annual contracts starting at $50,000+, plus per-gigabyte hosting fees. For solo practitioners, small firms, and mid-size teams, those numbers are prohibitive. AI-native eDiscovery software puts the same search capability within reach for any practice size."
+        "Search quality is the most important capability to evaluate. Traditional eDiscovery platforms rely on keyword and Boolean search — you only find documents containing your exact terms. AI-native eDiscovery tools and electronic discovery platforms like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning, catching synonyms, paraphrased concepts, and contextual references that keyword search misses. That's often where the strongest evidence lives.",
+        "Cost is the other make-or-break factor. Legacy platforms from vendors like Relativity and Everlaw require annual contracts starting at $50,000+, plus per-gigabyte hosting fees. For solo practitioners, small firms, and mid-size teams, those numbers are prohibitive. AI-native eDiscovery software puts the same search capability within reach for any practice size. For firms that need eDiscovery review without the enterprise price tag, Dodonai covers the core workflow — ingest, search, review, and export."
       ]
     },
     {
@@ -40,7 +40,8 @@
         ["Built-in OCR for scanned documents", true, "Varies (often add-on)", false],
         ["Setup and training time", "Minutes", "Weeks to months", "N/A"],
         ["SOC 2 Type II certified", true, "Varies", "N/A"],
-        ["Long-term contract required", false, "Typically 1-3 years", "N/A"]
+        ["Long-term contract required", false, "Typically 1-3 years", "N/A"],
+        ["Free trial available", true, false, "N/A"]
       ]
     },
     {
@@ -107,7 +108,7 @@
     },
     {
       "question": "Is Dodonai secure enough for litigation document review?",
-      "answer": "SOC 2 Type II certified, HIPAA compliant, BAAs signed on every account. AES-256 encryption in transit and at rest. Your documents never touch a training pipeline, and you set the retention rules."
+      "answer": "Every plan includes SOC 2 Type II certification, HIPAA compliance, and a signed BAA. Documents are AES-256 encrypted in both directions. We never use your litigation files for model training, and your firm controls when data gets removed."
     },
     {
       "question": "Can Dodonai handle scanned documents in an eDiscovery collection?",

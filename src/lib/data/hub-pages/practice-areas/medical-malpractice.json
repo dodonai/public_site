@@ -102,11 +102,11 @@
     },
     {
       "question": "Is Dodonai secure enough for medical malpractice records?",
-      "answer": "HIPAA compliant, BAAs signed on every account. SOC 2 Type II certified infrastructure with AES-256 encryption. Patient records never touch a training pipeline. You set the retention schedule and can delete anytime."
+      "answer": "Medmal records carry some of the most sensitive PHI in litigation. We sign BAAs on every account, hold SOC 2 Type II certification, and encrypt with AES-256. None of it touches a training pipeline. Deletion is on your schedule."
     },
     {
       "question": "How does AI document processing reduce costs for medmal firms?",
-      "answer": "Outsourced record review and nurse reviewer services run $5 to $15 per page. Dodonai processes pages for as little as $0.02 each. For firms managing multiple active medmal cases, the per-case savings are significant given the volume these cases generate."
+      "answer": "Outsourced nurse reviewers typically charge $5 to $15 per page. Dodonai processes pages for as little as $0.02 each. For firms managing multiple active medmal cases, for firms juggling multiple active medmal cases, the math works out quickly."
     }
   ],
   "relatedPages": [

@@ -23,7 +23,7 @@
       "heading": "How AI Contract Review Works for Legal Teams",
       "paragraphs": [
         "Your team just got 80 vendor contracts for due diligence and needs the key terms pulled by Friday. Manually, that's a week of work. With AI contract review software, it's an afternoon.",
-        "Dodonai's {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} automate the extraction and structuring phase of contract review. You define what data points matter — termination clauses, indemnification provisions, payment terms, renewal dates, governing law — and the AI reads each contract to extract those specific elements. The output is a structured summary that organizes the extracted terms consistently across all agreements, with every data point tracing to the exact source page.",
+        "Dodonai's {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} automate contract extraction and the structuring phase of contract review. You define what data points matter — termination clauses, indemnification provisions, payment terms, renewal dates, governing law — and the AI reads each contract to extract those specific elements. The output is a structured summary that organizes the extracted terms consistently across all agreements, with every data point tracing to the exact source page.",
         "This doesn't replace attorney judgment on contract risk or negotiation strategy. It eliminates the hours of manual reading required to gather the information attorneys need to make those judgments. When your team can review key terms from 50 contracts in the time it used to take to read 5, due diligence timelines shrink and contract management becomes proactive instead of reactive."
       ]
     },
@@ -99,7 +99,7 @@
     },
     {
       "question": "Is my contract data secure?",
-      "answer": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted in transit and at rest. Your contracts never enter a training pipeline. You choose when files get deleted."
+      "answer": "Your contracts don't leave an encrypted environment. SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted end to end. Nothing you upload trains our models — and you choose when files get deleted."
     }
   ],
   "relatedPages": [
@@ -130,6 +130,6 @@
   ],
   "ctaOverride": {
     "headline": "Extract Key Terms from Your Contracts in Minutes",
-    "description": "Upload a contract and see how Dodonai's Extract and Draft Agents pull the data points that matter. Free trial with no credit card required."
+    "description": "Upload a contract and see how Extract and Draft Agents pull the data points that matter. No credit card, no commitment."
   }
 }

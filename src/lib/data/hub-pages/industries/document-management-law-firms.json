@@ -24,8 +24,8 @@
       "paragraphs": [
         "Every law firm has a document management problem, and it's not about storage. You've got no trouble saving files to shared drives, case management platforms, or cloud folders. The problem is that the documents sitting in those systems are unprocessed — unread transcripts, unsummarized medical records, scanned files that aren't searchable, discovery productions nobody has time to review page by page.",
         "The documents are stored. The information inside them isn't accessible.",
-        "Legal document management software should close that gap. Dodonai processes the content of every document you upload instead of treating files as static objects retrieved by filename. Medical records become structured chronologies. Deposition transcripts become searchable, cited summaries. Scanned PDFs become readable text through {{link:/ai-pdf-ocr/|AI-powered OCR}}. Discovery productions become filterable, reviewable datasets.",
-        "Attorneys and paralegals spend less time reading and more time analyzing. Case prep timelines compress. And work product quality goes up because AI-generated outputs include references to the original documents — every data point is verifiable."
+        "Legal document management software — real document management for law firms, not just file storage — should close that gap. Dodonai processes the content of every document you upload instead of treating files as static objects retrieved by filename. Medical records become structured chronologies. Deposition transcripts become searchable, cited summaries. Scanned PDFs become readable text through {{link:/ai-pdf-ocr/|AI-powered OCR}}. Discovery productions become filterable, reviewable datasets.",
+        "Attorneys and paralegals shift from reading raw files to reviewing structured outputs. Case prep timelines compress. And work product quality goes up because AI-generated outputs include references to the original documents — every data point is verifiable."
       ]
     },
     {
@@ -88,7 +88,7 @@
     },
     {
       "question": "How does Dodonai handle document security and confidentiality?",
-      "answer": "The platform carries SOC 2 Type II certification and HIPAA compliance with signed BAAs. Documents are encrypted with AES-256, never enter a training pipeline, and your firm controls retention — delete on your schedule."
+      "answer": "Dodonai is a processing layer, not a storage layer — but we treat security the same way your DMS does. SOC 2 Type II certified, HIPAA compliant with signed BAAs, AES-256 encrypted. Documents never enter a training pipeline, and your firm controls the deletion schedule."
     },
     {
       "question": "Can multiple people at the firm use the same account?",
@@ -127,6 +127,6 @@
   ],
   "ctaOverride": {
     "headline": "Turn File Storage into Legal Document Management",
-    "description": "Upload a case file and see how Dodonai processes it into organized, searchable, citable work product. Free trial with no credit card required."
+    "description": "Upload a case file and see how Dodonai processes it into organized, searchable, citable work product. No credit card required."
   }
 }

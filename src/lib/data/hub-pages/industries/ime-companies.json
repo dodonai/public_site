@@ -59,7 +59,7 @@
         {
           "icon": "dollar",
           "title": "70-90% Lower Per-Case Costs",
-          "description": "Per-page pricing means you pay only for what you process — at a fraction of outsourced review costs. No seats, no minimums."
+          "description": "Per-page pricing means you pay only for what you process — at a fraction of what outsourced nurse reviewers or record review services charge. No seats, no minimums."
         }
       ]
     },
@@ -92,7 +92,8 @@
         ["Per-page pricing with no minimum commitment", true, false],
         ["Each entry linked back to source records", true, false],
         ["HIPAA-compliant with signed BAAs", true, true],
-        ["No staff training or onboarding required", true, false]
+        ["No staff training or onboarding required", true, false],
+        ["Free trial available", true, false]
       ]
     }
   ],
@@ -111,7 +112,7 @@
     },
     {
       "question": "How does Dodonai ensure HIPAA compliance for IME workflows?",
-      "answer": "AES-256 encrypted in transit and at rest. SOC 2 Type II certified with signed BAAs for every client. Records never enter a training pipeline. You set your own retention policies and delete on your schedule."
+      "answer": "IME records carry claimant PHI subject to both federal HIPAA rules and state privacy regulations. Dodonai meets both — AES-256 encryption, SOC 2 Type II certification, and signed BAAs for every client. Records never enter a training pipeline, and your retention policies are the only ones that apply."
     },
     {
       "question": "What is the cost compared to outsourced medical record review?",

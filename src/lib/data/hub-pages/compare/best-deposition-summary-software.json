@@ -22,7 +22,7 @@
       "type": "content",
       "heading": "What to Look for in Deposition Summary Software",
       "paragraphs": [
-        "Your paralegal just spent eight hours on a single transcript. There's a faster way. The best deposition summary software preserves the factual substance of testimony, provides accurate page-line citations, and delivers results fast enough to keep pace with litigation deadlines. Those are the baseline requirements that separate useful tools from glorified text editors.",
+        "Your paralegal just spent eight hours on a single transcript. There's a faster way. The best deposition summary software generates a polished deposition summary with accurate page-line citations and delivers results fast enough to keep pace with litigation deadlines. Those are the baseline requirements that separate useful tools from glorified text editors.",
         "Look for software that supports multiple output formats — a page-line summary of deposition testimony, a narrative overview, or an issue-based digest. The best {{link:/blog/how-to-draft-a-page-line-deposition-summary/|AI deposition summary}} tools offer all three from a single upload.",
         "Security and data privacy matter. Deposition transcripts contain sensitive client information, attorney work product, and privileged communications. Any software you adopt should carry SOC 2 certification and use AES-256 encryption at rest and in transit.",
         "Finally, evaluate cost on a per-page or per-transcript basis rather than sticker price alone. Traditional deposition summary services charge $3 to $10 per page, which adds up on high-volume caseloads. AI deposition summary tools like {{link:/deposition-summary-software/|Dodonai}} cut that cost while maintaining quality."
@@ -102,7 +102,11 @@
     },
     {
       "question": "Is my deposition transcript data secure?",
-      "answer": "Locked down. SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted both ways. Dodonai doesn't train on your data, and you decide when it's deleted."
+      "answer": "Your transcripts stay encrypted (AES-256) from the moment they leave your machine. We hold SOC 2 Type II certification, sign BAAs on every account, and are fully HIPAA compliant. Nothing you upload ever trains our models — and deletion is on your timeline, not ours."
+    },
+    {
+      "question": "Where can I see a deposition summary example?",
+      "answer": "Sign up for a free trial and upload any transcript — you'll get a complete deposition summary example with page-line citations in about 3 minutes. You can also review a {{link:/blog/how-to-draft-a-page-line-deposition-summary/|step-by-step walkthrough}} showing exactly what the output looks like."
     },
     {
       "question": "What file types does Dodonai accept for deposition transcripts?",
@@ -110,7 +114,7 @@
     },
     {
       "question": "How does Dodonai compare to free AI tools like ChatGPT for deposition summaries?",
-      "answer": "General-purpose AI tools can't produce page-line citations, don't generate formatted digests, and most use your uploads for training. Dodonai was purpose-built for litigation — SOC 2 security, legal output formats, and deposition transcript handling baked in from day one."
+      "answer": "General-purpose AI tools can't produce page-line citations, don't generate formatted digests, and most use your uploads for training. Dodonai was purpose-built for litigation — SOC 2 security, legal output formats, and deposition transcript handling built into the product from the start."
     }
   ],
   "relatedPages": [
@@ -131,6 +135,6 @@
   ],
   "ctaOverride": {
     "headline": "Try AI Deposition Summaries Free",
-    "description": "Upload your first transcript and get a complete deposition summary in minutes. No credit card required."
+    "description": "Upload a transcript and see the summary output for yourself. No credit card required."
   }
 }
