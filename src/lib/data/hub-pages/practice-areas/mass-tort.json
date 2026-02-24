@@ -22,8 +22,8 @@
       "type": "content",
       "heading": "Why Mass Tort Firms Need AI Document Processing",
       "paragraphs": [
-        "Mass tort litigation is defined by volume and the need for consistency across it. Whether you are managing an MDL with thousands of claimants, running a state-court consolidation, or building your firm's case inventory for a developing litigation, every plaintiff needs the same level of documentation: organized medical records, completed plaintiff fact sheets, and a damages profile your team can use for triage and settlement modeling.",
-        "Traditional approaches do not scale to MDL volumes. Hiring additional paralegals, outsourcing to record review vendors at $5 to $15 per page, or relying on contract attorneys all introduce bottlenecks and inconsistencies. When the PSC sets a plaintiff fact sheet deadline or the transferee court orders a case census, you need to process hundreds of claimant files on the same timeline — not wait months for manual review to trickle in.",
+        "Mass tort litigation is defined by volume and the need for consistency across it. MDL with thousands of claimants, state-court consolidation, developing litigation — every plaintiff needs the same level of documentation: organized medical records, completed plaintiff fact sheets, and a damages profile your team can use for triage and settlement modeling.",
+        "Traditional approaches don't scale to MDL volumes. Hiring additional paralegals, outsourcing to record review vendors at $5 to $15 per page, or relying on contract attorneys all introduce bottlenecks and inconsistencies. When the PSC sets a plaintiff fact sheet deadline or the transferee court orders a case census, you need to process hundreds of claimant files on the same timeline — not wait months for manual review to trickle in.",
         "AI document processing changes the economics. Dodonai's platform ingests medical records in bulk, generates {{link:/ai-medical-record-summaries-chronologies/|medical chronologies and summaries}} for each claimant, and delivers consistent, structured outputs your team can use immediately for PFS completion, bellwether selection, settlement grid stratification, and trial preparation. The AI handles scanned and handwritten records through built-in {{link:/ai-pdf-ocr/|OCR}}, so records from any provider are processed without manual preprocessing.",
         "Dodonai is SOC 2 Type II certified and HIPAA compliant, which means protected health information across all claimant files is handled with enterprise-grade security. Your data is encrypted with AES-256, never used to train AI models, and subject to your full control over retention and deletion."
       ]
@@ -116,11 +116,11 @@
     },
     {
       "question": "Is Dodonai secure enough for mass tort medical records?",
-      "answer": "Dodonai is HIPAA compliant with signed Business Associate Agreements and SOC 2 Type II certified. All data is encrypted with AES-256 in transit and at rest. Your claimant data is never used to train AI models, and you retain full control over data retention and deletion policies."
+      "answer": "Dodonai holds SOC 2 Type II certification and signs BAAs with every client. All claimant data is encrypted with AES-256, never used for model training, and subject to your retention and deletion policies."
     },
     {
       "question": "How does Dodonai handle scanned records from older medical providers?",
-      "answer": "Mass tort cases often involve records from dozens of different providers, many of which deliver scanned PDFs, faxed copies, or documents with handwritten notes. Dodonai includes built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} that extracts text from these documents automatically. You do not need to run records through a separate OCR tool before uploading."
+      "answer": "Mass tort cases often involve records from dozens of different providers, many of which deliver scanned PDFs, faxed copies, or documents with handwritten notes. Dodonai includes built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} that extracts text from these documents automatically. You don't need to run records through a separate OCR tool before uploading."
     }
   ],
   "relatedPages": [

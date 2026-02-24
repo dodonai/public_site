@@ -24,7 +24,7 @@
       "paragraphs": [
         "Every PI case follows the same documentation arc: records requests go out after intake, medical records pile up from ERs, orthopedics, pain management, and PT, your team builds the med chron, and then the real work begins — evaluating specials, projecting future medicals, and putting together a demand package that moves the adjuster. The firms that compress that documentation cycle are the ones sending demands sooner and resolving cases faster.",
         "AI document processing tools like Dodonai handle the heaviest part of that cycle. Upload a plaintiff's records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with provider-by-provider timelines, diagnoses, treatments, and source-page citations — the same organized foundation you need for calculating specials, identifying treatment gaps, and supporting your damages narrative. Upload a deposition transcript and get a {{link:/deposition-summary-software/|page-line or narrative summary}} that flags liability admissions, causation testimony, and damages evidence ready for attorney review.",
-        "This is not about replacing your team's judgment. It is about eliminating the mechanical work of reading, extracting, and formatting so that attorneys and paralegals can spend their time on case valuation, settlement strategy, and client communication. Whether you are preparing a policy limits demand, assembling a demand package for a soft-tissue case, or building the life care plan foundation for a catastrophic injury, organized documentation is where it all starts.",
+        "Your attorneys and paralegals still drive case valuation, settlement strategy, and client communication — AI just eliminates the mechanical work of reading, extracting, and formatting that eats up their time. Policy limits demand, soft-tissue demand package, life care plan foundation for a catastrophic injury — whatever you're assembling, organized documentation is where it starts.",
         "Dodonai is SOC 2 Type II certified and HIPAA compliant, which means your clients' protected health information stays secure throughout the summarization process."
       ]
     },
@@ -97,7 +97,7 @@
     },
     {
       "question": "Is Dodonai secure enough for medical records and litigation documents?",
-      "answer": "Yes. Dodonai is HIPAA compliant with signed Business Associate Agreements and SOC 2 Type II certified. All documents are encrypted with AES-256 in transit and at rest. Your data is never used to train AI models, and you have full control over data retention and deletion."
+      "answer": "Every plan includes HIPAA compliance with signed BAAs, SOC 2 Type II certification, and AES-256 encryption for all documents. We don't use your data for model training, and you decide when it gets deleted."
     },
     {
       "question": "Does Dodonai handle scanned medical records from providers?",

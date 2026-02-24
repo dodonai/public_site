@@ -25,7 +25,7 @@
         "Case management is fundamentally a document management problem. Every case involves gathering records, organizing evidence, summarizing testimony, tracking deadlines, and producing work product. The firms that process documents faster gain a measurable advantage in case throughput, cost control, and client outcomes.",
         "Most case management platforms handle the organizational layer — contacts, calendars, tasks, and file storage. But they leave the actual document processing to your team. Someone still has to read through a 300-page deposition transcript, summarize a plaintiff's medical records, extract key data from discovery documents, and format everything for attorney review. This is where the majority of paralegal and associate time goes, and it is where AI delivers the greatest return.",
         "Dodonai plugs into your existing case management workflow as the document processing layer. Upload files from your case management system, and Dodonai returns structured outputs — {{link:/deposition-summary-software/|deposition summaries}}, {{link:/ai-medical-record-summaries-chronologies/|medical chronologies}}, {{link:/ai-deposition-transcript-software/|searchable transcripts}}, and {{link:/dodonai-extract-and-draft-agents/|custom extracts}} — that your team can drop directly into case files, demand letters, discovery responses, and trial binders.",
-        "This is not a replacement for your case management platform. It is the processing engine that makes everything inside your case management system more useful, more organized, and more accessible."
+        "Dodonai doesn't replace your case management platform — it's the processing engine that makes everything inside it more useful, more organized, and more accessible."
       ]
     },
     {
@@ -85,7 +85,7 @@
   "faq": [
     {
       "question": "Does Dodonai replace our case management software?",
-      "answer": "No. Dodonai is a document processing tool that complements your existing case management platform. It handles the AI-powered summarization, search, and extraction tasks that case management software does not do. You continue to use your current platform for contacts, calendars, task tracking, and file storage. Dodonai processes the documents and delivers structured outputs that you save into your case management system."
+      "answer": "No. Dodonai is a document processing tool that complements your existing case management platform. It handles the AI-powered summarization, search, and extraction tasks that case management software doesn't do. You continue to use your current platform for contacts, calendars, task tracking, and file storage. Dodonai processes the documents and delivers structured outputs that you save into your case management system."
     },
     {
       "question": "What types of documents can Dodonai process for our cases?",
@@ -93,7 +93,7 @@
     },
     {
       "question": "How does Dodonai handle security for law firm documents?",
-      "answer": "Dodonai is SOC 2 Type II certified and HIPAA compliant. All documents are encrypted in transit and at rest using AES-256 encryption. Your data is never used to train AI models, and you retain full control over data retention and deletion. We sign Business Associate Agreements for firms handling protected health information."
+      "answer": "Dodonai is SOC 2 Type II certified and HIPAA compliant with signed BAAs. All documents get AES-256 encryption in transit and at rest. We don't use your data to train AI models, and you keep full control over retention and deletion."
     },
     {
       "question": "Can multiple attorneys and paralegals use the same Dodonai account?",

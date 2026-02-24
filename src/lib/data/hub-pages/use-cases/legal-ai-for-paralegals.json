@@ -24,7 +24,7 @@
       "paragraphs": [
         "Paralegals are the backbone of document processing in litigation. Building medical chronologies, drafting deposition digests, searching through transcript testimony, organizing discovery productions, preparing privilege logs, and formatting work product for attorney review — these tasks consume the majority of a paralegal's day. They are also the tasks where AI delivers the most immediate and measurable productivity gains.",
         "Dodonai is designed for the way paralegals actually work. Upload a stack of medical records and get a complete chronology in minutes instead of spending an entire day manually reading through SOAP notes and operative reports. Upload a deposition transcript and receive a page-line summary instead of spending hours drafting one from scratch. Search across all the transcripts in a case with a natural language query instead of scrolling through hundreds of pages looking for a specific admission or a witness's testimony on a particular topic.",
-        "The goal is not to replace paralegal judgment — it is to eliminate the mechanical labor that consumes your time without requiring your expertise. AI handles the reading, extracting, and formatting. You handle the analysis, quality control, and case strategy support that attorneys depend on — reviewing the chronology for case-relevant issues, flagging inconsistencies in testimony, and making sure the work product is right before it goes to the attorney."
+        "AI handles the reading, extracting, and formatting — the mechanical labor that eats up your time without requiring your expertise. You handle the analysis, quality control, and case strategy support attorneys depend on: reviewing the chronology for case-relevant issues, flagging inconsistencies in testimony, and making sure the work product is right before it goes to the attorney."
       ]
     },
     {
@@ -68,7 +68,7 @@
       "items": [
         {
           "title": "Upload Your Documents",
-          "description": "Upload medical records, deposition transcripts, discovery productions, or any other case documents to Dodonai. The platform handles PDFs, Word files, text files, and scanned documents. There is no formatting or cleanup required before uploading."
+          "description": "Upload medical records, deposition transcripts, discovery productions, or any other case documents to Dodonai. The platform handles PDFs, Word files, text files, and scanned documents. There's no formatting or cleanup required before uploading."
         },
         {
           "title": "Select the Task and Customize",
@@ -100,7 +100,7 @@
     },
     {
       "question": "Is Dodonai secure enough for confidential legal documents?",
-      "answer": "Yes. Dodonai is SOC 2 Type II certified and HIPAA compliant. All documents are encrypted using AES-256 in transit and at rest. Your data is never used to train AI models, and you maintain full control over data retention and deletion. These security standards meet the requirements of law firms handling privileged attorney-client communications and protected health information."
+      "answer": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted — your firm's security requirements are covered. Documents are never used for model training, and you retain full control over what stays and what gets deleted."
     },
     {
       "question": "How much does Dodonai cost for a paralegal to use?",
