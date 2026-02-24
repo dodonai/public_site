@@ -24,7 +24,7 @@
       "paragraphs": [
         "A single medmal case can generate thousands of pages of hospital records, SOAP notes, lab results, and imaging reports spanning years of treatment. Finding the clinical details that prove a breach in care means reading all of it. Medical malpractice record analysis at this volume is where cases stall or accelerate.",
         "Beyond volume, medmal discovery presents unique analytical complexity. Your team needs to map the differential diagnosis process, evaluate treatment decisions against clinical practice guidelines, identify where the standard of care was breached, and trace a causal chain from the provider's actions to the patient's harm. In states requiring a pre-suit certificate of merit, you need this analysis organized before you can even file.",
-        "Doing all of this manually — reading every page, cross-referencing providers and dates, building a coherent timeline from disorganized records — consumes weeks of paralegal and nurse reviewer time per case. That's where AI-powered medmal discovery processing makes the difference.",
+        "Doing all of this manually — reading every page, cross-referencing providers and dates, building a coherent timeline from disorganized records — consumes weeks of paralegal and nurse reviewer time per case. AI-powered medmal discovery processing eliminates that bottleneck.",
         "Dodonai extracts key clinical events, organizes them chronologically, and produces {{link:/ai-medical-record-summaries-chronologies/|detailed medical chronologies}} so you can verify any claim against the source document. This gives your team a structured foundation for identifying standard of care deviations, informed consent gaps, and the causation evidence your experts need.",
         "With organized chronologies and {{link:/deposition-summary-software/|deposition summaries}} generated in minutes, your attorneys can focus on evaluating whether the differential diagnosis was reasonable, whether clinical practice guidelines were followed, and whether the causal chain holds up."
       ]
@@ -102,7 +102,7 @@
     },
     {
       "question": "Is Dodonai secure enough for medical malpractice records?",
-      "answer": "HIPAA compliant with BAAs on every account. SOC 2 Type II certified, AES-256 encrypted, and we never train on client data. You control retention and deletion."
+      "answer": "HIPAA compliant, BAAs signed on every account. SOC 2 Type II certified infrastructure with AES-256 encryption. Patient records never touch a training pipeline. You set the retention schedule and can delete anytime."
     },
     {
       "question": "How does AI document processing reduce costs for medmal firms?",

@@ -20,7 +20,7 @@
   "sections": [
     {
       "type": "content",
-      "heading": "Workers' Compensation Software for Claims Professionals",
+      "heading": "Workers' Compensation Software for Medical Records and Claims",
       "paragraphs": [
         "Every workers' comp claim comes down to the medical record: what happened at the workplace, what the treating physician found, and what the IME doctor said about it. Claimant attorneys need organized medical histories tracing the full arc from date of injury through TTD, surgical interventions, and final work restrictions. Defense attorneys and adjusters need the same records to evaluate exposure, identify pre-existing conditions for apportionment, and assess whether treatment was reasonable and necessary.",
         "Volume is the real problem. A single claim can involve records from ER visits, orthopedics, PT, and IME or QME evaluators — arriving as digital PDFs, scanned faxes, and handwritten physician notes. Manually building a workers comp medical chronology that tracks each provider's findings on work restrictions, impairment, and functional capacity consumes hours of paralegal time per claim.",
@@ -92,7 +92,7 @@
     },
     {
       "question": "Is Dodonai HIPAA compliant for workers' compensation records?",
-      "answer": "Yes. HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encrypted. Your claimant data never trains our models, and you control retention and deletion."
+      "answer": "Fully compliant. Signed BAAs on every account, SOC 2 Type II certification, AES-256 encryption at rest and in transit. Claimant records never enter a training pipeline, and you set your own retention schedule."
     },
     {
       "question": "How much does workers' comp document processing cost with Dodonai?",

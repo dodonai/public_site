@@ -11,7 +11,7 @@
   ],
   "hero": {
     "headline": "AI Document Processing for Product Liability Attorneys",
-    "subheadline": "Product liability discovery produces enormous volumes from both sides — corporate documents, regulatory filings, plaintiff medical records, expert depositions. Dodonai processes them at scale into organized summaries, chronologies, and searchable text.",
+    "subheadline": "Product liability discovery produces enormous volumes from both sides — corporate documents, regulatory filings, plaintiff medical records, expert depositions. Dodonai processes all of it into organized summaries, chronologies, and searchable text — thousands of pages per case.",
     "ctaText": "Start Free Trial",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Pricing",
@@ -91,7 +91,7 @@
     },
     {
       "question": "Is Dodonai secure enough for documents under protective orders?",
-      "answer": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted. Your documents never train our models, and you keep full control over retention and deletion — the standards protective orders require."
+      "answer": "SOC 2 Type II certified, HIPAA compliant with signed BAAs, AES-256 encrypted end to end. Documents never enter a training pipeline. You maintain full control over retention and deletion — meeting the standards protective orders demand."
     },
     {
       "question": "What does product liability document processing cost with Dodonai?",

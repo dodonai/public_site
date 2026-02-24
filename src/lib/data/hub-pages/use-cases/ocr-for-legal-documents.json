@@ -96,7 +96,7 @@
   "faq": [
     {
       "question": "How is AI OCR different from traditional OCR for legal documents?",
-      "answer": "Traditional OCR recognizes characters by shape, which fails on degraded scans, handwriting, and complex layouts. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} uses language models to understand context — recognizing that a string in a medical record is likely a diagnosis or medication — dramatically improving accuracy on legal document types."
+      "answer": "Traditional OCR recognizes characters by shape, which fails on degraded scans, handwriting, and complex layouts. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} uses language models to understand context — recognizing that a string in a medical record is likely a diagnosis or medication — which closes the accuracy gap on the document types legal teams actually encounter."
     },
     {
       "question": "Can Dodonai's OCR read handwritten physician notes?",
@@ -112,7 +112,7 @@
     },
     {
       "question": "Is Dodonai's OCR HIPAA compliant?",
-      "answer": "Every plan includes HIPAA compliance, SOC 2 Type II certification, and AES-256 encryption. We sign BAAs and your scanned documents never train our models."
+      "answer": "Yes. HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encrypted end to end. Scanned documents never enter a training pipeline, and you control retention and deletion."
     },
     {
       "question": "How much does AI OCR for legal documents cost?",

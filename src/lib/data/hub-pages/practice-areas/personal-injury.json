@@ -10,8 +10,8 @@
     { "name": "Personal Injury" }
   ],
   "hero": {
-    "headline": "AI Document Processing Built for Personal Injury Firms",
-    "subheadline": "PI cases generate thousands of pages of medical records and transcripts. Dodonai turns that paperwork into organized summaries and chronologies in minutes — so your team focuses on case strategy and client outcomes.",
+    "headline": "Personal Injury Case Management — AI Document Processing for PI Firms",
+    "subheadline": "PI cases generate thousands of pages of medical records and transcripts. Dodonai turns that paperwork into organized summaries and chronologies in minutes — so your team stays focused on case strategy and client outcomes.",
     "ctaText": "Try It With Your Records",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Pricing",
@@ -20,10 +20,10 @@
   "sections": [
     {
       "type": "content",
-      "heading": "How Personal Injury Firms Use AI Document Processing",
+      "heading": "How Personal Injury Firms Use AI for Case Management",
       "paragraphs": [
-        "Every PI case follows the same documentation arc: records requests go out after intake, medical records pile up from ERs, orthopedics, and PT, your team builds the med chron, and then the real work begins — evaluating specials, projecting future medicals, and putting together a demand package that moves the adjuster. The firms that compress that documentation cycle are the ones sending demands sooner and resolving cases faster.",
-        "A personal injury medical record summary used to mean days of paralegal time per case. Dodonai handles that in minutes. Upload a plaintiff's records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with provider-by-provider timelines, diagnoses, treatments, and source-page citations — the organized foundation you need for calculating specials, identifying treatment gaps, and supporting your damages narrative. Upload a deposition transcript and get a {{link:/deposition-summary-software/|page-line or narrative summary}} that flags liability admissions, causation testimony, and damages evidence.",
+        "Every PI case follows the same documentation arc: records requests go out after intake, medical records pile up from ERs, orthopedics, and PT, your team builds the med chron, and then the real work begins — evaluating specials, projecting future medicals, putting together a demand package that moves the adjuster. Firms that compress the documentation cycle send demands sooner and resolve cases faster.",
+        "A personal injury medical record summary used to mean days of paralegal time per case. Dodonai handles it in minutes. Upload a plaintiff's records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with provider-by-provider timelines, diagnoses, treatments, and source-page citations — the organized foundation for calculating specials, identifying treatment gaps, and supporting your damages narrative. Upload a deposition transcript and get a {{link:/deposition-summary-software/|page-line or narrative summary}} flagging liability admissions, causation testimony, and damages evidence.",
         "Your attorneys and paralegals still drive case valuation, settlement strategy, and client communication — AI just eliminates the mechanical work that eats up their time. Policy limits demand, soft-tissue demand package, life care plan foundation for a catastrophic injury — whatever you're assembling, it starts with organized documentation.",
         "Your clients' PHI stays locked down — SOC 2 Type II certified, HIPAA compliant with signed BAAs, and AES-256 encrypted end to end."
       ]
@@ -97,7 +97,7 @@
     },
     {
       "question": "Is Dodonai secure enough for medical records and litigation documents?",
-      "answer": "Every plan includes HIPAA compliance with signed BAAs, SOC 2 Type II certification, and AES-256 encryption for all documents. We don't use your data for model training, and you decide when it gets deleted."
+      "answer": "HIPAA compliant with BAAs on every account. SOC 2 Type II certified. AES-256 encryption for everything uploaded. Your data stays out of any training pipeline, and you choose when it gets deleted."
     },
     {
       "question": "Does Dodonai handle scanned medical records from providers?",

@@ -116,7 +116,7 @@
     },
     {
       "question": "Is Dodonai secure enough for mass tort medical records?",
-      "answer": "Dodonai holds SOC 2 Type II certification and signs BAAs with every client. All claimant data is encrypted with AES-256, never used for model training, and subject to your retention and deletion policies."
+      "answer": "SOC 2 Type II certified with signed BAAs on every account. Claimant data gets AES-256 encryption in transit and at rest, stays out of any training pipeline, and follows your firm's retention policies. You control deletion."
     },
     {
       "question": "How does Dodonai handle scanned records from older medical providers?",

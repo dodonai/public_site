@@ -22,7 +22,7 @@
       "type": "content",
       "heading": "Where Litigation Costs Accumulate — and Where AI Cuts Them",
       "paragraphs": [
-        "The majority of litigation spending goes to people reading documents. Paralegals spending days building medical chronologies. Associates drafting deposition summaries. Contract reviewers working through discovery page by page. The manual approach scales linearly — twice the documents means twice the cost. Outsourcing just shifts the expense to a vendor charging $5 to $25 per page.",
+        "The largest share of litigation costs goes to people reading documents. Paralegals spending days building medical chronologies. Associates drafting deposition summaries. Contract reviewers working through discovery page by page. The manual approach scales linearly — twice the documents means twice the cost. Outsourcing just shifts the expense to a vendor charging $5 to $25 per page.",
         "AI-powered document processing breaks this cost curve. Dodonai processes documents at a fixed cost per page, delivering structured outputs in minutes. A 300-page {{link:/deposition-summary-software/|deposition summary}} that costs $1,500-$7,500 from a vendor costs under $10 with Dodonai. A 500-page {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} that takes a paralegal two full days costs under $15. These per-case savings compound across a firm's entire caseload to reduce litigation document costs substantially.",
         "The quality holds up. Dodonai's AI outputs include page citations so you can verify against the source document. The work product is on par with a skilled human reviewer, but the cost and turnaround aren't in the same universe. Firms that adopt AI document processing gain a structural advantage — better margins on contingency, more competitive billing on hourly matters."
       ]
@@ -111,7 +111,7 @@
     },
     {
       "question": "Is Dodonai secure enough for confidential litigation documents?",
-      "answer": "Dodonai is SOC 2 Type II certified and HIPAA compliant with AES-256 encryption across the board. Your data stays out of any training pipeline, and you keep full deletion control."
+      "answer": "SOC 2 Type II certified, HIPAA compliant with signed BAAs, and AES-256 encrypted in transit and at rest. Your documents never train our models, and you set the retention schedule."
     }
   ],
   "relatedPages": [

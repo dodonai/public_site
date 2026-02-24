@@ -10,8 +10,8 @@
     { "name": "eDiscovery Software Review" }
   ],
   "hero": {
-    "headline": "eDiscovery Software Review: Finding the Right Fit for Your Firm",
-    "subheadline": "Legacy eDiscovery platforms cost $50,000+ per year and were built before AI. Modern alternatives offer semantic search, automated review, and production-ready exports at a fraction of the price.",
+    "headline": "eDiscovery Software Comparison: AI-Native vs. Legacy Platforms",
+    "subheadline": "Legacy eDiscovery platforms cost $50,000+ per year and were built before AI existed. Modern eDiscovery software offers semantic search, automated review, and production-ready exports — without the six-figure price tag.",
     "ctaText": "Start Free Trial",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See How It Works",
@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "What to Look for in eDiscovery Software",
       "paragraphs": [
-        "Your opposing counsel just produced 50,000 documents and the review deadline is in three weeks. This is exactly when your choice of eDiscovery platform matters most. The right platform accelerates document review, reduces costs, and helps attorneys find the evidence that counts. The wrong one buries critical documents in keyword-only search results and creates bottlenecks at production time.",
-        "The most important capability to evaluate is search quality. Traditional eDiscovery platforms rely on keyword and Boolean search, which means you only find documents containing your exact terms. AI-native electronic discovery platforms like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning. This catches synonyms, paraphrased concepts, and contextual references that keyword search misses -- often the most important evidence in a case.",
-        "Cost is the other critical factor. Legacy platforms from vendors like Relativity and Everlaw require annual contracts starting at $50,000+, plus per-gigabyte hosting fees. For solo practitioners, small firms, and mid-size teams, these costs are prohibitive. AI-native eDiscovery software makes the technology accessible to any practice — solo practitioners and small firms included."
+        "Opposing counsel just produced 50,000 documents and the review deadline is three weeks out. Your choice of eDiscovery software decides whether your team finds the critical evidence or drowns in keyword-only search results with production bottlenecks.",
+        "Search quality is the most important capability to evaluate. Traditional eDiscovery platforms rely on keyword and Boolean search — you only find documents containing your exact terms. AI-native electronic discovery platforms like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning, catching synonyms, paraphrased concepts, and contextual references that keyword search misses. That's often where the strongest evidence lives.",
+        "Cost is the other make-or-break factor. Legacy platforms from vendors like Relativity and Everlaw require annual contracts starting at $50,000+, plus per-gigabyte hosting fees. For solo practitioners, small firms, and mid-size teams, those numbers are prohibitive. AI-native eDiscovery software puts the same search capability within reach for any practice size."
       ]
     },
     {
@@ -55,7 +55,7 @@
         {
           "icon": "dollar",
           "title": "Accessible Pricing Without Enterprise Contracts",
-          "description": "$30/month. No per-gigabyte fees, no annual minimums, no multi-year lock-in. Affordable eDiscovery software that doesn't require a six-figure budget line."
+          "description": "$30/month. No per-gigabyte fees, no annual minimums, no multi-year lock-in. eDiscovery software that doesn't require a six-figure budget line."
         },
         {
           "icon": "bolt",
@@ -64,8 +64,8 @@
         },
         {
           "icon": "shield",
-          "title": "Enterprise Security at Every Plan Level",
-          "description": "SOC 2 Type II certified and HIPAA compliant at every plan level. AES-256 encryption, signed BAAs, and we never train on your litigation documents. You decide when data gets deleted."
+          "title": "Litigation-Grade Security on Every Plan",
+          "description": "SOC 2 Type II certified. HIPAA compliant with signed BAAs. AES-256 encryption across the board. Your litigation documents stay out of any training pipeline, and your firm sets the retention schedule."
         },
         {
           "icon": "folder",
@@ -107,7 +107,7 @@
     },
     {
       "question": "Is Dodonai secure enough for litigation document review?",
-      "answer": "Every plan includes SOC 2 Type II certification, HIPAA compliance with signed BAAs, and AES-256 encryption across the board. Your documents stay out of any training pipeline, and you control retention."
+      "answer": "SOC 2 Type II certified, HIPAA compliant, BAAs signed on every account. AES-256 encryption in transit and at rest. Your documents never touch a training pipeline, and you set the retention rules."
     },
     {
       "question": "Can Dodonai handle scanned documents in an eDiscovery collection?",
@@ -115,7 +115,7 @@
     },
     {
       "question": "How long does it take to set up Dodonai for eDiscovery?",
-      "answer": "Minutes. No installation, no database configuration, no training period. Upload your documents and the AI indexes everything automatically."
+      "answer": "Minutes. There's no installation, no database configuration, no training period. Upload your documents and the platform indexes everything automatically."
     }
   ],
   "relatedPages": [

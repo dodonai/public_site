@@ -23,7 +23,7 @@
       "heading": "How Disability Benefits Firms Use AI Document Processing",
       "paragraphs": [
         "The SSA's five-step sequential evaluation decides every SSDI claim, and it comes down to one question: do the medical records support an RFC restrictive enough to preclude work, or does the impairment meet a Blue Book listing? LTD carriers run their own medical review. VA claims require service-connection evidence. In every case, how well you organize and present the medical record determines the outcome.",
-        "This is where most disability practices spend the bulk of their time. A single SSDI case can involve thousands of pages from primary care physicians, specialists, hospitals, and mental health providers — records spanning years that need to be organized into a coherent timeline before the ALJ hearing. When the vocational expert testifies about jobs in the national economy, you need the medical evidence backing every functional limitation in the RFC.",
+        "That record organization is where most disability practices spend the bulk of their time. A single SSDI case can involve thousands of pages from primary care physicians, specialists, hospitals, and mental health providers — records spanning years that need to be organized into a coherent timeline before the ALJ hearing. When the vocational expert testifies about jobs in the national economy, you need the medical evidence backing every functional limitation in the RFC.",
         "Dodonai compresses that disability benefits medical record review from days into minutes. Upload a claimant's records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} organized by date, provider, diagnosis, and treatment. Every data point traces to the exact source page so your team can verify against the original records before submitting to the SSA, an insurance carrier, or the VA — and quickly pull the treatment notes documenting functional limitations that drive the RFC. Building an SSDI medical chronology no longer has to be the bottleneck.",
         "Dodonai meets the security standards disability claims require — HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encryption on everything. Your claimants' records never touch a training pipeline."
       ]
@@ -101,7 +101,7 @@
     },
     {
       "question": "Is Dodonai secure enough for claimant medical records?",
-      "answer": "HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encrypted. Your claimants' records are never used for AI training, and you control when data gets deleted."
+      "answer": "Fully HIPAA compliant — signed BAAs on every account, SOC 2 Type II certification, AES-256 encryption at rest and in transit. Claimant records never touch a training pipeline, and your firm controls data retention."
     },
     {
       "question": "Does Dodonai handle scanned medical records?",

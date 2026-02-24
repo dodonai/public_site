@@ -22,8 +22,8 @@
       "type": "content",
       "heading": "Why Law Firms Are Adding AI to Their Case Management Stack",
       "paragraphs": [
-        "Your case management platform tracks deadlines, contacts, and tasks — but it doesn't read a 300-page deposition or summarize a plaintiff's medical records. That work still falls on your team.",
-        "Most platforms handle the organizational layer — contacts, calendars, tasks, and file storage. But the actual legal case file processing happens manually. Someone still has to read the transcript, summarize the records, extract key data from discovery, and format everything for attorney review. This is where the majority of paralegal and associate time goes, and where AI delivers the greatest return.",
+        "Your case management software tracks deadlines, contacts, and tasks — but it doesn't read a 300-page deposition or summarize a plaintiff's medical records. That work still falls on your team.",
+        "Most platforms handle the organizational layer — contacts, calendars, tasks, and file storage. But the actual legal case file processing happens manually. Someone still has to read the transcript, summarize the records, extract key data from discovery, and format everything for attorney review. That manual work absorbs the majority of paralegal and associate hours, and it's where AI delivers the greatest return.",
         "Dodonai plugs into your existing workflow as the document processing layer. Upload files from your case management system, and Dodonai returns structured outputs — {{link:/deposition-summary-software/|deposition summaries}}, {{link:/ai-medical-record-summaries-chronologies/|medical chronologies}}, {{link:/ai-deposition-transcript-software/|searchable transcripts}}, and {{link:/dodonai-extract-and-draft-agents/|custom extracts}} — that your team can drop directly into case files, demand letters, discovery responses, and trial binders.",
         "Dodonai doesn't replace your case management platform — it's the processing engine that makes everything inside it more useful."
       ]
@@ -49,7 +49,7 @@
         },
         {
           "icon": "folder",
-          "title": "Document Organization at Scale",
+          "title": "Large-Volume Document Organization",
           "description": "Large discovery productions meet their match. {{link:/ai-pdf-ocr/|AI OCR}} extracts structured data from scanned and handwritten files — the document types that slow manual review the most."
         },
         {
@@ -93,7 +93,7 @@
     },
     {
       "question": "How does Dodonai handle security for law firm documents?",
-      "answer": "SOC 2 Type II certified, HIPAA compliant with signed BAAs, AES-256 encrypted. Your documents stay out of any training pipeline, and you decide when data gets deleted."
+      "answer": "HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encrypted at rest and in transit. Documents never enter a training pipeline. Your firm controls retention and deletion on its own schedule."
     },
     {
       "question": "Can multiple attorneys and paralegals use the same Dodonai account?",

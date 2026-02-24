@@ -11,7 +11,7 @@
   ],
   "hero": {
     "headline": "Find the Best Deposition Summary Software for Your Firm",
-    "subheadline": "A single deposition transcript can take 6-8 hours to summarize by hand. The right software does it in 3 minutes — with page-line citations. Here's how AI deposition summary tools compare to traditional services.",
+    "subheadline": "A single deposition transcript can take 6-8 hours to summarize by hand. AI deposition summary software does it in 3 minutes — with page-line citations. Here's how the tools compare to traditional services.",
     "ctaText": "Try It Free",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See How It Compares",
@@ -22,10 +22,10 @@
       "type": "content",
       "heading": "What to Look for in Deposition Summary Software",
       "paragraphs": [
-        "Your paralegal just spent eight hours on a single transcript. There's a faster way. The best deposition summary software should preserve the factual substance of testimony, provide accurate page-line citations, and deliver results fast enough to keep pace with litigation deadlines. These are the baseline requirements that separate useful tools from glorified text editors.",
+        "Your paralegal just spent eight hours on a single transcript. There's a faster way. The best deposition summary software preserves the factual substance of testimony, provides accurate page-line citations, and delivers results fast enough to keep pace with litigation deadlines. Those are the baseline requirements that separate useful tools from glorified text editors.",
         "Look for software that supports multiple output formats — a page-line summary of deposition testimony, a narrative overview, or an issue-based digest. The best {{link:/blog/how-to-draft-a-page-line-deposition-summary/|AI deposition summary}} tools offer all three from a single upload.",
-        "Security and data privacy are non-negotiable. Deposition transcripts contain sensitive client information, attorney work product, and privileged communications. Any software you adopt should be SOC 2 certified and offer enterprise-grade encryption at rest and in transit.",
-        "Finally, evaluate cost on a per-page or per-transcript basis rather than sticker price alone. Traditional deposition summary services charge $3 to $10 per page, which adds up on high-volume caseloads. AI-powered alternatives like {{link:/deposition-summary-software/|Dodonai}} -- the best AI deposition summary tool available today -- cut that cost while maintaining quality."
+        "Security and data privacy matter. Deposition transcripts contain sensitive client information, attorney work product, and privileged communications. Any software you adopt should carry SOC 2 certification and use AES-256 encryption at rest and in transit.",
+        "Finally, evaluate cost on a per-page or per-transcript basis rather than sticker price alone. Traditional deposition summary services charge $3 to $10 per page, which adds up on high-volume caseloads. AI deposition summary tools like {{link:/deposition-summary-software/|Dodonai}} cut that cost while maintaining quality."
       ]
     },
     {
@@ -102,7 +102,7 @@
     },
     {
       "question": "Is my deposition transcript data secure?",
-      "answer": "Your transcripts stay locked down — SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted in transit and at rest. We don't train on your data, and you control when it gets deleted."
+      "answer": "Locked down. SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted both ways. Dodonai doesn't train on your data, and you decide when it's deleted."
     },
     {
       "question": "What file types does Dodonai accept for deposition transcripts?",
@@ -110,7 +110,7 @@
     },
     {
       "question": "How does Dodonai compare to free AI tools like ChatGPT for deposition summaries?",
-      "answer": "General-purpose AI tools lack page-line citations, can't produce formatted digests, and may use your transcripts for training. Dodonai was designed specifically for litigation teams — SOC 2 security, legal output formats, and deposition transcript handling built in."
+      "answer": "General-purpose AI tools can't produce page-line citations, don't generate formatted digests, and most use your uploads for training. Dodonai was purpose-built for litigation — SOC 2 security, legal output formats, and deposition transcript handling baked in from day one."
     }
   ],
   "relatedPages": [
