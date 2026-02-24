@@ -22,8 +22,8 @@
       "type": "content",
       "heading": "How AI Transforms the Medical Record Review Process",
       "paragraphs": [
-        "Medical record review is one of the most time-intensive tasks in litigation and insurance claims. Reviewers must sift through hundreds or thousands of pages of clinical notes, lab results, imaging reports, and provider correspondence to extract the details that matter for a case. When done manually, this process is slow, expensive, and prone to human error.",
-        "AI-powered medical record review changes the equation entirely. Instead of reading every page line by line, Dodonai's platform ingests the full record set, identifies key medical events, and produces structured outputs — including {{link:/ai-medical-record-summaries-chronologies/|medical record summaries and chronologies}} — that legal professionals can use immediately. The AI understands medical terminology, recognizes provider relationships, and organizes events in chronological order.",
+        "Medical record review is one of the most time-intensive tasks in litigation and insurance claims. Reviewers must work through hundreds or thousands of pages of SOAP notes, progress notes, operative reports, lab results, imaging studies, and provider correspondence — extracting the diagnoses, treatments, and clinical findings that matter for a case. When done manually, this means reading through every provider's charting style, cross-referencing dates across fragmented records, and building a coherent timeline from documentation that was never designed to be read all at once.",
+        "AI-powered medical record review changes the equation. Instead of reading every page line by line, Dodonai's platform ingests the full record set, identifies key medical events, and produces structured outputs — including {{link:/ai-medical-record-summaries-chronologies/|medical record summaries and chronologies}} — that legal professionals can use immediately. The AI works across provider documentation styles, recognizes clinical terminology in context, and organizes events in chronological order with source-page citations.",
         "For law firms handling personal injury, medical malpractice, or mass tort cases, this means faster case evaluations, more consistent work product, and significantly lower costs per case. For medical review services and {{link:/industries/ime-companies/|IME companies}}, it means the ability to scale operations without proportionally scaling headcount."
       ]
     },
@@ -39,7 +39,7 @@
         {
           "icon": "document",
           "title": "Narrative Summarization",
-          "description": "Get a clear, readable summary of the patient's medical history alongside the chronology. The AI highlights key diagnoses, surgical interventions, medication changes, and gaps in treatment that are relevant to case strategy."
+          "description": "Get a clear, readable summary of the patient's medical history alongside the chronology. The AI highlights key diagnoses, surgical interventions, medication changes, treatment modalities, and gaps in care — the kind of organized narrative that supports case evaluation, expert referrals, and demand preparation."
         },
         {
           "icon": "search",
@@ -99,11 +99,11 @@
   "faq": [
     {
       "question": "How accurate is AI medical record review compared to manual review?",
-      "answer": "Dodonai's AI is trained to identify and extract key medical events with high precision, and every summary includes source-linked citations so reviewers can verify any data point against the original record. The AI reduces the risk of human oversight errors that commonly occur when reviewers process large volumes of records manually."
+      "answer": "Dodonai's AI extracts key medical events with high precision across different provider charting styles — from structured EHR notes to handwritten physician assessments. Every summary includes source-linked citations so reviewers can verify any data point against the original record. The AI reduces the risk of oversight errors that commonly occur when human reviewers process large volumes of records manually, especially across multi-provider record sets where critical findings can be buried in progress notes or ancillary reports."
     },
     {
       "question": "What types of medical records can Dodonai process?",
-      "answer": "Dodonai handles virtually any medical record format including digital PDFs, scanned documents, faxed records, and files with handwritten physician notes. The {{link:/ai-pdf-ocr/|AI OCR engine}} extracts text from even low-quality scans, ensuring comprehensive coverage of the full record set."
+      "answer": "Dodonai handles virtually any medical record format — hospital discharge summaries, office visit SOAP notes, operative reports, lab panels, imaging studies, therapy notes, pharmacy records, and correspondence. It processes digital PDFs, scanned documents, faxed records, and files with handwritten physician notes. The {{link:/ai-pdf-ocr/|AI OCR engine}} extracts text from even low-quality scans, ensuring comprehensive coverage of the full record set."
     },
     {
       "question": "Is the platform HIPAA compliant?",

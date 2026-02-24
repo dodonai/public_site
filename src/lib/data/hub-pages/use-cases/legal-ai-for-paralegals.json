@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "How Paralegals Use AI to Work More Efficiently",
       "paragraphs": [
-        "Paralegals are the backbone of document processing in litigation. Building medical chronologies, drafting deposition summaries, searching through transcript testimony, organizing discovery productions, and formatting work product for attorney review — these tasks consume the majority of a paralegal's day. They are also the tasks where AI delivers the most immediate and measurable productivity gains.",
-        "Dodonai is designed for the way paralegals actually work. Upload a stack of medical records and get a complete chronology in minutes instead of spending an entire day manually reading and extracting data points. Upload a deposition transcript and receive a page-line summary instead of spending hours drafting one from scratch. Search across all the transcripts in a case with a natural language query instead of scrolling through hundreds of pages looking for a specific statement.",
-        "The goal is not to replace paralegal judgment — it is to eliminate the mechanical labor that consumes your time without requiring your expertise. AI handles the reading, extracting, and formatting. You handle the analysis, quality control, and case strategy support that attorneys depend on."
+        "Paralegals are the backbone of document processing in litigation. Building medical chronologies, drafting deposition digests, searching through transcript testimony, organizing discovery productions, preparing privilege logs, and formatting work product for attorney review — these tasks consume the majority of a paralegal's day. They are also the tasks where AI delivers the most immediate and measurable productivity gains.",
+        "Dodonai is designed for the way paralegals actually work. Upload a stack of medical records and get a complete chronology in minutes instead of spending an entire day manually reading through SOAP notes and operative reports. Upload a deposition transcript and receive a page-line summary instead of spending hours drafting one from scratch. Search across all the transcripts in a case with a natural language query instead of scrolling through hundreds of pages looking for a specific admission or a witness's testimony on a particular topic.",
+        "The goal is not to replace paralegal judgment — it is to eliminate the mechanical labor that consumes your time without requiring your expertise. AI handles the reading, extracting, and formatting. You handle the analysis, quality control, and case strategy support that attorneys depend on — reviewing the chronology for case-relevant issues, flagging inconsistencies in testimony, and making sure the work product is right before it goes to the attorney."
       ]
     },
     {
@@ -59,7 +59,7 @@
         {
           "icon": "briefcase",
           "title": "E-Discovery Document Review",
-          "description": "Use {{link:/electronic-discovery-software/|Dodonai's e-discovery tools}} to search, filter, and review large volumes of discovery documents. Reduce the stack of documents requiring manual review by identifying the most relevant materials first."
+          "description": "Use {{link:/electronic-discovery-software/|Dodonai's e-discovery tools}} to search, filter, and review large document productions. Whether you are working through a first-pass relevance review, identifying documents for a privilege log, or pulling together materials for a meet and confer, AI helps you find the relevant documents faster."
         }
       ]
     },
@@ -84,11 +84,11 @@
   "faq": [
     {
       "question": "Will AI replace paralegals in law firms?",
-      "answer": "No. AI tools like Dodonai automate the repetitive, time-consuming parts of document processing — reading through hundreds of pages, extracting data, and formatting outputs. This frees paralegals to focus on the analytical and strategic work that requires human judgment: evaluating the quality of medical evidence, identifying inconsistencies in testimony, organizing case strategy materials, and communicating with attorneys and clients. Paralegals who use AI tools effectively become more productive and more valuable to their firms."
+      "answer": "No. AI tools like Dodonai automate the repetitive, time-consuming parts of document processing — reading through hundreds of pages of medical records, extracting data, and formatting outputs. This frees paralegals to focus on the analytical work that requires human judgment: evaluating whether a chronology captures the case-relevant issues, identifying inconsistencies in deposition testimony, preparing discovery response materials, organizing exhibits, and communicating with attorneys and clients. Paralegals who use AI tools effectively handle a larger caseload and produce higher-quality work product."
     },
     {
       "question": "How much time can a paralegal save using Dodonai?",
-      "answer": "The time savings depend on the task. A medical chronology that takes 8-12 hours to build manually is generated in under 15 minutes. A deposition summary that takes 3-5 hours to draft is ready in about 3 minutes. Transcript search that requires scrolling through hundreds of pages takes seconds with AI-powered queries. Most paralegals report saving several hours per day on document processing tasks."
+      "answer": "The time savings depend on the task. A medical chronology that takes 8-12 hours to build manually — reading through every provider's notes, cross-referencing dates, formatting entries — is generated in under 15 minutes. A deposition digest that takes 3-5 hours to draft is ready in about 3 minutes. Searching across transcripts for a specific witness statement or admission takes seconds instead of scrolling through hundreds of pages. Most paralegals report saving several hours per day on document processing tasks."
     },
     {
       "question": "Do I need technical skills to use Dodonai?",
@@ -104,7 +104,7 @@
     },
     {
       "question": "How much does Dodonai cost for a paralegal to use?",
-      "answer": "Dodonai plans are based on page volume, not user seats. The Lite plan starts at $30 per month for 200 pages, the Basic plan is $60 per month for 1,000 pages, and the Pro plan is $100 per month for 5,000 pages. Multiple paralegals and attorneys can share the same account. Visit our {{link:/pricing/|pricing page}} for full details."
+      "answer": "Dodonai plans are based on page volume, not user seats — so per-page costs range from $0.15 down to $0.02 depending on plan size. Multiple paralegals and attorneys can share the same account. Visit our {{link:/pricing/|pricing page}} for full details."
     }
   ],
   "relatedPages": [

@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "Why Mass Tort Firms Need AI Document Processing",
       "paragraphs": [
-        "Mass tort litigation is defined by volume. A single case can involve hundreds or thousands of individual plaintiffs, each with their own medical records, treatment histories, and damages profiles. The firms that manage this volume efficiently are the ones that build stronger cases, negotiate better settlements, and resolve claims faster.",
-        "Traditional approaches to mass tort document processing do not scale. Hiring additional paralegals, outsourcing to medical record review services at $5 to $15 per page, or relying on contract attorneys for document review all introduce bottlenecks that slow case progression and erode margins. When you are managing 2,000 claimants and each has 500 pages of medical records, the math on manual review simply does not work.",
-        "AI document processing changes the economics of mass tort litigation. Dodonai's platform ingests medical records in bulk, generates {{link:/ai-medical-record-summaries-chronologies/|medical chronologies and summaries}} for each claimant, and delivers consistent, structured outputs that your team can use immediately for case evaluation, settlement modeling, and trial preparation. The AI handles scanned and handwritten records through built-in {{link:/ai-pdf-ocr/|OCR}}, so records from any provider are processed without manual preprocessing.",
+        "Mass tort litigation is defined by volume and the need for consistency across it. Whether you are managing an MDL with thousands of claimants, running a state-court consolidation, or building your firm's case inventory for a developing litigation, every plaintiff needs the same level of documentation: organized medical records, completed plaintiff fact sheets, and a damages profile your team can use for triage and settlement modeling.",
+        "Traditional approaches do not scale to MDL volumes. Hiring additional paralegals, outsourcing to record review vendors at $5 to $15 per page, or relying on contract attorneys all introduce bottlenecks and inconsistencies. When the PSC sets a plaintiff fact sheet deadline or the transferee court orders a case census, you need to process hundreds of claimant files on the same timeline — not wait months for manual review to trickle in.",
+        "AI document processing changes the economics. Dodonai's platform ingests medical records in bulk, generates {{link:/ai-medical-record-summaries-chronologies/|medical chronologies and summaries}} for each claimant, and delivers consistent, structured outputs your team can use immediately for PFS completion, bellwether selection, settlement grid stratification, and trial preparation. The AI handles scanned and handwritten records through built-in {{link:/ai-pdf-ocr/|OCR}}, so records from any provider are processed without manual preprocessing.",
         "Dodonai is SOC 2 Type II certified and HIPAA compliant, which means protected health information across all claimant files is handled with enterprise-grade security. Your data is encrypted with AES-256, never used to train AI models, and subject to your full control over retention and deletion."
       ]
     },
@@ -40,7 +40,7 @@
         {
           "icon": "check",
           "title": "Consistent Outputs Across All Plaintiffs",
-          "description": "Every claimant receives the same structured chronology and summary format, eliminating the inconsistencies that arise when multiple reviewers process records manually. Consistent outputs simplify case valuation, bellwether selection, and settlement negotiations."
+          "description": "Every claimant receives the same structured chronology and summary format, eliminating the variability that creeps in when different reviewers process records manually. Consistent outputs are essential when the court requires standardized plaintiff fact sheets, when you are stratifying claims for a settlement grid, or when selecting bellwether plaintiffs for early trial."
         },
         {
           "icon": "heart",
@@ -60,7 +60,7 @@
         {
           "icon": "clock",
           "title": "Faster Case Evaluation and Triage",
-          "description": "Get claimant summaries in minutes rather than weeks. Faster document processing means your team can evaluate new claimants, identify high-value cases, and prioritize bellwether plaintiffs without waiting on outsourced review timelines."
+          "description": "Get claimant summaries in minutes rather than weeks. Faster processing means your team can triage incoming cases, identify claimants with the strongest specific causation evidence, prioritize bellwether candidates, and respond to CMO deadlines without waiting on outsourced review timelines."
         }
       ]
     },
@@ -77,7 +77,7 @@
         },
         {
           "title": "Review, Export, and Integrate into Your Workflow",
-          "description": "Review outputs in the interactive viewer with side-by-side source linking. Export finished summaries and chronologies as PDF, Word, or Excel files. Use the structured data for case valuation models, settlement spreadsheets, bellwether selection criteria, and trial preparation binders."
+          "description": "Review outputs in the interactive viewer with side-by-side source linking. Export finished summaries and chronologies as PDF, Word, or Excel files. Use the structured data for plaintiff fact sheet completion, case census reporting, settlement grid stratification, bellwether selection, and trial preparation binders."
         }
       ]
     },
@@ -100,7 +100,7 @@
   "faq": [
     {
       "question": "Can Dodonai handle the volume of records in a mass tort case?",
-      "answer": "Yes. Dodonai is built for high-volume processing. You can upload and process medical records for hundreds or thousands of claimants, and the platform scales to meet the demand without degrading output quality. Each claimant receives the same detailed chronology and summary, regardless of total case volume."
+      "answer": "Yes. Dodonai is built for MDL-scale volumes. You can upload and process medical records for hundreds or thousands of claimants, and the platform scales without degrading output quality. Each claimant receives the same structured chronology and summary — the kind of consistency you need when completing plaintiff fact sheets, meeting CMO deadlines, or building a case census across your entire inventory."
     },
     {
       "question": "How does Dodonai ensure consistency across thousands of claimant summaries?",
@@ -108,7 +108,7 @@
     },
     {
       "question": "What does mass tort document processing cost with Dodonai?",
-      "answer": "Dodonai uses a credit-based pricing model where 1 credit equals approximately 1 page. Plans range from the Lite plan at $30 per month for 200 credits to the Pro plan at $100 per month for 5,000 credits. For mass tort volumes, Enterprise pricing with custom credit allocations is available. This is a fraction of the $5 to $15 per page that traditional medical record review services charge."
+      "answer": "Dodonai uses a credit-based pricing model where 1 credit equals approximately 1 page. Per-page costs range from $0.15 on the Lite plan down to $0.02 on the Pro plan. For mass tort volumes, Enterprise pricing with custom credit allocations is available. Compare that to $5 to $15 per page from traditional record review vendors — at MDL scale, the difference can be hundreds of thousands of dollars across your case inventory."
     },
     {
       "question": "Can I process records from different providers for the same claimant?",

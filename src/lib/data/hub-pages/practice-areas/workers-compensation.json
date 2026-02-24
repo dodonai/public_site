@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "How Workers' Comp Professionals Use AI Document Processing",
       "paragraphs": [
-        "Workers' compensation cases are built on medical documentation. Every claim requires a detailed understanding of the claimant's injury, treatment timeline, work restrictions, and recovery trajectory. Attorneys representing injured workers need organized medical histories to demonstrate the extent of disability and the need for ongoing treatment. Defense attorneys and insurance adjusters need the same organized records to evaluate exposure, identify pre-existing conditions, and assess the reasonableness of treatment. In both cases, the quality of medical record analysis directly affects case outcomes.",
-        "The challenge is volume and complexity. A single workers' comp claim can involve records from emergency departments, orthopedic specialists, pain management clinics, physical therapy providers, primary care physicians, and independent medical examiners. These records arrive in different formats — digital PDFs from hospital systems, scanned faxes from smaller providers, handwritten notes from treating physicians. Manually organizing these records into a coherent treatment timeline consumes hours of paralegal time per claim, and the risk of missing a critical provider visit or treatment gap increases with every additional page.",
-        "Dodonai automates the most labor-intensive part of workers' comp case preparation. Upload the claimant's full medical record set and receive a structured {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} that organizes every diagnosis, treatment, medication, and provider visit by date with source-page citations. Scanned and handwritten records are processed automatically through {{link:/ai-pdf-ocr/|AI-powered OCR}}, so no records are left behind. When depositions are taken — from the claimant, treating physicians, or IME doctors — Dodonai generates {{link:/deposition-summary-software/|deposition summaries}} that highlight the testimony most relevant to the claim. All processing is HIPAA compliant, SOC 2 Type II certified, and encrypted with AES-256."
+        "Workers' compensation cases are built on medical documentation. Every claim requires a detailed understanding of the claimant's injury, treatment timeline, work restrictions, and progression from initial treatment through MMI to permanent impairment rating. Claimant attorneys need organized medical histories that trace the full arc from date of injury through TTD, any surgical interventions, and the treating physician's final work restrictions. Defense attorneys and adjusters need the same organized records to evaluate exposure, identify pre-existing conditions for apportionment arguments, and assess whether treatment was reasonable and necessary — especially when utilization review disputes are in play.",
+        "The challenge is volume and complexity. A single workers' comp claim can involve records from emergency departments, orthopedic specialists, pain management clinics, physical therapy providers, primary care physicians, IME doctors, and QME or AME evaluators. These records arrive in different formats — digital PDFs from hospital systems, scanned faxes from smaller providers, handwritten physician notes. Manually organizing them into a coherent treatment timeline that tracks each provider's findings on work restrictions, impairment, and functional capacity consumes hours of paralegal time per claim.",
+        "Dodonai automates the most labor-intensive part of that process. Upload the claimant's full medical record set and receive a structured {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} that organizes every diagnosis, treatment, medication, work status change, and provider visit by date with source-page citations. Scanned and handwritten records are processed automatically through {{link:/ai-pdf-ocr/|AI-powered OCR}}, so no records are left behind. When depositions are taken — from the claimant, treating physicians, or IME doctors — Dodonai generates {{link:/deposition-summary-software/|deposition summaries}} that highlight the testimony most relevant to the claim. All processing is HIPAA compliant, SOC 2 Type II certified, and encrypted with AES-256."
       ]
     },
     {
@@ -34,12 +34,12 @@
         {
           "icon": "calendar",
           "title": "Treatment Timeline Construction",
-          "description": "Dodonai builds a complete, chronological treatment timeline from the claimant's medical records — including injury date, emergency treatment, specialist referrals, surgical procedures, physical therapy sessions, and return-to-work evaluations. Each entry includes provider name, date, and a source-page citation for verification."
+          "description": "Dodonai builds a complete, chronological treatment timeline from the claimant's medical records — from the initial workplace injury and ER visit through specialist referrals, surgical procedures, PT sessions, FCE results, and return-to-work evaluations. Track the progression from TTD through modified duty to MMI and permanent impairment rating, with each entry linked to its source page."
         },
         {
           "icon": "heart",
           "title": "Medical Record Summaries with Provider Detail",
-          "description": "Generate narrative summaries that organize the claimant's medical history by provider. Quickly see what each treating physician, specialist, or therapist documented about the injury, restrictions, and prognosis — essential for evaluating the claim and preparing for hearings."
+          "description": "Generate narrative summaries that organize the claimant's medical history by provider. Quickly see what each treating physician, specialist, or therapist documented about the mechanism of injury, work restrictions, and prognosis — and how those opinions compare to the IME findings. Essential for evaluating the claim, preparing for hearings, and assessing whether apportionment to pre-existing conditions is at issue."
         },
         {
           "icon": "search",
@@ -49,12 +49,12 @@
         {
           "icon": "document",
           "title": "Deposition Summaries for Workers' Comp Testimony",
-          "description": "Summarize depositions from claimants, treating physicians, and independent medical examiners. Focus summaries on key workers' comp issues like mechanism of injury, work restrictions, maximum medical improvement, and permanent impairment ratings."
+          "description": "Summarize depositions from claimants, treating physicians, IME doctors, and QME/AME evaluators. Focus summaries on the issues that drive workers' comp outcomes: mechanism of injury, current work restrictions, MMI determination, AMA Guides impairment rating, and any opinions on apportionment to prior conditions."
         },
         {
           "icon": "dollar",
           "title": "Reduce Per-Claim Processing Costs",
-          "description": "Outsourced medical record review for workers' comp cases typically costs $5 to $15 per page. Dodonai's credit-based pricing — starting at $30 per month for 200 pages — dramatically lowers per-claim document processing costs, whether you are a claimant's attorney, defense firm, or insurance carrier."
+          "description": "Outsourced medical record review for workers' comp cases typically costs $5 to $15 per page. Dodonai processes pages for as little as $0.02 each, dramatically lowering per-claim document processing costs whether you are a claimant's attorney evaluating a C&R offer, a defense firm assessing exposure, or a carrier managing a book of open claims."
         }
       ]
     },
@@ -67,11 +67,11 @@
         },
         {
           "title": "AI Builds the Treatment Timeline and Summary",
-          "description": "Dodonai's AI reads through every page of the record set, extracts key medical events — the workplace injury, initial treatment, specialist referrals, surgeries, therapy sessions, IME findings, and work status changes — and organizes them into a structured chronology and narrative summary. You can specify key topics like body part injured, treating provider, or type of treatment to guide the AI's focus."
+          "description": "Dodonai's AI reads through every page, extracts key medical events — the workplace injury, initial treatment, specialist referrals, surgeries, therapy sessions, IME and QME/AME findings, work restriction changes, and functional capacity evaluations — and organizes them into a structured chronology and narrative summary. You can specify key topics like the body part injured, a specific treating provider, or a particular phase of treatment to guide the AI's focus."
         },
         {
           "title": "Review, Export, and Use in Your Case",
-          "description": "Review the chronology and summary in the interactive viewer with side-by-side source linking. Filter entries by provider, date range, or event type. Export the finished output as PDF, Word, or Excel for use in hearing preparation, settlement evaluations, demand packages, or claims files."
+          "description": "Review the chronology and summary in the interactive viewer with side-by-side source linking. Filter entries by provider, date range, or event type. Export as PDF, Word, or Excel for hearing preparation, C&R or stipulated award negotiations, demand packages, or claims file documentation."
         }
       ]
     }
@@ -83,11 +83,11 @@
     },
     {
       "question": "Can Dodonai identify treatment gaps and pre-existing conditions?",
-      "answer": "Dodonai's chronological output makes treatment gaps immediately visible — if there is a period with no documented visits between two providers, it shows clearly in the timeline. For pre-existing conditions, the chronology captures the full medical history as documented in the records, allowing attorneys to identify prior injuries, treatments, or diagnoses that may be relevant to the workers' comp claim."
+      "answer": "Dodonai's chronological output makes treatment gaps immediately visible — if there is a period with no documented visits between two providers, it shows clearly in the timeline. For pre-existing conditions, the chronology captures the full medical history as documented in the records, which is critical for both sides: claimant counsel needs to anticipate apportionment arguments, and defense counsel needs to identify prior injuries or degenerative conditions that may reduce the compensable percentage of permanent disability."
     },
     {
       "question": "Does Dodonai handle records from multiple workers' comp providers?",
-      "answer": "Yes. Workers' comp cases typically involve records from emergency departments, orthopedic surgeons, pain management specialists, physical therapists, primary care physicians, and IME providers. You can upload records from all providers, and Dodonai consolidates them into a single unified chronology organized by date."
+      "answer": "Yes. Workers' comp cases typically involve records from emergency departments, orthopedic surgeons, pain management specialists, physical therapists, primary care physicians, IME doctors, and QME or AME evaluators. You can upload records from all providers, and Dodonai consolidates them into a single unified chronology organized by date — so you can see how the treating physician's opinions compare to the IME findings and track every work restriction change in one place."
     },
     {
       "question": "Is Dodonai HIPAA compliant for workers' compensation records?",
@@ -95,7 +95,7 @@
     },
     {
       "question": "How much does workers' comp document processing cost with Dodonai?",
-      "answer": "Dodonai uses credit-based pricing where 1 credit equals approximately 1 page. The Lite plan is $30 per month for 200 credits, the Basic plan is $60 per month for 1,000 credits, and the Pro plan is $100 per month for 5,000 credits. Enterprise pricing is available for higher volumes. Compared to outsourced medical record review at $5 to $15 per page, Dodonai reduces per-claim costs significantly."
+      "answer": "Dodonai uses credit-based pricing where 1 credit equals approximately 1 page. Per-page costs range from $0.15 on the Lite plan down to $0.02 on the Pro plan, with Enterprise pricing available for higher volumes. Compared to outsourced medical record review at $5 to $15 per page, Dodonai reduces per-claim processing costs significantly — especially for firms or carriers managing a high volume of open claims."
     }
   ],
   "relatedPages": [
