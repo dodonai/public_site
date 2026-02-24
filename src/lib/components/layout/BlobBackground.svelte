@@ -17,24 +17,24 @@
 
 	<!-- Decorative blur blobs — staggered across full page height -->
 	<!-- Top zone -->
-	<img src="/images/brand/ellipse-blue.png" alt="" class="pointer-events-none absolute -right-[10%] -top-[8%] w-[70%] opacity-35" aria-hidden="true" />
-	<img src="/images/brand/ellipse-pink.png" alt="" class="pointer-events-none absolute -left-[20%] top-[3%] w-[60%] opacity-20" aria-hidden="true" />
-	<img src="/images/brand/wave-curve-left.png" alt="" class="pointer-events-none absolute left-[-7%] top-[5%] w-[55%] opacity-30" aria-hidden="true" />
+	<img src="/images/brand/ellipse-blue.png" alt="" class="pointer-events-none absolute -right-[10%] -top-[8%] w-[70%] opacity-35" aria-hidden="true" loading="lazy" />
+	<img src="/images/brand/ellipse-pink.png" alt="" class="pointer-events-none absolute -left-[20%] top-[3%] w-[60%] opacity-20" aria-hidden="true" loading="lazy" />
+	<img src="/images/brand/wave-curve-left.png" alt="" class="pointer-events-none absolute left-[-7%] top-[5%] w-[55%] opacity-30" aria-hidden="true" loading="lazy" />
 
 	<!-- Upper-mid zone -->
-	<img src="/images/brand/ellipse-purple.png" alt="" class="pointer-events-none absolute -right-[25%] top-[22%] w-[80%] opacity-20" aria-hidden="true" />
+	<img src="/images/brand/ellipse-purple.png" alt="" class="pointer-events-none absolute -right-[25%] top-[22%] w-[80%] opacity-20" aria-hidden="true" loading="lazy" />
 
 	<!-- Mid zone -->
-	<img src="/images/brand/ellipse-blue.png" alt="" class="pointer-events-none absolute -left-[30%] top-[42%] w-[90%] opacity-30" aria-hidden="true" />
-	<img src="/images/brand/wave-curve-right.png" alt="" class="pointer-events-none absolute right-[-9%] top-[50%] w-[50%] opacity-30" aria-hidden="true" />
-	<img src="/images/brand/ellipse-pink.png" alt="" class="pointer-events-none absolute -right-[20%] top-[55%] w-[70%] opacity-15" aria-hidden="true" />
+	<img src="/images/brand/ellipse-blue.png" alt="" class="pointer-events-none absolute -left-[30%] top-[42%] w-[90%] opacity-30" aria-hidden="true" loading="lazy" />
+	<img src="/images/brand/wave-curve-right.png" alt="" class="pointer-events-none absolute right-[-9%] top-[50%] w-[50%] opacity-30" aria-hidden="true" loading="lazy" />
+	<img src="/images/brand/ellipse-pink.png" alt="" class="pointer-events-none absolute -right-[20%] top-[55%] w-[70%] opacity-15" aria-hidden="true" loading="lazy" />
 
 	<!-- Lower zone -->
-	<img src="/images/brand/ellipse-purple.png" alt="" class="pointer-events-none absolute -left-[25%] top-[65%] w-[80%] opacity-20" aria-hidden="true" />
-	<img src="/images/brand/ellipse-blue.png" alt="" class="pointer-events-none absolute -right-[15%] top-[72%] w-[75%] opacity-25" aria-hidden="true" />
+	<img src="/images/brand/ellipse-purple.png" alt="" class="pointer-events-none absolute -left-[25%] top-[65%] w-[80%] opacity-20" aria-hidden="true" loading="lazy" />
+	<img src="/images/brand/ellipse-blue.png" alt="" class="pointer-events-none absolute -right-[15%] top-[72%] w-[75%] opacity-25" aria-hidden="true" loading="lazy" />
 
 	<!-- Bottom zone -->
-	<img src="/images/brand/ellipse-pink.png" alt="" class="pointer-events-none absolute -left-[20%] top-[88%] w-[70%] opacity-20" aria-hidden="true" />
+	<img src="/images/brand/ellipse-pink.png" alt="" class="pointer-events-none absolute -left-[20%] top-[88%] w-[70%] opacity-20" aria-hidden="true" loading="lazy" />
 
 	<!-- Content sits above decorative layers -->
 	<div class="relative z-10">

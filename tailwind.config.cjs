@@ -22,6 +22,10 @@ module.exports = {
 					error: '#ef4444'
 				}
 			}
-		]
+		],
+		base: true,
+		styled: true,
+		utils: true,
+		logs: false
 	}
 };

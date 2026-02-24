@@ -32,6 +32,7 @@
 
 	const useCasesLinks = [
 		{ name: 'Medical Record Review', href: '/use-cases/medical-record-review/' },
+		{ name: 'IME Reports', href: '/use-cases/ime-reports/' },
 		{ name: 'Demand Letters', href: '/use-cases/demand-letters/' },
 		{ name: 'AI for Paralegals', href: '/use-cases/legal-ai-for-paralegals/' },
 		{ name: 'Expert Witness Prep', href: '/use-cases/expert-witness-preparation/' },
@@ -49,6 +50,7 @@
 
 	const industriesLinks = [
 		{ name: 'IME Companies', href: '/industries/ime-companies/' },
+		{ name: 'IME Doctors', href: '/industries/ime-doctors/' },
 		{ name: 'Medical Record Retrieval', href: '/industries/medical-record-retrieval/' },
 		{ name: 'Law Firm Case Management', href: '/industries/law-firm-case-management/' },
 		{ name: 'Document Management', href: '/industries/document-management-law-firms/' }
