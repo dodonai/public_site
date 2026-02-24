@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "AI Tools for Expert Witness Deposition Preparation — Dodonai",
-    "description": "Prepare for expert witness depositions faster with AI-powered transcript summaries, testimony chronologies, and semantic search. Find contradictions and build cross-examination outlines in minutes.",
+    "title": "AI Expert Witness Report & Deposition Preparation — Transcript Analysis",
+    "description": "Prepare for expert witness depositions and analyze expert witness reports faster with AI-powered transcript summaries, testimony chronologies, and semantic search. Build cross-examination outlines in minutes.",
     "canonical": "/use-cases/expert-witness-preparation/"
   },
   "breadcrumbs": [
@@ -11,20 +11,20 @@
   ],
   "hero": {
     "headline": "AI-Powered Expert Witness Deposition Preparation",
-    "subheadline": "Preparing for an expert witness deposition requires mastering every detail of prior testimony, published opinions, and case-specific reports. Dodonai helps attorneys summarize transcripts, build chronologies from expert reports, search for contradictions across documents, and organize exhibits — turning days of preparation into hours.",
-    "ctaText": "Free Trial",
+    "subheadline": "Expert depositions hinge on preparation depth. Dodonai summarizes transcripts, processes expert witness reports, builds chronologies from Rule 26 disclosures, finds contradictions across documents, and organizes exhibits — turning days of preparation into hours.",
+    "ctaText": "Try It Free",
     "ctaUrl": "https://app.dodon.ai/signup",
-    "secondaryCtaText": "See Pricing",
-    "secondaryCtaUrl": "/pricing/"
+    "secondaryCtaText": "See How It Works",
+    "secondaryCtaUrl": "/deposition-summary-software/"
   },
   "sections": [
     {
       "type": "content",
       "heading": "How Attorneys Use AI to Prepare for Expert Witness Depositions",
       "paragraphs": [
-        "Expert witness depositions are among the highest-stakes events in litigation. Whether you are deposing the opposing side's retained expert to build a Daubert challenge, preparing your own expert for cross-examination, or taking testimony from a non-retained treating physician, the outcome hinges on preparation depth. You need to master the expert's methodology, map their opinions against the factual record, identify inconsistencies across prior testimony, and lock down positions that can be used at trial or in a motion to exclude under FRE 702.",
-        "That preparation is document-intensive — prior deposition transcripts, Rule 26(a)(2) reports, published articles, case-specific records, and sometimes testimony from other cases where the expert reached different conclusions. AI document processing tools like Dodonai compress this timeline dramatically. Upload an expert's prior transcripts and receive {{link:/deposition-summary-software/|detailed summaries}} with page-line citations in minutes. Upload expert reports and medical records to build chronologies that map opinions against the factual record. Use {{link:/ai-deposition-transcript-software/|semantic search across transcripts}} to find every instance where the expert discussed a specific methodology, opinion, or conclusion — including passages that keyword search would miss.",
-        "Attorneys arrive at the deposition with organized summaries, identified contradictions, and a clear understanding of the expert's prior positions — the foundation for effective cross-examination and, where warranted, a Daubert or Frye challenge to admissibility."
+        "Expert depositions are high-stakes. Whether you're building a Daubert challenge or preparing your own expert for cross, the outcome hinges on preparation depth. You need to master the expert's methodology, map opinions against the factual record, identify inconsistencies across prior testimony, and lock down positions for trial or a motion to exclude under FRE 702.",
+        "That preparation is document-intensive — prior transcripts, expert witness reports filed under Rule 26(a)(2), published articles, case-specific records, and sometimes testimony from other cases where the expert reached different conclusions. AI expert deposition preparation tools like Dodonai compress this timeline dramatically. Upload an expert's prior transcripts and receive {{link:/deposition-summary-software/|detailed summaries}} with page-line citations in minutes. Upload expert reports and medical records to build chronologies mapping opinions against the factual record. Use {{link:/ai-deposition-transcript-software/|semantic search across transcripts}} to find every instance where the expert discussed a methodology or conclusion — including passages keyword search would miss.",
+        "Attorneys arrive at the deposition with organized summaries, identified contradictions, and a clear map of the expert's prior positions — the foundation for effective cross-examination and, where warranted, a Daubert or Frye challenge."
       ]
     },
     {
@@ -34,27 +34,27 @@
         {
           "icon": "document",
           "title": "Summarize Prior Expert Testimony",
-          "description": "Upload an expert's prior deposition transcripts — from this case or prior engagements — and get page-line or narrative summaries in minutes. Identify the expert's key opinions, methodology descriptions, and admissions. Compare what a retained expert said in their Rule 26 report against what they testified to under oath."
+          "description": "Upload prior deposition transcripts — from this case or prior engagements — and get page-line or narrative summaries in minutes. Spot key opinions, methodology descriptions, and admissions. Compare what a retained expert said in their Rule 26 report against sworn testimony."
         },
         {
           "icon": "search",
           "title": "Find Contradictions Across Transcripts",
-          "description": "Use semantic search to find every instance where the expert discussed a specific topic across multiple depositions. Compare statements side by side to identify contradictions, methodology shifts, or inconsistencies between cases — the kind of impeachment material that supports a Daubert challenge or undermines credibility at trial."
+          "description": "Impeachment material lives in the details. Semantic search surfaces every instance where the expert discussed a topic across multiple depositions, so you can compare statements side by side and identify methodology shifts or inconsistencies between cases."
         },
         {
           "icon": "calendar",
-          "title": "Build Chronologies from Expert Reports",
-          "description": "Upload Rule 26(a)(2) expert reports, medical records, and case documents to generate a unified chronology. Map the expert's stated opinions against the factual timeline to identify gaps, unsupported conclusions, or mischaracterized events — the weaknesses you need for cross-examination or a motion in limine."
+          "title": "Process Expert Witness Reports into Chronologies",
+          "description": "Upload expert witness reports filed under Rule 26(a)(2), medical records, and case documents to generate a unified chronology. Map stated opinions against the factual timeline to find gaps, unsupported conclusions, or mischaracterized events."
         },
         {
           "icon": "briefcase",
           "title": "Organize Exhibits for Deposition",
-          "description": "Use Dodonai's {{link:/electronic-discovery-software/|document management tools}} to organize and tag exhibits for the deposition. Search across your entire document set to find the specific page or passage you need to confront the expert with during testimony."
+          "description": "Use Dodonai's {{link:/electronic-discovery-software/|document management tools}} to tag and organize exhibits. Search your entire document set to find the exact page you need to confront the expert with during testimony."
         },
         {
           "icon": "bolt",
           "title": "Rapid Reprocessing for New Materials",
-          "description": "When opposing counsel produces supplemental expert reports or late-disclosed materials, reprocess your preparation documents in minutes. Add new transcripts or reports and generate updated summaries without starting from scratch."
+          "description": "Supplemental expert reports or late-disclosed materials? Add new transcripts or reports and generate updated summaries in minutes without starting over."
         }
       ]
     },
@@ -63,15 +63,15 @@
       "items": [
         {
           "title": "Upload Expert Transcripts, Reports, and Case Documents",
-          "description": "Upload the expert's prior deposition transcripts, expert reports, published articles, medical records, and any other relevant documents to Dodonai's secure platform. The system accepts PDFs, Word files, and text files, including scanned documents processed with built-in AI OCR."
+          "description": "Upload prior deposition transcripts, expert reports, published articles, medical records, and other relevant documents. The system accepts PDFs, Word files, and text files, including scanned documents processed with built-in AI OCR."
         },
         {
           "title": "AI Summarizes, Searches, and Organizes",
-          "description": "Dodonai generates summaries of each transcript with page-line citations, builds chronologies from reports and records, and indexes everything for semantic search. Specify key topics — such as the expert's methodology, specific opinions, or prior case involvement — to tailor the AI's focus to your deposition strategy."
+          "description": "Dodonai generates summaries with page-line citations, builds chronologies from reports and records, and indexes everything for semantic search. Specify key topics — methodology, specific opinions, prior case involvement — to tailor the focus to your deposition strategy."
         },
         {
           "title": "Review and Prepare Your Examination Outline",
-          "description": "Use the interactive viewer to review summaries with side-by-side source linking. Search across all documents by concept to find supporting or contradicting passages. Export organized summaries, chronologies, and tagged exhibits as PDF, Word, or Excel files for your deposition binder."
+          "description": "Review summaries with side-by-side source linking in the interactive viewer. Search across all documents by concept to find supporting or contradicting passages. Export organized materials as PDF, Word, or Excel for your deposition binder."
         }
       ]
     }
@@ -79,27 +79,27 @@
   "faq": [
     {
       "question": "How does Dodonai help attorneys prepare for expert depositions?",
-      "answer": "Dodonai processes the expert's prior deposition transcripts into page-line summaries, builds chronologies from Rule 26 reports and medical records, and enables semantic search across all uploaded documents. This gives attorneys a comprehensive view of the expert's prior testimony, opinions, and methodology — whether you are preparing cross-examination for trial, building the record for a Daubert or Frye challenge, or evaluating a rebuttal expert's positions."
+      "answer": "Dodonai processes prior transcripts into page-line summaries, builds chronologies from Rule 26 reports, and enables semantic search across all uploaded documents. This gives attorneys a comprehensive view of the expert's testimony history and methodology — whether preparing cross, building a Daubert challenge, or evaluating a rebuttal expert."
     },
     {
       "question": "Can I search for contradictions across multiple expert depositions?",
-      "answer": "Yes. Upload multiple transcripts from the same expert and use Dodonai's semantic search to find every instance where the expert discussed a specific topic. The AI searches by meaning, not just keywords, so it catches relevant passages even when the expert used different phrasing across depositions. You can compare statements side by side in the interactive viewer to identify inconsistencies."
+      "answer": "Yes. Upload multiple transcripts from the same expert and use semantic search to find every instance where the expert discussed a topic. The AI searches by meaning, not just keywords, catching relevant passages even when phrasing differs across depositions."
     },
     {
       "question": "How quickly can I get summaries of expert deposition transcripts?",
-      "answer": "Dodonai processes a typical 100-page deposition transcript in approximately 3 minutes. You receive a complete {{link:/deposition-summary-software/|page-line or narrative summary}} with citations, ready for review. If you need to reprocess with different key topics or focus areas, that takes the same amount of time."
+      "answer": "A typical 100-page transcript processes in about 3 minutes. You receive a complete {{link:/deposition-summary-software/|page-line or narrative summary}} with citations, ready for review. Reprocessing with different focus areas takes the same amount of time."
     },
     {
       "question": "Can Dodonai handle expert reports and medical records alongside transcripts?",
-      "answer": "Yes. You can upload Rule 26(a)(2)(B) expert reports from retained experts, summary disclosures from non-retained witnesses like treating physicians, medical records, published articles, and deposition transcripts together. Dodonai processes each document type appropriately — generating summaries for transcripts, chronologies for medical records — and makes everything searchable through the same semantic search interface."
+      "answer": "Yes. Upload Rule 26(a)(2)(B) reports, summary disclosures from treating physicians, medical records, published articles, and transcripts together. Dodonai processes each type appropriately and makes everything searchable through the same interface."
     },
     {
       "question": "Is my case data secure when preparing for expert depositions?",
-      "answer": "Dodonai is SOC 2 Type II certified and HIPAA compliant. All documents are encrypted with AES-256 in transit and at rest. Your data is never used to train AI models, and you retain full control over data retention and deletion. This applies to all document types including transcripts, expert reports, and medical records."
+      "answer": "Every plan includes SOC 2 Type II certification, HIPAA compliance with signed BAAs, and AES-256 encryption. We don't train on your data, and you control retention and deletion."
     },
     {
       "question": "What output formats are available for deposition preparation materials?",
-      "answer": "Dodonai exports summaries, chronologies, and search results as PDF, Word, Excel, or plain text files. You can download individual summaries or compile materials for a deposition binder. Every output includes source-page citations for quick verification against the original documents."
+      "answer": "PDF, Word, Excel, or plain text. Download individual summaries or compile materials for a deposition binder. Every output includes references tying each point to the original record for quick verification."
     }
   ],
   "relatedPages": [

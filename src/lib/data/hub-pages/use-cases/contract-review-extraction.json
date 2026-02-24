@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "AI Contract Review and Extraction — Pull Key Terms and Clauses Automatically",
-    "description": "Use Dodonai's Extract & Draft Agents to review contracts, extract key terms, identify critical clauses, and build structured contract summaries from uploaded agreements.",
+    "title": "AI Contract Review Software — Extract Key Terms and Clauses Automatically",
+    "description": "AI contract review software that extracts key terms, identifies critical clauses, and builds structured summaries. Dodonai's Extract & Draft Agents automate contract extraction from uploaded agreements.",
     "canonical": "/use-cases/contract-review-extraction/"
   },
   "breadcrumbs": [
@@ -11,20 +11,20 @@
   ],
   "hero": {
     "headline": "AI-Powered Contract Review and Key Term Extraction",
-    "subheadline": "Manually reviewing contracts for key terms, obligations, dates, and risk clauses takes hours per agreement. Dodonai's Extract & Draft Agents read your contracts, pull the data points you specify, and deliver structured summaries — turning a stack of agreements into an organized, reviewable dataset in minutes.",
-    "ctaText": "Free Trial",
+    "subheadline": "Reviewing contracts for key terms, obligations, and risk clauses takes hours per agreement. Dodonai's Extract & Draft Agents read your contracts, pull the data points you specify, and deliver structured summaries in minutes.",
+    "ctaText": "Upload Your First Contract",
     "ctaUrl": "https://app.dodon.ai/signup",
-    "secondaryCtaText": "See Pricing",
-    "secondaryCtaUrl": "/pricing/"
+    "secondaryCtaText": "See the Output",
+    "secondaryCtaUrl": "/dodonai-extract-and-draft-agents/"
   },
   "sections": [
     {
       "type": "content",
       "heading": "How AI Transforms Contract Review for Legal Teams",
       "paragraphs": [
-        "Contract review is one of the most time-intensive tasks in legal practice. Whether your team is reviewing vendor agreements, lease terms, employment contracts, or settlement agreements, the work follows the same pattern: read every page, locate the key provisions, extract the relevant terms, and compile the information into a usable format. For a single contract, this might take an hour. For a portfolio of 50 or 100 agreements — during due diligence, a lease audit, or a corporate transaction — the manual approach becomes a bottleneck that delays decisions and drives up costs.",
-        "Dodonai's {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} automate the extraction and structuring phase of contract review. You define what data points matter — termination clauses, indemnification provisions, payment terms, renewal dates, governing law, assignment restrictions, or any other field — and the AI reads each contract to extract those specific elements. The output is a structured summary that organizes the extracted terms in a consistent format across all agreements, with source-page citations linking every data point back to the original contract language.",
-        "This doesn't replace attorney judgment on contract risk or negotiation strategy. It eliminates the hours of manual reading required to gather the information attorneys need to make those judgments. When your team can review the key terms from 50 contracts in the time it used to take to read 5, due diligence timelines shrink, audit scope expands, and contract management becomes proactive instead of reactive."
+        "Your team just got a stack of 80 vendor contracts for due diligence and needs the key terms pulled by Friday. Manually, that's a week of work. With the right contract review software, it's an afternoon.",
+        "Dodonai's {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} automate the extraction and structuring phase of contract review. You define what data points matter — termination clauses, indemnification provisions, payment terms, renewal dates, governing law — and the AI reads each contract to extract those specific elements. The output is a structured summary that organizes the extracted terms consistently across all agreements, with every data point tracing to the exact source page.",
+        "This doesn't replace attorney judgment on contract risk or negotiation strategy. It eliminates the hours of manual reading required to gather the information attorneys need to make those judgments. When your team can review key terms from 50 contracts in the time it used to take to read 5, due diligence timelines shrink and contract management becomes proactive instead of reactive."
       ]
     },
     {
@@ -34,27 +34,27 @@
         {
           "icon": "adjustments",
           "title": "Custom Extraction Agents",
-          "description": "Build reusable {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} tailored to your contract types. Define the fields you need — termination rights, payment terms, indemnification caps, renewal dates, governing law — and the agent extracts those data points from every contract you upload, delivering consistent structured output."
+          "description": "Define the fields you need — termination rights, payment terms, indemnification caps, renewal dates, governing law — and a reusable {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agent}} pulls those data points from every contract you upload. Consistent structured output, every time."
         },
         {
           "icon": "filter",
           "title": "Clause Identification and Categorization",
-          "description": "Dodonai identifies and categorizes contract clauses by type, making it easy to locate specific provisions across multiple agreements. Find every non-compete clause, every limitation of liability, or every change-of-control provision in a set of contracts without reading each one cover to cover."
+          "description": "Find every non-compete, limitation of liability, or change-of-control provision across a set of contracts without reading each one cover to cover. Dodonai categorizes clauses by type so you can locate specific provisions instantly."
         },
         {
           "icon": "document",
           "title": "Structured Contract Summaries",
-          "description": "Receive organized summaries that present extracted terms in a consistent format. Each summary includes the contract parties, effective dates, key obligations, financial terms, and risk provisions — all with source-page citations so your attorneys can verify the extracted language against the original agreement."
+          "description": "Each summary covers contract parties, effective dates, key obligations, financial terms, and risk provisions — with page references for quick verification against the original agreement."
         },
         {
           "icon": "squares",
           "title": "Scanned Contract Processing",
-          "description": "Many contracts arrive as scanned PDFs, faxed copies, or image-only files — especially older agreements or records from opposing parties. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} converts these into fully readable text before extraction, so no contract in your review set gets skipped due to poor document quality."
+          "description": "Older agreements and records from opposing parties often arrive as scanned PDFs or faxed copies. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} converts these into fully readable text before extraction, so nothing in your review set gets skipped."
         },
         {
           "icon": "folder",
           "title": "Bulk Contract Review at Scale",
-          "description": "Process dozens or hundreds of contracts through the same extraction template. During due diligence, lease audits, or portfolio reviews, Dodonai scales to handle the full document set — delivering a structured comparison of key terms across all agreements that would take a team weeks to compile manually."
+          "description": "During due diligence or portfolio reviews, process dozens or hundreds of contracts through the same extraction template. The result: a structured comparison of key terms across all agreements, delivered in minutes instead of weeks."
         }
       ]
     },
@@ -63,15 +63,15 @@
       "items": [
         {
           "title": "Upload Your Contracts",
-          "description": "Upload contracts to Dodonai as PDFs or Word documents. The platform handles multi-page agreements, scanned copies, and mixed-format files. No preprocessing or cleanup is required — upload the contracts exactly as you have them."
+          "description": "Upload contracts as PDFs or Word documents. The platform handles multi-page agreements, scanned copies, and mixed-format files. No preprocessing required."
         },
         {
           "title": "Configure Your Extraction Agent",
-          "description": "Define the data points you want extracted: party names, effective dates, termination provisions, payment terms, indemnification clauses, governing law, or any other contract elements relevant to your review. Save the agent configuration to reuse across future contract sets."
+          "description": "Define the data points you want extracted: party names, effective dates, termination provisions, payment terms, indemnification clauses, or any other contract elements. Save the agent configuration to reuse across future contract sets."
         },
         {
           "title": "Review Extracted Terms and Export",
-          "description": "Review the structured extraction results with source-linked citations to the original contract language. Verify key provisions against the source documents, then export the results as PDF, Word, or Excel. Use the organized output to inform negotiation, due diligence, or compliance decisions."
+          "description": "Review the structured results with each entry linked back to the original page in the contract. Verify key provisions, then export as PDF, Word, or Excel."
         }
       ]
     }
@@ -79,23 +79,27 @@
   "faq": [
     {
       "question": "What types of contracts can Dodonai review and extract from?",
-      "answer": "Dodonai can process virtually any contract type: vendor agreements, employment contracts, lease agreements, settlement agreements, NDAs, service agreements, licensing deals, insurance policies, and more. The {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} are configurable for any document structure, so you define what fields to extract based on the contract type you are reviewing."
+      "answer": "Virtually any type: vendor agreements, employment contracts, leases, settlements, NDAs, service agreements, licensing deals, insurance policies, and more. The {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} are configurable for any document structure, so you define what fields to extract based on the contract type."
     },
     {
-      "question": "How accurate is the AI contract extraction?",
-      "answer": "Dodonai's extraction accuracy is high for well-defined data points like dates, party names, dollar amounts, and specific clause types. Every extracted term includes a source-page citation linking back to the original contract language, allowing your attorneys to verify any data point in seconds. We recommend a review pass on the extracted output, just as you would with work product from any associate or vendor."
+      "question": "How accurate is AI contract extraction?",
+      "answer": "Accuracy is high for well-defined data points like dates, party names, dollar amounts, and specific clause types. Every extracted term includes a page citation linking to the original contract language, so attorneys can verify any data point in seconds. We recommend a review pass, just as you would with work from any associate or vendor."
     },
     {
       "question": "Can I build different extraction templates for different contract types?",
-      "answer": "Yes. Dodonai's Extract and Draft Agents are fully configurable. You can build separate agents for lease review, vendor contract audits, employment agreement analysis, or any other contract type. Each agent saves its extraction template so you can reuse it across future reviews without reconfiguring."
+      "answer": "Yes. Build separate agents for lease review, vendor audits, employment agreement analysis, or any other contract type. Each agent saves its template for reuse without reconfiguring."
     },
     {
-      "question": "How does Dodonai handle contracts that are scanned or image-only PDFs?",
-      "answer": "Dodonai includes {{link:/ai-pdf-ocr/|AI-powered OCR}} that converts scanned contracts, faxed copies, and image-only PDFs into fully readable and extractable text. This ensures that older agreements, records from opposing counsel, or poorly scanned documents are included in your review without manual retyping."
+      "question": "How does Dodonai handle scanned or image-only contract PDFs?",
+      "answer": "Dodonai's {{link:/ai-pdf-ocr/|AI-powered OCR}} converts scanned contracts, faxed copies, and image-only PDFs into extractable text. Older agreements and poorly scanned documents get included in your review without manual retyping."
     },
     {
       "question": "What does contract review with Dodonai cost?",
-      "answer": "Dodonai plans are based on page volume. The Lite plan is $30 per month for 200 pages, the Basic plan is $60 per month for 1,000 pages, and the Pro plan is $100 per month for 5,000 pages. A typical 20-page contract uses 20 credits. Enterprise plans with custom volumes are available for large-scale due diligence and portfolio reviews. Visit our {{link:/pricing/|pricing page}} for details."
+      "answer": "Plans are based on page volume. Lite is $30/month for 200 pages, Basic is $60/month for 1,000 pages, Pro is $100/month for 5,000 pages. A 20-page contract uses 20 credits. Enterprise plans are available for large-scale due diligence. Visit our {{link:/pricing/|pricing page}} for details."
+    },
+    {
+      "question": "Is my contract data secure?",
+      "answer": "Your contracts stay locked down — SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted. We never train on your data, and you control retention and deletion."
     }
   ],
   "relatedPages": [

@@ -11,8 +11,8 @@
   ],
   "hero": {
     "headline": "AI Document Processing Built for Personal Injury Firms",
-    "subheadline": "Personal injury cases generate thousands of pages of medical records, deposition transcripts, and supporting documents. Dodonai turns that paperwork into organized summaries and chronologies in minutes, so your team can focus on case strategy and client outcomes.",
-    "ctaText": "Free Trial",
+    "subheadline": "PI cases generate thousands of pages of medical records and transcripts. Dodonai turns that paperwork into organized summaries and chronologies in minutes — so your team focuses on case strategy and client outcomes.",
+    "ctaText": "Try It With Your Records",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Pricing",
     "secondaryCtaUrl": "/pricing/"
@@ -22,10 +22,10 @@
       "type": "content",
       "heading": "How Personal Injury Firms Use AI Document Processing",
       "paragraphs": [
-        "Every PI case follows the same documentation arc: records requests go out after intake, medical records pile up from ERs, orthopedics, pain management, and PT, your team builds the med chron, and then the real work begins — evaluating specials, projecting future medicals, and putting together a demand package that moves the adjuster. The firms that compress that documentation cycle are the ones sending demands sooner and resolving cases faster.",
-        "AI document processing tools like Dodonai handle the heaviest part of that cycle. Upload a plaintiff's records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with provider-by-provider timelines, diagnoses, treatments, and source-page citations — the same organized foundation you need for calculating specials, identifying treatment gaps, and supporting your damages narrative. Upload a deposition transcript and get a {{link:/deposition-summary-software/|page-line or narrative summary}} that flags liability admissions, causation testimony, and damages evidence ready for attorney review.",
-        "Your attorneys and paralegals still drive case valuation, settlement strategy, and client communication — AI just eliminates the mechanical work of reading, extracting, and formatting that eats up their time. Policy limits demand, soft-tissue demand package, life care plan foundation for a catastrophic injury — whatever you're assembling, organized documentation is where it starts.",
-        "Dodonai is SOC 2 Type II certified and HIPAA compliant, which means your clients' protected health information stays secure throughout the summarization process."
+        "Every PI case follows the same documentation arc: records requests go out after intake, medical records pile up from ERs, orthopedics, and PT, your team builds the med chron, and then the real work begins — evaluating specials, projecting future medicals, and putting together a demand package that moves the adjuster. The firms that compress that documentation cycle are the ones sending demands sooner and resolving cases faster.",
+        "A personal injury medical record summary used to mean days of paralegal time per case. Dodonai handles that in minutes. Upload a plaintiff's records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with provider-by-provider timelines, diagnoses, treatments, and source-page citations — the organized foundation you need for calculating specials, identifying treatment gaps, and supporting your damages narrative. Upload a deposition transcript and get a {{link:/deposition-summary-software/|page-line or narrative summary}} that flags liability admissions, causation testimony, and damages evidence.",
+        "Your attorneys and paralegals still drive case valuation, settlement strategy, and client communication — AI just eliminates the mechanical work that eats up their time. Policy limits demand, soft-tissue demand package, life care plan foundation for a catastrophic injury — whatever you're assembling, it starts with organized documentation.",
+        "Your clients' PHI stays locked down — SOC 2 Type II certified, HIPAA compliant with signed BAAs, and AES-256 encrypted end to end."
       ]
     },
     {
@@ -35,32 +35,32 @@
         {
           "icon": "heart",
           "title": "Medical Record Summaries for PI Cases",
-          "description": "Generate detailed medical chronologies that document the full arc from date of loss through treatment, surgery, rehab, and MMI. Each entry links back to the source page, giving you the documented specials and treatment narrative you need for demand packages and deposition preparation."
+          "description": "Detailed medical chronologies documenting the full arc from date of loss through treatment, surgery, rehab, and MMI — with references tying each point back to the original record. The documented specials and treatment narrative you need for demand packages and deposition prep."
         },
         {
           "icon": "document",
           "title": "Deposition Summaries in Minutes",
-          "description": "Upload a deposition transcript and receive a page-line or narrative summary in minutes. Highlight key topics like liability admissions, damages testimony, or causation evidence to tailor the output to your case theory."
+          "description": "Upload a transcript and get a page-line or narrative summary back in minutes. Highlight liability admissions, damages testimony, or causation evidence to tailor the output to your case theory."
         },
         {
           "icon": "dollar",
           "title": "Lower Costs, Higher Margins",
-          "description": "Record review vendors charge $5 to $15 per page, and deposition summary services run $3 to $10 per page. Dodonai processes pages for as little as $0.02 each, which changes the math on contingency cases where every dollar of case cost comes out of the recovery."
+          "description": "Record review vendors charge $5 to $15 per page. Deposition summary services run $3 to $10. Dodonai processes pages for as little as $0.02 each — math that matters on contingency cases where every dollar of cost comes out of the recovery."
         },
         {
           "icon": "clock",
           "title": "Faster Case Resolution",
-          "description": "The longer a case sits waiting on documentation, the longer your client waits for resolution and the longer your firm carries the cost advance. Dodonai gets you from records received to demand-ready in minutes instead of weeks, whether you are preparing a BI claim demand, a UM/UIM package, or pulling together materials for mediation."
+          "description": "Every day a case sits waiting on documentation is a day your client waits and your firm carries the cost advance. Go from records received to demand-ready in minutes — BI claims, UM/UIM packages, or mediation prep."
         },
         {
           "icon": "shield",
           "title": "HIPAA Compliant Processing",
-          "description": "Personal injury records contain sensitive medical information. Dodonai is HIPAA compliant with signed Business Associate Agreements, SOC 2 Type II certified, and encrypts all data at rest and in transit."
+          "description": "PI records contain sensitive medical information. Every document runs through AES-256 encryption on a SOC 2-certified, HIPAA-compliant platform. We sign BAAs, and your data never trains our models."
         },
         {
           "icon": "growth",
           "title": "Scale Without Adding Headcount",
-          "description": "Handle more cases without hiring additional paralegals or outsourcing to expensive vendors. Dodonai lets your existing team manage a larger caseload by automating the most time-intensive parts of document review."
+          "description": "More cases, same team. Dodonai automates the most time-intensive parts of document review so your existing staff manages a larger caseload without the hiring bottleneck."
         }
       ]
     },
@@ -69,15 +69,15 @@
       "items": [
         {
           "title": "Upload Your Case Documents",
-          "description": "Upload medical records, deposition transcripts, or other case documents to Dodonai. The platform handles PDFs, Word files, text files, and scanned documents with built-in AI OCR. No preprocessing or reformatting is required."
+          "description": "Upload medical records, deposition transcripts, or other case documents. The platform handles PDFs, Word files, text files, and scanned documents with built-in AI OCR. No preprocessing required."
         },
         {
           "title": "AI Extracts and Organizes Key Information",
-          "description": "Dodonai's AI reads through the documents and extracts dates, providers, diagnoses, treatments, prescriptions, and key testimony, then organizes everything into structured summaries and chronologies. You can add key topics — a specific body part, a treating provider, causation language — to guide the AI's focus toward the issues that matter for your case theory."
+          "description": "Dodonai's AI reads through the documents, extracts dates, providers, diagnoses, treatments, prescriptions, and key testimony, then organizes everything into structured summaries and chronologies. Add key topics — a specific body part, a treating provider, causation language — to guide the AI toward the issues that matter for your case theory."
         },
         {
           "title": "Review, Download, and Put to Work",
-          "description": "Review the output in the interactive viewer with side-by-side source linking. Download finished summaries and chronologies as PDF, Word, or Excel files ready for demand packages, discovery responses, mediation briefs, expert referrals, or trial binders."
+          "description": "Review output in the interactive viewer with side-by-side source linking. Download as PDF, Word, or Excel for demand packages, discovery responses, mediation briefs, expert referrals, or trial binders."
         }
       ]
     }
@@ -85,15 +85,15 @@
   "faq": [
     {
       "question": "How does Dodonai help with personal injury medical record summaries?",
-      "answer": "Dodonai processes your plaintiff's medical records and generates a detailed chronology organized by date — ER visits, specialist referrals, surgical procedures, PT sessions, medication changes, and IME findings all appear in sequence with source-page citations. It also produces a narrative summary of the overall medical history. Your team can verify any data point against the original records and quickly identify the specials, treatment gaps, and provider relationships that matter for case evaluation."
+      "answer": "Upload your plaintiff's records and get a chronology organized by date — ER visits, specialist referrals, surgeries, PT sessions, medication changes, and IME findings in sequence with page citations. Quickly identify specials, treatment gaps, and provider relationships that matter for case evaluation."
     },
     {
       "question": "Can I use Dodonai to prepare demand letters?",
-      "answer": "Yes. The medical chronologies Dodonai generates give you the organized foundation a strong demand package requires — documented specials, a clear treatment timeline from injury through MMI, and a provider-by-provider narrative that supports your damages theory. Whether you are putting together a standard BI demand or a policy limits demand designed to create bad faith exposure, the structured evidence is ready to incorporate."
+      "answer": "Yes. The medical chronologies give you the foundation a strong demand requires — documented specials, a clear treatment timeline from injury through MMI, and a provider narrative supporting your damages theory. Works for standard BI demands and policy limits demands alike."
     },
     {
       "question": "How much can a PI firm save with AI document processing?",
-      "answer": "The savings depend on your volume. Record review vendors typically charge $5 to $15 per page, and deposition summary services run $3 to $10. Dodonai processes pages for as little as $0.02 each. On a typical PI case with 500 pages of medical records and a couple of transcripts, you are looking at thousands in vendor savings per case. For contingency firms advancing those costs, that directly protects your margins."
+      "answer": "Record review vendors charge $5 to $15 per page; deposition summaries run $3 to $10. Dodonai processes pages for as little as $0.02 each. On a typical 500-page case with a couple of transcripts, that's thousands in vendor savings. For contingency firms advancing costs, it directly protects margins."
     },
     {
       "question": "Is Dodonai secure enough for medical records and litigation documents?",
@@ -101,18 +101,18 @@
     },
     {
       "question": "Does Dodonai handle scanned medical records from providers?",
-      "answer": "Yes. Dodonai includes built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} that extracts text from scanned PDFs and image-based documents. You can upload records exactly as you receive them from medical providers without running them through a separate OCR tool first."
+      "answer": "Yes. Built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text from scanned PDFs and image-based documents. Upload records as you receive them from providers — no separate OCR step needed."
     },
     {
       "question": "Can Dodonai handle records from multiple providers in a single case?",
-      "answer": "Yes. You can upload records from multiple providers, and Dodonai will extract and organize the information into a unified chronology. The interactive viewer lets you filter entries by provider, date range, or event type so you can focus on specific aspects of the medical history."
+      "answer": "Yes. Upload records from all providers and Dodonai organizes them into a unified chronology. Filter by provider, date range, or event type to focus on specific parts of the medical history."
     }
   ],
   "relatedPages": [
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Generate AI-powered medical record summaries and chronologies with source-linked citations."
+      "description": "Generate AI-powered medical record summaries and chronologies so you can verify any claim against the source document."
     },
     {
       "title": "AI Deposition Summary Software",

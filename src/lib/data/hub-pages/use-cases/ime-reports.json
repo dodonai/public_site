@@ -1,0 +1,134 @@
+{
+  "seo": {
+    "title": "AI-Powered IME Report Preparation | Dodonai",
+    "description": "Prepare for IME evaluations faster. AI summarizes claimant medical records into structured chronologies and timelines so you can focus on the exam. Try free.",
+    "canonical": "/use-cases/ime-reports/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Use Cases", "href": null },
+    { "name": "IME Reports" }
+  ],
+  "hero": {
+    "headline": "Prepare Better IME Reports, Faster",
+    "subheadline": "The quality of your IME report depends on how well you understand the claimant's medical history. Dodonai summarizes the entire record set so you walk into the evaluation with a clear picture — and write your report with every detail at your fingertips.",
+    "ctaText": "Start Free Trial",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Medical Record Summaries",
+    "secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "From Records to Report-Ready in Minutes",
+      "paragraphs": [
+        "Writing a defensible IME report means accounting for every relevant detail in the claimant's medical history — prior conditions, treatment timelines, medication changes, surgical interventions, and provider opinions. Missing a single relevant entry can undermine your conclusions.",
+        "The problem isn't the evaluation itself. It's the hours spent beforehand reading through hundreds of pages of disorganized records, and the time spent afterward hunting for specific references to cite in your report.",
+        "Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical record summarization}} handles both. It reads the full record set and produces a structured chronology you can review before the exam, then reference while writing your report — with every finding linked to its source page."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "How Dodonai Supports IME Report Writing",
+      "cards": [
+        {
+          "icon": "calendar",
+          "title": "Complete Treatment Timeline",
+          "description": "See the full arc of the claimant's medical history in chronological order — from initial injury through the most recent visit. Understand the treatment trajectory before you begin your evaluation."
+        },
+        {
+          "icon": "document",
+          "title": "Cite Source Pages in Your Report",
+          "description": "Every finding links to its source page. When your report references a specific diagnosis, procedure, or provider note, you can cite the exact page number — adding credibility and defensibility."
+        },
+        {
+          "icon": "heart",
+          "title": "Clinical Detail Extraction",
+          "description": "Diagnoses, CPT codes, medications with dosage changes, imaging findings, operative notes, and functional assessments — all extracted and organized without manual chart review."
+        },
+        {
+          "icon": "search",
+          "title": "Find Specific Records Instantly",
+          "description": "Need to locate a particular provider visit, lab result, or imaging study? Search across the summarized record set instead of paging through the original documents."
+        },
+        {
+          "icon": "adjustments",
+          "title": "Focus on What Matters",
+          "description": "Narrow the summary to specific body systems, date ranges, or providers. Filter out records that aren't relevant to the evaluation so you're working with a focused data set."
+        },
+        {
+          "icon": "clipboard",
+          "title": "Export for Report Drafting",
+          "description": "Export chronologies and summaries in Word, PDF, or Excel. Use the structured output as a reference document while drafting your report — or as an appendix to the report itself."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload the Claimant's Records",
+          "description": "Upload the full record set to Dodonai's secure platform. The system handles PDFs of any size — scanned documents, faxed records, and handwritten physician notes are all processed by the AI OCR engine."
+        },
+        {
+          "title": "Review the AI-Generated Summary Before the Exam",
+          "description": "Dodonai produces a structured chronological timeline and narrative summary within minutes. Review the claimant's complete treatment history so you walk into the evaluation prepared."
+        },
+        {
+          "title": "Reference the Summary While Writing Your Report",
+          "description": "After the evaluation, use the structured summary to locate and cite specific records. Every entry links to its source page, so your report references are precise and verifiable."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does this help me write better IME reports?",
+      "answer": "You get a structured view of the claimant's full medical history before the exam, so you know what to look for during the evaluation. Afterward, you can cite specific page numbers from the record set in your report without hunting through the original documents."
+    },
+    {
+      "question": "Can I focus the summary on a specific body system or date range?",
+      "answer": "Yes. Specify focus areas when you upload — body systems, injury types, date ranges, or specific providers. The summary highlights what's relevant to your evaluation."
+    },
+    {
+      "question": "Does the AI handle records from multiple providers?",
+      "answer": "Yes. Dodonai processes records from multiple providers and facilities within a single upload, organizing everything into one unified chronology. Provider names are preserved so you can see who documented each entry."
+    },
+    {
+      "question": "Can I use the summary output as part of my IME report?",
+      "answer": "Yes. Export the chronology in Word, PDF, or Excel. Many IME physicians include the AI-generated chronology as a reference appendix in their reports or use it as the foundation for their history-of-present-illness section."
+    },
+    {
+      "question": "How does Dodonai handle handwritten notes and poor-quality scans?",
+      "answer": "Dodonai's {{link:/ai-pdf-ocr/|AI OCR engine}} processes handwritten physician notes, scanned documents, and faxed records. It extracts text from low-quality images so clinically relevant details aren't missed."
+    },
+    {
+      "question": "What does it cost per case?",
+      "answer": "Per-page pricing starting at $0.02/page on the Pro plan, with no minimums or seat fees. A typical 500-page IME record set costs under $10 to process — a fraction of what manual review runs. Visit our {{link:/pricing/|pricing page}} for current rates."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "IME Doctors",
+      "href": "/industries/ime-doctors/",
+      "description": "How Dodonai serves IME physicians — pre-exam record review at scale."
+    },
+    {
+      "title": "IME Companies",
+      "href": "/industries/ime-companies/",
+      "description": "AI-powered medical record processing for IME companies handling thousands of cases per month."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "How AI transforms the medical record review process for legal and medical professionals."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/understanding-medical-chronology-clear-actionable-timelines/"
+  ],
+  "ctaOverride": {
+    "headline": "Try It with a Real Case File",
+    "description": "Upload a claimant's medical records and get a structured AI-generated summary in minutes. No credit card required to start your free trial."
+  }
+}

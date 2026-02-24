@@ -11,10 +11,10 @@
   ],
   "hero": {
     "headline": "eDiscovery Software Review: Finding the Right Fit for Your Firm",
-    "subheadline": "Legacy eDiscovery platforms cost $50,000 or more per year and were built for a pre-AI world. Modern, AI-native alternatives like Dodonai offer semantic search, automated document review, and production-ready exports at a fraction of the cost. Here is what to look for when choosing eDiscovery software.",
-    "ctaText": "Free Trial",
+    "subheadline": "Legacy eDiscovery platforms cost $50,000+ per year and were built before AI. Modern alternatives offer semantic search, automated review, and production-ready exports at a fraction of the price.",
+    "ctaText": "Start Free Trial",
     "ctaUrl": "https://app.dodon.ai/signup",
-    "secondaryCtaText": "See Pricing",
+    "secondaryCtaText": "See How It Works",
     "secondaryCtaUrl": "/pricing/"
   },
   "sections": [
@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "What to Look for in eDiscovery Software",
       "paragraphs": [
-        "Choosing eDiscovery software is one of the most consequential technology decisions a litigation team can make. The right platform accelerates document review, reduces costs, and helps attorneys find the evidence that matters. The wrong one locks you into expensive contracts, buries critical documents in keyword-only search results, and creates bottlenecks during production deadlines.",
-        "The most important capability to evaluate is search quality. Traditional eDiscovery platforms rely on keyword and Boolean search, which means you only find documents that contain the exact terms you specify. AI-native platforms like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning, not just matching words. This catches relevant documents that keyword search misses — synonyms, paraphrased concepts, and contextual references that are often the most important evidence in a case.",
-        "Cost is the other critical factor. Legacy eDiscovery platforms from vendors like Relativity, Everlaw, and Nuix typically require annual contracts starting at $50,000 or more, plus per-gigabyte hosting fees and additional charges for analytics features. For solo practitioners, small firms, and mid-size litigation teams, these costs are prohibitive. AI-native alternatives offer comparable or superior functionality at monthly price points that make eDiscovery accessible to any practice."
+        "Your opposing counsel just produced 50,000 documents and the review deadline is in three weeks. This is exactly when your choice of eDiscovery platform matters most. The right platform accelerates document review, reduces costs, and helps attorneys find the evidence that counts. The wrong one buries critical documents in keyword-only search results and creates bottlenecks at production time.",
+        "The most important capability to evaluate is search quality. Traditional eDiscovery platforms rely on keyword and Boolean search, which means you only find documents containing your exact terms. AI-native electronic discovery platforms like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning. This catches synonyms, paraphrased concepts, and contextual references that keyword search misses -- often the most important evidence in a case.",
+        "Cost is the other critical factor. Legacy platforms from vendors like Relativity and Everlaw require annual contracts starting at $50,000+, plus per-gigabyte hosting fees. For solo practitioners, small firms, and mid-size teams, these costs are prohibitive. AI-native eDiscovery software makes the technology accessible to any practice — solo practitioners and small firms included."
       ]
     },
     {
@@ -50,27 +50,27 @@
         {
           "icon": "search",
           "title": "Semantic Search That Finds What Keywords Miss",
-          "description": "Dodonai's AI understands meaning, not just matching text. Search for a concept like 'discussions about product safety concerns' and find every relevant document — even when the exact phrase never appears. This eliminates the recall gaps that plague keyword-only eDiscovery tools."
+          "description": "Search for 'discussions about product safety concerns' and find every relevant document -- even when the exact phrase never appears. No more recall gaps from keyword-only tools."
         },
         {
           "icon": "dollar",
           "title": "Accessible Pricing Without Enterprise Contracts",
-          "description": "Plans start at $30 per month. There are no per-gigabyte hosting fees, no annual minimums, and no multi-year contracts. For firms that need eDiscovery capability without a six-figure line item, Dodonai makes the technology accessible."
+          "description": "$30/month. No per-gigabyte fees, no annual minimums, no multi-year lock-in. Affordable eDiscovery software that doesn't require a six-figure budget line."
         },
         {
           "icon": "bolt",
           "title": "AI-Powered Document Summarization",
-          "description": "Go beyond search results. Dodonai summarizes documents, extracts key facts, and builds chronologies from your document set. Use {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} to pull specific data points or draft work product directly from the evidence."
+          "description": "Tired of reading 200 documents just to find the five that matter? Dodonai summarizes documents, extracts key facts, and builds chronologies. Use {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} to pull data points or draft work product directly from the evidence."
         },
         {
           "icon": "shield",
           "title": "Enterprise Security at Every Plan Level",
-          "description": "SOC 2 Type II certified, HIPAA compliant, and AES-256 encrypted. Your litigation documents are protected with the same security standards that enterprise eDiscovery platforms advertise — without the enterprise price tag."
+          "description": "SOC 2 Type II certified and HIPAA compliant at every plan level. AES-256 encryption, signed BAAs, and we never train on your litigation documents. You decide when data gets deleted."
         },
         {
           "icon": "folder",
           "title": "Built-in OCR for Mixed Document Sets",
-          "description": "eDiscovery collections often include scanned documents, faxes, and image-based PDFs alongside native text files. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} processes everything in a single workflow, so you don't need a separate tool to make scanned documents searchable."
+          "description": "Scanned documents, faxes, and image-based PDFs processed alongside native text in a single workflow. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} makes everything searchable without a separate tool."
         }
       ]
     },
@@ -79,15 +79,15 @@
       "items": [
         {
           "title": "Upload Your Document Collection",
-          "description": "Upload PDFs, Word files, emails, and other documents to Dodonai's secure platform. The system handles native text files and scanned documents alike, with built-in OCR that makes every page searchable. No staging, formatting, or pre-processing required."
+          "description": "Upload PDFs, Word files, emails, and more. Built-in OCR makes every page searchable -- native text and scanned documents alike. No staging or pre-processing required."
         },
         {
           "title": "Search, Review, and Summarize",
-          "description": "Use semantic search to find relevant documents by meaning, not just keywords. Review results in the interactive viewer with source-page linking. Generate AI-powered summaries of individual documents or entire document sets to accelerate your review workflow."
+          "description": "Use semantic search to find relevant documents by meaning. Review results in the interactive viewer with every data point traced to the exact source page. Generate AI summaries of individual documents or entire collections."
         },
         {
           "title": "Export Production-Ready Files",
-          "description": "Download reviewed documents, summaries, and extracted data in PDF, Word, Excel, or text format. Organize outputs for production, privilege logs, or trial preparation binders. Every export maintains source citations for defensibility."
+          "description": "Download reviewed documents, summaries, and extracted data as PDF, Word, Excel, or text. Organize for production, privilege logs, or trial prep. Every export maintains citations for defensibility."
         }
       ]
     }
@@ -95,27 +95,27 @@
   "faq": [
     {
       "question": "How does semantic search differ from keyword search in eDiscovery?",
-      "answer": "Keyword search only returns documents containing the exact terms you enter. Semantic search understands the meaning behind your query and finds documents that discuss the same concepts using different words. For example, searching for 'employee safety complaints' with semantic search will also surface documents about 'worker injury reports' or 'staff health concerns' — results that keyword search would miss entirely."
+      "answer": "Keyword search returns only exact-match documents. Semantic search understands meaning, so searching 'employee safety complaints' also surfaces 'worker injury reports' and 'staff health concerns' -- results keyword search misses."
     },
     {
       "question": "Can Dodonai replace a full eDiscovery platform like Relativity or Everlaw?",
-      "answer": "For many firms, yes. Dodonai provides the core eDiscovery capabilities that most litigation teams need: document ingestion, semantic and keyword search, AI-powered review and summarization, and export for production. For cases that require specialized features like predictive coding workflows or complex production templating, Dodonai can serve as a cost-effective complement to a legacy platform for the search and review phases."
+      "answer": "For many firms, yes. Dodonai covers document ingestion, semantic and keyword search, AI review, and production export. For cases needing predictive coding workflows, it can complement a legacy platform for search and review."
     },
     {
       "question": "What does eDiscovery cost with Dodonai compared to legacy platforms?",
-      "answer": "Dodonai plans range from $30 per month (Lite, 200 credits) to $100 per month (Pro, 5,000 credits), with Enterprise pricing available for higher volumes. Legacy eDiscovery platforms typically start at $50,000 or more per year, plus per-gigabyte hosting fees of $5 to $25 per month. For small and mid-size firms, Dodonai can reduce eDiscovery costs by 90% or more."
+      "answer": "Dodonai runs $30-$100/month depending on volume, with Enterprise pricing available. Legacy platforms start at $50,000+/year plus per-gigabyte hosting fees. For small and mid-size firms, that's a 90%+ cost reduction."
     },
     {
       "question": "Is Dodonai secure enough for litigation document review?",
-      "answer": "Yes. Dodonai is SOC 2 Type II certified and HIPAA compliant. All documents are encrypted with AES-256 in transit and at rest. Your data is never used to train AI models. These are the same security standards that enterprise eDiscovery platforms provide, available at every Dodonai plan level."
+      "answer": "Every plan includes SOC 2 Type II certification, HIPAA compliance with signed BAAs, and AES-256 encryption across the board. Your documents stay out of any training pipeline, and you control retention."
     },
     {
       "question": "Can Dodonai handle scanned documents in an eDiscovery collection?",
-      "answer": "Yes. Dodonai includes {{link:/ai-pdf-ocr/|AI-powered OCR}} that extracts text from scanned PDFs, faxed documents, and image-based files. You can upload mixed collections of native text and scanned documents, and everything becomes searchable and summarizable without a separate OCR step."
+      "answer": "Yes. {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text from scanned PDFs, faxes, and image files. Upload mixed collections and everything becomes searchable without a separate OCR step."
     },
     {
       "question": "How long does it take to set up Dodonai for eDiscovery?",
-      "answer": "You can start uploading and searching documents within minutes of creating an account. There's no installation, no database configuration, and no training period required. Upload your document collection, and Dodonai's AI indexes and processes everything automatically."
+      "answer": "Minutes. No installation, no database configuration, no training period. Upload your documents and the AI indexes everything automatically."
     }
   ],
   "relatedPages": [
@@ -141,7 +141,7 @@
     "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/"
   ],
   "ctaOverride": {
-    "headline": "Try AI-Powered eDiscovery Free",
-    "description": "Upload your document collection and search by meaning, not just keywords. Get started in minutes with no credit card required."
+    "headline": "See What AI eDiscovery Looks Like",
+    "description": "Upload your document collection and search by meaning, not just keywords. Get started in minutes -- no credit card required."
   }
 }

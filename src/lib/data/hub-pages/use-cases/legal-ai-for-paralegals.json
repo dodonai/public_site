@@ -1,7 +1,7 @@
 {
   "seo": {
-    "title": "Legal AI for Paralegals — Automate Document Review and Case Preparation",
-    "description": "Dodonai helps paralegals automate document review, build medical chronologies, summarize depositions, search transcripts, and manage cases more efficiently with AI.",
+    "title": "AI Tools for Legal Paralegals — Automate Document Review and Case Preparation",
+    "description": "Dodonai helps paralegals automate document review, build medical chronologies, summarize depositions, search transcripts, and manage cases more efficiently with paralegal document automation.",
     "canonical": "/use-cases/legal-ai-for-paralegals/"
   },
   "breadcrumbs": [
@@ -11,8 +11,8 @@
   ],
   "hero": {
     "headline": "Legal AI Tools Built for How Paralegals Actually Work",
-    "subheadline": "Paralegals handle the document-intensive work that keeps litigation moving: reviewing medical records, summarizing depositions, searching transcripts, organizing discovery, and preparing case files. Dodonai automates the most time-consuming parts of that work so you can manage a larger caseload, produce higher-quality work product, and spend less time on repetitive document processing.",
-    "ctaText": "Free Trial",
+    "subheadline": "Paralegals handle the document-intensive work that keeps litigation moving. Dodonai automates the most time-consuming parts — record review, deposition summaries, transcript search — so you can manage more cases at higher quality.",
+    "ctaText": "Start Your Free Trial",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Pricing",
     "secondaryCtaUrl": "/pricing/"
@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "How Paralegals Use AI to Work More Efficiently",
       "paragraphs": [
-        "Paralegals are the backbone of document processing in litigation. Building medical chronologies, drafting deposition digests, searching through transcript testimony, organizing discovery productions, preparing privilege logs, and formatting work product for attorney review — these tasks consume the majority of a paralegal's day. They are also the tasks where AI delivers the most immediate and measurable productivity gains.",
-        "Dodonai is designed for the way paralegals actually work. Upload a stack of medical records and get a complete chronology in minutes instead of spending an entire day manually reading through SOAP notes and operative reports. Upload a deposition transcript and receive a page-line summary instead of spending hours drafting one from scratch. Search across all the transcripts in a case with a natural language query instead of scrolling through hundreds of pages looking for a specific admission or a witness's testimony on a particular topic.",
-        "AI handles the reading, extracting, and formatting — the mechanical labor that eats up your time without requiring your expertise. You handle the analysis, quality control, and case strategy support attorneys depend on: reviewing the chronology for case-relevant issues, flagging inconsistencies in testimony, and making sure the work product is right before it goes to the attorney."
+        "Paralegals are the backbone of document processing in litigation. Building medical chronologies, drafting deposition digests, searching transcript testimony, organizing discovery, preparing privilege logs — these tasks consume most of a paralegal's day. They're also where AI tools for legal paralegals deliver the most immediate productivity gains.",
+        "Dodonai is designed for the way paralegals actually work. Upload a stack of medical records and get a complete chronology in minutes instead of spending a full day reading SOAP notes. Upload a deposition transcript and receive a page-line summary instead of hours drafting one from scratch. Search across all transcripts in a case with a natural language query instead of scrolling through hundreds of pages.",
+        "AI handles the reading, extracting, and formatting — the mechanical labor that eats up time without requiring your expertise. You handle the analysis and quality control attorneys depend on: reviewing chronologies for case issues, flagging testimony inconsistencies, and making sure work product is right before it goes to the attorney."
       ]
     },
     {
@@ -34,32 +34,32 @@
         {
           "icon": "heart",
           "title": "Medical Record Summaries and Chronologies",
-          "description": "Upload plaintiff medical records and receive a structured {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with provider timelines, diagnoses, treatments, and source citations. What used to take a full day of manual review is done in minutes, freeing you for higher-value case preparation tasks."
+          "description": "A full day of manual record review, done in minutes. Upload plaintiff medical records and receive a structured {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with provider timelines, diagnoses, treatments, and source citations — freeing you for higher-value case prep."
         },
         {
           "icon": "document",
           "title": "Deposition Summary Drafting",
-          "description": "Generate {{link:/deposition-summary-software/|page-line and narrative deposition summaries}} from uploaded transcripts. Specify key topics to focus the summary on the issues your supervising attorney cares about most. Review the output and make edits before finalizing."
+          "description": "Generate {{link:/deposition-summary-software/|page-line and narrative deposition summaries}} from uploaded transcripts. Specify key topics to focus on the issues your supervising attorney cares about most, then review and edit before finalizing."
         },
         {
           "icon": "search",
           "title": "AI Transcript Search",
-          "description": "Use {{link:/ai-deposition-transcript-software/|AI-powered transcript search}} to find specific testimony across multiple depositions without re-reading entire transcripts. Search by topic, witness name, or natural language question to locate relevant testimony in seconds."
+          "description": "Find specific testimony across multiple depositions without re-reading entire transcripts. {{link:/ai-deposition-transcript-software/|AI-powered search}} works by topic, witness name, or natural language question — results in seconds."
         },
         {
           "icon": "folder",
           "title": "AI OCR for Scanned Documents",
-          "description": "Process scanned medical records, faxed documents, and handwritten notes with {{link:/ai-pdf-ocr/|AI-powered OCR}}. Extract text from documents that are too poor in quality for standard OCR tools, ensuring nothing gets missed during document review."
+          "description": "Scanned records, faxed documents, handwritten notes — {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text from files too poor for standard tools, so nothing gets missed during review."
         },
         {
           "icon": "adjustments",
           "title": "Extract and Draft Agents",
-          "description": "Build reusable {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} that automate recurring tasks. Create agents that pull specific data points from insurance policies, extract billing information from medical records, or generate formatted summaries matching your firm's preferred templates."
+          "description": "Build reusable {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} for recurring tasks: pulling data from insurance policies, extracting billing information, or generating summaries that match your firm's templates."
         },
         {
           "icon": "briefcase",
           "title": "E-Discovery Document Review",
-          "description": "Use {{link:/electronic-discovery-software/|Dodonai's e-discovery tools}} to search, filter, and review large document productions. Whether you are working through a first-pass relevance review, identifying documents for a privilege log, or pulling together materials for a meet and confer, AI helps you find the relevant documents faster."
+          "description": "First-pass relevance review, privilege log identification, meet-and-confer prep — {{link:/electronic-discovery-software/|Dodonai's e-discovery tools}} help you find relevant documents faster across large productions."
         }
       ]
     },
@@ -68,15 +68,15 @@
       "items": [
         {
           "title": "Upload Your Documents",
-          "description": "Upload medical records, deposition transcripts, discovery productions, or any other case documents to Dodonai. The platform handles PDFs, Word files, text files, and scanned documents. There's no formatting or cleanup required before uploading."
+          "description": "Upload medical records, deposition transcripts, discovery productions, or any other case documents. The platform handles PDFs, Word files, text files, and scanned documents with no formatting required."
         },
         {
           "title": "Select the Task and Customize",
-          "description": "Choose the type of output you need — medical chronology, deposition summary, transcript search, document extract, or e-discovery review. Add key topics, date ranges, or specific focus areas to tailor the output. The AI processes the documents and delivers structured results in minutes."
+          "description": "Choose your output — medical chronology, deposition summary, transcript search, document extract, or e-discovery review. Add key topics or date ranges to tailor the results. Processing completes in minutes."
         },
         {
           "title": "Review, Refine, and Deliver",
-          "description": "Use the interactive viewer to review the AI output with side-by-side source linking to the original documents. Make any edits or adjustments, then export the finished work product as PDF, Word, Excel, or text. The output is ready for attorney review or direct inclusion in case files."
+          "description": "Review the AI output with side-by-side source linking to the original documents. Make edits, then export as PDF, Word, Excel, or text — ready for attorney review or direct inclusion in case files."
         }
       ]
     }
@@ -84,27 +84,27 @@
   "faq": [
     {
       "question": "Will AI replace paralegals in law firms?",
-      "answer": "No. AI tools like Dodonai automate the repetitive, time-consuming parts of document processing — reading through hundreds of pages of medical records, extracting data, and formatting outputs. This frees paralegals to focus on the analytical work that requires human judgment: evaluating whether a chronology captures the case-relevant issues, identifying inconsistencies in deposition testimony, preparing discovery response materials, organizing exhibits, and communicating with attorneys and clients. Paralegals who use AI tools effectively handle a larger caseload and produce higher-quality work product."
+      "answer": "No. AI automates the repetitive parts — reading hundreds of pages, extracting data, formatting outputs. That frees paralegals for the analytical work: evaluating chronologies for case issues, spotting testimony inconsistencies, organizing exhibits, and communicating with attorneys. Paralegals who use AI tools handle more cases at higher quality."
     },
     {
       "question": "How much time can a paralegal save using Dodonai?",
-      "answer": "The time savings depend on the task. A medical chronology that takes 8-12 hours to build manually — reading through every provider's notes, cross-referencing dates, formatting entries — is generated in under 15 minutes. A deposition digest that takes 3-5 hours to draft is ready in about 3 minutes. Searching across transcripts for a specific witness statement or admission takes seconds instead of scrolling through hundreds of pages. Most paralegals report saving several hours per day on document processing tasks."
+      "answer": "A medical chronology that takes 8-12 hours manually is generated in under 15 minutes. A deposition digest that takes 3-5 hours is ready in about 3 minutes. Transcript searches take seconds. Most paralegals report saving several hours per day on document processing."
     },
     {
       "question": "Do I need technical skills to use Dodonai?",
-      "answer": "No. Dodonai is designed for legal professionals, not technologists. The workflow is straightforward: upload a document, select the output type, optionally enter key topics, and download the result. Most paralegals are comfortable using the platform within their first session. No coding, API knowledge, or IT support is required."
+      "answer": "No. Upload a document, select the output type, optionally enter key topics, and download. Most paralegals are comfortable within their first session. No coding or IT support required."
     },
     {
       "question": "Can I customize the output to match my firm's templates?",
-      "answer": "Yes. Dodonai supports multiple export formats including PDF, Word, Excel, and plain text. You can customize the level of detail, filter by provider or date range, and adjust the summary structure. For more advanced customization, the {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} feature lets you build reusable templates that match your firm's exact formatting requirements."
+      "answer": "Yes. Multiple export formats including PDF, Word, Excel, and plain text. Customize detail level, filter by provider or date range, and adjust summary structure. For advanced customization, {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} let you build reusable templates matching your firm's exact requirements."
     },
     {
       "question": "Is Dodonai secure enough for confidential legal documents?",
-      "answer": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted — your firm's security requirements are covered. Documents are never used for model training, and you retain full control over what stays and what gets deleted."
+      "answer": "Built on HIPAA-compliant, SOC 2-certified infrastructure with AES-256 encryption. We sign BAAs, don't train on your documents, and you keep full deletion control."
     },
     {
       "question": "How much does Dodonai cost for a paralegal to use?",
-      "answer": "Dodonai plans are based on page volume, not user seats — so per-page costs range from $0.15 down to $0.02 depending on plan size. Multiple paralegals and attorneys can share the same account. Visit our {{link:/pricing/|pricing page}} for full details."
+      "answer": "Plans are based on page volume, not user seats — per-page costs range from $0.15 down to $0.02 depending on plan. Multiple paralegals and attorneys can share the same account. Visit our {{link:/pricing/|pricing page}} for details."
     }
   ],
   "relatedPages": [
@@ -116,7 +116,7 @@
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Build structured medical chronologies with source-linked citations."
+      "description": "Build structured medical chronologies with source citations for quick verification."
     },
     {
       "title": "Medical Record Review",
