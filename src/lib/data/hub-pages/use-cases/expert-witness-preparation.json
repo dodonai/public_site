@@ -11,7 +11,7 @@
   ],
   "hero": {
     "headline": "AI-Powered Expert Witness Preparation",
-    "subheadline": "Expert depositions hinge on preparation depth. Dodonai summarizes prior transcripts, processes Rule 26 reports, and finds contradictions across documents — turning days of preparation into hours.",
+    "subheadline": "Expert depositions hinge on preparation depth. Dodonai summarizes prior transcripts, processes Rule 26 reports, and finds contradictions across documents, turning days of preparation into hours.",
     "ctaText": "Prep Your Next Expert Depo",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See How It Works",
@@ -23,8 +23,8 @@
       "heading": "How Attorneys Use AI to Prepare for Expert Witness Depositions",
       "paragraphs": [
         "Expert witness preparation is high-stakes. Whether you're building a Daubert challenge or preparing your own expert for cross, the outcome hinges on preparation depth. You need to master the expert's methodology, map opinions against the factual record, identify inconsistencies across prior testimony, and lock down positions for trial or a motion to exclude under FRE 702.",
-        "That preparation is document-intensive — prior transcripts, expert witness reports filed under Rule 26(a)(2), published articles, case-specific records, and sometimes testimony from other cases where the expert reached different conclusions. AI expert deposition preparation tools like Dodonai compress this timeline from weeks to hours. Upload an expert's prior transcripts and receive {{link:/deposition-summary-software/|detailed summaries}} with page-line citations in minutes. Upload expert reports and medical records to build chronologies mapping opinions against the factual record. Use {{link:/ai-deposition-transcript-software/|semantic search across transcripts}} to find every instance where the expert discussed a methodology or conclusion — including passages keyword search would miss.",
-        "Attorneys arrive at the deposition with organized summaries, identified contradictions, and a clear map of the expert's prior positions — at a fraction of the cost of manual preparation. A 200-page expert transcript that takes 6-8 hours to digest manually is summarized in under 5 minutes."
+        "That preparation is document-intensive. It involves prior transcripts, expert witness reports filed under Rule 26(a)(2), published articles, case-specific records, and sometimes testimony from other cases where the expert reached different conclusions. AI expert deposition preparation tools like Dodonai compress this timeline from weeks to hours. Upload an expert's prior transcripts and receive {{link:/deposition-summary-software/|detailed summaries}} with page-line citations in minutes. Upload expert reports and medical records to build chronologies mapping opinions against the factual record. Use {{link:/ai-deposition-transcript-software/|semantic search across transcripts}} to find every instance where the expert discussed a methodology or conclusion, including passages keyword search would miss.",
+        "Attorneys arrive at the deposition with organized summaries, identified contradictions, and a clear map of the expert's prior positions, all at a fraction of the cost of manual preparation. A 200-page expert transcript that takes 6-8 hours to digest manually is summarized in about 6 minutes."
       ]
     },
     {
@@ -34,7 +34,7 @@
         {
           "icon": "document",
           "title": "Summarize Prior Expert Testimony",
-          "description": "Upload prior deposition transcripts — from this case or prior engagements — and get page-line or narrative summaries in minutes. Spot key opinions, methodology descriptions, and admissions. Compare what a retained expert said in their Rule 26 report against sworn testimony."
+          "description": "Upload prior deposition transcripts (from this case or prior engagements) and get page-line or narrative summaries in minutes. Spot key opinions, methodology descriptions, and admissions. Compare what a retained expert said in their Rule 26 report against sworn testimony."
         },
         {
           "icon": "search",
@@ -67,7 +67,7 @@
         },
         {
           "title": "AI Summarizes, Searches, and Organizes",
-          "description": "Dodonai generates summaries with page-line citations, builds chronologies from reports and records, and indexes everything for semantic search. Specify key topics — methodology, specific opinions, prior case involvement — to tailor the focus to your deposition strategy."
+          "description": "Dodonai generates summaries with page-line citations, builds chronologies from reports and records, and indexes everything for semantic search. Specify key topics (methodology, specific opinions, prior case involvement) to tailor the focus to your deposition strategy."
         },
         {
           "title": "Review and Prepare Your Examination Outline",
@@ -79,7 +79,7 @@
   "faq": [
     {
       "question": "How does Dodonai help attorneys prepare for expert depositions?",
-      "answer": "Dodonai processes prior transcripts into page-line summaries, builds chronologies from Rule 26 reports, and enables semantic search across all uploaded documents. This gives attorneys a comprehensive view of the expert's testimony history and methodology — whether preparing cross, building a Daubert challenge, or evaluating a rebuttal expert."
+      "answer": "Dodonai processes prior transcripts into page-line summaries, builds chronologies from Rule 26 reports, and enables semantic search across all uploaded documents. This gives attorneys the full picture of the expert's testimony history and methodology, whether you're preparing cross, building a Daubert challenge, or evaluating a rebuttal expert."
     },
     {
       "question": "Can I search for contradictions across multiple expert depositions?",

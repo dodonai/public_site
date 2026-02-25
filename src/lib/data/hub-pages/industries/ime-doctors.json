@@ -10,9 +10,9 @@
     { "name": "IME Doctors" }
   ],
   "hero": {
-    "headline": "IME Record Review in Minutes — AI Summaries for IME Physicians",
+    "headline": "IME Record Review in Minutes: AI Summaries for IME Physicians",
     "subheadline": "You shouldn't spend more time reading records than performing the evaluation. Dodonai's AI summarizes claimant medical records into structured chronologies so you walk into every IME fully prepared.",
-    "ctaText": "Start Free Trial",
+    "ctaText": "Summarize a Record Set Free",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See How It Works",
     "secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "The Pre-Exam Prep Bottleneck",
       "paragraphs": [
-        "A typical IME case file lands on the doctor's desk with 200 to 1,000+ pages of treatment records, imaging reports, operative notes, and pharmacy logs. Reviewing all of that before an evaluation takes time you don't have — especially when you're scheduled for multiple exams per day.",
+        "A typical IME case file lands on the doctor's desk with 200 to 1,000+ pages of treatment records, imaging reports, operative notes, and pharmacy logs. Reviewing all of that before an evaluation takes time you don't have, especially when you're scheduled for multiple exams per day.",
         "Most IME physicians either skim the records and risk missing something relevant, or spend their evenings catching up on chart review. Neither approach is sustainable when case volume is high.",
-        "Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical record summarization}} reads the entire record set and produces a structured chronological summary you can review in minutes. Every diagnosis, procedure, medication change, and provider encounter is extracted and organized — with page references back to the source documents when you need to verify a detail."
+        "Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical record summarization}} reads the entire record set and produces a structured chronological summary you can review in minutes. Every diagnosis, procedure, medication change, and provider encounter is extracted and organized, with page references back to the source documents when you need to verify a detail."
       ]
     },
     {
@@ -34,12 +34,12 @@
         {
           "icon": "clock",
           "title": "Review Records in Minutes",
-          "description": "Get a complete chronological summary of the claimant's medical history — diagnoses, treatments, surgeries, medications, and provider encounters — without reading every page yourself."
+          "description": "Get a complete chronological summary of the claimant's medical history (diagnoses, treatments, surgeries, medications, and provider encounters) without reading every page yourself."
         },
         {
           "icon": "calendar",
           "title": "Structured Chronologies",
-          "description": "The AI organizes records into a clear timeline. See the full treatment trajectory at a glance — from initial injury through the most recent visit — so you understand the case before the exam starts."
+          "description": "The AI organizes records into a clear timeline. See the full treatment trajectory at a glance, from initial injury through the most recent visit, so you understand the case before the exam starts."
         },
         {
           "icon": "document",
@@ -54,7 +54,7 @@
         {
           "icon": "adjustments",
           "title": "Customizable Output",
-          "description": "Configure summaries around the areas that matter to your evaluation — specific injuries, body systems, date ranges, or providers. {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} let you build reusable templates matching your reporting preferences."
+          "description": "Configure summaries around the areas that matter to your evaluation, such as specific injuries, body systems, date ranges, or providers. {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} let you build reusable templates matching your reporting preferences."
         },
         {
           "icon": "shield",
@@ -68,7 +68,7 @@
       "items": [
         {
           "title": "Upload the Claimant's Records",
-          "description": "Upload the full record set — PDFs of any size, including scanned documents, faxed records, and handwritten notes. Specify focus areas like body systems, date ranges, or specific providers if needed."
+          "description": "Upload the full record set: PDFs of any size, including scanned documents, faxed records, and handwritten notes. Specify focus areas like body systems, date ranges, or specific providers if needed."
         },
         {
           "title": "AI Generates the Summary",
@@ -84,7 +84,7 @@
   "faq": [
     {
       "question": "How long does it take to summarize a typical IME record set?",
-      "answer": "Most record sets are summarized in minutes, regardless of size. A 500-page case file and a 50-page file are processed at the same speed — you're not waiting hours for results."
+      "answer": "Most record sets are summarized in minutes, regardless of size. A 500-page case file and a 50-page file are processed at the same speed, so you're not waiting hours for results."
     },
     {
       "question": "Can the AI handle handwritten physician notes and poor-quality scans?",
@@ -92,7 +92,7 @@
     },
     {
       "question": "Can I customize the summary to focus on specific injuries or body systems?",
-      "answer": "Yes. You can specify focus areas — body systems, date ranges, providers, or injury types — so the summary highlights what's most relevant to your evaluation."
+      "answer": "Yes. You can specify focus areas like body systems, date ranges, providers, or injury types so the summary highlights what's most relevant to your evaluation."
     },
     {
       "question": "How do I verify the AI's output against the original records?",
@@ -104,7 +104,7 @@
     },
     {
       "question": "Is the platform HIPAA compliant?",
-      "answer": "Claimant PHI falls under strict federal and state privacy rules. Signed BAAs, AES-256 encryption, SOC 2 Type II certification — all standard. Records never enter a training pipeline. Deletion runs on your schedule."
+      "answer": "Claimant PHI falls under strict federal and state privacy rules. Signed BAAs, AES-256 encryption and SOC 2 Type II certification are all standard. Records never enter a training pipeline. Deletion runs on your schedule."
     }
   ],
   "relatedPages": [

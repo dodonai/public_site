@@ -10,9 +10,9 @@
     { "name": "IME Reports" }
   ],
   "hero": {
-    "headline": "Write Better IME Reports — AI-Powered Record Review",
-    "subheadline": "The quality of an IME report depends on how well you understand the claimant's medical history. Dodonai summarizes the entire record set so you walk into the evaluation prepared — and write your IME report with every detail at your fingertips.",
-    "ctaText": "Start Free Trial",
+    "headline": "Write Better IME Reports with AI-Powered Record Review",
+    "subheadline": "The quality of an IME report depends on how well you understand the claimant's medical history. Dodonai summarizes the entire record set so you walk into the evaluation prepared and write your IME report with every detail at your fingertips.",
+    "ctaText": "Try It with a Case File",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Medical Record Summaries",
     "secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "From Records to Report-Ready in Minutes",
       "paragraphs": [
-        "Writing a defensible IME report means accounting for every relevant detail in the claimant's medical history — prior conditions, treatment timelines, medication changes, surgical interventions, and provider opinions. Missing a single relevant entry can undermine your conclusions.",
+        "Writing a defensible IME report means accounting for every relevant detail in the claimant's medical history, including prior conditions, treatment timelines, medication changes, surgical interventions, and provider opinions. Missing a single relevant entry can undermine your conclusions.",
         "The problem isn't the evaluation itself. It's the hours spent beforehand reading through hundreds of pages of disorganized records, and the time spent afterward hunting for specific references to cite in your report.",
-        "Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical record summarization}} handles both. It reads the full record set and produces a structured chronology you can review before the exam, then reference while writing your report — with every finding linked to its source page."
+        "Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical record summarization}} handles both. It reads the full record set and produces a structured chronology you can review before the exam, then reference while writing your report. Every finding links to its source page."
       ]
     },
     {
@@ -34,17 +34,17 @@
         {
           "icon": "calendar",
           "title": "Complete Treatment Timeline",
-          "description": "See the full arc of the claimant's medical history in chronological order — from initial injury through the most recent visit. Understand the treatment trajectory before you begin your evaluation."
+          "description": "See the full arc of the claimant's medical history in chronological order, from initial injury through the most recent visit. Understand the treatment trajectory before you begin your evaluation."
         },
         {
           "icon": "document",
           "title": "Cite Source Pages in Your Report",
-          "description": "Every finding links to its source page. When your report references a specific diagnosis, procedure, or provider note, you can cite the exact page number — adding credibility and defensibility."
+          "description": "Every finding links to its source page. When your report references a specific diagnosis, procedure, or provider note, you can cite the exact page number, adding credibility and defensibility."
         },
         {
           "icon": "heart",
           "title": "Clinical Detail Extraction",
-          "description": "Diagnoses, CPT codes, medications with dosage changes, imaging findings, operative notes, and functional assessments — all extracted and organized without manual chart review."
+          "description": "Diagnoses, CPT codes, medications with dosage changes, imaging findings, operative notes, and functional assessments are all extracted and organized without manual chart review."
         },
         {
           "icon": "search",
@@ -59,7 +59,7 @@
         {
           "icon": "clipboard",
           "title": "Export for Report Drafting",
-          "description": "Export chronologies and summaries in Word, PDF, or Excel. Use the structured output as a reference document while drafting your report — or as an appendix to the report itself."
+          "description": "Export chronologies and summaries in Word, PDF, or Excel. Use the structured output as a reference document while drafting your report, or include it as an appendix to the report itself."
         }
       ]
     },
@@ -68,7 +68,7 @@
       "items": [
         {
           "title": "Upload the Claimant's Records",
-          "description": "Upload the full record set to Dodonai's secure platform. The system handles PDFs of any size — scanned documents, faxed records, and handwritten physician notes are all processed by the AI OCR engine."
+          "description": "Upload the full record set to Dodonai's secure platform. The system handles PDFs of any size. Scanned documents, faxed records, and handwritten physician notes are all processed by the AI OCR engine."
         },
         {
           "title": "Review the AI-Generated Summary Before the Exam",
@@ -84,11 +84,11 @@
   "faq": [
     {
       "question": "How does this help me write better IME reports?",
-      "answer": "You get a structured view of the claimant's full medical history before the exam — so you know what to look for during the evaluation. Afterward, you cite specific page numbers from the record set in your IME report without hunting through the originals."
+      "answer": "You get a structured view of the claimant's full medical history before the exam, so you know what to look for during the evaluation. Afterward, you cite specific page numbers from the record set in your IME report without hunting through the originals."
     },
     {
       "question": "Can I focus the summary on a specific body system or date range?",
-      "answer": "Yes. Specify focus areas when you upload — body systems, injury types, date ranges, or specific providers. The summary highlights what's relevant to your evaluation."
+      "answer": "Yes. Specify focus areas when you upload: body systems, injury types, date ranges, or specific providers. The summary highlights what's relevant to your evaluation."
     },
     {
       "question": "Does the AI handle records from multiple providers?",
@@ -104,19 +104,19 @@
     },
     {
       "question": "What does it cost per case?",
-      "answer": "Per-page pricing starting at $0.02/page on the Pro plan, with no minimums or seat fees. A typical 500-page IME record set costs under $10 to process — a fraction of what manual review runs. Visit our {{link:/pricing/|pricing page}} for current rates."
+      "answer": "Per-page pricing starting at $0.02/page on the Pro plan, with no minimums or seat fees. A typical 500-page IME record set costs under $10 to process, a fraction of what manual review runs. Visit our {{link:/pricing/|pricing page}} for current rates."
     }
   ],
   "relatedPages": [
     {
       "title": "IME Doctors",
       "href": "/industries/ime-doctors/",
-      "description": "Structured pre-exam summaries for IME physicians — review the full record in minutes."
+      "description": "Structured pre-exam summaries for IME physicians. Review the full record in minutes."
     },
     {
       "title": "IME Companies",
       "href": "/industries/ime-companies/",
-      "description": "Scalable AI record processing for IME operations — consistent output at any volume."
+      "description": "Scalable AI record processing for IME operations, with consistent output at any volume."
     },
     {
       "title": "Medical Record Review",

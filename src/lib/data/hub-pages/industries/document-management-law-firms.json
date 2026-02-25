@@ -11,8 +11,8 @@
   ],
   "hero": {
     "headline": "Legal Document Management Software That Actually Reads Your Files",
-    "subheadline": "Your DMS stores files. Dodonai processes what's inside them — AI-powered summaries, searchable transcripts, OCR-corrected scans, and structured extracts that turn passive storage into a working intelligence layer for your attorneys.",
-    "ctaText": "Start Free Trial",
+    "subheadline": "Your DMS stores files. Dodonai processes what's inside them. AI-powered summaries, searchable transcripts, OCR-corrected scans, and structured extracts turn passive storage into a working intelligence layer for your attorneys.",
+    "ctaText": "Process Your First Document",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Plans",
     "secondaryCtaUrl": "/pricing/"
@@ -22,10 +22,10 @@
       "type": "content",
       "heading": "Why Legal Document Management Needs More Than File Storage",
       "paragraphs": [
-        "Every law firm has a document management problem, and it's not about storage. You've got no trouble saving files to shared drives, case management platforms, or cloud folders. The problem is that the documents sitting in those systems are unprocessed — unread transcripts, unsummarized medical records, scanned files that aren't searchable, discovery productions nobody has time to review page by page.",
+        "Every law firm has a document management problem, and it's not about storage. You've got no trouble saving files to shared drives, case management platforms, or cloud folders. The problem is that the documents sitting in those systems are unprocessed: unread transcripts, unsummarized medical records, scanned files that aren't searchable, discovery productions nobody has time to review page by page.",
         "The documents are stored. The information inside them isn't accessible.",
-        "Legal document management software — real document management for law firms, not just file storage — should close that gap. Dodonai processes the content of every document you upload instead of treating files as static objects retrieved by filename. Medical records become structured chronologies. Deposition transcripts become searchable, cited summaries. Scanned PDFs become readable text through {{link:/ai-pdf-ocr/|AI-powered OCR}}. Discovery productions become filterable, reviewable datasets.",
-        "Attorneys and paralegals shift from reading raw files to reviewing structured outputs. A 500-page record set that takes a full day of manual review is processed in under 15 minutes at a fraction of vendor costs. Work product quality goes up because AI-generated outputs include references to the original documents — every data point is verifiable."
+        "Legal document management software (real document management for law firms, not just file storage) should close that gap. Dodonai processes the content of every document you upload instead of treating files as static objects retrieved by filename. Medical records become structured chronologies. Deposition transcripts become searchable, cited summaries. Scanned PDFs become readable text through {{link:/ai-pdf-ocr/|AI-powered OCR}}. Discovery productions become filterable, reviewable datasets.",
+        "Attorneys and paralegals shift from reading raw files to reviewing structured outputs. A 500-page record set that takes a full day of manual review is processed in under 15 minutes at a fraction of vendor costs. Work product quality goes up because AI-generated outputs include references to the original documents, so every data point is verifiable."
       ]
     },
     {
@@ -35,7 +35,7 @@
         {
           "icon": "search",
           "title": "AI-Powered Document Search",
-          "description": "Find what you need using natural language, not keyword matching. Dodonai's {{link:/ai-deposition-transcript-software/|transcript search}} returns results based on meaning — so 'plaintiff's shoulder injury' surfaces records even when they use different medical terminology."
+          "description": "Find what you need using natural language, not keyword matching. Dodonai's {{link:/ai-deposition-transcript-software/|transcript search}} returns results based on meaning, so 'plaintiff's shoulder injury' surfaces records even when they use different medical terminology."
         },
         {
           "icon": "document",
@@ -45,7 +45,7 @@
         {
           "icon": "squares",
           "title": "AI OCR for Scanned and Legacy Files",
-          "description": "Scanned records, faxed documents, image-only PDFs — law firms get them all. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} converts these into searchable, extractable text, including handwritten notes and poor-quality scans that defeat standard OCR tools."
+          "description": "Scanned records, faxed documents, and image-only PDFs are common in law firms. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} converts these into searchable, extractable text, including handwritten notes and poor-quality scans that defeat standard OCR tools."
         },
         {
           "icon": "adjustments",
@@ -55,7 +55,7 @@
         {
           "icon": "briefcase",
           "title": "E-Discovery Document Review",
-          "description": "Process large discovery productions with {{link:/electronic-discovery-software/|Dodonai's e-discovery tools}}. Search, filter, and review thousands of documents to surface what matters most — reducing the volume that requires manual attorney review."
+          "description": "Process large discovery productions with {{link:/electronic-discovery-software/|Dodonai's e-discovery tools}}. Search, filter, and review thousands of documents to surface what matters most, reducing the volume that requires manual attorney review."
         }
       ]
     },
@@ -64,7 +64,7 @@
       "items": [
         {
           "title": "Upload Documents from Any Source",
-          "description": "Upload case files directly from your DMS, local drive, or email. The platform accepts PDFs, Word documents, text files, scanned images, and mixed-format files — no preprocessing or reformatting required."
+          "description": "Upload case files directly from your DMS, local drive, or email. The platform accepts PDFs, Word documents, text files, scanned images, and mixed-format files. No preprocessing or reformatting required."
         },
         {
           "title": "AI Processes and Structures the Content",
@@ -80,7 +80,7 @@
   "faq": [
     {
       "question": "Does Dodonai replace our existing document management system?",
-      "answer": "No — Dodonai is a processing layer that sits alongside your existing DMS. You keep using your current system for storage and access control. Dodonai handles the AI-powered summarization, search, and extraction, and you save the structured outputs back into your system."
+      "answer": "No. Dodonai is a processing layer that sits alongside your existing DMS. You keep using your current system for storage and access control. Dodonai handles the AI-powered summarization, search, and extraction, and you save the structured outputs back into your system."
     },
     {
       "question": "What types of documents can Dodonai process?",
@@ -88,7 +88,7 @@
     },
     {
       "question": "How does Dodonai handle document security and confidentiality?",
-      "answer": "Dodonai is a processing layer, not a storage layer — but we treat security the same way your DMS does. SOC 2 Type II certified with signed BAAs and AES-256 encryption across the board. Documents you upload never enter a training pipeline. Your firm decides when files are deleted."
+      "answer": "Dodonai is a processing layer, not a storage layer, but we treat security the same way your DMS does. SOC 2 Type II certified with signed BAAs and AES-256 encryption across the board. Documents you upload never enter a training pipeline. Your firm decides when files are deleted."
     },
     {
       "question": "Can multiple people at the firm use the same account?",
@@ -96,7 +96,7 @@
     },
     {
       "question": "How does Dodonai compare to traditional document management systems like iManage or NetDocuments?",
-      "answer": "Traditional DMS platforms handle storage and access control. Dodonai handles what comes after — AI summarization, OCR, search, and extraction. The two are complementary. See our {{link:/industries/law-firm-case-management/|case management page}} for more on the workflow."
+      "answer": "Traditional DMS platforms handle storage and access control. Dodonai handles what comes after: AI summarization, OCR, search, and extraction. The two are complementary. See our {{link:/industries/law-firm-case-management/|case management page}} for more on the workflow."
     }
   ],
   "relatedPages": [

@@ -10,7 +10,7 @@
     { "name": "Contract Review & Extraction" }
   ],
   "hero": {
-    "headline": "AI Contract Review — Extract Key Terms and Clauses Automatically",
+    "headline": "AI Contract Review: Extract Key Terms and Clauses Automatically",
     "subheadline": "Reviewing contracts for key terms, obligations, and risk clauses takes hours per agreement. Dodonai's Extract & Draft Agents read your contracts, pull the data points you specify, and hand back structured summaries in minutes.",
     "ctaText": "Upload Your First Contract",
     "ctaUrl": "https://app.dodon.ai/signup",
@@ -23,7 +23,7 @@
       "heading": "How AI Contract Review Works for Legal Teams",
       "paragraphs": [
         "Eighty vendor contracts for due diligence, key terms due Friday. Manually, that's a week of associate time. With AI contract review software, it's an afternoon.",
-        "Dodonai's {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} automate contract extraction and the structuring phase of contract review. You define what data points matter — termination clauses, indemnification provisions, payment terms, renewal dates, governing law — and the AI reads each contract to extract those specific elements. The output is a structured summary that organizes the extracted terms consistently across all agreements, with every data point tracing to the exact source page.",
+        "Dodonai's {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} automate contract extraction and the structuring phase of contract review. You define what data points matter (termination clauses, indemnification provisions, payment terms, renewal dates, governing law) and the AI reads each contract to extract those specific elements. The output is a structured summary that organizes the extracted terms consistently across all agreements, with every data point tracing to the exact source page.",
         "This doesn't replace attorney judgment on contract risk or negotiation strategy. It eliminates the hours of manual reading required to gather the information attorneys need to make those judgments. When your team can review key terms from 50 contracts in the time it used to take to read 5, due diligence timelines shrink and contract management becomes proactive instead of reactive."
       ]
     },
@@ -34,17 +34,17 @@
         {
           "icon": "adjustments",
           "title": "Custom Extraction Agents",
-          "description": "Define the fields you need — termination rights, payment terms, indemnification caps, renewal dates, governing law — and a reusable {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agent}} pulls those data points from every contract you upload. Consistent structured output, every time."
+          "description": "Define the fields you need (termination rights, payment terms, indemnification caps, renewal dates, governing law) and a reusable {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agent}} pulls those data points from every contract you upload. Consistent structured output, every time."
         },
         {
           "icon": "filter",
           "title": "Clause Identification and Categorization",
-          "description": "Find every non-compete, limitation of liability, or change-of-control provision across 50 vendor agreements in seconds — without reading each one cover to cover. Clauses are categorized by type and linked to their source contract."
+          "description": "Find every non-compete, limitation of liability, or change-of-control provision across 50 vendor agreements in seconds, without reading each one cover to cover. Clauses are categorized by type and linked to their source contract."
         },
         {
           "icon": "document",
           "title": "Structured Contract Summaries",
-          "description": "Each summary covers contract parties, effective dates, key obligations, financial terms, and risk provisions — with page references for quick verification against the original agreement."
+          "description": "Each summary covers contract parties, effective dates, key obligations, financial terms, and risk provisions, with page references for quick verification against the original agreement."
         },
         {
           "icon": "squares",
@@ -67,7 +67,7 @@
         },
         {
           "title": "Configure Your Extraction Agent",
-          "description": "Define the data points you want extracted: party names, effective dates, termination provisions, payment terms, indemnification clauses, or any other contract elements. Save the agent for reuse — run the same template across future due diligence sets without reconfiguring."
+          "description": "Define the data points you want extracted: party names, effective dates, termination provisions, payment terms, indemnification clauses, or any other contract elements. Save the agent for reuse and run the same template across future due diligence sets without reconfiguring."
         },
         {
           "title": "Review Extracted Terms and Export",

@@ -11,8 +11,8 @@
   ],
   "hero": {
     "headline": "eDiscovery Software Comparison: AI-Native vs. Legacy Platforms",
-    "subheadline": "Legacy eDiscovery platforms cost $50,000+ per year and were built before AI existed. Modern eDiscovery software offers semantic search, automated review, and production-ready exports — without the six-figure price tag.",
-    "ctaText": "Start Free Trial",
+    "subheadline": "Legacy eDiscovery platforms cost $50,000+ per year and were built before AI existed. Modern eDiscovery software offers semantic search, automated review, and production-ready exports, all without the six-figure price tag.",
+    "ctaText": "Search Your Documents Free",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See How It Works",
     "secondaryCtaUrl": "/pricing/"
@@ -23,8 +23,8 @@
       "heading": "What to Look for in eDiscovery Software",
       "paragraphs": [
         "Opposing counsel just produced 50,000 documents and the review deadline is three weeks out. Your choice of eDiscovery software decides whether your team finds the critical evidence or drowns in keyword-only search results with production bottlenecks.",
-        "Search quality is the most important capability to evaluate. Traditional eDiscovery software relies on keyword and Boolean search — you only find documents containing your exact terms. AI-native eDiscovery tools like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning, catching synonyms, paraphrased concepts, and contextual references that keyword search misses. That's often where the strongest evidence lives.",
-        "Cost is the other make-or-break factor. Legacy eDiscovery vendors like Relativity and Everlaw require annual contracts starting at $50,000+, plus per-gigabyte hosting fees. For solo practitioners, small firms, and mid-size teams, those numbers are prohibitive. AI-native eDiscovery software puts the same search capability within reach for any practice size. For firms that need document review without the enterprise price tag, Dodonai covers the core workflow — ingest, search, review, and export."
+        "Search quality is the most important capability to evaluate. Traditional eDiscovery software relies on keyword and Boolean search, which means you only find documents containing your exact terms. AI-native eDiscovery tools like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning, catching synonyms, paraphrased concepts, and contextual references that keyword search misses. That's often where the strongest evidence lives.",
+        "Cost is the other make-or-break factor. Legacy eDiscovery vendors like Relativity and Everlaw require annual contracts starting at $50,000+, plus per-gigabyte hosting fees. For solo practitioners, small firms, and mid-size teams, those numbers are prohibitive. AI-native eDiscovery software puts the same search capability within reach for any practice size. For firms that need document review without the enterprise price tag, Dodonai covers the core workflow: ingest, search, review, and export."
       ]
     },
     {
@@ -51,7 +51,7 @@
         {
           "icon": "search",
           "title": "Semantic Search That Finds What Keywords Miss",
-          "description": "Search for 'discussions about product safety concerns' and find every relevant document -- even when the exact phrase never appears. No more recall gaps from keyword-only tools."
+          "description": "Search for 'discussions about product safety concerns' and find every relevant document, even when the exact phrase never appears. No more recall gaps from keyword-only tools."
         },
         {
           "icon": "dollar",
@@ -66,7 +66,7 @@
         {
           "icon": "shield",
           "title": "Litigation-Grade Security on Every Plan",
-          "description": "Litigation-grade security on every plan: SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted. Signed BAAs included. Your documents never train our models, and deletion runs on your timeline."
+          "description": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted, all on every plan, not as add-ons. Signed BAAs included. Your documents never train our models, and deletion runs on your timeline."
         },
         {
           "icon": "folder",
@@ -80,7 +80,7 @@
       "items": [
         {
           "title": "Upload Your Document Collection",
-          "description": "Upload PDFs, Word files, emails, and more. Built-in OCR makes every page searchable -- native text and scanned documents alike. No staging or pre-processing required."
+          "description": "Upload PDFs, Word files, emails, and more. Built-in OCR makes every page searchable, whether native text or scanned documents. No staging or pre-processing required."
         },
         {
           "title": "Search, Review, and Summarize",
@@ -96,7 +96,7 @@
   "faq": [
     {
       "question": "How does semantic search differ from keyword search in eDiscovery?",
-      "answer": "Keyword search returns only exact-match documents. Semantic search understands meaning, so searching 'employee safety complaints' also surfaces 'worker injury reports' and 'staff health concerns' -- results keyword search misses."
+      "answer": "Keyword search returns only exact-match documents. Semantic search understands meaning, so searching 'employee safety complaints' also surfaces 'worker injury reports' and 'staff health concerns' (results keyword search misses entirely)."
     },
     {
       "question": "Can Dodonai replace a full eDiscovery platform like Relativity or Everlaw?",
@@ -108,7 +108,7 @@
     },
     {
       "question": "Is Dodonai secure enough for litigation document review?",
-      "answer": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted — and those aren't add-ons, they're included on every plan. Signed BAAs standard. Your litigation files never touch a training pipeline. Your firm sets the data retention policy."
+      "answer": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted. Those aren't add-ons; they're included on every plan. Signed BAAs standard. Your litigation files never touch a training pipeline. Your firm sets the data retention policy."
     },
     {
       "question": "Can Dodonai handle scanned documents in an eDiscovery collection?",
@@ -143,6 +143,6 @@
   ],
   "ctaOverride": {
     "headline": "See What AI eDiscovery Looks Like",
-    "description": "Upload your document collection and search by meaning, not just keywords. Get started in minutes -- no credit card required."
+    "description": "Upload your document collection and search by meaning, not just keywords. Get started in minutes. No credit card required."
   }
 }

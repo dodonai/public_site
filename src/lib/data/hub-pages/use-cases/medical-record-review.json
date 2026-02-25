@@ -11,7 +11,7 @@
   ],
   "hero": {
     "headline": "AI-Powered Medical Record Review",
-    "subheadline": "A single plaintiff's records can span 2,000 pages across a dozen providers. Dodonai's AI summarizes, organizes, and builds chronologies from even the most complex medical files — in minutes, not days.",
+    "subheadline": "A single plaintiff's records can span 2,000 pages across a dozen providers. Dodonai's AI summarizes, organizes, and builds chronologies from even the most complex medical files in minutes, not days.",
     "ctaText": "Upload Your First Record",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See the Output",
@@ -23,7 +23,7 @@
       "heading": "How AI Transforms the Medical Record Review Process",
       "paragraphs": [
         "Manual medical record review hasn't changed much in decades: open the file, read every page, take notes, build the chronology. For a 500-page record set, that's a full day of paralegal time. Multiply that across 20 active cases and you've buried your team in paperwork.",
-        "AI medical record review for attorneys and legal teams changes the equation. Instead of reading every page line by line, Dodonai ingests the full record set, identifies key medical events, and produces a structured medical record summary — including {{link:/ai-medical-record-summaries-chronologies/|chronologies and narrative summaries}} — your team can use immediately. The AI works across provider documentation styles, recognizes clinical terminology in context, and organizes events chronologically with page numbers pointing to the original.",
+        "AI medical record review for attorneys and legal teams changes the equation. Instead of reading every page line by line, Dodonai ingests the full record set, identifies key medical events, and produces a structured medical record summary, including {{link:/ai-medical-record-summaries-chronologies/|chronologies and narrative summaries}}, your team can use immediately. The AI works across provider documentation styles, recognizes clinical terminology in context, and organizes events chronologically with page numbers pointing to the original.",
         "For law firms handling personal injury, medical malpractice, or mass tort cases, this means faster case evaluations, more consistent work product, and lower costs per case. For medical review services and {{link:/industries/ime-companies/|IME companies}}, it means scaling operations without proportionally scaling headcount."
       ]
     },
@@ -39,12 +39,12 @@
         {
           "icon": "document",
           "title": "Narrative Summarization",
-          "description": "A clear, readable summary of the patient's medical history alongside the chronology — key diagnoses, surgical interventions, medication changes, treatment modalities, and gaps in care organized for case evaluation, expert referrals, and demand preparation."
+          "description": "A clear, readable summary of the patient's medical history alongside the chronology. Key diagnoses, surgical interventions, medication changes, treatment modalities, and gaps in care are organized for case evaluation, expert referrals, and demand preparation."
         },
         {
           "icon": "search",
           "title": "OCR for Scanned Records",
-          "description": "Scanned PDFs, handwritten notes, faxed documents — Dodonai's {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text accurately so nothing gets missed during review."
+          "description": "Scanned PDFs, handwritten notes, and faxed documents are no problem. Dodonai's {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text accurately so nothing gets missed during review."
         },
         {
           "icon": "shield",
@@ -59,7 +59,7 @@
         {
           "icon": "squares",
           "title": "Bulk Record Processing",
-          "description": "Single plaintiff case or thousands of claimants in a mass tort — upload and process multiple record sets simultaneously. Dodonai scales to your volume without sacrificing quality."
+          "description": "Whether it's a single plaintiff case or thousands of claimants in a mass tort, upload and process multiple record sets simultaneously. Dodonai scales to your volume without sacrificing quality."
         }
       ]
     },
@@ -68,11 +68,11 @@
       "items": [
         {
           "title": "Upload Your Medical Records",
-          "description": "Upload the full record set to Dodonai's secure platform. Accepts PDFs — including scanned and handwritten documents — of any size. Specify key topics, providers, or diagnoses to focus the review."
+          "description": "Upload the full record set to Dodonai's secure platform. Accepts PDFs of any size, including scanned and handwritten documents. Specify key topics, providers, or diagnoses to focus the review."
         },
         {
           "title": "AI Processes and Organizes the Records",
-          "description": "Dodonai reads every page, extracts relevant medical events, and builds a structured chronology alongside a narrative summary. Diagnoses, procedures, prescriptions, and provider visits are organized chronologically with source-page citations — ready for case evaluation, demand prep, or expert referral."
+          "description": "Dodonai reads every page, extracts relevant medical events, and builds a structured chronology alongside a narrative summary. Diagnoses, procedures, prescriptions, and provider visits are organized chronologically with source-page citations, ready for case evaluation, demand prep, or expert referral."
         },
         {
           "title": "Review, Refine, and Export",
@@ -127,7 +127,7 @@
     {
       "title": "Personal Injury",
       "href": "/practice-areas/personal-injury/",
-      "description": "AI document processing for PI cases — from medical records through depositions and demand prep."
+      "description": "AI document processing for PI cases, from medical records through depositions and demand prep."
     },
     {
       "title": "IME Companies",
