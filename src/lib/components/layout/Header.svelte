@@ -43,6 +43,7 @@
 	];
 
 	const industries = [
+		{ name: 'Court Reporters', href: '/industries/court-reporters/' },
 		{ name: 'IME Companies', href: '/industries/ime-companies/' },
 		{ name: 'IME Doctors', href: '/industries/ime-doctors/' },
 		{ name: 'Medical Record Retrieval', href: '/industries/medical-record-retrieval/' },
