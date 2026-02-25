@@ -22,9 +22,9 @@
       "type": "content",
       "heading": "What to Look for in Deposition Summary Software",
       "paragraphs": [
-        "Your paralegal just spent eight hours on a single transcript. There's a faster way. The best deposition summary software generates a polished deposition summary with accurate page-line citations and delivers results fast enough to keep pace with litigation deadlines. Those are the baseline requirements that separate useful tools from glorified text editors.",
+        "Eight hours on a single transcript. That's the reality for paralegals drafting summaries manually. The best deposition summary software generates a polished summary with accurate page-line citations fast enough to keep pace with litigation deadlines — the baseline that separates useful tools from glorified text editors.",
         "Look for software that supports multiple output formats — a page-line summary of deposition testimony, a narrative overview, or an issue-based digest. The best {{link:/blog/how-to-draft-a-page-line-deposition-summary/|AI deposition summary}} tools offer all three from a single upload.",
-        "Security and data privacy matter. Deposition transcripts contain sensitive client information, attorney work product, and privileged communications. Any software you adopt should carry SOC 2 certification and use AES-256 encryption at rest and in transit.",
+        "Security matters. Deposition transcripts contain client information, work product, and privileged communications. Look for SOC 2 Type II certification and AES-256 encryption at minimum — and confirm the vendor doesn't use your transcripts for model training.",
         "Finally, evaluate cost on a per-page or per-transcript basis rather than sticker price alone. Traditional deposition summary services charge $3 to $10 per page, which adds up on high-volume caseloads. AI deposition summary tools like {{link:/deposition-summary-software/|Dodonai}} cut that cost while maintaining quality."
       ]
     },
@@ -50,7 +50,7 @@
         {
           "icon": "shield",
           "title": "SOC 2 Certified and HIPAA Compliant",
-          "description": "Every plan includes HIPAA compliance, SOC 2 Type II certification, and AES-256 encryption. We sign BAAs and don't train on your data."
+          "description": "SOC 2 Type II certified. HIPAA compliant with signed BAAs. AES-256 encrypted. Your transcripts never train our models."
         }
       ]
     },
@@ -121,12 +121,12 @@
     {
       "title": "AI Deposition Summary Software",
       "href": "/deposition-summary-software/",
-      "description": "Learn how Dodonai generates page-line and narrative deposition summaries in minutes."
+      "description": "See how Dodonai processes transcripts into structured summaries with page-line citations."
     },
     {
       "title": "AI Deposition Transcript Management",
       "href": "/ai-deposition-transcript-software/",
-      "description": "Search, annotate, and manage deposition transcripts with AI-powered tools."
+      "description": "Search across depositions by topic, witness, or keyword — results in seconds."
     }
   ],
   "relatedBlogPosts": [

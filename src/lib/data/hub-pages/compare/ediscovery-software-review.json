@@ -23,8 +23,8 @@
       "heading": "What to Look for in eDiscovery Software",
       "paragraphs": [
         "Opposing counsel just produced 50,000 documents and the review deadline is three weeks out. Your choice of eDiscovery software decides whether your team finds the critical evidence or drowns in keyword-only search results with production bottlenecks.",
-        "Search quality is the most important capability to evaluate. Traditional eDiscovery platforms rely on keyword and Boolean search — you only find documents containing your exact terms. AI-native eDiscovery tools and electronic discovery platforms like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning, catching synonyms, paraphrased concepts, and contextual references that keyword search misses. That's often where the strongest evidence lives.",
-        "Cost is the other make-or-break factor. Legacy platforms from vendors like Relativity and Everlaw require annual contracts starting at $50,000+, plus per-gigabyte hosting fees. For solo practitioners, small firms, and mid-size teams, those numbers are prohibitive. AI-native eDiscovery software puts the same search capability within reach for any practice size. For firms that need eDiscovery review without the enterprise price tag, Dodonai covers the core workflow — ingest, search, review, and export."
+        "Search quality is the most important capability to evaluate. Traditional eDiscovery software relies on keyword and Boolean search — you only find documents containing your exact terms. AI-native eDiscovery tools like {{link:/electronic-discovery-software/|Dodonai}} use semantic search to find documents based on meaning, catching synonyms, paraphrased concepts, and contextual references that keyword search misses. That's often where the strongest evidence lives.",
+        "Cost is the other make-or-break factor. Legacy eDiscovery vendors like Relativity and Everlaw require annual contracts starting at $50,000+, plus per-gigabyte hosting fees. For solo practitioners, small firms, and mid-size teams, those numbers are prohibitive. AI-native eDiscovery software puts the same search capability within reach for any practice size. For firms that need document review without the enterprise price tag, Dodonai covers the core workflow — ingest, search, review, and export."
       ]
     },
     {
@@ -66,7 +66,7 @@
         {
           "icon": "shield",
           "title": "Litigation-Grade Security on Every Plan",
-          "description": "SOC 2 Type II certified. HIPAA compliant with signed BAAs. AES-256 encryption across the board. Your litigation documents stay out of any training pipeline, and your firm sets the retention schedule."
+          "description": "Litigation-grade security on every plan: SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted. Signed BAAs included. Your documents never train our models, and deletion runs on your timeline."
         },
         {
           "icon": "folder",
@@ -108,7 +108,7 @@
     },
     {
       "question": "Is Dodonai secure enough for litigation document review?",
-      "answer": "Every plan includes SOC 2 Type II certification, HIPAA compliance, and a signed BAA. Documents are AES-256 encrypted in both directions. We never use your litigation files for model training, and your firm controls when data gets removed."
+      "answer": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted — and those aren't add-ons, they're included on every plan. Signed BAAs standard. Your litigation files never touch a training pipeline. Your firm sets the data retention policy."
     },
     {
       "question": "Can Dodonai handle scanned documents in an eDiscovery collection?",
@@ -123,17 +123,17 @@
     {
       "title": "Electronic Discovery Software",
       "href": "/electronic-discovery-software/",
-      "description": "Learn how Dodonai's AI-powered eDiscovery tools help legal teams search and review documents faster."
+      "description": "Semantic search, AI review, and document summarization for electronic discovery."
     },
     {
       "title": "AI-Powered OCR for Legal Documents",
       "href": "/ai-pdf-ocr/",
-      "description": "Extract searchable text from scanned PDFs, faxes, and image-based documents."
+      "description": "Make scanned discovery documents fully searchable with AI OCR."
     },
     {
       "title": "Extract & Draft Agents",
       "href": "/dodonai-extract-and-draft-agents/",
-      "description": "Use AI agents to extract specific data points and draft work product from document sets."
+      "description": "Pull specific data points from discovery documents with reusable AI agents."
     }
   ],
   "relatedBlogPosts": [

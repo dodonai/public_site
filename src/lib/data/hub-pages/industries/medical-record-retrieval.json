@@ -23,7 +23,7 @@
       "heading": "Why Medical Record Retrieval Companies Are Adding Summarization",
       "paragraphs": [
         "The medical record retrieval industry has become increasingly commoditized. Law firms, insurance companies, and {{link:/industries/ime-companies/|IME providers}} can choose from dozens of retrieval services, and competition often comes down to turnaround time and price.",
-        "For retrieval companies looking to grow margins and deepen client relationships, the opportunity is clear: clients who receive summarized records alongside raw files stay longer and spend more. The opportunity lies in higher-value services on top of the records you already deliver.",
+        "For retrieval companies looking to grow margins and deepen client relationships, the opportunity is clear: clients who receive summarized records alongside raw files stay longer and spend more. Adding AI-powered summaries is the most natural upsell on top of the records you already deliver.",
         "AI-powered medical record retrieval and summarization is the most natural extension of a retrieval business. Your clients already need their records summarized — they either do it in-house, outsource it to a separate vendor, or use software directly. By integrating {{link:/ai-medical-record-summaries-chronologies/|AI summarization}} into your offering, you capture that revenue instead of leaving it on the table.",
         "Dodonai makes this transition seamless. Our platform processes the same records you already retrieve, generating structured summaries and chronologies your clients can use immediately. No need to hire medical reviewers or build technology from scratch — Dodonai handles the AI, and you deliver the finished product under your own brand."
       ]
@@ -50,7 +50,7 @@
         {
           "icon": "shield",
           "title": "HIPAA-Compliant Infrastructure",
-          "description": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted. We sign BAAs with every partner, and your clients' patient data never trains our models."
+          "description": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted end to end. Signed BAAs with every partner. Client patient data never touches a training pipeline."
         },
         {
           "icon": "document",
@@ -116,7 +116,7 @@
     },
     {
       "question": "Is the platform secure enough for medical records?",
-      "answer": "Purpose-built for healthcare data — not adapted from a general-purpose tool. Signed BAAs with every partner, SOC 2 Type II certification, AES-256 encryption end to end. Client records stay out of any training pipeline, and your retention policy is the only one that applies."
+      "answer": "Built for healthcare data from the ground up. Signed BAAs, SOC 2 Type II certification, AES-256 encryption. Client records never train our models. Your retention policy governs — we don't keep copies after you delete."
     },
     {
       "question": "How quickly can we start offering summarization services?",
@@ -127,12 +127,12 @@
     {
       "title": "IME Companies",
       "href": "/industries/ime-companies/",
-      "description": "See how IME companies use Dodonai to process hundreds of medical record summaries per month."
+      "description": "How IME companies scale record review with AI-generated summaries and chronologies."
     },
     {
       "title": "Medical Record Review",
       "href": "/use-cases/medical-record-review/",
-      "description": "Learn how AI transforms the medical record review process for legal teams and review services."
+      "description": "AI-powered record review that complements retrieval services with structured summaries."
     }
   ],
   "relatedBlogPosts": [

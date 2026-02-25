@@ -12,7 +12,7 @@
   "hero": {
     "headline": "AI-Powered Document Processing for Medical Malpractice Litigation",
     "subheadline": "Medmal cases produce thousands of pages of records across multiple providers and specialties. Dodonai organizes, summarizes, and analyzes case documents in minutes — so your team focuses on the medicine, not the paperwork.",
-    "ctaText": "Try It Free",
+    "ctaText": "Upload Your Medmal Records",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See How It Works",
     "secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
@@ -61,7 +61,7 @@
         {
           "icon": "shield",
           "title": "HIPAA Compliant and SOC 2 Certified",
-          "description": "Medmal records carry some of the most sensitive PHI in litigation. Every upload gets AES-256 encryption on HIPAA-compliant, SOC 2-certified infrastructure. Signed BAAs on every account, and your data never trains our models."
+          "description": "Medmal records carry some of the most sensitive PHI in litigation. Signed BAAs before your first upload, SOC 2 Type II certification, AES-256 encryption on every file. Nothing trains our models. You control deletion."
         }
       ]
     },
@@ -74,7 +74,7 @@
         },
         {
           "title": "AI Analyzes and Organizes the Records",
-          "description": "Dodonai's AI extracts dates, providers, diagnoses, procedures, medications, and clinical findings, then organizes them into a chronological timeline. For deposition transcripts, it generates page-line or narrative summaries with key topic highlighting."
+          "description": "Dodonai's AI extracts dates, providers, diagnoses, procedures, medications, and clinical findings, then organizes them into a chronological timeline tracing the differential diagnosis and treatment decisions across providers. For deposition transcripts, it generates page-line or narrative summaries with key topic highlighting."
         },
         {
           "title": "Review and Prepare Your Case",
@@ -102,33 +102,33 @@
     },
     {
       "question": "Is Dodonai secure enough for medical malpractice records?",
-      "answer": "Medmal records carry some of the most sensitive PHI in litigation. We sign BAAs on every account, hold SOC 2 Type II certification, and encrypt with AES-256. None of it touches a training pipeline. Deletion is on your schedule."
+      "answer": "The PHI in medmal records demands the highest standard. BAAs signed before your first upload, SOC 2 Type II certified infrastructure, AES-256 encryption throughout. Your records never train our models, and retention follows your firm's policy."
     },
     {
       "question": "How does AI document processing reduce costs for medmal firms?",
-      "answer": "Outsourced nurse reviewers typically charge $5 to $15 per page. Dodonai processes pages for as little as $0.02 each. For firms managing multiple active medmal cases, for firms juggling multiple active medmal cases, the math works out quickly."
+      "answer": "Outsourced nurse reviewers typically charge $5 to $15 per page. Dodonai processes pages for as little as $0.02 each. A firm with 10 active medmal cases saves thousands in record review costs each month."
     }
   ],
   "relatedPages": [
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Generate AI-powered medical chronologies and summaries where each entry links back to the original page."
+      "description": "Medical chronologies with source-page citations for every diagnosis, treatment, and provider visit."
     },
     {
       "title": "AI Deposition Summary Software",
       "href": "/deposition-summary-software/",
-      "description": "Get page-line and narrative deposition summaries from expert and party depositions."
+      "description": "Summarize treating physician, expert, and party depositions in minutes."
     },
     {
       "title": "Personal Injury",
       "href": "/practice-areas/personal-injury/",
-      "description": "See how Dodonai supports personal injury case preparation and medical record review."
+      "description": "AI document processing for the full personal injury litigation workflow."
     },
     {
       "title": "Medical Record Review",
       "href": "/use-cases/medical-record-review/",
-      "description": "Learn how legal teams use Dodonai to review and summarize medical records faster."
+      "description": "See how AI cuts medical record review from days to minutes."
     }
   ],
   "relatedBlogPosts": [

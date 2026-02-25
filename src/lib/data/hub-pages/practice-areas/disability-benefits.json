@@ -25,7 +25,7 @@
         "The SSA's five-step sequential evaluation decides every SSDI claim, and it comes down to one question: do the medical records support an RFC restrictive enough to preclude work, or does the impairment meet a Blue Book listing? LTD carriers run their own medical review. VA claims require service-connection evidence. In every case, how well you organize and present the medical record determines the outcome.",
         "That record organization is where most disability practices spend the bulk of their time. A single SSDI case can involve thousands of pages from primary care physicians, specialists, hospitals, and mental health providers — records spanning years that need to be organized into a coherent timeline before the ALJ hearing. When the vocational expert testifies about jobs in the national economy, you need the medical evidence backing every functional limitation in the RFC.",
         "Dodonai compresses that disability benefits medical record review from days into minutes. Upload a claimant's records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} organized by date, provider, diagnosis, and treatment. Every data point traces to the exact source page so your team can verify against the original records before submitting to the SSA, an insurance carrier, or the VA — and quickly pull the treatment notes documenting functional limitations that drive the RFC. Building an SSDI medical chronology no longer has to be the bottleneck.",
-        "Dodonai meets the security standards disability claims require — HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encryption on everything. Your claimants' records never touch a training pipeline."
+        "Dodonai meets the security standards disability claims require — signed BAAs before your first upload, SOC 2 Type II certified infrastructure, and AES-256 encryption. Claimant records never enter a training pipeline."
       ]
     },
     {
@@ -73,7 +73,7 @@
         },
         {
           "title": "AI Extracts and Organizes the Medical History",
-          "description": "Dodonai's AI reads through the records, extracts dates, providers, diagnoses, treatments, medications, and functional assessments, then organizes everything into structured chronologies and narrative summaries. Add key topics to focus on specific conditions, functional limitations, or time periods — like isolating records from the alleged onset date forward, or pulling mental health treatment for Paragraph B criteria."
+          "description": "Dodonai's AI extracts dates, providers, diagnoses, treatments, medications, and functional assessments, then organizes everything into structured chronologies and narrative summaries. Add key topics to focus on specific conditions or time periods — isolate records from the alleged onset date forward, pull mental health treatment for Paragraph B criteria, or track exertional limitations for RFC analysis."
         },
         {
           "title": "Review, Download, and Submit",
@@ -101,7 +101,7 @@
     },
     {
       "question": "Is Dodonai secure enough for claimant medical records?",
-      "answer": "Disability files contain sensitive medical and personal information protected by HIPAA and SSA privacy rules. We sign BAAs before your first upload, encrypt everything with AES-256 on SOC 2 Type II certified infrastructure, and never train on your records. Your firm controls when data is deleted."
+      "answer": "Disability files are protected by HIPAA and SSA privacy rules. BAAs signed on every account, AES-256 encryption on SOC 2 Type II certified infrastructure. We never train on claimant records, and your firm controls the deletion schedule."
     },
     {
       "question": "Does Dodonai handle scanned medical records?",
@@ -112,17 +112,17 @@
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Generate AI-powered medical record summaries and chronologies with page references for quick verification."
+      "description": "Structured medical chronologies and narratives with source citations for any claim type."
     },
     {
       "title": "Personal Injury",
       "href": "/practice-areas/personal-injury/",
-      "description": "See how Dodonai supports personal injury case preparation."
+      "description": "AI document processing tools for personal injury attorneys."
     },
     {
       "title": "Workers' Compensation",
       "href": "/practice-areas/workers-compensation/",
-      "description": "See how Dodonai helps workers' compensation attorneys organize medical evidence."
+      "description": "Workers' comp medical record processing — treatment timelines with work restriction tracking."
     }
   ],
   "relatedBlogPosts": [

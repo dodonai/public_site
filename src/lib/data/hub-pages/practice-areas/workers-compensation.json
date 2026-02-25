@@ -12,7 +12,7 @@
   "hero": {
     "headline": "Workers' Compensation Software — AI-Powered Document Processing",
     "subheadline": "Workers' comp cases revolve around medical records — treatment histories, physician opinions, IME reports. Dodonai processes them into organized chronologies and summaries in minutes, so you evaluate, litigate, or settle faster.",
-    "ctaText": "Try It Free",
+    "ctaText": "Process a Workers' Comp Claim Free",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See How It Works",
     "secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
@@ -68,7 +68,7 @@
         },
         {
           "title": "AI Builds the Treatment Timeline and Summary",
-          "description": "Dodonai's AI reads every page and extracts key events — workplace injury, initial treatment, specialist referrals, surgeries, therapy sessions, IME and QME/AME findings, work restriction changes, and functional capacity evaluations — organizing them into a structured chronology and narrative summary. Specify key topics like body part, treating provider, or treatment phase to guide the AI."
+          "description": "Dodonai's AI reads every page and extracts key events — workplace injury, initial treatment, specialist referrals, surgeries, therapy sessions, IME and QME/AME findings, work restriction changes, and functional capacity evaluations — organizing them into a treatment timeline with work restriction tracking and a narrative summary. Specify key topics like body part, treating provider, or work status changes to guide the AI."
         },
         {
           "title": "Review, Export, and Use in Your Case",
@@ -92,23 +92,23 @@
     },
     {
       "question": "Is Dodonai HIPAA compliant for workers' compensation records?",
-      "answer": "Workers' comp records involve claimant medical data alongside employer and carrier information — all of it needs protection. Signed BAAs on every account, SOC 2 Type II certified, AES-256 encrypted. Records stay out of training pipelines, and you set the retention schedule."
+      "answer": "Workers' comp records mix claimant medical data with employer and carrier information — all protected. We sign BAAs before your first upload, hold SOC 2 Type II certification, and encrypt everything with AES-256. Your records never train our models, and retention follows your schedule."
     },
     {
       "question": "How much does workers' comp document processing cost with Dodonai?",
-      "answer": "Per-page costs range from $0.15 on Lite to $0.02 on Pro, with Enterprise pricing for higher volumes. Compared to $5 to $15 per page from outsourced review, for firms or carriers managing dozens of open claims, the per-claim cost drops dramatically."
+      "answer": "Per-page costs range from $0.15 on Lite to $0.02 on Pro, with Enterprise pricing for higher volumes. Compared to $5 to $15 per page from outsourced review, a firm managing 30 open claims saves thousands per month."
     }
   ],
   "relatedPages": [
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Generate AI-powered medical chronologies and summaries where every data point traces to the exact source page."
+      "description": "Turn disorganized medical records into structured chronologies with source citations in minutes."
     },
     {
       "title": "AI Deposition Summary Software",
       "href": "/deposition-summary-software/",
-      "description": "Summarize depositions from claimants, treating physicians, and IME doctors in minutes."
+      "description": "Summarize claimant, treating physician, and IME depositions with page-line citations."
     },
     {
       "title": "AI-Powered OCR for Legal Documents",

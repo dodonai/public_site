@@ -22,8 +22,8 @@
       "type": "content",
       "heading": "How Paralegals Use AI Software to Work More Efficiently",
       "paragraphs": [
-        "Paralegals are the backbone of document processing in litigation. Building medical chronologies, drafting deposition digests, searching transcript testimony, organizing discovery, preparing privilege logs — these tasks consume most of your day. They're also where paralegal software with AI delivers the most immediate productivity gains.",
-        "Dodonai is built for how paralegals actually work. Upload a stack of medical records and get a complete chronology in minutes instead of spending a full day on SOAP notes. Upload a deposition transcript and receive a page-line summary instead of drafting one from scratch over hours. Search across all transcripts in a case with a plain-English query instead of scrolling through hundreds of pages.",
+        "Paralegals are the backbone of document processing in litigation. Building medical chronologies, drafting deposition digests, searching transcript testimony, organizing discovery, preparing privilege logs — these tasks consume most of your day. They're also where paralegal software delivers the most immediate productivity gains.",
+        "Dodonai is litigation support software built for how paralegals actually work. Upload a stack of medical records and get a complete chronology in minutes instead of spending a full day on SOAP notes. Upload a deposition transcript and receive a page-line summary instead of drafting one from scratch over hours. Search across all transcripts in a case with a plain-English query instead of scrolling through hundreds of pages.",
         "The AI handles reading, extracting, and formatting — the mechanical labor that eats time without requiring your expertise. You handle the analysis and quality control attorneys depend on: reviewing chronologies for case issues, flagging testimony inconsistencies, making sure work product is right before it goes to the attorney."
       ]
     },
@@ -72,7 +72,7 @@
         },
         {
           "title": "Select the Task and Customize",
-          "description": "Choose your output — medical chronology, deposition summary, transcript search, document extract, or e-discovery review. Add key topics or date ranges to tailor the results. Processing completes in minutes."
+          "description": "Choose your output — medical chronology, deposition summary, transcript search, document extract, or e-discovery review. Add key topics or date ranges to match your supervising attorney's priorities. Processing completes in minutes."
         },
         {
           "title": "Review, Refine, and Deliver",
@@ -100,7 +100,7 @@
     },
     {
       "question": "Is Dodonai secure enough for confidential legal documents?",
-      "answer": "Your firm's documents stay confidential. HIPAA compliant, SOC 2 Type II certified, AES-256 encrypted at every step. BAAs signed on every account. Your files never touch a training pipeline, and your firm sets the deletion schedule."
+      "answer": "Confidentiality is built in. HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encrypted throughout. Nothing you upload trains our models. Your firm decides when files are removed."
     },
     {
       "question": "What does this paralegal software cost?",
@@ -111,17 +111,17 @@
     {
       "title": "AI Deposition Summary Software",
       "href": "/deposition-summary-software/",
-      "description": "Generate page-line and narrative deposition summaries in minutes."
+      "description": "Draft deposition digests in minutes instead of spending hours on manual summaries."
     },
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Build structured medical chronologies with source citations for quick verification."
+      "description": "Medical chronologies with source citations — organized and ready for attorney review."
     },
     {
       "title": "Medical Record Review",
       "href": "/use-cases/medical-record-review/",
-      "description": "Learn how AI transforms the medical record review process for legal teams."
+      "description": "Cut medical record review from a full day to under 15 minutes with AI."
     }
   ],
   "relatedBlogPosts": [

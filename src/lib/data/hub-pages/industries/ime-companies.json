@@ -112,7 +112,7 @@
     },
     {
       "question": "How does Dodonai ensure HIPAA compliance for IME workflows?",
-      "answer": "IME records carry claimant PHI subject to both federal HIPAA rules and state privacy regulations. Dodonai meets both — AES-256 encryption, SOC 2 Type II certification, and signed BAAs for every client. Records never enter a training pipeline, and your retention policies are the only ones that apply."
+      "answer": "IME records carry claimant PHI subject to HIPAA and state privacy rules. AES-256 encryption, SOC 2 Type II certification, and signed BAAs for every client. Records stay out of training pipelines. Your retention policies apply — not ours."
     },
     {
       "question": "What is the cost compared to outsourced medical record review?",
@@ -127,22 +127,22 @@
     {
       "title": "IME Doctors",
       "href": "/industries/ime-doctors/",
-      "description": "AI-powered pre-exam record review for IME physicians — structured summaries in minutes."
+      "description": "Pre-exam summaries for IME physicians — the full treatment history in minutes."
     },
     {
       "title": "IME Reports",
       "href": "/use-cases/ime-reports/",
-      "description": "Streamline IME report preparation — from record upload to structured summary ready for evaluation."
+      "description": "From record upload to report-ready summary in minutes — streamlined IME prep."
     },
     {
       "title": "Medical Record Retrieval Companies",
       "href": "/industries/medical-record-retrieval/",
-      "description": "Add AI-powered summarization to your record retrieval services and create new revenue streams."
+      "description": "Offer AI summaries alongside retrieval services — new revenue without new hires."
     },
     {
       "title": "Medical Record Review",
       "href": "/use-cases/medical-record-review/",
-      "description": "Learn how AI transforms the medical record review process for legal teams and review services."
+      "description": "How AI handles the document-heavy side of medical record review."
     }
   ],
   "relatedBlogPosts": [

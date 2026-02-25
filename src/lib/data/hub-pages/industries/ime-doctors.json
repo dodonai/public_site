@@ -59,7 +59,7 @@
         {
           "icon": "shield",
           "title": "HIPAA Compliant",
-          "description": "HIPAA compliant with signed BAAs on every account. SOC 2 Type II certified and AES-256 encrypted — your claimant records never touch a training pipeline."
+          "description": "HIPAA compliant with signed BAAs. SOC 2 Type II certified. AES-256 encrypted. Claimant records stay out of training pipelines, and you choose when they're deleted."
         }
       ]
     },
@@ -104,24 +104,24 @@
     },
     {
       "question": "Is the platform HIPAA compliant?",
-      "answer": "IME records contain claimant PHI that falls under strict federal and state privacy rules. We sign a BAA before your first upload, encrypt everything with AES-256, and hold SOC 2 Type II certification. Your records never enter any training pipeline — and you choose when they're deleted."
+      "answer": "Claimant PHI falls under strict federal and state privacy rules. Signed BAAs, AES-256 encryption, SOC 2 Type II certification — all standard. Records never enter a training pipeline. Deletion runs on your schedule."
     }
   ],
   "relatedPages": [
     {
       "title": "IME Companies",
       "href": "/industries/ime-companies/",
-      "description": "AI-powered medical record processing for IME companies handling thousands of cases per month."
+      "description": "Scale IME record processing to thousands of cases per month with consistent AI output."
     },
     {
       "title": "IME Reports",
       "href": "/use-cases/ime-reports/",
-      "description": "Streamline your pre-exam workflow — from record upload to structured summary ready for evaluation."
+      "description": "Upload claimant records and get structured summaries ready for your evaluation in minutes."
     },
     {
       "title": "Medical Record Review",
       "href": "/use-cases/medical-record-review/",
-      "description": "How AI transforms medical record review for legal teams and medical professionals."
+      "description": "AI-powered medical record review for legal and medical professionals."
     }
   ],
   "relatedBlogPosts": [

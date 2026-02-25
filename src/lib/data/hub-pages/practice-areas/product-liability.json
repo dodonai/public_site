@@ -11,7 +11,7 @@
   ],
   "hero": {
     "headline": "AI Document Processing for Product Liability Attorneys",
-    "subheadline": "Product liability discovery produces enormous volumes from both sides — corporate documents, regulatory filings, plaintiff medical records, expert depositions. Dodonai processes all of it into organized summaries, chronologies, and searchable text — thousands of pages per case.",
+    "subheadline": "Product liability discovery produces enormous volumes from both sides. Dodonai processes corporate documents, medical records, and expert depositions into organized summaries and searchable text — thousands of pages per case.",
     "ctaText": "Start Free Trial",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Pricing",
@@ -54,7 +54,7 @@
         {
           "icon": "shield",
           "title": "Enterprise-Grade Security for Sensitive Case Files",
-          "description": "Protective orders, confidential medical records, proprietary manufacturing data — product liability demands airtight security. SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted, with no model training on your files."
+          "description": "Protective orders demand airtight document handling. Signed BAAs, SOC 2 Type II certification, and AES-256 encryption protect every file. We don't train on your data. Your firm controls retention."
         }
       ]
     },
@@ -91,7 +91,7 @@
     },
     {
       "question": "Is Dodonai secure enough for documents under protective orders?",
-      "answer": "Protective orders demand airtight document handling. SOC 2 Type II certified, HIPAA compliant with signed BAAs, AES-256 encrypted end to end. Nothing enters a training pipeline. You control retention and deletion — meeting the standards courts require."
+      "answer": "Documents under protective order need the highest standard. SOC 2 Type II certification, HIPAA compliance, AES-256 encryption, and signed BAAs protect every file. We don't train on your data. Deletion runs on your schedule."
     },
     {
       "question": "What does product liability document processing cost with Dodonai?",
@@ -102,22 +102,22 @@
     {
       "title": "AI Deposition Summary Software",
       "href": "/deposition-summary-software/",
-      "description": "Generate page-line and narrative deposition summaries from expert and corporate witness transcripts in minutes."
+      "description": "Summarize 30(b)(6), expert, and treating physician depositions in minutes."
     },
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Build detailed medical chronologies for plaintiff injury claims with page references for quick verification."
+      "description": "Plaintiff injury chronologies with source citations for complaint drafting and trial prep."
     },
     {
       "title": "Electronic Discovery Software",
       "href": "/electronic-discovery-software/",
-      "description": "Process and organize large discovery sets from corporate defendants with AI-powered e-discovery tools."
+      "description": "Search and review corporate discovery productions with AI-powered semantic search."
     },
     {
       "title": "Mass Tort",
       "href": "/practice-areas/mass-tort/",
-      "description": "Scale document processing across hundreds or thousands of plaintiffs in product liability mass tort cases."
+      "description": "Process claimant records at MDL scale for product liability mass torts."
     }
   ],
   "relatedBlogPosts": [

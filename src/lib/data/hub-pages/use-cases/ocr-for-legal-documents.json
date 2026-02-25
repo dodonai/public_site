@@ -54,7 +54,7 @@
         {
           "icon": "shield",
           "title": "Secure Processing for Privileged and Protected Documents",
-          "description": "Legal documents are confidential by nature. HIPAA compliant with signed BAAs, SOC 2 Type II certified, and AES-256 encrypted end to end. Your scanned files never enter a training pipeline."
+          "description": "Scanned documents contain the same sensitive content as their digital originals. HIPAA compliant, SOC 2 Type II certified, AES-256 encrypted. Signed BAAs on every account. No training on your files."
         }
       ]
     },
@@ -112,7 +112,7 @@
     },
     {
       "question": "Is Dodonai's OCR HIPAA compliant?",
-      "answer": "Scanned documents contain the same sensitive information as their digital originals — they deserve the same protection. HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encrypted. Your files never enter a training pipeline, and you set the retention timeline."
+      "answer": "Same protection as the originals. HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encrypted throughout. Nothing you upload trains our models. You control when files are deleted."
     },
     {
       "question": "How much does AI OCR for legal documents cost?",
@@ -123,17 +123,17 @@
     {
       "title": "AI-Powered OCR",
       "href": "/ai-pdf-ocr/",
-      "description": "Full details on Dodonai's AI OCR engine for scanned PDFs, handwritten text, and image-based documents."
+      "description": "Dodonai's AI OCR engine — accurate text extraction from scans, handwriting, and image PDFs."
     },
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Process scanned medical records directly into organized summaries and chronologies."
+      "description": "Scanned records go straight from OCR into structured medical chronologies and summaries."
     },
     {
       "title": "Electronic Discovery Software",
       "href": "/electronic-discovery-software/",
-      "description": "Make scanned discovery documents searchable and ready for AI-powered e-discovery workflows."
+      "description": "Convert scanned discovery productions into searchable, reviewable document sets."
     }
   ],
   "relatedBlogPosts": [

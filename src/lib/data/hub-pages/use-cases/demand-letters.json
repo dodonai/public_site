@@ -10,9 +10,9 @@
     { "name": "Demand Letters" }
   ],
   "hero": {
-    "headline": "AI-Powered Demand Letter Preparation",
+    "headline": "AI Demand Letter Preparation — Build Stronger Demand Packages Faster",
     "subheadline": "A compelling demand letter depends on well-organized medical evidence. Dodonai gives personal injury attorneys structured chronologies, deposition summaries, and document extracts to draft demand packages that drive faster, higher-value settlements.",
-    "ctaText": "Try It Free",
+    "ctaText": "Build Your Next Demand Package",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Pricing",
     "secondaryCtaUrl": "/pricing/"
@@ -22,7 +22,7 @@
       "type": "content",
       "heading": "How AI Demand Letter Preparation Strengthens Your Demand Package",
       "paragraphs": [
-        "Adjusters evaluate demands based on how thoroughly the medical evidence is organized. A demand backed by a detailed chronology carries more weight than a stack of unorganized records — and AI demand letter tools make that level of organization practical on every case.",
+        "Adjusters evaluate demands based on how thoroughly the medical evidence is organized. A demand backed by a detailed chronology carries more weight than a stack of unorganized records — and an AI demand letter workflow makes that level of organization practical on every case, not just the high-value ones.",
         "Dodonai accelerates every step of that process. Upload your client's medical records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} that documents every diagnosis, treatment, provider visit, and medication change in chronological order. Upload deposition transcripts and get {{link:/deposition-summary-software/|page-line summaries}} highlighting liability admissions, damages testimony, and causation evidence. Standard BI demand, policy limits demand, time-limit demand — the documented evidence is organized and ready for all of them.",
         "For {{link:/practice-areas/personal-injury/|personal injury firms}} handling high volumes on contingency, faster AI demand letter preparation directly impacts revenue. Every week a case sits waiting on documentation is a week without settlement movement. Dodonai cuts the documentation phase from days to minutes so your team can send demands sooner and resolve cases faster."
       ]
@@ -59,7 +59,7 @@
         {
           "icon": "shield",
           "title": "Secure Handling of Medical Evidence",
-          "description": "Demand packages contain PHI. Every upload runs through AES-256 encryption on HIPAA-compliant, SOC 2-certified infrastructure. Signed BAAs on every account. Records stay out of any training pipeline."
+          "description": "Demand packages contain PHI that deserves the same protection as any litigation file. HIPAA compliant with signed BAAs, SOC 2 Type II certified, AES-256 encrypted. Nothing you upload trains our models."
         }
       ]
     },
@@ -72,7 +72,7 @@
         },
         {
           "title": "AI Builds Your Evidence Foundation",
-          "description": "Dodonai generates a detailed medical chronology, narrative summary, and deposition digests. Specify key topics like specific injuries or liability issues to tailor the output toward your demand letter themes."
+          "description": "Dodonai generates medical chronologies organized for demand packages, narrative summaries documenting the full treatment arc, and deposition digests highlighting liability admissions and damages testimony. Specify injuries, providers, or liability issues to tailor the output."
         },
         {
           "title": "Draft Your Demand Letter with Organized Evidence",
@@ -111,17 +111,17 @@
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Generate the medical chronologies and summaries that form the foundation of compelling demand letters."
+      "description": "Medical chronologies and treatment narratives organized for demand package preparation."
     },
     {
       "title": "AI Deposition Summary Software",
       "href": "/deposition-summary-software/",
-      "description": "Get page-line and narrative deposition summaries to strengthen your demand package."
+      "description": "Pull liability admissions and damages testimony into structured summaries in minutes."
     },
     {
       "title": "Personal Injury",
       "href": "/practice-areas/personal-injury/",
-      "description": "See how Dodonai supports the full personal injury litigation workflow."
+      "description": "AI document processing for the full PI workflow — intake through settlement."
     }
   ],
   "relatedBlogPosts": [

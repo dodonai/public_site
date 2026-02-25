@@ -10,7 +10,7 @@
     { "name": "Mass Tort" }
   ],
   "hero": {
-    "headline": "AI-Powered Document Processing for Mass Tort Litigation",
+    "headline": "Mass Tort Software — AI Document Processing at Scale",
     "subheadline": "Mass tort cases demand consistency across thousands of claimant files. Dodonai processes medical records and documents at scale — delivering uniform summaries and chronologies so your team focuses on strategy, not paperwork.",
     "ctaText": "Process Records at Scale",
     "ctaUrl": "https://app.dodon.ai/signup",
@@ -22,10 +22,10 @@
       "type": "content",
       "heading": "Why Mass Tort Firms Need AI Document Processing",
       "paragraphs": [
-        "When you're managing 3,000 plaintiff files in an MDL, the math on manual record review doesn't work. Every claimant needs the same level of documentation: organized medical records, completed plaintiff fact sheets, and a damages profile your team can use for triage and settlement modeling. Traditional approaches — hiring additional paralegals, outsourcing at $5 to $15 per page to nurse reviewers, or relying on contract attorneys — all introduce bottlenecks and inconsistencies that compound at scale. Mass tort software built for this volume changes the math.",
+        "When you're managing 3,000 plaintiff files in an MDL, manual record review can't keep up. Every claimant needs the same level of documentation: organized medical records, completed plaintiff fact sheets, and a damages profile your team can use for triage and settlement modeling. Traditional approaches — hiring additional paralegals, outsourcing at $5 to $15 per page to nurse reviewers, or relying on contract attorneys — all introduce bottlenecks and inconsistencies that compound at scale. Mass tort software built for this volume changes the economics.",
         "When the PSC sets a plaintiff fact sheet deadline or the transferee court orders a case census, you need to process hundreds of claimant files on the same timeline — not wait months for manual review to trickle in. Mass tort medical record review at scale requires a fundamentally different approach to MDL document processing.",
         "Dodonai's platform ingests medical records in bulk, generates {{link:/ai-medical-record-summaries-chronologies/|medical chronologies and summaries}} for each claimant, and delivers consistent, structured outputs your team can use immediately for PFS completion, bellwether selection, settlement grid stratification, and trial preparation. The AI handles scanned and handwritten records through built-in {{link:/ai-pdf-ocr/|OCR}}, so records from any provider are processed without manual preprocessing.",
-        "All claimant data runs through AES-256 encryption on SOC 2-certified, HIPAA-compliant infrastructure. Nothing you upload trains our models."
+        "All claimant data gets AES-256 encryption on SOC 2 Type II certified infrastructure with signed BAAs. Nothing you upload trains our models."
       ]
     },
     {
@@ -54,8 +54,8 @@
         },
         {
           "icon": "dollar",
-          "title": "Dramatically Lower Per-Claimant Costs",
-          "description": "At $5 to $15 per page, manual review across an MDL can cost hundreds of thousands of dollars in document processing alone. Dodonai's credit-based pricing cuts per-claimant costs to a fraction of that."
+          "title": "90%+ Lower Per-Claimant Costs",
+          "description": "At $5 to $15 per page, manual review across an MDL can cost hundreds of thousands in document processing alone. Dodonai processes pages for as little as $0.02 each — a 500-page claimant record set costs under $10 instead of $2,500+."
         },
         {
           "icon": "clock",
@@ -73,7 +73,7 @@
         },
         {
           "title": "AI Generates Summaries and Chronologies",
-          "description": "Dodonai's AI processes each claimant's records, extracts key medical events — diagnoses, treatments, surgeries, medications, provider visits — and organizes everything into structured chronologies and narrative summaries. Specify key topics or conditions to guide the AI's focus for your specific mass tort."
+          "description": "Dodonai's AI processes each claimant's records, extracts diagnoses, treatments, surgeries, medications, and provider visits, then organizes everything into structured chronologies and narrative summaries. Specify conditions, product exposure details, or causation factors to guide the AI's focus for your specific MDL."
         },
         {
           "title": "Review, Export, and Integrate into Your Workflow",
@@ -116,7 +116,7 @@
     },
     {
       "question": "Is Dodonai secure enough for mass tort medical records?",
-      "answer": "Thousands of claimant files means thousands of reasons to get security right. Signed BAAs on every account, SOC 2 Type II certification, AES-256 encryption both ways. No training on your data. Retention follows your firm's policies — you initiate deletion, we execute it."
+      "answer": "Thousands of claimant files means thousands of reasons to get security right. SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted. Signed BAAs standard. Your data never trains our models. You set the retention policy."
     },
     {
       "question": "How does Dodonai handle scanned records from older medical providers?",
@@ -127,22 +127,22 @@
     {
       "title": "AI Medical Record Summaries & Chronologies",
       "href": "/ai-medical-record-summaries-chronologies/",
-      "description": "Generate AI-powered medical record summaries and chronologies with references tying each point back to the original record."
+      "description": "Structured chronologies with source citations for every claimant record set."
     },
     {
       "title": "AI-Powered OCR for Legal Documents",
       "href": "/ai-pdf-ocr/",
-      "description": "Extract text from scanned PDFs, faxes, and handwritten records with AI OCR."
+      "description": "Process scanned clinic notes, faxed records, and handwritten physician notes automatically."
     },
     {
       "title": "Medical Record Review",
       "href": "/use-cases/medical-record-review/",
-      "description": "See how legal teams use AI to streamline the medical record review process."
+      "description": "How AI cuts medical record review from days per claimant to minutes."
     },
     {
       "title": "Personal Injury",
       "href": "/practice-areas/personal-injury/",
-      "description": "AI document processing for personal injury law firms."
+      "description": "AI medical record and deposition processing for PI firms."
     }
   ],
   "relatedBlogPosts": [
