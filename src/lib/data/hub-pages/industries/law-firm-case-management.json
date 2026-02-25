@@ -1,0 +1,136 @@
+{
+  "seo": {
+    "title": "Law Firm Case Management Software — AI Document Processing for Legal Teams",
+    "description": "Integrate AI-powered document processing into your law firm's case management workflow. Automate deposition summaries, medical chronologies, transcript search, and document organization.",
+    "canonical": "/industries/law-firm-case-management/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Industries", "href": null },
+    { "name": "Law Firm Case Management" }
+  ],
+  "hero": {
+    "headline": "AI Case Management for Law Firms: Process Documents, Not Just Store Them",
+    "subheadline": "Your case management platform tracks deadlines and contacts. Dodonai handles the document-heavy work: deposition summaries, medical chronologies, transcript search, and structured extracts in minutes, so attorneys stay focused on strategy.",
+    "ctaText": "Upload Your First Case File",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See How It Fits Your Workflow",
+    "secondaryCtaUrl": "/industries/document-management-law-firms/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Why Law Firms Are Adding AI to Their Case Management Stack",
+      "paragraphs": [
+        "Your case management software tracks deadlines, contacts, and tasks, but it doesn't read a 300-page deposition or summarize a plaintiff's medical records. That work still falls on your team.",
+        "Most law firm case management software handles the organizational layer (contacts, calendars, tasks, and file storage). But the actual document processing happens manually. Someone still has to read the transcript, summarize the records, extract key data from discovery, and format everything for attorney review. That manual work absorbs the majority of paralegal and associate hours, and it's where AI delivers the greatest return.",
+        "Dodonai plugs into your existing workflow as the document processing layer. Upload files from your case management system, and Dodonai returns structured outputs like {{link:/deposition-summary-software/|deposition summaries}}, {{link:/ai-medical-record-summaries-chronologies/|medical chronologies}}, {{link:/ai-deposition-transcript-software/|searchable transcripts}}, and {{link:/dodonai-extract-and-draft-agents/|custom extracts}} that your team can drop directly into case files, demand letters, discovery responses, and trial binders.",
+        "Dodonai doesn't replace your case management platform. It's the processing engine that turns a 300-page deposition into a structured summary in 3 minutes and a 500-page medical record set into an organized chronology in under 15."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Dodonai Tools for Law Firm Case Management",
+      "cards": [
+        {
+          "icon": "document",
+          "title": "Deposition Summary Generation",
+          "description": "Page-line or narrative summaries in minutes. Highlight key topics to tailor each summary to the issues that matter, then file the output directly in your case management system."
+        },
+        {
+          "icon": "heart",
+          "title": "Medical Record Chronologies",
+          "description": "Structured timelines with provider visits, diagnoses, treatments, and references linked directly to the underlying record. Organized evidence that accelerates demand letters, case valuation, and trial prep."
+        },
+        {
+          "icon": "search",
+          "title": "AI-Powered Transcript Search",
+          "description": "Search across multiple deposition transcripts at once using natural language. Find testimony about liability, damages, or expert opinions without re-reading entire transcripts."
+        },
+        {
+          "icon": "folder",
+          "title": "Large-Volume Document Organization",
+          "description": "Large discovery productions meet their match. {{link:/ai-pdf-ocr/|AI OCR}} extracts structured data from scanned and handwritten files, the document types that slow manual review the most."
+        },
+        {
+          "icon": "adjustments",
+          "title": "Extract and Draft Agents",
+          "description": "Build reusable {{link:/dodonai-extract-and-draft-agents/|agents}} for recurring tasks: insurance policy extraction, billing summaries, witness statement organization, and more."
+        },
+        {
+          "icon": "briefcase",
+          "title": "E-Discovery Integration",
+          "description": "{{link:/electronic-discovery-software/|Dodonai's e-discovery tools}} search, filter, and review large document sets, reducing the volume that needs manual attorney review while ensuring nothing relevant gets missed."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Case Documents",
+          "description": "Upload transcripts, medical records, discovery documents, or any case files to Dodonai's secure platform. PDFs, Word files, text files, and scanned documents all accepted. No preprocessing required."
+        },
+        {
+          "title": "AI Processes and Structures the Content",
+          "description": "Select the output type: deposition summary, medical chronology, transcript search, document extract, or e-discovery review. Add key topics, date ranges, or parties to customize the output for your case file."
+        },
+        {
+          "title": "Export to Your Case Management System",
+          "description": "Download as PDF, Word, Excel, or plain text and add it to your case file. Every output includes page references so attorneys can verify any data point against the original."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Does Dodonai replace our case management software?",
+      "answer": "No. Dodonai complements your existing platform by handling summarization, search, and extraction that case management software doesn't do. You keep using your current system for contacts, calendars, and file storage."
+    },
+    {
+      "question": "What types of documents can Dodonai process for our cases?",
+      "answer": "Deposition transcripts, medical records, discovery documents, contracts, correspondence, and any other PDF or Word file. {{link:/ai-pdf-ocr/|AI OCR}} handles scanned and handwritten documents too."
+    },
+    {
+      "question": "How does Dodonai handle security for law firm documents?",
+      "answer": "BAAs signed before the first upload. AES-256 encryption on SOC 2 Type II certified infrastructure. HIPAA compliant across the board. We don't train on your documents, and your firm controls when files are deleted."
+    },
+    {
+      "question": "Can multiple attorneys and paralegals use the same Dodonai account?",
+      "answer": "Yes. Team accounts let multiple users upload, access summaries, and manage work product from a shared credit pool. Admins control access and monitor usage."
+    },
+    {
+      "question": "How much does Dodonai cost for a law firm?",
+      "answer": "Plans start at $30/month for 200 pages (Lite). Basic is $60/month for 1,000 pages, Pro is $100/month for 5,000 pages. Enterprise plans available. See our {{link:/pricing/|pricing page}} for details."
+    },
+    {
+      "question": "What is the learning curve for integrating Dodonai into our workflow?",
+      "answer": "Most firms are operational within a day. Upload a document, select the output type, download the result. No technical setup or formal training needed."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "Turn deposition transcripts into structured summaries with page-line citations in minutes."
+    },
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "Organized medical chronologies with every entry linked to the source record."
+    },
+    {
+      "title": "Electronic Discovery Software",
+      "href": "/electronic-discovery-software/",
+      "description": "AI-powered search and review for large discovery productions."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/6-ways-deposition-summaries-provide-value-in-litigation/",
+    "/blog/how-many-hours-do-you-lose-reading-transcripts/"
+  ],
+  "ctaOverride": {
+    "headline": "Add AI Document Processing to Your Firm's Workflow",
+    "description": "Upload a deposition transcript or medical record set and see how Dodonai fits your case management workflow. No credit card required."
+  }
+}

@@ -1,0 +1,140 @@
+{
+  "seo": {
+    "title": "Best Deposition Summary Software (2026) — AI vs. Manual Compared",
+    "description": "Compare the best deposition summary software for law firms. See how AI-powered tools like Dodonai stack up against traditional services and manual summarization.",
+    "canonical": "/compare/best-deposition-summary-software/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Compare", "href": null },
+    { "name": "Best Deposition Summary Software" }
+  ],
+  "hero": {
+    "headline": "Find the Best Deposition Summary Software for Your Firm",
+    "subheadline": "A single deposition transcript can take 6-8 hours to summarize by hand. AI deposition summary software does it in 3 minutes, complete with page-line citations. Here's how the tools compare.",
+    "ctaText": "Upload a Transcript Free",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "What to Look for in Deposition Summary Software",
+      "paragraphs": [
+        "Eight hours on a single transcript. That's the reality for paralegals drafting summaries manually. The best deposition summary software generates a polished summary with accurate page-line citations fast enough to keep pace with litigation deadlines. That's the baseline that separates useful tools from glorified text editors.",
+        "Look for software that supports multiple output formats: a page-line summary of deposition testimony, a narrative overview, or an issue-based digest. The best {{link:/blog/how-to-draft-a-page-line-deposition-summary/|AI deposition summary}} tools offer all three from a single upload.",
+        "Security matters. Deposition transcripts contain client information, work product, and privileged communications. Look for SOC 2 Type II certification and AES-256 encryption at minimum, and confirm the vendor doesn't use your transcripts for model training.",
+        "Finally, evaluate cost on a per-page or per-transcript basis rather than sticker price alone. Traditional deposition summary services charge $3 to $10 per page, which adds up on high-volume caseloads. AI deposition summary tools like {{link:/deposition-summary-software/|Dodonai}} cut that cost while maintaining quality."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Why Attorneys Choose Dodonai for Deposition Summaries",
+      "cards": [
+        {
+          "icon": "clock",
+          "title": "3 Minutes per 100-Page Transcript",
+          "description": "Upload a transcript and have a polished summary before your next meeting. Traditional services take 3 to 7 business days for the same work."
+        },
+        {
+          "icon": "document",
+          "title": "Page-Line and Narrative Formats",
+          "description": "Need a citation table for impeachment prep and a narrative for the partner meeting? Both formats generate from the same upload without re-uploading or paying extra."
+        },
+        {
+          "icon": "dollar",
+          "title": "Fraction of the Cost",
+          "description": "Outsourced services charge $300 to $2,000 per transcript. Dodonai plans start at $30 per month for up to 200 pages. Across a full caseload, the savings are hard to ignore."
+        },
+        {
+          "icon": "shield",
+          "title": "SOC 2 Certified and HIPAA Compliant",
+          "description": "SOC 2 Type II certified. HIPAA compliant with signed BAAs. AES-256 encrypted. Your transcripts never train our models."
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "Deposition Summary Software Comparison",
+      "columns": ["Feature", "Dodonai", "Traditional Services", "DIY / Manual"],
+      "rows": [
+        ["Processing time", "~3 minutes per 100 pages", "3-7 business days", "4-8 hours per transcript"],
+        ["Cost per page", "$0.15-$0.50", "$3-$10", "Billed at attorney/paralegal rate"],
+        ["Page-line format", true, true, true],
+        ["Narrative format", true, "Varies by vendor", true],
+        ["Key topic highlighting", true, "By request (extra cost)", true],
+        ["AI-powered analysis", true, false, false],
+        ["SOC 2 certified", true, "Varies", "N/A"],
+        ["Instant reprocessing", true, false, false]
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Your Transcript",
+          "description": "Upload a PDF, Word, or text file of your deposition transcript. No formatting or cleanup required. The software handles transcripts from all major court reporting services."
+        },
+        {
+          "title": "Select Format and Key Topics",
+          "description": "Choose between a page-line or narrative summary and optionally enter key topics you want emphasized. Dodonai tailors the output to highlight the testimony that matters most to your case."
+        },
+        {
+          "title": "Download and Use",
+          "description": "Review the summary in Dodonai's interactive viewer, then download as PDF, Word, or text. Every summary is saved to your account for easy retrieval."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What makes AI deposition summary software better than hiring a summary service?",
+      "answer": "Speed and cost. Dodonai processes a typical transcript for under a dollar per page in minutes, compared to $3-$10 per page and 3-7 business days from outsourced services. You can also reprocess instantly if case priorities change."
+    },
+    {
+      "question": "How accurate are AI-generated deposition summaries?",
+      "answer": "Attorneys report that Dodonai's summaries are on par with manually drafted ones, with the added benefit of consistent formatting and instant availability. Every summary includes page-line citations so you can verify any statement against the original transcript."
+    },
+    {
+      "question": "Can I customize the summary output for my case?",
+      "answer": "Yes. Enter key topics, issues, or witness names and the AI gives them additional emphasis while still capturing the full scope of testimony. You can also choose between {{link:/blog/how-to-draft-a-page-line-deposition-summary/|page-line}} and narrative formats."
+    },
+    {
+      "question": "Is my deposition transcript data secure?",
+      "answer": "Your transcripts stay encrypted (AES-256) from the moment they leave your machine. We hold SOC 2 Type II certification, sign BAAs on every account, and are fully HIPAA compliant. Nothing you upload ever trains our models, and deletion is on your timeline, not ours."
+    },
+    {
+      "question": "Where can I see a deposition summary example?",
+      "answer": "Sign up for a free trial and upload any transcript. You'll get a complete deposition summary example with page-line citations in about 3 minutes. You can also review a {{link:/blog/how-to-draft-a-page-line-deposition-summary/|step-by-step walkthrough}} showing exactly what the output looks like."
+    },
+    {
+      "question": "What file types does Dodonai accept for deposition transcripts?",
+      "answer": "PDF, Word (.doc/.docx), text (.txt), CSV, and PowerPoint (.pptx). Most court reporters deliver in PDF or text format, both of which work with Dodonai's {{link:/deposition-summary-software/|deposition summary software}}."
+    },
+    {
+      "question": "How does Dodonai compare to free AI tools like ChatGPT for deposition summaries?",
+      "answer": "General-purpose AI tools can't produce page-line citations, don't generate formatted digests, and most use your uploads for training. Dodonai was purpose-built for litigation with SOC 2 security, legal output formats, and deposition transcript handling built into the product from the start."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "See how Dodonai processes transcripts into structured summaries with page-line citations."
+    },
+    {
+      "title": "AI Deposition Transcript Management",
+      "href": "/ai-deposition-transcript-software/",
+      "description": "Search across depositions by topic, witness, or keyword and get results in seconds."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/",
+    "/blog/how-to-draft-a-page-line-deposition-summary/"
+  ],
+  "ctaOverride": {
+    "headline": "Try AI Deposition Summaries Free",
+    "description": "Upload a transcript and see the summary output for yourself. No credit card required."
+  }
+}

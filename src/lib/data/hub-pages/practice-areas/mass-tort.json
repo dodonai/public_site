@@ -1,0 +1,157 @@
+{
+  "seo": {
+    "title": "Mass Tort Software — AI Medical Record Processing at Scale",
+    "description": "Mass tort software for processing thousands of claimant medical records at scale. AI-powered summaries, chronologies, and MDL document processing. HIPAA compliant. Try free.",
+    "canonical": "/practice-areas/mass-tort/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Practice Areas", "href": null },
+    { "name": "Mass Tort" }
+  ],
+  "hero": {
+    "headline": "Mass Tort Software: AI Document Processing at Scale",
+    "subheadline": "Mass tort cases demand consistency across thousands of claimant files. Dodonai processes medical records and documents at scale, delivering uniform summaries and chronologies so your team focuses on strategy, not paperwork.",
+    "ctaText": "Process Records at Scale",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Why Mass Tort Firms Need AI Document Processing",
+      "paragraphs": [
+        "When you're managing 3,000 plaintiff files in an MDL, manual record review can't keep up. Every claimant needs the same level of documentation: organized medical records, completed plaintiff fact sheets, and a damages profile your team can use for triage and settlement modeling. Traditional approaches (hiring additional paralegals, outsourcing at $5 to $15 per page to nurse reviewers, or relying on contract attorneys) all introduce bottlenecks and inconsistencies that compound at scale. Mass tort software built for this volume changes the economics.",
+        "When the PSC sets a plaintiff fact sheet deadline or the transferee court orders a case census, you need to process hundreds of claimant files on the same timeline, not wait months for manual review to trickle in. Mass tort medical record review at scale requires a fundamentally different approach to MDL document processing.",
+        "Dodonai's platform ingests medical records in bulk, generates {{link:/ai-medical-record-summaries-chronologies/|medical chronologies and summaries}} for each claimant, and delivers consistent, structured outputs your team can use immediately for PFS completion, bellwether selection, settlement grid stratification, and trial preparation. The AI handles scanned and handwritten records through built-in {{link:/ai-pdf-ocr/|OCR}}, so records from any provider are processed without manual preprocessing.",
+        "All claimant data gets AES-256 encryption on SOC 2 Type II certified infrastructure with signed BAAs. Nothing you upload trains our models."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Mass Tort Document Processing Capabilities",
+      "cards": [
+        {
+          "icon": "squares",
+          "title": "Bulk Record Processing at Scale",
+          "description": "Upload medical records for hundreds or thousands of claimants simultaneously. The platform handles MDL-scale volume without sacrificing the quality of individual claimant summaries."
+        },
+        {
+          "icon": "check",
+          "title": "Consistent Outputs Across All Plaintiffs",
+          "description": "Different reviewers produce different results. Dodonai eliminates that variability. Every claimant gets the same structured chronology and summary format. Essential for standardized plaintiff fact sheets, settlement grid stratification, and bellwether selection."
+        },
+        {
+          "icon": "heart",
+          "title": "Medical Chronologies with Source Citations",
+          "description": "Each claimant's chronology includes dates, providers, diagnoses, treatments, and outcomes, all with page numbers pointing to the original records. Verify any data point without searching through raw files."
+        },
+        {
+          "icon": "search",
+          "title": "AI OCR for Scanned and Handwritten Records",
+          "description": "Scanned faxes, handwritten physician notes, low-quality copies from dozens of providers. Mass tort record sets have it all. Dodonai's {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text from these documents so nothing gets missed."
+        },
+        {
+          "icon": "dollar",
+          "title": "90%+ Lower Per-Claimant Costs",
+          "description": "At $5 to $15 per page, manual review across an MDL can cost hundreds of thousands in document processing alone. Dodonai processes pages for as little as $0.02 each, so a 500-page claimant record set costs under $10 instead of $2,500+."
+        },
+        {
+          "icon": "clock",
+          "title": "Faster Case Evaluation and Triage",
+          "description": "Claimant summaries in minutes, not weeks. Triage incoming cases, identify the strongest specific causation evidence, prioritize bellwether candidates, and meet CMO deadlines without waiting on outsourced timelines."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Claimant Records in Bulk",
+          "description": "Upload medical records for individual claimants or entire plaintiff groups. The system accepts PDFs of any size, including scanned and image-based documents, with no formatting or preprocessing required."
+        },
+        {
+          "title": "AI Generates Summaries and Chronologies",
+          "description": "Dodonai's AI processes each claimant's records, extracts diagnoses, treatments, surgeries, medications, and provider visits, then organizes everything into structured chronologies and narrative summaries. Specify conditions, product exposure details, or causation factors to guide the AI's focus for your specific MDL."
+        },
+        {
+          "title": "Review, Export, and Integrate into Your Workflow",
+          "description": "Review outputs in the interactive viewer with side-by-side source linking. Export as PDF, Word, or Excel. Use the structured data for PFS completion, case census reporting, settlement grid stratification, bellwether selection, and trial preparation."
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "Mass Tort Document Processing: Dodonai vs. Manual Review at Scale",
+      "columns": ["Capability", "Dodonai AI", "Manual Review at Scale"],
+      "rows": [
+        ["Process 1,000+ claimant records", "Days", "Months"],
+        ["Consistent summary format across plaintiffs", true, false],
+        ["Per-claimant cost (500-page record set)", "Under $10", "$2,500-$7,500"],
+        ["Handle scanned and handwritten records", true, "Requires separate OCR step"],
+        ["Citations linked directly to the underlying record", true, false],
+        ["Scale without adding headcount", true, false],
+        ["HIPAA-compliant data handling", true, "Varies by vendor"],
+        ["Reprocess with updated focus topics", "Minutes", "Full re-review required"]
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can Dodonai handle the volume of records in a mass tort case?",
+      "answer": "Yes. Upload and process records for hundreds or thousands of claimants. The platform scales without degrading output quality. Each claimant gets the same structured chronology and summary, which is the consistency you need for plaintiff fact sheets and CMO deadlines."
+    },
+    {
+      "question": "How does Dodonai ensure consistency across thousands of claimant summaries?",
+      "answer": "The same AI model processes every record set using identical extraction logic, so output format and detail level are uniform across all plaintiffs. No variability from different reviewers applying their own judgment."
+    },
+    {
+      "question": "What does mass tort document processing cost with Dodonai?",
+      "answer": "Per-page costs range from $0.15 on the Lite plan to $0.02 on Pro, with Enterprise pricing for custom volumes. Compare that to $5 to $15 per page from traditional vendors. At MDL scale, the difference runs into hundreds of thousands of dollars."
+    },
+    {
+      "question": "Can I process records from different providers for the same claimant?",
+      "answer": "Yes. Upload records from multiple providers for a single claimant and Dodonai organizes them into a unified {{link:/ai-medical-record-summaries-chronologies/|medical chronology}}. Filter entries by provider, date range, or event type in the interactive viewer."
+    },
+    {
+      "question": "Is Dodonai secure enough for mass tort medical records?",
+      "answer": "Thousands of claimant files means thousands of reasons to get security right. SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted. Signed BAAs standard. Your data never trains our models. You set the retention policy."
+    },
+    {
+      "question": "How does Dodonai handle scanned records from older medical providers?",
+      "answer": "Built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text from scanned PDFs, faxed copies, and handwritten notes automatically. No separate OCR step before uploading."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "Structured chronologies with source citations for every claimant record set."
+    },
+    {
+      "title": "AI-Powered OCR for Legal Documents",
+      "href": "/ai-pdf-ocr/",
+      "description": "Process scanned clinic notes, faxed records, and handwritten physician notes automatically."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "How AI cuts medical record review from days per claimant to minutes."
+    },
+    {
+      "title": "Personal Injury",
+      "href": "/practice-areas/personal-injury/",
+      "description": "AI medical record and deposition processing for PI firms."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week/",
+    "/blog/what-actually-slows-down-medical-chronology-review/",
+    "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/"
+  ],
+  "ctaOverride": {
+    "headline": "Process Mass Tort Records at Scale",
+    "description": "Upload claimant medical records and get consistent summaries and chronologies in minutes. No credit card required."
+  }
+}

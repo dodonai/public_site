@@ -18,10 +18,10 @@
 
 <section class="relative overflow-hidden py-20 sm:py-28" style="background-image: radial-gradient(circle at 0 0, #9076f4, #836ae4 72%)">
 	<!-- Decorative wave at top -->
-	<img src="/images/brand/wave-cta.png" alt="" class="pointer-events-none absolute -top-[10%] left-0 right-0 w-full opacity-40" aria-hidden="true" />
+	<img src="/images/brand/wave-cta.png" alt="" class="pointer-events-none absolute -top-[10%] left-0 right-0 w-full opacity-40" aria-hidden="true" loading="lazy" />
 	<!-- Decorative blur blobs -->
-	<img src="/images/brand/ellipse-lavender.png" alt="" class="pointer-events-none absolute -bottom-[40%] left-0 w-[70%] opacity-20" aria-hidden="true" />
-	<img src="/images/brand/ellipse-pink.png" alt="" class="pointer-events-none absolute -right-[12%] -top-[16%] w-[70%] opacity-20" aria-hidden="true" />
+	<img src="/images/brand/ellipse-lavender.png" alt="" class="pointer-events-none absolute -bottom-[40%] left-0 w-[70%] opacity-20" aria-hidden="true" loading="lazy" />
+	<img src="/images/brand/ellipse-pink.png" alt="" class="pointer-events-none absolute -right-[12%] -top-[16%] w-[70%] opacity-20" aria-hidden="true" loading="lazy" />
 
 	<div class="relative mx-auto max-w-3xl px-4 text-center sm:px-6 lg:px-8">
 		<h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl lg:text-5xl">

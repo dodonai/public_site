@@ -22,7 +22,8 @@ const config = {
 			fallback: '404.html'
 		}),
 		prerender: {
-			handleHttpError: 'warn'
+			handleHttpError: 'warn',
+			handleUnseenRoutes: 'ignore'
 		}
 	}
 };

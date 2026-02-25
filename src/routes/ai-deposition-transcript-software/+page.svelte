@@ -50,6 +50,17 @@
 				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
 				{ '@type': 'ListItem', position: 2, name: 'Deposition Transcript Software' }
 			]
+		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'HowTo',
+			name: 'How to Manage Deposition Transcripts with Dodonai',
+			step: data.howItWorks.map((s, i) => ({
+				'@type': 'HowToStep',
+				position: i + 1,
+				name: s.title,
+				text: s.description
+			}))
 		}
 	]}
 />

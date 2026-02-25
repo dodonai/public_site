@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "AI PDF OCR & Text Extraction — Scans to Searchable Text",
+    "title": "PDF to Text AI — AI-Powered OCR & Text Extraction",
     "description": "Extract text from PDFs with AI-powered OCR. Handles handwriting, tables, and images. More accurate and affordable than legacy OCR. Try free.",
     "canonical": "/ai-pdf-ocr/"
   },
   "hero": {
-    "headline": "Next-Generation AI PDF OCR & Text Extraction",
+    "headline": "PDF to Text AI — Next-Generation OCR & Text Extraction",
     "subheadline": "Transform your PDFs - including tables, handwriting, and images - into editable and searchable documents effortlessly with Dodonai's advanced AI OCR.",
     "bullets": [],
     "ctaText": "Try for Free",
@@ -40,7 +40,7 @@
   "howItWorks": [
     {
       "title": "Upload PDFs",
-      "description": "Upload your scanned PDFs or digital documents directly to Dodonai's secure platform. Alternatively you can use our API or an integration with one of our document management partners."
+      "description": "Upload your scanned PDFs or digital documents directly to Dodonai's secure platform. See our {{link:https://app.dodon.ai/help/uploading-documents|guide on uploading documents}} for supported formats and tips. Alternatively you can use our API or an integration with one of our document management partners."
     },
     {
       "title": "Step-by-Step AI Processing",
@@ -48,7 +48,7 @@
     },
     {
       "title": "Summarize and Index",
-      "description": "Go further index individual documents within multi-page PDFs and create AI-powered summaries and custom reports. AI-driven summarization condenses documents into concise, actionable insights."
+      "description": "Go further index individual documents within multi-page PDFs and create AI-powered summaries and custom reports. Learn more about {{link:https://app.dodon.ai/help/pdf-organization-overview|PDF organization and indexing}}. AI-driven summarization condenses documents into concise, actionable insights."
     }
   ],
   "valueProposition": {

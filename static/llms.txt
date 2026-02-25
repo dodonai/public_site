@@ -32,10 +32,44 @@ Credits are the universal unit for all processing. 1 credit ≈ 1 page (~400 wor
 
 Annual credits roll over to the following year.
 
+## Who Uses Dodonai
+
+### Attorneys & Law Firms
+Personal injury, medical malpractice, mass tort, product liability, and workers' compensation attorneys use Dodonai to summarize depositions and medical records in minutes. It replaces costly outsourced summary services and reduces paralegal review time by 80-90%.
+
+### Paralegals & Litigation Support
+Paralegals use Dodonai for day-to-day case preparation: generating deposition digests, building medical chronologies, searching transcript collections, and organizing discovery evidence. The AI copilot handles the heavy lifting so paralegals can focus on strategy.
+
+### IME & Medical Record Retrieval Companies
+Independent Medical Examination providers and record retrieval services process thousands of medical records per month. Dodonai scales to high volumes, delivering consistent summaries and chronologies that support physician evaluations and client deliverables.
+
+### Insurance & Claims
+Adjusters and claims teams use Dodonai to quickly review medical records and deposition transcripts for coverage analysis, subrogation, and claims evaluation.
+
+## Competitive Positioning
+
+### Dodonai vs. Traditional Deposition Summary Services
+Traditional summary services charge $3-$10 per page and take 3-7 business days. Dodonai produces comparable or better summaries in minutes at a fraction of the cost (starting at $0.02/page on the Pro annual plan).
+
+### Dodonai vs. General AI Tools (ChatGPT, etc.)
+General AI chatbots lack page-line citation support, legal-specific formatting, SOC 2 security, and purpose-built workflows for depositions and medical records. They also pose data privacy risks since uploaded content may be used for model training. Dodonai never uses your data for training.
+
+### Dodonai vs. Legacy Legal Tech
+Enterprise legal tech platforms often bundle eDiscovery, contract review, and document management at $50K+/year. Dodonai offers focused, affordable AI document processing starting at $30/month with no per-seat fees.
+
+## Example Use Cases
+
+1. **Deposition Summary for Trial Prep**: Upload a 100-page deposition transcript, receive a page-line summary in 3 minutes. The attorney uses key topic highlighting to focus on damages testimony.
+2. **Medical Chronology for Personal Injury**: Upload 500 pages of medical records for a PI case. Dodonai generates a chronological timeline of treatments, diagnoses, and provider visits ready for demand letter preparation.
+3. **Mass Tort Record Processing**: A firm with 2,000 claimants uses Dodonai to process medical records for all clients in bulk, reducing per-case review time from 8 hours to 15 minutes.
+4. **IME Pre-Exam Preparation**: An IME company uploads claimant records before each physician evaluation. The AI summary gives the examining doctor a structured overview of the medical history in minutes.
+
 ## Security
 
-- SOC 2 compliant
-- HIPAA compliant
+- SOC 2 Type II certified
+- HIPAA compliant with signed BAAs
+- AES-256 encryption at rest and in transit
+- No data used for AI model training
 - JWT-based authentication
 
 ## Links
@@ -45,4 +79,44 @@ Annual credits roll over to the following year.
 - Sign Up: https://app.dodon.ai/signup
 - Pricing: https://www.dodon.ai/pricing
 - Blog: https://www.dodon.ai/blog
+- Help Center: https://app.dodon.ai/help
 - Contact: hello@dodon.ai
+
+### Service Pages
+- Deposition Summaries: https://www.dodon.ai/deposition-summary-software/
+- Medical Record Summaries: https://www.dodon.ai/ai-medical-record-summaries-chronologies/
+- Transcript Management: https://www.dodon.ai/ai-deposition-transcript-software/
+- AI PDF OCR: https://www.dodon.ai/ai-pdf-ocr/
+- Extract & Draft Agents: https://www.dodon.ai/dodonai-extract-and-draft-agents/
+- E-Discovery: https://www.dodon.ai/electronic-discovery-software/
+
+### Practice Areas
+- Personal Injury: https://www.dodon.ai/practice-areas/personal-injury/
+- Medical Malpractice: https://www.dodon.ai/practice-areas/medical-malpractice/
+- Mass Tort: https://www.dodon.ai/practice-areas/mass-tort/
+- Product Liability: https://www.dodon.ai/practice-areas/product-liability/
+- Workers' Compensation: https://www.dodon.ai/practice-areas/workers-compensation/
+- Disability Benefits: https://www.dodon.ai/practice-areas/disability-benefits/
+
+### Use Cases
+- Medical Record Review: https://www.dodon.ai/use-cases/medical-record-review/
+- Demand Letters: https://www.dodon.ai/use-cases/demand-letters/
+- Legal AI for Paralegals: https://www.dodon.ai/use-cases/legal-ai-for-paralegals/
+- Expert Witness Preparation: https://www.dodon.ai/use-cases/expert-witness-preparation/
+- OCR for Legal Documents: https://www.dodon.ai/use-cases/ocr-for-legal-documents/
+- Contract Review: https://www.dodon.ai/use-cases/contract-review-extraction/
+- Litigation Cost Management: https://www.dodon.ai/use-cases/litigation-cost-management/
+- IME Reports: https://www.dodon.ai/use-cases/ime-reports/
+
+### Software Comparisons
+- Best Deposition Summary Software: https://www.dodon.ai/compare/best-deposition-summary-software/
+- Best Medical Chronology Software: https://www.dodon.ai/compare/best-medical-chronology-software/
+- Deposition Software Comparison: https://www.dodon.ai/compare/deposition-software-comparison/
+- eDiscovery Software Review: https://www.dodon.ai/compare/ediscovery-software-review/
+
+### Industries
+- IME Companies: https://www.dodon.ai/industries/ime-companies/
+- Medical Record Retrieval: https://www.dodon.ai/industries/medical-record-retrieval/
+- Law Firm Case Management: https://www.dodon.ai/industries/law-firm-case-management/
+- Document Management for Law Firms: https://www.dodon.ai/industries/document-management-law-firms/
+- IME Doctors: https://www.dodon.ai/industries/ime-doctors/

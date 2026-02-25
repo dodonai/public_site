@@ -11,6 +11,7 @@
 	const resourceLinks = [
 		{ name: 'Pricing', href: '/pricing/' },
 		{ name: 'Blog', href: '/blog/' },
+		{ name: 'Help Center', href: 'https://app.dodon.ai/help', external: true },
 		{ name: 'Sign Up', href: 'https://app.dodon.ai/signup', external: true },
 		{ name: 'Log In', href: 'https://app.dodon.ai/login', external: true }
 	];
@@ -18,6 +19,41 @@
 	const legalLinks = [
 		{ name: 'Terms & Conditions', href: '/terms-and-conditions/' },
 		{ name: 'Privacy Policy', href: '/privacy-policy/' }
+	];
+
+	const practiceAreasLinks = [
+		{ name: 'Personal Injury', href: '/practice-areas/personal-injury/' },
+		{ name: 'Medical Malpractice', href: '/practice-areas/medical-malpractice/' },
+		{ name: 'Mass Tort', href: '/practice-areas/mass-tort/' },
+		{ name: 'Product Liability', href: '/practice-areas/product-liability/' },
+		{ name: 'Workers\' Compensation', href: '/practice-areas/workers-compensation/' },
+		{ name: 'Disability Benefits', href: '/practice-areas/disability-benefits/' }
+	];
+
+	const useCasesLinks = [
+		{ name: 'Medical Record Review', href: '/use-cases/medical-record-review/' },
+		{ name: 'IME Reports', href: '/use-cases/ime-reports/' },
+		{ name: 'Demand Letters', href: '/use-cases/demand-letters/' },
+		{ name: 'AI for Paralegals', href: '/use-cases/legal-ai-for-paralegals/' },
+		{ name: 'Expert Witness Prep', href: '/use-cases/expert-witness-preparation/' },
+		{ name: 'OCR for Legal Docs', href: '/use-cases/ocr-for-legal-documents/' },
+		{ name: 'Contract Review', href: '/use-cases/contract-review-extraction/' },
+		{ name: 'Litigation Costs', href: '/use-cases/litigation-cost-management/' }
+	];
+
+	const compareLinks = [
+		{ name: 'Best Deposition Summary Software', href: '/compare/best-deposition-summary-software/' },
+		{ name: 'Best Medical Chronology Software', href: '/compare/best-medical-chronology-software/' },
+		{ name: 'Deposition Software Comparison', href: '/compare/deposition-software-comparison/' },
+		{ name: 'eDiscovery Software Review', href: '/compare/ediscovery-software-review/' }
+	];
+
+	const industriesLinks = [
+		{ name: 'IME Companies', href: '/industries/ime-companies/' },
+		{ name: 'IME Doctors', href: '/industries/ime-doctors/' },
+		{ name: 'Medical Record Retrieval', href: '/industries/medical-record-retrieval/' },
+		{ name: 'Law Firm Case Management', href: '/industries/law-firm-case-management/' },
+		{ name: 'Document Management', href: '/industries/document-management-law-firms/' }
 	];
 
 	const blogPosts = [
@@ -50,7 +86,7 @@
 
 <footer class="relative z-40 overflow-hidden">
 	<div class="mx-auto flex w-[85%] max-w-[1250px] flex-col items-stretch justify-between pt-10 pb-0">
-		<!-- Main footer links row: logo column + grid columns -->
+		<!-- Row 1: Logo + Services / Resources / Legal -->
 		<div class="flex flex-wrap items-start justify-between pb-10 max-md:flex-wrap max-md:justify-between">
 			<!-- Logo + Email + Social -->
 			<div class="flex w-[25%] flex-col items-center justify-center max-lg:mb-[50px] max-lg:w-full">
@@ -145,7 +181,72 @@
 			</div>
 		</div>
 
-		<!-- Selected Blog Posts row -->
+		<!-- Row 2: Hub Pages — Practice Areas / Use Cases / Compare / Industries -->
+		<div class="pb-10">
+			<div class="grid grid-cols-4 gap-x-4 gap-y-[37px] max-md:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:flex-wrap">
+				<!-- Practice Areas -->
+				<div class="flex flex-col items-start justify-start">
+					<div class="mb-[25px]">
+						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Practice Areas</h2>
+					</div>
+					{#each practiceAreasLinks as link}
+						<a
+							href={link.href}
+							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
+						>
+							{link.name}
+						</a>
+					{/each}
+				</div>
+
+				<!-- Use Cases -->
+				<div class="flex flex-col items-start justify-start">
+					<div class="mb-[25px]">
+						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Use Cases</h2>
+					</div>
+					{#each useCasesLinks as link}
+						<a
+							href={link.href}
+							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
+						>
+							{link.name}
+						</a>
+					{/each}
+				</div>
+
+				<!-- Compare -->
+				<div class="flex flex-col items-start justify-start">
+					<div class="mb-[25px]">
+						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Compare</h2>
+					</div>
+					{#each compareLinks as link}
+						<a
+							href={link.href}
+							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
+						>
+							{link.name}
+						</a>
+					{/each}
+				</div>
+
+				<!-- Industries -->
+				<div class="flex flex-col items-start justify-start">
+					<div class="mb-[25px]">
+						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Industries</h2>
+					</div>
+					{#each industriesLinks as link}
+						<a
+							href={link.href}
+							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
+						>
+							{link.name}
+						</a>
+					{/each}
+				</div>
+			</div>
+		</div>
+
+		<!-- Row 3: Selected Blog Posts -->
 		<div class="flex flex-wrap items-start justify-between pb-10">
 			<div class="grid w-full grid-cols-[1fr_1fr_1fr] gap-x-4 gap-y-[37px] max-md:grid-cols-[1fr_1fr] max-sm:flex max-sm:flex-col max-sm:flex-wrap">
 				<!-- Column 1 -->

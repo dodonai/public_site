@@ -49,6 +49,17 @@
 				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
 				{ '@type': 'ListItem', position: 2, name: 'AI PDF OCR' }
 			]
+		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'HowTo',
+			name: 'How to Extract Text from PDFs with Dodonai AI OCR',
+			step: data.howItWorks.map((s, i) => ({
+				'@type': 'HowToStep',
+				position: i + 1,
+				name: s.title,
+				text: s.description
+			}))
 		}
 	]}
 />
