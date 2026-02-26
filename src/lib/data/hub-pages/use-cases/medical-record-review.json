@@ -49,7 +49,7 @@
         {
           "icon": "shield",
           "title": "HIPAA-Compliant Processing",
-          "description": "Patient data is encrypted with AES-256 on SOC 2 Type II certified infrastructure. BAAs signed before your first upload. Records never enter a training pipeline."
+          "description": "Patient data is encrypted with AES-256 on SOC 2 certified infrastructure. BAAs signed before your first upload. Records never enter a training pipeline."
         },
         {
           "icon": "adjustments",
@@ -108,7 +108,7 @@
     },
     {
       "question": "Is the platform HIPAA compliant?",
-      "answer": "Encrypted from upload to deletion with AES-256. SOC 2 Type II certified, HIPAA compliant, with signed BAAs on every account. Your records stay out of training pipelines, and your firm controls the retention schedule."
+      "answer": "Encrypted from upload to deletion with AES-256. SOC 2 certified, HIPAA compliant, with signed BAAs on every account. Your records stay out of training pipelines, and your firm controls the retention schedule."
     },
     {
       "question": "How long does it take to review a medical record set?",

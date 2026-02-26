@@ -60,7 +60,7 @@
         {
           "icon": "shield",
           "title": "Secure Transcript Processing",
-          "description": "Deposition transcripts contain privileged testimony and client information. SOC 2 Type II certified, AES-256 encrypted, signed BAAs on every account. Transcripts never enter a training pipeline."
+          "description": "Deposition transcripts contain privileged testimony and client information. SOC 2 certified, AES-256 encrypted, signed BAAs on every account. Transcripts never enter a training pipeline."
         }
       ]
     },
@@ -105,7 +105,7 @@
     },
     {
       "question": "Is transcript data secure on Dodonai?",
-      "answer": "Deposition transcripts often contain privileged and confidential testimony. AES-256 encryption protects every file from upload through deletion. SOC 2 Type II certified infrastructure with signed BAAs. Your transcripts never train our models, and you control when files are removed."
+      "answer": "Deposition transcripts often contain privileged and confidential testimony. AES-256 encryption protects every file from upload through deletion. SOC 2 certified infrastructure with signed BAAs. Your transcripts never train our models, and you control when files are removed."
     }
   ],
   "relatedPages": [

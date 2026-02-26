@@ -88,7 +88,7 @@
     },
     {
       "question": "How does Dodonai handle document security and confidentiality?",
-      "answer": "Dodonai is a processing layer, not a storage layer, but we treat security the same way your DMS does. SOC 2 Type II certified with signed BAAs and AES-256 encryption across the board. Documents you upload never enter a training pipeline. Your firm decides when files are deleted."
+      "answer": "Dodonai is a processing layer, not a storage layer, but we treat security the same way your DMS does. SOC 2 certified with signed BAAs and AES-256 encryption across the board. Documents you upload never enter a training pipeline. Your firm decides when files are deleted."
     },
     {
       "question": "Can multiple people at the firm use the same account?",

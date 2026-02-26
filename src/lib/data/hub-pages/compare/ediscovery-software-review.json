@@ -39,7 +39,7 @@
         ["Per-gigabyte hosting fees", "None", "$5-$25/GB/month", "N/A"],
         ["Built-in OCR for scanned documents", true, "Varies (often add-on)", false],
         ["Setup and training time", "Minutes", "Weeks to months", "N/A"],
-        ["SOC 2 Type II certified", true, "Varies", "N/A"],
+        ["SOC 2 certified", true, "Varies", "N/A"],
         ["Long-term contract required", false, "Typically 1-3 years", "N/A"],
         ["Free trial available", true, false, "N/A"]
       ]
@@ -66,7 +66,7 @@
         {
           "icon": "shield",
           "title": "Litigation-Grade Security on Every Plan",
-          "description": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted, all on every plan, not as add-ons. Signed BAAs included. Your documents never train our models, and deletion runs on your timeline."
+          "description": "SOC 2 certified, HIPAA compliant, AES-256 encrypted, all on every plan, not as add-ons. Signed BAAs included. Your documents never train our models, and deletion runs on your timeline."
         },
         {
           "icon": "folder",
@@ -108,7 +108,7 @@
     },
     {
       "question": "Is Dodonai secure enough for litigation document review?",
-      "answer": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted. Those aren't add-ons; they're included on every plan. Signed BAAs standard. Your litigation files never touch a training pipeline. Your firm sets the data retention policy."
+      "answer": "SOC 2 certified, HIPAA compliant, AES-256 encrypted. Those aren't add-ons; they're included on every plan. Signed BAAs standard. Your litigation files never touch a training pipeline. Your firm sets the data retention policy."
     },
     {
       "question": "Can Dodonai handle scanned documents in an eDiscovery collection?",

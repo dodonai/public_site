@@ -25,7 +25,7 @@
         "Every workers' comp claim comes down to the medical record: what happened at the workplace, what the treating physician found, and what the IME doctor said about it. Claimant attorneys need organized medical histories tracing the full arc from date of injury through TTD, surgical interventions, and final work restrictions. Defense attorneys and adjusters need the same records to evaluate exposure, identify pre-existing conditions for apportionment, and assess whether treatment was reasonable and necessary.",
         "Volume is the real problem. A single claim can involve records from ER visits, orthopedics, PT, and IME or QME evaluators, often arriving as digital PDFs, scanned faxes, and handwritten physician notes. Manually building a workers comp medical chronology that tracks each provider's findings on work restrictions, impairment, and functional capacity consumes hours of paralegal time per claim.",
         "Dodonai automates that work. This workers' compensation software lets you upload the claimant's full record set and receive a structured {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} organizing every diagnosis, treatment, medication, work status change, and provider visit by date. Each entry links to its source page for verification. Scanned and handwritten records are processed through {{link:/ai-pdf-ocr/|AI-powered OCR}} automatically. When depositions are taken from claimants, treating physicians, or IME doctors, Dodonai generates {{link:/deposition-summary-software/|deposition summaries}} highlighting the testimony most relevant to the claim. Building a work injury record timeline has never been faster.",
-        "All processing runs on HIPAA-compliant, SOC 2 Type II certified infrastructure with AES-256 encryption."
+        "All processing runs on HIPAA-compliant, SOC 2 certified infrastructure with AES-256 encryption."
       ]
     },
     {
@@ -92,7 +92,7 @@
     },
     {
       "question": "Is Dodonai HIPAA compliant for workers' compensation records?",
-      "answer": "Workers' comp records mix claimant medical data with employer and carrier information, all of which is protected. We sign BAAs before your first upload, hold SOC 2 Type II certification, and encrypt everything with AES-256. Your records never train our models, and retention follows your schedule."
+      "answer": "Workers' comp records mix claimant medical data with employer and carrier information, all of which is protected. We sign BAAs before your first upload, hold SOC 2 certification, and encrypt everything with AES-256. Your records never train our models, and retention follows your schedule."
     },
     {
       "question": "How much does workers' comp document processing cost with Dodonai?",

@@ -39,7 +39,7 @@
         ["Accurate page-line citations", true, true, true, false],
         ["Key topic highlighting", true, "By request (extra cost)", true, "Unreliable"],
         ["Transcript search across depositions", true, false, false, false],
-        ["SOC 2 Type II certified", true, "Varies", "N/A", false],
+        ["SOC 2 certified", true, "Varies", "N/A", false],
         ["HIPAA compliant", true, "Varies", "Depends on firm", false],
         ["Data never used for AI training", true, "N/A", "N/A", false],
         ["Handles all court reporter formats", true, true, true, "Limited"],
@@ -70,7 +70,7 @@
         {
           "icon": "shield",
           "title": "Security That Meets the Bar",
-          "description": "Signed BAAs, SOC 2 Type II certification, AES-256 encryption. Your transcripts stay out of training pipelines and get deleted when you say so, not on our schedule."
+          "description": "Signed BAAs, SOC 2 certification, AES-256 encryption. Your transcripts stay out of training pipelines and get deleted when you say so, not on our schedule."
         }
       ]
     },
@@ -111,11 +111,11 @@
     },
     {
       "question": "Is my deposition transcript data secure with AI software?",
-      "answer": "Privileged transcripts need SOC 2, HIPAA, and encryption at minimum. Dodonai meets all three: Type II certified, HIPAA compliant, AES-256 encrypted. BAAs on every account. No training on your files, and you control when they're removed."
+      "answer": "Privileged transcripts need SOC 2, HIPAA, and encryption at minimum. Dodonai meets all three: SOC 2 certified, HIPAA compliant, AES-256 encrypted. BAAs on every account. No training on your files, and you control when they're removed."
     },
     {
       "question": "How does Dodonai compare to the best deposition summary software options?",
-      "answer": "See our detailed {{link:/compare/best-deposition-summary-software/|best deposition summary software}} breakdown. Dodonai offers the fastest turnaround, lowest per-page cost, most flexible formats, and SOC 2 Type II / HIPAA-compliant security, plus transcript search in a single platform."
+      "answer": "See our detailed {{link:/compare/best-deposition-summary-software/|best deposition summary software}} breakdown. Dodonai offers the fastest turnaround, lowest per-page cost, most flexible formats, and SOC 2 / HIPAA-compliant security, plus transcript search in a single platform."
     }
   ],
   "relatedPages": [

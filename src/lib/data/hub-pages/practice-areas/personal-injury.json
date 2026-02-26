@@ -25,7 +25,7 @@
         "Every PI case follows the same documentation arc: records requests go out after intake, medical records pile up from ERs, orthopedics, and PT, your team builds the med chron, and then the real work begins: evaluating specials, projecting future medicals, putting together a demand package that moves the adjuster. Firms that compress the documentation cycle send demands sooner and resolve cases faster.",
         "AI for personal injury lawyers starts with the most time-consuming task: medical record review. A personal injury medical record summary used to mean days of paralegal time per case. Dodonai handles it in minutes. Upload a plaintiff's records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with provider-by-provider timelines, diagnoses, treatments, and source-page citations. That organized foundation helps with calculating specials, identifying treatment gaps, and supporting your damages narrative. Upload a deposition transcript and get a {{link:/deposition-summary-software/|page-line or narrative summary}} flagging liability admissions, causation testimony, and damages evidence.",
         "Your attorneys and paralegals still drive case valuation, settlement strategy, and client communication. AI just eliminates the mechanical work that eats up their time. Policy limits demand, soft-tissue demand package, life care plan foundation for a catastrophic injury. Whatever you're assembling, it starts with organized documentation.",
-        "Your clients' records stay protected: HIPAA compliant with signed BAAs on every account, SOC 2 Type II certified, AES-256 encrypted."
+        "Your clients' records stay protected: HIPAA compliant with signed BAAs on every account, SOC 2 certified, AES-256 encrypted."
       ]
     },
     {
@@ -55,7 +55,7 @@
         {
           "icon": "shield",
           "title": "HIPAA Compliant Processing",
-          "description": "PI records are protected health information, and there are no shortcuts. Signed BAAs on every account, SOC 2 Type II certified infrastructure, AES-256 encryption throughout. Your clients' data stays out of training pipelines."
+          "description": "PI records are protected health information, and there are no shortcuts. Signed BAAs on every account, SOC 2 certified infrastructure, AES-256 encryption throughout. Your clients' data stays out of training pipelines."
         },
         {
           "icon": "growth",
@@ -97,7 +97,7 @@
     },
     {
       "question": "Is Dodonai secure enough for medical records and litigation documents?",
-      "answer": "Built for the sensitivity PI records require. Signed BAAs before your first upload, SOC 2 Type II certification, AES-256 encryption on every file. Nothing trains our models, and deletion is on your timeline."
+      "answer": "Built for the sensitivity PI records require. Signed BAAs before your first upload, SOC 2 certification, AES-256 encryption on every file. Nothing trains our models, and deletion is on your timeline."
     },
     {
       "question": "Does Dodonai handle scanned medical records from providers?",

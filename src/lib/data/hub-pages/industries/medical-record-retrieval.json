@@ -50,7 +50,7 @@
         {
           "icon": "shield",
           "title": "HIPAA-Compliant Infrastructure",
-          "description": "SOC 2 Type II certified, HIPAA compliant, AES-256 encrypted end to end. Signed BAAs with every partner. Client patient data never touches a training pipeline."
+          "description": "SOC 2 certified, HIPAA compliant, AES-256 encrypted end to end. Signed BAAs with every partner. Client patient data never touches a training pipeline."
         },
         {
           "icon": "document",
@@ -116,7 +116,7 @@
     },
     {
       "question": "Is the platform secure enough for medical records?",
-      "answer": "Built for healthcare data from the ground up. Signed BAAs, SOC 2 Type II certification, AES-256 encryption. Client records never train our models. Your retention policy governs, and we don't keep copies after you delete."
+      "answer": "Built for healthcare data from the ground up. Signed BAAs, SOC 2 certification, AES-256 encryption. Client records never train our models. Your retention policy governs, and we don't keep copies after you delete."
     },
     {
       "question": "How quickly can we start offering summarization services?",
