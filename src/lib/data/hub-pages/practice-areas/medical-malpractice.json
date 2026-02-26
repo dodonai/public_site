@@ -30,6 +30,17 @@
       ]
     },
     {
+      "type": "content",
+      "heading": "Built for the Detail Medmal Cases Demand",
+      "paragraphs": [
+        "Medical malpractice attorneys hold their work product to a higher standard than most practice areas, and they should. When a case hinges on whether a physician deviated from accepted clinical practice at a specific moment in the treatment timeline, a generic AI summary that skips dates or glosses over provider notes is worse than useless. We hear this concern often, and it shaped how we built the platform.",
+        "Dodonai does not produce a single fixed summary and call it done. Every medical chronology includes the granular clinical detail medmal attorneys depend on: individual provider entries, medication changes, lab values, diagnostic imaging findings, referral patterns, and informed consent documentation, each tied to a specific source page in the original records. If a nurse's note at 2:14 AM documents a change in patient status that the attending didn't act on until morning rounds, that gap shows up in the chronology with citations to both entries.",
+        "Where Dodonai goes further is {{link:/dodonai-extract-and-draft-agents/|complete customization of your output}}. Every firm works differently. Some want chronologies broken out by treating provider. Others need entries grouped by body system or organized around specific allegations. You can define custom data fields, choose narrative or tabular formats, build reusable templates that match your firm's preferred layout, and adjust the level of detail from high-level executive summaries down to line-by-line clinical extraction. The output conforms to your workflow, not the other way around.",
+        "For firms that want an extra layer of confidence, Dodonai supports a human-in-the-loop review process. Use AI to do the heavy lifting of organizing and extracting thousands of pages of records, then have your nurse reviewers or paralegals verify the structured output against the source documents in our side-by-side viewer. Your team spends their time on quality assurance and clinical judgment instead of data entry. It is the difference between spending 40 hours building a chronology from scratch and spending 4 hours reviewing one that is already 95% there.",
+        "The firms getting the most from AI-powered medical malpractice document processing are not the ones replacing human review entirely. They are the ones using AI to eliminate the repetitive extraction work so their experienced reviewers can focus on what actually requires medical and legal expertise: identifying the standard of care breach, evaluating causation, and building the narrative that wins at trial."
+      ]
+    },
+    {
       "type": "features",
       "heading": "Dodonai Tools for Medical Malpractice Attorneys",
       "cards": [
@@ -103,6 +114,10 @@
     {
       "question": "Is Dodonai secure enough for medical malpractice records?",
       "answer": "The PHI in medmal records demands the highest standard. BAAs signed before your first upload, SOC 2 certified infrastructure, AES-256 encryption throughout. Your records never train our models, and retention follows your firm's policy."
+    },
+    {
+      "question": "Are AI medical record summaries detailed enough for medical malpractice cases?",
+      "answer": "This is the most common concern we hear from medmal attorneys, and it is a fair one. Dodonai chronologies include the clinical granularity these cases require: individual provider entries with dates and times, medication dosages, lab values, imaging findings, referral chains, and informed consent notes, each linked to a source page. You can also customize output format, detail level, and data fields to match your firm's requirements. For firms that want additional assurance, our side-by-side viewer supports a human-in-the-loop workflow where nurse reviewers verify the AI output against original records, turning a 40-hour manual build into a 4-hour quality review."
     },
     {
       "question": "How does AI document processing reduce costs for medmal firms?",
