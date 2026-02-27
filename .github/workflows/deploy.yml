@@ -1,3 +1,6 @@
+# STAGE deployment — deploys to gs://stage-landing with noindex enabled.
+# For production (main branch), change: branches to [main], bucket to dodonai-landing,
+# and remove PUBLIC_NOINDEX env var.
 name: Deploy Landing Page to GCS
 
 on:
