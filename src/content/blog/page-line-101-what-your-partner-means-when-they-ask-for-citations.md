@@ -3,7 +3,7 @@ title: "Page-Line 101: What Your Partner Means When They Ask for Citations"
 date: "2026-01-14"
 author: "Dodonai Team"
 category: "Deposition"
-image: "/images/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations.png"
+image: "/images/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations.webp"
 description: "A clear explainer of page-line citations, why partners insist on them, and how modern software speeds up deposition review."
 readingTime: "7 minutes"
 featured: true

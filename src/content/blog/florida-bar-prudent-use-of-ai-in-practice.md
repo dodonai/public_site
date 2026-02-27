@@ -3,7 +3,7 @@ title: "Florida Bar: Prudent Use of AI in Practice Is OK"
 date: "2024-01-29"
 author: "Dodonai Team"
 category: "Technology"
-image: "/images/blog/florida-bar-prudent-use-of-ai-in-practice.png"
+image: "/images/blog/florida-bar-prudent-use-of-ai-in-practice.webp"
 description: "The Florida Bar has issued an ethics opinion regarding the use of generative artificial intelligence in the practice of law. Here is a summary of the key takeaways for lawyers using AI tools."
 readingTime: "6 minutes"
 featured: false

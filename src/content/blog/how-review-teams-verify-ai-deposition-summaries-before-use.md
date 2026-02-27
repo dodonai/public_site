@@ -3,7 +3,7 @@ title: "How Review Teams Verify AI Deposition Summaries Before Use"
 date: "2026-01-14"
 author: "Dodonai Team"
 category: "Deposition"
-image: "/images/blog/how-review-teams-verify-ai-deposition-summaries-before-use.png"
+image: "/images/blog/how-review-teams-verify-ai-deposition-summaries-before-use.webp"
 description: "A practical verification loop for AI deposition summaries: page-line citations, click-to-source review, and export only after confirmation."
 readingTime: "6 minutes"
 featured: true

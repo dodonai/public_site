@@ -3,7 +3,7 @@ title: "Scanned Records 101: Simple fixes for unreadable PDFs"
 date: "2025-11-18"
 author: "Dodonai Team"
 category: "Technology"
-image: "/images/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs.png"
+image: "/images/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs.webp"
 description: "Basic scan tips to make citations easier to verify later."
 readingTime: "7 minutes"
 featured: false

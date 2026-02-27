@@ -47,7 +47,7 @@
 			'@type': 'Organization',
 			name: 'Dodonai, Inc.',
 			url: 'https://www.dodon.ai',
-			logo: 'https://www.dodon.ai/images/brand/logo-main.png',
+			logo: 'https://www.dodon.ai/images/brand/logo-main.webp',
 			description:
 				'AI-powered document processing platform built for legal professionals. Summarize depositions, medical records, and legal documents in minutes.',
 			sameAs: [

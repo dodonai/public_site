@@ -64,7 +64,7 @@
 		}
 	];
 
-	const logo = '/images/brand/logo-main.png';
+	const logo = '/images/brand/logo-main.webp';
 </script>
 
 <AnimationStage durations={[3000, 9000, 3000, 10000, 5000, 6000, 6000, 6000, 8000, 6000]} height={500}>

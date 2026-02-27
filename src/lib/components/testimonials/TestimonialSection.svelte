@@ -44,7 +44,7 @@
 
 <section
 	class="relative overflow-hidden"
-	style={showBgImage ? "background: url('/images/brand/testimonial-bg.png') 50% 100% / contain no-repeat;" : ''}
+	style={showBgImage ? "background: url('/images/brand/testimonial-bg.webp') 50% 100% / contain no-repeat;" : ''}
 >
 	<div class="mx-auto px-4 py-[100px] sm:px-6 lg:px-8" style="width: 85%; max-width: 1250px;">
 		<div class="relative text-center">
@@ -127,7 +127,7 @@
 						<div class="mt-8 flex items-center justify-center gap-3">
 							{#if current.author === 'Ben'}
 								<img
-									src="/images/brand/testimonial-ben.jpeg"
+									src="/images/brand/testimonial-ben.webp"
 									alt={current.author}
 									width="40"
 									height="40"

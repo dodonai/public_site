@@ -3,7 +3,7 @@ title: "Relentless v. Dept. of Commerce - AI Analysis of Oral Argument"
 date: "2024-05-01"
 author: "Dodonai Team"
 category: "Argument"
-image: "/images/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument.jpeg"
+image: "/images/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument.webp"
 description: "We had Dodonai analyze a transcript of oral arguments in Relentless v. Dept. of Commerce on 1/17/24 with a focus on the issues in which each individual justice indicated interest, their sentiment towards those issues, and their sentiment towards the positions taken by the parties."
 readingTime: "15 minutes"
 featured: true

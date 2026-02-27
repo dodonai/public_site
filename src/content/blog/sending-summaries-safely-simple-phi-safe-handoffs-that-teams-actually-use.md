@@ -3,7 +3,7 @@ title: "Sending Summaries Safely: Simple PHI-Safe Handoffs That Teams Actually U
 date: "2026-01-14"
 author: "Dodonai Team"
 category: "Technology"
-image: "/images/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use.png"
+image: "/images/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use.webp"
 description: "A practical guide for litigation and med-legal teams on sharing summaries safely. Covers encryption, zero-retention policies, US-only processing, and least-privilege access controls, plus how these apply to real workflows with co-counsel, experts, and IME reviewers."
 readingTime: "6 minutes"
 featured: true

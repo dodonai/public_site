@@ -3,7 +3,7 @@ title: "How Many Hours Do You Lose Reading Transcripts?"
 date: "2025-11-18"
 author: "Dodonai Team"
 category: "Deposition"
-image: "/images/blog/how-many-hours-do-you-lose-reading-transcripts.png"
+image: "/images/blog/how-many-hours-do-you-lose-reading-transcripts.webp"
 description: "Manual transcript review drains staff hours and budgets. See how to calculate the hidden cost—and how Dodon.ai reduces review time with page-line citations."
 readingTime: "6 minutes"
 featured: true

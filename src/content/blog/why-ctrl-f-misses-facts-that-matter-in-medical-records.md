@@ -3,7 +3,7 @@ title: "Why Ctrl+F Misses Facts That Matter in Medical Records"
 date: "2026-02-10"
 author: "Dodonai Team"
 category: "Medical Records"
-image: "/images/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records.png"
+image: "/images/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records.webp"
 description: "Ctrl+F misses key medical facts due to terminology drift across providers and time. Learn why semantic search surfaces details keyword search misses."
 readingTime: "6 minutes"
 featured: true

@@ -2,7 +2,7 @@
 	import AnimationStage from '$lib/components/hero/AnimationStage.svelte';
 	import PhaseWrapper from '$lib/components/hero/PhaseWrapper.svelte';
 
-	const logo = '/images/brand/logo-main.png';
+	const logo = '/images/brand/logo-main.webp';
 </script>
 
 <AnimationStage durations={[3000, 5000, 6000, 6000, 4000]} height={460}>

@@ -40,7 +40,7 @@
 	<div class="mx-auto flex h-16 items-center justify-between px-4 lg:h-20" style="width: 90%; max-width: 1250px;">
 		<!-- Logo -->
 		<a href="/" class="flex-shrink-0" onclick={closeMobileMenu}>
-			<img src="/images/brand/logo-main.png" alt="Dodonai" class="h-auto w-[163px]" />
+			<img src="/images/brand/logo-main.webp" alt="Dodonai" class="h-auto w-[163px]" />
 		</a>
 
 		<!-- Desktop Navigation -->

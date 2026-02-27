@@ -3,7 +3,7 @@ title: "Medical Chronologies Without Burnout: How Teams Save Hours Every Week"
 date: "2025-11-18"
 author: "Dodonai Team"
 category: "Medical Records"
-image: "/images/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week.png"
+image: "/images/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week.webp"
 description: "Medical chronologies don’t need to burn out your staff. See how automation helps law firms cut review time, reduce errors, and focus on strategy instead of endless record formatting."
 readingTime: "6 minutes"
 featured: true

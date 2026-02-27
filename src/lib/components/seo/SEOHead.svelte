@@ -5,7 +5,7 @@
 		title,
 		description,
 		url,
-		image = '/images/og-default.png',
+		image = '/images/og-default.webp',
 		type = 'website',
 		jsonLd = null
 	} = $props();
