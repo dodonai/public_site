@@ -9,7 +9,7 @@ image: "/images/blog/deposition-summary-template-page-line-format-for-motion-pra
 imageAlt: "Page-line deposition summary template layout for motion practice preparation"
 description: "Learn how to create a page-line deposition summary for motion practice and try Dodon.ai's AI-powered summary tool free."
 cardText: "Step-by-step guide to page-line deposition summaries with verification steps, examples, and a free AI-powered tool to try."
-readingTime: 10
+readingTime: "10 minutes"
 featured: false
 featureMain: false
 ---
@@ -22,7 +22,7 @@ This guide walks through the page-line format, shows you how to fill one out eff
 
 A page-line deposition summary organizes testimony by exact transcript citations, connecting specific statements to their precise locations in the original deposition. Each entry includes the page and line numbers--like 25:14-19--alongside a brief summary of what the witness actually said. This format differs from narrative summaries, which present testimony as flowing prose without specific citations.
 
-The page-line format has become a go-to approach for motion practice because it lets you locate and cite testimony without digging through hundreds of transcript pages. When you're drafting a motion for summary judgment or putting together a pretrial brief, having testimony organized with precise citations can save you hours. For a deeper walkthrough of the drafting process itself, see our guide on [how to draft a page-line deposition summary](https://www.dodon.ai/blog/how-to-draft-a-page-line-deposition-summary).
+The page-line format has become a go-to approach for motion practice because it lets you locate and cite testimony without digging through hundreds of transcript pages. When you're drafting a motion for summary judgment or putting together a pretrial brief, having testimony organized with precise citations can save you hours. For a deeper walkthrough of the drafting process itself, see our guide on [how to draft a page-line deposition summary](/blog/how-to-draft-a-page-line-deposition-summary/).
 
 Here's the key terminology you'll run into:
 
@@ -161,11 +161,11 @@ The tools work best as a starting point rather than a final product. AI handles 
 
 ![Dodon.ai deposition summary view with page-line table, executive summary, and export options](/images/blog/dodonai-deposition-summary-view-with-page-line-table-and-export-options.webp)
 
-Dodon.ai offers [AI deposition summary software](https://www.dodon.ai/deposition-summary-software) that generates page-line and narrative deposition summaries with page-line citations. Inside the platform, those citations are tied back to the underlying transcript so you can quickly confirm what was said before you rely on it in a motion.
+Dodon.ai offers [AI deposition summary software](/deposition-summary-software/) that generates page-line and narrative deposition summaries with page-line citations. Inside the platform, those citations are tied back to the underlying transcript so you can quickly confirm what was said before you rely on it in a motion.
 
 ## Build a Faster Deposition Summary Workflow With Dodon.ai
 
-Creating deposition summaries manually remains one of the most time-intensive tasks in litigation support. Dodon.ai's [deposition summary software](https://www.dodon.ai/deposition-summary-software) combines AI efficiency with the structured page-line format that motion practice demands.
+Creating deposition summaries manually remains one of the most time-intensive tasks in litigation support. Dodon.ai's [deposition summary software](/deposition-summary-software/) combines AI efficiency with the structured page-line format that motion practice demands.
 
 The platform handles transcript processing, page-line citation formatting, and initial summarization--leaving you to focus on the legal analysis that actually requires attorney judgment. You can also use Dodon.ai for narrative deposition summaries, as well as medical record chronologies and other litigation support workflows, all from the same interface.
 
@@ -183,7 +183,7 @@ Yes, a single template structure works across practice areas. You'll typically c
 
 ### What is the difference between a page-line summary and a narrative deposition summary?
 
-A page-line summary organizes testimony in a table with exact page-line citations, while a [narrative summary](https://www.dodon.ai/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide) presents testimony as flowing prose without specific page references. Page-line works better for motion practice where precise citations matter. Narrative summaries sometimes work better for case overviews or client communication.
+A page-line summary organizes testimony in a table with exact page-line citations, while a [narrative summary](/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/) presents testimony as flowing prose without specific page references. Page-line works better for motion practice where precise citations matter. Narrative summaries sometimes work better for case overviews or client communication.
 
 ### How do I handle unclear or inaudible testimony in my deposition summary?
 
@@ -195,6 +195,6 @@ Generally, exclude routine objections and colloquy unless they're substantively 
 
 ## Learn More About Dodon.ai
 
-See how [Dodon.ai Deposition Summary Software](https://www.dodon.ai/deposition-summary-software) automates citation-ready summaries for motion practice, or explore how it extends to [AI Medical Record Summaries and Chronologies](https://www.dodon.ai/ai-medical-record-summaries-chronologies) for full-case prep efficiency.
+See how [Dodon.ai Deposition Summary Software](/deposition-summary-software/) automates citation-ready summaries for motion practice, or explore how it extends to [AI Medical Record Summaries and Chronologies](/ai-medical-record-summaries-chronologies/) for full-case prep efficiency.
 
 ### [Start your free trial today at Dodon.ai](https://dodon.ai)

@@ -53,6 +53,6 @@ jobs:
 
       - name: Set Cache Control for asset files
         run: |
-          for ext in css js png jpg jpeg gif svg woff woff2 ttf; do
+          for ext in css js png jpg jpeg gif svg webp woff woff2 ttf; do
             gsutil -m setmeta -h "Cache-Control:public, max-age=31536000" gs://stage-landing/**/*.$ext || true
           done
