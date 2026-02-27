@@ -13,8 +13,17 @@
 
 	let { data } = $props();
 
+	const acronyms = new Set(['ai', 'ocr', 'ime', 'phi', 'hipaa', 'pdf']);
+
 	function blogTitle(href) {
-		return href.replace(/^\/blog\//, '').replace(/\/$/, '').replace(/-/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+		return href
+			.replace(/^\/blog\//, '')
+			.replace(/\/$/, '')
+			.replace(/-/g, ' ')
+			.replace(/\b\w+/g, (word) => {
+				if (acronyms.has(word.toLowerCase())) return word.toUpperCase();
+				return word.charAt(0).toUpperCase() + word.slice(1);
+			});
 	}
 
 	const comparisonSection = $derived(

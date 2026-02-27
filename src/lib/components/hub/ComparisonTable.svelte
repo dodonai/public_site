@@ -25,11 +25,11 @@
 							{#each row as cell, j}
 								<td class="px-6 py-4 {j === 0 ? 'font-medium text-[#282876]' : 'text-[#8181ac]'}">
 									{#if cell === true}
-										<svg class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+										<svg class="h-5 w-5 text-green-500" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" role="img" aria-label="Yes">
 											<path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" />
 										</svg>
 									{:else if cell === false}
-										<svg class="h-5 w-5 text-[#8181ac]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+										<svg class="h-5 w-5 text-[#8181ac]/40" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2" role="img" aria-label="No">
 											<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
 										</svg>
 									{:else}
