@@ -68,7 +68,7 @@
         ["Medical terminology recognition", "Context-aware", "Character-by-character", "Depends on reviewer"],
         ["Processing speed (500 pages)", "Minutes", "Minutes", "Days"],
         ["Manual correction required", "Minimal", "Extensive", "None"],
-        ["Cost per page", "$0.02-$0.15", "$0.05-$0.15", "$1-$5"],
+        ["Cost per page", "Included free", "$0.05-$0.15", "$1-$5"],
         ["Maintains document structure", true, "Often lost", true],
         ["Integrates with summarization", true, false, false],
         ["HIPAA-compliant processing", true, "Varies", "Varies"],
@@ -116,7 +116,7 @@
     },
     {
       "question": "How much does AI OCR for legal documents cost?",
-      "answer": "Credit-based pricing: 1 credit per page. Lite is $30/month for 200 credits, Basic is $60/month for 1,000, Pro is $100/month for 5,000. Enterprise pricing available for high-volume users. Compared to manual transcription at $1-$5 per page, AI OCR is far more cost-effective."
+      "answer": "OCR is included free with every Dodonai plan. There is no per-page charge for text extraction. Once your scanned documents are processed, the searchable output feeds directly into summarization, chronology, and e-discovery workflows. Compared to manual transcription at $1-$5 per page, that is a significant cost difference."
     }
   ],
   "relatedPages": [
