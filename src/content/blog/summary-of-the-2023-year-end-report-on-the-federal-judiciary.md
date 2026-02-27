@@ -3,7 +3,7 @@ title: "Summary of the 2023 Year-End Report on the Federal Judiciary"
 date: "2024-05-01"
 author: "Dodonai Team"
 category: "Report"
-image: "/images/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary.jpg"
+image: "/images/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary.webp"
 description: "A summary, created by Dodonai's Summarizer feature, of the 2023 Year-End Report on the Federal Judiciary. The quotes were added for this post."
 readingTime: "4 minutes"
 featured: true

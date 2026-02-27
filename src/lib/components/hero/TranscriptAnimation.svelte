@@ -3,7 +3,7 @@
 	import PhaseWrapper from '$lib/components/hero/PhaseWrapper.svelte';
 	import PdfDocIcon from '$lib/components/animation/PdfDocIcon.svelte';
 
-	const logo = '/images/brand/logo-main.png';
+	const logo = '/images/brand/logo-main.webp';
 
 	const transcriptLines = [
 		{ line: 5, q: true, text: 'Could you state your full name for the record?' },

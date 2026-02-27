@@ -3,7 +3,7 @@ title: "HIPAA Compliance Checklist for Medical Chronologies: What Busy Teams Nee
 date: "2025-11-18"
 author: "Dodonai Team"
 category: "Medical Records"
-image: "/images/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know.png"
+image: "/images/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know.webp"
 description: "Medical chronologies turn patient records into clear timelines for litigation and IMEs. But when PHI is involved, HIPAA rules matter—even if they don’t always apply directly to law firms. This checklist breaks down the do’s and don’ts for handling records securely, plus how Dodon.ai helps teams stay protected."
 readingTime: "7 minutes"
 featured: true

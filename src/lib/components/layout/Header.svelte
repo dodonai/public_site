@@ -1,4 +1,6 @@
 <script>
+	import { practiceAreas, useCases, compare, industries } from '$lib/data/navigation.js';
+
 	let scrollY = $state(0);
 	let mobileMenuOpen = $state(false);
 	let activeDropdown = $state(null);
@@ -13,42 +15,6 @@
 		{ name: 'AI-Powered OCR', description: 'Next-generation OCR to extract text, handwriting, tables, images, and more.', href: '/ai-pdf-ocr/', icon: '/images/webflow/Group-565.svg' },
 		{ name: 'Dodonai XD Agents', description: 'Create templates for common report formats and our AI agents will extract data from your documents and build your reports.', href: '/dodonai-extract-and-draft-agents/', icon: '/images/webflow/Group-564.svg' },
 		{ name: 'E-Discovery', description: 'Use semantic search over documents to find exactly what you are looking for.', href: '/electronic-discovery-software/', icon: '/images/webflow/Group-569.svg' }
-	];
-
-	const practiceAreas = [
-		{ name: 'Personal Injury', href: '/practice-areas/personal-injury/' },
-		{ name: 'Medical Malpractice', href: '/practice-areas/medical-malpractice/' },
-		{ name: 'Mass Tort', href: '/practice-areas/mass-tort/' },
-		{ name: 'Product Liability', href: '/practice-areas/product-liability/' },
-		{ name: 'Workers\' Compensation', href: '/practice-areas/workers-compensation/' },
-		{ name: 'Disability Benefits', href: '/practice-areas/disability-benefits/' }
-	];
-
-	const useCases = [
-		{ name: 'Medical Record Review', href: '/use-cases/medical-record-review/' },
-		{ name: 'IME Reports', href: '/use-cases/ime-reports/' },
-		{ name: 'Demand Letters', href: '/use-cases/demand-letters/' },
-		{ name: 'AI for Paralegals', href: '/use-cases/legal-ai-for-paralegals/' },
-		{ name: 'Expert Witness Prep', href: '/use-cases/expert-witness-preparation/' },
-		{ name: 'OCR for Legal Docs', href: '/use-cases/ocr-for-legal-documents/' },
-		{ name: 'Contract Review', href: '/use-cases/contract-review-extraction/' },
-		{ name: 'Litigation Costs', href: '/use-cases/litigation-cost-management/' }
-	];
-
-	const compare = [
-		{ name: 'Best Deposition Summary Software', href: '/compare/best-deposition-summary-software/' },
-		{ name: 'Best Medical Chronology Software', href: '/compare/best-medical-chronology-software/' },
-		{ name: 'Deposition Software Comparison', href: '/compare/deposition-software-comparison/' },
-		{ name: 'eDiscovery Software Review', href: '/compare/ediscovery-software-review/' }
-	];
-
-	const industries = [
-		{ name: 'Court Reporters', href: '/industries/court-reporters/' },
-		{ name: 'IME Companies', href: '/industries/ime-companies/' },
-		{ name: 'IME Doctors', href: '/industries/ime-doctors/' },
-		{ name: 'Medical Record Retrieval', href: '/industries/medical-record-retrieval/' },
-		{ name: 'Law Firm Case Management', href: '/industries/law-firm-case-management/' },
-		{ name: 'Document Management', href: '/industries/document-management-law-firms/' }
 	];
 
 	const solutionsColumns = [
@@ -74,7 +40,7 @@
 	<div class="mx-auto flex h-16 items-center justify-between px-4 lg:h-20" style="width: 90%; max-width: 1250px;">
 		<!-- Logo -->
 		<a href="/" class="flex-shrink-0" onclick={closeMobileMenu}>
-			<img src="/images/brand/logo-main.png" alt="Dodonai" class="h-auto w-[163px]" />
+			<img src="/images/brand/logo-main.webp" alt="Dodonai" class="h-auto w-[163px]" />
 		</a>
 
 		<!-- Desktop Navigation -->
@@ -84,6 +50,8 @@
 				<button
 					class="flex items-center gap-1 text-base font-medium transition-colors"
 					style="color: var(--midnight-blue);"
+					aria-haspopup="true"
+					aria-expanded={activeDropdown === 'services'}
 					onmouseenter={() => (activeDropdown = 'services')}
 					onmouseleave={() => {}}
 					onfocus={() => (activeDropdown = 'services')}
@@ -136,6 +104,8 @@
 				<button
 					class="flex items-center gap-1 text-base font-medium transition-colors"
 					style="color: var(--midnight-blue);"
+					aria-haspopup="true"
+					aria-expanded={activeDropdown === 'solutions'}
 					onmouseenter={() => (activeDropdown = 'solutions')}
 					onmouseleave={() => {}}
 					onfocus={() => (activeDropdown = 'solutions')}
@@ -157,7 +127,7 @@
 				{#if activeDropdown === 'solutions'}
 					<div
 						class="absolute left-1/2 top-full mt-2 -translate-x-1/2 bg-white p-5"
-						style="box-shadow: 0 10px 100px rgba(0, 0, 0, 0.05); border-radius: 10px; width: 880px;"
+						style="box-shadow: 0 10px 100px rgba(0, 0, 0, 0.05); border-radius: 10px; width: 880px; max-width: calc(100vw - 2rem);"
 						onmouseenter={() => (activeDropdown = 'solutions')}
 						onmouseleave={() => (activeDropdown = null)}
 						role="menu"
@@ -267,6 +237,7 @@
 					<button
 						class="flex w-full items-center justify-between py-3 text-base font-medium"
 						style="color: var(--midnight-blue);"
+						aria-expanded={mobileActiveSection === 'services'}
 						onclick={() => (mobileActiveSection = mobileActiveSection === 'services' ? null : 'services')}
 					>
 						Services
@@ -305,6 +276,7 @@
 					<button
 						class="flex w-full items-center justify-between py-3 text-base font-medium"
 						style="color: var(--midnight-blue);"
+						aria-expanded={mobileActiveSection === 'solutions'}
 						onclick={() => (mobileActiveSection = mobileActiveSection === 'solutions' ? null : 'solutions')}
 					>
 						Solutions

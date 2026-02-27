@@ -3,7 +3,7 @@ title: "Product Update: Document Summary Table"
 date: "2024-05-01"
 author: "Dodonai Team"
 category: "Product"
-image: "/images/blog/product-update-document-summary-table.png"
+image: "/images/blog/product-update-document-summary-table.webp"
 description: "Dodonai's Document Summary Table automates creation of a summary table from any set of documents."
 readingTime: "1 minutes"
 featured: true

@@ -3,7 +3,7 @@ title: "Loper Bright Enterprises v. Raimondo - Analysis of Oral Argument"
 date: "2024-05-01"
 author: "Dodonai Team"
 category: "Argument"
-image: "/images/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus.jpeg"
+image: "/images/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus.webp"
 description: "We had Dodonai analyze a transcript of oral arguments in Loper Bright Enterprises v. Raimondo on 1/17/24 with a focus on the issues that each individual justice indicated interest in, their sentiment towards those issues, and their sentiment towards the positions taken by the parties. See the results below."
 readingTime: "15 minutes"
 featured: true

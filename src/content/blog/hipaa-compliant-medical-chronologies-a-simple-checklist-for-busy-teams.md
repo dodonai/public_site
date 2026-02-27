@@ -3,7 +3,7 @@ title: "HIPAA-Compliant Medical Chronologies: A Simple Checklist for Busy Teams"
 date: "2026-01-21"
 author: "Dodonai Team"
 category: "Medical Records"
-image: "/images/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams.png"
+image: "/images/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams.webp"
 description: "Practical HIPAA compliance checklist for creating medical chronologies, helping legal and medical teams protect patient data while preparing defensible case timelines."
 readingTime: "5 minutes"
 featured: true

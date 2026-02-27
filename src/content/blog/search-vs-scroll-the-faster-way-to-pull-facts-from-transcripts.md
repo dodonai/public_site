@@ -3,7 +3,7 @@ title: "Search vs Scroll: The Faster Way to Pull Facts from Transcripts"
 date: "2026-01-14"
 author: "Dodonai Team"
 category: "Product"
-image: "/images/blog/search-vs-scroll-the-faster-way-to-pull-facts-from-transcripts.png"
+image: "/images/blog/search-vs-scroll-the-faster-way-to-pull-facts-from-transcripts.webp"
 description: "Light demo: one name, one date - two methods (search + chat)"
 readingTime: "6 minutes"
 featured: true

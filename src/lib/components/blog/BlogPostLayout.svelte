@@ -36,7 +36,7 @@
 	{description}
 	type="article"
 	url={page.url.pathname}
-	image={image || '/images/og-default.jpg'}
+	image={image || '/images/og-default.webp'}
 	jsonLd={{
 		'@context': 'https://schema.org',
 		'@type': 'BlogPosting',
@@ -58,7 +58,7 @@
 			name: 'Dodonai, Inc.',
 			logo: {
 				'@type': 'ImageObject',
-				url: 'https://www.dodon.ai/images/brand/logo-main.png'
+				url: 'https://www.dodon.ai/images/brand/logo-main.webp'
 			}
 		}
 	}}
@@ -69,13 +69,13 @@
 	<div class="relative overflow-hidden bg-white">
 		<!-- Decorative blur blobs -->
 		<img
-			src="/images/brand/blur-1.png"
+			src="/images/brand/blur-1.webp"
 			alt=""
 			class="pointer-events-none absolute -left-40 -top-20 z-0 w-[700px] opacity-50"
 			aria-hidden="true"
 		/>
 		<img
-			src="/images/brand/blur-2.png"
+			src="/images/brand/blur-2.webp"
 			alt=""
 			class="pointer-events-none absolute -right-40 top-10 z-0 w-[600px] opacity-40"
 			aria-hidden="true"

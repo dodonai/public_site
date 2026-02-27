@@ -3,7 +3,7 @@ title: "Medical Chronology: Provider timeline in 10 minutes (from mixed PDFs to 
 date: "2025-11-18"
 author: "Dodonai Team"
 category: "Medical Records"
-image: "/images/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology.png"
+image: "/images/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology.webp"
 description: "Upload provider records to a Matter, run a Medical Record summary, then click page-linked events you can verify"
 readingTime: "6 minutes"
 featured: true

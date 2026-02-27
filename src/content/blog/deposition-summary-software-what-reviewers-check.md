@@ -3,7 +3,7 @@ title: "Deposition Summary Software: What Reviewers Check Before They Rely on It
 date: "2026-02-11"
 author: "Dodonai Team"
 category: "Deposition"
-image: "/images/blog/deposition-summary-software-what-reviewers-check.png"
+image: "/images/blog/deposition-summary-software-what-reviewers-check.webp"
 description: "What litigation teams verify before relying on deposition summary software: page-line citations, fast spot-checking, exports, and defensible review workflow."
 readingTime: "7 minutes"
 featured: true

@@ -3,7 +3,7 @@ title: "What Actually Slows Down Medical Chronology Review"
 date: "2026-01-14"
 author: "Dodonai Team"
 category: "Medical Records"
-image: "/images/blog/what-actually-slows-down-medical-chronology-review.png"
+image: "/images/blog/what-actually-slows-down-medical-chronology-review.webp"
 description: "Medical chronology review time is often lost to prep work, not analysis. Learn the hidden bottlenecks and how litigation teams shorten first-pass review."
 readingTime: "6 minutes"
 featured: true

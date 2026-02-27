@@ -3,7 +3,7 @@ title: "80 Pages in Seconds: A Real Transcript Walkthrough"
 date: "2025-11-18"
 author: "Dodonai Team"
 category: "Deposition"
-image: "/images/blog/80-pages-in-seconds-a-real-transcript-walkthrough.png"
+image: "/images/blog/80-pages-in-seconds-a-real-transcript-walkthrough.webp"
 description: "An 80-page deposition, summarized in seconds. See how Dodon.ai matched human accuracy at a fraction of the time and cost."
 readingTime: "6 minutes"
 featured: true

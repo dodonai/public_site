@@ -1,6 +1,12 @@
+import { error } from '@sveltejs/kit';
+
 export async function load({ params }) {
-	const data = await import(`$lib/data/hub-pages/use-cases/${params.slug}.json`);
-	return { data: data.default };
+	try {
+		const data = await import(`$lib/data/hub-pages/use-cases/${params.slug}.json`);
+		return { data: data.default };
+	} catch {
+		throw error(404, 'Page not found');
+	}
 }
 
 export function entries() {

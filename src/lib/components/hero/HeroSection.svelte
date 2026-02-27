@@ -37,19 +37,19 @@
 <section class="relative overflow-hidden bg-white">
 	<!-- Decorative blur gradient blobs (z-0 to stay behind content) -->
 	<img
-		src="/images/brand/blur-1.png"
+		src="/images/brand/blur-1.webp"
 		alt=""
 		class="pointer-events-none absolute -left-40 -top-20 z-0 w-[700px] opacity-50"
 		aria-hidden="true"
 	/>
 	<img
-		src="/images/brand/blur-2.png"
+		src="/images/brand/blur-2.webp"
 		alt=""
 		class="pointer-events-none absolute -right-40 top-10 z-0 w-[600px] opacity-40"
 		aria-hidden="true"
 	/>
 	<img
-		src="/images/brand/blur-3.png"
+		src="/images/brand/blur-3.webp"
 		alt=""
 		class="pointer-events-none absolute bottom-20 left-1/4 z-0 w-[500px] opacity-30"
 		aria-hidden="true"
@@ -122,6 +122,6 @@
 
 	<!-- Wave decoration at bottom (z-0 to stay behind content) -->
 	<div class="absolute bottom-0 left-0 right-0 z-0 opacity-40">
-		<img src="/images/brand/wave-hero.png" alt="" class="w-full" aria-hidden="true" loading="lazy" />
+		<img src="/images/brand/wave-hero.webp" alt="" class="w-full" aria-hidden="true" loading="lazy" />
 	</div>
 </section>

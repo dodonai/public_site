@@ -3,7 +3,7 @@ title: "3 Mistakes in Manual Summaries (and How to Avoid Them)‍"
 date: "2025-11-18"
 author: "Dodonai Team"
 category: "Deposition"
-image: "/images/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them.png"
+image: "/images/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them.webp"
 description: "3 common mistakes in manual deposition summaries and how to fix them with automation for faster, citation-ready output."
 readingTime: "6 minutes"
 featured: true

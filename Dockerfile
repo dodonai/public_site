@@ -6,6 +6,10 @@ COPY package*.json ./
 RUN npm ci
 
 COPY . .
+
+ARG PUBLIC_NOINDEX
+ENV PUBLIC_NOINDEX=$PUBLIC_NOINDEX
+
 RUN npm run build
 
 FROM node:20-alpine
