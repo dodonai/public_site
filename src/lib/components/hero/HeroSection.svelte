@@ -122,6 +122,6 @@
 
 	<!-- Wave decoration at bottom (z-0 to stay behind content) -->
 	<div class="absolute bottom-0 left-0 right-0 z-0 opacity-40">
-		<img src="/images/brand/wave-hero.png" alt="" class="w-full" aria-hidden="true" />
+		<img src="/images/brand/wave-hero.png" alt="" class="w-full" aria-hidden="true" loading="lazy" />
 	</div>
 </section>

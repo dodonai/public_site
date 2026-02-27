@@ -1,0 +1,155 @@
+{
+  "seo": {
+    "title": "AI Medical Record Summaries for IME Companies",
+    "description": "Process hundreds of IME medical record summaries per month with AI. Reduce turnaround time, cut costs, and deliver consistent quality. HIPAA compliant. Try free.",
+    "canonical": "/industries/ime-companies/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Industries", "href": null },
+    { "name": "IME Companies" }
+  ],
+  "hero": {
+    "headline": "IME Medical Record Summary Software That Scales",
+    "subheadline": "IME companies handle thousands of record sets every month. Dodonai's AI processes, summarizes, and organizes them in minutes, so physicians can focus on evaluations, not paperwork.",
+    "ctaText": "Process a Record Set Free",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Volume Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "The IME Workflow Challenge",
+      "paragraphs": [
+        "Before an IME physician can walk into the exam room, someone on the team has to distill 500 pages of records into something useful. That pre-exam review is the bottleneck.",
+        "In-house staff and outsourced review services both struggle with consistency and scalability at IME volumes. When volume spikes, quality drops or deadlines slip. When you hire more reviewers, training and oversight costs climb. Manual record review just doesn't scale efficiently.",
+        "Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical record summarization platform}} eliminates this bottleneck. It automates the extraction and organization of key medical data, giving IME physicians a structured, chronological summary they can review in minutes before each examination. The result is faster turnaround, lower per-case costs, and consistency that manual processes can't match."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Built for IME Operations at Scale",
+      "cards": [
+        {
+          "icon": "clock",
+          "title": "Fast Turnaround",
+          "description": "Complete summaries and chronologies from even the largest record sets, delivered in minutes. Physicians get the pre-exam context they need without delays."
+        },
+        {
+          "icon": "shield",
+          "title": "Consistent Output Quality",
+          "description": "Every summary follows the same structured format, regardless of volume or complexity. No variability from fatigue or reviewer experience."
+        },
+        {
+          "icon": "heart",
+          "title": "HIPAA-Compliant Infrastructure",
+          "description": "SOC 2 certified with signed BAAs for every client. All records get AES-256 encryption in transit and at rest, meeting the compliance standard IME operations require."
+        },
+        {
+          "icon": "squares",
+          "title": "Bulk Processing",
+          "description": "Whether you handle 50 cases a week or 5,000, upload and process hundreds of record sets simultaneously. The platform scales to match your volume without additional staff."
+        },
+        {
+          "icon": "adjustments",
+          "title": "Customizable Report Templates",
+          "description": "Configure output structure, detail level, and focus areas to match your physicians' preferences. {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} let you build reusable templates aligned with your reporting standards."
+        },
+        {
+          "icon": "dollar",
+          "title": "70-90% Lower Per-Case Costs",
+          "description": "Per-page pricing means you pay only for what you process, at a fraction of what outsourced nurse reviewers or record review services charge. No seats, no minimums."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload the Claimant's Medical Records",
+          "description": "Upload the complete record set to Dodonai's secure platform. The system handles PDFs of any size, including scanned documents and handwritten notes, and lets you specify focus areas like specific injuries, providers, or date ranges."
+        },
+        {
+          "title": "AI Generates the Summary and Chronology",
+          "description": "Dodonai reads every page, identifies key medical events, and produces a structured chronological timeline alongside a narrative summary. Diagnoses, procedures, medications, and provider encounters are extracted automatically, with every data point tracing to the source page."
+        },
+        {
+          "title": "Review, Adjust, and Distribute",
+          "description": "Verify AI output with side-by-side source linking, filter by date or provider, make adjustments, and export in PDF, Word, or Excel for distribution to examining physicians."
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "Dodonai vs. Traditional IME Record Review",
+      "columns": ["Capability", "Dodonai AI", "Manual / Outsourced"],
+      "rows": [
+        ["Turnaround time under 30 minutes per case", true, false],
+        ["Consistent formatting across all cases", true, false],
+        ["Scales to thousands of cases per month", true, false],
+        ["Handles scanned and handwritten records", true, false],
+        ["Per-page pricing with no minimum commitment", true, false],
+        ["Each entry linked back to source records", true, false],
+        ["HIPAA-compliant with signed BAAs", true, true],
+        ["No staff training or onboarding required", true, false],
+        ["Free trial available", true, false]
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does Dodonai handle the volume of records IME companies process?",
+      "answer": "Dodonai handles demand spikes without performance drops. Upload hundreds of record sets at once with no batch limits and no per-user seats. Throughput is limited only by upload speed."
+    },
+    {
+      "question": "Can we customize the summary format to match our physicians' preferences?",
+      "answer": "Yes. Configure structure, detail level, and focus areas for each summary. {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} let you build reusable templates matching your exact reporting standards."
+    },
+    {
+      "question": "What types of medical records can the AI process?",
+      "answer": "Digital PDFs, scanned documents, faxed records, and files with handwritten physician notes. The AI OCR engine extracts text from low-quality scans so no relevant information is missed."
+    },
+    {
+      "question": "How does Dodonai ensure HIPAA compliance for IME workflows?",
+      "answer": "IME records carry claimant PHI subject to HIPAA and state privacy rules. AES-256 encryption, SOC 2 certification, and signed BAAs for every client. Records stay out of training pipelines. Your retention policies apply, not ours."
+    },
+    {
+      "question": "What is the cost compared to outsourced medical record review?",
+      "answer": "Per-page pricing, far lower than outsourced review. Most IME companies see 70-90% cost reductions per record set. Visit our {{link:/pricing/|pricing page}} for current rates."
+    },
+    {
+      "question": "Can Dodonai integrate with our existing case management system?",
+      "answer": "Yes. Dodonai offers API access and integrations with common document management platforms. Our team can also build custom integrations for your IME workflow."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "IME Doctors",
+      "href": "/industries/ime-doctors/",
+      "description": "Pre-exam summaries for IME physicians with the full treatment history in minutes."
+    },
+    {
+      "title": "IME Reports",
+      "href": "/use-cases/ime-reports/",
+      "description": "From record upload to report-ready summary in minutes for faster IME prep."
+    },
+    {
+      "title": "Medical Record Retrieval Companies",
+      "href": "/industries/medical-record-retrieval/",
+      "description": "Offer AI summaries alongside retrieval services for new revenue without new hires."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "How AI handles the document-heavy side of medical record review."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/understanding-medical-chronology-clear-actionable-timelines/"
+  ],
+  "ctaOverride": {
+    "headline": "See How Dodonai Works for IME Companies",
+    "description": "Upload a sample medical record set and get a complete AI-generated summary and chronology in minutes. No credit card required to start your free trial."
+  }
+}

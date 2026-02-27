@@ -51,6 +51,6 @@ Dodonai's [AI-powered deposition summary services](/deposition-summary-software)
 -   **Customizable Summaries**: Whether you need a narrative, page-line, or issue-based summary, Dodonai's technology can adapt to your specific requirements, ensuring you get the summary that best fits your case strategy.
 -   **Precision and Consistency**: Leveraging advanced AI, Dodonai ensures that every summary is accurate, objective, and consistently formatted, reducing the risk of human error.
 
-Crafting effective deposition summaries is both an art and a science. With Dodonai's comprehensive guide and cutting-edge technology, legal professionals are equipped to produce high-quality summaries that enhance their litigation efforts. By understanding the purpose, selecting the appropriate type, and employing best practices in summary creation, you can ensure that your summaries are not just documents, but strategic tools in your legal arsenal.
+Crafting effective deposition summaries is both an art and a science. With Dodonai's comprehensive guide and cutting-edge technology, legal professionals are equipped to produce high-quality summaries that enhance their litigation efforts. By understanding the purpose, selecting the appropriate type, and employing best practices in summary creation, you can ensure that your summaries are not just documents, but strategic tools in your legal arsenal. For a side-by-side look at how AI compares to traditional summary methods, see our [deposition summary software comparison](/compare/best-deposition-summary-software/).
 
 ‍

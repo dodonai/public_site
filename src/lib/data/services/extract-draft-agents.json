@@ -19,7 +19,9 @@
     {
       "heading": "Dodonai XD: AI Intelligent Document Processing and Report Generation",
       "paragraphs": [
-        "Dodonai XD simplifies document processing and report creation. Create reusable templates that specify the data type and format you need. Dodonai's advanced AI seamlessly extracts, organizes, and formats data from any combination of source documents."
+        "Dodonai XD simplifies document processing and report creation. Create reusable templates that specify the data type and format you need. Dodonai's advanced AI seamlessly extracts, organizes, and formats data from any combination of source documents.",
+        "Traditional document processing workflows involve copying data between systems, reformatting spreadsheets, and manually compiling information from multiple sources into a single report. These repetitive tasks consume hours of skilled professional time every week. Dodonai XD Agents automate this entire pipeline — from extraction through formatting — so your team can focus on analysis and decision-making instead of data entry.",
+        "XD Agents are especially valuable for organizations that process the same types of documents repeatedly. Law firms extracting case data from intake forms, insurance companies compiling claim reports, and healthcare organizations building patient summaries all benefit from templates that can be defined once and reused indefinitely. Each run produces consistent, structured output regardless of who initiates it."
       ]
     }
   ],
@@ -65,7 +67,7 @@
   "howItWorks": [
     {
       "title": "Create Your Report Template",
-      "description": "Define the structure, sections, data types, and formats you require."
+      "description": "Define the structure, sections, data types, and formats you require. See our {{link:https://app.dodon.ai/help/creating-data-extraction-template|guide on creating extraction templates}} for tips."
     },
     {
       "title": "Select Your Source Documents",
@@ -73,7 +75,7 @@
     },
     {
       "title": "Run the Extraction",
-      "description": "Dodonai XD agents automatically extract the templated data from the source documents. Easily adjust extracted data directly within the platform and export your finalized report."
+      "description": "Dodonai XD agents automatically extract the templated data from the source documents. Easily adjust extracted data directly within the platform and export your finalized report. Learn more about {{link:https://app.dodon.ai/help/filling-documents-with-extracted-data|filling documents with extracted data}}."
     }
   ],
   "valueProposition": {
@@ -114,19 +116,31 @@
   "faq": [
     {
       "question": "Can report templates be reused?",
-      "answer": "Yes, templates are designed for repeated use, significantly speeding up routine data extraction and reporting tasks."
+      "answer": "Yes, templates are designed for repeated use, significantly speeding up routine data extraction and reporting tasks. Once you define a template, you can run it against any number of source documents without reconfiguring the structure each time."
     },
     {
       "question": "Is the generated content editable?",
-      "answer": "Absolutely! Dodonai XD enables easy adjustments within generated reports to meet exact requirements."
+      "answer": "Absolutely. Dodonai XD enables easy adjustments within generated reports to meet exact requirements. You can edit extracted data directly in the platform before exporting the finalized report."
     },
     {
       "question": "How secure is my data?",
-      "answer": "Dodonai ensures stringent encryption, compliance with HIPAA guidelines and alignment with SOC 2, and rigorous data security practices."
+      "answer": "Dodonai is SOC 2 certified and HIPAA compliant. All data is encrypted using AES-256 in transit and at rest. Your documents are never used to train AI models, and you maintain full control over data retention and deletion."
     },
     {
       "question": "Does Dodonai support integration with other document management systems?",
-      "answer": "Yes, Dodonai can seamlessly integrates into many document management platforms and workflows - let us know which one you work with and, if we don't already integrate with them, we can explore integration."
+      "answer": "Yes, Dodonai integrates with many document management platforms and workflows. Let us know which system you use and, if we don't already support it, we can explore building a custom integration."
+    },
+    {
+      "question": "What types of documents can XD Agents process?",
+      "answer": "XD Agents can extract data from PDFs, Word documents, text files, spreadsheets, and scanned documents. The platform includes built-in {{link:/ai-pdf-ocr/|AI OCR}} that handles scanned and image-based files, so you can process documents exactly as you receive them."
+    },
+    {
+      "question": "How is Dodonai XD different from standard form-filling tools?",
+      "answer": "Standard form-filling tools map fixed fields between documents. Dodonai XD Agents use AI to understand document content and extract information based on meaning, not just field position. This means they can handle documents with varying formats and layouts, and they can synthesize information from multiple source documents into a single report."
+    },
+    {
+      "question": "What does Dodonai XD cost?",
+      "answer": "XD Agents use Dodonai's credit system at 2 credits per page for custom extractions. Plans start at $30 per month with 200 credits. Visit our {{link:/pricing/|pricing page}} for details on all available plans."
     }
   ],
   "testimonials": [

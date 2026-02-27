@@ -124,7 +124,16 @@
 	title="Pricing"
 	description="Simple, usage-based pricing for AI-powered document processing. Every feature included in every plan. Starting at 2 cents per page."
 	url="/pricing/"
-	jsonLd={{
+	jsonLd={[
+		{
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
+				{ '@type': 'ListItem', position: 2, name: 'Pricing' }
+			]
+		},
+		{
 		'@context': 'https://schema.org',
 		'@type': 'Product',
 		name: 'Dodonai',
@@ -234,7 +243,7 @@
 				}
 			]
 		}
-	}}
+	}]}
 />
 
 <!-- Hero -->

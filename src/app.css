@@ -5,28 +5,28 @@
 /* Plus Jakarta Display font */
 @font-face {
 	font-family: 'Plus Jakarta Display';
-	src: url('/fonts/PlusJakartaDisplay-Regular.ttf') format('truetype');
+	src: url('/fonts/PlusJakartaDisplay-Regular.woff2') format('woff2');
 	font-weight: 400;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Plus Jakarta Display';
-	src: url('/fonts/PlusJakartaDisplay-Medium.ttf') format('truetype');
+	src: url('/fonts/PlusJakartaDisplay-Medium.woff2') format('woff2');
 	font-weight: 500;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Plus Jakarta Display';
-	src: url('/fonts/PlusJakartaDisplay-Bold.ttf') format('truetype');
+	src: url('/fonts/PlusJakartaDisplay-Bold.woff2') format('woff2');
 	font-weight: 700;
 	font-style: normal;
 	font-display: swap;
 }
 @font-face {
 	font-family: 'Plus Jakarta Display';
-	src: url('/fonts/PlusJakartaDisplay-Light.ttf') format('truetype');
+	src: url('/fonts/PlusJakartaDisplay-Light.woff2') format('woff2');
 	font-weight: 300;
 	font-style: normal;
 	font-display: swap;

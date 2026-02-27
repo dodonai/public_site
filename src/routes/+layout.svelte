@@ -23,6 +23,10 @@
 	{@html `<script type="application/ld+json">${JSON.stringify(websiteSchema)}</script>`}
 </svelte:head>
 
+<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[200] focus:bg-white focus:px-4 focus:py-2 focus:text-[#282876]">
+	Skip to main content
+</a>
+
 <div class="sticky top-0 z-[100]">
 	<a
 		href="https://app.dodon.ai/signup"
@@ -35,7 +39,7 @@
 	<Header />
 </div>
 
-<main>
+<main id="main-content">
 	{@render children()}
 </main>
 <Footer />

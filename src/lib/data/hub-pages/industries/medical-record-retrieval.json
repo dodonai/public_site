@@ -1,0 +1,145 @@
+{
+  "seo": {
+    "title": "Medical Record Retrieval Software — AI Summarization for Retrieval Companies",
+    "description": "Add AI-powered medical record retrieval and summarization to your services. Create new revenue streams, differentiate from competitors, and scale without adding staff. Try free.",
+    "canonical": "/industries/medical-record-retrieval/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Industries", "href": null },
+    { "name": "Medical Record Retrieval" }
+  ],
+  "hero": {
+    "headline": "Add AI Summarization to Your Record Retrieval Services",
+    "subheadline": "Retrieval companies are in a unique position to offer more than raw records. Dodonai adds AI-powered summarization and chronologies to your workflow, creating new revenue streams and differentiating your business.",
+    "ctaText": "Add Summarization to Your Services",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Partnership Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Why Medical Record Retrieval Companies Are Adding Summarization",
+      "paragraphs": [
+        "The medical record retrieval industry has become increasingly commoditized. Law firms, insurance companies, and {{link:/industries/ime-companies/|IME providers}} can choose from dozens of retrieval services, and competition often comes down to turnaround time and price.",
+        "For retrieval companies looking to grow margins and deepen client relationships, the pattern is clear: clients who receive summarized records alongside raw files stay longer and spend more.",
+        "Summarization is the most natural extension of a retrieval business. Your clients already need their records summarized. They either do it in-house, outsource it to a separate vendor, or use software directly. By integrating {{link:/ai-medical-record-summaries-chronologies/|AI summarization}} into your offering, you capture that revenue instead of leaving it on the table.",
+        "Dodonai makes this transition straightforward. Our platform processes the same records you already retrieve, generating structured summaries and chronologies your clients can use immediately. No need to hire medical reviewers or build technology from scratch. Dodonai handles the AI, and you deliver the finished product under your own brand."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "How Retrieval Companies Use Dodonai",
+      "cards": [
+        {
+          "icon": "briefcase",
+          "title": "White-Label Summarization",
+          "description": "Your clients see a premium service from their trusted retrieval partner, not a third-party software provider. Deliver AI-generated summaries and chronologies under your own brand."
+        },
+        {
+          "icon": "growth",
+          "title": "Scalable Processing",
+          "description": "Hundreds or thousands of record sets per month, no headcount increase. Seasonal spikes and new client onboarding don't create bottlenecks."
+        },
+        {
+          "icon": "squares",
+          "title": "Integration-Ready Platform",
+          "description": "API access and common document management integrations let you feed records directly from your retrieval workflow into the summarization engine."
+        },
+        {
+          "icon": "shield",
+          "title": "HIPAA-Compliant Infrastructure",
+          "description": "SOC 2 certified, HIPAA compliant, AES-256 encrypted end to end. Signed BAAs with every partner. Client patient data never touches a training pipeline."
+        },
+        {
+          "icon": "document",
+          "title": "Consistent Quality at Any Volume",
+          "description": "Whether it's ten records or ten thousand, every summary follows the same structured format. AI eliminates the variability of manual review."
+        },
+        {
+          "icon": "sparkles",
+          "title": "Stand Out from Commodity Retrieval Services",
+          "description": "Most retrieval services deliver raw records and nothing more. Offering AI-powered summaries alongside retrieval gives clients a reason to consolidate vendors with you and a reason to stay."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Connect Your Retrieval Workflow",
+          "description": "Integrate Dodonai via API or direct upload. As records are retrieved and prepared for delivery, they flow into the summarization engine automatically."
+        },
+        {
+          "title": "AI Summarizes and Organizes the Records",
+          "description": "Dodonai reads the full record set, extracts key medical events, and generates a structured chronology alongside a narrative summary. The {{link:/ai-pdf-ocr/|AI OCR engine}} handles scanned documents and handwritten notes, with each entry linked back to the original page."
+        },
+        {
+          "title": "Deliver Summaries to Your Clients",
+          "description": "Export in PDF, Word, or Excel and deliver alongside the retrieved records. Your clients get a turnkey package (raw records plus a ready-to-use summary and chronology) from a single vendor."
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "Adding Summarization: Dodonai vs. Building In-House",
+      "columns": ["Capability", "Dodonai Partnership", "In-House Build"],
+      "rows": [
+        ["Launch in days, not months", true, false],
+        ["No medical reviewer hiring or training", true, false],
+        ["Per-page pricing with no upfront investment", true, false],
+        ["Handles scanned and handwritten records", true, false],
+        ["Consistent output regardless of volume", true, false],
+        ["White-label delivery under your brand", true, false],
+        ["HIPAA-compliant with signed BAAs", true, true],
+        ["API integration with retrieval workflows", true, true]
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Can we offer Dodonai's summaries under our own brand?",
+      "answer": "Yes. White-label delivery means your clients see summaries from your company. You set the pricing, control the relationship, and deliver the finished product as part of your existing offering."
+    },
+    {
+      "question": "How does pricing work for retrieval companies?",
+      "answer": "Per-page pricing with volume discounts for high-volume partners. No upfront costs, seat licenses, or minimums. You pay only for records processed. Visit our {{link:/pricing/|pricing page}} for details."
+    },
+    {
+      "question": "What if our clients need different summary formats?",
+      "answer": "Multiple output formats are available: PDF, Word, Excel, and plain text. Configure structure and detail level per client. {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} handle highly specific reporting needs with reusable templates."
+    },
+    {
+      "question": "How do we integrate Dodonai with our existing retrieval systems?",
+      "answer": "API access connects to your existing workflow. Records flow to the summarization engine automatically as they're retrieved. Our team helps configure the integration for your stack."
+    },
+    {
+      "question": "Is the platform secure enough for medical records?",
+      "answer": "Built for healthcare data from the ground up. Signed BAAs, SOC 2 certification, AES-256 encryption. Client records never train our models. Your retention policy governs, and we don't keep copies after you delete."
+    },
+    {
+      "question": "How quickly can we start offering summarization services?",
+      "answer": "Most retrieval companies are live within days. No special hardware, no reviewer hiring, no lengthy implementation. Sign up and start processing records immediately."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "IME Companies",
+      "href": "/industries/ime-companies/",
+      "description": "How IME companies scale record review with AI-generated summaries and chronologies."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "AI-powered record review that complements retrieval services with structured summaries."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know/"
+  ],
+  "ctaOverride": {
+    "headline": "Add AI Summarization to Your Retrieval Services",
+    "description": "Process your first record set in minutes and see the AI-generated summary output. No credit card required."
+  }
+}

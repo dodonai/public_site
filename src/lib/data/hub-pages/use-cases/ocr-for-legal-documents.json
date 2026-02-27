@@ -1,0 +1,148 @@
+{
+  "seo": {
+    "title": "AI OCR for Legal Documents — Legal Document Text Extraction — Dodonai",
+    "description": "Extract accurate text from scanned legal documents, medical records, court filings, and contracts with AI-powered OCR. Superior accuracy to traditional OCR for legal document text extraction. HIPAA compliant. Try free.",
+    "canonical": "/use-cases/ocr-for-legal-documents/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Use Cases", "href": null },
+    { "name": "OCR for Legal Documents" }
+  ],
+  "hero": {
+    "headline": "AI OCR for Legal Documents",
+    "subheadline": "Scanned court filings, faxed medical records, handwritten physician notes: legal teams deal with formats that defeat traditional OCR. Dodonai's AI extracts accurate, searchable text from even the most challenging documents.",
+    "ctaText": "Try AI OCR Free",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Why Legal Teams Need AI OCR",
+      "paragraphs": [
+        "Legal work runs on documents, and a significant portion arrive in formats that aren't natively searchable. Medical records faxed from provider offices, court filings scanned at the clerk's office, contracts photocopied during discovery, and handwritten notes from treating physicians. This is where OCR for legal documents becomes essential. When documents aren't searchable, your team can't find key facts, can't run searches across a case file, and can't feed records into summarization or e-discovery tools.",
+        "Traditional OCR was designed for clean, typed documents. It struggles with what legal professionals encounter daily: low-resolution scans, mixed handwriting and printed text, faded faxes, medical records with stamps overlaying text. The result is garbled output that requires extensive manual correction, sometimes taking as long as retyping from scratch.",
+        "Dodonai's {{link:/ai-pdf-ocr/|AI-powered legal OCR}} handles the document types legal teams actually work with. It uses language models to understand context, not just recognize characters, which means it accurately interprets handwritten physician notes, reads text on degraded scans, and maintains complex document layouts. Extracted text integrates directly with Dodonai's {{link:/ai-medical-record-summaries-chronologies/|medical record summarization}} and {{link:/electronic-discovery-software/|e-discovery}} workflows, so you go from scanned PDF to searchable, summarized document without switching tools."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "AI OCR Capabilities for Legal Documents",
+      "cards": [
+        {
+          "icon": "search",
+          "title": "Handwriting Recognition for Medical and Legal Notes",
+          "description": "Physician notes, investigator field notes, and handwritten annotations all challenge traditional OCR. Dodonai's AI uses language context to interpret and transcribe handwritten content correctly, where traditional OCR produces garbled output."
+        },
+        {
+          "icon": "document",
+          "title": "Scanned Court Filings and Discovery Documents",
+          "description": "Low-resolution image PDFs from clerk's offices and scanned discovery productions? Dodonai extracts clean, accurate text regardless of scan quality, making them fully searchable."
+        },
+        {
+          "icon": "heart",
+          "title": "Medical Records from Any Provider Format",
+          "description": "Faxed clinic notes, scanned hospital records, photocopied lab reports, handwritten prescription logs. The OCR processes all of these and feeds extracted text directly into the medical chronology engine."
+        },
+        {
+          "icon": "bolt",
+          "title": "Batch Processing for Large Document Sets",
+          "description": "Upload hundreds or thousands of scanned pages at once. Dodonai converts entire case files into searchable text in bulk, with no page-by-page intervention."
+        },
+        {
+          "icon": "shield",
+          "title": "Secure Processing for Privileged and Protected Documents",
+          "description": "Scanned documents contain the same sensitive content as their digital originals. HIPAA compliant, SOC 2 certified, AES-256 encrypted. Signed BAAs on every account. No training on your files."
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "AI OCR vs. Traditional OCR vs. Manual Transcription",
+      "columns": ["Capability", "Dodonai AI OCR", "Traditional OCR", "Manual Transcription"],
+      "rows": [
+        ["Handwritten text accuracy", "High", "Poor", "High"],
+        ["Low-quality scan handling", "High accuracy", "Frequent errors", "Readable by human"],
+        ["Medical terminology recognition", "Context-aware", "Character-by-character", "Depends on reviewer"],
+        ["Processing speed (500 pages)", "Minutes", "Minutes", "Days"],
+        ["Manual correction required", "Minimal", "Extensive", "None"],
+        ["Cost per page", "Included free", "$0.05-$0.15", "$1-$5"],
+        ["Maintains document structure", true, "Often lost", true],
+        ["Integrates with summarization", true, false, false],
+        ["HIPAA-compliant processing", true, "Varies", "Varies"],
+        ["Scales to thousands of pages", true, true, false]
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Scanned Documents",
+          "description": "Upload scanned PDFs, image files, or mixed document sets. The system accepts files of any size and auto-detects which pages need OCR. No preprocessing or image cleanup required."
+        },
+        {
+          "title": "AI Extracts and Structures the Text",
+          "description": "Dodonai's AI OCR engine processes each page, interpreting printed and handwritten text using contextual language understanding. Document structure (headings, paragraphs, tables, lists) is preserved rather than flattened."
+        },
+        {
+          "title": "Search, Summarize, or Export",
+          "description": "Once extracted, search across the full document set, feed records into Dodonai's {{link:/ai-medical-record-summaries-chronologies/|medical summarization}} or {{link:/electronic-discovery-software/|e-discovery}} tools, or export as searchable PDF or plain text. The OCR output becomes the foundation for every downstream workflow."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How is AI OCR different from traditional OCR for legal documents?",
+      "answer": "Traditional OCR recognizes characters by shape, which fails on degraded scans, handwriting, and complex layouts. Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} uses language models to understand context. It recognizes that a string in a medical record is likely a diagnosis or medication, which closes the accuracy gap on the document types legal teams actually encounter."
+    },
+    {
+      "question": "Can Dodonai's OCR read handwritten physician notes?",
+      "answer": "Yes. The AI interprets handwritten notes using medical terminology and contextual clues, producing accurate transcriptions from physician notes, investigator reports, and handwritten annotations."
+    },
+    {
+      "question": "What types of legal documents does Dodonai's OCR handle?",
+      "answer": "Scanned court filings, faxed medical records, photocopied contracts, discovery productions, handwritten notes, older filings from microfilm conversions, and any other image-based PDF. If a human can read it, Dodonai's AI OCR can extract the text."
+    },
+    {
+      "question": "Does the OCR output integrate with other Dodonai tools?",
+      "answer": "Yes. Scanned medical records flow directly into {{link:/ai-medical-record-summaries-chronologies/|chronology and summary}} generation. Scanned discovery documents load into the {{link:/electronic-discovery-software/|e-discovery}} workflow. No need to export and re-upload."
+    },
+    {
+      "question": "Is Dodonai's OCR HIPAA compliant?",
+      "answer": "Same protection as the originals. HIPAA compliant with signed BAAs, SOC 2 certified, AES-256 encrypted throughout. Nothing you upload trains our models. You control when files are deleted."
+    },
+    {
+      "question": "How much does AI OCR for legal documents cost?",
+      "answer": "OCR is included free with every Dodonai plan. There is no per-page charge for text extraction. Once your scanned documents are processed, the searchable output feeds directly into summarization, chronology, and e-discovery workflows. Compared to manual transcription at $1-$5 per page, that is a significant cost difference."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI-Powered OCR",
+      "href": "/ai-pdf-ocr/",
+      "description": "Dodonai's AI OCR engine for accurate text extraction from scans, handwriting, and image PDFs."
+    },
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "Scanned records go straight from OCR into structured medical chronologies and summaries."
+    },
+    {
+      "title": "Electronic Discovery Software",
+      "href": "/electronic-discovery-software/",
+      "description": "Convert scanned discovery productions into searchable, reviewable document sets."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/",
+    "/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records/",
+    "/blog/what-actually-slows-down-medical-chronology-review/"
+  ],
+  "ctaOverride": {
+    "headline": "Make Every Legal Document Searchable",
+    "description": "Upload scanned PDFs or handwritten notes and get accurate, searchable text in minutes. No credit card, no commitment."
+  }
+}

@@ -1,0 +1,137 @@
+{
+  "seo": {
+    "title": "Court Reporter Software — AI Transcript Summaries & Search",
+    "description": "Court reporter software that adds AI transcript summaries, deposition digests, and semantic search to your services. Offer attorneys more than raw transcripts. HIPAA compliant.",
+    "canonical": "/industries/court-reporters/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Industries", "href": null },
+    { "name": "Court Reporters" }
+  ],
+  "hero": {
+    "headline": "Court Reporter Software: Add AI Deposition Summaries to Your Business",
+    "subheadline": "Attorneys need more from deposition transcripts than raw text. Dodonai lets court reporters offer AI-powered deposition summaries and semantic transcript search alongside every delivery.",
+    "ctaText": "Summarize a Transcript Free",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "Why Court Reporters Are Adding Deposition Summary Services",
+      "paragraphs": [
+        "Every deposition transcript you deliver creates downstream work for the attorney: reading, marking key passages, and drafting summaries. Most firms outsource that work to deposition summary services at $3 to $10 per page, or assign it to a paralegal for 6-8 hours. Either way, it happens after you hand off the transcript. That's revenue you could capture instead.",
+        "Dodonai is deposition transcript software that lets you offer a complete {{link:/deposition-summary-software/|deposition summary}} alongside your certified transcript. Upload the finished file and generate a page-line summary with citations in about 3 minutes per 100 pages. Offer {{link:/ai-deposition-transcript-software/|transcript management software}} so attorneys can search testimony by topic or witness instead of scrolling through hundreds of pages. Both services deliver under your brand as a premium add-on.",
+        "Your processing cost on annual plans is less than $0.01 per page. Attorneys currently pay $3 to $10 per page for the same work from outsourced vendors. Price your deposition summary service at $1 to $3 per page and you're saving clients money while keeping a healthy margin on every transcript.",
+        "AI court reporting tools like Dodonai handle the processing. You keep the client relationship."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Court Reporting Software Tools for Every Transcript",
+      "cards": [
+        {
+          "icon": "document",
+          "title": "Deposition Summaries from Your Transcripts",
+          "description": "Upload a finished transcript and generate page-line or narrative summaries in minutes. Deliver them alongside the certified transcript as a premium add-on, or offer them as a standalone service."
+        },
+        {
+          "icon": "search",
+          "title": "Semantic Transcript Search for Attorneys",
+          "description": "Attorneys ask questions like 'What did the witness say about the accident?' and get exact passages with page-line references. It searches by meaning, not just keywords, so relevant testimony surfaces even when phrasing varies."
+        },
+        {
+          "icon": "dollar",
+          "title": "New Revenue Without New Staff",
+          "description": "Processing costs less than $0.01 per page on annual and enterprise plans. Price summaries to attorneys at $1 to $3 per page and keep the margin. No additional hires, no outsourced vendors, no changes to your existing workflow."
+        },
+        {
+          "icon": "clock",
+          "title": "Same-Day Delivery on Summaries",
+          "description": "A 200-page deposition transcript processes in about 6 minutes. Deliver the summary the same day you deliver the transcript, before the attorney even starts reading it."
+        },
+        {
+          "icon": "briefcase",
+          "title": "White-Label Delivery",
+          "description": "Attorneys see a service from their court reporter, not a third-party software tool. You control the pricing, the format, and the client relationship."
+        },
+        {
+          "icon": "shield",
+          "title": "Secure Transcript Processing",
+          "description": "Deposition transcripts contain privileged testimony and client information. SOC 2 certified, AES-256 encrypted, signed BAAs on every account. Transcripts never enter a training pipeline."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload the Finished Transcript",
+          "description": "After certification, upload the transcript to Dodonai. The platform accepts PDF, Word, and text files from any court reporting software. No reformatting or preprocessing needed."
+        },
+        {
+          "title": "AI Generates Summaries and Indexes for Search",
+          "description": "Dodonai produces a page-line summary, a narrative digest, or both. It also indexes the full transcript for semantic search. Specify key topics (damages, liability, medical treatment) to weight the summary toward the issues the attorney cares about."
+        },
+        {
+          "title": "Deliver to Your Client",
+          "description": "Download summaries as PDF, Word, or Excel and include them in your transcript delivery package. Attorneys get a ready-to-use summary alongside the certified transcript, all from one vendor."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does a court reporter use Dodonai?",
+      "answer": "After you produce the certified transcript, upload it to Dodonai. The AI generates a deposition summary with page-line citations in minutes. Download the summary and deliver it to the attorney alongside the transcript as a premium service."
+    },
+    {
+      "question": "What types of summaries can I offer attorneys?",
+      "answer": "Page-line summaries (citation tables organized by page and line number), narrative summaries (flowing prose overviews of the testimony), and topic-focused digests that highlight specific issues. All formats include page-line references back to the original transcript."
+    },
+    {
+      "question": "How much can I charge for AI-generated summaries?",
+      "answer": "That's up to you. Most court reporters offering summaries price them at $1 to $3 per page. With Dodonai processing for less than $0.01 per page on annual plans, the margin is significant. A 200-page deposition that costs you under $2 to process can be priced at $200 to $600 to the attorney."
+    },
+    {
+      "question": "Will attorneys trust AI-generated summaries from a court reporter?",
+      "answer": "Every summary includes page-line citations the attorney can verify against the certified transcript. You're the trusted source for the transcript itself, which makes you the natural provider for summaries derived from it. Attorneys already pay $3 to $10 per page for outsourced summaries; getting them from the same vendor, faster and cheaper, is an easy decision."
+    },
+    {
+      "question": "Do I need to review every summary before sending it to the attorney?",
+      "answer": "We recommend a quick review, especially when starting out. The AI handles extraction and formatting accurately, but a 5-minute scan of a 200-page summary ensures the output meets your quality standards before it goes to the attorney."
+    },
+    {
+      "question": "Is transcript data secure on Dodonai?",
+      "answer": "Deposition transcripts often contain privileged and confidential testimony. AES-256 encryption protects every file from upload through deletion. SOC 2 certified infrastructure with signed BAAs. Your transcripts never train our models, and you control when files are removed."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "See how Dodonai generates page-line and narrative deposition summaries from uploaded transcripts."
+    },
+    {
+      "title": "AI Deposition Transcript Management",
+      "href": "/ai-deposition-transcript-software/",
+      "description": "Semantic search across depositions by topic, witness, or keyword with page-line citations."
+    },
+    {
+      "title": "Medical Record Retrieval Companies",
+      "href": "/industries/medical-record-retrieval/",
+      "description": "Another service industry adding AI-powered deliverables to differentiate from competitors."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/",
+    "/blog/how-to-draft-a-page-line-deposition-summary/",
+    "/blog/how-many-hours-do-you-lose-reading-transcripts/"
+  ],
+  "ctaOverride": {
+    "headline": "Turn Every Transcript into a Revenue Opportunity",
+    "description": "Upload a deposition transcript and see the AI-generated summary in minutes. Offer it to attorneys as a premium add-on. No credit card required."
+  }
+}

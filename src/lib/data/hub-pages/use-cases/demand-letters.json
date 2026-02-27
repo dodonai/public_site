@@ -1,0 +1,135 @@
+{
+  "seo": {
+    "title": "AI Demand Letter Tools — Build Stronger Demand Packages Faster",
+    "description": "AI-powered demand letter preparation tools. Use medical chronologies and deposition summaries to organize evidence for demand packages, document damages, and strengthen settlement positions.",
+    "canonical": "/use-cases/demand-letters/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Use Cases", "href": null },
+    { "name": "Demand Letters" }
+  ],
+  "hero": {
+    "headline": "AI Demand Letter Preparation: Build Stronger Demand Packages Faster",
+    "subheadline": "A compelling demand letter depends on well-organized medical evidence. Dodonai gives personal injury attorneys structured chronologies, deposition summaries, and document extracts to draft demand packages that drive faster, higher-value settlements.",
+    "ctaText": "Build Your Next Demand Package",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "How AI Demand Letter Preparation Strengthens Your Demand Package",
+      "paragraphs": [
+        "Adjusters evaluate demands based on how thoroughly the medical evidence is organized. A demand backed by a detailed chronology carries more weight than a stack of unorganized records. An AI demand letter workflow makes that level of organization practical on every case, not just the high-value ones.",
+        "Dodonai accelerates every step of that process. Upload your client's medical records and receive a complete {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} that documents every diagnosis, treatment, provider visit, and medication change in chronological order. Upload deposition transcripts and get {{link:/deposition-summary-software/|page-line summaries}} highlighting liability admissions, damages testimony, and causation evidence. Standard BI demand, policy limits demand, or time-limit demand: the documented evidence is organized and ready for all of them.",
+        "For {{link:/practice-areas/personal-injury/|personal injury firms}} handling high volumes on contingency, faster AI demand letter preparation directly impacts revenue. Every week a case sits waiting on documentation is a week without settlement movement. Dodonai cuts the documentation phase from days to minutes so your team can send demands sooner and resolve cases faster."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Demand Letter Preparation Tools",
+      "cards": [
+        {
+          "icon": "calendar",
+          "title": "Medical Chronologies for Demand Packages",
+          "description": "Generate a complete timeline from date of loss through treatment, surgery, rehab, and MMI. Each entry includes date, provider, event description, and a page number pointing to the original, giving adjusters the organized medical evidence for demand packages they need to move your claim through valuation."
+        },
+        {
+          "icon": "document",
+          "title": "Deposition Summaries with Key Testimony",
+          "description": "Liability admissions, damages testimony, and expert opinions are pulled from transcripts with accurate page-line citations. Use topic-focused summaries to weave the most relevant testimony into your demand letter."
+        },
+        {
+          "icon": "heart",
+          "title": "Treatment Gap and Provider Analysis",
+          "description": "Treatment gaps and provider changes jump off the chronology immediately. Spot the records that support your damages narrative and anticipate the inconsistencies a defense adjuster will flag before you finalize."
+        },
+        {
+          "icon": "clock",
+          "title": "Demand-Ready the Same Afternoon",
+          "description": "Traditional preparation requires days of manual record review before drafting begins. Dodonai compresses the documentation phase from days to minutes, so your team can start drafting the same afternoon records arrive."
+        },
+        {
+          "icon": "dollar",
+          "title": "Lower Per-Case Costs on Contingency",
+          "description": "Outsourcing medical record review for a single case can cost thousands. Dodonai processes pages for as little as $0.02 each. On contingency, every dollar saved on case prep stays in the recovery."
+        },
+        {
+          "icon": "shield",
+          "title": "Secure Handling of Medical Evidence",
+          "description": "Demand packages contain PHI that deserves the same protection as any litigation file. HIPAA compliant with signed BAAs, SOC 2 certified, AES-256 encrypted. Nothing you upload trains our models."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Medical Records and Transcripts",
+          "description": "Upload your client's medical records, deposition transcripts, and supporting documents. The platform handles PDFs of any size, including scanned records, without reformatting or preprocessing."
+        },
+        {
+          "title": "AI Builds Your Evidence Foundation",
+          "description": "Dodonai generates medical chronologies organized for demand packages, narrative summaries documenting the full treatment arc, and deposition digests highlighting liability admissions and damages testimony. Specify injuries, providers, or liability issues to tailor the output."
+        },
+        {
+          "title": "Draft Your Demand Letter with Organized Evidence",
+          "description": "Use the structured chronologies and summaries as your foundation. Every data point links back to the source page, so you can cite specific records and testimony with confidence. Export in PDF, Word, or Excel."
+        }
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does AI help with demand letter preparation?",
+      "answer": "AI handles the most time-consuming part: organizing the medical evidence. Upload records and get a structured chronology with citations, a narrative summary, and deposition digests. That's the documented foundation you need to draft a demand package without days of manual review."
+    },
+    {
+      "question": "Can Dodonai generate a demand letter for me?",
+      "answer": "Dodonai doesn't draft the demand letter itself. It produces the organized chronologies, summaries, and deposition digests that form the evidentiary backbone. Your attorneys retain full control over the damages narrative, legal arguments, demand amount, and response deadline."
+    },
+    {
+      "question": "What information does the medical chronology include for demand letters?",
+      "answer": "Dates, provider names, diagnoses, treatments, procedures, medications, and clinical notes, all presented chronologically with source-page citations. This lets you itemize specials with supporting documentation and articulate the full treatment arc from injury through MMI."
+    },
+    {
+      "question": "How quickly can I prepare a demand package with Dodonai?",
+      "answer": "Medical record processing completes in minutes regardless of file size. A 500-page record set that would take a paralegal 8-12 hours is organized in under 15 minutes. You can have all the documentation you need to begin drafting within hours of receiving the records."
+    },
+    {
+      "question": "Is the output accurate enough to cite in a demand letter?",
+      "answer": "Yes. Every entry in the chronology and every statement in the deposition summary includes a citation linked directly to the underlying record. Your attorneys can verify any data point before including it. We recommend a brief review pass, just as you would with any vendor's work product."
+    },
+    {
+      "question": "How much does it cost to prepare a demand package with Dodonai?",
+      "answer": "Pages process for as little as $0.02 each on the Pro plan, compared to $5-$15 per page from outsourced review services. For contingency firms preparing multiple demand packages monthly, the cost difference shows up on every case. Visit our {{link:/pricing/|pricing page}} for details."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "Medical chronologies and treatment narratives organized for demand package preparation."
+    },
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "Pull liability admissions and damages testimony into structured summaries in minutes."
+    },
+    {
+      "title": "Personal Injury",
+      "href": "/practice-areas/personal-injury/",
+      "description": "AI document processing for the full PI workflow, from intake through settlement."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/understanding-medical-chronology-clear-actionable-timelines/",
+    "/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/"
+  ],
+  "ctaOverride": {
+    "headline": "Prepare Your Next Demand Package in Minutes",
+    "description": "Upload medical records and deposition transcripts to get organized evidence for your next demand letter. No credit card required."
+  }
+}

@@ -12,6 +12,23 @@ cardText: "Deposition summaries are invaluable tools in legal proceedings, provi
 imageAlt: "Image of a happy professional reading well-drafted page-line deposition summaries"
 ---
 
+<svelte:head>
+{@html `<script type="application/ld+json">${JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": "HowTo",
+  "name": "How to Draft a Page-Line Deposition Summary",
+  "description": "A step-by-step guide on how to effectively draft a Page-Line Deposition Summary for legal proceedings.",
+  "step": [
+    {"@type": "HowToStep", "position": 1, "name": "Preparation", "text": "Ensure you have a complete and final version of the deposition transcript. Familiarize yourself with the case and the deposition's context to understand the testimony's relevance."},
+    {"@type": "HowToStep", "position": 2, "name": "Note Any Preferences", "text": "Ask for custom instructions such as preference for how to refer to the attorney and deponent, formatting preferences, and any important topics to highlight."},
+    {"@type": "HowToStep", "position": 3, "name": "Page-Line Identification", "text": "Read through the transcript and note important testimonies. For each relevant piece of testimony, record the start and end by page and line number."},
+    {"@type": "HowToStep", "position": 4, "name": "Summarization", "text": "Next to each page-line identification, summarize the testimony in a concise manner. Include only information relevant to the case."},
+    {"@type": "HowToStep", "position": 5, "name": "Formatting", "text": "Create a table with at least two columns: one for the citation and the other for the summary. Consider adding a third column with high-level topics."},
+    {"@type": "HowToStep", "position": 6, "name": "Highlight Key Testimonies", "text": "Use different fonts or section headers to separate significant testimonies or themes within the deposition to improve navigability."}
+  ]
+})}</script>`}
+</svelte:head>
+
 Deposition summaries are invaluable tools in legal proceedings, providing attorneys and legal teams with quick references to crucial testimonies. Among the various methods of summarizing depositions, the Page-Line Summary stands out for its precision and utility, albeit being the most time-intensive. Here’s a guide on how to effectively draft a Page-Line Deposition Summary.
 
 ## Understanding Page-Line Deposition Summaries

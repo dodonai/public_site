@@ -129,6 +129,9 @@
 								<img
 									src="/images/brand/testimonial-ben.jpeg"
 									alt={current.author}
+									width="40"
+									height="40"
+									loading="lazy"
 									class="h-10 w-10 rounded-full object-cover"
 								/>
 							{:else}
