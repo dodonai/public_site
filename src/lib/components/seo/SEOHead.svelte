@@ -1,5 +1,8 @@
 <script>
+	import { env } from '$env/dynamic/public';
+
 	const BASE_URL = 'https://www.dodon.ai';
+	const noindex = env.PUBLIC_NOINDEX === 'true';
 
 	let {
 		title,
@@ -29,6 +32,7 @@
 
 <svelte:head>
 	<title>{fullTitle}</title>
+	<meta name="robots" content={noindex ? 'noindex, nofollow' : 'index, follow'} />
 	<meta name="description" content={description} />
 
 	<!-- Canonical URL -->
