@@ -5,7 +5,7 @@ date: "2026-02-26"
 author: "Dodonai Team"
 category: "Deposition"
 tags: ["deposition summaries", "litigation support", "motion practice", "legal drafting", "templates"]
-image: "deposition-summary-template-page-line-format-for-motion-practice.png"
+image: "/images/blog/deposition-summary-template-page-line-format-for-motion-practice.png"
 imageAlt: "Page-line deposition summary template layout for motion practice preparation"
 description: "Learn how to create a page-line deposition summary for motion practice and try Dodon.ai's AI-powered summary tool free."
 cardText: "Step-by-step guide to page-line deposition summaries with verification steps, examples, and a free AI-powered tool to try."
@@ -65,7 +65,7 @@ The core columns that make a page-line deposition summary effective for motion p
 
 The Notes column is particularly useful for flagging impeachment material, contradictions with other witnesses, or testimony that directly supports a specific motion argument.
 
-![Page-line deposition summary table in Dodon.ai showing Citation, Summary of Testimony, and Topic Summary columns](page-line-deposition-summary-table-in-dodonai.png)
+![Page-line deposition summary table in Dodon.ai showing Citation, Summary of Testimony, and Topic Summary columns](/images/blog/page-line-deposition-summary-table-in-dodonai.png)
 
 ### Customizing the Template for Different Case Types
 
@@ -159,7 +159,7 @@ The tools work best as a starting point rather than a final product. AI handles 
 - **Consistency:** Automated formatting ensures uniform page-line citation style
 - **Verification still required:** AI-generated summaries benefit from human review for accuracy
 
-![Dodon.ai deposition summary view with page-line table, executive summary, and export options](dodonai-deposition-summary-view-with-page-line-table-and-export-options.png)
+![Dodon.ai deposition summary view with page-line table, executive summary, and export options](/images/blog/dodonai-deposition-summary-view-with-page-line-table-and-export-options.png)
 
 Dodon.ai offers [AI deposition summary software](https://www.dodon.ai/deposition-summary-software) that generates page-line and narrative deposition summaries with page-line citations. Inside the platform, those citations are tied back to the underlying transcript so you can quickly confirm what was said before you rely on it in a motion.
 
@@ -169,7 +169,7 @@ Creating deposition summaries manually remains one of the most time-intensive ta
 
 The platform handles transcript processing, page-line citation formatting, and initial summarization--leaving you to focus on the legal analysis that actually requires attorney judgment. You can also use Dodon.ai for narrative deposition summaries, as well as medical record chronologies and other litigation support workflows, all from the same interface.
 
-![Executive summary output and download options in Dodon.ai](executive-summary-output-and-download-options-in-dodonai.png)
+![Executive summary output and download options in Dodon.ai](/images/blog/executive-summary-output-and-download-options-in-dodonai.png)
 
 ## Frequently Asked Questions About Deposition Summary Templates
 
