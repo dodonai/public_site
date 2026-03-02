@@ -1,22 +1,46 @@
 let loaded = false;
 
+/**
+ * Grant analytics consent — upgrades GA4 from cookieless to full tracking.
+ */
+function grantConsent() {
+	if (typeof window === 'undefined' || !window.gtag) return;
+	window.gtag('consent', 'update', {
+		analytics_storage: 'granted',
+		ad_storage: 'granted',
+		ad_user_data: 'granted',
+		ad_personalization: 'granted'
+	});
+}
+
+/**
+ * Track SPA page views on client-side navigation.
+ * GA4 is always available (loaded in app.html). Meta Pixel only after consent.
+ */
+export function trackPageView(path) {
+	if (typeof window === 'undefined') return;
+	if (window.gtag) {
+		window.gtag('event', 'page_view', {
+			page_path: path,
+			page_location: window.location.href
+		});
+	}
+	if (window.fbq) {
+		window.fbq('track', 'PageView');
+	}
+}
+
+/**
+ * Load consent-gated third-party scripts.
+ * GA4 is already loaded in app.html — this grants consent and loads other services.
+ */
 export function loadAnalytics() {
 	if (loaded) return;
 	if (typeof window === 'undefined') return;
 	loaded = true;
 
-	// Google Analytics (GA4)
-	const gaScript = document.createElement('script');
-	gaScript.async = true;
-	gaScript.src = 'https://www.googletagmanager.com/gtag/js?id=G-S2VLXV89DL';
-	document.body.appendChild(gaScript);
-
-	window.dataLayer = window.dataLayer || [];
-	function gtag() {
-		window.dataLayer.push(arguments);
-	}
-	gtag('js', new Date());
-	gtag('config', 'G-S2VLXV89DL');
+	// Upgrade GA4 to full tracking
+	grantConsent();
 
 	// Meta Pixel
 	(function (f, b, e, v, n, t, s) {
