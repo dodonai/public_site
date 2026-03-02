@@ -7,8 +7,8 @@ Marketing website for Dodonai — migrated from Webflow to SvelteKit.
 - **SvelteKit 2** with Svelte 5 (`$props()`, `$state()`, `$derived()`, `{@render children()}`)
 - **Tailwind CSS 3** + DaisyUI 4 (custom `dodonai` theme)
 - **MDSvex** for blog posts (`.md` files rendered as Svelte components)
-- **Node adapter** — Docker containerized, port 3000
-- **Prerendered** — all routes are statically generated at build time
+- **Static adapter** (`adapter-static`) — prerendered, deployed to GCS buckets
+- **Docker** option available via Dockerfile (port 3000)
 
 ## Project Structure
 
@@ -208,14 +208,42 @@ npm run format       # Auto-format
 - **VideoEmbed**: Only render when `videoUrl` is truthy (no "coming soon" placeholders)
 - **Container widths**: `max-w-7xl` for grids, `max-w-3xl` for prose content, `max-w-4xl` for video
 
+## Deployment & SEO Indexing
+
+### Environments
+
+| Environment | Branch | Bucket | URL |
+|-------------|--------|--------|-----|
+| **Production** | `main` | `dodonai-landing` | `www.dodon.ai` |
+| **Staging** | `stage` | `stage-landing` | `landing.dodonai.com` |
+
+### Indexing Control (`PUBLIC_NOINDEX`)
+
+SEO indexing is controlled by the `PUBLIC_NOINDEX` env var at **build time**:
+- **Stage**: `PUBLIC_NOINDEX=true` is set in `deploy-stage.yml` → outputs `noindex, nofollow` meta tag + `Disallow: /` in robots.txt
+- **Production**: env var is not set → outputs `index, follow` meta tag + full robots.txt with sitemap
+
+This is implemented in two places:
+- `src/lib/components/seo/SEOHead.svelte` — `<meta name="robots">` tag
+- `src/routes/robots.txt/+server.js` — prerendered robots.txt
+
+### Deploy Workflows
+
+Two separate workflow files to avoid merge conflicts between branches:
+- `.github/workflows/deploy-prod.yml` — triggers on `main` push, deploys to `gs://dodonai-landing`
+- `.github/workflows/deploy-stage.yml` — triggers on `stage` push, deploys to `gs://stage-landing`, sets `PUBLIC_NOINDEX=true`
+
+Both files live on both branches. Since GitHub Actions reads the workflow from the branch being pushed, each branch triggers only its own workflow.
+
+### Analytics (GA4 Consent Mode v2)
+
+GA4 loads on every page via `app.html` with consent defaults **denied** (cookieless pings). When the user accepts the cookie banner, consent upgrades to **granted** (full tracking). SPA page views are tracked via `afterNavigate` in `+layout.svelte`.
+
+Key files:
+- `src/app.html` — GA4 script + Consent Mode v2 defaults
+- `src/lib/utils/analytics.js` — consent upgrade, SPA tracking, Meta Pixel, Ahrefs, HubSpot
+- `src/lib/components/layout/CookieConsent.svelte` — cookie banner triggers `loadAnalytics()`
+
 ## Migration Context
 
-This site is being migrated from the live Webflow site at [dodon.ai](https://dodon.ai). When building new pages or components, reference the live site for:
-- Visual layout and spacing
-- Content and copy
-- Color usage and typography
-- Section ordering and composition
-
-The goal is pixel-level parity with the Webflow site, rebuilt in SvelteKit for maintainability and performance.
-
-**Old site files**: The previous marketing site files are located at `/old-marketing-site` in the repo root.
+This site was migrated from Webflow to SvelteKit. The migration is complete and the site is live at [dodon.ai](https://dodon.ai).
