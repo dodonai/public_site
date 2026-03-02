@@ -6,6 +6,21 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" type="image/png" />
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
+		<!-- GA4 with Consent Mode v2: loads on every page, cookieless until user consents -->
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2VLXV89DL"></script>
+		<script>
+			window.dataLayer = window.dataLayer || [];
+			function gtag(){dataLayer.push(arguments);}
+			window.gtag = gtag;
+			gtag('consent', 'default', {
+				'analytics_storage': 'denied',
+				'ad_storage': 'denied',
+				'ad_user_data': 'denied',
+				'ad_personalization': 'denied'
+			});
+			gtag('js', new Date());
+			gtag('config', 'G-S2VLXV89DL');
+		</script>
 		<!-- Font preloads to prevent FOUT and improve LCP -->
 		<link rel="preload" href="/fonts/PlusJakartaDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
 		<link rel="preload" href="/fonts/PlusJakartaDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />

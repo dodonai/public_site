@@ -1,10 +1,19 @@
 <script>
 	import '../app.css';
+	import { afterNavigate } from '$app/navigation';
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
+	import { trackPageView } from '$lib/utils/analytics.js';
 
 	let { children } = $props();
+
+	afterNavigate(({ from, to }) => {
+		// Skip initial page load — GA4 config in app.html handles that
+		if (from && to?.url) {
+			trackPageView(to.url.pathname);
+		}
+	});
 
 	const websiteSchema = {
 		'@context': 'https://schema.org',
