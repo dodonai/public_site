@@ -1,3 +1,6 @@
+// Robots.txt is env-driven: set PUBLIC_NOINDEX=true at build time to block crawlers (staging).
+// When unset, produces a permissive robots.txt with sitemap (production).
+// The stage branch's deploy.yml sets this env var; production does not.
 import { env } from '$env/dynamic/public';
 
 export const prerender = true;
