@@ -54,7 +54,7 @@
 					'@type': 'ListItem',
 					position: i + 1,
 					name: item.name,
-					...(item.href ? { item: `https://www.dodon.ai${item.href}` } : {})
+					item: `https://www.dodon.ai${item.href || data.seo.canonical}`
 				}))
 			});
 		}
@@ -104,7 +104,7 @@
 		<div class="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
 			{#if data.breadcrumbs}
 				<div class="mb-8">
-					<BreadcrumbNav items={data.breadcrumbs} />
+					<BreadcrumbNav items={data.breadcrumbs} url={data.seo.canonical} />
 				</div>
 			{/if}
 
