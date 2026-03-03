@@ -4,15 +4,15 @@ date: "2026-03-02"
 author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/choosing-deposition-summary-software-litigators-guide.png"
-description: "What litigators should evaluate before choosing deposition summary software: page-line vs. narrative, turnaround, citation accuracy, pricing models, security, and workflow fit."
-cardText: "What litigators should evaluate before choosing deposition summary software: page-line vs. narrative, turnaround, citation accuracy, pricing models, security, and workflow fit."
+description: "A buyer's guide for choosing deposition summary software: pricing math, output formats, security requirements, and a structured evaluation checklist."
+cardText: "A buyer's guide for choosing deposition summary software: pricing math, output formats, security requirements, and a structured evaluation checklist."
 imageAlt: "Litigator's guide to choosing deposition summary software"
 readingTime: "8 minutes"
 featured: false
 featureMain: false
 ---
 
-The deposition summary software market has expanded significantly in the past two years. Where firms once chose between outsourced vendors and manual paralegal work, they now face a growing list of AI-powered platforms, each claiming to produce faster, more accurate, and more affordable summaries.
+Two years ago, most firms choosing deposition summary software picked between outsourced vendors and paralegal prep. Now there are over a dozen AI-powered platforms competing for that workflow — and their marketing all sounds the same.
 
 For litigators evaluating these tools, the challenge is not finding options — it is knowing what to evaluate. Feature lists and marketing demos do not reveal how a tool performs under real case conditions, where transcripts are messy, deadlines are tight, and the summary needs to be reliable enough to cite in a brief.
 
@@ -20,7 +20,7 @@ This guide covers the practical evaluation criteria that matter when [comparing 
 
 ## Output Format: Page-Line vs. Narrative
 
-The most fundamental choice in deposition summary software is the output format. The two standard approaches serve different purposes, and the best tools support both.
+The first thing to evaluate in any deposition summary software is the output format. The two standard approaches serve different purposes, and the tool you choose should support both.
 
 ### Page-Line Summaries
 
@@ -29,7 +29,7 @@ A page-line summary presents testimony organized by topic or chronology, with ea
 > **Topic: Prior Medical History**
 > Witness testified to two prior back injuries, both resolved before the accident date. (p. 45:12-46:8)
 
-Page-line summaries are the standard format for litigation preparation because they support direct verification. An attorney can read a summarized point, check the cited reference, confirm the context, and use the point in a brief or motion outline — without rereading the transcript.
+Page-line summaries are the standard format for litigation preparation because they support direct verification. An attorney can read a summarized point, check the cited reference, confirm the context, and use the point in a brief or motion outline — without rereading the transcript. (For a detailed breakdown of the format, see [how to draft a page-line deposition summary](/blog/how-to-draft-a-page-line-deposition-summary/).)
 
 **Best for:** Motion practice, witness preparation, impeachment analysis, settlement demand support.
 
@@ -45,26 +45,17 @@ Narrative summaries are useful for case intake, initial assessment, and team bri
 
 ### What to Look For
 
-The best [deposition summary software](/compare/best-deposition-summary-software/) supports both formats and lets the user choose based on the task. A tool that only produces narratives without citations forces manual verification — which eliminates most of the time savings the software is supposed to provide.
+Any [deposition summary software worth considering](/compare/best-deposition-summary-software/) supports both formats and lets the user choose based on the task. A tool that only produces narratives without citations forces manual verification — which eliminates most of the time savings the software is supposed to provide.
 
 **Evaluation question:** Can you generate both page-line and narrative summaries from the same transcript, and switch between formats without re-uploading?
 
-## Citation Accuracy: The Non-Negotiable Feature
+## Citation Accuracy: Test It, Don't Trust the Marketing
 
-Citation accuracy is the single most important feature in deposition summary software. Everything else — speed, pricing, interface design — is secondary to whether the page-line references actually match the source testimony.
+Citation accuracy is the non-negotiable. Everything else — speed, pricing, interface — is secondary to whether page-line references match the source testimony.
 
-Inaccurate citations are worse than no citations. A page-line reference that points to the wrong passage creates false confidence. An attorney who cites a summarized point in a brief, relying on the software's page-line reference, and then discovers the reference is incorrect during opposition review has a credibility problem that no technology feature can fix.
+Do not rely on vendor accuracy claims. Upload a transcript you know well, generate a page-line summary, and spot-check 10-15 citations yourself. Check edge cases: testimony spanning multiple pages, evasive answers, and testimony corrected later in the deposition. If more than one or two citations miss, the tool is not ready for litigation use.
 
-### How to Test Citation Accuracy
-
-Do not rely on vendor accuracy claims. Test with your own transcripts:
-
-1. **Upload a transcript you know well** — one where you attended the deposition or recently reviewed the testimony.
-2. **Generate a page-line summary.**
-3. **Spot-check 10-15 citations** by opening the referenced pages and confirming the summary accurately reflects the testimony.
-4. **Check edge cases:** testimony that spans multiple pages, questions where the witness was evasive, and testimony that was corrected or clarified later in the deposition.
-
-A spot-check rate of 10-15 citations should take under 10 minutes. If more than one or two citations are inaccurate or misleading, the tool is not ready for litigation use.
+The full verification workflow — what to check, how fast it should take, and what "good" looks like in practice — is covered in [what reviewers check before they rely on deposition summary software](/blog/deposition-summary-software-what-reviewers-check/).
 
 **Evaluation question:** When you spot-check page-line citations, do they consistently match the source testimony in context — not just in isolation?
 
@@ -84,13 +75,13 @@ The difference matters most under deadline. When a motion is due in 48 hours and
 
 ## Summary Customization: Issue-Based vs. Chronological
 
-Different litigation tasks require different summary structures. Evaluating whether a tool supports customization saves time later.
+Different litigation tasks require different summary structures, and tools vary widely here.
 
 **Chronological summaries** follow the order of testimony and are useful for complete case review, where understanding the full scope of the deposition matters.
 
 **Issue-based summaries** organize testimony by topics you define — liability, damages, causation, credibility — and are more useful when preparing for specific motions, hearings, or witness examinations.
 
-The ability to define custom topics and have the software organize testimony accordingly is a significant differentiator. A tool that only produces chronological summaries requires manual reorganization for issue-specific work.
+The ability to define custom topics and have the software organize testimony accordingly separates tools built for litigation from general document summarizers. A tool that only produces chronological summaries requires manual reorganization for issue-specific work. (See [how to draft an issue-based deposition summary](/blog/how-to-draft-a-issue-based-deposition-summary/) for more on this format.)
 
 **Evaluation question:** Can you define custom topic categories and have the software organize the summary around those issues?
 
@@ -134,7 +125,7 @@ Deposition transcripts contain sensitive information — witness testimony, case
 - **Access controls.** The platform should support role-based access so that only authorized team members can view case materials.
 - **Data retention and deletion.** Understand how long the platform retains your documents and whether you can delete them on demand.
 - **SOC 2 compliance or equivalent.** Independent security audits provide assurance beyond vendor self-certification.
-- **BAA availability.** If you handle medical-legal depositions that include protected health information, the vendor should offer a Business Associate Agreement.
+- **BAA availability.** If you handle medical-legal depositions that include protected health information (common in [medical record review workflows](/ai-medical-record-summaries-chronologies/)), the vendor should offer a Business Associate Agreement.
 
 ### Questions to Ask
 
@@ -147,11 +138,11 @@ Deposition transcripts contain sensitive information — witness testimony, case
 
 ## Workflow Integration: Does It Fit How Your Team Works?
 
-The best deposition summary software fits into existing workflows rather than requiring teams to change how they work.
+Deposition summary software should fit into your existing workflow — not force you to redesign it.
 
 ### Key Integration Points
 
-**Upload flexibility.** Can you upload transcripts in the formats you receive them — PDF, Word, ASCII text, scanned documents? Does the platform handle [OCR for scanned transcripts](/ai-pdf-ocr/)?
+**Upload flexibility.** Can you upload transcripts in the formats you receive them — PDF, Word, ASCII text, scanned documents? Does the platform handle [OCR for scanned transcripts](/ai-pdf-ocr/)? Can it serve as your full [transcript management system](/ai-deposition-transcript-software/), not just a summarizer?
 
 **Export options.** Summaries should export to Word (.docx) and PDF with formatting and citations preserved. If your team works in a specific [case management system](/industries/law-firm-case-management/), check whether the export format integrates cleanly.
 
@@ -194,10 +185,30 @@ Before committing to any [deposition summary software](/deposition-summary-softw
 - [ ] Support is responsive and knowledgeable about litigation workflows
 - [ ] Product roadmap aligns with your firm's needs
 
-## The Decision That Matters
+## How to Run a Structured Trial
 
-Choosing deposition summary software is not a technology decision. It is a workflow decision. The right tool reduces the time between receiving a transcript and having a verified, cited summary ready for litigation use. The wrong tool adds a step, creates verification burdens, or introduces security risk.
+Demos tell you what the vendor wants you to see. A structured trial tells you what the tool actually does with your work product.
 
-Test with your own transcripts. Spot-check the citations. Calculate the cost at your volume. Then decide based on what the tool actually produces — not what the demo promises.
+**Pick three transcripts that represent your real caseload:**
+
+1. **A clean, standard deposition** (150-250 pages) — this tests baseline output quality and turnaround time.
+2. **A messy one** — scanned, poor formatting, multiple speakers, or an interpreter. This tests how the tool handles the transcripts that actually cause problems.
+3. **One you know well** — where you attended or recently prepped from the testimony. This is your accuracy benchmark: you will spot citation errors that a cold reviewer might miss.
+
+**Run all three through the tool and measure:**
+
+- How long did generation take?
+- How many of 15 spot-checked citations were accurate in context?
+- Could you export to Word with formatting and citations intact?
+- Could a second team member access the same case?
+- Did the summary structure match what you would actually use in a brief or motion outline?
+
+Most teams know within one or two transcripts whether the tool fits. If you are still uncertain after three, that is itself a signal.
+
+## Switching Costs Are Lower Than You Think
+
+Firms often delay evaluation because switching feels expensive. In practice, there is no migration — deposition summary tools process new transcripts, they do not require importing years of historical data. Your existing summaries stay where they are. The new tool starts working on the next transcript you receive.
+
+The real cost of waiting is not the eventual switch. It is the dozens of depositions between now and then that your team spends 4-8 hours each summarizing manually.
 
 [**Upload a transcript and test it yourself**](https://app.dodon.ai/signup) — most teams know within one summary whether the tool fits their workflow.

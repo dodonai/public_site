@@ -14,7 +14,7 @@ featureMain: false
 
 Paralegals have always been the operational backbone of litigation teams. You organize the records, build the chronologies, draft the summaries, and keep the case moving. But the volume of documents in modern litigation keeps climbing — and the expectation is that you will process them faster than ever.
 
-AI tools are changing the math. Not by replacing the judgment calls you make every day, but by eliminating the repetitive labor that consumes most of your hours. The question is no longer whether to adopt AI — it is which tools actually help, and how to evaluate them before you commit.
+AI tools for paralegals are changing the math. Not by replacing the judgment calls you make every day, but by eliminating the repetitive labor that consumes most of your hours. The question is no longer whether to adopt AI — it is which tools actually help, and how to evaluate them before you commit.
 
 This guide breaks down the major categories of AI-assisted litigation work, what to look for in each category, and how to fold these tools into your existing workflow without creating new headaches.
 
@@ -32,7 +32,7 @@ AI-powered medical chronology tools ingest scanned or native PDFs and produce st
 - Exports to formats your attorneys actually use (Word, PDF, Excel)
 - Flags referenced providers not included in the uploaded records
 
-Dodonai's [medical record summary and chronology tool](/ai-medical-record-summaries-chronologies/) checks these boxes and processes records in minutes rather than hours.
+Dodonai's [medical record summary and chronology tool](/ai-medical-record-summaries-chronologies/) checks these boxes and processes records in minutes rather than hours. For a walkthrough of what the output actually looks like, see our post on [building a medical chronology provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
 ### 2. Deposition Summaries
 
@@ -46,11 +46,13 @@ AI deposition summary tools parse transcripts and generate structured summaries 
 - Ability to specify key topics or issues for the tool to prioritize
 - Clean formatting that does not require hours of post-processing
 
+Dodonai's [deposition summary tool](/deposition-summary-software/) generates page-line, narrative, and issue-based summaries with verified citations. If you also need to search and analyze raw transcripts, Dodonai's [transcript management platform](/ai-deposition-transcript-software/) lets you query testimony across multiple depositions at once. For a deeper look at the page-line format, see our guide on [how to draft a page-line deposition summary](/blog/how-to-draft-a-page-line-deposition-summary/).
+
 ### 3. OCR and Document Processing
 
 Scanned records, faxed documents, and image-only PDFs are still a daily reality. If you cannot search the text, you cannot efficiently review the document. Standard OCR has been around for years, but AI-enhanced OCR goes further — reading handwriting, interpreting tables, and handling the low-quality scans that older tools choke on.
 
-**What to look for:**
+**Non-negotiable capabilities:**
 - Handles low-resolution scans and mixed orientations
 - Reads handwritten notes (with reasonable legibility)
 - Preserves document structure including tables and columns
@@ -67,6 +69,8 @@ For paralegals working discovery or transactional matters, AI extraction tools p
 - Handles varied document formats and layouts
 - Provides citations or references back to source pages
 - Integrates with your document management or review platform
+
+Dodonai's [Extract and Draft Agents](/dodonai-extract-and-draft-agents/) automate this kind of structured data extraction across contracts, correspondence, and discovery documents. For teams running large-scale review, Dodonai's [e-discovery platform](/electronic-discovery-software/) handles document ingestion, search, and review in a single workflow.
 
 ## How to Evaluate an AI Tool Before Adoption
 
@@ -94,7 +98,7 @@ You are handling privileged and sensitive information. Confirm that the vendor m
 
 ## Building AI Into Your Existing Workflow
 
-The most successful AI adoption happens when tools slot into your current process rather than replacing it entirely. Here is a practical approach:
+You do not need to overhaul your workflow. The goal is to slot AI tools into what you already do. Here is a phased approach that works:
 
 **Week 1-2: Single-task pilot.** Pick one task category — medical chronologies are often the best starting point — and run five to ten real cases through the tool. Track the time saved and the quality of output compared to your manual process.
 
@@ -104,8 +108,8 @@ The most successful AI adoption happens when tools slot into your current proces
 
 The goal for [legal AI adoption by paralegals](/use-cases/legal-ai-for-paralegals/) is not to automate everything overnight. It is to systematically eliminate the manual labor that keeps you from the higher-value work your attorneys depend on — case analysis, witness preparation, and strategic document organization.
 
-## Bottom Line
+## Where Paralegals Should Start
 
-AI tools for litigation are no longer experimental. They are practical, available, and — when chosen carefully — capable of giving paralegals back hours every week. The key is evaluating them honestly, piloting them on real work, and adopting them incrementally.
+If you are evaluating AI tools for the first time, pick the task that eats the most hours on your desk — for most litigation paralegals, that is medical chronologies or deposition summaries. Run five real cases through a single platform, compare the output quality and turnaround time against your manual process, and decide from there. The tools covered here are production-ready, not experimental, and the paralegals already using them are reclaiming 5-10 hours per week on document-heavy cases.
 
 [**See how Dodonai handles medical chronologies, deposition summaries, and OCR in one platform.**](/)

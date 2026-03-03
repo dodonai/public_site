@@ -4,8 +4,8 @@ date: "2026-03-02"
 author: "Dodonai Team"
 category: "Medical Records"
 image: "/images/blog/building-medical-chronologies-for-ssdi-disability-claims.png"
-description: "How to organize medical records for SSDI and disability claims — RFC documentation, Blue Book listing criteria, onset date evidence, and what makes disability chronologies different from PI."
-cardText: "How to organize medical records for SSDI and disability claims — RFC documentation, Blue Book listing criteria, onset date evidence, and what makes disability chronologies different from PI."
+description: "How to build medical chronologies for SSDI disability claims — Blue Book mapping, RFC documentation, onset date evidence, and ALJ hearing prep."
+cardText: "How to build medical chronologies for SSDI disability claims — Blue Book mapping, RFC documentation, onset date evidence, and ALJ hearing prep."
 imageAlt: "Medical chronology organized for a disability claim with highlighted RFC findings and Blue Book criteria"
 readingTime: "7 minutes"
 featured: false
@@ -14,7 +14,7 @@ featureMain: false
 
 Disability claims are won or lost on medical evidence. At an ALJ hearing, your client's records need to tell a clear, documented story: this person cannot perform substantial gainful activity, and the medical evidence proves it. The medical chronology is the tool that makes that story legible to the judge.
 
-But a disability chronology is not the same as a personal injury chronology. The focus, the structure, and the details that matter are fundamentally different. This guide covers how to build medical chronologies specifically for [SSDI and disability claims](/practice-areas/disability-benefits/) — and what distinguishes them from the timelines built for other case types.
+But a disability chronology is not the same as a [personal injury chronology](/blog/how-to-organize-medical-records-for-personal-injury-demand-package/). The focus, the structure, and the details that matter are different. This guide covers how to build medical chronologies specifically for [SSDI and disability claims](/practice-areas/disability-benefits/) — and what distinguishes them from the timelines built for other case types.
 
 ## How Disability Chronologies Differ from PI Chronologies
 
@@ -119,9 +119,9 @@ Practical formatting considerations:
 
 ## How Automation Changes the Equation
 
-Disability cases often involve the largest record volumes in any practice area. A claimant with multiple chronic conditions and a decade of treatment history can easily generate 3,000 to 5,000 pages of records. Building a chronology manually from that volume is a multi-day project.
+SSDI and disability cases often involve the largest record volumes in any practice area. A claimant with multiple chronic conditions and a decade of treatment history can easily generate 3,000 to 5,000 pages of records. Building a chronology manually from that volume is a multi-day project.
 
-[Medical chronology software](/compare/best-medical-chronology-software/) like [Dodon.ai](/ai-medical-record-summaries-chronologies/) compresses the extraction and organization into minutes. Upload the full record set — including scanned documents, handwritten physician notes, and mixed-format PDFs — and receive a structured timeline with citations. Your team then focuses on the analytical work: mapping findings to listings, identifying RFC evidence, and preparing for the hearing.
+[Medical chronology software](/compare/best-medical-chronology-software/) like [Dodon.ai](/ai-medical-record-summaries-chronologies/) compresses the extraction and organization into minutes. Upload the full record set — including scanned documents, handwritten physician notes, and [mixed-format PDFs](/ai-pdf-ocr/) — and receive a structured timeline with citations. Your team then focuses on the analytical work: mapping findings to listings, identifying RFC evidence, and preparing for the hearing.
 
 The manual effort doesn't disappear, but it shifts to the work that requires legal judgment rather than data entry.
 

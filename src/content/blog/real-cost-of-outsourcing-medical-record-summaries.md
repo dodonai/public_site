@@ -4,19 +4,19 @@ date: "2026-03-02"
 author: "Dodonai Team"
 category: "Medical Records"
 image: "/images/blog/real-cost-of-outsourcing-medical-record-summaries.png"
-description: "Cost comparison of outsourced medical record summaries ($5-15/page) vs. AI-powered summarization ($0.02/page). ROI math for solo practitioners, mid-size firms, and high-volume practices."
-cardText: "Cost comparison of outsourced medical record summaries ($5-15/page) vs. AI-powered summarization ($0.02/page). ROI math for solo practitioners, mid-size firms, and high-volume practices."
+description: "Outsourcing medical record summaries costs $5-15/page. AI does it for $0.02/page. ROI math for solo, mid-size, and high-volume firms."
+cardText: "Outsourcing medical record summaries costs $5-15/page. AI does it for $0.02/page. ROI math for solo, mid-size, and high-volume firms."
 imageAlt: "Cost comparison of outsourced vs AI medical record summaries"
 readingTime: "8 minutes"
 featured: false
 featureMain: false
 ---
 
-A mid-size personal injury firm processing 5,000 pages of medical records per month pays between $25,000 and $75,000 annually to outsourced summarization vendors. The invoices arrive monthly, the turnaround is measured in days or weeks, and the quality varies enough that someone on staff still reviews every summary before it goes into a demand package.
+The real cost of outsourcing medical record summaries is larger than the per-page rate suggests. A mid-size personal injury firm processing 5,000 pages per month pays between $25,000 and $75,000 annually to outsourced summarization vendors. The invoices arrive monthly, the turnaround is measured in days or weeks, and the quality varies enough that someone on staff still reviews every summary before it goes into a [demand package](/blog/how-to-organize-medical-records-for-personal-injury-demand-package/).
 
 That cost is accepted because the alternative — having paralegals build chronologies from scratch — is even more expensive when measured in billable hours lost.
 
-But the cost equation has changed. AI-powered [medical record summarization](/ai-medical-record-summaries-chronologies/) now produces cited chronologies at a fraction of the per-page cost, with turnaround measured in minutes instead of days. The question is no longer whether AI can do this work. The question is how much your firm is overpaying to have someone else do it slowly.
+But the cost equation has changed. AI-powered [medical record summarization](/ai-medical-record-summaries-chronologies/) now produces cited chronologies at a fraction of the per-page cost, with turnaround measured in minutes instead of days. AI can do this work. The remaining question is how much your firm is overpaying to have someone else do it slowly.
 
 ## What Outsourced Medical Record Summaries Actually Cost
 
@@ -43,7 +43,7 @@ For [medical record retrieval](/industries/medical-record-retrieval/) companies 
 
 ## What AI-Powered Summarization Costs
 
-AI-powered medical record summarization operates on fundamentally different economics:
+AI-powered medical record summarization operates on different economics:
 
 **Per-page cost: approximately $0.02 per page.**
 
@@ -111,7 +111,7 @@ Cost savings mean nothing if the output is unusable. Here is how AI-powered summ
 
 **Completeness.** Outsourced analysts sometimes miss providers, especially when records are disorganized or duplicate pages obscure the provider list. AI processes every page in the record set systematically, reducing gaps caused by human fatigue or selective reading.
 
-**Citation accuracy.** Outsourced summaries vary in citation quality. Some vendors provide page references; others provide only date-based references that require the reviewer to locate the source page manually. AI-generated chronologies attach citations to original record pages, making verification a direct lookup rather than a search.
+**Citation accuracy.** Outsourced summaries vary in citation quality. Some vendors provide page references; others provide only date-based references that require the reviewer to locate the source page manually. AI-generated chronologies [attach citations to original record pages](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/), making verification a direct lookup rather than a search.
 
 **Consistency.** Vendor quality depends on which analyst is assigned to a case. AI applies the same extraction logic to every record set, producing consistent formatting and structure across cases. This consistency matters when attorneys review chronologies across a caseload rather than one at a time.
 
@@ -127,7 +127,7 @@ Cost-per-page comparisons miss one of the largest advantages of AI summarization
 
 When a vendor takes 7 business days to deliver a medical chronology, that delay cascades through the case timeline:
 
-- Demand packages wait for the chronology to be completed and reviewed
+- [Demand packages](/blog/how-to-write-demand-letter-documentation-strategy/) wait for the chronology to be completed and reviewed
 - Attorney case evaluation is delayed because the record picture is incomplete
 - Settlement negotiations stall when documentation is not ready
 - Statute of limitations deadlines create pressure that rush surcharges exploit
@@ -139,19 +139,19 @@ AI-generated chronologies are available in minutes. An attorney can upload recor
 AI-powered summarization does not eliminate every reason to use outsourced vendors:
 
 - **Expert medical review.** When a case requires a clinician's interpretation of treatment records — not just a chronology — a specialized vendor with medical expertise adds value that AI alone does not provide.
-- **Overflow capacity.** During litigation surges or mass tort intake, outsourced vendors can absorb volume spikes when internal capacity and software licenses are maxed.
+- **Overflow capacity.** During litigation surges or [mass tort intake](/blog/mass-tort-document-management-processing-claimant-records/), outsourced vendors can absorb volume spikes when internal capacity and software licenses are maxed.
 - **Regulatory or client requirements.** Some clients or matters require human-reviewed summaries as a contractual or compliance condition.
 
 For the majority of medical record summarization work — building chronologies, extracting provider timelines, organizing treatment histories for demand packages — AI is faster, cheaper, and more consistent than outsourced alternatives.
 
-## Making the Switch
+## Switching From Outsourced to AI Medical Record Summaries
 
 Transitioning from outsourced summarization to AI-powered tools does not require an all-or-nothing commitment:
 
-1. **Start with one case type.** Run AI summarization alongside your existing vendor on a subset of cases. Compare output quality, turnaround, and total cost.
+1. **Start with one case type.** Run AI summarization alongside your existing vendor on a subset of cases — personal injury, [workers' compensation](/blog/workers-compensation-medical-records-attorneys-adjusters/), or disability claims all work well as starting points. Compare output quality, turnaround, and total cost.
 2. **Measure QA time.** Track how long your team spends reviewing AI-generated chronologies versus vendor-produced summaries. The reduction in QA time is where much of the savings materialize.
 3. **Scale as confidence builds.** Shift additional case types to AI summarization as your team validates the output against their review standards.
 
-The firms that have made this transition report the same pattern: initial skepticism, a side-by-side comparison that reveals the cost and quality gap, and then rapid adoption as the economics become undeniable.
+Most firms that have made this transition started with a single case type, ran AI alongside their existing vendor for a month, and shifted volume once the cost and quality gap was obvious.
 
 [**Try it on one record set**](https://app.dodon.ai/signup) to see how AI-generated medical chronologies compare to what you are paying today.
