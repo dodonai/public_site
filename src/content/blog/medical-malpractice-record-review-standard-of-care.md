@@ -109,7 +109,7 @@ The goal is to give the expert everything needed to form an opinion without requ
 
 ## Step 6: Maintain the Chronology as the Case Evolves
 
-Malpractice cases often span years. New records emerge, [depositions](/deposition-summary-software/) reveal facts not documented in the chart, and expert opinions sharpen the theory. The chronology should be a living document that evolves with the case — for the deposition side of this process, see our guide on [malpractice deposition prep using chronologies](/blog/medical-malpractice-deposition-prep-chronology-examination-outline/):
+Malpractice cases often span years. New records emerge, [depositions](/deposition-summary-software/) reveal facts not documented in the chart, and expert opinions sharpen the theory. The chronology should be a living document that evolves with the case:
 
 - Add deposition testimony that contradicts or supplements the written record
 - Incorporate subsequently obtained records from additional providers

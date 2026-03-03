@@ -127,7 +127,7 @@ Cost-per-page comparisons miss one of the largest advantages of AI summarization
 
 When a vendor takes 7 business days to deliver a medical chronology, that delay cascades through the case timeline:
 
-- [Demand packages](/blog/how-to-write-demand-letter-documentation-strategy/) wait for the chronology to be completed and reviewed
+- Demand packages wait for the chronology to be completed and reviewed
 - Attorney case evaluation is delayed because the record picture is incomplete
 - Settlement negotiations stall when documentation is not ready
 - Statute of limitations deadlines create pressure that rush surcharges exploit

@@ -95,7 +95,7 @@ If the claimant has not yet reached MMI, the demand should note this and include
 
 With the chronology, specials, and MMI documentation in place, assemble the final package. A strong [personal injury](/practice-areas/personal-injury/) demand typically includes:
 
-1. **Demand letter** — narrative tying liability to damages, supported by the chronology (see [how to write a demand letter with strong documentation](/blog/how-to-write-demand-letter-documentation-strategy/))
+1. **Demand letter** — narrative tying liability to damages, supported by the chronology
 2. **Medical chronology** — the structured timeline with citations
 3. **Specials summary** — itemized treatment costs by category
 4. **Supporting records** — key pages from the medical records (operative reports, imaging findings, MMI declarations)

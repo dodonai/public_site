@@ -83,7 +83,7 @@
 
 		<header class="relative z-10 mx-auto w-[85%] max-w-[1250px] pb-16 pt-2 text-center sm:pb-20">
 			<div class="mb-8">
-				<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog/' }, { name: title }]} />
+				<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog/' }, { name: title }]} url={page.url.pathname} />
 			</div>
 			<!-- Category + Reading Time -->
 			<div class="mb-6 flex items-center justify-center gap-3">
