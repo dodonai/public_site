@@ -14,7 +14,7 @@ imageAlt: "Image of the Chief Justice Roberts of the US Supreme Court"
 
 # Summary - Chief Justice Roberts's Year-End Report on the Federal Judiciary 2023
 
-Below is a summary, created by [Dodonai's Summarizer](/deposition-summary-software) feature, of the 2023 Year-End Report on the Federal Judiciary. The quotes were added for this post.
+Below is a summary, created by [Dodonai's Summarizer](/deposition-summary-software) feature, of the 2023 Year-End Report on the Federal Judiciary. The quotes were added for this post. This report was released during the same Supreme Court term that featured several high-profile cases — see our [overview of the Fall 2023 SCOTUS cases to watch](/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/), as well as our AI analyses of oral arguments in [Loper Bright Enterprises v. Raimondo](/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/) and [Relentless v. Dept. of Commerce](/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/).
 
 The 2023 Year-End Report on the Federal Judiciary discusses the impact of technology on the legal profession. It highlights the historical changes brought about by new technology, such as the introduction of electricity to American homes and the use of personal computers in courtrooms. The report also mentions the challenges and failures associated with technological advancements, such as Mark Twain's failed investment in a typesetting device. The report acknowledges the skepticism within the judiciary towards technology but emphasizes the need for adaptation and the continued transformation of work processes.
 

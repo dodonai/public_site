@@ -38,7 +38,7 @@ Take your own caseload:
 -   Total hours × Staff hourly rate = Monthly cost of transcript review.  
     
 
-Even conservative estimates reveal five-figure annual costs dedicated purely to manual review. These are hours not spent on strategy, client development, or courtroom preparation.
+Even conservative estimates reveal five-figure annual costs dedicated purely to manual review. These are hours not spent on strategy, client development, or courtroom preparation. For a breakdown of where manual workflows commonly fail, see [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/).
 
 ## **How Dodon.ai Speeds Review with Citations**
 
@@ -64,7 +64,7 @@ By shifting transcript analysis into structured, searchable outputs, firms recla
 
 ## **Why This Matters for Litigation Prep**
 
-Deposition testimony often anchors causation, damages, and credibility. Missing a line can change settlement leverage. But over-investing staff time erodes margins and slows case progression. Firms using Dodon.ai report cutting review time by 80–90%, while still working with documents that meet litigation prep standards.
+Deposition testimony often anchors causation, damages, and credibility in cases ranging from [personal injury](/practice-areas/personal-injury/) to [medical malpractice](/practice-areas/medical-malpractice/). If you're new to the deposition process, our guide on [how depositions work](/blog/how-do-depositions-work-an-in-depth-exploration/) covers the full lifecycle from scheduling to transcript use. Missing a line can change settlement leverage. But over-investing staff time erodes margins and slows case progression. Firms using Dodon.ai report cutting review time by 80–90%, while still working with documents that meet litigation prep standards.
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68deabcaa7bde794170b78bc_dbfbaa13.png)
 

@@ -12,7 +12,7 @@ cardText: "A practical verification loop for AI deposition summaries: page-line 
 imageAlt: "AI Deposition Summaries"
 ---
 
-AI deposition summaries are only useful if reviewers can confirm what they’re relying on. In real litigation prep, summaries move fast—from first review to outlines to internal memos—and once they circulate, assumptions harden quickly. That’s why experienced teams don’t ask whether a summary is “accurate.” They ask whether it can be verified before use.
+AI deposition summaries are only useful if reviewers can confirm what they’re relying on. Research from the University of Minnesota confirms that [AI improves the speed and quality of legal tasks](/blog/lawyering-in-the-age-of-artificial-intelligence/), but those gains depend on verification. In real litigation prep, summaries move fast—from first review to outlines to internal memos—and once they circulate, assumptions harden quickly. That’s why experienced teams don’t ask whether a summary is “accurate.” They ask whether it can be verified before use.
 
 Verification, not automation claims, is what determines whether a [deposition summary](/deposition-summary-software/) is safe to rely on.
 
@@ -52,7 +52,7 @@ Citations get added late, sometimes by someone who didn’t read the original ex
 
 Teams trust summaries because re-reading source pages feels too slow.
 
-Manual review doesn’t fail because teams don’t care about accuracy. It fails because verification takes too much time.
+Manual review doesn’t fail because teams don’t care about accuracy. It fails because verification takes too much time. These workflow breakdowns mirror the patterns described in [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/).
 
 ## **The verification loop teams actually use**
 
@@ -79,7 +79,7 @@ This loop is how teams maintain AI deposition summary accuracy under real deadli
 
 Reviewers start with a structured deposition summary where each material statement includes page and line references. This allows immediate triage: which facts matter, and which ones need confirmation.
 
-Page-line citations aren’t a nice-to-have. They’re the entry point to verification.
+Page-line citations aren’t a nice-to-have. They’re the entry point to verification. For a full explainer on the citation format and why it matters, see [Page-Line 101: What Your Partner Means When They Ask for Citations](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/).
 
 ### **2\. Click the citation to confirm testimony on the source page**
 
@@ -119,7 +119,7 @@ Dodon.ai is built around this verification workflow, not around blind trust. Tea
 
 ![https://cdn.prod.website-files.com/6439858f1cacf7fdfa1347e6/67db12925629728b1c53e132_Screenshot%202025-03-19%20at%202.46.33%E2%80%AFPM.png?utm_source=chatgpt.com](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/693c55696fbf41ee02250e8c_a4adf25f.png)
 
-This keeps the trust boundary clear: summaries are verified before they leave the system.
+This keeps the trust boundary clear: summaries are verified before they leave the system. For teams handling sensitive medico-legal content, Dodon.ai also enforces [zero data retention and strict privacy safeguards](/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/) throughout the process.
 
 ## **Failure avoided when verification is built in**
 

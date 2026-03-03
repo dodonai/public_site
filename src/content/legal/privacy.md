@@ -7,7 +7,7 @@ Last updated April 15, 2023
 
 This privacy notice for Dodonai, LLC ("Company," "we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
 
-• Visit our website at http://www.dodon.ai, or any website of ours that links to this privacy notice
+• Visit our website at https://www.dodon.ai, or any website of ours that links to this privacy notice
 
 • Engage with us in other related ways, including any sales, marketing, or events
 
@@ -353,7 +353,7 @@ Exercise your rights provided under the Virginia CDPA
 
 More information about our data collection and sharing practices can be found in this privacy notice.
 
-You may contact us by email at hello@dodon.ai, by visiting http://www.dodon.ai/#contact, or by referring to the contact details at the bottom of this document.
+You may contact us by email at hello@dodon.ai, by visiting https://www.dodon.ai/#contact, or by referring to the contact details at the bottom of this document.
 
 If you are using an authorized agent to exercise your rights, we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.
 

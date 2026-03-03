@@ -25,7 +25,7 @@ Contradictions in deposition transcripts rarely appear as direct opposites. More
 -   Causation shifts (“before treatment” vs. “after treatment”)
 -   Conflicting descriptions of the same event by different witnesses
 
-Manual review depends on memory, notes, and repeated reading. Once multiple depositions enter discovery, testimony inconsistencies are easy to miss under time pressure.
+Manual review depends on memory, notes, and repeated reading. Once multiple depositions enter discovery, testimony inconsistencies are easy to miss under time pressure. These are some of the same challenges covered in [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/).
 
 A structured deposition review workflow removes guesswork and replaces rereading with targeted comparison.
 
@@ -112,7 +112,7 @@ Once identified, contradictions in deposition transcripts support:
 -   Expert review and causation analysis
 -   Settlement positioning
 
-These materials support litigation preparation and discovery, not courtroom evidence, but they sharpen credibility assessment and case strategy.
+These materials support litigation preparation and discovery, not courtroom evidence, but they sharpen credibility assessment and case strategy. For more on how deposition testimony can be used strategically at trial, see [Using Depositions as Evidence: A Deep Dive](/blog/using-depositions-as-evidence-a-deep-dive/).
 
 **With Dodon.ai:** Flagged excerpts can be shared or exported internally, keeping contradiction analysis aligned across the team.
 

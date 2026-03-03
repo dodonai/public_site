@@ -14,6 +14,8 @@ imageAlt: "Image of the justices of the US Supreme Court deciding Devilier v. Te
 
 Dodonai created this analysis in less than 3 minutes. If you are interested in analyzing and summarizing your legal docs, check out our [AI deposition summaries](/deposition-summary-software) and [deposition transcript management software](/ai-deposition-transcript-software) to get started.
 
+This case was argued during the same Supreme Court term as two landmark Chevron deference challenges. Read our AI analyses of those oral arguments: [Loper Bright Enterprises v. Raimondo](/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/) and [Relentless v. Dept. of Commerce](/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/). For broader context on the full Fall 2023 term, see our [summary of SCOTUS cases to watch](/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/).
+
 ### **ROBERTS**
 
 **1\. The Justice takes interest in the following issues:  
@@ -230,3 +232,7 @@ Dodonai created this analysis in less than 3 minutes. If you are interested in a
 **4\. Analysis of the Justice's sentiment towards each party's position:  
 **  - The Justice seems to be somewhat skeptical of the state's position, as he questions Mr. Nielson about the application of the Takings Clause to the states and the concept of an injunction to pay money.  
   - However, the Justice does not express any clear sentiment towards the petitioners' position in this excerpt.
+
+---
+
+Interested in how AI is being used — and debated — within the federal judiciary itself? Read our [summary of Chief Justice Roberts's 2023 Year-End Report on the Federal Judiciary](/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary/), where he weighs in on the promise and risks of artificial intelligence in the courts.

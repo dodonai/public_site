@@ -24,7 +24,7 @@ Determining the right amount of detail for a deposition summary can be challengi
 
 ## Presentation Matters
 
-Invest time in the presentation of your summary. A two-column format is highly recommended for clarity and ease of use. Allocate the left column for page and line references, and use the right column for the summary content, including dates, case identifiers, and witness names. This structured layout not only enhances readability but also facilitates quick reference during case preparation or court proceedings.
+Invest time in the presentation of your summary. A two-column format is highly recommended for clarity and ease of use. Allocate the left column for page and line references, and use the right column for the summary content, including dates, case identifiers, and witness names. This structured layout not only enhances readability but also facilitates quick reference during case preparation or court proceedings. For a ready-to-use layout, see our [page-line deposition summary template for motion practice](/blog/deposition-summary-template-page-line-format-for-motion-practice/). If you're new to page-line citations, [Page-Line 101](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/) explains the format and why partners insist on them.
 
 ## Review Your Work
 
@@ -35,7 +35,7 @@ Accuracy and objectivity are paramount in deposition summaries. Multiple reviews
 -   **Understand the Context**: Grasping the context of the deposition is crucial. A deep understanding of the case's background allows the summary writer to present testimonies accurately without misinterpretation or distortion.
 -   **Use Correct Details**: Pay close attention to dates, numerical values, locations, and case numbers. Ensure these details are accurately reflected in the summary to prevent any discrepancies.
 -   **Identify Key Points**: Know what is most important for the case. Sharing the case goals and strategies with the summary writer can guide the focus of the summary, highlighting information critical for trial preparation.
--   **Consistency with the Verbatim Transcript**: The summary must mirror the deposition transcript, including text that is perceived as a mistake. Maintaining this consistency ensures the summary's reliability as a legal document.
+-   **Consistency with the Verbatim Transcript**: The summary must mirror the deposition transcript, including text that is perceived as a mistake. Maintaining this consistency ensures the summary's reliability as a legal document. For a closer look at common pitfalls, see [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/).
 -   **Avoid Duplication and Maintain Objectivity**: Duplication can lead to confusion, so each point should only be mentioned once. Objectivity is crucial; personal opinions or biases should not influence the summary content.
 
 ## Practical Steps for Drafting

@@ -59,7 +59,7 @@ Missing, vague, or wrong citations slow down the prep and can erode confidence i
 
 ### **3\. Motion practice requires exact references**
 
-When drafting a motion or statement of facts, attorneys must cite the evidentiary record.  
+When drafting a motion or statement of facts, attorneys must cite the evidentiary record. For a structured layout you can use right away, see our [page-line deposition summary template for motion practice](/blog/deposition-summary-template-page-line-format-for-motion-practice/).
 If the summary already includes page-line support, associates can draft faster because the evidence is pre-indexed.
 
 ## **Why the Old Workflow Was Painful**
@@ -72,7 +72,7 @@ Problems with the old method:
 -   **Error-prone:** mistyping “45:12” instead of “54:12” breaks trust
 -   **Hard to scale:** every deposition summary becomes a manual project
 
-This is the kind of work that burns out junior staff and delays downstream tasks like motion drafts, outlines, and expert prep.
+This is the kind of work that burns out junior staff and delays downstream tasks like motion drafts, outlines, and expert prep. For a closer look at where these manual workflows break down, see [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/).
 
 ## **How Modern Software Speeds Up Page-Line Work**
 

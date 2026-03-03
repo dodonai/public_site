@@ -48,7 +48,7 @@ Reviewers scan for citations on the items most likely to be used later:
 -   core liability or causation points
 -   damages-related facts (work limitations, symptoms, treatment references)
 
-A summary that gives citations only "sometimes" forces manual cleanup. A summary that attaches page-line citations to each key point makes verification a standard habit, not a special effort.
+A summary that gives citations only "sometimes" forces manual cleanup. A summary that attaches page-line citations to each key point makes verification a standard habit, not a special effort. For a plain-English breakdown of the citation format, see [Page-Line 101: What Your Partner Means When They Ask for Citations](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/).
 
 **Reviewer tell:** citations appear where the summary makes assertions.
 
@@ -185,7 +185,7 @@ The reviewer standard is: "Show me the page-line references so I can confirm."
 
 ### **"We already have staff doing this."**
 
-Most teams aren't trying to replace staff. They're reducing repetitive first-pass work and speeding up citation verification under deadline.
+Most teams aren't trying to replace staff. They're reducing repetitive first-pass work and speeding up citation verification under deadline. For more on where manual workflows break down, see [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/).
 
 ### **"I don't want a new system to learn."**
 

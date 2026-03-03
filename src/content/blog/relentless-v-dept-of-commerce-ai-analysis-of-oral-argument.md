@@ -14,6 +14,8 @@ imageAlt: "Image of the justices of the US Supreme Court deciding Relentless v. 
 
 Dodonai created this analysis in less than 3 minutes. If you are interested in analyzing and summarizing your legal docs, check out our [AI deposition summaries](/deposition-summary-software) and [deposition transcript management software](/ai-deposition-transcript-software) to get started.
 
+This post is the companion analysis to our coverage of [Loper Bright Enterprises v. Raimondo](/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/), the other major Chevron deference case argued the same day. For broader context on the Supreme Court's Fall 2023 term — including Chevron, Second Amendment, and abortion cases — see our [summary of SCOTUS cases to watch](/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/). We also analyzed the oral arguments in [Devillier v. Texas](/blog/devillier-v-texas-ai-analysis-of-oral-argument/), a Fifth Amendment Takings Clause case heard the day before.
+
 ### OPENINGS
 
 Attorney Martinez, representing the petitioners, argues that the Chevron doctrine, which allows courts to defer to agencies' interpretations of ambiguous statutes, should be overruled. He contends that Chevron violates the Constitution by reallocating interpretive authority from courts to agencies, undermining judges' duty to interpret federal statutes independently. He also argues that Chevron violates the Administrative Procedure Act (APA), which he believes requires de novo review of legal questions. Martinez further criticizes the implied delegation theory, which justifies Chevron, as a fiction. He concludes by stating that if the petitioners have the best view of the statute, they should win the case.
@@ -227,3 +229,7 @@ In her rebuttal, General Prelogar, representing the respondents, defends the Che
 4. Analysis of Justice Kavanaugh's sentiment towards each party's position:
    - Justice Kavanaugh appears to challenge Mr. Martinez's defense of Chevron deference, suggesting that it may lead to constitutional issues and a shift of power from Congress to the executive.
    - He also appears to challenge General Prelogar's defense of Chevron, questioning the internal consistency of Chevron and its transformation of law into policy. However, he seems to agree with General Prelogar that Congress can grant broad policy discretion to agencies.
+
+---
+
+For more on how AI is transforming the federal judiciary and legal practice, read our [summary of Chief Justice Roberts's 2023 Year-End Report on the Federal Judiciary](/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary/), where he discusses both the promise and the risks of artificial intelligence in the courts.

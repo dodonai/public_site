@@ -96,7 +96,7 @@ Manual summarization can take hours, sometimes days. Dodon.ai changes that:
     
 -   **Customization.** Configure record types, data to extract, and formatting to suit your needs.  
     
--   **Minutes, not hours.** Handle 1,000+ pages quickly with AI-powered summarization.  
+-   **Minutes, not hours.** Handle 1,000+ pages quickly with AI-powered summarization. See [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/) for a step-by-step walkthrough.  
     
 -   **Audit-ready.** Every event tied back to the original record with page-line citations.  
     
@@ -105,7 +105,7 @@ Manual summarization can take hours, sometimes days. Dodon.ai changes that:
 
 ## **Final word**
 
-**Medical chronologies**, whether table or narrative, are essential for case prep. The table format gives you the Cliff’s Notes view. The narrative format gives you the finished story. Together, they save time, reduce errors, and help you move cases forward with confidence.
+**Medical chronologies**, whether table or narrative, are essential for case prep. The table format gives you the Cliff’s Notes view. The narrative format gives you the finished story. Together, they save time, reduce errors, and help you move cases forward with confidence. For a deeper look at building either format from raw records, see our [lawyer’s guide to preparing a medical chronology](/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/).
 
 **Try** [**Dodon.ai**](/) **today: upload a record set and get both formats, in minutes.**
 

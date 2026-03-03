@@ -48,7 +48,7 @@
 			'@type': 'BreadcrumbList',
 			itemListElement: [
 				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
-				{ '@type': 'ListItem', position: 2, name: 'Deposition Transcript Software' }
+				{ '@type': 'ListItem', position: 2, name: 'Deposition Transcript Software', item: `https://www.dodon.ai${data.seo.canonical}` }
 			]
 		},
 		{

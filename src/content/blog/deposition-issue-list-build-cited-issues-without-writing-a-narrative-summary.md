@@ -50,7 +50,7 @@ The platform generates structured summaries that skip the narrative and get stra
 -   **Summary of Testimony:** Condensed version of what was said
 -   **Topic Summary:** The issue or theme extracted from that testimony
 
-This format maps directly to what you need for motion practice, specific testimony tied to specific issues, with citations ready for motion planning and litigation preparation.
+This format maps directly to what you need for motion practice, specific testimony tied to specific issues, with citations ready for motion planning and litigation preparation. For a ready-to-use layout with sample entries, see our [page-line deposition summary template for motion practice](/blog/deposition-summary-template-page-line-format-for-motion-practice/).
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6965a3397e8e9d47ffb0c480_d1989a9b.png)
 
@@ -66,7 +66,7 @@ The issue-first approach collapses these steps. When you search for "breach of d
 
 ## **Grounded in the Record**
 
-The value here isn't just speed, but it's accuracy. Every issue in your list traces back to specific testimony with verifiable citations. The Executive Summary feature organizes findings by topic while maintaining clear connections to the source material. When opposing counsel challenges a characterization, you can point directly to the transcript reference.
+The value here isn't just speed, but it's accuracy -- and avoiding the [common mistakes that plague manual summaries](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/). Every issue in your list traces back to specific testimony with verifiable citations. The Executive Summary feature organizes findings by topic while maintaining clear connections to the source material. When opposing counsel challenges a characterization, you can point directly to the transcript reference.
 
 ## **Cleaner Prep for What Comes Next**
 

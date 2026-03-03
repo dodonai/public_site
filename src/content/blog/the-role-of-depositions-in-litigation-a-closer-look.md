@@ -24,7 +24,7 @@ The information obtained during depositions can significantly influence a legal 
 
 #### Pre-Trial Motions
 
-Deposition testimony can be pivotal in pre-trial motions, such as motions for summary judgment. If deposition evidence clearly shows that there are no material facts in dispute, a party may move for summary judgment to have the case decided in their favor without the need for a trial. Thus, depositions can play a critical role in resolving disputes early, saving time and resources for both parties.
+Deposition testimony can be pivotal in pre-trial motions, such as motions for summary judgment. Using testimony effectively in motions requires accurate page-line citations; our [page-line deposition summary template for motion practice](/blog/deposition-summary-template-page-line-format-for-motion-practice/) walks through the format with examples. If deposition evidence clearly shows that there are no material facts in dispute, a party may move for summary judgment to have the case decided in their favor without the need for a trial. Thus, depositions can play a critical role in resolving disputes early, saving time and resources for both parties.
 
 #### Witness Preparation and Examination
 
@@ -32,7 +32,7 @@ Depositions serve as a rehearsal for witnesses and attorneys alike, offering a p
 
 #### Impeachment of Witnesses
 
-One of the most strategic uses of depositions in litigation is the impeachment of witnesses during the trial. If a witness's testimony in court deviates from what was said during their deposition, attorneys can use the deposition transcript to challenge the witness's credibility. This can undermine the witness's reliability in the eyes of the jury, potentially swaying the outcome of the case.
+One of the most strategic uses of depositions in litigation is the impeachment of witnesses during the trial. For a deeper look at admissibility rules and how deposition testimony is used as evidence, see [Using Depositions as Evidence: A Deep Dive](/blog/using-depositions-as-evidence-a-deep-dive/). If a witness's testimony in court deviates from what was said during their deposition, attorneys can use the deposition transcript to challenge the witness's credibility. This can undermine the witness's reliability in the eyes of the jury, potentially swaying the outcome of the case.
 
 #### Settlement Negotiations
 

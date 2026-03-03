@@ -39,7 +39,7 @@ Here’s what we found.
 -   Total cost: ≈ **$250** in billable time per transcript  
     
 
-The result? Accurate, yes: but slow, draining, and impossible to scale.
+The result? Accurate, yes: but slow, draining, and impossible to scale. For a closer look at why manual workflows break down, see [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/).
 
 ## **Dodon.ai Review: 80 Pages in Seconds**
 
@@ -98,7 +98,7 @@ Speed alone doesn’t win cases. Deposition summaries are for **litigation prepa
 
 Every summary must trace back to the **original record** to hold up under scrutiny.
 
-That’s why Dodon.ai includes **page-line citations and direct source references in every output**, giving your team transparency and auditability by default.
+That’s why Dodon.ai includes **page-line citations and direct source references in every output**, giving your team transparency and auditability by default. If you need a structured layout for motion prep, our [page-line deposition summary template](/blog/deposition-summary-template-page-line-format-for-motion-practice/) shows the exact format with sample entries.
 
 ## **The Takeaway**
 

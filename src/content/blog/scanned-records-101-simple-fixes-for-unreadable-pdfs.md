@@ -97,7 +97,7 @@ We appreciate your help—this ensures accurate **citations to the original reco
 
 ## **How clean scans speed up chronologies & deposition prep**
 
-Clear pages let you present dates, providers, diagnoses, treatments, and events more quickly—so you can filter and verify without wrestling the file first. Upload clean packets, and you immediately reduce the risk of missed facts, misquoted passages, and wasted time re-requesting legible pages.
+Clear pages let you present dates, providers, diagnoses, treatments, and events more quickly—so you can filter and verify without wrestling the file first. Upload clean packets, and you immediately reduce the risk of missed facts, misquoted passages, and wasted time re-requesting legible pages. For a walkthrough of turning clean scans into a usable timeline, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
 ## **Where Dodon.ai helps**
 
@@ -141,7 +141,7 @@ _Handwriting transcription works best when the writing is reasonably legible; as
 
 ## **Bottom line**
 
-A few scan habits at intake save hours in discovery. Clean, upright, legible pages make **citations to original records** straightforward and speed up your chronologies and deposition prep.
+A few scan habits at intake save hours in discovery. Clean, upright, legible pages make **citations to original records** straightforward and speed up your chronologies and deposition prep. Once your records are clean and processed, make sure the handoff is secure too — see our guide on [sending summaries safely with PHI-safe practices](/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use/).
 
 [**See how our software reads scanned documents & handwriting →**  
 ](/ai-pdf-ocr/)[**Ready to roll this out for your team? Check our pricing.**](/pricing/)

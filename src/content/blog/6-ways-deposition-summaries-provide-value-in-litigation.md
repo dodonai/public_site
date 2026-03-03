@@ -32,11 +32,11 @@ Outsourcing the creation of deposition summaries can lead to significant cost sa
 
 ## The Litigation Lifeline
 
-Deposition summaries are not just documents; they are strategic assets. They provide a foundation for impeaching credibility, refuting arguments, and supporting motions. A well-crafted summary can pinpoint inconsistencies in witness testimonies, offering a clear advantage in court. Furthermore, summaries can be instrumental during the trial itself, serving as a reference for judges and juries overwhelmed by the volume of information.
+Deposition summaries are not just documents; they are strategic assets. They provide a foundation for impeaching credibility, refuting arguments, and supporting motions. A well-crafted summary can pinpoint inconsistencies in witness testimonies, offering a clear advantage in court. For a deeper look at how deposition testimony supports trial strategy, see [Using Depositions as Evidence: A Deep Dive](/blog/using-depositions-as-evidence-a-deep-dive/). Furthermore, summaries can be instrumental during the trial itself, serving as a reference for judges and juries overwhelmed by the volume of information.
 
 ## A Tool for Winning
 
-Ultimately, the goal of any legal case is to present a compelling argument that leads to a successful verdict. Deposition summaries enhance this effort by ensuring that the core elements of a case are clearly understood and effectively communicated. They allow for a focused strategy that can adapt swiftly to the dynamics of trial proceedings, ensuring that every piece of testimony is used to its full potential.
+Ultimately, the goal of any legal case is to present a compelling argument that leads to a successful verdict. Deposition summaries enhance this effort by ensuring that the core elements of a case are clearly understood and effectively communicated. They allow for a focused strategy that can adapt swiftly to the dynamics of trial proceedings, ensuring that every piece of testimony is used to its full potential. If you need a citation-ready format for motion practice, our [page-line deposition summary template](/blog/deposition-summary-template-page-line-format-for-motion-practice/) provides a step-by-step guide with examples.
 
 ## Conclusion
 
