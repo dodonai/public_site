@@ -4,17 +4,17 @@ date: "2026-03-02"
 author: "Dodonai Team"
 category: "Medical Records"
 image: "/images/blog/real-cost-of-outsourcing-medical-record-summaries.png"
-description: "Outsourcing medical record summaries costs $5-15/page. AI does it for $0.02/page. ROI math for solo, mid-size, and high-volume firms."
-cardText: "Outsourcing medical record summaries costs $5-15/page. AI does it for $0.02/page. ROI math for solo, mid-size, and high-volume firms."
+description: "The cost of outsourcing medical record summaries runs $5-15/page. AI does it for $0.02/page. ROI math for solo, mid-size, and high-volume firms."
+cardText: "The cost of outsourcing medical record summaries runs $5-15/page. AI does it for $0.02/page. ROI math for solo, mid-size, and high-volume firms."
 imageAlt: "Cost comparison of outsourced vs AI medical record summaries"
-readingTime: "8 minutes"
+readingTime: "7 minutes"
 featured: false
 featureMain: false
 ---
 
 The real cost of outsourcing medical record summaries is larger than the per-page rate suggests. A mid-size personal injury firm processing 5,000 pages per month pays between $25,000 and $75,000 annually to outsourced summarization vendors. The invoices arrive monthly, the turnaround is measured in days or weeks, and the quality varies enough that someone on staff still reviews every summary before it goes into a [demand package](/blog/how-to-organize-medical-records-for-personal-injury-demand-package/).
 
-That cost is accepted because the alternative — having paralegals build chronologies from scratch — is even more expensive when measured in billable hours lost.
+That cost is accepted because the alternative (having paralegals build chronologies from scratch) is even more expensive when measured in billable hours lost.
 
 But the cost equation has changed. AI-powered [medical record summarization](/ai-medical-record-summaries-chronologies/) now produces cited chronologies at a fraction of the per-page cost, with turnaround measured in minutes instead of days. AI can do this work. The remaining question is how much your firm is overpaying to have someone else do it slowly.
 
@@ -36,10 +36,10 @@ Some vendors quote per case rather than per page. This simplifies budgeting but 
 
 - **QA review time.** Someone on your team still reviews every outsourced summary for accuracy, missing providers, and chronology gaps. This typically adds 30-60 minutes per summary.
 - **Revision cycles.** When a summary misses key treatment events or providers, the back-and-forth adds days to the timeline and additional staff hours.
-- **Turnaround delays.** A 7-day turnaround on a summary means 7 days where case strategy waits. Multiply across active cases, and the pipeline impact is significant.
+- **Turnaround delays.** A 7-day turnaround on a summary means 7 days where case strategy waits. Multiply across 20 active cases, and the pipeline slows to a crawl.
 - **Formatting inconsistency.** Different analysts at the same vendor produce summaries in different styles, which creates friction when attorneys review work across cases.
 
-For [medical record retrieval](/industries/medical-record-retrieval/) companies that also provide summarization services, these costs are built into bundled pricing — making it harder to evaluate whether the summarization component delivers value proportional to its cost.
+For [medical record retrieval](/industries/medical-record-retrieval/) companies that also provide summarization services, these costs are built into bundled pricing, making it harder to evaluate whether the summarization component delivers value proportional to its cost. The same cost dynamics apply to [IME companies processing medical records with AI](/blog/how-ime-companies-use-ai-to-process-medical-records/), where per-case volume makes cost-per-page economics even more impactful.
 
 ## What AI-Powered Summarization Costs
 
@@ -47,7 +47,7 @@ AI-powered medical record summarization operates on different economics:
 
 **Per-page cost: approximately $0.02 per page.**
 
-That is not a typo. The compute cost of processing a page of medical records through a large language model, extracting dates, providers, diagnoses, and treatments, and assembling a cited chronology is measured in pennies, not dollars.
+That's not a typo. The compute cost of processing a page of medical records through a large language model, extracting dates, providers, diagnoses, and treatments, and assembling a cited chronology is measured in pennies, not dollars.
 
 **Monthly subscription pricing: $25-250/month** depending on volume tier and features.
 
@@ -59,7 +59,7 @@ Upload a record set. Receive a chronology with citations to original records in 
 
 ## The ROI Math by Firm Size
 
-The cost comparison looks different depending on how many medical records your firm processes. Here is the math across three common firm profiles:
+The cost comparison looks different depending on how many medical records your firm processes. Here's the math across 3 common firm profiles:
 
 ### Solo Practitioner / Small Firm (500 pages/month)
 
@@ -103,11 +103,11 @@ The cost comparison looks different depending on how many medical records your f
 
 **Annual savings: ~$780,000**
 
-The savings scale with volume. Higher-volume firms don't just save more in absolute terms — the cost differential per page widens because AI pricing does not carry the same labor overhead as human analyst teams.
+The savings scale with volume. Higher-volume firms don't just save more in absolute terms; the cost differential per page widens because AI pricing doesn't carry the same labor overhead as human analyst teams.
 
 ## Quality: How AI Compares to Outsourced Vendors
 
-Cost savings mean nothing if the output is unusable. Here is how AI-powered summarization compares to outsourced vendors across the dimensions that matter for [personal injury](/practice-areas/personal-injury/) case prep:
+Cost savings mean nothing if the output is unusable. Here's how AI-powered summarization compares to outsourced vendors across the dimensions that matter for [personal injury](/practice-areas/personal-injury/) case prep:
 
 **Completeness.** Outsourced analysts sometimes miss providers, especially when records are disorganized or duplicate pages obscure the provider list. AI processes every page in the record set systematically, reducing gaps caused by human fatigue or selective reading.
 
@@ -117,9 +117,9 @@ Cost savings mean nothing if the output is unusable. Here is how AI-powered summ
 
 **Handling of messy records.** Scanned documents, handwritten notes, and out-of-order pages challenge both humans and AI. The difference is that AI can be paired with [OCR processing](/ai-pdf-ocr/) to handle scanned records systematically, while human analysts simply take longer and charge more for the same work.
 
-**Nuanced clinical interpretation.** This is where experienced human analysts still add value. A skilled medical record reviewer can contextualize treatment decisions, identify gaps in care that suggest causation arguments, and note inconsistencies that carry legal significance. AI extracts what the records say; clinical interpretation of what they mean still benefits from human expertise.
+**Nuanced clinical interpretation.** Experienced human analysts still add real value here. A skilled medical record reviewer can contextualize treatment decisions, identify gaps in care that suggest causation arguments, and note inconsistencies that carry legal significance. AI extracts what the records say; clinical interpretation of what they mean still benefits from human expertise.
 
-The practical approach is not choosing one over the other. It is using AI for the extraction and chronology work — the 80% that is mechanical — and reserving human expert time for the 20% that requires clinical or legal judgment. For a structured process that balances automation with attorney oversight, see our [lawyer's guide to preparing a medical chronology](/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/).
+The practical approach: use AI for the extraction and chronology work (the 80% that's mechanical) and reserve human expert time for the 20% that requires clinical or legal judgment. For a structured process that balances automation with attorney oversight, see our [lawyer's guide to preparing a medical chronology](/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/).
 
 ## Turnaround: The Hidden Cost of Waiting
 
@@ -129,29 +129,29 @@ When a vendor takes 7 business days to deliver a medical chronology, that delay 
 
 - Demand packages wait for the chronology to be completed and reviewed
 - Attorney case evaluation is delayed because the record picture is incomplete
-- Settlement negotiations stall when documentation is not ready
+- Settlement negotiations stall when documentation isn't ready
 - Statute of limitations deadlines create pressure that rush surcharges exploit
 
-AI-generated chronologies are available in minutes. An attorney can upload records in the morning and have a cited chronology ready for review before lunch. For firms tracking [which medical chronology software](/compare/best-medical-chronology-software/) best fits their workflow, turnaround speed is often the deciding factor — not because faster is always better, but because faster means the chronology is available when the attorney needs it, not when the vendor's queue allows it.
+AI-generated chronologies are available in minutes. An attorney can upload records in the morning and have a cited chronology ready for review before lunch. For firms tracking [which medical chronology software](/compare/best-medical-chronology-software/) best fits their workflow, turnaround speed is often the deciding factor. Not because faster is always better, but because faster means the chronology is available when the attorney needs it, not when the vendor's queue allows it.
 
 ## When Outsourcing Still Makes Sense
 
-AI-powered summarization does not eliminate every reason to use outsourced vendors:
+AI-powered summarization doesn't eliminate every reason to use outsourced vendors:
 
-- **Expert medical review.** When a case requires a clinician's interpretation of treatment records — not just a chronology — a specialized vendor with medical expertise adds value that AI alone does not provide.
+- **Expert medical review.** When a case requires a clinician's interpretation of treatment records (not just a chronology), a specialized vendor with medical expertise adds value that AI alone doesn't provide.
 - **Overflow capacity.** During litigation surges or [mass tort intake](/blog/mass-tort-document-management-processing-claimant-records/), outsourced vendors can absorb volume spikes when internal capacity and software licenses are maxed.
-- **Regulatory or client requirements.** Some clients or matters require human-reviewed summaries as a contractual or compliance condition. That said, AI platforms with strong privacy safeguards — such as [zero data retention and no model training](/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/) — can satisfy many of these requirements while still delivering cost and speed advantages.
+- **Regulatory or client requirements.** Some clients or matters require human-reviewed summaries as a contractual or compliance condition. That said, AI platforms with strong privacy safeguards (like [zero data retention and no model training](/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/)) can satisfy many of these requirements while still delivering cost and speed advantages.
 
-For the majority of medical record summarization work — building chronologies, extracting provider timelines, organizing treatment histories for demand packages — AI is faster, cheaper, and more consistent than outsourced alternatives.
+For the majority of medical record summarization work (building chronologies, extracting provider timelines, organizing treatment histories for demand packages), AI is faster, cheaper, and more consistent than outsourced alternatives.
 
 ## Switching From Outsourced to AI Medical Record Summaries
 
-Transitioning from outsourced summarization to AI-powered tools does not require an all-or-nothing commitment:
+Transitioning from outsourced summarization to AI-powered tools doesn't require an all-or-nothing commitment:
 
-1. **Start with one case type.** Run AI summarization alongside your existing vendor on a subset of cases — personal injury, [workers' compensation](/blog/workers-compensation-medical-records-attorneys-adjusters/), or disability claims all work well as starting points. Compare output quality, turnaround, and total cost.
+1. **Start with one case type.** Run AI summarization alongside your existing vendor on a subset of cases: personal injury, [workers' compensation](/blog/workers-compensation-medical-records-attorneys-adjusters/), or disability claims all work well as starting points. Compare output quality, turnaround, and total cost.
 2. **Measure QA time.** Track how long your team spends reviewing AI-generated chronologies versus vendor-produced summaries. The reduction in QA time is where much of the savings materialize.
 3. **Scale as confidence builds.** Shift additional case types to AI summarization as your team validates the output against their review standards.
 
 Most firms that have made this transition started with a single case type, ran AI alongside their existing vendor for a month, and shifted volume once the cost and quality gap was obvious.
 
-[**Try it on one record set**](https://app.dodon.ai/signup) to see how AI-generated medical chronologies compare to what you are paying today.
+[**Try it on one record set**](https://app.dodon.ai/signup) to see how AI-generated medical chronologies compare to what you're paying today.
