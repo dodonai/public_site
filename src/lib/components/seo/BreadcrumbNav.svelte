@@ -1,5 +1,5 @@
 <script>
-	let { items = [] } = $props();
+	let { items = [], url = '' } = $props();
 
 	const jsonLd = $derived({
 		'@context': 'https://schema.org',
@@ -8,7 +8,7 @@
 			'@type': 'ListItem',
 			position: i + 1,
 			name: item.name,
-			...(item.href ? { item: `https://www.dodon.ai${item.href}` } : {})
+			item: `https://www.dodon.ai${item.href || url}`
 		}))
 	});
 </script>

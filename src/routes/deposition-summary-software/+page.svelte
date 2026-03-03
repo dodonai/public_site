@@ -50,7 +50,7 @@
 			'@type': 'BreadcrumbList',
 			itemListElement: [
 				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
-				{ '@type': 'ListItem', position: 2, name: 'Deposition Summary Software' }
+				{ '@type': 'ListItem', position: 2, name: 'Deposition Summary Software', item: `https://www.dodon.ai${data.seo.canonical}` }
 			]
 		},
 		{
