@@ -40,7 +40,7 @@ Terminology drift appears when:
 
 Ctrl+F cannot connect these references. It only returns exact string matches.
 
-This is especially common when records reference outside providers not included in the original packet.
+This is especially common when records reference outside providers not included in the original packet — a problem explored in detail in [why medical records look complete but still miss providers](/blog/why-medical-records-look-complete-but-still-miss-providers/).
 
 ## **Why this matters for case review and IME prep**
 

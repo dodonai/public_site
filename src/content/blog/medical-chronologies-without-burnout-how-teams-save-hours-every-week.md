@@ -24,7 +24,7 @@ Take a mid-size [personal injury](/practice-areas/personal-injury/) firm reviewi
 
 ## **Case Example 2: The Efficient Alternative**
 
-Now compare with a team using document automation software. Instead of slogging through every scan, they bulk-upload files, receive a chronology with citations to original records in minutes, and spend their time analyzing gaps in care or causation links. Paralegal hours drop by half, settlement prep accelerates, and stress levels decline.
+Now compare with a team using document automation software. Instead of slogging through every scan, they bulk-upload files, receive a chronology with citations to original records in minutes, and spend their time analyzing gaps in care or causation links. (For a walkthrough, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).) Paralegal hours drop by half, settlement prep accelerates, and stress levels decline.
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68d52d0ba9a75da83ecd61bf_d08b866d.png)
 
@@ -40,6 +40,6 @@ Upload entire record sets—scans, notes, lab results—messy or not. Dodon.ai p
 
 ## **Final Word**
 
-Medical chronologies don’t need to burn out your staff. By automating repetitive review, firms turn hours of manual work into minutes of preparation. The result: happier teams, faster case strategy, and stronger outcomes.
+Medical chronologies don’t need to burn out your staff. By automating repetitive review, firms turn hours of manual work into minutes of preparation. The result: happier teams, faster case strategy, and stronger outcomes. If you are looking for a structured process to follow, our [lawyer’s guide to preparing a medical chronology](/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/) breaks it down into five clear steps.
 
 **Software like** [**Dodon.ai**](/) **accelerates litigation preparation and reduces paralegal workload, giving attorneys more time to focus on strategy.** [**Try it FREE today**](https://app.dodon.ai/signup)**.**

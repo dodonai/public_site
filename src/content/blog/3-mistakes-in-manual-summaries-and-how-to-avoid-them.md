@@ -28,9 +28,9 @@ Upload entire transcripts and our document automation software processes PDFs (i
 
 ## **Mistake 2: Missing Page-Line Citations**
 
-A summary without page-line references forces attorneys to hunt through the original transcript again. It slows cross-checking, delays discovery responses, and undermines confidence in the output.
+A summary without page-line references forces attorneys to hunt through the original transcript again. It slows cross-checking, delays discovery responses, and undermines confidence in the output. For a detailed explanation of why partners insist on this format, see [Page-Line 101: What Your Partner Means When They Ask for Citations](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/).
 
-Every strong summary should link key statements to their exact source.
+Every strong summary should link key statements to their exact source. Our [page-line deposition summary template for motion practice](/blog/deposition-summary-template-page-line-format-for-motion-practice/) provides a ready-to-use layout with sample entries.
 
 ## **With Dodon.ai:**
 

@@ -63,7 +63,7 @@ The core columns that make a page-line deposition summary effective for motion p
 | Summary | Condensed testimony | Witness states defendant was texting while driving |
 | Notes | Flags for motion relevance | Key admission--use in MSJ |
 
-The Notes column is particularly useful for flagging impeachment material, contradictions with other witnesses, or testimony that directly supports a specific motion argument.
+The Notes column is particularly useful for flagging impeachment material, contradictions with other witnesses, or testimony that directly supports a specific motion argument. For a plain-English explainer on the citation format itself, see [Page-Line 101: What Your Partner Means When They Ask for Citations](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/).
 
 ![Page-line deposition summary table in Dodon.ai showing Citation, Summary of Testimony, and Topic Summary columns](/images/blog/page-line-deposition-summary-table-in-dodonai.webp)
 
@@ -157,7 +157,7 @@ The tools work best as a starting point rather than a final product. AI handles 
 
 - **Time savings:** AI processes transcripts faster than manual summarization
 - **Consistency:** Automated formatting ensures uniform page-line citation style
-- **Verification still required:** AI-generated summaries benefit from human review for accuracy
+- **Verification still required:** AI-generated summaries benefit from human review for accuracy. For the common pitfalls to watch for, see [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/)
 
 ![Dodon.ai deposition summary view with page-line table, executive summary, and export options](/images/blog/dodonai-deposition-summary-view-with-page-line-table-and-export-options.webp)
 

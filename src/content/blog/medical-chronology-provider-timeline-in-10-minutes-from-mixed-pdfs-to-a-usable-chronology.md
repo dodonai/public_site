@@ -28,7 +28,7 @@ Create or open the Matter that holds the records for a single case. Keeping all 
 
 Drop in whatever you have: office notes, hospital summaries, lab reports, imaging reads, discharge papers—even messy scans. The software reads **text, handwriting, and images** out of the box, so you don’t have to re-scan or re-label first.
 
-**Tip for cleaner input later:** As you skim the first batch, note any **other providers referenced** (consults, imaging centers). Add them to your records-request list so the next chronology pass doesn’t miss dates or gaps.
+**Tip for cleaner input later:** As you skim the first batch, note any **other providers referenced** (consults, imaging centers). Add them to your records-request list so the next chronology pass doesn’t miss dates or gaps. For more on why this step matters, see [why medical records look complete but still miss providers](/blog/why-medical-records-look-complete-but-still-miss-providers/).
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/690cd9dab295f16c937947f1_e6a49bc1.png)
 
@@ -73,7 +73,7 @@ Every format retains **page-linked citations**, so a partner can open an entry a
     
 -   **Traceability:** Every fact ties back to the source page, reducing rework and “where did this come from?” loops.  
     
--   **Handoff-ready:** Clean exports slot into demand packages, defense chronologies, or expert outlines without re-typing.  
+-   **Handoff-ready:** Clean exports slot into demand packages, defense chronologies, or expert outlines without re-typing. For a more detailed five-step process, see our [lawyer's guide to preparing a medical chronology](/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/).  
     
 
 ### **Good chronology habits that compound**

@@ -26,7 +26,7 @@ Every chronology begins with the “Medical Records Request,” typically a writ
 -   Lab reports, imaging, and prescriptions
 -   ER visits, surgeries, and follow-ups
 
-‍**Pro Tip:** Incomplete records = incomplete chronology. Ask for full disclosures early to avoid gaps. When reviewing records, keep an eye out for other providers mentioned that were not part of those disclosures. A good [medical chronology software](/ai-medical-record-summaries-chronologies/) like Dodon.ai will automatically flag such providers.
+‍**Pro Tip:** Incomplete records = incomplete chronology. Ask for full disclosures early to avoid gaps. When reviewing records, keep an eye out for other providers mentioned that were not part of those disclosures — a common issue explained in [why medical records look complete but still miss providers](/blog/why-medical-records-look-complete-but-still-miss-providers/). A good [medical chronology software](/ai-medical-record-summaries-chronologies/) like Dodon.ai will automatically flag such providers.
 
  👉 **Note:** Requesting medical records often involves regulated processes that vary by state. Many firms specialize in this. Be aware of those constraints when planning timelines. 
 
@@ -57,7 +57,7 @@ Once files are organized, the core work begins: converting records into a struct
 -   Highlighting key incidents tied to claims
 -   Citations to the original record**‍**
 
-**With Dodon.ai:** The software identifies dates, procedures, and providers, presenting you with a ready-to-review chronology that can be exported for collaboration or client prep.
+**With Dodon.ai:** The software identifies dates, procedures, and providers, presenting you with a ready-to-review chronology that can be exported for collaboration or client prep. For a hands-on walkthrough, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
 ## **Step 4: Analyze for Case Strategy**
 

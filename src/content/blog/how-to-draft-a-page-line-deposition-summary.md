@@ -33,7 +33,7 @@ Deposition summaries are invaluable tools in legal proceedings, providing attorn
 
 ## Understanding Page-Line Deposition Summaries
 
-The Page-Line Summary method involves detailing the deposition transcript by citing specific page and line numbers where key testimony is found. This approach allows legal professionals to pinpoint exact locations of relevant information quickly. A well-drafted Page-Line Summary should adhere to the principle of conciseness; typically, no more than one summary page should be produced for every five pages of testimony to avoid information overload.
+The Page-Line Summary method involves detailing the deposition transcript by citing specific page and line numbers where key testimony is found. This approach allows legal professionals to pinpoint exact locations of relevant information quickly. If you're new to page-line citations, [Page-Line 101](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/) explains the format and why partners insist on them. A well-drafted Page-Line Summary should adhere to the principle of conciseness; typically, no more than one summary page should be produced for every five pages of testimony to avoid information overload.
 
 ## Drafting the Summary: Step by Step
 
@@ -55,4 +55,4 @@ We provide 5 AI-created [deposition summary examples here](/deposition-summary-s
 
 ## Conclusion
 
-While Page-Line Deposition Summaries are detailed and require a substantial time investment, they offer precise, easy-to-reference documentation of deposition testimonies. If you want to save time and reduce the potential for error, Dodonai's [automated deposition summary service](/deposition-summary-software) can create Page-Line summaries from your deposition transcripts in a fraction of the time.
+While Page-Line Deposition Summaries are detailed and require a substantial time investment, they offer precise, easy-to-reference documentation of deposition testimonies. For a ready-to-use layout with sample entries and verification steps, see our [page-line deposition summary template for motion practice](/blog/deposition-summary-template-page-line-format-for-motion-practice/). If you want to save time and reduce the potential for error, Dodonai's [automated deposition summary service](/deposition-summary-software) can create Page-Line summaries from your deposition transcripts in a fraction of the time.

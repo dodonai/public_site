@@ -134,7 +134,7 @@ When records are structured chronologically, provider patterns become visible:
 -   References appear without corresponding documents  
     
 
-This is where provider-level review belongs during chronology prep, not after expert review.
+This is where provider-level review belongs during chronology prep, not after expert review. For a step-by-step example of building a chronology that surfaces these gaps, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6952a7884b6556f0cacaaa76_fee1fc93.png)
 
@@ -196,6 +196,6 @@ Provider cross reference belongs upstream in that workflow. Catching gaps early 
 
 Medical records can look complete and still miss providers. The problem isn’t page count—it’s verification.
 
-Teams that cross-reference providers during chronology prep catch gaps earlier, reduce surprises, and maintain control heading into expert review. Software like Dodon.ai supports this by presenting records in a format teams can actually validate.
+Teams that cross-reference providers during chronology prep catch gaps earlier, reduce surprises, and maintain control heading into expert review. When sharing these records across teams, make sure patient data stays protected — our [HIPAA compliance checklist for medical chronologies](/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams/) covers the essentials. Software like Dodon.ai supports this by presenting records in a format teams can actually validate.
 
 For a deeper look at how chronologies fit into this workflow, see [**AI Medical Record Summaries &  Chronologies**](/ai-medical-record-summaries-chronologies/) in the Medical Chronologies Hub.

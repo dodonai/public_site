@@ -37,7 +37,7 @@ Records regularly reference:
 
 Those providers are discovered only after review begins, forcing new requests, resets, and delays measured in days or weeks.
 
-**Best practice:** During early review, watch for providers mentioned inside notes who were never requested.
+**Best practice:** During early review, watch for providers mentioned inside notes who were never requested. For a deeper dive into this problem, see [why medical records look complete but still miss providers](/blog/why-medical-records-look-complete-but-still-miss-providers/).
 
 **With Dodon.ai:** Provider names referenced inside records are surfaced during summarization, making gaps visible before full review begins.
 
@@ -75,7 +75,7 @@ Manually, this requires page-by-page reading, note-taking, and cross-checking, e
 
 This step alone can consume most of the medical chronology review time on large files.
 
-**With Dodon.ai:** Dates, providers, and treatments are surfaced and presented as a ready-to-review chronology, with citations back to original records.
+**With Dodon.ai:** Dates, providers, and treatments are surfaced and presented as a ready-to-review chronology, with citations back to original records. For a walkthrough of this process, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/695bc1600040f016636bb8d4_45923d5f.png)
 

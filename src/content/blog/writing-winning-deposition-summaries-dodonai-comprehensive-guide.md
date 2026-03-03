@@ -31,15 +31,15 @@ Be sure to discuss the goals of the summary with your team and whomever you are 
 #### Determine the Type of Summary to Create
 
 -   **Narrative Summary**: Provides a detailed, continuous account of the deposition, focusing on the story and substance of the testimony. Ideal for complex cases where understanding nuances and interactions is key.
--   **Page-Line Summary**: Cites specific page and line numbers alongside brief descriptions of the testimony. This format is perfect for legal teams needing to reference exact locations in the transcript for detailed review or cross-examination. [Learn more about drafting page-line summaries here](/blog/how-to-draft-a-page-line-deposition-summary).
--   **Issue-Based Summary**: Organizes testimony around key case issues, making it easier to locate all relevant information on a particular topic. It's particularly useful in cases with distinct themes or when preparing for thematic cross-examination. [Learn more about drafting issue-based summaries here](/blog/how-to-draft-a-issue-based-deposition-summary).
+-   **Page-Line Summary**: Cites specific page and line numbers alongside brief descriptions of the testimony. This format is perfect for legal teams needing to reference exact locations in the transcript for detailed review or cross-examination. [Learn more about drafting page-line summaries here](/blog/how-to-draft-a-page-line-deposition-summary). For a primer on why partners insist on this format, see [Page-Line 101: What Your Partner Means When They Ask for Citations](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/).
+-   **Issue-Based Summary**: Organizes testimony around key case issues, making it easier to locate all relevant information on a particular topic. It's particularly useful in cases with distinct themes or when preparing for thematic cross-examination. [Learn more about drafting issue-based summaries here](/blog/how-to-draft-a-issue-based-deposition-summary). You can also [build a deposition issue list directly from transcripts](/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/) without writing a full narrative.
 
 #### More Tips for a Great Summary
 
 -   **Be Concise but Comprehensive**: Strive to include all relevant facts while eliminating unnecessary detail. Every sentence in the summary should add value.
 -   **Remain Objective**: Your summary should be unbiased, focusing solely on the information presented without inferring guilt, innocence, or intent.
 -   **Use Clear Formatting**: Adopt a consistent format that suits the summary's purpose, whether it's narrative, page-line, or issue-based, making it easy for readers to find what they need.
--   **Review for Accuracy**: Ensure your summary accurately reflects the testimony. Misrepresenting testimony, even unintentionally, can have significant implications.
+-   **Review for Accuracy**: Ensure your summary accurately reflects the testimony. Misrepresenting testimony, even unintentionally, can have significant implications. For a look at the most common errors, see [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/).
 -   For more expert tips, check out our post on [crafting effective deposition summaries here](/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies).
 -   Check out some deposition summary examples with corresponding transcripts [here](/deposition-summary-software/).
 

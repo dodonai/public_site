@@ -85,7 +85,7 @@ Most teams end up toggling both methods inside a single workflow—search for pr
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69299a52aa58615e72177261_244a9300.png)
 
-These capabilities help paralegals and associates reduce first-review time while keeping every conclusion tied to the original record.
+These capabilities help paralegals and associates reduce first-review time while keeping every conclusion tied to the original record. For teams that need to organize testimony by case issues rather than transcript order, see how to [build a deposition issue list with cited issues directly from transcripts](/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/).
 
 ## **Final word**
 

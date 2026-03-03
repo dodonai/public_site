@@ -48,7 +48,7 @@ Reviewers scan for citations on the items most likely to be used later:
 -   core liability or causation points
 -   damages-related facts (work limitations, symptoms, treatment references)
 
-A summary that gives citations only "sometimes" forces manual cleanup. A summary that attaches page-line citations to each key point makes verification a standard habit, not a special effort.
+A summary that gives citations only "sometimes" forces manual cleanup. A summary that attaches page-line citations to each key point makes verification a standard habit, not a special effort. For a plain-English breakdown of the citation format, see [Page-Line 101: What Your Partner Means When They Ask for Citations](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/).
 
 **Reviewer tell:** citations appear where the summary makes assertions.
 
@@ -185,7 +185,7 @@ The reviewer standard is: "Show me the page-line references so I can confirm."
 
 ### **"We already have staff doing this."**
 
-Most teams aren't trying to replace staff. They're reducing repetitive first-pass work and speeding up citation verification under deadline.
+Most teams aren't trying to replace staff. They're reducing repetitive first-pass work and speeding up citation verification under deadline. For more on where manual workflows break down, see [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/). For a broader look at AI tools that support paralegal workflows beyond deposition summaries, see [AI tools every paralegal should know for case preparation](/blog/ai-tools-every-paralegal-should-know-for-case-preparation/).
 
 ### **"I don't want a new system to learn."**
 
@@ -209,7 +209,7 @@ The strongest fit is repeatable deposition volume, especially where teams need c
 
 **Trial teams building outlines and witness prep packets under deadline** need fast access to verified testimony points. Issue-based summaries organized by key topics (liability, damages, credibility) pull the relevant testimony without forcing the team to re-scan chronological records.
 
-If your workflow includes preparing to challenge testimony, look for purpose-built tools that support **Impeachment Analysis** (pulling and verifying conflicting statements with citations) rather than trying to force contradictions work into a generic summary.
+If your workflow includes preparing to challenge testimony, look for purpose-built tools that support **Impeachment Analysis** (pulling and verifying conflicting statements with citations) rather than trying to force contradictions work into a generic summary. For a full evaluation checklist covering pricing models, output formats, and security requirements, see [choosing deposition summary software: a litigator's buyer's guide](/blog/choosing-deposition-summary-software-litigators-guide/).
 
 ‍
 

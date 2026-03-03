@@ -25,7 +25,7 @@ This structure provides a firm, unbiased foundation for claims, legal filings, a
 **Chronology**: Lists medical events as they happened, offering a clear, fact-based progression.  
 ‍**Narrative Summary**: Adds expert interpretation and context, explaining why events happened and what they mean for the case.
 
-Both formats are essential—but a strong chronology ensures that no detail or date slips through the cracks.
+Both formats are essential—but a strong chronology ensures that no detail or date slips through the cracks. For a step-by-step walkthrough of preparing one from scratch, see our [lawyer's guide to medical chronology preparation](/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/).
 
 ### Key Components of an Effective Medical Chronology
 
@@ -58,6 +58,8 @@ A wide range of professionals benefit from streamlined, accurate medical chronol
 ### How Dodon.ai Supercharges Medical Chronologies
 
 Dodon.ai’s AI platform automates the generation of [medical chronologies](/ai-medical-record-summaries-chronologies/) with court-ready citations and HIPAA-level compliance. We leverage AI to revolutionize how medical chronologies are created and used.
+
+For a hands-on example of going from mixed PDFs to a finished timeline, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
 \- **Fast Turnaround**: Minutes, not days    
 \- **Expert-Level Output:** Built-in QA and legal/medical accuracy (where available)  

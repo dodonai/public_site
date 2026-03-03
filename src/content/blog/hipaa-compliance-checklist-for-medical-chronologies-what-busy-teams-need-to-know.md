@@ -28,7 +28,7 @@ _Litigation support vendors, IME services, or contractors become business associ
 
 In practice, clients and partners expect HIPAA-level protection regardless. **Dodon.ai is built to align with HIPAA requirements by default**: every upload is encrypted in transit and at rest, never shared across accounts, and never used for public model training.
 
-Here’s a practical checklist of HIPAA compliance do’s and don’ts, plus how Dodon.ai supports secure, efficient preparation of medical chronologies.
+Here’s a practical checklist of HIPAA compliance do’s and don’ts, plus how Dodon.ai supports secure, efficient preparation of medical chronologies. For a shorter, action-oriented version of this guidance, see our [HIPAA-compliant medical chronologies checklist](/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams/).
 
 ## **HIPAA Compliance: Do’s**
 
@@ -52,7 +52,7 @@ Here’s a practical checklist of HIPAA compliance do’s and don’ts, plus how
 -   **Don’t disclose beyond consent.** PHI must only be shared when patient authorization or a valid HIPAA exception applies.  
       
     
--   **Don’t move files outside secure channels.** Local desktop copies or unencrypted email attachments create unnecessary risk—Dodon.ai keeps records encrypted in transit and at rest.  
+-   **Don’t move files outside secure channels.** Local desktop copies or unencrypted email attachments create unnecessary risk—Dodon.ai keeps records encrypted in transit and at rest. For a practical guide to sharing chronologies and summaries without exposing PHI, see [simple PHI-safe handoffs that teams actually use](/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use/).  
       
     
 -   **Don’t ignore suspected issues.** HIPAA’s Breach Notification Rule requires that breaches of unsecured PHI be documented and, when applicable, reported. While Dodon.ai safeguards the workflow, firms and vendors must have incident response processes for anything outside the platform.  
@@ -68,7 +68,7 @@ Dodon.ai is **built to align with HIPAA requirements** and eliminate common risk
 -   **Encrypted by default** – All uploads, processing, and outputs are secured in transit and at rest.  
       
     
--   **No unauthorized data sharing** – Records are never used for public model training or shared across users.  
+-   **No unauthorized data sharing** – Records are never used for public model training or shared across users. Learn more about [how Dodon.ai protects data privacy when using LLMs](/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/).  
       
     
 -   **Audit-ready chronologies** – Includes page-line citations and defensible export formats.  

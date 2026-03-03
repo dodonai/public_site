@@ -16,7 +16,7 @@ In litigation, especially in cases with complicated issues such as a complex com
 
 #### Understanding Issue-Based Deposition Summaries
 
-An issue-based deposition summary focuses on the main issues or topics discussed during the deposition, categorizing related testimonies together regardless of their order in the transcript. This method is particularly effective in fact-specific cases where understanding the nuances of each issue is crucial to the case's outcome.
+An issue-based deposition summary focuses on the main issues or topics discussed during the deposition, categorizing related testimonies together regardless of their order in the transcript. This method is particularly effective in fact-specific cases where understanding the nuances of each issue is crucial to the case's outcome. For a faster approach that skips the narrative step entirely, see how to [build a deposition issue list with cited issues directly from transcripts](/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/).
 
 #### Steps to Drafting a Issue-Based Summary
 

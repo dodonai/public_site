@@ -16,7 +16,7 @@ Depositions are a vital part of the discovery process in litigation, offering a 
 
 #### Legal Basis for Using Depositions in Court
 
-The Federal Rules of Civil Procedure (FRCP) and corresponding state rules provide the legal framework for using deposition testimony as evidence. Rule 32 of the FRCP outlines specific conditions under which deposition testimony can be admitted in court, including:
+The Federal Rules of Civil Procedure (FRCP) and corresponding state rules provide the legal framework for using deposition testimony as evidence. For an overview of the procedural rules that govern how depositions are scheduled and conducted, see [Rules Governing Depositions: Navigating the Legal Framework](/blog/rules-governing-depositions-navigating-the-legal-framework/). Rule 32 of the FRCP outlines specific conditions under which deposition testimony can be admitted in court, including:
 
 -   **Unavailability of the Witness**: If the witness cannot attend the trial due to death, illness, distance, or other significant reasons, deposition testimony can be used in place of live testimony.
 -   **Impeachment**: Depositions can be used to contradict or impeach the testimony of a witness during the trial.
@@ -32,7 +32,7 @@ For deposition testimony to be admissible as evidence, it must comply with the u
 #### Strategic Use of Depositions in Court
 
 -   **Direct Evidence**: Depositions can provide direct evidence on factual matters, supporting a party's case-in-chief.
--   **Impeachment**: If a witness's testimony at trial contradicts their deposition, the deposition can be used to impeach their credibility.
+-   **Impeachment**: If a witness's testimony at trial contradicts their deposition, the deposition can be used to impeach their credibility. For more on this strategic use, see [The Role of Depositions in Litigation: A Closer Look](/blog/the-role-of-depositions-in-litigation-a-closer-look/).
 -   **Expert Testimony**: Depositions of expert witnesses can be particularly valuable, allowing their detailed opinions to be presented without the need for the expert to be present in court.
 
 #### Challenges and Limitations
