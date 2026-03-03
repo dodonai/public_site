@@ -144,7 +144,7 @@ Use the **table** when you need to:
     
 -   Review with partners  
     
--   Prep for depos, IMEs, or motions  
+-   Prep for depos, [IMEs](/use-cases/ime-reports/), or motions  
     
 
 Switch to **narrative** when preparing:

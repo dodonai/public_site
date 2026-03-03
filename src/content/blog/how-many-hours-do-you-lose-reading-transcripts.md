@@ -64,7 +64,7 @@ By shifting transcript analysis into structured, searchable outputs, firms recla
 
 ## **Why This Matters for Litigation Prep**
 
-Deposition testimony often anchors causation, damages, and credibility. Missing a line can change settlement leverage. But over-investing staff time erodes margins and slows case progression. Firms using Dodon.ai report cutting review time by 80–90%, while still working with documents that meet litigation prep standards.
+Deposition testimony often anchors causation, damages, and credibility in cases ranging from [personal injury](/practice-areas/personal-injury/) to [medical malpractice](/practice-areas/medical-malpractice/). Missing a line can change settlement leverage. But over-investing staff time erodes margins and slows case progression. Firms using Dodon.ai report cutting review time by 80–90%, while still working with documents that meet litigation prep standards.
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68deabcaa7bde794170b78bc_dbfbaa13.png)
 

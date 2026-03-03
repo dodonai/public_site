@@ -201,7 +201,7 @@ For deposition and medical-legal work, "secure and compliant" is a baseline expe
 
 The strongest fit is repeatable deposition volume, especially where teams need consistent outputs across matters:
 
-**Personal injury and medical malpractice firms** handling 20+ depositions per month need consistent page-line cited summaries for settlement demand packets and motion practice. Standard chronological summaries help newer associates learn case facts; issue-based summaries help senior attorneys prep for specific hearings.
+**[Personal injury](/practice-areas/personal-injury/) and [medical malpractice](/practice-areas/medical-malpractice/) firms** handling 20+ depositions per month need consistent page-line cited summaries for settlement demand packets and motion practice. Standard chronological summaries help newer associates learn case facts; issue-based summaries help senior attorneys prep for specific hearings.
 
 **Insurance defense teams** managing high-volume caseloads need standardized deposition summaries that travel across matter teams. Consistent formatting and citation structure makes handoffs cleaner and reduces prep duplication when coverage counsel reviews case strategy.
 

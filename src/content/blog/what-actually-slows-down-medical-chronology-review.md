@@ -135,4 +135,4 @@ Ultimately, a good medical chronology aids a litigation team in evaluating damag
 
 The goal isn’t automation for its own sake. It’s getting to a defensible timeline faster, with clear citations back to the source records.
 
-Software like [**Dodon.ai**](/) accelerates preparation so teams can spend their time analyzing facts, not assembling them.
+Software like [**Dodon.ai**](/) accelerates preparation so teams can spend their time analyzing facts, not assembling them. Learn more about how teams streamline [medical record review](/use-cases/medical-record-review/) workflows.

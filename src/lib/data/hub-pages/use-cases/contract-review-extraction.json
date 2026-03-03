@@ -87,7 +87,7 @@
     },
     {
       "question": "Can I build different extraction templates for different contract types?",
-      "answer": "Yes. Build separate agents for lease review, vendor audits, employment agreement analysis, or any other contract type. Each agent saves its template for reuse without reconfiguring."
+      "answer": "Yes. Build separate agents for lease review, vendor audits, employment agreement analysis, or any other contract type. Each agent saves its template for reuse without reconfiguring. See our {{link:https://app.dodon.ai/help/creating-data-extraction-template|extraction template guide}} for step-by-step instructions on building and saving custom templates."
     },
     {
       "question": "How does Dodonai handle scanned or image-only contract PDFs?",
@@ -126,7 +126,8 @@
   ],
   "relatedBlogPosts": [
     "/blog/document-summary-table-101-a-one-page-starter-you-can-reuse/",
-    "/blog/product-update-document-summary-table/"
+    "/blog/product-update-document-summary-table/",
+    "/blog/how-to-extract-key-clauses-from-contracts/"
   ],
   "ctaOverride": {
     "headline": "Extract Key Terms from Your Contracts in Minutes",

@@ -71,7 +71,7 @@ Without provider-level review, gaps stay hidden.
 
 ### **4\. Retrieval vendors fulfill scope, not implications**
 
-Records vendors deliver what’s requested. They do not infer additional providers mentioned inside the documents.
+[Medical record retrieval](/industries/medical-record-retrieval/) vendors deliver what’s requested. They do not infer additional providers mentioned inside the documents.
 
 The result: **medical record gaps in litigation** that surface during expert review, not before.
 

@@ -55,7 +55,7 @@ Table Chronology
 
 A narrative chronology covers the same ground but tells the story in paragraph form. Typically this format resembles a Review of Records document that most Independent Medical Examiners currently create manually. In some cases, rules or client requirements even mandate a narrative report.
 
-Physicians and reviewers rely on narratives to:
+[IME doctors](/industries/ime-doctors/) and other reviewers rely on narratives to:
 
 -   Deliver work product in the format they’re expected to submit  
     

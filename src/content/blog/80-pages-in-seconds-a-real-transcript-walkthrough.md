@@ -117,3 +117,5 @@ Dodon.ai doesn’t replace professional judgment but it accelerates it.The softw
 If your team still spends hours summarizing depositions manually, it’s time to see what’s possible.
 
 **Upload your next transcript and see it summarized in seconds.** [**Try Dodon.ai Deposition Summary Software today.**](/deposition-summary-software/)
+
+See how Dodon.ai compares to other options in our [deposition software comparison](/compare/deposition-software-comparison/).

@@ -87,7 +87,7 @@ Dodon.ai is **built to align with HIPAA requirements** and eliminate common risk
 
 Most law firms are not directly bound by HIPAA because records typically flow through patient authorization. Business associates working with providers are, and firms obtaining records via subpoenas are not regulated as business associates, but are often expected or contractually required to uphold HIPAA-level safeguards. In every case, clients expect those protections.
 
-**Dodon.ai is built to align with HIPAA requirements by default**, giving law firms, IME doctors, and litigation vendors the security protections they need, without slowing down preparation.
+**Dodon.ai is built to align with HIPAA requirements by default**, giving law firms, [IME doctors](/industries/ime-doctors/), and litigation vendors the security protections they need, without slowing down preparation.
 
 **Try Dodon.ai free for 7 days and see how secure, audit-ready medical chronologies streamline your case prep →** [**dodon.ai**](/)
 

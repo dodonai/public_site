@@ -18,7 +18,7 @@ A [medical chronology](/ai-medical-record-summaries-chronologies/) should be a t
 
 ## **Case Example 1: The Manual Grind**
 
-Take a mid-size personal injury firm reviewing 3,000 pages a month. A single chronology can consume **6–8 paralegal hours**, especially when duplicates and out-of-order pages pile up. Multiply that across multiple cases, and weeks of billable potential vanish into formatting, cross-referencing, and corrections.
+Take a mid-size [personal injury](/practice-areas/personal-injury/) firm reviewing 3,000 pages a month. A single chronology can consume **6–8 paralegal hours**, especially when duplicates and out-of-order pages pile up. Multiply that across multiple cases, and weeks of billable potential vanish into formatting, cross-referencing, and corrections.
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68d52d0ba9a75da83ecd61bc_cf75205c.png)
 

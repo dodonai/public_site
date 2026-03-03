@@ -37,7 +37,7 @@ Here’s a practical checklist of essential do’s and critical don’ts to ensu
 **Have clear procedures for handling access or amendment requests. Delays can quickly turn into compliance failures.
 
 **7\. Train your team thoroughly  
-**Everyone handling chronologies, paralegals, associates, or IME administrators, needs training on proper handling of both digital and paper files.
+**Everyone handling chronologies, paralegals, associates, or [IME](/industries/ime-companies/) administrators, needs training on proper handling of both digital and paper files.
 
 **8\. Audit regularly  
 **Review workflows for compliance gaps before regulators find them. Internal audits should be routine, not reactive.
