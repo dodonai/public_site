@@ -62,7 +62,7 @@ We don’t work with just any LLM provider. Before processing a single document,
 
 Three Non-Negotiable Requirements for Dodon.ai Vendors
 
-These requirements create a **closed loop**: your data leaves your device, is processed securely in the US, returned to you, and never lingers “in the ether.”
+These requirements create a **closed loop**: your data leaves your device, is processed securely in the US, returned to you, and never lingers “in the ether.” For guidance on keeping PHI protected after processing — when sharing summaries with co-counsel, experts, or IME reviewers — see [simple PHI-safe handoffs that teams actually use](/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use/).
 
 ### **Why This Matters in the US**
 

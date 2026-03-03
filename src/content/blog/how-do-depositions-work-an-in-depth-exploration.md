@@ -16,7 +16,7 @@ Depositions are a fundamental aspect of the pre-trial discovery process in civil
 
 #### Scheduling and Notice
 
-The deposition process begins with scheduling. The party seeking to take a deposition must provide notice to all parties involved. This notice includes the deposition's time, location, and the witness's name. If a party intends to record the deposition through video or other means, this must also be specified in the notice.
+The deposition process begins with scheduling. The party seeking to take a deposition must provide notice to all parties involved. This notice includes the deposition's time, location, and the witness's name. If a party intends to record the deposition through video or other means, this must also be specified in the notice. For a detailed look at the FRCP rules that govern scheduling, notice, and conduct, see [Rules Governing Depositions: Navigating the Legal Framework](/blog/rules-governing-depositions-navigating-the-legal-framework/).
 
 #### The Deposition Setting
 
@@ -42,8 +42,8 @@ Deposition transcripts can be used for several purposes in litigation, including
 
 -   **Pre-Trial Motions**: Parties may use deposition transcripts to support motions to dismiss the case or for summary judgment.
 -   **Trial Preparation**: Attorneys use deposition transcripts to prepare for trial, including developing questioning strategies and identifying areas for cross-examination.
--   **Evidence at Trial**: Under certain conditions, deposition testimony can be presented as evidence at trial, especially if the witness is unavailable to testify in person.
+-   **Evidence at Trial**: Under certain conditions, deposition testimony can be presented as evidence at trial, especially if the witness is unavailable to testify in person. For more on admissibility requirements and strategic considerations, see [Using Depositions as Evidence: A Deep Dive](/blog/using-depositions-as-evidence-a-deep-dive/).
 
 #### Conclusion
 
-Depositions are a critical component of the discovery process, providing a unique opportunity to gather information, assess witness credibility, and develop legal strategies. Understanding how depositions work is essential for legal professionals and anyone involved in the litigation process. Through careful preparation and strategic questioning, attorneys can leverage depositions to strengthen their cases and advocate effectively for their clients.
+Depositions are a critical component of the discovery process, providing a unique opportunity to gather information, assess witness credibility, and develop legal strategies. For a deeper look at how depositions shape case strategy, motions, and impeachment, see [The Role of Depositions in Litigation: A Closer Look](/blog/the-role-of-depositions-in-litigation-a-closer-look/). Understanding how depositions work is essential for legal professionals and anyone involved in the litigation process. Through careful preparation and strategic questioning, attorneys can leverage depositions to strengthen their cases and advocate effectively for their clients.

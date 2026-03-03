@@ -31,7 +31,7 @@ A good summary table gives you:
 -   A clean structure partners can trust during case prep  
     
 
-It’s built for litigation workflows, not court filings - so it focuses on clarity, citations, and efficient review.
+It’s built for litigation workflows, not court filings - so it focuses on clarity, citations, and efficient review. To see how this works in practice with medical records, check out [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
 ## **The minimum fields you need**
 

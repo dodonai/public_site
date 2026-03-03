@@ -14,6 +14,8 @@ imageAlt: "Image of the justices of the US Supreme Court deciding Loper Bright E
 
 Dodonai created this analysis in less than 3 minutes. If you are interested in analyzing and summarizing your legal docs, check out our [AI deposition summaries](/deposition-summary-software) and [deposition transcript management software](/ai-deposition-transcript-software) to get started.
 
+This case was argued alongside [Relentless v. Dept. of Commerce](/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/), the companion Chevron deference challenge — read our AI analysis of that oral argument as well. For an overview of the full Fall 2023 Supreme Court term, including the Chevron cases, see our [summary of SCOTUS cases to watch](/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/). We also covered [Devillier v. Texas](/blog/devillier-v-texas-ai-analysis-of-oral-argument/), a Fifth Amendment Takings Clause case argued the day before.
+
 ### OPENINGS
 
 The petitioner's attorney, Mr. Clement, focuses on the challenges imposed by the Chevron doctrine, particularly its impact on small businesses and individuals. He emphasizes the burden faced by his clients, small-scale commercial fishers, who are required to carry federal observers on their vessels and pay their salaries. This requirement, he argues, is excessively costly, consuming up to 20% of their annual returns, far exceeding the caps set by Congress.
@@ -194,3 +196,7 @@ The petitioner's attorney, Mr. Clement, argues that the NMFS's rule is problemat
 **4\. Analysis of Justice Kavanaugh's sentiment towards each party's position:  
 **  - Justice Kavanaugh seems to agree with Mr. Clement's interpretation of Skidmore and Chevron and his argument about the importance of industry consistency.  
   - He appears to question General Prelogar's defense of Chevron, suggesting that he may be skeptical of the doctrine's application in the case. However, he also seems to acknowledge the importance of agencies justifying their decision-making and considering reliance interests.
+
+---
+
+For more on how AI is reshaping the federal courts, see our [summary of Chief Justice Roberts's 2023 Year-End Report on the Federal Judiciary](/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary/), in which the Chief Justice discusses both the benefits and the risks of artificial intelligence in the judicial system.

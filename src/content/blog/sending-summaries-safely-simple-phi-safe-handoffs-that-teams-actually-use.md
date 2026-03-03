@@ -35,7 +35,7 @@ Common weaknesses:
       
     
 
-Even when a firm is not formally a HIPAA business associate, clients expect HIPAA-level safeguards. Treat every summary handoff as if a compliance review may happen.
+Even when a firm is not formally a HIPAA business associate, clients expect HIPAA-level safeguards. For a complete rundown of what HIPAA requires and where law firms fit in, see our [HIPAA-compliant medical chronologies checklist](/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams/). Treat every summary handoff as if a compliance review may happen.
 
 ## **Core Safeguards: What Actually Protects PHI**
 
@@ -47,7 +47,7 @@ Files should be encrypted while stored and during transfer. Dodon.ai applies bot
 
 ### **2\. No Model Training on Your Data**
 
-Some tools retain prompts and outputs to train future models, creating unnecessary PHI retention. Dodon.ai works only with vendors that contractually agree to zero retention and do not use customer content for training. Once processed, the file is returned and removed.
+Some tools retain prompts and outputs to train future models, creating unnecessary PHI retention. Dodon.ai works only with vendors that contractually agree to zero retention and do not use customer content for training. Once processed, the file is returned and removed. For a detailed breakdown of these vendor requirements, see [how Dodon.ai protects data privacy when using LLMs](/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/).
 
 ### **3\. US-Only Processing**
 
