@@ -3,7 +3,7 @@ title: "Medical Malpractice Record Review: Identifying Standard-of-Care Deviatio
 date: "2026-03-02"
 author: "Dodonai Team"
 category: "Medical Records"
-image: "/images/blog/medical-malpractice-record-review-standard-of-care.png"
+image: "/images/blog/medical-malpractice-record-review-standard-of-care.webp"
 description: "A step-by-step medical malpractice record review process — how to build chronologies, flag standard-of-care deviations, and prepare expert review packages."
 cardText: "A step-by-step medical malpractice record review process — how to build chronologies, flag standard-of-care deviations, and prepare expert review packages."
 imageAlt: "Medical records organized for malpractice review with highlighted standard-of-care deviations on a clinical timeline"
