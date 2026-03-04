@@ -83,7 +83,7 @@ Page-line citations aren’t a nice-to-have. They’re the entry point to verifi
 
 ### **2\. Click the citation to confirm testimony on the source page**
 
-![/images/blog/inline/65971b63deedb95ebd6f1a7d_Chat-with-Transcript.webp)
+![](/images/blog/inline/65971b63deedb95ebd6f1a7d_Chat-with-Transcript.webp)
 
 Instead of scrolling or searching manually, reviewers open the cited page directly and read the testimony in context. This is where assumptions get corrected and wording is confirmed.
 
@@ -117,7 +117,7 @@ Dodon.ai is built around this verification workflow, not around blind trust. Tea
     **Teams review and spot-check first, then export summaries in the formats they already use for litigation prep and discovery.  
     
 
-![/images/blog/inline/67db12925629728b1c53e132_Screenshot-2025-03-19-at-2.46.33-PM.webp)
+![](/images/blog/inline/67db12925629728b1c53e132_Screenshot-2025-03-19-at-2.46.33-PM.webp)
 
 This keeps the trust boundary clear: summaries are verified before they leave the system. For teams handling sensitive medico-legal content, Dodon.ai also enforces [zero data retention and strict privacy safeguards](/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/) throughout the process.
 
