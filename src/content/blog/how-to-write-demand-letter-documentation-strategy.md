@@ -3,7 +3,7 @@ title: "How to Write a Demand Letter: The Documentation Strategy That Drives Fas
 date: "2026-03-02"
 author: "Dodonai Team"
 category: "Medical Records"
-image: "/images/blog/how-to-write-demand-letter-documentation-strategy.png"
+image: "/images/blog/how-to-write-demand-letter-documentation-strategy.webp"
 description: "How to write a demand letter that drives fast settlements: treatment narratives, organized specials, policy-limits language, and the documentation behind it."
 cardText: "How to write a demand letter that drives fast settlements: treatment narratives, organized specials, policy-limits language, and the documentation behind it."
 imageAlt: "Demand letter documentation strategy for faster settlements"
