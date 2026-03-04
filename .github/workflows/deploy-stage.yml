@@ -47,7 +47,7 @@ jobs:
 
       - name: Set Cache Control for HTML files
         run: |
-          gsutil -m setmeta -h "Cache-Control:public, max-age=3600" gs://stage-landing/**/*.html || true
+          gsutil -m setmeta -h "Cache-Control:no-cache" gs://stage-landing/**/*.html || true
 
       - name: Set Cache Control for asset files
         run: |
