@@ -77,7 +77,7 @@ This step alone can consume most of the medical chronology review time on large 
 
 **With Dodon.ai:** Dates, providers, and treatments are surfaced and presented as a ready-to-review chronology, with citations back to original records. For a walkthrough of this process, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/695bc1600040f016636bb8d4_45923d5f.png)
+![](/images/blog/inline/695bc1600040f016636bb8d4_45923d5f.webp)
 
 ### **4\. No fast way to filter what matters**
 
@@ -94,7 +94,7 @@ When chronologies are static documents, answering these questions means re-readi
 
 **With Dodon.ai:** Chronologies can be filtered by date, provider, or event type, allowing faster first-pass review without re-scanning hundreds of pages.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/695bc1600040f016636bb8ce_81739998.png)
+![](/images/blog/inline/695bc1600040f016636bb8ce_81739998.webp)
 
 ### **5\. Export friction slows collaboration**
 
@@ -111,7 +111,7 @@ Manual exports introduce another round of delay and risk version confusion.
 
 **With Dodon.ai:** Chronologies can be exported in shareable formats immediately, supporting litigation preparation and discovery without rework.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/695bc1600040f016636bb8d1_0d3a8ad6.png)
+![](/images/blog/inline/695bc1600040f016636bb8d1_0d3a8ad6.webp)
 
 ## **A faster first-pass medical chronology workflow**
 
@@ -135,4 +135,4 @@ Ultimately, a good medical chronology aids a litigation team in evaluating damag
 
 The goal isn’t automation for its own sake. It’s getting to a defensible timeline faster, with clear citations back to the source records.
 
-Software like [**Dodon.ai**](/) accelerates preparation so teams can spend their time analyzing facts, not assembling them.
+Software like [**Dodon.ai**](/) accelerates preparation so teams can spend their time analyzing facts, not assembling them. Learn more about how teams streamline [medical record review](/use-cases/medical-record-review/) workflows.

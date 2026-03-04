@@ -59,7 +59,7 @@ Here’s a practical checklist of HIPAA compliance do’s and don’ts, plus how
       
     
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ca97f2afcf4d500eaffac6_d9c18070.png)
+![](/images/blog/inline/68ca97f2afcf4d500eaffac6_d9c18070.webp)
 
 ## **Where Dodon.ai Fits**
 
@@ -81,13 +81,13 @@ Dodon.ai is **built to align with HIPAA requirements** and eliminate common risk
       
     
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ca97f2afcf4d500eaffac9_995ad115.png)
+![](/images/blog/inline/68ca97f2afcf4d500eaffac9_995ad115.webp)
 
 ## **The Bottom Line**
 
 Most law firms are not directly bound by HIPAA because records typically flow through patient authorization. Business associates working with providers are, and firms obtaining records via subpoenas are not regulated as business associates, but are often expected or contractually required to uphold HIPAA-level safeguards. In every case, clients expect those protections.
 
-**Dodon.ai is built to align with HIPAA requirements by default**, giving law firms, IME doctors, and litigation vendors the security protections they need, without slowing down preparation.
+**Dodon.ai is built to align with HIPAA requirements by default**, giving law firms, [IME doctors](/industries/ime-doctors/), and litigation vendors the security protections they need, without slowing down preparation.
 
 **Try Dodon.ai free for 7 days and see how secure, audit-ready medical chronologies streamline your case prep →** [**dodon.ai**](/)
 

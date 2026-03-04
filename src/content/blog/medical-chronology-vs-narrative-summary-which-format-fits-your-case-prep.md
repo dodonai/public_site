@@ -22,7 +22,7 @@ There are two main formats:
     
 -   A **narrative chronology** – the same sequence of events, written in paragraph form.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ad13f5c53d7f847b64a1cb_AD_4nXfO-ukCNkc02sjZQ2LJCux5enX995vx2phi-i-wMqW8UJoboQZ2Cu8fAdRad-EGQV5Hv9TwfyIhGG7ns9cdXE6hFno-nbavBRUxOIohVgHQpkDKT6B2dm5hm6oXJLAd2YhwKazc.png)
+![](/images/blog/inline/68ad13f5c53d7f847b64a1cb_AD_4nXfO-ukCNkc02sjZQ2LJCux5enX995vx2phi-i-wMqW8UJoboQZ2Cu8fAdRad-EGQV5Hv9TwfyIhGG7ns9cdXE6hFno-nbavBRUxOIohVgHQpkDKT6B2dm5hm6oXJLAd2YhwKazc.webp)
 
 Dodon.ai Matters
 
@@ -45,7 +45,7 @@ Attorneys and litigation teams use this format to:
 
 **With Dodon.ai:** Upload your records once and get a ready-to-review table with page-line citations included.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ad142102390e12a43b83f4_AD_4nXdlE0PJSBjlxOLOxmh2sGQKoTA7gBROYbOK4HYWecZUmn6EqbuQrPIh2qALdZcFNeZC1UVAgYjl8A8ysPcGlfa2gjCYuygjpWozThkgxY9___YDGhF96j_Sne70ur3FWtSwxzgt.png)
+![](/images/blog/inline/68ad142102390e12a43b83f4_AD_4nXdlE0PJSBjlxOLOxmh2sGQKoTA7gBROYbOK4HYWecZUmn6EqbuQrPIh2qALdZcFNeZC1UVAgYjl8A8ysPcGlfa2gjCYuygjpWozThkgxY9___YDGhF96j_Sne70ur3FWtSwxzgt.webp)
 
 Table Chronology
 
@@ -55,7 +55,7 @@ Table Chronology
 
 A narrative chronology covers the same ground but tells the story in paragraph form. Typically this format resembles a Review of Records document that most Independent Medical Examiners currently create manually. In some cases, rules or client requirements even mandate a narrative report.
 
-Physicians and reviewers rely on narratives to:
+[IME doctors](/industries/ime-doctors/) and other reviewers rely on narratives to:
 
 -   Deliver work product in the format they’re expected to submit  
     
@@ -66,7 +66,7 @@ Physicians and reviewers rely on narratives to:
 
 **With Dodon.ai:** The same upload can present a flowing narrative, accurate and shareable, in minutes.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ad142ddbeef78855ecf2cd_AD_4nXfqJHvr7mcm6H6LdMB85ZLR_D83LfNz4ve_nTqESimJfDpofDQldbtRiRPDLn-206jnpvoxJrhZlVQbJbSNCX23-YlJ-AlkwRFGaa-BfrfuQ5nzMKVNVV3z9Oxtv_gzCSFm6OUkUg.png)
+![](/images/blog/inline/68ad142ddbeef78855ecf2cd_AD_4nXfqJHvr7mcm6H6LdMB85ZLR_D83LfNz4ve_nTqESimJfDpofDQldbtRiRPDLn-206jnpvoxJrhZlVQbJbSNCX23-YlJ-AlkwRFGaa-BfrfuQ5nzMKVNVV3z9Oxtv_gzCSFm6OUkUg.webp)
 
 Narrative Chronology
 
@@ -82,7 +82,7 @@ Different roles often need different outputs. Attorneys lean on the table versio
 
 ## **Comparison at a glance**
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ad182ca258c2a8cbf119e4_CleanShot%202025-08-26%20at%2010.12.30%402x.png)
+![](/images/blog/inline/68ad182ca258c2a8cbf119e4_CleanShot-2025-08-26-at-10.12.30-2x.webp)
 
 Comparison Chart
 

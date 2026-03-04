@@ -29,13 +29,13 @@ The constraint is obvious: transcripts rarely stay consistent. A witness might s
 
 Use the Search Collection feature to jump between hits across your documents, then open the source page in one click for verification. This preserves the expected workflow while cutting navigation time.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69299a52aa58615e7217725b_8d8424d1.png)
+![](/images/blog/inline/69299a52aa58615e7217725b_8d8424d1.webp)
 
 ### **2\. Switch to “Chat with Documents” for semantic wording**
 
 When the phrasing changes, keyword search falls short. Chatting with the transcript—using a Collection built from one or multiple files—helps surface phrasing variants that would otherwise require line-by-line review.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69299a52aa58615e7217725e_d51bb5e4.png)
+![](/images/blog/inline/69299a52aa58615e7217725e_d51bb5e4.webp)
 
 Examples of semantic questions:
 
@@ -83,7 +83,7 @@ Most teams end up toggling both methods inside a single workflow—search for pr
 -   Audio transcription – upload recordings (MP3, WAV, and more) for automatic transcription
 -   [OCR processing](/ai-pdf-ocr/) – automatic text extraction from scanned documents
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69299a52aa58615e72177261_244a9300.png)
+![](/images/blog/inline/69299a52aa58615e72177261_244a9300.webp)
 
 These capabilities help paralegals and associates reduce first-review time while keeping every conclusion tied to the original record. For teams that need to organize testimony by case issues rather than transcript order, see how to [build a deposition issue list with cited issues directly from transcripts](/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/).
 

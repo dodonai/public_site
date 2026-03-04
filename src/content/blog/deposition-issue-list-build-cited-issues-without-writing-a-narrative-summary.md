@@ -18,7 +18,7 @@ A deposition issue list helps litigation teams identify disputed facts, themes, 
 
 Dodon.ai offers a deposition prep workflow that transforms how legal teams approach issue spotting. Instead of spending hours crafting prose summaries, you can upload a transcript and immediately start collecting cited issues in a structured table format.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6965a3397e8e9d47ffb0c489_26e5304a.png)
+![](/images/blog/inline/6965a3397e8e9d47ffb0c489_26e5304a.webp)
 
 ## **How to Build a Deposition Issue List From a Transcript**
 
@@ -36,11 +36,11 @@ Here's where the workflow diverges from traditional deposition transcript review
 
 ‍
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6965a3397e8e9d47ffb0c483_18cae5bd.png)
+![](/images/blog/inline/6965a3397e8e9d47ffb0c483_18cae5bd.webp)
 
 **Chat with Documents:** For more nuanced issue spotting, the Chat feature allows natural language queries against your transcript collection. Ask about specific topics and receive software-generated responses grounded in the actual testimony.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6965a3397e8e9d47ffb0c486_d9c44ee5.png)
+![](/images/blog/inline/6965a3397e8e9d47ffb0c486_d9c44ee5.webp)
 
 ### **Step 3: Collect Cited Issues**
 
@@ -52,7 +52,7 @@ The platform generates structured summaries that skip the narrative and get stra
 
 This format maps directly to what you need for motion practice, specific testimony tied to specific issues, with citations ready for motion planning and litigation preparation. For a ready-to-use layout with sample entries, see our [page-line deposition summary template for motion practice](/blog/deposition-summary-template-page-line-format-for-motion-practice/).
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6965a3397e8e9d47ffb0c480_d1989a9b.png)
+![](/images/blog/inline/6965a3397e8e9d47ffb0c480_d1989a9b.webp)
 
 ### **Step 4: Export Your Issue Table**
 

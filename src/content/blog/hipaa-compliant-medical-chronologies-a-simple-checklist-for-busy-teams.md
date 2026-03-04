@@ -37,14 +37,14 @@ Here’s a practical checklist of essential do’s and critical don’ts to ensu
 **Have clear procedures for handling access or amendment requests. Delays can quickly turn into compliance failures.
 
 **7\. Train your team thoroughly  
-**Everyone handling chronologies, paralegals, associates, or IME administrators, needs training on proper handling of both digital and paper files.
+**Everyone handling chronologies, paralegals, associates, or [IME](/industries/ime-companies/) administrators, needs training on proper handling of both digital and paper files.
 
 **8\. Audit regularly  
 **Review workflows for compliance gaps before regulators find them. Internal audits should be routine, not reactive.
 
 ‍
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ca97f2afcf4d500eaffac6_d9c18070.png)
+![](/images/blog/inline/68ca97f2afcf4d500eaffac6_d9c18070.webp)
 
 ## **HIPAA Don’ts for Chronologies**
 
@@ -77,7 +77,7 @@ Document automation doesn’t remove your compliance responsibilities, but it el
     
 -   **Ready to use**: Upload text, handwriting, or scanned documents, and receive a structured [medical chronology](/ai-medical-record-summaries-chronologies/) in minutes. See [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/) for a hands-on walkthrough.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ca97f2afcf4d500eaffac9_995ad115.png)
+![](/images/blog/inline/68ca97f2afcf4d500eaffac9_995ad115.webp)
 
 ## **The Bottom Line**
 

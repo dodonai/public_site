@@ -87,7 +87,7 @@
 									onclick={() => (activeDropdown = null)}
 									role="menuitem"
 								>
-									<img src={service.icon} alt="" class="mt-0.5 h-8 w-8 flex-shrink-0" />
+									<img src={service.icon} alt="" class="mt-0.5 h-8 w-8 flex-shrink-0" aria-hidden="true" />
 									<div>
 										<div class="text-sm font-medium" style="color: var(--midnight-blue);">{service.name}</div>
 										<div class="mt-0.5 text-xs leading-relaxed" style="color: var(--light-slate-grey);">{service.description}</div>
@@ -260,7 +260,7 @@
 									class="flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-[#836ae41a]"
 									onclick={closeMobileMenu}
 								>
-									<img src={service.icon} alt="" class="mt-0.5 h-6 w-6 flex-shrink-0" />
+									<img src={service.icon} alt="" class="mt-0.5 h-6 w-6 flex-shrink-0" aria-hidden="true" />
 									<div>
 										<div class="text-sm font-medium" style="color: var(--midnight-blue);">{service.name}</div>
 										<div class="text-xs leading-relaxed" style="color: var(--light-slate-grey);">{service.description}</div>

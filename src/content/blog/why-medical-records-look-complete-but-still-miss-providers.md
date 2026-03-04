@@ -22,7 +22,7 @@ This article explains **why medical record gaps happen in litigation**, how team
 
 Most record sets are built from a standard **Medical Records Request**. Requests go out to known providers based on disclosures, intake forms, or early discovery. That approach assumes the provider list is already complete.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6952a7884b6556f0cacaaa70_c4646b6c.png)
+![](/images/blog/inline/6952a7884b6556f0cacaaa70_c4646b6c.webp)
 
 It rarely is.
 
@@ -71,7 +71,7 @@ Without provider-level review, gaps stay hidden.
 
 ### **4\. Retrieval vendors fulfill scope, not implications**
 
-Records vendors deliver what’s requested. They do not infer additional providers mentioned inside the documents.
+[Medical record retrieval](/industries/medical-record-retrieval/) vendors deliver what’s requested. They do not infer additional providers mentioned inside the documents.
 
 The result: **medical record gaps in litigation** that surface during expert review, not before.
 
@@ -117,7 +117,7 @@ A defensible provider cross-reference pass includes:
     
 4.  Issuing follow-up Medical Records Requests early
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6952a7884b6556f0cacaaa70_c4646b6c.png)
+![](/images/blog/inline/6952a7884b6556f0cacaaa70_c4646b6c.webp)
 
 Done correctly, this step prevents downstream surprises.
 
@@ -136,7 +136,7 @@ When records are structured chronologically, provider patterns become visible:
 
 This is where provider-level review belongs during chronology prep, not after expert review. For a step-by-step example of building a chronology that surfaces these gaps, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6952a7884b6556f0cacaaa76_fee1fc93.png)
+![](/images/blog/inline/6952a7884b6556f0cacaaa76_fee1fc93.webp)
 
 ‍
 
@@ -159,7 +159,7 @@ With **Dodon.ai**:
 
 This supports verification workflows without replacing legal judgment.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6952a7884b6556f0cacaaa79_cdd7351d.png)
+![](/images/blog/inline/6952a7884b6556f0cacaaa79_cdd7351d.webp)
 
 ## **Verification is the real issue, not volume**
 

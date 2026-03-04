@@ -23,14 +23,14 @@
 				<!-- Certification seals row -->
 				<div class="mt-10 flex flex-wrap items-center gap-5">
 					<div class="flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-6 py-3 backdrop-blur-sm">
-						<img src="/images/brand/icon-soc2.svg" alt="" class="h-8 w-8 brightness-0 invert" />
+						<img src="/images/brand/icon-soc2.svg" alt="SOC-2 certification" class="h-8 w-8 brightness-0 invert" />
 						<div>
 							<span class="block text-sm font-bold text-white">SOC-2</span>
 							<span class="block text-xs text-[#a994fa]">Certified</span>
 						</div>
 					</div>
 					<div class="flex items-center gap-3 rounded-full border border-white/15 bg-white/10 px-6 py-3 backdrop-blur-sm">
-						<img src="/images/brand/icon-hipaa.svg" alt="" class="h-8 w-8 brightness-0 invert" />
+						<img src="/images/brand/icon-hipaa.svg" alt="HIPAA compliance" class="h-8 w-8 brightness-0 invert" />
 						<div>
 							<span class="block text-sm font-bold text-white">HIPAA</span>
 							<span class="block text-xs text-[#a994fa]">Fully Compliant</span>
@@ -56,7 +56,7 @@
 				<div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
 					<div class="flex items-center gap-4">
 						<div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#836ae4]/20">
-							<img src="/images/brand/icon-encryption.svg" alt="" class="h-5 w-5 brightness-0 invert" />
+							<img src="/images/brand/icon-encryption.svg" alt="Encryption" class="h-5 w-5 brightness-0 invert" />
 						</div>
 						<div>
 							<h3 class="font-bold text-white">Encrypted end-to-end</h3>
@@ -71,7 +71,7 @@
 				<div class="rounded-2xl border border-white/10 bg-white/5 p-6 backdrop-blur-sm">
 					<div class="flex items-center gap-4">
 						<div class="flex h-10 w-10 flex-shrink-0 items-center justify-center rounded-lg bg-[#836ae4]/20">
-							<img src="/images/brand/icon-access-control.svg" alt="" class="h-5 w-5 brightness-0 invert" />
+							<img src="/images/brand/icon-access-control.svg" alt="Access control" class="h-5 w-5 brightness-0 invert" />
 						</div>
 						<div>
 							<h3 class="font-bold text-white">Isolated per-client workspaces</h3>

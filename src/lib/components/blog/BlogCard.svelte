@@ -28,7 +28,7 @@
 </script>
 
 <a
-	href="/blog/{slug}"
+	href="/blog/{slug}/"
 	class="group flex flex-col overflow-hidden rounded-xl bg-white shadow-brand-card transition-all duration-300 hover:-translate-y-1 hover:shadow-brand-card-hover"
 >
 	<!-- Hero Image or Brand Placeholder -->

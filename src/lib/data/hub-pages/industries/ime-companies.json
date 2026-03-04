@@ -108,7 +108,7 @@
     },
     {
       "question": "What types of medical records can the AI process?",
-      "answer": "Digital PDFs, scanned documents, faxed records, and files with handwritten physician notes. The AI OCR engine extracts text from low-quality scans so no relevant information is missed."
+      "answer": "Digital PDFs, scanned documents, faxed records, and files with handwritten physician notes. The AI OCR engine extracts text from low-quality scans so no relevant information is missed. See our {{link:https://app.dodon.ai/help/basic-medical-record-summaries|medical record summaries guide}} for a walkthrough of the upload and summarization process."
     },
     {
       "question": "How does Dodonai ensure HIPAA compliance for IME workflows?",
@@ -146,7 +146,9 @@
     }
   ],
   "relatedBlogPosts": [
-    "/blog/understanding-medical-chronology-clear-actionable-timelines/"
+    "/blog/understanding-medical-chronology-clear-actionable-timelines/",
+    "/blog/how-ime-companies-use-ai-to-process-medical-records/",
+    "/blog/workers-compensation-medical-records-attorneys-adjusters/"
   ],
   "ctaOverride": {
     "headline": "See How Dodonai Works for IME Companies",

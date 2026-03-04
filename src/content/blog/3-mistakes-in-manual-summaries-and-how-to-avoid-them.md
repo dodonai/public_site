@@ -48,7 +48,7 @@ Summaries are saved to your account so you can reference them later.
 
 ‍
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68f108036cbe2e587fa0da13_d32972b9.png)
+![](/images/blog/inline/68f108036cbe2e587fa0da13_d32972b9.webp)
 
 ‍
 
@@ -58,12 +58,12 @@ A well-defined deposition summary workflow should reduce fatigue, ensure citatio
 
 By combining automation with attorney oversight, litigation teams can maintain high accuracy while reducing total prep time from hours to minutes.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68f108036cbe2e587fa0da0d_bb4032c6.png)
+![](/images/blog/inline/68f108036cbe2e587fa0da0d_bb4032c6.webp)
 
 ‍
 
 ## **Learn more about Dodon.ai**
 
-See how Dodon.ai [Deposition Summary Software](/deposition-summary-software/) automates citation-ready summaries, or explore how it extends to [AI Medical Record Summaries and Chronologies](/ai-medical-record-summaries-chronologies/) for full-case prep efficiency.
+See how Dodon.ai [Deposition Summary Software](/deposition-summary-software/) automates citation-ready summaries, or explore how it extends to [AI Medical Record Summaries and Chronologies](/ai-medical-record-summaries-chronologies/) for full-case prep efficiency. For a comparison of leading tools, see our guide to the [best deposition summary software](/compare/best-deposition-summary-software/).
 
 ### [**Start your 7-day trial today at Dodon.ai.**](/)

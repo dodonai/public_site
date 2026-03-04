@@ -18,15 +18,15 @@ A [medical chronology](/ai-medical-record-summaries-chronologies/) should be a t
 
 ## **Case Example 1: The Manual Grind**
 
-Take a mid-size personal injury firm reviewing 3,000 pages a month. A single chronology can consume **6–8 paralegal hours**, especially when duplicates and out-of-order pages pile up. Multiply that across multiple cases, and weeks of billable potential vanish into formatting, cross-referencing, and corrections.
+Take a mid-size [personal injury](/practice-areas/personal-injury/) firm reviewing 3,000 pages a month. A single chronology can consume **6–8 paralegal hours**, especially when duplicates and out-of-order pages pile up. Multiply that across multiple cases, and weeks of billable potential vanish into formatting, cross-referencing, and corrections.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68d52d0ba9a75da83ecd61bc_cf75205c.png)
+![](/images/blog/inline/68d52d0ba9a75da83ecd61bc_cf75205c.webp)
 
 ## **Case Example 2: The Efficient Alternative**
 
 Now compare with a team using document automation software. Instead of slogging through every scan, they bulk-upload files, receive a chronology with citations to original records in minutes, and spend their time analyzing gaps in care or causation links. (For a walkthrough, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).) Paralegal hours drop by half, settlement prep accelerates, and stress levels decline.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68d52d0ba9a75da83ecd61bf_d08b866d.png)
+![](/images/blog/inline/68d52d0ba9a75da83ecd61bf_d08b866d.webp)
 
 ## **The ROI Benchmark**
 
@@ -36,7 +36,7 @@ Firms report saving **3–6 hours per chronology**, freeing staff for higher-val
 
 Upload entire record sets—scans, notes, lab results—messy or not. Dodon.ai presents dates, providers, and treatments in a clear chronology with citations to original records, out of the box. Teams can search and filter instantly by provider, date, or event type, then export in formats ready for collaboration or client updates.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68d52d0ba9a75da83ecd61c2_42fb2398.png)
+![](/images/blog/inline/68d52d0ba9a75da83ecd61c2_42fb2398.webp)
 
 ## **Final Word**
 

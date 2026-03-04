@@ -22,7 +22,7 @@ Create or open the Matter that holds the records for a single case. Keeping all 
 
 **Insider cue:** If the records are still trickling in, tag each batch with the date received and the provider name so you can search by source later.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/690cd9dab295f16c937947ee_b31c1146.png)
+![](/images/blog/inline/690cd9dab295f16c937947ee_b31c1146.webp)
 
 ### **2) Upload the provider PDFs (no reformatting)**
 
@@ -30,7 +30,7 @@ Drop in whatever you have: office notes, hospital summaries, lab reports, imagin
 
 **Tip for cleaner input later:** As you skim the first batch, note any **other providers referenced** (consults, imaging centers). Add them to your records-request list so the next chronology pass doesn’t miss dates or gaps. For more on why this step matters, see [why medical records look complete but still miss providers](/blog/why-medical-records-look-complete-but-still-miss-providers/).
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/690cd9dab295f16c937947f1_e6a49bc1.png)
+![](/images/blog/inline/690cd9dab295f16c937947f1_e6a49bc1.webp)
 
 ### **3) Click Summarize → Medical Record**
 
@@ -44,7 +44,7 @@ Choose **Medical Record** as the summary type. Dodon.ai presents a first-pass ch
     
 -   Do diagnoses and treatments align with the alleged mechanism of injury?
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/690cd9dab295f16c937947eb_fd3a10f6.png)
+![](/images/blog/inline/690cd9dab295f16c937947eb_fd3a10f6.webp)
 
 ### **4) Verify on the source page (make it a 60-second reflex)**
 

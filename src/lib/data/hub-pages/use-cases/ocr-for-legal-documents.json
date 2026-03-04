@@ -108,7 +108,7 @@
     },
     {
       "question": "Does the OCR output integrate with other Dodonai tools?",
-      "answer": "Yes. Scanned medical records flow directly into {{link:/ai-medical-record-summaries-chronologies/|chronology and summary}} generation. Scanned discovery documents load into the {{link:/electronic-discovery-software/|e-discovery}} workflow. No need to export and re-upload."
+      "answer": "Yes. Scanned medical records flow directly into {{link:/ai-medical-record-summaries-chronologies/|chronology and summary}} generation. Scanned discovery documents load into the {{link:/electronic-discovery-software/|e-discovery}} workflow. No need to export and re-upload. See our {{link:https://app.dodon.ai/help/pdf-organization-overview|PDF organization guide}} for details on managing and organizing your documents after OCR processing."
     },
     {
       "question": "Is Dodonai's OCR HIPAA compliant?",

@@ -69,13 +69,13 @@ Based on Dodon.ai's official demo, you can see these steps on the platform:
 
 1\. Upload the 80-page deposition transcript (accepts PDF, TXT or DOC) and hit the Summarize button.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68f108036cbe2e587fa0da0d_bb4032c6.png)
+![](/images/blog/inline/68f108036cbe2e587fa0da0d_bb4032c6.webp)
 
 ‍
 
 2\. Dodon.ai processes and presents an AI-generated summary with citations that is ready to download in various formats (DOC, PDF, TXT)
 
-![Deposition summary, created by Dodonai's software and screenshotted](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68f113cee4e8707f1f57d0e8_6439efde9232c848dd5c019a_summarizer.png)
+![Deposition summary, created by Dodonai's software and screenshotted](/images/blog/inline/68f113cee4e8707f1f57d0e8_6439efde9232c848dd5c019a_summarizer.webp)
 
 ‍
 
@@ -84,11 +84,11 @@ Based on Dodon.ai's official demo, you can see these steps on the platform:
 -   Select format type and enter key topics
 -   View the Page-Line Summary with Citations, Summary, Topics
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68f108036cbe2e587fa0da13_d32972b9.png)
+![](/images/blog/inline/68f108036cbe2e587fa0da13_d32972b9.webp)
 
 ‍
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68f108036cbe2e587fa0da10_92361c4d.png)
+![](/images/blog/inline/68f108036cbe2e587fa0da10_92361c4d.webp)
 
 ‍
 
@@ -106,7 +106,7 @@ Manual review ensures accuracy, but it kills momentum.
 
 Dodon.ai delivers the same professional standard **in minutes instead of hours**, freeing legal teams to spend more time on strategy and client work.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68f1156fca3b2393bac0b5fd_CleanShot%202025-10-16%20at%2023.54.58%402x.png)
+![](/images/blog/inline/68f1156fca3b2393bac0b5fd_CleanShot-2025-10-16-at-23.54.58-2x.webp)
 
 ## **From Hours to Seconds Without Losing the Facts That Matter**
 
@@ -117,3 +117,5 @@ Dodon.ai doesn’t replace professional judgment but it accelerates it.The softw
 If your team still spends hours summarizing depositions manually, it’s time to see what’s possible.
 
 **Upload your next transcript and see it summarized in seconds.** [**Try Dodon.ai Deposition Summary Software today.**](/deposition-summary-software/)
+
+See how Dodon.ai compares to other options in our [deposition software comparison](/compare/deposition-software-comparison/).
