@@ -3,7 +3,7 @@ title: "Medical Malpractice Deposition Prep: Using Your Chronology to Build an E
 date: "2026-03-02"
 author: "Dodonai Team"
 category: "Deposition"
-image: "/images/blog/medical-malpractice-deposition-prep-chronology-examination-outline.png"
+image: "/images/blog/medical-malpractice-deposition-prep-chronology-examination-outline.webp"
 description: "Use your medical chronology to drive medical malpractice deposition prep: identify timeline gaps, pin witnesses to dates, and challenge experts."
 cardText: "Use your medical chronology to drive medical malpractice deposition prep: identify timeline gaps, pin witnesses to dates, and challenge experts."
 imageAlt: "Attorney reviewing a medical chronology to prepare deposition questions"
