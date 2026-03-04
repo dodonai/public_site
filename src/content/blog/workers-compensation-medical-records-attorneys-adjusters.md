@@ -3,7 +3,7 @@ title: "Workers' Compensation Medical Records: What Attorneys and Adjusters Need
 date: "2026-03-02"
 author: "Dodonai Team"
 category: "Medical Records"
-image: "/images/blog/workers-compensation-medical-records-attorneys-adjusters.png"
+image: "/images/blog/workers-compensation-medical-records-attorneys-adjusters.webp"
 description: "Workers' compensation medical records require targeted extraction: MMI dates, impairment ratings, IME conflicts, and return-to-work restrictions."
 cardText: "Workers' comp medical records require targeted extraction. Learn what to pull (MMI dates, impairment ratings, IME conflicts, return-to-work restrictions) and how to do it efficiently."
 imageAlt: "Medical records being reviewed for a workers compensation claim"
