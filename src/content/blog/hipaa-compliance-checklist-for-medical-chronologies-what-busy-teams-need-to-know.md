@@ -59,7 +59,7 @@ Here’s a practical checklist of HIPAA compliance do’s and don’ts, plus how
       
     
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ca97f2afcf4d500eaffac6_d9c18070.png)
+![](/images/blog/inline/68ca97f2afcf4d500eaffac6_d9c18070.webp)
 
 ## **Where Dodon.ai Fits**
 
@@ -81,7 +81,7 @@ Dodon.ai is **built to align with HIPAA requirements** and eliminate common risk
       
     
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68ca97f2afcf4d500eaffac9_995ad115.png)
+![](/images/blog/inline/68ca97f2afcf4d500eaffac9_995ad115.webp)
 
 ## **The Bottom Line**
 

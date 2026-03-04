@@ -64,7 +64,7 @@
 		<ul class="flex flex-col gap-3">
 			{#each features as feature}
 				<li class="flex items-start gap-3">
-					<img src="/images/brand/checkmark.svg" alt="" class="mt-0.5 h-5 w-5 flex-shrink-0" />
+					<img src="/images/brand/checkmark.svg" alt="" class="mt-0.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
 					<span class="text-sm text-[#8181ac]">{feature}</span>
 				</li>
 			{/each}

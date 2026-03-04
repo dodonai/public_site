@@ -44,7 +44,7 @@ This upfront prep ensures nothing critical gets lost.
 
 **With Dodon.ai:** _Dodon.ai does all of “Step 2”._ Bulk uploads and OCR extraction are automated, so the platform effectively handles these prep steps for you.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68a481b5400474a8be8190d4_AD_4nXd_B4RnhnMWA0zpFy0WSZGiiqlWxB1y79aD6kiQb3Gig4ijkmwO0BDbzIpFIXILa3HpInPgaNr_RSZoZxPso1jWbjSJMnJftE6eCzeMrEZ20enc0FDtYhuHb8osUzuotXL7_DcVZA.png)
+![](/images/blog/inline/68a481b5400474a8be8190d4_AD_4nXd_B4RnhnMWA0zpFy0WSZGiiqlWxB1y79aD6kiQb3Gig4ijkmwO0BDbzIpFIXILa3HpInPgaNr_RSZoZxPso1jWbjSJMnJftE6eCzeMrEZ20enc0FDtYhuHb8osUzuotXL7_DcVZA.webp)
 
 Document indexing on Dodon.ai
 
@@ -79,7 +79,7 @@ Finally, chronologies should be easy to share with partners, clients, or experts
 
 **With Dodon.ai:** Export timelines directly in shareable formats without hours of manual rework.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68a481b5400474a8be8190d0_AD_4nXdj85Hxn3dHjTZEQpqr2En2w2nVfzG9w89ygGJm5RdEHADmhkPQfvmHAPjOjx3CSVIdzerVyv6HtiR2crq5J7HP8tvgrBrbRX3aHklOQhm4Q8_fbsBDl6qHVdfDLiiWAXgLb4qD.png)
+![](/images/blog/inline/68a481b5400474a8be8190d0_AD_4nXdj85Hxn3dHjTZEQpqr2En2w2nVfzG9w89ygGJm5RdEHADmhkPQfvmHAPjOjx3CSVIdzerVyv6HtiR2crq5J7HP8tvgrBrbRX3aHklOQhm4Q8_fbsBDl6qHVdfDLiiWAXgLb4qD.webp)
 
 PDF Organization on Dodon.ai
 

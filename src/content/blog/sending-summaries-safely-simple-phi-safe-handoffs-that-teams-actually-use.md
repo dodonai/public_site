@@ -53,7 +53,7 @@ Some tools retain prompts and outputs to train future models, creating unnecessa
 
 Data residency matters. Dodon.ai’s enterprise configuration routes processing through US-only servers, keeping PHI under domestic privacy frameworks and reducing cross-border complications.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6931d590ef22bc44656fd63f_26244b99.png)
+![](/images/blog/inline/6931d590ef22bc44656fd63f_26244b99.webp)
 
 ## **Least-Privilege Access: Controls Teams Can Apply Today**
 
@@ -82,7 +82,7 @@ These practices integrate cleanly into standard litigation and med-legal scenari
 
 Export a structured chronology (Word, PDF, or TXT) with page-line citations. Use encrypted transfer methods rather than standard email attachments.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6931d590ef22bc44656fd642_849cd18f.png)
+![](/images/blog/inline/6931d590ef22bc44656fd642_849cd18f.webp)
 
 ‍
 
@@ -90,13 +90,13 @@ Export a structured chronology (Word, PDF, or TXT) with page-line citations. Use
 
 Generate page-line or narrative summaries, then share through a secure channel with view-only access. Revoke access at the end of the engagement.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6931d590ef22bc44656fd64b_1da7ab8b.png)
+![](/images/blog/inline/6931d590ef22bc44656fd64b_1da7ab8b.webp)
 
 ### **Handoff to IME providers**
 
 Upload the record set, generate a chronology, and share only the essential portions required for opinion work. This limits unnecessary PHI exposure. Learn more about how [IME companies](/industries/ime-companies/) use AI to streamline their workflows.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6931d590ef22bc44656fd648_3b01cacd.png)
+![](/images/blog/inline/6931d590ef22bc44656fd648_3b01cacd.webp)
 
 ‍
 
@@ -117,7 +117,7 @@ Dodon.ai incorporates safeguards that support compliance-minded legal and medica
 
 These controls protect PHI during processing, the point where AI-assisted workflows introduce the most scrutiny.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6931d590ef22bc44656fd645_3c8f2ab7.png)
+![](/images/blog/inline/6931d590ef22bc44656fd645_3c8f2ab7.webp)
 
 ## **What We’re Not Promising**
 

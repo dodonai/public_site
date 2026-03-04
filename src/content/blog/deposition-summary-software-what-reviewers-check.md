@@ -20,7 +20,7 @@ If the software makes verification easy, teams use it. If it doesn't, the summar
 
 This post breaks down the practical checks litigation teams run before they rely on **deposition summary software**, and the workflow cues that signal the output is safe to use for litigation prep. (Still evaluating tools? See our [buyer's guide to choosing deposition summary software](/blog/choosing-deposition-summary-software-litigators-guide/).)**‍**
 
-![App: Gary Karrot PL Summary View](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/698b57602efd758c886898d9_CleanShot%202026-02-11%20at%2000.04.44%202%402x.png)
+![App: Gary Karrot PL Summary View](/images/blog/inline/698b57602efd758c886898d9_CleanShot-2026-02-11-at-00.04.44-2-2x.webp)
 
 App: Gary Karrot PL Summary View
 
@@ -81,7 +81,7 @@ Different teams handle this differently in practice. The reliable standard is no
 
 **Reviewer tell:** you can verify the key statements quickly without guessing what was actually said.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/698b57e060107309a70a3045_CleanShot%202026-02-11%20at%2000.06.54%402x.png)
+![](/images/blog/inline/698b57e060107309a70a3045_CleanShot-2026-02-11-at-00.06.54-2x.webp)
 
 ### **4) Does the structure match litigation prep use (not generic narrative recap)?**
 
@@ -133,7 +133,7 @@ Credible positioning is:
 
 That's how litigation teams adopt software: practical, cost-conscious, and measured.
 
-![Deposition summary, created by Dodonai's software and screenshotted](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/68f113cee4e8707f1f57d0e8_6439efde9232c848dd5c019a_summarizer.png)
+![Deposition summary, created by Dodonai's software and screenshotted](/images/blog/inline/68f113cee4e8707f1f57d0e8_6439efde9232c848dd5c019a_summarizer.webp)
 
 ‍**‍**
 
@@ -157,7 +157,7 @@ If you want to standardize safe use for deposition summaries, publish this inter
 
 This matches how teams operate under deadline: verify the parts that matter most, then move.
 
-![Deposition summary, created by Dodonai's software and screenshotted](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/698b581de3f1ca0b7d9806ae_65971b63deedb95ebd6f1a7d_Chat%2520with%2520Transcript.png)
+![Deposition summary, created by Dodonai's software and screenshotted](/images/blog/inline/698b581de3f1ca0b7d9806ae_65971b63deedb95ebd6f1a7d_Chat-20with-20Transcript.webp)
 
 ‍
 

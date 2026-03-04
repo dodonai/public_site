@@ -29,7 +29,7 @@ Manual review depends on memory, notes, and repeated reading. Once multiple depo
 
 A structured deposition review workflow removes guesswork and replaces rereading with targeted comparison.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6946569819f1d4d157893fb6_9f290c84.png)
+![](/images/blog/inline/6946569819f1d4d157893fb6_9f290c84.webp)
 
 ‍
 
@@ -53,7 +53,7 @@ This creates a shared reference point for searching and comparison.
 
 **With Dodon.ai:** Related deposition transcripts can be grouped into a single **collection** with no setup, making them searchable together out of the box.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6946569819f1d4d157893fbf_f9db3442.png)
+![](/images/blog/inline/6946569819f1d4d157893fbf_f9db3442.webp)
 
 ‍
 
@@ -71,7 +71,7 @@ This approach surfaces answers that describe the same fact using different langu
 
 **With Dodon.ai:** The software surfaces relevant testimony across deposition transcripts using semantic search, presenting results with citations to the original pages.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6946569819f1d4d157893fb9_47403453.png)
+![](/images/blog/inline/6946569819f1d4d157893fb9_47403453.webp)
 
 ‍
 
@@ -85,7 +85,7 @@ Cited deposition testimony, broken into comparable statements for review
 -   Same event, different timelines
 -   Same treatment, conflicting descriptions
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6946569819f1d4d157893fbc_684ee944.png)
+![](/images/blog/inline/6946569819f1d4d157893fbc_684ee944.webp)
 
 Because citations are attached, teams can confirm differences immediately.
 
@@ -99,7 +99,7 @@ Every contradiction should be confirmed on the source page. Verification protect
 
 **With Dodon.ai:** Clicking a citation opens the exact transcript page, so verification stays part of the normal review flow.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6946569819f1d4d157893fb3_b549f275.png)
+![](/images/blog/inline/6946569819f1d4d157893fb3_b549f275.webp)
 
 ‍
 

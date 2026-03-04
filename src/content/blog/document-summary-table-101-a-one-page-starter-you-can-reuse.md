@@ -16,7 +16,7 @@ imageAlt: "Sample document summary table for legal case review."
 
 A document summary table is a one-page grid that captures essential facts from records, depositions, or provider files - paired with direct citations so anyone on your team can verify quickly. It keeps review consistent, accelerates fact-pattern work, and prevents re-reading long PDFs.
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/691749f3dc67c8b07d400245_8a3e07c3.png)
+![](/images/blog/inline/691749f3dc67c8b07d400245_8a3e07c3.webp)
 
 ## **What a summary table does**
 
@@ -77,7 +77,7 @@ Keep each entry short. Save longer explanations for narrative memos or partner n
 
 ## **How this aligns with Dodon.ai’s export options**
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69174b2309f28280adb1c6a4_0810033b.png)
+![](/images/blog/inline/69174b2309f28280adb1c6a4_0810033b.webp)
 
 ‍
 
@@ -130,7 +130,7 @@ Add a branded cover page summarizing key matter details.
 The interface supports PDF and DOCX.  
 (If your workspace has XLSX enabled, confirm internally.)
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69174b50a3b2b379ba949351_06b1e518.png)
+![](/images/blog/inline/69174b50a3b2b379ba949351_06b1e518.webp)
 
 ## **When to use a summary table**
 
@@ -178,7 +178,7 @@ Dodon.ai lets you export either style from the same review set.
         
 5.  Click **Download Summary**
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/691749f3dc67c8b07d400248_aecaf0ca.png)
+![](/images/blog/inline/691749f3dc67c8b07d400248_aecaf0ca.webp)
 
 For more, visit:
 

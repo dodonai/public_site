@@ -58,7 +58,7 @@ We don’t work with just any LLM provider. Before processing a single document,
     **Processing occurs on US-only servers when required by your workflow, ensuring compliance with applicable US state privacy laws such as CCPA.  
     _Consumer-tier services do not guarantee this — enterprise/API configuration is required._
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/689b2fc0f07ff26be189cee7_AD_4nXfzuB-Hsd3PSwTdruR0ZeLdYWSOG-4ujxt_wzt1lKPbvT2QgeRU3m2vlg0SO8aRdcfFk8gCkaiRraoAQAanliMIs0qHN_o8nvYKOG5zPH1_LSLvpVvEg0_98q7PKq1Bbu8LeTjm.png)
+![](/images/blog/inline/689b2fc0f07ff26be189cee7_AD_4nXfzuB-Hsd3PSwTdruR0ZeLdYWSOG-4ujxt_wzt1lKPbvT2QgeRU3m2vlg0SO8aRdcfFk8gCkaiRraoAQAanliMIs0qHN_o8nvYKOG5zPH1_LSLvpVvEg0_98q7PKq1Bbu8LeTjm.webp)
 
 Three Non-Negotiable Requirements for Dodon.ai Vendors
 

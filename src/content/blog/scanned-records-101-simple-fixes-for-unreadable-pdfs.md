@@ -109,9 +109,9 @@ Clear pages let you present dates, providers, diagnoses, treatments, and events 
 
 _Handwriting transcription works best when the writing is reasonably legible; as with any automation, verify important excerpts against the original page._
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69033e4c231d535bebfa8fe0_2dd8b749.png)
+![](/images/blog/inline/69033e4c231d535bebfa8fe0_2dd8b749.webp)
 
-![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/69033e4c231d535bebfa8fe3_93825d2e.png)
+![](/images/blog/inline/69033e4c231d535bebfa8fe3_93825d2e.webp)
 
 **Quick reference checklist**
 
