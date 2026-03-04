@@ -80,7 +80,7 @@ We believe the same trajectory applies to AI: unless you’re a massive enterpri
 
 At Dodon.ai, privacy isn’t a marketing line but the foundation of everything we do in medico-legal AI.
 
-US customers can focus on winning cases or delivering accurate IME reports, knowing their data is:
+US customers can focus on winning cases or delivering accurate [IME reports](/use-cases/ime-reports/), knowing their data is:
 
 -   Handled under HIPAA-aligned, US-based, ZDR-enabled enterprise agreements  
     

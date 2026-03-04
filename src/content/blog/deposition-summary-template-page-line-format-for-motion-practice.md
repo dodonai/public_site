@@ -69,7 +69,7 @@ The Notes column is particularly useful for flagging impeachment material, contr
 
 ### Customizing the Template for Different Case Types
 
-You can add or remove columns based on your practice area. Personal injury cases might benefit from a column tracking medical terminology or treatment dates. Employment litigation often calls for timeline tracking for discriminatory acts. Commercial disputes may work better with columns linking testimony to specific contract provisions.
+You can add or remove columns based on your practice area. [Personal injury](/practice-areas/personal-injury/) cases might benefit from a column tracking medical terminology or treatment dates. Employment litigation often calls for timeline tracking for discriminatory acts. Commercial disputes may work better with columns linking testimony to specific contract provisions.
 
 Think of the template as a starting point--whether you're working in Word, Google Docs, or directly inside Dodon.ai. Adjust it to match how you actually use deposition testimony in your motions.
 

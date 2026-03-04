@@ -94,7 +94,7 @@ Generate page-line or narrative summaries, then share through a secure channel w
 
 ### **Handoff to IME providers**
 
-Upload the record set, generate a chronology, and share only the essential portions required for opinion work. This limits unnecessary PHI exposure.
+Upload the record set, generate a chronology, and share only the essential portions required for opinion work. This limits unnecessary PHI exposure. Learn more about how [IME companies](/industries/ime-companies/) use AI to streamline their workflows.
 
 ![](https://cdn.prod.website-files.com/643985901cacf7c2cd1347ef/6931d590ef22bc44656fd648_3b01cacd.png)
 
