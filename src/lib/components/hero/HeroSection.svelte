@@ -41,7 +41,6 @@
 		alt=""
 		class="pointer-events-none absolute -left-40 -top-20 z-0 w-[700px] opacity-50"
 		aria-hidden="true"
-		loading="lazy"
 		width="500"
 		height="483"
 	/>
@@ -50,7 +49,7 @@
 		alt=""
 		class="pointer-events-none absolute -right-40 top-10 z-0 w-[600px] opacity-40"
 		aria-hidden="true"
-		loading="lazy"
+		fetchpriority="high"
 		width="500"
 		height="491"
 	/>
@@ -59,7 +58,6 @@
 		alt=""
 		class="pointer-events-none absolute bottom-20 left-1/4 z-0 w-[500px] opacity-30"
 		aria-hidden="true"
-		loading="lazy"
 		width="500"
 		height="500"
 	/>

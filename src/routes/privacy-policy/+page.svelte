@@ -10,7 +10,7 @@
 />
 
 <div class="mx-auto max-w-4xl px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
-	<article class="prose prose-lg max-w-none prose-headings:text-neutral prose-a:text-primary">
+	<article class="prose prose-lg max-w-none prose-headings:text-[#282876] prose-a:text-[#216fed]">
 		<Privacy />
 	</article>
 </div>
