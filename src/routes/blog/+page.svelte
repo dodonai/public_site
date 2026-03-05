@@ -45,16 +45,22 @@
 	<section class="relative overflow-hidden bg-white">
 		<!-- Decorative blur blobs -->
 		<img
-			src="/images/brand/blur-1.webp"
+			src="/images/brand/ellipse-blue.webp"
 			alt=""
 			class="pointer-events-none absolute -left-40 -top-20 z-0 w-[700px] opacity-50"
 			aria-hidden="true"
+			loading="lazy"
+			width="500"
+			height="483"
 		/>
 		<img
-			src="/images/brand/blur-2.webp"
+			src="/images/brand/ellipse-pink.webp"
 			alt=""
 			class="pointer-events-none absolute -right-40 top-10 z-0 w-[600px] opacity-40"
 			aria-hidden="true"
+			loading="lazy"
+			width="500"
+			height="491"
 		/>
 
 		<div class="relative z-10 mx-auto w-[85%] max-w-[1250px] pb-16 pt-2 text-center sm:pb-20">

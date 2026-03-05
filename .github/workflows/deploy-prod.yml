@@ -57,7 +57,7 @@ jobs:
       - name: Set Cache Control for images
         run: |
           for ext in png jpg jpeg gif svg webp; do
-            gsutil -m setmeta -h "Cache-Control:public, max-age=3600" gs://dodonai-landing/images/**/*.$ext || true
+            gsutil -m setmeta -h "Cache-Control:public, max-age=2592000" gs://dodonai-landing/images/**/*.$ext || true
           done
 
       - name: Set Cache Control for fonts

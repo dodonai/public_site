@@ -8,12 +8,6 @@
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import faqItems from '$lib/data/faq/general.json';
 	import LazyLoad from '$lib/components/layout/LazyLoad.svelte';
-	import DepositionHeroAnimation from '$lib/components/hero/DepositionHeroAnimation.svelte';
-	import MRSummaryAnimation from '$lib/components/hero/MRSummaryAnimation.svelte';
-	import TranscriptAnimation from '$lib/components/hero/TranscriptAnimation.svelte';
-	import OCRAnimation from '$lib/components/hero/OCRAnimation.svelte';
-	import ExtractDraftAnimation from '$lib/components/hero/ExtractDraftAnimation.svelte';
-	import EDiscoveryAnimation from '$lib/components/hero/EDiscoveryAnimation.svelte';
 </script>
 
 <SEOHead
@@ -121,7 +115,9 @@
 				</a>
 			</div>
 			<LazyLoad>
-				<DepositionHeroAnimation />
+				{#await import('$lib/components/hero/DepositionHeroAnimation.svelte') then { default: Comp }}
+					<Comp />
+				{/await}
 			</LazyLoad>
 		</div>
 	</div>
@@ -131,7 +127,9 @@
 		<div class="grid items-center gap-12 lg:grid-cols-2">
 			<div class="order-2 lg:order-1">
 				<LazyLoad>
-					<MRSummaryAnimation />
+					{#await import('$lib/components/hero/MRSummaryAnimation.svelte') then { default: Comp }}
+						<Comp />
+					{/await}
 				</LazyLoad>
 			</div>
 			<div class="order-1 lg:order-2">
@@ -173,7 +171,9 @@
 				</a>
 			</div>
 			<LazyLoad>
-				<TranscriptAnimation />
+				{#await import('$lib/components/hero/TranscriptAnimation.svelte') then { default: Comp }}
+					<Comp />
+				{/await}
 			</LazyLoad>
 		</div>
 	</div>
@@ -183,7 +183,9 @@
 		<div class="grid items-center gap-12 lg:grid-cols-2">
 			<div class="order-2 lg:order-1">
 				<LazyLoad>
-					<OCRAnimation />
+					{#await import('$lib/components/hero/OCRAnimation.svelte') then { default: Comp }}
+						<Comp />
+					{/await}
 				</LazyLoad>
 			</div>
 			<div class="order-1 lg:order-2">
@@ -225,7 +227,9 @@
 				</a>
 			</div>
 			<LazyLoad>
-				<ExtractDraftAnimation />
+				{#await import('$lib/components/hero/ExtractDraftAnimation.svelte') then { default: Comp }}
+					<Comp />
+				{/await}
 			</LazyLoad>
 		</div>
 	</div>
@@ -235,7 +239,9 @@
 		<div class="grid items-center gap-12 lg:grid-cols-2">
 			<div class="order-2 lg:order-1">
 				<LazyLoad>
-					<EDiscoveryAnimation />
+					{#await import('$lib/components/hero/EDiscoveryAnimation.svelte') then { default: Comp }}
+						<Comp />
+					{/await}
 				</LazyLoad>
 			</div>
 			<div class="order-1 lg:order-2">

@@ -58,7 +58,7 @@
 			<!-- Logo + Email + Social -->
 			<div class="flex w-[25%] flex-col items-center justify-center max-lg:mb-[50px] max-lg:w-full">
 				<a href="/" class="inline-block max-w-[200px]">
-					<img src="/images/brand/logo-purple.webp" alt="Dodonai" class="w-full" />
+					<img src="/images/brand/logo-purple.webp" alt="Dodonai" class="w-full" width="200" height="35" />
 				</a>
 				<a
 					href="mailto:hello@dodon.ai"
@@ -74,7 +74,7 @@
 						class="flex h-[24px] flex-col items-center justify-end transition-all duration-300 hover:mt-[-5px]"
 						aria-label="LinkedIn"
 					>
-						<img src="/images/brand/linkedin.svg" alt="LinkedIn" class="h-full" />
+						<img src="/images/brand/linkedin.svg" alt="LinkedIn" class="h-full" width="24" height="24" />
 					</a>
 					<a
 						href="https://twitter.com/Dodon_ai"
@@ -83,7 +83,7 @@
 						class="flex h-[24px] flex-col items-center justify-end transition-all duration-300 hover:mt-[-5px]"
 						aria-label="Twitter"
 					>
-						<img src="/images/brand/twitter.svg" alt="Twitter" class="h-full" />
+						<img src="/images/brand/twitter.svg" alt="Twitter" class="h-full" width="24" height="24" />
 					</a>
 					<a
 						href="https://www.youtube.com/@dodon-ai"
@@ -92,7 +92,7 @@
 						class="flex h-[24px] flex-col items-center justify-end transition-all duration-300 hover:mt-[-5px]"
 						aria-label="YouTube"
 					>
-						<img src="/images/brand/youtube.webp" alt="YouTube" class="w-[21px]" />
+						<img src="/images/brand/youtube.webp" alt="YouTube" class="w-[21px]" width="21" height="15" />
 					</a>
 				</div>
 			</div>
