@@ -39,7 +39,7 @@
 	<img
 		src="/images/brand/ellipse-blue.webp"
 		alt=""
-		class="pointer-events-none absolute -left-40 -top-20 z-0 w-[700px] opacity-50"
+		class="pointer-events-none absolute -left-40 -top-20 z-0 hidden w-[700px] opacity-50 sm:block"
 		aria-hidden="true"
 		width="500"
 		height="483"
@@ -47,16 +47,15 @@
 	<img
 		src="/images/brand/ellipse-pink.webp"
 		alt=""
-		class="pointer-events-none absolute -right-40 top-10 z-0 w-[600px] opacity-40"
+		class="pointer-events-none absolute -right-40 top-10 z-0 hidden w-[600px] opacity-40 sm:block"
 		aria-hidden="true"
-		fetchpriority="high"
 		width="500"
 		height="491"
 	/>
 	<img
 		src="/images/brand/ellipse-purple.webp"
 		alt=""
-		class="pointer-events-none absolute bottom-20 left-1/4 z-0 w-[500px] opacity-30"
+		class="pointer-events-none absolute bottom-20 left-1/4 z-0 hidden w-[500px] opacity-30 sm:block"
 		aria-hidden="true"
 		width="500"
 		height="500"
