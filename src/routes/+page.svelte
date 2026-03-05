@@ -114,11 +114,7 @@
 					Learn more &rarr;
 				</a>
 			</div>
-			<LazyLoad>
-				{#await import('$lib/components/hero/DepositionHeroAnimation.svelte') then { default: Comp }}
-					<Comp />
-				{/await}
-			</LazyLoad>
+			<LazyLoad animationName="DepositionHeroAnimation" />
 		</div>
 	</div>
 
@@ -126,11 +122,7 @@
 	<div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
 		<div class="grid items-center gap-12 lg:grid-cols-2">
 			<div class="order-2 lg:order-1">
-				<LazyLoad>
-					{#await import('$lib/components/hero/MRSummaryAnimation.svelte') then { default: Comp }}
-						<Comp />
-					{/await}
-				</LazyLoad>
+				<LazyLoad animationName="MRSummaryAnimation" />
 			</div>
 			<div class="order-1 lg:order-2">
 				<h3 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
@@ -170,11 +162,7 @@
 					Learn more &rarr;
 				</a>
 			</div>
-			<LazyLoad>
-				{#await import('$lib/components/hero/TranscriptAnimation.svelte') then { default: Comp }}
-					<Comp />
-				{/await}
-			</LazyLoad>
+			<LazyLoad animationName="TranscriptAnimation" />
 		</div>
 	</div>
 
@@ -182,11 +170,7 @@
 	<div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
 		<div class="grid items-center gap-12 lg:grid-cols-2">
 			<div class="order-2 lg:order-1">
-				<LazyLoad>
-					{#await import('$lib/components/hero/OCRAnimation.svelte') then { default: Comp }}
-						<Comp />
-					{/await}
-				</LazyLoad>
+				<LazyLoad animationName="OCRAnimation" />
 			</div>
 			<div class="order-1 lg:order-2">
 				<h3 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
@@ -226,11 +210,7 @@
 					Learn more &rarr;
 				</a>
 			</div>
-			<LazyLoad>
-				{#await import('$lib/components/hero/ExtractDraftAnimation.svelte') then { default: Comp }}
-					<Comp />
-				{/await}
-			</LazyLoad>
+			<LazyLoad animationName="ExtractDraftAnimation" />
 		</div>
 	</div>
 
@@ -238,11 +218,7 @@
 	<div class="relative mx-auto max-w-7xl px-4 py-20 sm:px-6 sm:py-28 lg:px-8">
 		<div class="grid items-center gap-12 lg:grid-cols-2">
 			<div class="order-2 lg:order-1">
-				<LazyLoad>
-					{#await import('$lib/components/hero/EDiscoveryAnimation.svelte') then { default: Comp }}
-						<Comp />
-					{/await}
-				</LazyLoad>
+				<LazyLoad animationName="EDiscoveryAnimation" />
 			</div>
 			<div class="order-1 lg:order-2">
 				<h3 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">

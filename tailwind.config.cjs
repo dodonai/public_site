@@ -23,7 +23,7 @@ module.exports = {
 				}
 			}
 		],
-		base: true,
+		base: false,
 		styled: true,
 		utils: true,
 		logs: false
