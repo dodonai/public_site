@@ -41,24 +41,24 @@
 		alt=""
 		class="pointer-events-none absolute -left-40 -top-20 z-0 hidden w-[700px] opacity-50 sm:block"
 		aria-hidden="true"
-		width="500"
-		height="483"
+		width="250"
+		height="242"
 	/>
 	<img
 		src="/images/brand/ellipse-pink.webp"
 		alt=""
 		class="pointer-events-none absolute -right-40 top-10 z-0 hidden w-[600px] opacity-40 sm:block"
 		aria-hidden="true"
-		width="500"
-		height="491"
+		width="250"
+		height="246"
 	/>
 	<img
 		src="/images/brand/ellipse-purple.webp"
 		alt=""
 		class="pointer-events-none absolute bottom-20 left-1/4 z-0 hidden w-[500px] opacity-30 sm:block"
 		aria-hidden="true"
-		width="500"
-		height="500"
+		width="250"
+		height="250"
 	/>
 
 	<!-- Content wrapper -->
@@ -128,6 +128,15 @@
 
 	<!-- Wave decoration at bottom (z-0 to stay behind content) -->
 	<div class="absolute bottom-0 left-0 right-0 z-0 opacity-40">
-		<img src="/images/brand/wave-hero.webp" alt="" class="w-full" aria-hidden="true" loading="lazy" width="1200" height="463" />
+		<img
+			src="/images/brand/wave-hero.webp"
+			srcset="/images/brand/wave-hero-sm.webp 600w, /images/brand/wave-hero.webp 1200w"
+			sizes="100vw"
+			alt=""
+			class="w-full"
+			aria-hidden="true"
+			width="1200"
+			height="463"
+		/>
 	</div>
 </section>
