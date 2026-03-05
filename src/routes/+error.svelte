@@ -17,13 +17,13 @@
 		<a href="/" class="btn-brand-primary inline-block">
 			Back to Home
 		</a>
-		<a href="/blog" class="btn-brand-outline inline-block">
+		<a href="/blog/" class="btn-brand-outline inline-block">
 			Read Our Blog
 		</a>
 	</div>
 	<div class="mt-12 flex flex-wrap items-center justify-center gap-6 text-sm text-[#8181ac]">
-		<a href="/pricing" class="hover:text-[#216fed]">Pricing</a>
-		<a href="/deposition-summary-software" class="hover:text-[#216fed]">Deposition Summaries</a>
-		<a href="/ai-medical-record-summaries-chronologies" class="hover:text-[#216fed]">Medical Records</a>
+		<a href="/pricing/" class="hover:text-[#216fed]">Pricing</a>
+		<a href="/deposition-summary-software/" class="hover:text-[#216fed]">Deposition Summaries</a>
+		<a href="/ai-medical-record-summaries-chronologies/" class="hover:text-[#216fed]">Medical Records</a>
 	</div>
 </div>

@@ -24,7 +24,7 @@ Depositions typically take place outside the courtroom, often in attorneys' offi
 
 #### Role of the Court Reporter and Videographer
 
-The [court reporter](/industries/court-reporters/) plays a crucial role in the deposition process. They are responsible for creating a verbatim transcript of everything said during the deposition. This transcript serves as the official record. If a videographer is present, they will record the proceedings, providing a visual and auditory account of the deposition. Tools like Dodonai's [deposition summary software](/deposition-summary-software) and [transcript management software](/ai-deposition-transcript-software) can help you get the most from your deposition transcripts.
+The [court reporter](/industries/court-reporters/) plays a crucial role in the deposition process. They are responsible for creating a verbatim transcript of everything said during the deposition. This transcript serves as the official record. If a videographer is present, they will record the proceedings, providing a visual and auditory account of the deposition. Tools like Dodonai's [deposition summary software](/deposition-summary-software/) and [transcript management software](/ai-deposition-transcript-software/) can help you get the most from your deposition transcripts.
 
 #### Conducting the Deposition
 

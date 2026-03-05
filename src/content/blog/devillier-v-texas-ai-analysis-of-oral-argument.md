@@ -12,7 +12,7 @@ cardText: "We had Dodonai analyze a transcript of oral arguments in Devillier v.
 imageAlt: "Image of the justices of the US Supreme Court deciding Devilier v. Texas"
 ---
 
-Dodonai created this analysis in less than 3 minutes. If you are interested in analyzing and summarizing your legal docs, check out our [AI deposition summaries](/deposition-summary-software) and [deposition transcript management software](/ai-deposition-transcript-software) to get started.
+Dodonai created this analysis in less than 3 minutes. If you are interested in analyzing and summarizing your legal docs, check out our [AI deposition summaries](/deposition-summary-software/) and [deposition transcript management software](/ai-deposition-transcript-software/) to get started.
 
 This case was argued during the same Supreme Court term as two landmark Chevron deference challenges. Read our AI analyses of those oral arguments: [Loper Bright Enterprises v. Raimondo](/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/) and [Relentless v. Dept. of Commerce](/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/). For broader context on the full Fall 2023 term, see our [summary of SCOTUS cases to watch](/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/).
 

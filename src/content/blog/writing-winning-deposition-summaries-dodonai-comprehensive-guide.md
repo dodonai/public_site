@@ -16,7 +16,7 @@ Deposition summaries are an indispensable part of the litigation process, offeri
 
 #### What is a Deposition?
 
-A deposition is a sworn, out-of-court oral testimony of a witness that is recorded for later use in court or for discovery purposes. It allows both parties in a lawsuit to gather information related to the case, helping them prepare for trial by revealing what witnesses will say and how they will say it. For a comprehensive guide on understanding depositions, [start here](/blog/understanding-depositions-a-comprehensive-guide).
+A deposition is a sworn, out-of-court oral testimony of a witness that is recorded for later use in court or for discovery purposes. It allows both parties in a lawsuit to gather information related to the case, helping them prepare for trial by revealing what witnesses will say and how they will say it. For a comprehensive guide on understanding depositions, [start here](/blog/understanding-depositions-a-comprehensive-guide/).
 
 #### What is a Deposition Summary?
 
@@ -31,8 +31,8 @@ Be sure to discuss the goals of the summary with your team and whomever you are 
 #### Determine the Type of Summary to Create
 
 -   **Narrative Summary**: Provides a detailed, continuous account of the deposition, focusing on the story and substance of the testimony. Ideal for complex cases where understanding nuances and interactions is key.
--   **Page-Line Summary**: Cites specific page and line numbers alongside brief descriptions of the testimony. This format is perfect for legal teams needing to reference exact locations in the transcript for detailed review or cross-examination. [Learn more about drafting page-line summaries here](/blog/how-to-draft-a-page-line-deposition-summary). For a primer on why partners insist on this format, see [Page-Line 101: What Your Partner Means When They Ask for Citations](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/).
--   **Issue-Based Summary**: Organizes testimony around key case issues, making it easier to locate all relevant information on a particular topic. It's particularly useful in cases with distinct themes or when preparing for thematic cross-examination. [Learn more about drafting issue-based summaries here](/blog/how-to-draft-a-issue-based-deposition-summary). You can also [build a deposition issue list directly from transcripts](/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/) without writing a full narrative.
+-   **Page-Line Summary**: Cites specific page and line numbers alongside brief descriptions of the testimony. This format is perfect for legal teams needing to reference exact locations in the transcript for detailed review or cross-examination. [Learn more about drafting page-line summaries here](/blog/how-to-draft-a-page-line-deposition-summary/). For a primer on why partners insist on this format, see [Page-Line 101: What Your Partner Means When They Ask for Citations](/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/).
+-   **Issue-Based Summary**: Organizes testimony around key case issues, making it easier to locate all relevant information on a particular topic. It's particularly useful in cases with distinct themes or when preparing for thematic cross-examination. [Learn more about drafting issue-based summaries here](/blog/how-to-draft-a-issue-based-deposition-summary/). You can also [build a deposition issue list directly from transcripts](/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/) without writing a full narrative.
 
 #### More Tips for a Great Summary
 
@@ -40,12 +40,12 @@ Be sure to discuss the goals of the summary with your team and whomever you are 
 -   **Remain Objective**: Your summary should be unbiased, focusing solely on the information presented without inferring guilt, innocence, or intent.
 -   **Use Clear Formatting**: Adopt a consistent format that suits the summary's purpose, whether it's narrative, page-line, or issue-based, making it easy for readers to find what they need.
 -   **Review for Accuracy**: Ensure your summary accurately reflects the testimony. Misrepresenting testimony, even unintentionally, can have significant implications. For a look at the most common errors, see [3 Mistakes in Manual Summaries (and How to Avoid Them)](/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/).
--   For more expert tips, check out our post on [crafting effective deposition summaries here](/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies).
+-   For more expert tips, check out our post on [crafting effective deposition summaries here](/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies/).
 -   Check out some deposition summary examples with corresponding transcripts [here](/deposition-summary-software/).
 
 #### How Dodonai's Summarizer Can Help
 
-Dodonai's [AI-powered deposition summary services](/deposition-summary-software) revolutionize the process of creating deposition summaries. Here’s how:
+Dodonai's [AI-powered deposition summary services](/deposition-summary-software/) revolutionize the process of creating deposition summaries. Here’s how:
 
 -   **Efficiency at Scale**: Process hours of testimony in minutes, freeing up legal teams to focus on analysis and strategy rather than manual summarization.
 -   **Customizable Summaries**: Whether you need a narrative, page-line, or issue-based summary, Dodonai's technology can adapt to your specific requirements, ensuring you get the summary that best fits your case strategy.

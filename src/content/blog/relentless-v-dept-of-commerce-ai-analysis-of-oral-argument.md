@@ -12,7 +12,7 @@ cardText: "We had Dodonai analyze a transcript of oral arguments in Relentless v
 imageAlt: "Image of the justices of the US Supreme Court deciding Relentless v. Dept. of Commerce"
 ---
 
-Dodonai created this analysis in less than 3 minutes. If you are interested in analyzing and summarizing your legal docs, check out our [AI deposition summaries](/deposition-summary-software) and [deposition transcript management software](/ai-deposition-transcript-software) to get started.
+Dodonai created this analysis in less than 3 minutes. If you are interested in analyzing and summarizing your legal docs, check out our [AI deposition summaries](/deposition-summary-software/) and [deposition transcript management software](/ai-deposition-transcript-software/) to get started.
 
 This post is the companion analysis to our coverage of [Loper Bright Enterprises v. Raimondo](/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/), the other major Chevron deference case argued the same day. For broader context on the Supreme Court's Fall 2023 term — including Chevron, Second Amendment, and abortion cases — see our [summary of SCOTUS cases to watch](/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/). We also analyzed the oral arguments in [Devillier v. Texas](/blog/devillier-v-texas-ai-analysis-of-oral-argument/), a Fifth Amendment Takings Clause case heard the day before.
 

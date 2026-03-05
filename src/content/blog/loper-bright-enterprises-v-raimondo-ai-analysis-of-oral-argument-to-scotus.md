@@ -12,7 +12,7 @@ cardText: "We had Dodonai analyze a transcript of oral arguments in Loper Bright
 imageAlt: "Image of the justices of the US Supreme Court deciding Loper Bright Enterprises v. Raimondo"
 ---
 
-Dodonai created this analysis in less than 3 minutes. If you are interested in analyzing and summarizing your legal docs, check out our [AI deposition summaries](/deposition-summary-software) and [deposition transcript management software](/ai-deposition-transcript-software) to get started.
+Dodonai created this analysis in less than 3 minutes. If you are interested in analyzing and summarizing your legal docs, check out our [AI deposition summaries](/deposition-summary-software/) and [deposition transcript management software](/ai-deposition-transcript-software/) to get started.
 
 This case was argued alongside [Relentless v. Dept. of Commerce](/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/), the companion Chevron deference challenge — read our AI analysis of that oral argument as well. For an overview of the full Fall 2023 Supreme Court term, including the Chevron cases, see our [summary of SCOTUS cases to watch](/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/). We also covered [Devillier v. Texas](/blog/devillier-v-texas-ai-analysis-of-oral-argument/), a Fifth Amendment Takings Clause case argued the day before.
 
