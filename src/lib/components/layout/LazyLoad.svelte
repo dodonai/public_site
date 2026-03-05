@@ -19,10 +19,11 @@
 					visible = true;
 					observer.disconnect();
 					if (animationName) {
-						const path = `/src/lib/components/hero/${animationName}.svelte`;
-						const loader = animationModules[path];
-						if (loader) {
-							loader().then((mod) => {
+						const match = Object.entries(animationModules).find(([key]) =>
+							key.endsWith(`/${animationName}.svelte`)
+						);
+						if (match) {
+							match[1]().then((mod) => {
 								DynamicComponent = mod.default;
 							});
 						}
