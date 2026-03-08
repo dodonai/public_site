@@ -1,6 +1,7 @@
 <script>
 	import '../app.css';
 	import { afterNavigate } from '$app/navigation';
+	import { browser } from '$app/environment';
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
@@ -8,11 +9,41 @@
 
 	let { children } = $props();
 
+	// Capture ad params (gclid + UTMs) from landing page URL into sessionStorage
+	const AD_PARAMS = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+	if (browser) {
+		const urlParams = new URLSearchParams(window.location.search);
+		for (const p of AD_PARAMS) {
+			const v = urlParams.get(p);
+			if (v) sessionStorage.setItem(`_ad_${p}`, v);
+		}
+	}
+
+	function decorateAppLinks() {
+		const params = {};
+		for (const p of AD_PARAMS) {
+			const v = sessionStorage.getItem(`_ad_${p}`);
+			if (v) params[p] = v;
+		}
+		if (Object.keys(params).length === 0) return;
+
+		document.querySelectorAll('a[href*="app.dodon.ai"]').forEach((link) => {
+			const url = new URL(link.href);
+			for (const [k, v] of Object.entries(params)) {
+				if (!url.searchParams.has(k)) url.searchParams.set(k, v);
+			}
+			link.href = url.toString();
+		});
+	}
+
 	afterNavigate(({ from, to }) => {
 		// Skip initial page load — GA4 config in app.html handles that
 		if (from && to?.url) {
 			trackPageView(to.url.pathname);
 		}
+
+		// Decorate app links with ad params (gclid, UTMs) on every navigation
+		if (browser) decorateAppLinks();
 	});
 
 	const websiteSchema = {
