@@ -1,6 +1,15 @@
-import { error } from '@sveltejs/kit';
+import { error, redirect } from '@sveltejs/kit';
+
+const SLUG_REDIRECTS = {
+	'medical-chronology-vs-narrative-summary-which-helps-you-move-cases-faster':
+		'/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/'
+};
 
 export async function load({ params }) {
+	if (SLUG_REDIRECTS[params.slug]) {
+		throw redirect(301, SLUG_REDIRECTS[params.slug]);
+	}
+
 	const posts = import.meta.glob('/src/content/blog/*.md', { eager: true });
 	const match = Object.entries(posts).find(([path]) => path.endsWith(`/${params.slug}.md`));
 
@@ -31,7 +40,9 @@ export async function load({ params }) {
 
 export function entries() {
 	const posts = import.meta.glob('/src/content/blog/*.md', { eager: true });
-	return Object.keys(posts).map((path) => ({
+	const blogEntries = Object.keys(posts).map((path) => ({
 		slug: path.split('/').pop().replace('.md', '')
 	}));
+	const redirectEntries = Object.keys(SLUG_REDIRECTS).map((slug) => ({ slug }));
+	return [...blogEntries, ...redirectEntries];
 }
