@@ -134,7 +134,7 @@
 									loading="lazy"
 									class="h-10 w-10 rounded-full object-cover"
 								/>
-							{:else}
+							{:else if current.author}
 								<div
 									class="flex h-10 w-10 items-center justify-center rounded-full text-sm font-bold"
 									style="background-color: #e8e8f4; color: #282876;"
@@ -143,7 +143,7 @@
 								</div>
 							{/if}
 							<p class="text-sm font-semibold" style="color: #282876;">
-								{current.author}{#if current.role}, {current.role}{/if}{#if current.company},
+								{current.author}{#if current.author && current.role}, {/if}{#if current.role}{current.role}{/if}{#if current.company},
 									{current.company}{/if}
 							</p>
 						</div>
