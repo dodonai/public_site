@@ -4,7 +4,7 @@ date: "2024-05-01"
 author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/how-to-draft-a-issue-based-deposition-summary.webp"
-description: "Especially complex litigation, issue-based deposition summaries can be incredibly useful. This guide explains how to create issue-based deposition summaries."
+description: "How to organize deposition testimony by key case issues instead of page order — a step-by-step guide to drafting issue-based summaries for complex litigation."
 readingTime: "6 minutes"
 featured: true
 featureMain: false
@@ -18,13 +18,13 @@ In litigation, especially in cases with complicated issues such as a complex com
 
 An issue-based deposition summary focuses on the main issues or topics discussed during the deposition, categorizing related testimonies together regardless of their order in the transcript. This method is particularly effective in fact-specific cases where understanding the nuances of each issue is crucial to the case's outcome. For a faster approach that skips the narrative step entirely, see how to [build a deposition issue list with cited issues directly from transcripts](/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/).
 
-#### Steps to Drafting a Issue-Based Summary
+#### Steps to Drafting an Issue-Based Summary
 
 1.  **Identify Key Issues**: Begin by reviewing the case to identify its key issues or issues. These will serve as the main categories for organizing the deposition testimony.
 2.  **Review the Deposition Transcript**: As you go through the transcript, extract relevant testimony and categorize it under the identified issues. This may require a comprehensive first read to ensure no critical information is missed.
 3.  **Organize Testimony by Issue**: For each issue, summarize the relevant testimonies, including page and line references for precise location. This allows for quick access to the original transcript if needed for more context.
 
-#### Example of a Issue-Based Summary Format for a Workplace Discrimination Case
+#### Example of an Issue-Based Summary Format for a Workplace Discrimination Case
 
 **Issue**: Alleged Discrimination in Promotion Decisions, May 2020
 
