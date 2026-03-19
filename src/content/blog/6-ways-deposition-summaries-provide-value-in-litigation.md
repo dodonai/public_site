@@ -8,7 +8,7 @@ description: "Six specific ways deposition summaries improve litigation outcomes
 readingTime: "4 minutes"
 featured: true
 featureMain: false
-cardText: "Deposition summaries stand out as pivotal tools, offering clarity and strategic advantage in litigation. Here's why deposition summaries continue to be a cornerstone of legal practice.‍"
+cardText: "Six specific ways deposition summaries improve litigation outcomes — from bridging information gaps and saving time to enabling strategic trial preparation and cost reduction."
 imageAlt: "Image of a professional holding glowing, valuable deposition summary documents"
 ---
 

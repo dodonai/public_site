@@ -8,7 +8,7 @@ description: "Especially complex litigation, issue-based deposition summaries ca
 readingTime: "6 minutes"
 featured: true
 featureMain: false
-cardText: "Especially complex litigation, issue-based deposition summaries can be incredibly useful. This guide explains how to create issue-based deposition summaries."
+cardText: "How to organize deposition testimony by key case issues instead of page order — a step-by-step guide to drafting issue-based summaries for complex litigation."
 imageAlt: "Image of a desktop with a computer monitor implying great progress on issue-based deposition summaries"
 ---
 

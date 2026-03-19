@@ -8,7 +8,7 @@ description: "Expert tips for writing accurate, clear deposition summaries — f
 readingTime: "4 minutes"
 featured: true
 featureMain: false
-cardText: "Deposition summaries are indispensable tools in the litigation process, providing attorneys and their teams with quick references to key testimonies. Here are some expert tips and strategies for writing effective deposition summaries."
+cardText: "Expert tips for writing accurate, clear deposition summaries — from background prep and detail prioritization to page-line formatting and quality review."
 imageAlt: "Image a female professional drafting expert deposition summaries"
 ---
 
