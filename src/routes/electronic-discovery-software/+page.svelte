@@ -5,7 +5,6 @@
 	import TestimonialSection from '$lib/components/testimonials/TestimonialSection.svelte';
 	import BlobBackground from '$lib/components/layout/BlobBackground.svelte';
 	import VideoEmbed from '$lib/components/video/VideoEmbed.svelte';
-	import ContentSection from '$lib/components/content/ContentSection.svelte';
 	import ValueProposition from '$lib/components/features/ValueProposition.svelte';
 	import HowItWorks from '$lib/components/features/HowItWorks.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
@@ -93,15 +92,66 @@
 		<VideoEmbed url={data.videoUrl} title="See Dodonai in Action" background="bg-transparent" />
 	{/if}
 
-	<!-- 4. Educational Content -->
+	<!-- 4. Educational Content (4 cards + AI overview card) -->
 	{#if data.educationalContent}
-		{#each data.educationalContent as section}
-			<ContentSection
-				heading={section.heading}
-				paragraphs={section.paragraphs}
-				background="bg-transparent"
-			/>
-		{/each}
+		<section class="py-20 sm:py-28">
+			<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+				<div class="mx-auto max-w-3xl text-center">
+					<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
+						Understanding AI eDiscovery
+					</h2>
+				</div>
+
+				<div class="mt-16 grid gap-8 sm:grid-cols-2">
+					{#each data.educationalContent as card}
+						<div class="flex gap-5 rounded-2xl border border-[#dcddf340] bg-white p-8 shadow-brand-card">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#836ae41a]">
+								{#if card.icon}
+									<svg class="h-6 w-6 text-[#836ae4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+										{#if card.icon === 'search'}
+											<path stroke-linecap="round" stroke-linejoin="round" d="M21 21l-5.197-5.197m0 0A7.5 7.5 0 1 0 5.196 5.196a7.5 7.5 0 0 0 10.607 10.607Z" />
+										{:else if card.icon === 'sparkles'}
+											<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+										{:else if card.icon === 'briefcase'}
+											<path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+										{:else if card.icon === 'dollar'}
+											<path stroke-linecap="round" stroke-linejoin="round" d="M12 6v12m-3-2.818.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+										{/if}
+									</svg>
+								{:else}
+									<span class="text-lg font-bold text-[#836ae4]">
+										{card.title ? card.title.charAt(0).toUpperCase() : '?'}
+									</span>
+								{/if}
+							</div>
+							<div>
+								<h3 class="text-lg font-bold text-[#282876]">{card.title}</h3>
+								<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{@html linkify(card.description)}</p>
+							</div>
+						</div>
+					{/each}
+				</div>
+
+				<!-- AI Overview card spanning full width -->
+				{#if data.aiOverview}
+					<div class="mt-8 rounded-2xl border border-[#836ae430] bg-[#836ae408] p-10 shadow-brand-card">
+						<div class="flex items-start gap-6">
+							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#836ae41a]">
+								<svg class="h-6 w-6 text-[#836ae4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+									<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+								</svg>
+							</div>
+							<div>
+								<h3 class="text-xl font-bold text-[#282876]">{data.aiOverview.heading}</h3>
+								{#each data.aiOverview.paragraphs as paragraph}
+									<p class="mt-3 text-sm leading-relaxed text-[#8181ac]">{paragraph}</p>
+								{/each}
+							</div>
+						</div>
+					</div>
+				{/if}
+			</div>
+		</section>
 	{/if}
 
 	<!-- 5. How It Works -->
@@ -118,36 +168,37 @@
 		/>
 	{/if}
 
-	<!-- 7. Legal AI Tools Content -->
-	{#if data.legalAiContent}
-		<section class="py-20 sm:py-28">
-			<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-				<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
-					{data.legalAiContent.heading}
-				</h2>
-				<div class="mt-8 space-y-6">
-					{#each data.legalAiContent.paragraphs as paragraph}
-						<p class="text-base leading-7 text-[#8181ac] sm:text-lg">{paragraph}</p>
-					{/each}
-				</div>
-				{#if data.legalAiContent.subsections}
-					<div class="mt-12 space-y-10">
-						{#each data.legalAiContent.subsections as sub}
-							<div>
-								<h3 class="text-xl font-bold text-[#282876]">{sub.title}</h3>
-								<p class="mt-3 text-base leading-7 text-[#8181ac] sm:text-lg">{sub.description}</p>
-							</div>
-						{/each}
-					</div>
-				{/if}
-				{#if data.legalAiContent.closing}
-					<p class="mt-10 text-base leading-7 text-[#8181ac] sm:text-lg">{@html linkify(data.legalAiContent.closing)}</p>
-				{/if}
-			</div>
-		</section>
+	<!-- 7. Security Section -->
+	{#if data.securitySection}
+		<ValueProposition
+			heading={data.securitySection.heading}
+			cards={data.securitySection.cards}
+			columns={2}
+			background="bg-transparent"
+		/>
 	{/if}
 
-	<!-- 8. FAQ -->
+	<!-- 8. Customer Wins -->
+	{#if data.customerWins}
+		<ValueProposition
+			heading={data.customerWins.heading}
+			cards={data.customerWins.cards}
+			columns={2}
+			background="bg-transparent"
+		/>
+	{/if}
+
+	<!-- 9. Practice Areas -->
+	{#if data.practiceAreas}
+		<ValueProposition
+			heading={data.practiceAreas.heading}
+			cards={data.practiceAreas.cards}
+			columns={2}
+			background="bg-transparent"
+		/>
+	{/if}
+
+	<!-- 10. FAQ -->
 	{#if data.faq.length > 0}
 		<FAQAccordion items={data.faq} background="bg-transparent" />
 	{/if}
@@ -158,5 +209,5 @@
 	{/if}
 </BlobBackground>
 
-<!-- 9. CTA -->
+<!-- 11. CTA -->
 <CTASection />

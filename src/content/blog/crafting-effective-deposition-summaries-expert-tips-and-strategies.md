@@ -1,10 +1,10 @@
 ---
-title: "Crafting Effective Deposition Summaries: Expert Tips and Strategies"
+title: "Deposition Summary Best Practices: Expert Tips for Accuracy and Clarity"
 date: "2024-05-01"
 author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies.webp"
-description: "Deposition summaries are indispensable tools in the litigation process, providing attorneys and their teams with quick references to key testimonies. Here are some expert tips and strategies for writing effective deposition summaries."
+description: "Expert tips for writing accurate, clear deposition summaries — from background prep and detail prioritization to page-line formatting and quality review."
 readingTime: "4 minutes"
 featured: true
 featureMain: false

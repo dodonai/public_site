@@ -1,5 +1,5 @@
 ---
-title: "How to Draft a Issue-Based Deposition Summary"
+title: "How to Draft an Issue-Based Deposition Summary"
 date: "2024-05-01"
 author: "Dodonai Team"
 category: "Deposition"

@@ -4,7 +4,7 @@ date: "2024-05-01"
 author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/6-ways-deposition-summaries-provide-value-in-litigation.webp"
-description: "Deposition summaries stand out as pivotal tools, offering clarity and strategic advantage in litigation. Here's why deposition summaries continue to be a cornerstone of legal practice.‍"
+description: "Six specific ways deposition summaries improve litigation outcomes — from bridging information gaps and saving time to enabling strategic trial preparation and cost reduction."
 readingTime: "4 minutes"
 featured: true
 featureMain: false
@@ -28,7 +28,7 @@ Deposition summaries enable legal teams to be better prepared for trial. By isol
 
 ## Cost-Effectiveness
 
-Outsourcing the creation of deposition summaries can lead to significant cost savings. Specialized services can produce high-quality summaries more efficiently than attorneys, whose expertise and time come at a premium. This approach allows legal teams to reallocate resources more effectively, investing in areas of the case that directly contribute to a favorable outcome.
+Outsourcing the creation of deposition summaries can lead to significant cost savings. Specialized services can produce high-quality summaries more efficiently than attorneys, whose expertise and time come at a premium. This approach allows legal teams to reallocate resources more effectively, investing in areas of the case that directly contribute to a favorable outcome. AI-powered tools have pushed the economics even further — [Dodonai's deposition summary software](/deposition-summary-software/) starts at $30 per month for up to 200 pages, compared to $300–$2,000 per transcript from traditional summary services.
 
 ## The Litigation Lifeline
 
