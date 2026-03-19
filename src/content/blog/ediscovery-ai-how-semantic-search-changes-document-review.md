@@ -4,57 +4,61 @@ date: "2026-03-18"
 author: "Dodonai Team"
 category: "Technology"
 image: "/images/blog/ediscovery-ai-how-semantic-search-changes-document-review.webp"
-description: "How eDiscovery AI uses semantic search to find relevant documents by meaning instead of keywords — reducing missed evidence, false positives, and review time."
-cardText: "How eDiscovery AI uses semantic search to find relevant documents by meaning instead of keywords — reducing missed evidence, false positives, and review time."
+description: "eDiscovery AI semantic search finds relevant documents by meaning, not keywords. Fewer missed docs, fewer false positives, faster review cycles."
+cardText: "eDiscovery AI semantic search finds relevant documents by meaning, not keywords. Fewer missed docs, fewer false positives, faster review cycles."
 imageAlt: "AI-powered semantic search finding relevant legal documents"
 readingTime: "5 minutes"
 featured: false
 featureMain: false
 ---
 
-Document review is where litigation budgets go to die. A mid-size commercial dispute can produce tens of thousands of documents, and someone has to look at every one of them to decide whether it's relevant, privileged, or both. For decades, legal teams have relied on keyword search to narrow the pile — but keyword search has a fundamental problem that no amount of Boolean logic can fix.
+Document review is where litigation budgets go to die. A mid-size commercial dispute can produce tens of thousands of documents, and someone has to look at every one to decide: relevant, privileged, or both.
 
-Keywords find words, not concepts. And legal evidence is organized around concepts.
+For decades, legal teams have relied on keyword search to narrow the pile. But keyword search has a fundamental problem that no amount of Boolean logic can fix.
+
+Keywords find words. Legal evidence is organized around concepts.
 
 ## The Keyword Problem in eDiscovery
 
-Traditional eDiscovery platforms work by matching your search terms against the text of every document in the collection. Type "breach of contract" and you get every document containing that exact phrase. This sounds reasonable until you consider what it misses.
+Traditional eDiscovery platforms match your search terms against the text of every document in the collection. Type "breach of contract" and you get every document containing that exact phrase. Sounds reasonable until you consider what it misses.
 
-A document describing "failure to perform under the agreement" is about the same concept but uses none of your search terms. An email where a project manager writes "they never delivered what they promised" is potentially your most damning piece of evidence — and keyword search won't find it unless you happened to guess every possible way a witness might describe the issue.
+A document describing "failure to perform under the agreement" covers the same concept but uses none of your search terms. An email where a project manager writes "they never delivered what they promised" is potentially your most damning piece of evidence, and keyword search won't find it unless you guessed every possible way a witness might describe the issue.
 
-The standard workaround is to run dozens or hundreds of keyword variations, combine them with Boolean operators, and iterate. This process is time-consuming, expensive, and still incomplete. Studies have consistently shown that keyword search in eDiscovery achieves recall rates (the percentage of relevant documents actually found) between 20% and 80%, depending on the complexity of the case and the skill of the person writing the queries.
+The standard workaround: run dozens or hundreds of keyword variations, combine them with Boolean operators, and iterate. It's time-consuming, expensive, and still incomplete.
 
-That means even in the best case, keyword search may miss 20% of relevant documents. In the worst case, it misses 80%.
+Studies have consistently shown that keyword search in eDiscovery achieves recall rates (the percentage of relevant documents actually found) between 20% and 80%, depending on case complexity and the skill of the person writing queries.
+
+Best case, keyword search misses 20% of relevant documents. Worst case, it misses 80%.
 
 ## How Semantic Search Works in eDiscovery AI
 
-Semantic search takes a fundamentally different approach. Instead of matching character strings, it matches meaning.
+Semantic search takes a fundamentally different approach. It matches meaning, not character strings.
 
-When you upload documents to an [eDiscovery AI platform](/electronic-discovery-software/), each document is processed into a mathematical representation of its content — what AI researchers call an embedding. This embedding captures the concepts, relationships, and context within the document, not just the individual words.
+When you upload documents to an [eDiscovery AI platform](/electronic-discovery-software/), each document gets processed into a mathematical representation of its content (what AI researchers call an embedding). This embedding captures the concepts, relationships, and context within the document, not just the individual words.
 
 When you search, your query is converted into the same kind of embedding. The system then finds documents whose meaning is closest to your query's meaning, regardless of the specific words used.
 
-The practical difference is significant:
+Here's what that looks like in practice:
 
 - **Search for "breach of contract"** and semantic search also returns documents about "failure to perform," "non-compliance with agreement terms," and "they didn't hold up their end of the deal."
 - **Search for "communications about the merger"** and the system finds emails, memos, and notes discussing the acquisition, even if the word "merger" never appears.
-- **Search for "evidence of price fixing"** and the system identifies documents discussing coordinated pricing, market allocation, and bid rigging — the concepts that constitute price fixing, not just the label.
+- **Search for "evidence of price fixing"** and the system identifies documents discussing coordinated pricing, market allocation, and bid rigging. The concepts that constitute price fixing, not just the label.
 
 ## Why This Matters for Litigation Teams
 
-The shift from keyword to semantic search changes three things simultaneously for litigation teams:
+eDiscovery AI semantic search changes 3 things at once for litigation teams:
 
 ### Better recall means fewer missed documents
 
-Semantic search catches the documents that keyword search misses — the ones using different terminology, informal language, or industry jargon that doesn't match your search terms. In privilege review, this means catching privileged communications that don't contain the word "attorney" or "privileged." In relevance review, it means finding the evidence your case depends on.
+Semantic search catches the documents that keyword search misses: different terminology, informal language, industry jargon that doesn't match your search terms. In privilege review, that means catching privileged communications that don't contain the word "attorney" or "privileged." In relevance review, it means finding the evidence your case depends on.
 
 ### Fewer false positives mean less time wasted
 
-Keyword search returns every document containing your terms, whether or not those terms are used in a relevant context. "Mercury" appears in documents about the planet, the element, the car brand, and the Roman god. Semantic search understands context, so it returns documents where "mercury" appears in the sense you actually mean.
+Keyword search returns every document containing your terms, whether or not those terms appear in a relevant context. "Mercury" shows up in documents about the planet, the element, the car brand, and the Roman god. Semantic search understands context, so it returns documents where "mercury" means what you actually mean.
 
 ### Simpler queries mean faster workflows
 
-Instead of building complex Boolean queries with dozens of terms, proximity operators, and wildcards, you describe what you're looking for in plain language. This makes the search process accessible to attorneys who aren't search query specialists, and it eliminates the iterative query-refinement cycle that consumes hours in traditional eDiscovery workflows.
+You describe what you're looking for in plain language. No complex Boolean queries, no proximity operators, no wildcards. That makes search accessible to attorneys who aren't query specialists, and it kills the iterative query-refinement cycle that eats hours in traditional eDiscovery workflows.
 
 ## Semantic Search and Defensibility
 
