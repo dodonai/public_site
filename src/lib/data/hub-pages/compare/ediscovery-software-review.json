@@ -96,7 +96,7 @@
   "faq": [
     {
       "question": "How does semantic search differ from keyword search in eDiscovery?",
-      "answer": "Keyword search returns only exact-match documents. Semantic search understands meaning, so searching 'employee safety complaints' also surfaces 'worker injury reports' and 'staff health concerns' (results keyword search misses entirely)."
+      "answer": "Keyword search returns only exact-match documents. Semantic search understands meaning, so searching 'employee safety complaints' also surfaces 'worker injury reports' and 'staff health concerns' (results keyword search misses entirely). For a deeper dive, read {{link:/blog/ediscovery-ai-how-semantic-search-changes-document-review/|how semantic search changes document review}}."
     },
     {
       "question": "Can Dodonai replace a full eDiscovery platform like Relativity or Everlaw?",
@@ -104,7 +104,7 @@
     },
     {
       "question": "What does eDiscovery cost with Dodonai compared to legacy platforms?",
-      "answer": "Dodonai runs $30-$100/month depending on volume, with Enterprise pricing available. Legacy platforms start at $50,000+/year plus per-gigabyte hosting fees. For small and mid-size firms, that's a 90%+ cost reduction."
+      "answer": "Dodonai runs $30-$100/month depending on volume, with Enterprise pricing available. Legacy platforms start at $50,000+/year plus per-gigabyte hosting fees. For small and mid-size firms, that's a 90%+ cost reduction. See our breakdown of {{link:/blog/ai-ediscovery-for-small-law-firms/|AI eDiscovery pricing for small law firms}}."
     },
     {
       "question": "Is Dodonai secure enough for litigation document review?",
@@ -137,6 +137,8 @@
     }
   ],
   "relatedBlogPosts": [
+    "/blog/ediscovery-ai-how-semantic-search-changes-document-review/",
+    "/blog/ai-ediscovery-for-small-law-firms/",
     "/blog/search-vs-scroll-the-faster-way-to-pull-facts-from-transcripts/",
     "/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records/",
     "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/",

@@ -45,8 +45,8 @@ Examples of semantic questions:
 
 The technology uses OCR to read text and scanned pages out of the box, then presents the relevant passages with direct links back to the transcript for spot-checking. The AI can even suggest improved query phrasing to help you get more accurate results.
 
-**Why this matters:**  
-Semantic chat pulls the right region of testimony even when the keyword isn't repeated exactly, making it easier to confirm facts tied to liability, damages, or medical causation.
+**Why this matters:**
+Semantic chat pulls the right region of testimony even when the keyword isn't repeated exactly, making it easier to confirm facts tied to liability, damages, or medical causation. For a deeper look at how semantic search outperforms keyword matching in document review, see [how semantic search changes eDiscovery](/blog/ediscovery-ai-how-semantic-search-changes-document-review/).
 
 ### **3\. Always verify the answer on the source page**
 
