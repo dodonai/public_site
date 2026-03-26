@@ -84,7 +84,7 @@ For teams already using Dodonai for [deposition summaries](/deposition-summary-s
 
 Beyond accuracy, semantic search changes the economics of document review. Traditional eDiscovery platforms charge per-gigabyte hosting fees plus per-user licensing that can run tens of thousands of dollars per year. Add the attorney hours spent building and refining keyword queries, and the cost of reviewing false positives, and document review often consumes the largest share of any litigation budget.
 
-Dodonai's [eDiscovery AI](/electronic-discovery-software/) starts at $30 per month — a fraction of legacy platform costs. But the bigger savings come from the reduction in review time: fewer false positives to sift through, fewer missed documents requiring supplemental productions, and simpler queries that don't require eDiscovery specialists to build.
+Dodonai's [eDiscovery AI](/electronic-discovery-software/) starts at $30 per month — a fraction of legacy platform costs. But the bigger savings come from the reduction in review time: fewer false positives to sift through, fewer missed documents requiring supplemental productions, and simpler queries that don't require eDiscovery specialists to build. For a detailed look at the economics, see [AI eDiscovery for small law firms](/blog/ai-ediscovery-for-small-law-firms/).
 
 For small and mid-size firms that previously couldn't afford dedicated eDiscovery platforms, this changes what's possible. Enterprise-grade search capabilities are no longer gated behind enterprise budgets. For a detailed look at how Dodonai compares to legacy platforms, see our [eDiscovery software comparison](/compare/ediscovery-software-review/).
 

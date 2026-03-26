@@ -38,7 +38,7 @@ These capabilities aren't luxuries. They're the baseline for handling any case w
 
 The biggest capability gap between manual review and platform-based review is search quality. With basic PDF tools, you're limited to exact keyword matches. You type "negligence" and get documents containing that word, but miss every document that describes negligent conduct without using the word itself.
 
-AI-powered semantic search understands meaning. Search for "failure to follow safety protocols" and the platform finds relevant documents whether they say "safety violations," "ignored standard procedures," or "didn't follow the rules." No more brainstorming every possible keyword variation and running dozens of separate searches.
+AI-powered semantic search understands meaning. Search for "failure to follow safety protocols" and the platform finds relevant documents whether they say "safety violations," "ignored standard procedures," or "didn't follow the rules." No more brainstorming every possible keyword variation and running dozens of separate searches. For a technical breakdown of how this works, see [how semantic search changes document review](/blog/ediscovery-ai-how-semantic-search-changes-document-review/).
 
 For small firms handling employment litigation, this is the single biggest upgrade. HR documents, internal emails, and policy manuals use inconsistent terminology. A discrimination case might involve documents describing "unfair treatment," "hostile work environment," "bias," or euphemistic language that never uses the legal terms at all. Semantic search catches what keywords miss.
 

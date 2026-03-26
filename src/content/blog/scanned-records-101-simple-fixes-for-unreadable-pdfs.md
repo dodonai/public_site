@@ -104,7 +104,7 @@ Clear pages let you present dates, providers, diagnoses, treatments, and events 
 -   **[AI PDF OCR](/ai-pdf-ocr/)** — Reads scanned PDFs and (when legible) handwriting; recognizes tables and interprets images; can convert scans to editable Word. These capabilities improve downstream review, search, and extraction on messy PDFs.
 -   **[Medical record summaries & chronologies](/ai-medical-record-summaries-chronologies/)** to speed litigation prep with organized, review-ready outputs.
 -   **“Chat with your documents”** so you can ask case questions against uploaded files when you need quick retrieval and follow-ups. [](/)
--   **[Semantic search for e-discovery-style review](/electronic-discovery-software/)** across document sets.  
+-   **[Semantic search for e-discovery-style review](/electronic-discovery-software/)** across document sets — see how [AI eDiscovery works for small law firms](/blog/ai-ediscovery-for-small-law-firms/).
     
 
 _Handwriting transcription works best when the writing is reasonably legible; as with any automation, verify important excerpts against the original page._
