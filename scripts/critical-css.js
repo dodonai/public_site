@@ -47,7 +47,9 @@ async function processHtml(filePath) {
 	const html = await readFile(filePath, 'utf8');
 	const htmlDir = dirname(filePath);
 
-	// Match <link href="..." rel="stylesheet"> (handles attribute order variations)
+	let modified = html;
+
+	// --- Inline stylesheets ---
 	const linkRegex = /<link\s+([^>]*rel=["']stylesheet["'][^>]*)>/g;
 	const hrefRegex = /href=["']([^"']+)["']/;
 
@@ -55,10 +57,7 @@ async function processHtml(filePath) {
 	let asyncLinks = '';
 	let noscriptLinks = '';
 
-	let modified = html;
 	const matches = [...html.matchAll(linkRegex)];
-
-	if (matches.length === 0) return; // No stylesheets to inline
 
 	for (const match of matches) {
 		const fullTag = match[0];
@@ -87,13 +86,13 @@ async function processHtml(filePath) {
 		modified = modified.replace(fullTag, '');
 	}
 
-	if (!inlinedStyles) return;
+	if (inlinedStyles) {
+		// Insert inlined styles + async links before </head>
+		const insertion = `<style>${inlinedStyles}</style>\n${asyncLinks}\n${noscriptLinks}`;
+		modified = modified.replace('</head>', `${insertion}\n</head>`);
+	}
 
-	// Insert inlined styles + async links before </head>
-	const insertion = `<style>${inlinedStyles}</style>\n${asyncLinks}\n${noscriptLinks}`;
-	modified = modified.replace('</head>', `${insertion}\n</head>`);
-
-	// Move modulepreload links from <head> to end of <body>
+	// --- Move modulepreload links from <head> to end of <body> ---
 	// so they don't compete with font preloads for bandwidth on slow 4G.
 	// Fonts need priority for fast LCP; JS only needed for hydration after paint.
 	const modulepreloadRegex = /<link[^>]+rel="modulepreload"[^>]*>/g;
@@ -103,7 +102,9 @@ async function processHtml(filePath) {
 		modified = modified.replace('</body>', modulepreloads.join('\n') + '\n</body>');
 	}
 
-	await writeFile(filePath, modified);
+	if (modified !== html) {
+		await writeFile(filePath, modified);
+	}
 }
 
 async function run() {

@@ -8,6 +8,11 @@ function escapeHtml(str) {
 	return str.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
 }
 
+/** Strip {{link:path|text}} placeholders to plain text (for JSON-LD structured data) */
+export function stripLinks(text) {
+	return text.replace(/\{\{link:[^|]+\|([^}]+)\}\}/g, '$1');
+}
+
 export function linkify(text) {
 	return text.replace(/\{\{link:([^|]+)\|([^}]+)\}\}/g, (_, href, label) => {
 		if (!href.startsWith('/') && !href.startsWith('https://') && !href.startsWith('http://')) {

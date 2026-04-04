@@ -11,12 +11,8 @@
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import RelatedServices from '$lib/components/features/RelatedServices.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import { stripLinks } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/transcript-management.json';
-
-	/** Strip {{link:path|text}} to plain text for JSON-LD structured data */
-	function stripLinks(text) {
-		return text.replace(/\{\{link:[^|]+\|([^}]+)\}\}/g, '$1');
-	}
 
 	/** Lazy-load the hero animation so its CSS doesn't block first paint */
 	let HeroAnimation = $state(null);
@@ -92,7 +88,8 @@
 		background="bg-transparent"
 	>
 		{#if HeroAnimation}
-			<svelte:component this={HeroAnimation} />
+			{@const Comp = HeroAnimation}
+			<Comp />
 		{:else}
 			<div style="height: 500px" aria-hidden="true"></div>
 		{/if}
