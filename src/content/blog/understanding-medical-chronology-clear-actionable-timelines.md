@@ -57,7 +57,7 @@ A wide range of professionals benefit from streamlined, accurate medical chronol
 
 ### How Dodon.ai Supercharges Medical Chronologies
 
-Dodon.ai’s AI platform automates the generation of [medical chronologies](/ai-medical-record-summaries-chronologies/) with court-ready citations and HIPAA-level compliance. We leverage AI to revolutionize how medical chronologies are created and used.
+Dodon.ai’s [AI medical chronology](/ai-medical-record-summaries-chronologies/) platform automates the generation of medical chronologies with court-ready citations and HIPAA-level compliance. We leverage AI to revolutionize how medical chronologies are created and used.
 
 For a hands-on example of going from mixed PDFs to a finished timeline, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 

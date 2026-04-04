@@ -1,11 +1,11 @@
 {
   "seo": {
-    "title": "AI Medical Record Summaries & Chronologies | Medical Chronology Software",
+    "title": "AI Medical Record Summaries & Chronologies | Dodonai",
     "description": "Generate AI medical record summaries and chronologies in minutes. Medical chronology software for personal injury, malpractice, and mass torts. Try free.",
     "canonical": "/ai-medical-record-summaries-chronologies/"
   },
   "hero": {
-    "headline": "AI Medical Record Summaries &  Chronologies",
+    "headline": "AI Medical Record Summaries & Chronologies",
     "subheadline": "Dodonai's AI-assisted medical records summarization software generates a full medical chronology and summary of essential medical history in minutes. Designed for legal professionals, Dodonai ensures that you receive the crucial medical information you need efficiently and accurately.",
     "bullets": [],
     "ctaText": "Free Summary",
@@ -205,6 +205,18 @@
     {
       "question": "Is patient data secure when using AI summarization tools?",
       "answer": "Security is a top priority when using AI summarization tools. Dodonai employs robust security measures including data encryption, secure data storage, and compliance with HIPAA and other relevant privacy regulations to ensure that patient data is protected against unauthorized access and breaches. Read our guide on {{link:/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know/|HIPAA compliance for medical chronologies}}."
+    },
+    {
+      "question": "What should be included in a medical record summary?",
+      "answer": "A thorough medical record summary should include the patient's demographics and identifying information, a chronological list of all providers and facilities, diagnoses and conditions with ICD codes where available, treatments and procedures performed, medications prescribed, lab results and imaging findings, and any referrals or follow-up recommendations. For litigation, the summary should also highlight gaps in treatment, pre-existing conditions, and causal connections between events and medical outcomes."
+    },
+    {
+      "question": "How long does it take to create a medical record summary?",
+      "answer": "Manually creating a medical record summary typically takes 4 to 8 hours for a standard case with 200 to 500 pages of records. Complex cases with thousands of pages can take days. Dodonai's AI generates a complete medical record summary and chronology in minutes, regardless of record volume. A 500-page file typically processes in under 5 minutes."
+    },
+    {
+      "question": "What is the difference between a medical record summary and a medical chronology?",
+      "answer": "A medical record summary provides a narrative overview of the patient's medical history, highlighting key diagnoses, treatments, and outcomes. A medical chronology organizes the same information into a date-ordered timeline, showing each provider visit, procedure, and clinical event in sequence. Most litigation teams use both: the summary for quick case assessment and the chronology for detailed timeline analysis. Dodonai generates both formats from a single upload. For a detailed comparison, see our guide on {{link:/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/|medical chronology vs narrative summary}}."
     },
     {
       "question": "I have more questions. Where can I find answers?",
