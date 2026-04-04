@@ -1,7 +1,7 @@
 <script>
+	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
-	import EDiscoveryAnimation from '$lib/components/hero/EDiscoveryAnimation.svelte';
 	import TestimonialSection from '$lib/components/testimonials/TestimonialSection.svelte';
 	import BlobBackground from '$lib/components/layout/BlobBackground.svelte';
 	import VideoEmbed from '$lib/components/video/VideoEmbed.svelte';
@@ -12,6 +12,18 @@
 	import CTASection from '$lib/components/cta/CTASection.svelte';
 	import { linkify } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/e-discovery.json';
+
+	/** Strip {{link:path|text}} to plain text for JSON-LD structured data */
+	function stripLinks(text) {
+		return text.replace(/\{\{link:[^|]+\|([^}]+)\}\}/g, '$1');
+	}
+
+	/** Lazy-load the hero animation so its CSS doesn't block first paint */
+	let HeroAnimation = $state(null);
+	onMount(async () => {
+		const mod = await import('$lib/components/hero/EDiscoveryAnimation.svelte');
+		HeroAnimation = mod.default;
+	});
 </script>
 
 <SEOHead
@@ -39,7 +51,7 @@
 				name: item.question,
 				acceptedAnswer: {
 					'@type': 'Answer',
-					text: item.answer
+					text: stripLinks(item.answer)
 				}
 			}))
 		},
@@ -79,7 +91,11 @@
 		badges={data.hero.badges}
 		background="bg-transparent"
 	>
-		<EDiscoveryAnimation />
+		{#if HeroAnimation}
+			<svelte:component this={HeroAnimation} />
+		{:else}
+			<div style="height: 500px" aria-hidden="true"></div>
+		{/if}
 	</ServiceHero>
 
 	<!-- 2. Testimonials -->
