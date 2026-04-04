@@ -15,6 +15,7 @@
 		tags = [],
 		readingTime = '',
 		imageAlt = '',
+		faq = [],
 		children
 	} = $props();
 
@@ -37,31 +38,49 @@
 	type="article"
 	url={page.url.pathname}
 	image={image || '/images/og-default.webp'}
-	jsonLd={{
-		'@context': 'https://schema.org',
-		'@type': 'BlogPosting',
-		headline: title,
-		description,
-		image: image ? `https://www.dodon.ai${image}` : undefined,
-		datePublished: date,
-		dateModified: dateModified || date,
-		mainEntityOfPage: {
-			'@type': 'WebPage',
-			'@id': `https://www.dodon.ai${page.url.pathname}`
-		},
-		author: {
-			'@type': 'Person',
-			name: author
-		},
-		publisher: {
-			'@type': 'Organization',
-			name: 'Dodonai, Inc.',
-			logo: {
-				'@type': 'ImageObject',
-				url: 'https://www.dodon.ai/images/brand/logo-main.webp'
+	jsonLd={[
+		{
+			'@context': 'https://schema.org',
+			'@type': 'BlogPosting',
+			headline: title,
+			description,
+			image: image ? `https://www.dodon.ai${image}` : undefined,
+			datePublished: date,
+			dateModified: dateModified || date,
+			mainEntityOfPage: {
+				'@type': 'WebPage',
+				'@id': `https://www.dodon.ai${page.url.pathname}`
+			},
+			author: {
+				'@type': 'Person',
+				name: author
+			},
+			publisher: {
+				'@type': 'Organization',
+				name: 'Dodonai, Inc.',
+				logo: {
+					'@type': 'ImageObject',
+					url: 'https://www.dodon.ai/images/brand/logo-main.webp'
+				}
 			}
-		}
-	}}
+		},
+		...(faq.length > 0
+			? [
+					{
+						'@context': 'https://schema.org',
+						'@type': 'FAQPage',
+						mainEntity: faq.map((item) => ({
+							'@type': 'Question',
+							name: item.q,
+							acceptedAnswer: {
+								'@type': 'Answer',
+								text: item.a
+							}
+						}))
+					}
+				]
+			: [])
+	]}
 />
 
 <div>

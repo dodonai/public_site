@@ -6,10 +6,18 @@
 		<link rel="icon" href="%sveltekit.assets%/favicon.png" type="image/png" />
 		<link rel="apple-touch-icon" href="%sveltekit.assets%/apple-touch-icon.png" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
-		<link rel="preload" href="/fonts/PlusJakartaDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
-		<!-- GA4 with Consent Mode v2: loads on every page, cookieless until user consents -->
-		<link rel="preconnect" href="https://www.googletagmanager.com" crossorigin />
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2VLXV89DL"></script>
+		<link rel="dns-prefetch" href="https://www.googletagmanager.com" />
+		<!-- Font preloads — high priority to unblock LCP text -->
+		<link rel="preload" href="/fonts/PlusJakartaDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+		<link rel="preload" href="/fonts/PlusJakartaDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin fetchpriority="high" />
+		%sveltekit.head%
+	</head>
+	<body>
+		<div style="display: contents">%sveltekit.body%</div>
+		<!-- GA4 with Consent Mode v2: deferred to end of body so it doesn't compete
+		     with CSS/fonts for bandwidth on slow connections. The inline script
+		     executes before SvelteKit's module scripts, so window.gtag is available
+		     when hydration runs. -->
 		<script>
 			window.dataLayer = window.dataLayer || [];
 			function gtag(){dataLayer.push(arguments);}
@@ -24,12 +32,6 @@
 			gtag('config', 'G-S2VLXV89DL');
 			gtag('config', 'AW-17511150141');
 		</script>
-		<!-- Font preloads to prevent FOUT and improve LCP -->
-		<link rel="preload" href="/fonts/PlusJakartaDisplay-Regular.woff2" as="font" type="font/woff2" crossorigin />
-		<link rel="preload" href="/fonts/PlusJakartaDisplay-Bold.woff2" as="font" type="font/woff2" crossorigin />
-		%sveltekit.head%
-	</head>
-	<body>
-		<div style="display: contents">%sveltekit.body%</div>
+		<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2VLXV89DL"></script>
 	</body>
 </html>
