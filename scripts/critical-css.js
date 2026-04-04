@@ -1,14 +1,12 @@
 /**
- * Post-build script: inline CSS into prerendered HTML and async-load originals.
+ * Post-build HTML optimizer for performance:
  *
- * For each HTML file in build/:
- *   1. Finds <link rel="stylesheet"> tags
- *   2. Reads the CSS file contents
- *   3. Inlines them as <style> in <head> (eliminates render-blocking request)
- *   4. Converts <link> to async loading (media="print" onload pattern)
- *   5. Adds <noscript> fallback
+ *   1. Inlines CSS into <style> tags (eliminates render-blocking CSS requests)
+ *   2. Converts <link rel="stylesheet"> to async loading (media="print" onload)
+ *   3. Moves <link rel="modulepreload"> from <head> to end of <body>
+ *      so JS doesn't compete with fonts for bandwidth on slow connections
  *
- * This eliminates render-blocking CSS requests on slow mobile connections.
+ * This eliminates render-blocking CSS and reduces font/LCP contention.
  */
 
 import { readdir, readFile, writeFile } from 'fs/promises';
@@ -94,6 +92,16 @@ async function processHtml(filePath) {
 	// Insert inlined styles + async links before </head>
 	const insertion = `<style>${inlinedStyles}</style>\n${asyncLinks}\n${noscriptLinks}`;
 	modified = modified.replace('</head>', `${insertion}\n</head>`);
+
+	// Move modulepreload links from <head> to end of <body>
+	// so they don't compete with font preloads for bandwidth on slow 4G.
+	// Fonts need priority for fast LCP; JS only needed for hydration after paint.
+	const modulepreloadRegex = /<link[^>]+rel="modulepreload"[^>]*>/g;
+	const modulepreloads = modified.match(modulepreloadRegex) || [];
+	if (modulepreloads.length > 0) {
+		modified = modified.replace(modulepreloadRegex, '');
+		modified = modified.replace('</body>', modulepreloads.join('\n') + '\n</body>');
+	}
 
 	await writeFile(filePath, modified);
 }
