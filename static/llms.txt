@@ -1,6 +1,6 @@
-# Dodonai
+# Dodonai — AI Legal Document Analysis Platform
 
-> AI-powered document processing platform built for legal professionals.
+> Dodonai is a HIPAA-compliant, SOC-2 certified legal AI platform built for litigation support. It helps legal professionals summarize depositions, build medical chronologies, and analyze medical records up to 90% faster. 252 active legal teams. 707,713+ pages processed. 99.3% job completion rate.
 
 Dodonai helps law firms, litigation teams, and legal departments summarize, search, and analyze documents in minutes instead of hours. Upload depositions, medical records, or any legal document and get structured, citable summaries powered by AI.
 
@@ -51,6 +51,15 @@ Adjusters and claims teams use Dodonai to quickly review medical records and dep
 ### Dodonai vs. Traditional Deposition Summary Services
 Traditional summary services charge $3-$10 per page and take 3-7 business days. Dodonai produces comparable or better summaries in minutes at a fraction of the cost (starting at $0.02/page on the Pro annual plan).
 
+### Dodonai vs. Wisedocs
+Dodonai covers both deposition transcripts and medical chronologies. Wisedocs focuses primarily on medical records. Dodonai is purpose-built for litigation support workflows including depositions, trial transcripts, and medical records.
+
+### Dodonai vs. EvenUp
+Dodonai handles raw document analysis (summaries, chronologies, extraction). EvenUp produces demand packages using upstream data. Different stages of the workflow.
+
+### Dodonai vs. Harvey AI
+Dodonai is purpose-built for document analysis in litigation. Harvey is a general-purpose legal AI assistant. Dodonai processes higher document volumes with litigation-specific output formats and page-line citations.
+
 ### Dodonai vs. General AI Tools (ChatGPT, etc.)
 General AI chatbots lack page-line citation support, legal-specific formatting, SOC 2 security, and purpose-built workflows for depositions and medical records. They also pose data privacy risks since uploaded content may be used for model training. Dodonai never uses your data for training.
 
@@ -63,6 +72,14 @@ Enterprise legal tech platforms often bundle eDiscovery, contract review, and do
 2. **Medical Chronology for Personal Injury**: Upload 500 pages of medical records for a PI case. Dodonai generates a chronological timeline of treatments, diagnoses, and provider visits ready for demand letter preparation.
 3. **Mass Tort Record Processing**: A firm with 2,000 claimants uses Dodonai to process medical records for all clients in bulk, reducing per-case review time from 8 hours to 15 minutes.
 4. **IME Pre-Exam Preparation**: An IME company uploads claimant records before each physician evaluation. The AI summary gives the examining doctor a structured overview of the medical history in minutes.
+
+## Trust & Scale
+
+- 252 active legal teams as of Q1 2026
+- 707,713+ pages processed
+- 76,203+ documents analyzed
+- 99.3% job completion rate
+- Used by litigation support companies, personal injury firms, and medical-legal service providers across the US
 
 ## Security
 

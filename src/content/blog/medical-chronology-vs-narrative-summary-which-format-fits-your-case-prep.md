@@ -14,7 +14,7 @@ imageAlt: "medical chronology vs narrative summary"
 
 ### **Two formats, one purpose**
 
-When you’re buried in stacks of medical records, the real question isn’t whether you need a summary; it’s what _format_ makes the review usable. Attorneys, paralegals, and IME doctors all rely on [**medical chronologies**](/ai-medical-record-summaries-chronologies/) to turn raw records into something manageable.
+When you’re buried in stacks of medical records, the real question isn’t whether you need a summary; it’s what _format_ makes the review usable. Attorneys, paralegals, and IME doctors all rely on [**AI medical chronology software**](/ai-medical-record-summaries-chronologies/) to turn raw records into something manageable.
 
 There are two main formats:
 

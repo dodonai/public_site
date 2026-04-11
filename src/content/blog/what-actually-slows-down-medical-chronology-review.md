@@ -14,7 +14,7 @@ imageAlt: "Compare manual vs automated prep"
 
 Medical chronology review rarely slows down because of analysis. It slows down because of preparation. Before anyone evaluates damages or causation, teams lose days assembling, cleaning, and organizing records that were assumed to be “ready.”
 
-A [medical chronology](/ai-medical-record-summaries-chronologies/) is meant to give a litigation team a clear timeline of care, so they can assess treatment gaps, causation, and exposure. In practice, most delays happen _before_ that first review even starts.
+An [AI medical chronology](/ai-medical-record-summaries-chronologies/) is meant to give a litigation team a clear timeline of care, so they can assess treatment gaps, causation, and exposure. In practice, most delays happen _before_ that first review even starts.
 
 This article breaks down the real bottlenecks that stretch medical chronology review time, and how teams shorten first-pass review without cutting corners.
 
