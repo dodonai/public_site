@@ -1,0 +1,138 @@
+<script>
+	import SEOHead from '$lib/components/seo/SEOHead.svelte';
+	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
+	import BlobBackground from '$lib/components/layout/BlobBackground.svelte';
+	import ContentSection from '$lib/components/content/ContentSection.svelte';
+	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
+	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import AgentCard from '$lib/components/ai-services/AgentCard.svelte';
+
+	let { data } = $props();
+	const fn = $derived(data.fn);
+	const customData = $derived(data.customData);
+	const agents = $derived(data.agents);
+
+	const title = $derived(customData?.seo?.title ?? `${fn.name}: AI Agents for Law Firms | Dodonai`);
+	const description = $derived(
+		customData?.seo?.description ??
+			`AI agents that handle ${fn.name.toLowerCase()} work inside a law firm. Designed, built, and run by Dodonai around how your team already operates.`
+	);
+	const canonical = $derived(`/ai-services/by-function/${fn.slug}/`);
+
+	const heroHeadline = $derived(customData?.hero?.headline ?? `AI Agents for ${fn.name}`);
+	const heroSubheadline = $derived(
+		customData?.hero?.subheadline ??
+			`Custom agents that handle the ${fn.name.toLowerCase()} work your team does every week. Deployed with your data, in your account, with the same safety guardrails we use on ourselves.`
+	);
+
+	const breadcrumbs = $derived([
+		{ name: 'Home', href: '/' },
+		{ name: 'AI Services', href: '/ai-services/' },
+		{ name: fn.name }
+	]);
+
+	const jsonLd = $derived([
+		{
+			'@context': 'https://schema.org',
+			'@type': 'Service',
+			name: title,
+			description,
+			serviceType: `AI ${fn.name} Services for Legal Teams`,
+			provider: {
+				'@type': 'Organization',
+				name: 'Dodonai, Inc.',
+				url: 'https://www.dodon.ai'
+			}
+		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: breadcrumbs.map((item, i) => ({
+				'@type': 'ListItem',
+				position: i + 1,
+				name: item.name,
+				item: `https://www.dodon.ai${item.href || canonical}`
+			}))
+		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'ItemList',
+			name: `${fn.name} AI agents`,
+			itemListElement: agents.map((a, i) => ({
+				'@type': 'ListItem',
+				position: i + 1,
+				name: a.title,
+				url: `https://www.dodon.ai/ai-services/agents/${a.slug}/`
+			}))
+		}
+	]);
+</script>
+
+<SEOHead {title} {description} url={canonical} {jsonLd} />
+
+<BlobBackground>
+	<section class="bg-transparent pt-10 sm:pt-12">
+		<div class="mx-auto w-[85%] max-w-[1250px]">
+			<BreadcrumbNav items={breadcrumbs} url={canonical} />
+		</div>
+	</section>
+
+	<section class="bg-transparent pt-10 pb-20 sm:pt-12 sm:pb-28">
+		<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
+			<h1 class="text-4xl font-extrabold tracking-tight text-[#282876] sm:text-5xl lg:text-6xl">
+				{heroHeadline}
+			</h1>
+			<p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#8181ac]">
+				{heroSubheadline}
+			</p>
+			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
+				<a
+					href="mailto:hello@dodon.ai?subject=AI%20Services%20Fit%20Call%20-%20{encodeURIComponent(fn.name)}"
+					class="btn-brand-primary"
+				>
+					Start a Fit Call
+				</a>
+				<a href="/ai-services/agents/" class="btn-brand-outline">Browse All Agents</a>
+			</div>
+		</div>
+	</section>
+
+	{#if customData?.scenario}
+		<ContentSection
+			heading={customData.scenario.heading}
+			paragraphs={customData.scenario.paragraphs}
+			background="bg-transparent"
+		/>
+	{/if}
+
+	<section class="bg-transparent py-20 sm:py-28">
+		<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
+					{fn.name} agents
+				</h2>
+				<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
+					{agents.length} {agents.length === 1 ? 'agent' : 'agents'} in this function. Each is tuned to how your firm already operates.
+				</p>
+			</div>
+
+			{#if agents.length > 0}
+				<div class="mt-16 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+					{#each agents as agent}
+						<AgentCard {agent} />
+					{/each}
+				</div>
+			{:else}
+				<p class="mt-16 text-center text-[#8181ac]">
+					Agents in this function are being added. Email <a href="mailto:hello@dodon.ai" class="font-medium text-[#216fed] hover:underline">hello@dodon.ai</a> if you want to talk through what would fit your firm.
+				</p>
+			{/if}
+		</div>
+	</section>
+
+	{#if customData?.faq && customData.faq.length > 0}
+		<FAQAccordion items={customData.faq} background="bg-transparent" />
+	{/if}
+</BlobBackground>
+
+<CTASection />

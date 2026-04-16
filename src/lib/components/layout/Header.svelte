@@ -1,5 +1,13 @@
 <script>
-	import { practiceAreas, useCases, compare, industries } from '$lib/data/navigation.js';
+	import {
+		practiceAreas,
+		useCases,
+		compare,
+		industries,
+		aiServicesOverview,
+		aiServicesPracticeAreas,
+		aiServicesFunctions
+	} from '$lib/data/navigation.js';
 
 	let scrollY = $state(0);
 	let mobileMenuOpen = $state(false);
@@ -21,6 +29,12 @@
 		{ label: 'Practice Areas', items: practiceAreas },
 		{ label: 'Use Cases', items: useCases },
 		{ label: 'Industries', items: industries }
+	];
+
+	const aiServicesColumns = [
+		{ label: 'Overview', items: aiServicesOverview },
+		{ label: 'By Practice Area', items: aiServicesPracticeAreas },
+		{ label: 'By Function', items: aiServicesFunctions }
 	];
 
 	function closeMobileMenu() {
@@ -172,13 +186,62 @@
 				{/if}
 			</div>
 
-			<a
-				href="/ai-services/"
-				class="nav-link text-base font-medium transition-colors"
-				style="color: var(--midnight-blue);"
-			>
-				AI Services
-			</a>
+			<!-- AI Services Mega Dropdown -->
+			<div class="static">
+				<button
+					class="flex items-center gap-1 text-base font-medium transition-colors"
+					style="color: var(--midnight-blue);"
+					aria-haspopup="true"
+					aria-expanded={activeDropdown === 'ai-services'}
+					onmouseenter={() => (activeDropdown = 'ai-services')}
+					onmouseleave={() => {}}
+					onfocus={() => (activeDropdown = 'ai-services')}
+					onclick={() => (activeDropdown = activeDropdown === 'ai-services' ? null : 'ai-services')}
+					onblur={() => setTimeout(() => { if (activeDropdown === 'ai-services') activeDropdown = null; }, 200)}
+				>
+					AI Services
+					<svg
+						class="h-4 w-4 transition-transform {activeDropdown === 'ai-services' ? 'rotate-180' : ''}"
+						fill="none"
+						viewBox="0 0 24 24"
+						stroke="currentColor"
+						stroke-width="2"
+					>
+						<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+					</svg>
+				</button>
+
+				{#if activeDropdown === 'ai-services'}
+					<div
+						class="absolute left-1/2 top-full mt-2 -translate-x-1/2 bg-white p-5"
+						style="box-shadow: 0 10px 100px rgba(0, 0, 0, 0.05); border-radius: 10px; width: 880px; max-width: calc(100vw - 2rem);"
+						onmouseenter={() => (activeDropdown = 'ai-services')}
+						onmouseleave={() => (activeDropdown = null)}
+						role="menu"
+					>
+						<div class="grid grid-cols-3 gap-6">
+							{#each aiServicesColumns as column}
+								<div>
+									<div class="mb-2 px-3 text-xs font-semibold uppercase tracking-wider" style="color: var(--medium-slate-blue);">{column.label}</div>
+									<div class="grid grid-cols-1 gap-1">
+										{#each column.items as item}
+											<a
+												href={item.href}
+												class="rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-[#836ae41a]"
+												style="color: var(--midnight-blue);"
+												onclick={() => (activeDropdown = null)}
+												role="menuitem"
+											>
+												{item.name}
+											</a>
+										{/each}
+									</div>
+								</div>
+							{/each}
+						</div>
+					</div>
+				{/if}
+			</div>
 			<a
 				href="/pricing/"
 				class="nav-link text-base font-medium transition-colors"
@@ -332,14 +395,47 @@
 					{/if}
 				</div>
 
-				<a
-					href="/ai-services/"
-					class="block border-b border-gray-100 py-3 text-base font-medium"
-					style="color: var(--midnight-blue);"
-					onclick={closeMobileMenu}
-				>
-					AI Services
-				</a>
+				<!-- AI Services Section -->
+				<div class="border-b border-gray-100 pb-2">
+					<button
+						class="flex w-full items-center justify-between py-3 text-base font-medium"
+						style="color: var(--midnight-blue);"
+						aria-expanded={mobileActiveSection === 'ai-services'}
+						onclick={() => (mobileActiveSection = mobileActiveSection === 'ai-services' ? null : 'ai-services')}
+					>
+						AI Services
+						<svg
+							class="h-4 w-4 transition-transform {mobileActiveSection === 'ai-services' ? 'rotate-180' : ''}"
+							fill="none"
+							viewBox="0 0 24 24"
+							stroke="currentColor"
+							stroke-width="2"
+						>
+							<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
+						</svg>
+					</button>
+
+					{#if mobileActiveSection === 'ai-services'}
+						<div class="ml-2 space-y-3 pb-2">
+							{#each aiServicesColumns as column}
+								<div>
+									<div class="px-2 pb-1 text-xs font-semibold uppercase tracking-wider" style="color: var(--medium-slate-blue);">{column.label}</div>
+									{#each column.items as item}
+										<a
+											href={item.href}
+											class="block rounded-lg p-2 text-sm font-medium transition-colors hover:bg-[#836ae41a]"
+											style="color: var(--midnight-blue);"
+											onclick={closeMobileMenu}
+										>
+											{item.name}
+										</a>
+									{/each}
+								</div>
+							{/each}
+						</div>
+					{/if}
+				</div>
+
 				<a
 					href="/pricing/"
 					class="block border-b border-gray-100 py-3 text-base font-medium"

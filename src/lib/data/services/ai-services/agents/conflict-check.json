@@ -1,0 +1,69 @@
+{
+  "slug": "conflict-check",
+  "title": "Conflict Check Agent",
+  "shortDescription": "Scans every new matter against your firm's full conflicts database and ethical walls before you commit.",
+  "tier": "supporting",
+  "function": "intake-and-growth",
+  "practiceAreas": ["all"],
+  "caseSkills": [
+    "case-viability-conflict-check-report.md"
+  ],
+  "seo": {
+    "title": "AI Conflict Check Agent for Law Firms | Dodonai",
+    "description": "Scan new matters against your firm's full conflicts database, related-party detection included, with a logged audit trail that satisfies Model Rule 1.7.",
+    "canonical": "/ai-services/agents/conflict-check/"
+  },
+  "hero": {
+    "headline": "AI Conflict Check Agent",
+    "subheadline": "Scan every new matter against your firm's conflicts database and ethical walls before you commit. A second set of eyes that never forgets a name.",
+    "bullets": [
+      "Full-text search across prior matters, not just party names",
+      "Related-party detection for spouses, co-counsel, and affiliated entities",
+      "Ethical walls enforced across practice groups and attorneys",
+      "Logged audit trail for every check"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Conflict%20Check%20Agent%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The conflict you would have missed",
+    "paragraphs": [
+      "You take a commercial breach-of-contract case. Your practice management system says no conflict. 4 months in, a deposition reveals the defendant's spouse was a witness in a matter your partner handled 3 years ago. The Conflict Check agent would have caught that. It searches full text across every matter, note, and document in your system, not just the party-name field, and surfaces matches with context you can review in a minute."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Conflict Check agent does",
+    "bullets": [
+      "Scans the inbound matter facts (names, addresses, entities, counsel) against your full conflicts database, including matter notes and attached documents",
+      "Runs related-party detection for spouses, co-counsel, parent and subsidiary entities, and common beneficial owners",
+      "Enforces ethical walls you've set up between practice groups or specific attorneys",
+      "Produces a conflict memo with the matching records surfaced and a clear recommended disposition",
+      "Logs every check in an audit trail that supports Model Rule 1.7 and state-bar conflict-checking requirements"
+    ]
+  },
+  "integrations": [
+    "Clio, MyCase, Practice Panther, or SmokeBall",
+    "Your document management system (NetDocuments, iManage, Clio Drive)",
+    "Microsoft 365 or Google Workspace for the document layer",
+    "Slack or email for escalation notifications"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent flags, you decide. The output is a memo with matching records surfaced; the call to take or decline the matter stays with the attorney of record."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Does it replace our current conflict-check process?",
+      "answer": "It runs alongside it. Your existing Clio or PMS check stays in place as the system of record. The agent adds a full-text, related-party layer on top and flags anything the field-level check might have missed."
+    },
+    {
+      "question": "How do you handle client confidentiality during the check?",
+      "answer": "The agent reads only matters your firm already has access to. It runs in your account, under your security controls, and nothing is stored outside your system or used to train models."
+    }
+  ]
+}

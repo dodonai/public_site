@@ -1,4 +1,5 @@
 import { getBlogPosts } from '$lib/data/blog.server.js';
+import { aiServicesPracticeAreas, aiServicesFunctions } from '$lib/data/navigation.js';
 
 const staticPages = [
 	{ path: '', lastmod: '2026-02-18', priority: '1.0' },
@@ -10,6 +11,8 @@ const staticPages = [
 	{ path: '/ai-pdf-ocr', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/dodonai-extract-and-draft-agents', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/electronic-discovery-software', lastmod: '2026-02-18', priority: '0.9' },
+	{ path: '/ai-services', lastmod: '2026-04-16', priority: '0.9' },
+	{ path: '/ai-services/agents', lastmod: '2026-04-16', priority: '0.8' },
 	{ path: '/terms-and-conditions', lastmod: '2026-01-01', priority: '0.3' },
 	{ path: '/privacy-policy', lastmod: '2026-01-01', priority: '0.3' }
 ];
@@ -45,7 +48,32 @@ export async function GET() {
 		}).filter(Boolean)
 	);
 
-	const allStaticPages = [...staticPages, ...hubPages];
+	// Auto-discover ai-services agent pages
+	let agentModules;
+	try {
+		agentModules = import.meta.glob('/src/lib/data/services/ai-services/agents/*.json', {
+			eager: true
+		});
+	} catch {
+		agentModules = {};
+	}
+	const agentPages = Object.keys(agentModules)
+		.map((filePath) => {
+			const match = filePath.match(/\/agents\/(.+)\.json$/);
+			return match ? { path: `/ai-services/agents/${match[1]}`, lastmod: '2026-04-16', priority: '0.7' } : null;
+		})
+		.filter(Boolean);
+
+	const aiServicesTaxonomy = [
+		...aiServicesPracticeAreas.map((a) => a.href),
+		...aiServicesFunctions.map((f) => f.href)
+	].map((href) => ({
+		path: href.replace(/\/$/, ''),
+		lastmod: '2026-04-16',
+		priority: '0.7'
+	}));
+
+	const allStaticPages = [...staticPages, ...hubPages, ...agentPages, ...aiServicesTaxonomy];
 
 	// Ensure all URLs have trailing slashes to match SvelteKit's trailingSlash: 'always' config
 	const trail = (path) => (path && !path.endsWith('/') ? `${path}/` : path || '/');

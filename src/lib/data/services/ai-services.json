@@ -10,8 +10,8 @@
     "bullets": [],
     "ctaText": "Start a Fit Call",
     "ctaUrl": "mailto:hello@dodon.ai?subject=AI%20Services%20Fit%20Call",
-    "secondaryCtaText": "See What We Build",
-    "secondaryCtaUrl": "#what-we-build",
+    "secondaryCtaText": "Browse the Agent Catalog",
+    "secondaryCtaUrl": "/ai-services/agents/",
     "badges": ["SOC-2 Certified", "HIPAA Compliant"]
   },
   "howItWorks": [
@@ -26,29 +26,6 @@
     {
       "title": "Managed",
       "description": "We keep the agents running, add new ones as your practice changes, and share what we learn from other firms we work with. Monthly reviews, priority support, and continuous improvement on a simple retainer."
-    }
-  ],
-  "educationalContent": [
-    {
-      "heading": "Agents we build for legal teams",
-      "paragraphs": [
-        "Every engagement is custom, but there are patterns we see across firms. These are agents we've built, are building, or are ready to build for firms who want them. Most teams start with 2 or 3 and expand from there.",
-        "Intake and triage: new-lead follow-up drafts, conflict checks, matter scoring against your ICP, and routing to the right attorney so nothing sits in a shared inbox.",
-        "Deposition prep: page-line summaries, exhibit indexes, cross-examination outlines, and witness preparation briefs pulled from the actual record.",
-        "Docketing and deadlines: calendar sweeps, statute-of-limitations alerts, and proactive reminders tied to case status changes in your practice management system.",
-        "Client communications: periodic status update digests, billing narrative drafts, retention check-ins, and first drafts of the emails your team sends most often.",
-        "Inbox and meetings: inbox triage with priority labels, morning meeting briefings, follow-up drafts, and automatic updates into your CRM after every call.",
-        "Practice intelligence: account health dashboards, churn risk alerts, matter profitability reviews, and referral tracking so you see the whole book at a glance."
-      ]
-    },
-    {
-      "heading": "How this compares to SaaS or a dev shop",
-      "paragraphs": [
-        "A SaaS tool gives you a generic workflow and asks your firm to adapt. We build around how your firm actually operates. The agents we deploy fit your matter types, your intake process, your naming conventions, and your team's review habits.",
-        "A dev shop writes software then disappears. We deploy agents that run every day, and we stay involved to tune them. When Anthropic ships a better model next quarter, your agents benefit. When your practice shifts, we adjust the prompts without a new statement of work.",
-        "An in-house AI hire takes months of recruiting and a full-time salary. An AI services engagement delivers working agents in weeks, you own what we build, and the agents keep running after we step back to a managed cadence.",
-        "We're AI-model agnostic. We pick the best available model for each job and update as the frontier moves, so you benefit from every new release without switching vendors. You pay Anthropic (or whichever provider fits best) directly, with no per-seat markup from us."
-      ]
     }
   ],
   "valueProposition": {

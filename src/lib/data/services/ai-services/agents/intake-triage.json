@@ -1,0 +1,100 @@
+{
+  "slug": "intake-triage",
+  "title": "Intake Triage Agent",
+  "shortDescription": "Scores new leads, runs a conflict check, drafts the first-response email, and prepares a consult memo in the minutes that matter most for conversion.",
+  "tier": "flagship",
+  "function": "intake-and-growth",
+  "practiceAreas": ["personal-injury", "family-law", "immigration", "all"],
+  "caseSkills": [
+    "litigation-personal-injury-initial-client-intake-form.md",
+    "case-viability-conflict-check-report.md"
+  ],
+  "seo": {
+    "title": "AI Intake Triage for Law Firms | Dodonai",
+    "description": "Score every new lead, run a conflict check, draft the first-response email, and prepare a consult memo. Built around your firm's case acceptance criteria.",
+    "canonical": "/ai-services/agents/intake-triage/"
+  },
+  "hero": {
+    "headline": "AI Intake Triage for Law Firms",
+    "subheadline": "Score new leads against your case acceptance criteria, run a conflict check, draft the first response, and prepare a consult memo. In the minutes that matter most for conversion.",
+    "bullets": [
+      "Lead scoring tuned to your firm's acceptance criteria",
+      "Automatic conflict check against your practice management system",
+      "First-response email drafted in your voice, ready for review",
+      "One-page consult memo with case value estimate"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Intake%20Triage%20Agent%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "A Tuesday morning in a personal injury practice",
+    "paragraphs": [
+      "Sarah runs a 2-attorney personal injury firm. She gets about 15 inbound leads a month and signs 8. The other 7 still consume time in intake calls, conflict checks, and polite declines. The leads that do convert often sit in her inbox until she finds a gap between other work, which is often at the end of the day. That is exactly the window where faster-responding competitors reply first.",
+      "At 8:47 on a Tuesday morning, a new web form comes in. Rear-end collision, passenger injured, commercial policy on the at-fault driver. Before Sarah has pulled up the form, her Intake Triage agent has already extracted the case facts into a structured summary, scored the lead at 82 against her acceptance criteria, run a conflict check against Clio and come back clean, drafted a response email offering a consult slot from her Monday afternoon availability, and assembled a one-page consult memo with the facts, the score, the estimated case value, and a recommended opening question.",
+      "Sarah reviews the memo over her first coffee, tweaks one sentence of the response email, and hits send. The consult is on her calendar before the potential client has finished their breakfast."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Intake Triage agent does for your firm",
+    "paragraphs": [
+      "The agent watches your intake channels (web forms, email, referral partner portals) and responds to every new lead in the minutes after it arrives. For each lead, it extracts the case facts into a structured summary, scores the lead against your written acceptance criteria, runs a conflict check against your practice management system, drafts a first-response email tuned to your tone, and prepares a consult memo you can scan in under 2 minutes.",
+      "You stay in the pilot seat. Every email is a draft, every memo is a recommendation, every consult slot is a suggestion. The agent does the sorting and the typing. You make the judgment calls."
+    ]
+  },
+  "inputsOutputs": {
+    "heading": "Inputs and outputs",
+    "inputs": [
+      "Web form submissions from your intake page",
+      "Inbound emails to your intake address",
+      "Referral partner forms and portal submissions",
+      "Uploaded documents (intake packets, police reports, demand letters)"
+    ],
+    "outputs": [
+      "Structured lead summary with extracted case facts",
+      "Conflict check result with matching records surfaced if any",
+      "Lead score with a short reasoning line per criterion",
+      "First-response email draft tuned to your voice",
+      "One-page consult memo with case value estimate",
+      "Calendar hold on a consult slot for your review"
+    ]
+  },
+  "integrations": [
+    "Clio, Clio Grow, MyCase, or Practice Panther",
+    "Your web intake form (Typeform, Jotform, Gravity Forms, custom)",
+    "Gmail or Outlook",
+    "Google Calendar or Outlook Calendar",
+    "HubSpot or Pipedrive if you use a CRM alongside the PMS"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent drafts. You send. It never emails a lead without your review, never books a consult without your confirmation, and never declines a case on its own. Every action is logged in an audit trail that supports ABA Opinion 512's supervision requirement.",
+      "Conflict checks run against the practice management system you already use, so the agent sees the same records your paralegal would during a manual check. Client data stays in your account. Nothing is used to train models. If the agent encounters a potential conflict it cannot resolve cleanly, it escalates to you with the matching records flagged rather than making the call itself."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does the lead scoring reflect our firm's judgment?",
+      "answer": "We start with your written case acceptance criteria and the factors your partners already weigh (injury severity, liability clarity, insurance coverage, case value, practice fit). The scoring weights live in a file your team can edit. After the first 10 leads, we review which scores matched your instinct and tune from there."
+    },
+    {
+      "question": "Can it handle leads that come in by phone?",
+      "answer": "Voicemail transcripts and call summaries from your phone system (RingCentral, Grasshopper, Dialpad) feed into the same pipeline. Live calls still go to a human. The agent picks up once a voicemail lands or once a call summary is generated by your phone system."
+    },
+    {
+      "question": "What happens when the agent is uncertain about a lead?",
+      "answer": "Any lead that scores in the middle band (typically 50 to 70) gets flagged for attorney review rather than auto-drafted for decline or acceptance. The memo still includes the scoring breakdown and a recommended next step, but the email draft sits in your queue until you approve the direction."
+    },
+    {
+      "question": "How does this compare to intake software our practice management system already offers?",
+      "answer": "Clio Grow, Lawmatics, and similar tools run the pipeline. They do not score leads against your specific criteria, draft responses in your voice, or prepare consult memos. The Intake Triage agent sits on top of whichever intake tool you already use and adds the judgment layer."
+    },
+    {
+      "question": "How long does it take to stand up?",
+      "answer": "A Blueprint plus Build cycle typically delivers a working Intake Triage agent in 3 to 5 weeks. The first 2 weeks are encoding your acceptance criteria, connecting your intake sources, and sampling real past leads to validate the scoring. Week 3 is a shadow run where the agent drafts but does not send. Weeks 4 and 5 are refining the voice and catching edge cases."
+    }
+  ]
+}
