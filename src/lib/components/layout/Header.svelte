@@ -173,6 +173,13 @@
 			</div>
 
 			<a
+				href="/ai-services/"
+				class="nav-link text-base font-medium transition-colors"
+				style="color: var(--midnight-blue);"
+			>
+				AI Services
+			</a>
+			<a
 				href="/pricing/"
 				class="nav-link text-base font-medium transition-colors"
 				style="color: var(--midnight-blue);"
@@ -325,6 +332,14 @@
 					{/if}
 				</div>
 
+				<a
+					href="/ai-services/"
+					class="block border-b border-gray-100 py-3 text-base font-medium"
+					style="color: var(--midnight-blue);"
+					onclick={closeMobileMenu}
+				>
+					AI Services
+				</a>
 				<a
 					href="/pricing/"
 					class="block border-b border-gray-100 py-3 text-base font-medium"
