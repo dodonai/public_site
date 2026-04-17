@@ -1,0 +1,96 @@
+{
+  "slug": "filing-readiness",
+  "title": "Filing Readiness Agent",
+  "shortDescription": "Pre-checks every filing for the formatting, signatures, exhibits, and certificates the court requires before the clerk rejects it.",
+  "tier": "supporting",
+  "function": "deadlines-and-compliance",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [
+    "litigation-personal-injury-summons-and-service-packet.md"
+  ],
+  "workflow": [
+    {
+      "label": "Filing submitted for review",
+      "detail": "Draft lands in the pre-flight queue"
+    },
+    {
+      "label": "Check caption + signature",
+      "detail": "Correct court, parties, and attorney block"
+    },
+    {
+      "label": "Verify service list",
+      "detail": "All parties accounted for, addresses current"
+    },
+    {
+      "label": "Confirm attachments",
+      "detail": "Exhibits, declarations, and proof of service"
+    },
+    {
+      "label": "Green-light for submission",
+      "detail": "Ready to file or back to drafter with issues"
+    }
+  ],
+  "seo": {
+    "title": "AI Filing Readiness Agent for Law Firms | Dodonai",
+    "description": "Pre-check every filing for formatting, signatures, exhibits, and certificates before the clerk rejects it. The two-day delay that disappears.",
+    "canonical": "/ai-services/agents/filing-readiness/"
+  },
+  "hero": {
+    "headline": "AI Filing Readiness Agent",
+    "subheadline": "Reviews every filing against the court's specific formatting, signature, exhibit, and certificate requirements before it goes to the clerk. The clerk-rejection loop that costs 2 days disappears.",
+    "bullets": [
+      "Per-court formatting check (caption, font, margins, page limits)",
+      "Required signatures, certifications, and proof-of-service verification",
+      "Exhibit list and reference cross-check",
+      "Plain-English fix list before the filing goes to e-file"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Filing%20Readiness%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The clerk rejection you would have absorbed",
+    "paragraphs": [
+      "Your associate finishes a brief at 4pm on the day it's due and hits e-file at 4:45. The clerk rejects it the next morning at 9: the proof of service was missing the certified-mail tracking number, and exhibit B was referenced but not attached. The associate scrambles, refiles by 11. The Filing Readiness agent would have caught both issues before submission. Run it before e-file and the clerk-rejection round-trip stops happening."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Filing Readiness agent does",
+    "bullets": [
+      "Verifies the filing matches the court's formatting requirements (caption format, font size, margins, page limits)",
+      "Checks for required signatures, attorney bar numbers, and certifications",
+      "Confirms proof of service is attached and complete",
+      "Cross-checks exhibit references against attached exhibits to catch missing or duplicated items",
+      "Produces a plain-English fix list before the filing is submitted"
+    ]
+  },
+  "integrations": [
+    "PACER, ECF, and state e-filing portals",
+    "Document management system for the draft and exhibit access",
+    "Practice management system for matter and venue context",
+    "Slack or email for the fix-list delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent doesn't file. It produces the fix list and waits for an attorney or paralegal to address the items before submission. For matters with a tight deadline where the fix list is empty, the agent confirms readiness; the actual e-file action is still a human click."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about courts with quirky local formatting requirements?",
+      "answer": "The per-court rule sets are encoded in skill files and updated as rules change. For unusual local requirements (a specific cover-sheet format, a redaction protocol, a chambers copy convention), the file captures them and the agent checks against them on every filing in that court."
+    },
+    {
+      "question": "Does this work for paper filings or e-file only?",
+      "answer": "Both. For paper filings, the agent produces the same readiness check and adds verification of physical mailing requirements (chambers copies, judge's copies, courtesy copies). The check is the same; the action at the end is different."
+    }
+  ]
+}

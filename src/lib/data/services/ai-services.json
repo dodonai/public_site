@@ -1,0 +1,90 @@
+{
+  "seo": {
+    "title": "AI Services for Legal Teams | Custom Agents by Dodonai",
+    "description": "Dodonai designs, builds, and runs custom AI agents for law firms. Blueprint your workflows, deploy agents your team owns, keep them tuned with managed support.",
+    "canonical": "/ai-services/"
+  },
+  "hero": {
+    "headline": "AI Services for Legal Teams",
+    "subheadline": "We design, build, and run custom AI agents for your firm. You get the workflows your team actually needs, deployed with the same safety guardrails we use on ourselves.",
+    "bullets": [],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=AI%20Services%20Fit%20Call",
+    "secondaryCtaText": "Browse the Agent Catalog",
+    "secondaryCtaUrl": "/ai-services/agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "howItWorks": [
+    {
+      "title": "Blueprint",
+      "description": "We sit with your team, map your highest-leverage workflows, and audit the tools you already use (Clio, case management, email, calendar). You walk away with a written plan that shows exactly which agents to build, in what order, and what each one is expected to save you."
+    },
+    {
+      "title": "Build",
+      "description": "We deploy 3 to 6 custom agents tuned to your firm. Intake triage, deposition prep, deadline monitors, client update digests, whichever workflows move the needle. Integrations, training, and documentation are all included, and the agents live in your account."
+    },
+    {
+      "title": "Managed",
+      "description": "We keep the agents running, add new ones as your practice changes, and share what we learn from other firms we work with. Monthly reviews, priority support, and continuous improvement on a simple retainer."
+    }
+  ],
+  "valueProposition": {
+    "heading": "Why firms work with us",
+    "cards": [
+      {
+        "icon": "scales",
+        "title": "Full implementation partner",
+        "description": "We sit with your team, understand the work, and deliver agents that fit how your firm actually operates. We stay involved through launch and into daily use."
+      },
+      {
+        "icon": "sparkles",
+        "title": "AI-model agnostic",
+        "description": "We use the best available model for each job and update as the frontier moves, so you benefit from every new release without switching vendors."
+      },
+      {
+        "icon": "shield",
+        "title": "Safety-first architecture",
+        "description": "Agents create drafts. They never send, file, or commit anything without your review. Every action is logged, and the attorney stays in the pilot seat."
+      },
+      {
+        "icon": "check",
+        "title": "We run this on ourselves",
+        "description": "We operate 13 agents inside our own company every day. You get a playbook that already runs in production."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "How long does a typical engagement take?",
+      "answer": "A Blueprint takes 2 to 3 weeks. A Build cycle usually runs 4 to 8 weeks depending on how many agents are in scope and how many integrations we need to wire up. Managed support is ongoing on a monthly cadence."
+    },
+    {
+      "question": "Who owns the agents you build?",
+      "answer": "You do. The skills, configurations, and prompts live in your account. If we ever part ways, your agents keep running and your team keeps working."
+    },
+    {
+      "question": "What happens if the approach doesn't work for us?",
+      "answer": "We scope outcomes up front for every agent and adjust until each one is doing its job. If the Blueprint phase doesn't leave your firm with a clear path forward, we refund it. We'd rather walk away than push a bad fit."
+    },
+    {
+      "question": "How do you handle our data?",
+      "answer": "Agents run inside infrastructure you control. Our LLM partners operate under zero data retention, so nothing is stored after processing. No client data is used to train models. SOC 2 and HIPAA controls apply to every engagement, and we'll sign a BAA where appropriate."
+    },
+    {
+      "question": "How does this relate to the Dodonai app?",
+      "answer": "The {{link:/|Dodonai app}} is a great starting point for firms who want document AI right away, things like deposition summaries, medical chronologies, and extract-and-draft agents. AI Services is for teams who want custom workflows that go beyond a single tool. Many firms use both, and we often use the app as a foundation inside a services engagement."
+    },
+    {
+      "question": "Do we need a Claude Pro or Max subscription?",
+      "answer": "For most managed engagements, yes. You pay Anthropic directly for the Claude subscription (typically $20 to $100 per seat each month), and we build and run the agents that use it. We're AI-model agnostic though, so if your firm standardizes on a different provider we can work with that too."
+    },
+    {
+      "question": "Can we start small?",
+      "answer": "Yes. Most firms start with a Blueprint, pick 1 or 2 agents for a first Build cycle, and scale from there. You can stop at any stage, and you keep everything we've built for you."
+    },
+    {
+      "question": "How do we get started?",
+      "answer": "Email hello@dodon.ai or book a 30-minute fit call. We want to understand your workflows and your goals before we talk scope or timing."
+    }
+  ]
+}

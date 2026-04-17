@@ -1,0 +1,100 @@
+{
+  "slug": "discovery-builder",
+  "title": "Discovery Builder Agent",
+  "shortDescription": "Drafts interrogatories, requests for production, and requests for admission tuned to the case theory and the opposing party's posture.",
+  "tier": "supporting",
+  "function": "casework-and-drafting",
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "all"
+  ],
+  "caseSkills": [
+    "litigation-personal-injury-interrogatories-to-defendant.md",
+    "litigation-personal-injury-request-for-production-of-documents.md",
+    "litigation-personal-injury-request-for-admissions.md"
+  ],
+  "workflow": [
+    {
+      "label": "Case theory confirmed",
+      "detail": "Working claims and defenses current"
+    },
+    {
+      "label": "Pull prior discovery",
+      "detail": "Firm precedent and matter-specific history"
+    },
+    {
+      "label": "Draft interrogatories + RFPs",
+      "detail": "Tuned to theory and opposing party"
+    },
+    {
+      "label": "Draft requests for admission",
+      "detail": "Narrowed to dispositive facts"
+    },
+    {
+      "label": "Route for review",
+      "detail": "Attorney refines before service"
+    }
+  ],
+  "seo": {
+    "title": "AI Discovery Builder Agent for Law Firms | Dodonai",
+    "description": "Draft interrogatories, requests for production, and requests for admission tuned to the case theory. Every request defensible, every objection anticipated.",
+    "canonical": "/ai-services/agents/discovery-builder/"
+  },
+  "hero": {
+    "headline": "AI Discovery Builder Agent",
+    "subheadline": "Drafts the interrogatories, requests for production, and requests for admission your case theory needs. Every request scoped to survive an objection. The first round of discovery becomes a focused instrument instead of a template-driven shotgun.",
+    "bullets": [
+      "Interrogatories drafted to the case theory and the matter facts",
+      "Requests for production scoped to survive overbreadth objections",
+      "Requests for admission targeted to lock in defenses or admissions",
+      "Anticipated objections noted with the responsive position"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Discovery%20Builder%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The discovery you would have built from the template",
+    "paragraphs": [
+      "A new commercial litigation matter goes into discovery. In the old workflow, the associate pulls the firm's standard interrogatories template, edits it lightly for the case, and sends it. Half the responses come back as objections to overbreadth. The Discovery Builder drafts a tailored set tuned to the actual case theory and the defendant's pleadings: 18 interrogatories instead of 30, 12 requests for production scoped narrowly enough to survive, 8 requests for admission targeted at locking in the defenses pled. The objections drop; the responses come back useful."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Discovery Builder does",
+    "bullets": [
+      "Drafts interrogatories tuned to the case theory and the matter facts",
+      "Drafts requests for production scoped to survive overbreadth and proportionality objections",
+      "Drafts requests for admission targeted at locking in pled defenses or admissions",
+      "Anticipates likely objections and notes the responsive position",
+      "Produces the matter-specific drafts in your firm's preferred format"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter facts and pleadings",
+    "Document management system for prior discovery and exhibits",
+    "Microsoft Word or Google Docs for the draft delivery",
+    "Trial-prep tools (Everlaw, Relativity) where used"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Drafts are reviewed by the responsible attorney before service. The agent doesn't serve discovery, doesn't make scope decisions, doesn't decide whether to take a particular litigation posture. It builds the working draft so the attorney's time goes to strategy rather than typing."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does it know what objections to anticipate?",
+      "answer": "The agent reads the local rules and the controlling case law on discovery scope for the venue. For courts with active proportionality doctrine, the drafts get tighter; for courts with broader allowances, the drafts can ask for more. The Build phase calibrates this per jurisdiction."
+    },
+    {
+      "question": "What about complex multi-party discovery?",
+      "answer": "For matters with multiple defendants or third-party witnesses, the agent drafts party-specific discovery rather than blasting the same set to everyone. Each set reflects the role and the available knowledge of the recipient."
+    }
+  ]
+}

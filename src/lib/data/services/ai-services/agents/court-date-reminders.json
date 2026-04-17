@@ -1,0 +1,96 @@
+{
+  "slug": "court-date-reminders",
+  "title": "Court Date Reminders Agent",
+  "shortDescription": "Sends every client a personalized court-date reminder cadence with the address, the dress code, and the documents to bring.",
+  "tier": "supporting",
+  "function": "client-communications",
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "criminal-defense",
+    "all"
+  ],
+  "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Hearing scheduled",
+      "detail": "Date, time, and courtroom captured"
+    },
+    {
+      "label": "Pull location + time",
+      "detail": "Address, department, and judge verified"
+    },
+    {
+      "label": "Generate checklist",
+      "detail": "Dress code, documents, and arrival guidance"
+    },
+    {
+      "label": "Schedule SMS + email",
+      "detail": "7-day, 1-day, and day-of touches queued"
+    },
+    {
+      "label": "Send reminder sequence",
+      "detail": "Confirmations logged to matter file"
+    }
+  ],
+  "seo": {
+    "title": "AI Court Date Reminders Agent for Law Firms | Dodonai",
+    "description": "Personalized court-date reminders at the right cadence with the courthouse, dress code, and document list. The no-show that ends up costing the client, prevented.",
+    "canonical": "/ai-services/agents/court-date-reminders/"
+  },
+  "hero": {
+    "headline": "AI Court Date Reminders Agent",
+    "subheadline": "Personalized reminders at 30 days, 7 days, and 24 hours before every client court date. Address, dress code, parking, documents to bring, and the consequences of missing the date. The no-show that costs the client a default judgment, prevented.",
+    "bullets": [
+      "Reminder cadence at 30, 7, and 1 day pre-hearing",
+      "Courthouse address, dress code, and parking included",
+      "Document checklist tailored to the hearing type",
+      "Bilingual delivery if the client's preferred language isn't English"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Court%20Date%20Reminders%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The hearing your client would have missed",
+    "paragraphs": [
+      "A family law client has a status conference on a Tuesday morning. He's been unrepresented before and missed a hearing 2 years ago that cost him primary custody. The Court Date Reminders agent sent the 30-day notice, the 7-day reminder with the courthouse map and the dress code, and the 24-hour text confirming the address. He shows up early, dressed properly, with the financial documents the judge asked for. The default judgment that would have followed a no-show never happens."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Court Date Reminders agent does",
+    "bullets": [
+      "Watches the matter calendar for upcoming client court dates",
+      "Sends personalized reminders at 30 days, 7 days, and 24 hours before the date",
+      "Includes courthouse address, parking, dress code, and documents to bring",
+      "Adapts the document checklist to the hearing type (status conference, deposition, motion hearing, trial)",
+      "Delivers in the client's preferred language and channel (email or SMS)"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter calendar and client preferences",
+    "Email and SMS gateways for delivery",
+    "Court calendar systems where available for date verification"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Reminders go out automatically once the cadence is approved by the responsible attorney during matter setup. For unusual hearings (an emergency hearing scheduled with 48 hours notice, a hearing where the client may not need to appear), the cadence pauses for attorney confirmation rather than sending the standard sequence."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What if our practice management system doesn't track the client's hearing-attendance requirement?",
+      "answer": "The Build phase adds a per-matter flag for whether the client must attend each calendar entry. The flag is set when the entry is created (by the attorney or paralegal) and the agent only triggers reminders for entries where the client appearance is required."
+    },
+    {
+      "question": "How does this compare to what our PMS already does?",
+      "answer": "Most PMS calendar reminders are generic and event-only. The Court Date Reminders agent personalizes the message, adapts to the hearing type, includes practical logistics, and uses the channel the client actually checks. The lift in attendance comes from the personalization, not the existence of a reminder."
+    }
+  ]
+}

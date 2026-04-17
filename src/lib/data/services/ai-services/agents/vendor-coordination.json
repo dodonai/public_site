@@ -1,0 +1,96 @@
+{
+  "slug": "vendor-coordination",
+  "title": "Vendor Coordination Agent",
+  "shortDescription": "Manages the back-and-forth with court reporters, process servers, expert witnesses, and investigators on every matter that uses them.",
+  "tier": "supporting",
+  "function": "operations-and-billing",
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "all"
+  ],
+  "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Service need identified",
+      "detail": "Deposition, service, interpreter, expert"
+    },
+    {
+      "label": "Schedule and confirm",
+      "detail": "Vendor selected, dates locked, docs sent"
+    },
+    {
+      "label": "Track deliverable",
+      "detail": "Status checked until work product lands"
+    },
+    {
+      "label": "Reconcile invoice",
+      "detail": "Against matter budget and approved rate"
+    },
+    {
+      "label": "Close the task",
+      "detail": "Work product filed, vendor paid, matter updated"
+    }
+  ],
+  "seo": {
+    "title": "AI Vendor Coordination Agent for Law Firms | Dodonai",
+    "description": "Manage the back-and-forth with court reporters, process servers, expert witnesses, and investigators. The hours of administrative ping-pong, automated.",
+    "canonical": "/ai-services/agents/vendor-coordination/"
+  },
+  "hero": {
+    "headline": "AI Vendor Coordination Agent",
+    "subheadline": "Schedules court reporters, follows up with process servers, tracks expert witness deliverables, chases investigator reports. The administrative back-and-forth that consumes paralegal hours, handled with attorney visibility.",
+    "bullets": [
+      "Court reporter scheduling for depositions and hearings",
+      "Process server status tracking and follow-up",
+      "Expert witness deliverable monitoring",
+      "Vendor invoice reconciliation against the matter cost ledger"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Vendor%20Coordination%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The week of paralegal time you would have spent on email",
+    "paragraphs": [
+      "Your firm books 4 depositions in 2 different cities over the next 3 weeks. The Vendor Coordination agent emails 4 court reporters, secures bookings, confirms the AV setup, sends the deposition notices, follows up on the rough transcripts within 48 hours of each session, and reconciles the invoices against the matter cost ledger. Your paralegal supervises the queue in 15 minutes a day instead of spending 8 hours across the 3 weeks on email back-and-forth."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Vendor Coordination agent does",
+    "bullets": [
+      "Schedules court reporters and confirms logistics for depositions and hearings",
+      "Tracks process server assignments and follows up on service status",
+      "Monitors expert witness deliverable timelines and chases overdue items",
+      "Reconciles vendor invoices against the matter cost ledger and flags variances",
+      "Maintains a vendor relationship history (response time, quality signals, billing accuracy)"
+    ]
+  },
+  "integrations": [
+    "Email for the vendor communication layer",
+    "Practice management system for matter and vendor records",
+    "Accounting system for invoice reconciliation",
+    "Vendor portals where APIs are available (court reporter platforms, process server systems)"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent communicates with vendors under the firm's email identity and within authority limits set during Build (booking values, scheduling windows, escalation triggers). For decisions outside those limits (a deposition reschedule with material cost, an expert witness substitution), the agent escalates to the responsible attorney rather than acting."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about vendors who don't use email?",
+      "answer": "For vendors that work through phone or portal-only flows, the agent surfaces the action item to the paralegal for handoff rather than attempting to operate the channel itself. The paralegal handles the call; the agent tracks the outcome."
+    },
+    {
+      "question": "How do we control the spend authority?",
+      "answer": "Spend limits are set per vendor and per matter type during Build. A booking under the limit goes through automatically (with a confirmation email to the responsible attorney); a booking over the limit waits for attorney approval. The agent never commits firm funds outside the limits."
+    }
+  ]
+}

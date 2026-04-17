@@ -1,0 +1,93 @@
+{
+  "slug": "matter-profitability",
+  "title": "Matter Profitability Agent",
+  "shortDescription": "Computes the true profit per matter and per matter type, accounting for billable rates, write-downs, costs, and partner time.",
+  "tier": "supporting",
+  "function": "practice-intelligence",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Pull time + invoices",
+      "detail": "Entries, billed, paid, and written off"
+    },
+    {
+      "label": "Compute realization",
+      "detail": "Per matter, partner, and practice area"
+    },
+    {
+      "label": "Compare vs. average",
+      "detail": "Outliers highlighted automatically"
+    },
+    {
+      "label": "Flag scope creep",
+      "detail": "Matters trending past engagement scope"
+    },
+    {
+      "label": "Surface in report",
+      "detail": "Monthly review ready for partners"
+    }
+  ],
+  "seo": {
+    "title": "AI Matter Profitability Agent for Law Firms | Dodonai",
+    "description": "Compute true profit per matter and per matter type. Billable rates, write-downs, costs, and partner time included. The intake decision that gets sharper every quarter.",
+    "canonical": "/ai-services/agents/matter-profitability/"
+  },
+  "hero": {
+    "headline": "AI Matter Profitability Agent",
+    "subheadline": "Quarterly view of profit per matter and per matter type, with the realization rate, the partner-time load, and the cost recovery folded in. The intake conversations get sharper every quarter as the picture becomes evidence-based.",
+    "bullets": [
+      "True profit per matter, not just gross fees",
+      "Realization rate per matter type and per partner",
+      "Partner and associate time-cost folded into the picture",
+      "Quarterly trends so seasonal patterns surface"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Matter%20Profitability%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The matter type you would have kept taking",
+    "paragraphs": [
+      "Your firm has been taking small-dollar uncontested probate matters as a courtesy for years. The Matter Profitability agent runs the quarterly numbers: 18 of those matters last quarter, average gross fee of $1,800, average realization of 71% after write-downs, average partner time of 4.2 hours. The matters are losing money once you account for the partner load. The conversation at the next partners' meeting moves from intuition to evidence: raise the minimum fee, push these to a paralegal-led process, or stop taking them."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Matter Profitability agent does",
+    "bullets": [
+      "Computes profit per matter using billable rates, write-downs, costs, and time entries",
+      "Rolls profit up by matter type, practice area, and originating partner",
+      "Tracks realization rate per matter type and per associate",
+      "Surfaces matter types where profitability has shifted quarter over quarter",
+      "Posts the analysis as a quarterly partners' digest"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter records and time entries",
+    "Accounting system for fee revenue, write-downs, and cost ledger",
+    "Slack or email for the digest delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent is read-only on every system it touches. The analysis is internal-only and scoped to the partners. Per-attorney profitability views are particularly sensitive; the access controls are explicit and tunable per firm."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about contingency matters where the fee isn't realized for years?",
+      "answer": "Contingency profitability is reported as a forecast based on the matter's expected value and the cost-to-date, then trued up when the matter resolves. The forecast and the actual are tracked separately so the firm can see whether the early valuations are landing close to reality."
+    },
+    {
+      "question": "How does it handle pro bono and reduced-fee work?",
+      "answer": "Pro bono and reduced-fee matters are tracked separately so they don't distort the practice-area realization picture. The firm can still see the cost (partner and associate time) of the pro bono book to support pro bono reporting."
+    }
+  ]
+}

@@ -1,0 +1,99 @@
+{
+  "slug": "sol-tracker",
+  "title": "Statute of Limitations Tracker Agent",
+  "shortDescription": "Watches every active claim against the right SOL clock and escalates the warnings as the window closes.",
+  "tier": "supporting",
+  "function": "deadlines-and-compliance",
+  "practiceAreas": [
+    "personal-injury",
+    "real-estate",
+    "estates-probate",
+    "all"
+  ],
+  "caseSkills": [
+    "procedural-rule-summaries.md"
+  ],
+  "workflow": [
+    {
+      "label": "Matter opened",
+      "detail": "Incident date, jurisdiction, and theory captured"
+    },
+    {
+      "label": "Identify cause of action",
+      "detail": "Per-claim SOL and tolling rules applied"
+    },
+    {
+      "label": "Compute runway",
+      "detail": "Countdown per matter, recomputed daily"
+    },
+    {
+      "label": "Alert at thresholds",
+      "detail": "90, 60, 30, 14-day escalations to the partner"
+    },
+    {
+      "label": "Cross-check filings",
+      "detail": "Filed matters drop off automatically"
+    }
+  ],
+  "seo": {
+    "title": "AI Statute of Limitations Tracker for Law Firms | Dodonai",
+    "description": "Watch every active claim against the right SOL clock. Escalating alerts at 90, 60, 30, and 14 days. The deadline that ends careers, monitored automatically.",
+    "canonical": "/ai-services/agents/sol-tracker/"
+  },
+  "hero": {
+    "headline": "AI Statute of Limitations Tracker Agent",
+    "subheadline": "Tracks every active claim against the SOL for the right cause of action and the right jurisdiction. Escalating alerts at 90, 60, 30, and 14 days. The single deadline most likely to end a malpractice carrier's relationship with your firm, watched daily.",
+    "bullets": [
+      "SOL computed per cause of action and jurisdiction",
+      "Tolling, discovery rule, and minor exceptions accounted for",
+      "Escalating alerts at 90, 60, 30, and 14 days",
+      "Cross-checked against your filed-complaint record so closed matters drop off"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=SOL%20Tracker%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The clock you would have lost track of",
+    "paragraphs": [
+      "A signed PI matter sits in a holding pattern while the client finishes treatment. 14 months in, the medical picture is clearer and the partner is ready to make the demand. The SOL Tracker has been counting down the whole time. With 87 days remaining on a 2-year statute, it surfaces the matter in the morning digest. The partner sees the runway and instructs the associate to file the complaint by week's end whether the demand response lands or not. The clock stops being a surprise."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the SOL Tracker does",
+    "bullets": [
+      "Computes the SOL per cause of action and jurisdiction for every active matter",
+      "Applies tolling rules (minor plaintiffs, fraudulent concealment, continuing violations) where the matter file supports them",
+      "Issues alerts at 90, 60, 30, and 14 days remaining",
+      "Cross-checks against your filed-complaint record so closed or filed matters drop off",
+      "Surfaces matters where the SOL trigger date itself is ambiguous for partner review"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter facts and filing record",
+    "PACER, ECF, and state e-filing portals to confirm filings",
+    "Slack or email for the escalation digest",
+    "Outlook or Google Calendar for the SOL hold entries"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The tracker watches; the attorney files. The agent doesn't file a complaint, doesn't seek a tolling agreement, doesn't make a strategic call about whether to sue. It surfaces the runway, attaches the rule citation, and routes the alert to the responsible partner. Every computation is logged with the inputs and the rule applied so a missed SOL would have a paper trail showing what was flagged and when."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does it know which cause of action governs the SOL?",
+      "answer": "The matter file in your PMS carries the cause of action and the legal theory. For matters where the theory is unsettled (concurrent contract and tort claims, federal preemption questions), the agent applies the shorter SOL by default and flags the ambiguity for partner judgment."
+    },
+    {
+      "question": "What about discovery-rule jurisdictions where the trigger isn't the injury date?",
+      "answer": "Discovery-rule matters are flagged as such in the matter file and the agent uses the discovery date as the trigger. When the discovery date itself is contested or ambiguous, the agent computes both timelines (injury-date SOL and discovery-date SOL) and surfaces the conservative one as the operating deadline."
+    }
+  ]
+}

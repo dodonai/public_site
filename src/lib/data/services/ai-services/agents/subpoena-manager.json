@@ -1,0 +1,98 @@
+{
+  "slug": "subpoena-manager",
+  "title": "Subpoena Manager Agent",
+  "shortDescription": "Drafts subpoenas, coordinates service, tracks responses, and surfaces the recipients who haven't produced on time.",
+  "tier": "supporting",
+  "function": "operations-and-billing",
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "all"
+  ],
+  "caseSkills": [
+    "litigation-personal-injury-summons-and-service-packet.md"
+  ],
+  "workflow": [
+    {
+      "label": "Subpoena need identified",
+      "detail": "Scope, recipient, and deadline captured"
+    },
+    {
+      "label": "Draft from template",
+      "detail": "Jurisdiction-correct format and service rules"
+    },
+    {
+      "label": "Track service",
+      "detail": "Served, accepted, or returned non-est"
+    },
+    {
+      "label": "Monitor objections",
+      "detail": "Responsive, partial, or motion-to-quash"
+    },
+    {
+      "label": "Log compliance",
+      "detail": "Every return and production indexed"
+    }
+  ],
+  "seo": {
+    "title": "AI Subpoena Manager Agent for Law Firms | Dodonai",
+    "description": "Draft subpoenas, coordinate service, track responses, and surface the recipients who haven't produced on time. The matter-team coordination that disappears into a queue.",
+    "canonical": "/ai-services/agents/subpoena-manager/"
+  },
+  "hero": {
+    "headline": "AI Subpoena Manager Agent",
+    "subheadline": "From draft to service to production tracking, every subpoena managed in one queue. Recipients who don't respond on time surface for paralegal escalation. The administrative load that scales painfully on multi-defendant matters becomes a checklist.",
+    "bullets": [
+      "Subpoena drafting per recipient and jurisdiction",
+      "Service coordination with your process server network",
+      "Production tracking against the response deadline",
+      "Nonresponse escalation to the responsible attorney"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Subpoena%20Manager%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The 14 subpoenas you would have lost track of",
+    "paragraphs": [
+      "A complex commercial litigation matter requires subpoenas to 14 recipients spanning 3 states. In the old workflow, your paralegal manages the queue with a spreadsheet and emails the process server one at a time. The Subpoena Manager drafts the 14 subpoenas using the right form per jurisdiction, hands them to the process server network with service requests, tracks the affidavits as they return, and watches the production deadlines. The 3 recipients who haven't produced by deadline get surfaced for the associate to follow up. Nothing falls through."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Subpoena Manager does",
+    "bullets": [
+      "Drafts subpoenas using the correct form per jurisdiction (federal, state, district-specific)",
+      "Coordinates service with your process server network",
+      "Tracks affidavits of service as they return",
+      "Watches production deadlines and surfaces overdue recipients for follow-up",
+      "Logs the entire chain of custody for each subpoena from draft to production"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter and recipient records",
+    "Process server platforms or direct email coordination",
+    "Document management system for subpoena and production storage",
+    "Slack or email for paralegal escalation"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Every subpoena is reviewed by the responsible attorney before service. The agent drafts and queues; the attorney signs and authorizes service. Productions that arrive are filed to the matter; the agent doesn't review or rely on the substantive content for further action without attorney involvement."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about subpoenas to opposing counsel that require notice?",
+      "answer": "The notice requirement is built into the workflow per jurisdiction. The agent drafts the notice along with the subpoena and routes both to the attorney for review. Service to opposing counsel and the third-party recipient happens in the right order with the audit trail attached."
+    },
+    {
+      "question": "How does it handle motions to quash?",
+      "answer": "When a motion to quash lands on a tracked subpoena, the agent flags the subpoena as paused, halts further follow-up on production, and routes the motion to the responsible attorney for response. The agent doesn't take a position on the motion."
+    }
+  ]
+}

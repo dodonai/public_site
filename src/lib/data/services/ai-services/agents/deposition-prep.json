@@ -1,0 +1,100 @@
+{
+  "slug": "deposition-prep",
+  "title": "Deposition Prep Agent",
+  "shortDescription": "Builds the witness profile, the prior-statement cross-reference, and the question outline before every deposition.",
+  "tier": "supporting",
+  "function": "casework-and-drafting",
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "all"
+  ],
+  "caseSkills": [
+    "deposition-preparation.md",
+    "deposition-questioning-techniques.md",
+    "deposition-witness-prep-session.md"
+  ],
+  "workflow": [
+    {
+      "label": "Deposition scheduled",
+      "detail": "Witness identified, case theory current"
+    },
+    {
+      "label": "Pull witness history",
+      "detail": "Prior testimony, discovery responses, exhibits"
+    },
+    {
+      "label": "Draft outline by topic",
+      "detail": "Examination points tied to case theory"
+    },
+    {
+      "label": "Build key-doc index",
+      "detail": "Cross-reference from outline to exhibit number"
+    },
+    {
+      "label": "Package witness binder",
+      "detail": "Ready for the taking or defending attorney"
+    }
+  ],
+  "seo": {
+    "title": "AI Deposition Prep Agent for Law Firms | Dodonai",
+    "description": "Witness profile, prior-statement cross-reference, exhibit binder, and question outline assembled before every deposition. The 8-hour prep that runs in 90 minutes.",
+    "canonical": "/ai-services/agents/deposition-prep/"
+  },
+  "hero": {
+    "headline": "AI Deposition Prep Agent",
+    "subheadline": "Assembles the witness profile, cross-references prior statements against the case theory, drafts the question outline, and prepares the exhibit binder. The associate who would have spent 8 hours on prep gets the working draft in 90 minutes.",
+    "bullets": [
+      "Witness profile from public sources and the matter file",
+      "Prior-statement cross-reference flagging contradictions",
+      "Question outline organized by case theory and exhibit",
+      "Exhibit binder pre-tabbed for the deposition"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Deposition%20Prep%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The deposition you would have prepped twice",
+    "paragraphs": [
+      "Your associate has a deposition on Thursday of the defendant's site supervisor. The prep work is what eats the week: pulling the personnel file, reading the prior interrogatory responses, building the exhibit binder, drafting the question outline. The Deposition Prep agent assembles the working draft in 90 minutes: profile, contradictions flagged, exhibits tabbed, question outline organized by theory of the case. The associate spends Wednesday refining instead of building from scratch. The deposition lands tighter."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Deposition Prep agent does",
+    "bullets": [
+      "Builds the witness profile from public sources and the matter file",
+      "Cross-references prior statements (interrogatories, prior depositions, public statements) for contradictions",
+      "Drafts a question outline organized by case theory with exhibit references",
+      "Pre-tabs the exhibit binder in the order the questions reference",
+      "Surfaces the 5 to 10 most important exchanges to plan for in advance"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter facts and witness records",
+    "Document management system for exhibits and prior testimony",
+    "Court-reporter platforms for prior deposition transcripts",
+    "Microsoft Word or Google Docs for outline editing"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Every deliverable is a draft for the responsible attorney. The agent doesn't appear at the deposition, doesn't ask the questions, doesn't make the strategic calls. It builds the working materials so the attorney's prep time goes to refinement and judgment rather than assembly."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does the question outline reflect our partner's style?",
+      "answer": "The Build phase samples 5 to 10 of your firm's prior deposition outlines to learn the structure, depth, and pacing your partners use. The agent's outlines match that pattern. Associates can adjust the outline; the partner's voice stays consistent across the firm."
+    },
+    {
+      "question": "What about depositions of experts or 30(b)(6) corporate representatives?",
+      "answer": "The agent uses different prep templates per witness type. Expert depositions get a Daubert-focused outline and a methodology-challenge layer. 30(b)(6) prep maps the topics the deposition notice listed against the corporate witness's likely knowledge sources."
+    }
+  ]
+}

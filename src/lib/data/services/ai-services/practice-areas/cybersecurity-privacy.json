@@ -1,0 +1,61 @@
+{
+  "slug": "cybersecurity-privacy",
+  "seo": {
+    "title": "AI Services for Cybersecurity & Privacy Law Firms | Dodonai",
+    "description": "Custom AI agents for breach response: 50-state notification matrix, deadline tracking, notification letter drafts, AG filing status, compliance audits.",
+    "canonical": "/ai-services/for/cybersecurity-privacy/"
+  },
+  "hero": {
+    "headline": "AI Services for Cybersecurity & Privacy Firms",
+    "subheadline": "A single breach affecting customers in 15 states triggers 15 different deadlines, 15 content requirements, and 15 filing procedures. Clocks range from 24 hours to 90 days. We build AI agents that run the matrix, draft the letters, and track every filing."
+  },
+  "scenario": {
+    "heading": "The clock starts in every state at once",
+    "paragraphs": [
+      "A cybersecurity and privacy practice takes a call from a client: a data breach affecting customers in 15 US states plus DC. The clock starts running in every affected jurisdiction simultaneously, and the clocks aren't synchronized. Deadlines range from 24 hours to 90 days. Some states mandate specific content in the notification. Some require AG notification before individual notice. Some trigger credit monitoring obligations at certain record counts. One breach becomes 16 different compliance workstreams, each with its own deadline, content requirements, and filing procedure.",
+      "With a breach matrix agent in place, the first hour after the incident report changes. The agent takes the breach facts (affected individuals by state, data categories, detection and containment timeline) and generates a compliance matrix: notification deadline per state, content requirements per state, AG notification obligations, threshold triggers, and filing procedures. It drafts notification letters per jurisdiction from your firm's templates, flags the states with the tightest deadlines, and tracks filing status with deadline cascades.",
+      "The attorney opens the matrix, sees the 3 states with deadlines in the next 72 hours, reviews and approves the drafts, and hits send. The remaining 13 jurisdictions are on schedule with drafts ready for review in sequence. The mechanical risk, tracking 16 workstreams in parallel without a mistake, is gone."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits cybersecurity and privacy practice",
+    "paragraphs": [
+      "Breach notification is among the most jurisdiction-complex problems in legal practice. The legal analysis per state is usually clear on its face. The challenge is orchestrating 50-state tracking without dropping a jurisdiction, a deadline, or a content requirement. That orchestration is exactly where agents excel.",
+      "The same pattern applies across the privacy practice. GDPR Article 33 notifications with their 72-hour window. State-specific AI governance rules. Vendor incident response coordination. Compliance audit tracking across SOC 2, ISO 27001, and industry frameworks. Every one is document-intensive, deadline-driven, and structurally identical across incidents. Different facts, same architecture."
+    ]
+  },
+  "agentRelevance": {
+    "heading": "Agents we've built for cybersecurity and privacy practices",
+    "intro": "These agents apply to cybersecurity, privacy, and data protection practices. Most teams start with the breach matrix agent and the ethics guardian, then add docketing, client communications, and matter profitability as the book grows."
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "We start with Blueprint, a 2-week engagement where we walk through 2 or 3 recent incidents, review your notification templates and matrix, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Build is 4 to 6 weeks. We encode the 50-state matrix with your firm's interpretations and templates, connect the agent to your case management system and document storage, and run it in shadow mode on a simulated incident while we tune. Notification drafts ship in your voice.",
+      "Managed is the ongoing operating mode. We monitor the agents, update state rules as statutes and AG guidance change (which they do), add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Does this handle international breach notifications too, not just US states?",
+      "answer": "Yes. GDPR Article 33 and Article 34, Canada's PIPEDA, Quebec's Law 25, Australia's Notifiable Data Breaches scheme, and other international frameworks all encode the same way: deadline rules, notification thresholds, content requirements, filing procedures. We start with the jurisdictions your book covers and extend as needed."
+    },
+    {
+      "question": "How does the agent stay current as state rules change?",
+      "answer": "State breach notification statutes change every year, and AG guidance changes more often. The skill file is the source of truth. When a rule changes, we update the skill file and every active incident's matrix refreshes. The update pattern is part of the Managed engagement. Firms that try to maintain this matrix manually fall behind within 6 months."
+    },
+    {
+      "question": "Can it handle the incident response phase, not just notification?",
+      "answer": "The notification side is where the agent pays back hardest because of the jurisdiction matrix. Incident response coordination (vendor coordination, forensics tracking, evidence preservation) is a related but separate agent we've built for firms that lead the full IR engagement. Most firms start with notification and add IR coordination in month 3."
+    },
+    {
+      "question": "What about the client's compliance program, not just incident response?",
+      "answer": "Compliance program work is a longer-horizon set of agents: audit readiness, policy drafting, vendor risk assessment, privacy impact assessments. We build these on the same infrastructure as the incident response agents. Many firms expand from breach notification into ongoing compliance advisory once the first agents are proven."
+    },
+    {
+      "question": "How much does this cost?",
+      "answer": "We don't publish pricing because the scope varies by practice size and the jurisdictions you need covered from day one. Most cybersecurity and privacy practices see the first agent pay back on the first significant incident through reduced outside counsel hours and faster notification cycles. We'll give you a fixed-fee Blueprint quote on a short fit call."
+    }
+  ]
+}

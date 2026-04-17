@@ -1,0 +1,100 @@
+{
+  "slug": "settlement-explainer",
+  "title": "Settlement Explainer Agent",
+  "shortDescription": "Translates a settlement offer into the plain-English picture your client can actually evaluate, with the breakdown they need to decide.",
+  "tier": "supporting",
+  "function": "client-communications",
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "estates-probate",
+    "real-estate"
+  ],
+  "caseSkills": [
+    "litigation-personal-injury-settlement-distribution-statement.md",
+    "negotiation-support.md"
+  ],
+  "workflow": [
+    {
+      "label": "Settlement finalized",
+      "detail": "Gross, fees, costs, and liens captured"
+    },
+    {
+      "label": "Compute gross-to-net",
+      "detail": "Line-by-line walkthrough computed"
+    },
+    {
+      "label": "Pull disbursement data",
+      "detail": "Liens, subrogation, and case costs reconciled"
+    },
+    {
+      "label": "Draft plain-language letter",
+      "detail": "How the client reads what they get"
+    },
+    {
+      "label": "Route for review",
+      "detail": "Attorney approves before the client sees it"
+    }
+  ],
+  "seo": {
+    "title": "AI Settlement Explainer Agent for Law Firms | Dodonai",
+    "description": "Translate every settlement offer into the plain-English picture your client can evaluate. Net-to-client, lien deductions, fee structure, decision timeline.",
+    "canonical": "/ai-services/agents/settlement-explainer/"
+  },
+  "hero": {
+    "headline": "AI Settlement Explainer Agent",
+    "subheadline": "Translates the gross number into the net-to-client picture: liens deducted, fees and costs itemized, structure laid out in plain English. The client conversation becomes a decision conversation, not an arithmetic conversation.",
+    "bullets": [
+      "Net-to-client computation with every deduction itemized",
+      "Lien analysis pulled from the matter file",
+      "Comparison against past offers in the same matter",
+      "Plain-English client-facing letter drafted for attorney review"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Settlement%20Explainer%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The conversation you would have had to do in your head",
+    "paragraphs": [
+      "A $185,000 settlement offer lands on a personal injury matter at 3pm. Your client wants to know what it actually means for her by tonight. In the old workflow, you'd spend 30 minutes pulling the lien total, computing the contingency fee against the gross, deducting costs, and writing the explanation. The Settlement Explainer drafts the breakdown in 2 minutes: gross, attorney fees per the agreement, costs to date, medical liens with the negotiated reductions, net-to-client. You verify the numbers, send the explanation letter, the client has the decision picture by 4pm instead of next morning."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Settlement Explainer does",
+    "bullets": [
+      "Computes the net-to-client from the gross offer using the fee agreement and cost ledger",
+      "Pulls the lien picture from the matter file and applies any negotiated reductions",
+      "Compares the offer to prior offers in the same matter and to comparable past matters",
+      "Drafts a plain-English client letter explaining the breakdown",
+      "Flags any deduction that's still uncertain (a lien still in negotiation, a cost still being verified)"
+    ]
+  },
+  "integrations": [
+    "Practice management system for fee agreement and cost records",
+    "Document management system for lien correspondence",
+    "Accounting system for cost-to-date verification",
+    "Email for the client-letter draft delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The breakdown is a draft for attorney review. The agent flags any input that's uncertain (a lien still in flux, a cost not yet posted) so the attorney can address it before the letter goes to the client. The client letter never sends without attorney signoff."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about structured settlements?",
+      "answer": "Structured settlements get the same breakdown plus a present-value calculation and a payment-schedule summary. For structures involving annuities, the agent surfaces the inputs needed to evaluate the structure rather than computing the annuity value itself, which the structured settlement broker provides."
+    },
+    {
+      "question": "How does it handle complex lien portfolios?",
+      "answer": "Each lien in the matter file (Medicare, Medicaid, ERISA, hospital, subrogation) gets its own line in the breakdown. For matters with active lien negotiation, the agent shows both the original lien total and the current negotiated position so the picture reflects the most recent state."
+    }
+  ]
+}

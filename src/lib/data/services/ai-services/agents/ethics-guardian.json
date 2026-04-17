@@ -1,0 +1,94 @@
+{
+  "slug": "ethics-guardian",
+  "title": "Ethics Guardian Agent",
+  "shortDescription": "Watches the patterns that lead to bar complaints (silence gaps, fee disputes, missed deadlines, unreturned funds) and surfaces them before the complaint lands.",
+  "tier": "supporting",
+  "function": "deadlines-and-compliance",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [],
+  "workflow": [
+    {
+      "label": "AI output generated",
+      "detail": "Any agent-assisted work product captured"
+    },
+    {
+      "label": "Log model + inputs",
+      "detail": "Timestamp, matter, model, source documents"
+    },
+    {
+      "label": "Check ABA 512 duties",
+      "detail": "Competence, confidentiality, supervision"
+    },
+    {
+      "label": "Capture reviewer decision",
+      "detail": "Approved, edited, rejected, with reasons"
+    },
+    {
+      "label": "Write audit record",
+      "detail": "Immutable log ready for any bar inquiry"
+    }
+  ],
+  "seo": {
+    "title": "AI Ethics Guardian Agent for Law Firms | Dodonai",
+    "description": "Watch the patterns that lead to bar complaints (silence gaps, fee disputes, unreturned funds). Surface them before the complaint lands, fix them before the inquiry.",
+    "canonical": "/ai-services/agents/ethics-guardian/"
+  },
+  "hero": {
+    "headline": "AI Ethics Guardian Agent",
+    "subheadline": "Reads the signals that precede most bar complaints (long silences, billing surprises, deposits sitting in trust past closure, missed court dates) and surfaces them in the partners' weekly review. The complaint that never gets filed because the underlying pattern got fixed first.",
+    "bullets": [
+      "Silence-gap detection per matter, per client",
+      "Trust-account aging on closed matters",
+      "Billing-surprise flagging when an invoice exceeds the estimate by a threshold",
+      "Missed-deadline patterning across attorneys"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Ethics%20Guardian%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The pattern you would have spotted only after the complaint",
+    "paragraphs": [
+      "Three matters with the same associate have hit the 45-day silence threshold in the same month. None has triggered a client complaint yet, but the pattern is exactly the kind that does. The Ethics Guardian surfaces the cluster in the weekly partners' review with the matters named and the silence durations listed. The conversation that follows is supportive (the associate is overloaded, the partner redistributes 5 matters that week) instead of disciplinary (the bar complaint that would have followed in another month)."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Ethics Guardian does",
+    "bullets": [
+      "Watches per-matter silence gaps and surfaces patterns that exceed your firm's policy threshold",
+      "Tracks trust account holdings on closed matters and flags funds owed back to clients",
+      "Compares billed amounts to original estimates and flags variances above the threshold for partner review",
+      "Identifies missed-deadline patterns by attorney and by practice area",
+      "Posts a weekly ethics-watch digest in the partners' shared channel"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter activity and client contact records",
+    "Accounting and trust systems for billing and trust holdings",
+    "Calendar and email for activity signals",
+    "Slack or Microsoft Teams for digest delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent surfaces patterns; partners interpret them. Nothing is escalated outside the firm. The framing is preventive, not punitive: a silence gap means a matter needs attention, not that the responsible attorney is in trouble. The audit log shows what was flagged and when, which supports the firm's supervision posture under Model Rules 5.1 and 5.3."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Won't attorneys feel surveilled by this?",
+      "answer": "How it lands depends entirely on framing. Firms that introduce the agent as a partner-supervision tool meant to catch overload before it becomes a complaint generally see attorneys welcome the visibility. Firms that frame it as performance evaluation see resistance. The Build phase includes the rollout messaging."
+    },
+    {
+      "question": "What about smaller firms where the partner is the same person carrying the matters?",
+      "answer": "The agent still works; the audience just changes. For a solo or small firm, the digest goes to the principal attorney as a self-check rather than a supervision tool. The patterns are the same; the response is owning them rather than redistributing them."
+    }
+  ]
+}

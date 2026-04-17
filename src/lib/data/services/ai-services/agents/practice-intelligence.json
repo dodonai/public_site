@@ -1,0 +1,127 @@
+{
+  "slug": "practice-intelligence",
+  "title": "Practice Intelligence Agent",
+  "shortDescription": "Rolls up matter health, partner workload, settlement velocity, and revenue per practice area into a Monday-morning picture you can act on.",
+  "tier": "flagship",
+  "function": "practice-intelligence",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [
+    "case-summary-report.md",
+    "legal-strategy-summaries.md"
+  ],
+  "workflow": [
+    {
+      "label": "Matter data aggregates",
+      "detail": "Time, tasks, filings, and communications"
+    },
+    {
+      "label": "Compute health signals",
+      "detail": "Velocity, scope drift, and stalled activity"
+    },
+    {
+      "label": "Compare vs. baseline",
+      "detail": "Matter type averages and firm norms"
+    },
+    {
+      "label": "Flag risk patterns",
+      "detail": "Missed touches, overdue work, cold matters"
+    },
+    {
+      "label": "Surface in dashboard",
+      "detail": "Partner sees the book on one screen"
+    }
+  ],
+  "seo": {
+    "title": "AI Practice Intelligence Agent for Law Firms | Dodonai",
+    "description": "Roll up matter health, partner workload, settlement velocity, and revenue per practice area into a Monday picture you can act on. The dashboard you keep meaning to build.",
+    "canonical": "/ai-services/agents/practice-intelligence/"
+  },
+  "hero": {
+    "headline": "AI Practice Intelligence Agent",
+    "subheadline": "Pulls from your practice management system, accounting, calendar, and email to produce a weekly partners' digest. Matter health, workload distribution, settlement velocity, and revenue trend, in one place, every Monday at 8am.",
+    "bullets": [
+      "Weekly Monday digest delivered before the partners' meeting",
+      "Matter-health scoring with red, yellow, green per active file",
+      "Workload distribution across partners and practice areas",
+      "Revenue and collection trends by practice area and matter type"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Practice%20Intelligence%20Agent%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "Monday morning, before the partners' meeting",
+    "paragraphs": [
+      "It's 7:55 on a Monday. The 4 partners of a 14-attorney firm gather in the conference room with coffee. The Practice Intelligence agent has already posted the weekly digest in their shared Slack channel: 132 active matters, 7 flagged red (movement stalled, deadline approaching, or client unresponsive), 18 yellow, the rest green. Workload chart shows one partner carrying 38% of the active personal injury inventory while another is at 14% and asking for more. Revenue line for family law is up 9% on the trailing 90 days; for real estate, down 22%.",
+      "The meeting that used to start with each partner reading from their own notes now starts with a shared picture. The conversation moves to action: redistribute 6 personal injury matters, pause the real estate marketing spend, intervene on 3 of the 7 red matters this week. Decisions made by 8:30 instead of by 10."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Practice Intelligence agent does",
+    "paragraphs": [
+      "The agent pulls structured and unstructured data from across your firm's systems weekly. From the practice management system: matter status, age, last activity, partner ownership. From accounting: billable hours, realization rate, collection percentage, AR aging. From the calendar and email: how often each matter has been worked, whether the client has been contacted, what's coming up. It rolls those signals into a partners' digest that takes 5 minutes to read instead of an hour to produce.",
+      "The matter-health score is the synthesis. Red flags surface matters where multiple signals point the same direction (no activity in 30 days, deadline inside 14 days, client silence over 21 days). The point is not to grade attorneys; the point is to make sure no matter falls through the cracks because everyone assumed someone else was watching."
+    ]
+  },
+  "inputsOutputs": {
+    "heading": "Inputs and outputs",
+    "inputs": [
+      "Practice management system matter and activity records",
+      "Accounting system data (QuickBooks, Xero, LeanLaw, TrustBooks)",
+      "Calendar feed across all partners and associates",
+      "Email metadata for matter-correspondence frequency",
+      "Time-entry data for billable hour and realization analysis"
+    ],
+    "outputs": [
+      "Monday partners' digest delivered by 8am to a shared Slack channel",
+      "Matter-health roll-up with red/yellow/green and reasons cited",
+      "Workload distribution by partner, associate, and practice area",
+      "Revenue and collection trends with quarter-over-quarter comparison",
+      "Pipeline view by stage (intake, active, settlement, collection, closed)",
+      "Quarterly deep-dive report for partner-level strategic review"
+    ]
+  },
+  "integrations": [
+    "Clio, MyCase, Practice Panther, SmokeBall, or NetDocuments",
+    "QuickBooks Online, Xero, LeanLaw, or TrustBooks",
+    "Google Workspace or Microsoft 365 for calendar and email signals",
+    "Slack or Microsoft Teams for digest delivery",
+    "Read-only access; no system the agent reads from is modified"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent is read-only across every system it touches. It produces analysis and routes it to the partners. It doesn't change matter status, doesn't reassign work, doesn't adjust billing entries. The interventions that follow the digest are made by humans with the right authority.",
+      "Sensitive practice data (revenue, partner compensation signals, individual attorney performance) is scoped to the audience that should see it. Partner-only views go to partners. Practice-area views can be shared more broadly if your firm prefers transparency. The access controls are explicit and tunable during Build."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How is this different from the dashboards in our practice management system?",
+      "answer": "Native PMS dashboards show what's in the PMS. They don't synthesize across accounting, calendar, and email to surface the matter-health pattern. The Practice Intelligence agent pulls from all of those, weighs the signals, and produces a recommendation per matter rather than a list of metrics to interpret."
+    },
+    {
+      "question": "Will the matter-health scoring create friction with attorneys?",
+      "answer": "It can if it's framed as evaluation. We frame it as visibility. The score is about the matter, not the attorney; a red flag means the matter needs attention, not that someone failed. Firms that have rolled this out successfully introduce it as a tool the partners use to support the team, with the team seeing the same picture the partners see."
+    },
+    {
+      "question": "Does it account for matter complexity in the workload distribution?",
+      "answer": "Yes. Workload isn't just matter count; it's weighted by matter type, hours-to-date, and stage. A litigator carrying 8 active depositions is treated very differently from one carrying 8 dormant probate files. The weighting is calibrated during Build with input from the partners."
+    },
+    {
+      "question": "What if our accounting system is older or our PMS is custom?",
+      "answer": "We've integrated with the major systems and several less-common ones. For older systems with no API, we use scheduled exports or read-only database connections. For truly custom PMS, the Build phase includes the integration work. The Blueprint phase identifies the integration cost up front."
+    },
+    {
+      "question": "How do we keep the digest from becoming wallpaper that nobody reads?",
+      "answer": "Two things keep it readable. First, the digest is short by default (1 page, scannable in 5 minutes), and only expands when something requires attention. Second, the partners' meeting is structured around the digest, so reading it has a purpose. The Managed retainer reviews engagement quarterly and tunes the format if attention drops."
+    }
+  ]
+}

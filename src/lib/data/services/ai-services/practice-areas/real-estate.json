@@ -1,0 +1,61 @@
+{
+  "slug": "real-estate",
+  "seo": {
+    "title": "AI Services for Real Estate Law Firms | Dodonai",
+    "description": "Custom AI agents for real estate closings: closing condition tracking, title document matching, deadline cascades, FIRPTA flags, cross-border compliance.",
+    "canonical": "/ai-services/for/real-estate/"
+  },
+  "hero": {
+    "headline": "AI Services for Real Estate Law Firms",
+    "subheadline": "A commercial closing involves dozens of conditions scattered across 20+ emails from title companies, lenders, surveyors, and opposing counsel. The missing estoppel surfaces the day before closing. We build AI agents that track every condition in real time."
+  },
+  "scenario": {
+    "heading": "The day before closing",
+    "paragraphs": [
+      "A commercial real estate practice handling acquisitions, financing, and leasing across multiple jurisdictions runs on condition checklists. Title docs trickle in over weeks. Surveys get revised. Estoppels come back late. Lender wire instructions change. Opposing counsel sends a revised disclosure schedule 48 hours before closing. Someone has to match each document against the closing checklist, mark conditions as satisfied, flag what's missing, and escalate when a deadline is approaching with an outstanding item. That someone is usually a paralegal, and it usually happens the day before closing when the missing estoppel becomes a crisis.",
+      "With a closing conditions agent in place, the practice runs the checklist on autopilot. The agent monitors the attorney's inbox, classifies each incoming document against the active closing's checklist, marks conditions as satisfied with the source document linked, and flags outstanding items against the closing date. Every morning, the attorney gets a status report across every active closing: conditions met, outstanding items, deadline cascade.",
+      "For cross-border deals, the agent layers jurisdiction-specific compliance on top: FIRPTA withholding for non-US sellers, disclosure obligations in the buyer's jurisdiction, regulatory approvals for regulated assets. The compliance flags show up during the deal, not the night before closing."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits real estate practice",
+    "paragraphs": [
+      "Real estate closings are condition-tracking and deadline-monitoring. Documents come in, they satisfy checklist items, missing items escalate toward the closing date. The legal analysis per item is usually clean: this is the estoppel, this is the wire authorization, this is the title commitment. The challenge is orchestrating 30 or 40 items across 5 or 10 active closings in parallel, without dropping the one item that blows up the deal.",
+      "That orchestration is exactly what agents handle. The checklist is templated per deal type. The classification rules are clear. The deadlines are computable from the closing date. The attorney stays on negotiation, on structuring, on the calls that shape the deal. The mechanical tracking moves to the agent."
+    ]
+  },
+  "agentRelevance": {
+    "heading": "Agents we've built for real estate practices",
+    "intro": "These agents apply to commercial and residential real estate practices. Most teams start with the closing conditions agent and filing readiness, then add docketing, intake, and matter profitability as the book grows."
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "We start with Blueprint, a 2-week engagement where we walk through 3 or 4 recent closings, map the conditions, and identify where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Build is 4 to 6 weeks. We encode your closing checklists by deal type, connect the agent to your email and document storage, and run it in shadow mode on an active closing while we tune. Cross-border compliance rules are added in the skill file so they fire automatically on the right deals.",
+      "Managed is the ongoing operating mode. We monitor the agents, extend checklists as new deal types come through, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Does this work for residential closings too, or just commercial?",
+      "answer": "Both. Residential closings have shorter checklists and tighter volume economics, so the agent pays back faster on volume. Commercial closings have longer, more complex checklists and higher stakes, so the agent pays back faster on risk reduction. Many firms run the agent across both practices with different checklist templates."
+    },
+    {
+      "question": "How does it handle cross-border deals?",
+      "answer": "Jurisdiction-specific rules go into the skill file. FIRPTA triggers on non-US sellers. Cross-provincial rules fire on Canadian multi-jurisdiction deals. Asia-Pacific regulatory requirements fire on regulated-asset acquisitions. The agent flags the requirements during the deal, drafts the compliance documents where applicable, and keeps the deadlines on the calendar alongside the closing date."
+    },
+    {
+      "question": "What happens when opposing counsel sends a last-minute revised document?",
+      "answer": "The agent picks it up, compares it against the version already logged against the checklist, and flags the diff. Your attorney gets a concise change summary, not a 200-page redline. The agent doesn't accept the change. You decide whether to accept, push back, or escalate."
+    },
+    {
+      "question": "How does this compare to transaction management software like RamQuest, ResWare, or Qualia?",
+      "answer": "Those platforms hold the deal structure and the closing checklist. The agent sits alongside them, reads the inbox and document storage, classifies incoming documents against whichever checklist you run, and surfaces what's missing. The platforms are the system of record. The agent is the production layer that keeps them current without paralegal data entry."
+    },
+    {
+      "question": "How much does this cost?",
+      "answer": "We don't publish pricing because the scope varies by deal volume and jurisdiction complexity. Most real estate practices see the first agent pay back inside 4 months through reclaimed paralegal time and fewer near-misses on closing conditions. We'll give you a fixed-fee Blueprint quote on a short fit call."
+    }
+  ]
+}

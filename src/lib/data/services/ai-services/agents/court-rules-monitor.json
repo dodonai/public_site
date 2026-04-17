@@ -1,0 +1,96 @@
+{
+  "slug": "court-rules-monitor",
+  "title": "Court Rules Monitor Agent",
+  "shortDescription": "Tracks rule changes, standing orders, and judge-specific procedures across the courts where your firm practices and notifies the affected matter teams.",
+  "tier": "supporting",
+  "function": "deadlines-and-compliance",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [
+    "procedural-rule-summaries.md"
+  ],
+  "workflow": [
+    {
+      "label": "Rule change published",
+      "detail": "Local, circuit, or federal rule updates"
+    },
+    {
+      "label": "Compare to ruleset",
+      "detail": "Diff against the rules you already encoded"
+    },
+    {
+      "label": "Identify affected matters",
+      "detail": "Active matters in that jurisdiction surfaced"
+    },
+    {
+      "label": "Draft change summary",
+      "detail": "What changed, effective when, what to do"
+    },
+    {
+      "label": "Notify attorneys",
+      "detail": "Digest sent to responsible partners"
+    }
+  ],
+  "seo": {
+    "title": "AI Court Rules Monitor Agent for Law Firms | Dodonai",
+    "description": "Track rule changes, standing orders, and judge-specific procedures across every court your firm practices in. Notifies the affected matter teams automatically.",
+    "canonical": "/ai-services/agents/court-rules-monitor/"
+  },
+  "hero": {
+    "headline": "AI Court Rules Monitor Agent",
+    "subheadline": "Watches the courts your firm practices in for rule amendments, standing orders, and judge-specific procedure changes. Surfaces what changed, what it means, and which active matters are affected.",
+    "bullets": [
+      "Per-court watchlist for rule amendments and standing orders",
+      "Judge-specific procedure change tracking",
+      "Active-matter impact analysis on every change",
+      "Plain-English summary delivered to the affected matter teams"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Court%20Rules%20Monitor%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The standing order you would have missed",
+    "paragraphs": [
+      "A federal judge in your district issues a new standing order requiring a 14-day pre-motion conference letter before any discovery motion. Your associate is 3 days from filing a motion to compel that would now violate the standing order. The Court Rules Monitor caught the order the morning it issued, identified the 6 of your firm's active matters in front of that judge, and sent each responsible attorney a plain-English summary with the matter list. The associate redrafts the motion plan; the conference letter goes out instead. No sanction, no embarrassed call to the client."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Court Rules Monitor does",
+    "bullets": [
+      "Maintains a watchlist of every court and judge your firm practices in front of",
+      "Monitors rule amendments, standing orders, and procedure changes published by those courts",
+      "Identifies which of your active matters are affected by each change",
+      "Produces a plain-English summary of what changed and what it means",
+      "Routes the summary to the responsible matter teams in Slack or email"
+    ]
+  },
+  "integrations": [
+    "Court rule and standing order feeds (PACER, court websites, ECF notices)",
+    "Practice management system for the matter and venue list",
+    "Slack or email for distribution",
+    "Document management system for the summary archive"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The summaries are explanatory; the action is the attorney's. The agent doesn't refile, withdraw, or amend; it surfaces what changed. The Managed retainer reviews the watchlist quarterly to confirm coverage matches your firm's active jurisdictions."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about the obscure local rule that isn't published online?",
+      "answer": "For courts where the rule changes aren't reliably online, the watchlist includes manual sources (clerk-of-court newsletters, bar association alerts) that the Managed retainer monitors directly. The agent reads what's automated; the team covers what isn't."
+    },
+    {
+      "question": "Does this overlap with what our state bar emails us?",
+      "answer": "Bar emails cover statewide rule changes. The Court Rules Monitor adds the per-court and per-judge layer that bar emails don't, plus the matter-impact analysis that tells you which of your active matters need attention rather than which of your peers' might."
+    }
+  ]
+}

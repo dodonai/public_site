@@ -1,0 +1,97 @@
+{
+  "slug": "pleading-drafter",
+  "title": "Pleading Drafter Agent",
+  "shortDescription": "Drafts complaints, answers, and amended pleadings with the right causes of action, the right defenses, and the right local format.",
+  "tier": "supporting",
+  "function": "casework-and-drafting",
+  "practiceAreas": [
+    "personal-injury",
+    "all"
+  ],
+  "caseSkills": [
+    "complaint-for-negligence.md"
+  ],
+  "workflow": [
+    {
+      "label": "Matter facts confirmed",
+      "detail": "Parties, venue, and operative facts captured"
+    },
+    {
+      "label": "Pull jurisdiction templates",
+      "detail": "Your firm's approved pleading shells"
+    },
+    {
+      "label": "Draft causes of action",
+      "detail": "Each element pled with supporting facts"
+    },
+    {
+      "label": "Draft prayer for relief",
+      "detail": "Tuned to the remedies your theory supports"
+    },
+    {
+      "label": "Route for attorney review",
+      "detail": "Clean first draft, ready for your edits"
+    }
+  ],
+  "seo": {
+    "title": "AI Pleading Drafter Agent for Law Firms | Dodonai",
+    "description": "Draft complaints, answers, and amended pleadings with the right causes of action, defenses, and local format. The pleading work that scales painfully on multi-defendant matters.",
+    "canonical": "/ai-services/agents/pleading-drafter/"
+  },
+  "hero": {
+    "headline": "AI Pleading Drafter Agent",
+    "subheadline": "Drafts complaints, answers, and amended pleadings with the right causes of action and the right defenses for the matter facts. The local court format is built in. The multi-defendant pleading that takes a day takes an hour.",
+    "bullets": [
+      "Complaints drafted with the right causes of action for the matter facts",
+      "Answers drafted with the right affirmative defenses pled",
+      "Amended pleadings tracked against the operative version",
+      "Local court format and venue requirements applied automatically"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Pleading%20Drafter%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
+  },
+  "scenario": {
+    "heading": "The complaint you would have edited from a 3-year-old template",
+    "paragraphs": [
+      "A new commercial matter needs a complaint filed in 2 weeks. In the old workflow, the associate copies a similar prior complaint, edits the parties and the facts, and hopes she didn't carry over a cause of action that doesn't fit. The Pleading Drafter produces the working complaint with the right causes of action for the actual facts, the right venue and jurisdictional pleadings, and the local court format. The associate spends her time refining the factual narrative instead of fixing template artifacts."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Pleading Drafter does",
+    "bullets": [
+      "Drafts complaints with the causes of action that fit the matter facts",
+      "Drafts answers with the affirmative defenses that fit the complaint",
+      "Tracks amended pleadings against the operative version with the changes highlighted",
+      "Applies the local court's format requirements automatically",
+      "Surfaces causes of action or defenses the attorney should consider but the matter file doesn't directly support"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter facts and parties",
+    "Document management system for prior pleadings",
+    "Microsoft Word for the draft delivery",
+    "E-filing portals for venue and format verification"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Every pleading is reviewed by the responsible attorney before filing. The agent surfaces the working draft and the considerations; the attorney decides which causes of action to plead, which defenses to assert, and how to frame the factual narrative."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about pleadings that need verification?",
+      "answer": "For verified pleadings, the agent drafts the verification with the right form per jurisdiction and surfaces the responsible client signatory. The verification is signed by the client; the agent never signs."
+    },
+    {
+      "question": "How does it handle pleadings amendments?",
+      "answer": "The agent tracks the operative pleading and the proposed amendment side by side with the changes highlighted. Rule 15(a) amendments and amendments by leave get different routing per the local rules. The attorney decides whether to file as a matter of right or move for leave."
+    }
+  ]
+}
