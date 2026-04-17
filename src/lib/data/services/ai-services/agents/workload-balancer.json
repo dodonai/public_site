@@ -4,8 +4,32 @@
   "shortDescription": "Surfaces uneven workloads across attorneys and recommends matter reassignments before someone burns out or a matter stalls.",
   "tier": "supporting",
   "function": "practice-intelligence",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Pull time + matter counts",
+      "detail": "Current load per attorney and paralegal"
+    },
+    {
+      "label": "Compute capacity",
+      "detail": "Active matters weighted by complexity"
+    },
+    {
+      "label": "Flag overload",
+      "detail": "Team members over threshold for 2+ weeks"
+    },
+    {
+      "label": "Suggest rebalance",
+      "detail": "Matters that could shift, with rationale"
+    },
+    {
+      "label": "Surface for partner review",
+      "detail": "Staffing call stays with the partner"
+    }
+  ],
   "seo": {
     "title": "AI Workload Balancer Agent for Law Firms | Dodonai",
     "description": "Surface uneven workloads across attorneys and recommend matter reassignments before burnout or matter stall. The supervision pattern that scales beyond a small firm.",
@@ -24,7 +48,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Workload%20Balancer%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The associate you would have lost to burnout",

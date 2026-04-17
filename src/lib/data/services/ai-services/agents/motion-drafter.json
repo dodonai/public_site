@@ -4,11 +4,35 @@
   "shortDescription": "Drafts the motion, the brief in support, and the proposed order with the right citations and the right local format.",
   "tier": "supporting",
   "function": "casework-and-drafting",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "litigation-personal-injury-motion-for-summary-judgment.md",
     "summary-judgment-summarization.md",
     "legal-memoranda.md"
+  ],
+  "workflow": [
+    {
+      "label": "Motion type confirmed",
+      "detail": "MSJ, motion in limine, or motion to compel"
+    },
+    {
+      "label": "Pull pleadings + deps",
+      "detail": "Facts sourced from the record, not memory"
+    },
+    {
+      "label": "Draft statement of facts",
+      "detail": "Cited from deposition and stipulation"
+    },
+    {
+      "label": "Draft legal argument",
+      "detail": "Built from your firm's brief precedent"
+    },
+    {
+      "label": "Assemble exhibit list",
+      "detail": "Cross-referenced to the brief text"
+    }
   ],
   "seo": {
     "title": "AI Motion Drafter Agent for Law Firms | Dodonai",
@@ -28,7 +52,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Motion%20Drafter%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The Friday that would have been a blank page",

@@ -4,9 +4,35 @@
   "shortDescription": "Drafts subpoenas, coordinates service, tracks responses, and surfaces the recipients who haven't produced on time.",
   "tier": "supporting",
   "function": "operations-and-billing",
-  "practiceAreas": ["personal-injury", "family-law", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "all"
+  ],
   "caseSkills": [
     "litigation-personal-injury-summons-and-service-packet.md"
+  ],
+  "workflow": [
+    {
+      "label": "Subpoena need identified",
+      "detail": "Scope, recipient, and deadline captured"
+    },
+    {
+      "label": "Draft from template",
+      "detail": "Jurisdiction-correct format and service rules"
+    },
+    {
+      "label": "Track service",
+      "detail": "Served, accepted, or returned non-est"
+    },
+    {
+      "label": "Monitor objections",
+      "detail": "Responsive, partial, or motion-to-quash"
+    },
+    {
+      "label": "Log compliance",
+      "detail": "Every return and production indexed"
+    }
   ],
   "seo": {
     "title": "AI Subpoena Manager Agent for Law Firms | Dodonai",
@@ -26,7 +52,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Subpoena%20Manager%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The 14 subpoenas you would have lost track of",

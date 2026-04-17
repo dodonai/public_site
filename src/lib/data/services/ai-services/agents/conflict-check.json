@@ -4,9 +4,33 @@
   "shortDescription": "Scans every new matter against your firm's full conflicts database and ethical walls before you commit.",
   "tier": "supporting",
   "function": "intake-and-growth",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "case-viability-conflict-check-report.md"
+  ],
+  "workflow": [
+    {
+      "label": "New matter arrives",
+      "detail": "Parties, counsel, and affiliates surfaced"
+    },
+    {
+      "label": "Scan firm records",
+      "detail": "Active matters, closed files, prior adverse"
+    },
+    {
+      "label": "Check ethical walls",
+      "detail": "Screened attorneys and walled-off matters"
+    },
+    {
+      "label": "Flag potential conflicts",
+      "detail": "Matching records with context attached"
+    },
+    {
+      "label": "Recommendation ready",
+      "detail": "Clear / waivable / decline, for your call"
+    }
   ],
   "seo": {
     "title": "AI Conflict Check Agent for Law Firms | Dodonai",
@@ -26,7 +50,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Conflict%20Check%20Agent%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The conflict you would have missed",

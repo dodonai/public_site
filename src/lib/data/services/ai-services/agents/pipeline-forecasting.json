@@ -4,8 +4,32 @@
   "shortDescription": "Projects the next 90 days of fee revenue from the open pipeline using historical conversion and settlement velocity per matter type.",
   "tier": "supporting",
   "function": "practice-intelligence",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Lead + conversion data",
+      "detail": "Intake, consult, retained, and closed"
+    },
+    {
+      "label": "Model stage progression",
+      "detail": "Historical conversion rates by stage"
+    },
+    {
+      "label": "Forecast fee revenue",
+      "detail": "Per practice area and rolling quarter"
+    },
+    {
+      "label": "Compare vs. targets",
+      "detail": "Gap analysis by source and practice"
+    },
+    {
+      "label": "Surface trend signals",
+      "detail": "What's accelerating, what's cooling"
+    }
+  ],
   "seo": {
     "title": "AI Pipeline Forecasting Agent for Law Firms | Dodonai",
     "description": "Project the next 90 days of fee revenue from the open pipeline. Historical conversion and settlement velocity per matter type folded in. The cash-flow picture, monthly.",
@@ -24,7 +48,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Pipeline%20Forecasting%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The cash-flow picture you would have guessed at",

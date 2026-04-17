@@ -4,9 +4,33 @@
   "shortDescription": "Pulls the matter file, researches every external attendee, and drafts the 1-page briefing 60 minutes before each meeting.",
   "tier": "supporting",
   "function": "client-communications",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "case-summary-report.md"
+  ],
+  "workflow": [
+    {
+      "label": "Meeting detected",
+      "detail": "Calendar event matched to a matter"
+    },
+    {
+      "label": "Pull matter file",
+      "detail": "Recent correspondence, filings, and notes"
+    },
+    {
+      "label": "Flag open deadlines",
+      "detail": "SOL, response dates, and holds noted"
+    },
+    {
+      "label": "Draft prep memo",
+      "detail": "Summary, talking points, recommended asks"
+    },
+    {
+      "label": "Deliver to inbox",
+      "detail": "In your inbox 60 minutes before the meeting"
+    }
   ],
   "seo": {
     "title": "AI Meeting Prep Brief Agent for Law Firms | Dodonai",
@@ -26,7 +50,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Meeting%20Prep%20Brief%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The meeting you would have walked into cold",

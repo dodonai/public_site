@@ -4,10 +4,37 @@
   "shortDescription": "Translates a settlement offer into the plain-English picture your client can actually evaluate, with the breakdown they need to decide.",
   "tier": "supporting",
   "function": "client-communications",
-  "practiceAreas": ["personal-injury", "family-law", "estates-probate", "real-estate"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "estates-probate",
+    "real-estate"
+  ],
   "caseSkills": [
     "litigation-personal-injury-settlement-distribution-statement.md",
     "negotiation-support.md"
+  ],
+  "workflow": [
+    {
+      "label": "Settlement finalized",
+      "detail": "Gross, fees, costs, and liens captured"
+    },
+    {
+      "label": "Compute gross-to-net",
+      "detail": "Line-by-line walkthrough computed"
+    },
+    {
+      "label": "Pull disbursement data",
+      "detail": "Liens, subrogation, and case costs reconciled"
+    },
+    {
+      "label": "Draft plain-language letter",
+      "detail": "How the client reads what they get"
+    },
+    {
+      "label": "Route for review",
+      "detail": "Attorney approves before the client sees it"
+    }
   ],
   "seo": {
     "title": "AI Settlement Explainer Agent for Law Firms | Dodonai",
@@ -27,7 +54,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Settlement%20Explainer%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The conversation you would have had to do in your head",

@@ -4,10 +4,38 @@
   "shortDescription": "Computes every response deadline, statute of limitations, and court-rule trigger across your active matters and surfaces what needs attention before it slips.",
   "tier": "flagship",
   "function": "deadlines-and-compliance",
-  "practiceAreas": ["personal-injury", "family-law", "estates-probate", "real-estate", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "estates-probate",
+    "real-estate",
+    "all"
+  ],
   "caseSkills": [
     "procedural-rule-summaries.md",
     "court-order-summaries.md"
+  ],
+  "workflow": [
+    {
+      "label": "Filing event triggers",
+      "detail": "Service, filing, order, or calendar entry"
+    },
+    {
+      "label": "Apply jurisdiction rules",
+      "detail": "Court rules encoded per jurisdiction"
+    },
+    {
+      "label": "Compute deadline chain",
+      "detail": "Every downstream deadline propagates"
+    },
+    {
+      "label": "Populate calendar",
+      "detail": "Written to your PMS with owner assigned"
+    },
+    {
+      "label": "Escalate at thresholds",
+      "detail": "90, 60, 30, 14, 7-day alerts"
+    }
   ],
   "seo": {
     "title": "AI Docketing & Deadlines Agent for Law Firms | Dodonai",
@@ -27,7 +55,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Docketing%20Agent%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The deadline you would have computed by hand",

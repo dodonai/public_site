@@ -4,9 +4,34 @@
   "shortDescription": "Drafts responses and objections to incoming discovery, organizes the document production, and keeps the privilege log current.",
   "tier": "supporting",
   "function": "casework-and-drafting",
-  "practiceAreas": ["personal-injury", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "all"
+  ],
   "caseSkills": [
     "litigation-personal-injury-discovery-response-builder.md"
+  ],
+  "workflow": [
+    {
+      "label": "Request received",
+      "detail": "Opposing party's discovery ingested"
+    },
+    {
+      "label": "Classify each item",
+      "detail": "Responsive, objectionable, privileged, or unknown"
+    },
+    {
+      "label": "Pull responsive documents",
+      "detail": "From your matter storage and review set"
+    },
+    {
+      "label": "Draft objections + answers",
+      "detail": "Targeted, not boilerplate"
+    },
+    {
+      "label": "Build privilege log",
+      "detail": "Ready with the response package"
+    }
   ],
   "seo": {
     "title": "AI Discovery Response Agent for Law Firms | Dodonai",
@@ -26,7 +51,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Discovery%20Response%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The discovery response week you would have lost",

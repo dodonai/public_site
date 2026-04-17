@@ -4,8 +4,34 @@
   "shortDescription": "Manages the back-and-forth with court reporters, process servers, expert witnesses, and investigators on every matter that uses them.",
   "tier": "supporting",
   "function": "operations-and-billing",
-  "practiceAreas": ["personal-injury", "family-law", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "all"
+  ],
   "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Service need identified",
+      "detail": "Deposition, service, interpreter, expert"
+    },
+    {
+      "label": "Schedule and confirm",
+      "detail": "Vendor selected, dates locked, docs sent"
+    },
+    {
+      "label": "Track deliverable",
+      "detail": "Status checked until work product lands"
+    },
+    {
+      "label": "Reconcile invoice",
+      "detail": "Against matter budget and approved rate"
+    },
+    {
+      "label": "Close the task",
+      "detail": "Work product filed, vendor paid, matter updated"
+    }
+  ],
   "seo": {
     "title": "AI Vendor Coordination Agent for Law Firms | Dodonai",
     "description": "Manage the back-and-forth with court reporters, process servers, expert witnesses, and investigators. The hours of administrative ping-pong, automated.",
@@ -24,7 +50,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Vendor%20Coordination%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The week of paralegal time you would have spent on email",

@@ -4,8 +4,32 @@
   "shortDescription": "Computes the lifetime value of every referral source and the ROI on every business-development investment, so the marketing budget gets sharper every quarter.",
   "tier": "supporting",
   "function": "practice-intelligence",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Source attribution logged",
+      "detail": "Every matter tagged at creation"
+    },
+    {
+      "label": "Pull profit data",
+      "detail": "Matter profitability per source"
+    },
+    {
+      "label": "Rank by profit",
+      "detail": "Not by lead volume alone"
+    },
+    {
+      "label": "Compare vs. volume",
+      "detail": "High-volume low-profit sources surfaced"
+    },
+    {
+      "label": "Monthly report",
+      "detail": "Ready for marketing and referral meetings"
+    }
+  ],
   "seo": {
     "title": "AI Referral Source ROI Agent for Law Firms | Dodonai",
     "description": "Compute lifetime value per referral source and ROI per business-development investment. The marketing budget that gets sharper every quarter on real numbers.",
@@ -24,7 +48,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Referral%20Source%20ROI%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The marketing spend you would have renewed without thinking",

@@ -4,10 +4,34 @@
   "shortDescription": "Drafts the HIPAA-compliant requests, tracks every provider response, and chases the records that don't arrive on time.",
   "tier": "supporting",
   "function": "operations-and-billing",
-  "practiceAreas": ["personal-injury"],
+  "practiceAreas": [
+    "personal-injury"
+  ],
   "caseSkills": [
     "personal-injury-authorization-packet-summary.md",
     "litigation-personal-injury-medical-record-chronology.md"
+  ],
+  "workflow": [
+    {
+      "label": "Provider list confirmed",
+      "detail": "From intake, client, or records review"
+    },
+    {
+      "label": "Draft HIPAA authorization",
+      "detail": "Client-signed release attached"
+    },
+    {
+      "label": "Send and track request",
+      "detail": "Delivery confirmed, deadline set"
+    },
+    {
+      "label": "Chase non-responders",
+      "detail": "Follow-ups at 14 and 30 days"
+    },
+    {
+      "label": "Log to matter file",
+      "detail": "Every record indexed, every chase documented"
+    }
   ],
   "seo": {
     "title": "AI Medical Records Requester Agent for Law Firms | Dodonai",
@@ -27,7 +51,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Medical%20Records%20Requester%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The records request you would have lost track of",

@@ -4,8 +4,32 @@
   "shortDescription": "Watches the patterns that lead to bar complaints (silence gaps, fee disputes, missed deadlines, unreturned funds) and surfaces them before the complaint lands.",
   "tier": "supporting",
   "function": "deadlines-and-compliance",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [],
+  "workflow": [
+    {
+      "label": "AI output generated",
+      "detail": "Any agent-assisted work product captured"
+    },
+    {
+      "label": "Log model + inputs",
+      "detail": "Timestamp, matter, model, source documents"
+    },
+    {
+      "label": "Check ABA 512 duties",
+      "detail": "Competence, confidentiality, supervision"
+    },
+    {
+      "label": "Capture reviewer decision",
+      "detail": "Approved, edited, rejected, with reasons"
+    },
+    {
+      "label": "Write audit record",
+      "detail": "Immutable log ready for any bar inquiry"
+    }
+  ],
   "seo": {
     "title": "AI Ethics Guardian Agent for Law Firms | Dodonai",
     "description": "Watch the patterns that lead to bar complaints (silence gaps, fee disputes, unreturned funds). Surface them before the complaint lands, fix them before the inquiry.",
@@ -24,7 +48,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Ethics%20Guardian%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The pattern you would have spotted only after the complaint",

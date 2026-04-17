@@ -4,12 +4,39 @@
   "shortDescription": "Assembles the mediation brief, the opposing-party leverage analysis, the BATNA memo, and the settlement-position one-pager before every mediation or settlement conference.",
   "tier": "flagship",
   "function": "casework-and-drafting",
-  "practiceAreas": ["personal-injury", "family-law", "real-estate", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "real-estate",
+    "all"
+  ],
   "caseSkills": [
     "litigation-personal-injury-mediation-statement.md",
     "negotiation-support.md",
     "alternative-dispute-resolution-adr-outcomes-summary.md",
     "pre-hearing-statement-of-proof.md"
+  ],
+  "workflow": [
+    {
+      "label": "Mediation date confirmed",
+      "detail": "Mediator, location, and parties locked"
+    },
+    {
+      "label": "Pull leverage data",
+      "detail": "Liability, damages, coverage, prior offers"
+    },
+    {
+      "label": "Compute BATNA",
+      "detail": "Best alternative if mediation fails"
+    },
+    {
+      "label": "Draft mediation brief",
+      "detail": "Tuned to mediator style and opponent posture"
+    },
+    {
+      "label": "Route client one-pager",
+      "detail": "Plain-language explainer for your client"
+    }
   ],
   "seo": {
     "title": "AI Mediation & Settlement Prep Agent for Law Firms | Dodonai",
@@ -29,7 +56,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Mediation%20Settlement%20Prep%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The mediation that no longer starts with a half-prepared lawyer",

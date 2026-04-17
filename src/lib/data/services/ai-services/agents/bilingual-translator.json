@@ -4,8 +4,35 @@
   "shortDescription": "Drafts client communications in the client's preferred language and translates incoming documents back into English for the matter file.",
   "tier": "supporting",
   "function": "client-communications",
-  "practiceAreas": ["personal-injury", "family-law", "immigration", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "immigration",
+    "all"
+  ],
   "caseSkills": [],
+  "workflow": [
+    {
+      "label": "English draft approved",
+      "detail": "Attorney-reviewed source document"
+    },
+    {
+      "label": "Translate to target language",
+      "detail": "Spanish, Mandarin, Vietnamese, or other"
+    },
+    {
+      "label": "Match legal terminology",
+      "detail": "Term-of-art consistency across filings"
+    },
+    {
+      "label": "Flag ambiguous phrases",
+      "detail": "Terms without a clean translation surfaced"
+    },
+    {
+      "label": "Route for bilingual review",
+      "detail": "Attorney or staff reviewer confirms"
+    }
+  ],
   "seo": {
     "title": "AI Bilingual Translator Agent for Law Firms | Dodonai",
     "description": "Draft client communications in the client's preferred language and translate incoming documents back into English. The communication wall that doesn't have to slow the matter.",
@@ -24,7 +51,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Bilingual%20Translator%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The translation lag you would have absorbed",

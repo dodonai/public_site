@@ -4,10 +4,34 @@
   "shortDescription": "Triages every overnight email, briefs you on every meeting before it starts, and drafts the follow-ups when it's over. Two of the loudest workflows, handled.",
   "tier": "flagship",
   "function": "operations-and-billing",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "case-summary-report.md",
     "case-intake-initial-fact-memo.md"
+  ],
+  "workflow": [
+    {
+      "label": "Overnight batch arrives",
+      "detail": "Inbox and calendar both reviewed"
+    },
+    {
+      "label": "Classify each item",
+      "detail": "Urgent, action, FYI, or archive"
+    },
+    {
+      "label": "Apply priority labels",
+      "detail": "Inbox labeled, calendar prepped per meeting"
+    },
+    {
+      "label": "Queue urgent digest",
+      "detail": "Top 3 items surfaced for your morning"
+    },
+    {
+      "label": "Archive the noise",
+      "detail": "Newsletters and routine out of your way"
+    }
   ],
   "seo": {
     "title": "AI Inbox & Meetings Agent for Law Firms | Dodonai",
@@ -27,7 +51,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Inbox%20Meetings%20Agent%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "A morning that runs itself",

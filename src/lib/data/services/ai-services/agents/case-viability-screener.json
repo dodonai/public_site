@@ -4,10 +4,37 @@
   "shortDescription": "Scores each new matter against your firm's case-acceptance criteria and surfaces the borderline ones for partner judgment.",
   "tier": "supporting",
   "function": "intake-and-growth",
-  "practiceAreas": ["personal-injury", "family-law", "estates-probate", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "estates-probate",
+    "all"
+  ],
   "caseSkills": [
     "case-viability-conflict-check-report.md",
     "personal-injury-evidence-liability-summary.md"
+  ],
+  "workflow": [
+    {
+      "label": "Intake facts arrive",
+      "detail": "Incident, injuries, parties, coverage"
+    },
+    {
+      "label": "Assess liability",
+      "detail": "Fault, causation, comparative doctrine"
+    },
+    {
+      "label": "Assess damages",
+      "detail": "Medical specials, wage loss, pain and suffering"
+    },
+    {
+      "label": "Assess coverage",
+      "detail": "Limits, layers, underinsured exposure"
+    },
+    {
+      "label": "Viability memo",
+      "detail": "Accept / decline / investigate recommendation"
+    }
   ],
   "seo": {
     "title": "AI Case Viability Screener for Law Firms | Dodonai",
@@ -27,7 +54,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Case%20Viability%20Screener%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The case you would have worked up for nothing",

@@ -4,11 +4,37 @@
   "shortDescription": "Drafts interrogatories, requests for production, and requests for admission tuned to the case theory and the opposing party's posture.",
   "tier": "supporting",
   "function": "casework-and-drafting",
-  "practiceAreas": ["personal-injury", "family-law", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "all"
+  ],
   "caseSkills": [
     "litigation-personal-injury-interrogatories-to-defendant.md",
     "litigation-personal-injury-request-for-production-of-documents.md",
     "litigation-personal-injury-request-for-admissions.md"
+  ],
+  "workflow": [
+    {
+      "label": "Case theory confirmed",
+      "detail": "Working claims and defenses current"
+    },
+    {
+      "label": "Pull prior discovery",
+      "detail": "Firm precedent and matter-specific history"
+    },
+    {
+      "label": "Draft interrogatories + RFPs",
+      "detail": "Tuned to theory and opposing party"
+    },
+    {
+      "label": "Draft requests for admission",
+      "detail": "Narrowed to dispositive facts"
+    },
+    {
+      "label": "Route for review",
+      "detail": "Attorney refines before service"
+    }
   ],
   "seo": {
     "title": "AI Discovery Builder Agent for Law Firms | Dodonai",
@@ -28,7 +54,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Discovery%20Builder%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The discovery you would have built from the template",

@@ -4,9 +4,33 @@
   "shortDescription": "Reconciles your IOLTA monthly, flags any negative balance per matter, and produces the audit-ready ledger your state bar wants to see.",
   "tier": "supporting",
   "function": "deadlines-and-compliance",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "litigation-personal-injury-settlement-distribution-statement.md"
+  ],
+  "workflow": [
+    {
+      "label": "IOLTA activity posts",
+      "detail": "Bank feed + PMS ledger both pulled"
+    },
+    {
+      "label": "Reconcile transactions",
+      "detail": "Match deposits, disbursements, and holds"
+    },
+    {
+      "label": "Flag variances",
+      "detail": "Unmatched entries and negative balances surfaced"
+    },
+    {
+      "label": "Draft monthly report",
+      "detail": "Ready for accountant review and sign-off"
+    },
+    {
+      "label": "Archive + log",
+      "detail": "Every reconciliation written to the audit trail"
+    }
   ],
   "seo": {
     "title": "AI Trust Account Reconciler for Law Firms | Dodonai",
@@ -26,7 +50,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Trust%20Reconciler%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The variance you would have missed until audit",

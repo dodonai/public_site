@@ -4,10 +4,34 @@
   "shortDescription": "Rolls up matter health, partner workload, settlement velocity, and revenue per practice area into a Monday-morning picture you can act on.",
   "tier": "flagship",
   "function": "practice-intelligence",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "case-summary-report.md",
     "legal-strategy-summaries.md"
+  ],
+  "workflow": [
+    {
+      "label": "Matter data aggregates",
+      "detail": "Time, tasks, filings, and communications"
+    },
+    {
+      "label": "Compute health signals",
+      "detail": "Velocity, scope drift, and stalled activity"
+    },
+    {
+      "label": "Compare vs. baseline",
+      "detail": "Matter type averages and firm norms"
+    },
+    {
+      "label": "Flag risk patterns",
+      "detail": "Missed touches, overdue work, cold matters"
+    },
+    {
+      "label": "Surface in dashboard",
+      "detail": "Partner sees the book on one screen"
+    }
   ],
   "seo": {
     "title": "AI Practice Intelligence Agent for Law Firms | Dodonai",
@@ -27,7 +51,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Practice%20Intelligence%20Agent%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "Monday morning, before the partners' meeting",

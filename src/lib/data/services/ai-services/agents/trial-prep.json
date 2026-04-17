@@ -4,12 +4,38 @@
   "shortDescription": "Assembles the trial notebook from the matter file: witness list, exhibit list, jury instructions, voir dire questions, and opening and closing outlines.",
   "tier": "flagship",
   "function": "casework-and-drafting",
-  "practiceAreas": ["personal-injury", "family-law", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "all"
+  ],
   "caseSkills": [
     "trial-preparation-summaries.md",
     "hearing-preparation-summaries.md",
     "litigation-witness-statement-summaries.md",
     "litigation-verdict-form-draft.md"
+  ],
+  "workflow": [
+    {
+      "label": "Trial date confirmed",
+      "detail": "Discovery closed, pretrial order issued"
+    },
+    {
+      "label": "Pull witnesses + exhibits",
+      "detail": "From depositions, document productions, trial plan"
+    },
+    {
+      "label": "Draft examination outlines",
+      "detail": "Direct, cross, and foundation arguments"
+    },
+    {
+      "label": "Assemble jury instructions",
+      "detail": "Pattern instructions tuned to case theory"
+    },
+    {
+      "label": "Package trial notebook",
+      "detail": "Voir dire, opening, closing, binder-ready"
+    }
   ],
   "seo": {
     "title": "AI Trial Prep Agent for Law Firms | Dodonai",
@@ -29,7 +55,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Trial%20Prep%20Agent%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The 6-week sprint that no longer eats every weekend",

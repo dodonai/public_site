@@ -4,8 +4,32 @@
   "shortDescription": "Reviews every draft invoice for missing time, write-down patterns, and billing-guideline compliance before it goes to the client.",
   "tier": "supporting",
   "function": "operations-and-billing",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Draft invoice generated",
+      "detail": "Pulled from time entries and costs"
+    },
+    {
+      "label": "Check scope",
+      "detail": "Compared against the engagement letter"
+    },
+    {
+      "label": "Review narratives",
+      "detail": "Quality and consistency flagged"
+    },
+    {
+      "label": "Flag write-off candidates",
+      "detail": "Scope creep and duplicates surfaced"
+    },
+    {
+      "label": "Route for approval",
+      "detail": "Clean invoice ready for billing partner"
+    }
+  ],
   "seo": {
     "title": "AI Billing Reconciler Agent for Law Firms | Dodonai",
     "description": "Review every draft invoice for missing time, write-down patterns, and billing-guideline compliance before it leaves your firm. The variance you catch on review, prevented at draft.",
@@ -24,7 +48,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Billing%20Reconciler%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The invoice you would have sent with errors",

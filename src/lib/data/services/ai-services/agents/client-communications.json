@@ -4,10 +4,38 @@
   "shortDescription": "Drafts proactive client updates on every active matter, surfaces clients who haven't heard from you in too long, and keeps the relationship warm without burning attorney hours.",
   "tier": "flagship",
   "function": "client-communications",
-  "practiceAreas": ["personal-injury", "family-law", "estates-probate", "immigration", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "estates-probate",
+    "immigration",
+    "all"
+  ],
   "caseSkills": [
     "litigation-personal-injury-initial-contact-summary.md",
     "case-summary-report.md"
+  ],
+  "workflow": [
+    {
+      "label": "Matter state changes",
+      "detail": "Activity since last touch detected"
+    },
+    {
+      "label": "Pull recent activity",
+      "detail": "Filings, correspondence, and milestones"
+    },
+    {
+      "label": "Draft status letter",
+      "detail": "In your voice, tuned to matter stage"
+    },
+    {
+      "label": "Route for review",
+      "detail": "Attorney approves before anything goes out"
+    },
+    {
+      "label": "Send on approval",
+      "detail": "Logged to matter file with timestamp"
+    }
   ],
   "seo": {
     "title": "AI Client Communications Agent for Law Firms | Dodonai",
@@ -27,7 +55,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Client%20Communications%20Agent%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The client you would have forgotten to call",

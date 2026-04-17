@@ -4,9 +4,33 @@
   "shortDescription": "Tracks every referral source, drafts the thank-you note when a case closes, and surfaces the partners worth taking to lunch.",
   "tier": "supporting",
   "function": "intake-and-growth",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "case-summary-report.md"
+  ],
+  "workflow": [
+    {
+      "label": "Referral source logged",
+      "detail": "Source tagged at matter creation"
+    },
+    {
+      "label": "Track matter progression",
+      "detail": "Intake to retained to closed"
+    },
+    {
+      "label": "Compute source ROI",
+      "detail": "Profit per referred matter, not just volume"
+    },
+    {
+      "label": "Draft thank-you",
+      "detail": "Note or small-gift recommendation tuned to source"
+    },
+    {
+      "label": "Queue for approval",
+      "detail": "You approve. Agent sends on confirmation"
+    }
   ],
   "seo": {
     "title": "AI Referral Engine Agent for Law Firms | Dodonai",
@@ -26,7 +50,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Referral%20Engine%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The relationship you would have let cool",

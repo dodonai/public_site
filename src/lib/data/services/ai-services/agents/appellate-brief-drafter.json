@@ -4,10 +4,34 @@
   "shortDescription": "Drafts the statement of facts, the standard-of-review section, the argument, and the table of authorities for an appellate brief.",
   "tier": "supporting",
   "function": "casework-and-drafting",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "legal-memoranda.md",
     "legal-research-summaries.md"
+  ],
+  "workflow": [
+    {
+      "label": "Record designated",
+      "detail": "Trial record and excerpts inventoried"
+    },
+    {
+      "label": "Pull trial transcripts",
+      "detail": "Key rulings, objections, and testimony sourced"
+    },
+    {
+      "label": "Draft statement of case",
+      "detail": "Cited to the record on every fact"
+    },
+    {
+      "label": "Draft legal argument",
+      "detail": "Standard of review, issue, analysis, relief"
+    },
+    {
+      "label": "Verify citations",
+      "detail": "Shepardized and cross-checked before review"
+    }
   ],
   "seo": {
     "title": "AI Appellate Brief Drafter Agent for Law Firms | Dodonai",
@@ -27,7 +51,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Appellate%20Brief%20Drafter%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The brief you would have outsourced",

@@ -1,4 +1,5 @@
 <script>
+	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
@@ -11,6 +12,12 @@
 
 	let { data } = $props();
 	const agent = $derived(data.agent);
+
+	let HeroAnimation = $state(null);
+	onMount(async () => {
+		const mod = await import('$lib/components/hero/AgentWorkflowAnimation.svelte');
+		HeroAnimation = mod.default;
+	});
 
 	const practiceAreaMap = Object.fromEntries(
 		aiServicesPracticeAreas.map((a) => [a.slug, a])
@@ -110,7 +117,14 @@
 		secondaryCtaUrl={agent.hero.secondaryCtaUrl}
 		badges={agent.hero.badges}
 		background="bg-transparent"
-	/>
+	>
+		{#if HeroAnimation && agent.workflow}
+			{@const Comp = HeroAnimation}
+			<Comp workflow={agent.workflow} title={agent.title} />
+		{:else}
+			<div style="height: 540px" aria-hidden="true"></div>
+		{/if}
+	</ServiceHero>
 
 	<!-- Scenario -->
 	{#if agent.scenario}

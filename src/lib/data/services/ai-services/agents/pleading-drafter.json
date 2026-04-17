@@ -4,9 +4,34 @@
   "shortDescription": "Drafts complaints, answers, and amended pleadings with the right causes of action, the right defenses, and the right local format.",
   "tier": "supporting",
   "function": "casework-and-drafting",
-  "practiceAreas": ["personal-injury", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "all"
+  ],
   "caseSkills": [
     "complaint-for-negligence.md"
+  ],
+  "workflow": [
+    {
+      "label": "Matter facts confirmed",
+      "detail": "Parties, venue, and operative facts captured"
+    },
+    {
+      "label": "Pull jurisdiction templates",
+      "detail": "Your firm's approved pleading shells"
+    },
+    {
+      "label": "Draft causes of action",
+      "detail": "Each element pled with supporting facts"
+    },
+    {
+      "label": "Draft prayer for relief",
+      "detail": "Tuned to the remedies your theory supports"
+    },
+    {
+      "label": "Route for attorney review",
+      "detail": "Clean first draft, ready for your edits"
+    }
   ],
   "seo": {
     "title": "AI Pleading Drafter Agent for Law Firms | Dodonai",
@@ -26,7 +51,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Pleading%20Drafter%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The complaint you would have edited from a 3-year-old template",

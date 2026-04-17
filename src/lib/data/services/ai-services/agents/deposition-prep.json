@@ -4,11 +4,37 @@
   "shortDescription": "Builds the witness profile, the prior-statement cross-reference, and the question outline before every deposition.",
   "tier": "supporting",
   "function": "casework-and-drafting",
-  "practiceAreas": ["personal-injury", "family-law", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "all"
+  ],
   "caseSkills": [
     "deposition-preparation.md",
     "deposition-questioning-techniques.md",
     "deposition-witness-prep-session.md"
+  ],
+  "workflow": [
+    {
+      "label": "Deposition scheduled",
+      "detail": "Witness identified, case theory current"
+    },
+    {
+      "label": "Pull witness history",
+      "detail": "Prior testimony, discovery responses, exhibits"
+    },
+    {
+      "label": "Draft outline by topic",
+      "detail": "Examination points tied to case theory"
+    },
+    {
+      "label": "Build key-doc index",
+      "detail": "Cross-reference from outline to exhibit number"
+    },
+    {
+      "label": "Package witness binder",
+      "detail": "Ready for the taking or defending attorney"
+    }
   ],
   "seo": {
     "title": "AI Deposition Prep Agent for Law Firms | Dodonai",
@@ -28,7 +54,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Deposition%20Prep%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The deposition you would have prepped twice",

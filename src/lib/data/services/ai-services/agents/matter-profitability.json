@@ -4,8 +4,32 @@
   "shortDescription": "Computes the true profit per matter and per matter type, accounting for billable rates, write-downs, costs, and partner time.",
   "tier": "supporting",
   "function": "practice-intelligence",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Pull time + invoices",
+      "detail": "Entries, billed, paid, and written off"
+    },
+    {
+      "label": "Compute realization",
+      "detail": "Per matter, partner, and practice area"
+    },
+    {
+      "label": "Compare vs. average",
+      "detail": "Outliers highlighted automatically"
+    },
+    {
+      "label": "Flag scope creep",
+      "detail": "Matters trending past engagement scope"
+    },
+    {
+      "label": "Surface in report",
+      "detail": "Monthly review ready for partners"
+    }
+  ],
   "seo": {
     "title": "AI Matter Profitability Agent for Law Firms | Dodonai",
     "description": "Compute true profit per matter and per matter type. Billable rates, write-downs, costs, and partner time included. The intake decision that gets sharper every quarter.",
@@ -24,7 +48,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Matter%20Profitability%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The matter type you would have kept taking",

@@ -4,8 +4,35 @@
   "shortDescription": "Sends every client a personalized court-date reminder cadence with the address, the dress code, and the documents to bring.",
   "tier": "supporting",
   "function": "client-communications",
-  "practiceAreas": ["personal-injury", "family-law", "criminal-defense", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "criminal-defense",
+    "all"
+  ],
   "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Hearing scheduled",
+      "detail": "Date, time, and courtroom captured"
+    },
+    {
+      "label": "Pull location + time",
+      "detail": "Address, department, and judge verified"
+    },
+    {
+      "label": "Generate checklist",
+      "detail": "Dress code, documents, and arrival guidance"
+    },
+    {
+      "label": "Schedule SMS + email",
+      "detail": "7-day, 1-day, and day-of touches queued"
+    },
+    {
+      "label": "Send reminder sequence",
+      "detail": "Confirmations logged to matter file"
+    }
+  ],
   "seo": {
     "title": "AI Court Date Reminders Agent for Law Firms | Dodonai",
     "description": "Personalized court-date reminders at the right cadence with the courthouse, dress code, and document list. The no-show that ends up costing the client, prevented.",
@@ -24,7 +51,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Court%20Date%20Reminders%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The hearing your client would have missed",

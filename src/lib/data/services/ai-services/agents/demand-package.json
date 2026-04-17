@@ -4,13 +4,37 @@
   "shortDescription": "Assembles the demand letter, the medical chronology, the lost-wage report, and the supporting exhibits into the demand package the carrier expects.",
   "tier": "supporting",
   "function": "casework-and-drafting",
-  "practiceAreas": ["personal-injury"],
+  "practiceAreas": [
+    "personal-injury"
+  ],
   "caseSkills": [
     "litigation-personal-injury-demand-letter.md",
     "litigation-personal-injury-settlement-demand-letter.md",
     "litigation-personal-injury-demand-summary.md",
     "demand-package-compilation.md",
     "lost-wage-economic-loss-report.md"
+  ],
+  "workflow": [
+    {
+      "label": "Treatment complete",
+      "detail": "Medical records, bills, and wage loss assembled"
+    },
+    {
+      "label": "Pull medical + wage data",
+      "detail": "Chronology, specials, and future-care estimate"
+    },
+    {
+      "label": "Compute demand value",
+      "detail": "Range based on comparable matters and coverage"
+    },
+    {
+      "label": "Draft demand letter",
+      "detail": "Liability, damages, demand, deadline"
+    },
+    {
+      "label": "Assemble exhibit set",
+      "detail": "Indexed package ready to send on your say-so"
+    }
   ],
   "seo": {
     "title": "AI Demand Package Agent for Law Firms | Dodonai",
@@ -30,7 +54,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Demand%20Package%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The demand you would have spent a week assembling",

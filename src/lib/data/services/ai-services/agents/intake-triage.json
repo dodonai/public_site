@@ -4,10 +4,37 @@
   "shortDescription": "Scores new leads, runs a conflict check, drafts the first-response email, and prepares a consult memo in the minutes that matter most for conversion.",
   "tier": "flagship",
   "function": "intake-and-growth",
-  "practiceAreas": ["personal-injury", "family-law", "immigration", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "immigration",
+    "all"
+  ],
   "caseSkills": [
     "litigation-personal-injury-initial-client-intake-form.md",
     "case-viability-conflict-check-report.md"
+  ],
+  "workflow": [
+    {
+      "label": "Lead arrives",
+      "detail": "Web form, email, or referral portal submission"
+    },
+    {
+      "label": "Extract case facts",
+      "detail": "Structured summary from free-text intake"
+    },
+    {
+      "label": "Score vs. criteria",
+      "detail": "Rated against your firm's acceptance rules"
+    },
+    {
+      "label": "Conflict check",
+      "detail": "Scanned against your practice management system"
+    },
+    {
+      "label": "Draft response + memo",
+      "detail": "Email and 1-page consult memo ready for you"
+    }
   ],
   "seo": {
     "title": "AI Intake Triage for Law Firms | Dodonai",
@@ -27,7 +54,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Intake%20Triage%20Agent%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "A Tuesday morning in a personal injury practice",

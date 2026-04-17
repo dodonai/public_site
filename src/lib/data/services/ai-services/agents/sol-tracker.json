@@ -4,9 +4,36 @@
   "shortDescription": "Watches every active claim against the right SOL clock and escalates the warnings as the window closes.",
   "tier": "supporting",
   "function": "deadlines-and-compliance",
-  "practiceAreas": ["personal-injury", "real-estate", "estates-probate", "all"],
+  "practiceAreas": [
+    "personal-injury",
+    "real-estate",
+    "estates-probate",
+    "all"
+  ],
   "caseSkills": [
     "procedural-rule-summaries.md"
+  ],
+  "workflow": [
+    {
+      "label": "Matter opened",
+      "detail": "Incident date, jurisdiction, and theory captured"
+    },
+    {
+      "label": "Identify cause of action",
+      "detail": "Per-claim SOL and tolling rules applied"
+    },
+    {
+      "label": "Compute runway",
+      "detail": "Countdown per matter, recomputed daily"
+    },
+    {
+      "label": "Alert at thresholds",
+      "detail": "90, 60, 30, 14-day escalations to the partner"
+    },
+    {
+      "label": "Cross-check filings",
+      "detail": "Filed matters drop off automatically"
+    }
   ],
   "seo": {
     "title": "AI Statute of Limitations Tracker for Law Firms | Dodonai",
@@ -26,7 +53,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=SOL%20Tracker%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The clock you would have lost track of",

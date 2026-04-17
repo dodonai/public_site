@@ -4,9 +4,33 @@
   "shortDescription": "Tracks rule changes, standing orders, and judge-specific procedures across the courts where your firm practices and notifies the affected matter teams.",
   "tier": "supporting",
   "function": "deadlines-and-compliance",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "procedural-rule-summaries.md"
+  ],
+  "workflow": [
+    {
+      "label": "Rule change published",
+      "detail": "Local, circuit, or federal rule updates"
+    },
+    {
+      "label": "Compare to ruleset",
+      "detail": "Diff against the rules you already encoded"
+    },
+    {
+      "label": "Identify affected matters",
+      "detail": "Active matters in that jurisdiction surfaced"
+    },
+    {
+      "label": "Draft change summary",
+      "detail": "What changed, effective when, what to do"
+    },
+    {
+      "label": "Notify attorneys",
+      "detail": "Digest sent to responsible partners"
+    }
   ],
   "seo": {
     "title": "AI Court Rules Monitor Agent for Law Firms | Dodonai",
@@ -26,7 +50,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Court%20Rules%20Monitor%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The standing order you would have missed",

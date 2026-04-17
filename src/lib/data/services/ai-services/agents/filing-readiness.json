@@ -4,9 +4,33 @@
   "shortDescription": "Pre-checks every filing for the formatting, signatures, exhibits, and certificates the court requires before the clerk rejects it.",
   "tier": "supporting",
   "function": "deadlines-and-compliance",
-  "practiceAreas": ["all"],
+  "practiceAreas": [
+    "all"
+  ],
   "caseSkills": [
     "litigation-personal-injury-summons-and-service-packet.md"
+  ],
+  "workflow": [
+    {
+      "label": "Filing submitted for review",
+      "detail": "Draft lands in the pre-flight queue"
+    },
+    {
+      "label": "Check caption + signature",
+      "detail": "Correct court, parties, and attorney block"
+    },
+    {
+      "label": "Verify service list",
+      "detail": "All parties accounted for, addresses current"
+    },
+    {
+      "label": "Confirm attachments",
+      "detail": "Exhibits, declarations, and proof of service"
+    },
+    {
+      "label": "Green-light for submission",
+      "detail": "Ready to file or back to drafter with issues"
+    }
   ],
   "seo": {
     "title": "AI Filing Readiness Agent for Law Firms | Dodonai",
@@ -26,7 +50,10 @@
     "ctaUrl": "mailto:hello@dodon.ai?subject=Filing%20Readiness%20Fit%20Call",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ]
   },
   "scenario": {
     "heading": "The clerk rejection you would have absorbed",
