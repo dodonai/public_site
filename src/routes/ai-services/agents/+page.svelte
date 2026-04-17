@@ -1,13 +1,21 @@
 <script>
+	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import BlobBackground from '$lib/components/layout/BlobBackground.svelte';
+	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
 	import AgentCard from '$lib/components/ai-services/AgentCard.svelte';
 	import {
 		aiServicesPracticeAreas,
 		aiServicesFunctions
 	} from '$lib/data/navigation.js';
+
+	let HeroAnimation = $state(null);
+	onMount(async () => {
+		const mod = await import('$lib/components/hero/AgentCatalogHeroAnimation.svelte');
+		HeroAnimation = mod.default;
+	});
 
 	let { data } = $props();
 	const agents = $derived(data.agents);
@@ -83,16 +91,22 @@
 		</div>
 	</section>
 
-	<section class="bg-transparent pt-10 pb-12 sm:pt-12 sm:pb-16">
-		<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-			<h1 class="text-4xl font-extrabold tracking-tight text-[#282876] sm:text-5xl lg:text-6xl">
-				Every agent we build for law firms
-			</h1>
-			<p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#8181ac]">
-				Each one is built around your firm's specific matter mix, your case acceptance criteria, and your team's review habits. Filter by practice area or function to find what fits your work.
-			</p>
-		</div>
-	</section>
+	<ServiceHero
+		headline="Every agent we build for law firms"
+		subheadline="Each one is built around your firm's specific matter mix, your case acceptance criteria, and your team's review habits. Filter by practice area or function to find what fits your work."
+		ctaText="Start a Fit Call"
+		ctaUrl="mailto:hello@dodon.ai?subject=AI%20Agents%20Catalog"
+		secondaryCtaText="How It Works"
+		secondaryCtaUrl="/ai-services/how-it-works/"
+		background="bg-transparent"
+	>
+		{#if HeroAnimation}
+			{@const Comp = HeroAnimation}
+			<Comp />
+		{:else}
+			<div style="height: 500px" aria-hidden="true"></div>
+		{/if}
+	</ServiceHero>
 
 	<!-- Filter UI -->
 	<section class="bg-transparent pb-10">

@@ -1,13 +1,21 @@
 <script>
+	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import BlobBackground from '$lib/components/layout/BlobBackground.svelte';
+	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
 	import ContentSection from '$lib/components/content/ContentSection.svelte';
 	import ValueProposition from '$lib/components/features/ValueProposition.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
 	import { stripLinks } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/ai-services/how-it-works.json';
+
+	let HeroAnimation = $state(null);
+	onMount(async () => {
+		const mod = await import('$lib/components/hero/HowItWorksHeroAnimation.svelte');
+		HeroAnimation = mod.default;
+	});
 
 	const breadcrumbs = [
 		{ name: 'Home', href: '/' },
@@ -67,20 +75,22 @@
 		</div>
 	</section>
 
-	<section class="bg-transparent pt-10 pb-20 sm:pt-12 sm:pb-28">
-		<div class="mx-auto max-w-4xl px-4 text-center sm:px-6 lg:px-8">
-			<h1 class="text-4xl font-extrabold tracking-tight text-[#282876] sm:text-5xl lg:text-6xl">
-				{data.hero.headline}
-			</h1>
-			<p class="mx-auto mt-6 max-w-2xl text-lg leading-8 text-[#8181ac]">
-				{data.hero.subheadline}
-			</p>
-			<div class="mt-10 flex flex-wrap items-center justify-center gap-4">
-				<a href={data.hero.ctaUrl} class="btn-brand-primary">{data.hero.ctaText}</a>
-				<a href={data.hero.secondaryCtaUrl} class="btn-brand-outline">{data.hero.secondaryCtaText}</a>
-			</div>
-		</div>
-	</section>
+	<ServiceHero
+		headline={data.hero.headline}
+		subheadline={data.hero.subheadline}
+		ctaText={data.hero.ctaText}
+		ctaUrl={data.hero.ctaUrl}
+		secondaryCtaText={data.hero.secondaryCtaText}
+		secondaryCtaUrl={data.hero.secondaryCtaUrl}
+		background="bg-transparent"
+	>
+		{#if HeroAnimation}
+			{@const Comp = HeroAnimation}
+			<Comp />
+		{:else}
+			<div style="height: 500px" aria-hidden="true"></div>
+		{/if}
+	</ServiceHero>
 
 	<ContentSection
 		heading={data.paralegalTest.heading}
