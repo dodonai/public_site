@@ -12,6 +12,9 @@ const staticPages = [
 	{ path: '/dodonai-extract-and-draft-agents', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/electronic-discovery-software', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/ai-services', lastmod: '2026-04-16', priority: '0.9' },
+	{ path: '/ai-services/how-it-works', lastmod: '2026-04-16', priority: '0.8' },
+	{ path: '/ai-services/safety', lastmod: '2026-04-16', priority: '0.8' },
+	{ path: '/ai-services/our-agents', lastmod: '2026-04-16', priority: '0.8' },
 	{ path: '/ai-services/agents', lastmod: '2026-04-16', priority: '0.8' },
 	{ path: '/terms-and-conditions', lastmod: '2026-01-01', priority: '0.3' },
 	{ path: '/privacy-policy', lastmod: '2026-01-01', priority: '0.3' }
