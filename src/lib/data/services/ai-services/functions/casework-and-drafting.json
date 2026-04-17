@@ -1,0 +1,53 @@
+{
+  "slug": "casework-and-drafting",
+  "seo": {
+    "title": "AI Agents for Law Firm Casework & Drafting | Dodonai",
+    "description": "Custom AI agents for deposition prep, discovery, demand packages, motion drafting, pleadings, appellate briefs, mediation prep, closing binders.",
+    "canonical": "/ai-services/by-function/casework-and-drafting/"
+  },
+  "hero": {
+    "headline": "AI Agents for Casework & Drafting",
+    "subheadline": "Every contested case runs on the same pattern: pleadings, discovery, motions, depositions, demand, mediation, trial. We build AI agents that draft the first version of each, assembled from your firm's precedent library and tuned to your case theory."
+  },
+  "scenario": {
+    "heading": "The first draft that used to take 6 hours",
+    "paragraphs": [
+      "A litigation associate gets assigned a motion for summary judgment on a Tuesday. The hearing is in 6 weeks. The first draft traditionally takes a full day: pulling the pleadings, pulling deposition transcripts, pulling the documents, finding the analogous briefs from past matters, drafting the statement of undisputed facts, writing the legal argument, building the exhibit list. By the time the senior partner reviews it 2 weeks later, the associate has spent 12 or 15 hours on the first draft.",
+      "With a motion drafter agent in place, the Tuesday morning changes. The agent pulls the matter record, the pleadings, the deposition excerpts tagged as relevant, and the exhibits from your document storage. It drafts the statement of undisputed facts from the deposition testimony and stipulations. It drafts the legal argument from your firm's precedent briefs on similar issues. It assembles the exhibit list and cross-references it to the brief. The draft lands in the associate's inbox by lunch.",
+      "The associate's job shifts. Instead of 12 hours of typing, the associate spends 4 hours of thinking: reviewing the draft, sharpening the theory, pressing the weaker arguments, adding the case-specific facts the agent couldn't have known. The partner review is earlier and deeper. The brief is better. The matter is cheaper to run."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits casework and drafting",
+    "paragraphs": [
+      "Drafting work is structurally identical across matters within a practice area. A motion for summary judgment has the same skeleton every time. A demand package has the same sections every time. A deposition outline follows the same logic every time. The facts change. The precedent cases change. The witness or the case theory changes. The structure doesn't.",
+      "Agents draft the structure with the facts populated. The attorney shapes the argument, sharpens the theory, catches what the agent missed, and signs the final. That's the workflow Dodonai runs on our own consulting engagements, with our own drafting agents, and it's what we stand up for law firms. The attorney gets their time back for the judgment work. The firm's precedent library compounds with every brief."
+    ]
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "Blueprint is 2 weeks. We audit your drafting workload, review 3 or 4 recent briefs or demand packages, and map where the agents would land. You leave with a prioritized roadmap.",
+      "Build is 4 to 6 weeks. The first drafting agent is usually the one that maps to your highest-volume work product: the demand package for a PI firm, the motion drafter for a commercial litigation firm, the appellate brief drafter for an appeals practice. We load your precedent library, connect to your document storage and practice management system, and run in shadow mode on a real matter while we tune.",
+      "Managed is the ongoing operating mode. We monitor the agents, refine templates and precedent weighting as the firm's voice evolves, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How do you prevent the agent from hallucinating case citations?",
+      "answer": "The agent cites from your firm's precedent library and a verified citation source we connect during Build. Every citation in the draft links to the source document. If the agent can't find a verified source, it flags the argument as needing attorney-provided authority rather than inventing one. The Mata v. Avianca problem (where lawyers filed briefs with fake citations) doesn't happen on a Dodonai-built drafting agent because the agent can't cite outside the verified library."
+    },
+    {
+      "question": "Does this compete with Dodonai's deposition summary or e-discovery products?",
+      "answer": "They're complementary. The Dodonai SaaS products are the engines for deposition summaries, medical chronologies, transcript search, and e-discovery review. The drafting agents use the outputs of those engines as inputs: the deposition summary feeds into the motion's statement of facts, the e-discovery review feeds into the discovery response. Firms that run both get more leverage than firms that run either alone."
+    },
+    {
+      "question": "What about work product privilege if the agent is analyzing our case materials?",
+      "answer": "The agent runs in your account, on your infrastructure, with your data. Nothing leaves. Nothing is used to train models. The agent is inside the attorney-client and work product privilege envelope for the same reason your associates are: it's working on the matter for your attorneys. Every AI-assisted work product is logged in an audit trail that supports ABA Opinion 512's supervision requirement."
+    },
+    {
+      "question": "How much of the drafting does the agent actually do?",
+      "answer": "Enough that the attorney's first pass is review and shaping, not writing from scratch. On a motion for summary judgment, the agent typically produces 70 to 80% of the first draft structure. The legal argument shaping, the case-theory integration, the rhetorical decisions, stay with the attorney. Most attorneys describe it as working with a fast senior associate who can assemble a first draft overnight."
+    }
+  ]
+}

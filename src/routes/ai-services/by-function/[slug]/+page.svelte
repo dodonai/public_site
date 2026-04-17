@@ -105,14 +105,22 @@
 		/>
 	{/if}
 
+	{#if customData?.whyAi}
+		<ContentSection
+			heading={customData.whyAi.heading}
+			paragraphs={customData.whyAi.paragraphs}
+			background="bg-transparent"
+		/>
+	{/if}
+
 	<section class="bg-transparent py-20 sm:py-28">
 		<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
 				<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
-					{fn.name} agents
+					{customData?.agentRelevance?.heading ?? `${fn.name} agents`}
 				</h2>
 				<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
-					{agents.length} {agents.length === 1 ? 'agent' : 'agents'} in this function. Each is tuned to how your firm already operates.
+					{customData?.agentRelevance?.intro ?? `${agents.length} ${agents.length === 1 ? 'agent' : 'agents'} in this function. Each is tuned to how your firm already operates.`}
 				</p>
 			</div>
 
@@ -129,6 +137,14 @@
 			{/if}
 		</div>
 	</section>
+
+	{#if customData?.engagementPath}
+		<ContentSection
+			heading={customData.engagementPath.heading}
+			paragraphs={customData.engagementPath.paragraphs}
+			background="bg-transparent"
+		/>
+	{/if}
 
 	{#if customData?.faq && customData.faq.length > 0}
 		<FAQAccordion items={customData.faq} background="bg-transparent" />

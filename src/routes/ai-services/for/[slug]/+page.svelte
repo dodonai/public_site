@@ -121,15 +121,23 @@
 		/>
 	{/if}
 
+	{#if customData?.whyAi}
+		<ContentSection
+			heading={customData.whyAi.heading}
+			paragraphs={customData.whyAi.paragraphs}
+			background="bg-transparent"
+		/>
+	{/if}
+
 	<!-- Relevant agents, grouped by function -->
 	<section class="bg-transparent py-20 sm:py-28">
 		<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
 				<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
-					Agents we've built for {area.name.toLowerCase()} practices
+					{customData?.agentRelevance?.heading ?? `Agents we've built for ${area.name.toLowerCase()} practices`}
 				</h2>
 				<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
-					{agents.length} agents apply to {area.name.toLowerCase()} firms. Most teams start with 2 or 3 and expand from there.
+					{customData?.agentRelevance?.intro ?? `${agents.length} agents apply to ${area.name.toLowerCase()} firms. Most teams start with 2 or 3 and expand from there.`}
 				</p>
 			</div>
 
@@ -155,6 +163,14 @@
 			</div>
 		</div>
 	</section>
+
+	{#if customData?.engagementPath}
+		<ContentSection
+			heading={customData.engagementPath.heading}
+			paragraphs={customData.engagementPath.paragraphs}
+			background="bg-transparent"
+		/>
+	{/if}
 
 	{#if customData?.faq && customData.faq.length > 0}
 		<FAQAccordion items={customData.faq} background="bg-transparent" />

@@ -1,0 +1,61 @@
+{
+  "slug": "family-law",
+  "seo": {
+    "title": "AI Services for Family & Collaborative Law Firms | Dodonai",
+    "description": "Custom AI agents for family law: session summaries, disclosure trackers, revised agreements, parenting plan drafts, intake and mediation prep.",
+    "canonical": "/ai-services/for/family-law/"
+  },
+  "hero": {
+    "headline": "AI Services for Family & Collaborative Law Firms",
+    "subheadline": "After a 2-hour four-way meeting, the attorney spends another 2 hours on the paper trail. That's production work. We build AI agents that handle it so you stay focused on the people dynamics."
+  },
+  "scenario": {
+    "heading": "After the four-way meeting",
+    "paragraphs": [
+      "A collaborative family law practice in the Pacific Northwest runs on four-way sessions: both spouses, both attorneys, often a coach and a financial neutral. The attorney's value is in the room, reading the emotional dynamics, keeping the process constructive when tempers flare, protecting the agreement from collapsing back into litigation. The work after the session is essential, but it's mechanical. Session summary drafted and distributed, disclosure tracker updated, revised agreement sections prepared with tracked changes, action items by party logged, and a next-session agenda assembled.",
+      "Each output goes to a different audience. The coach needs the emotional dynamics section. The financial neutral needs the updated asset tables. Each spouse needs their own action items in plain language. Each attorney needs the term sheet deltas with redlines. The attorney who just spent 2 hours facilitating the session now spends another 2 hours assembling and splitting these outputs before the next session in 2 weeks.",
+      "With a collaborative case agent in place, the attorney records 30 minutes of voice notes after the session, uploads the signed disclosures, and reviews the drafts. Within an hour, the session summary is drafted and ready to split by audience, the tracker is updated, the revised agreement sections are marked, and the next-session agenda is prepared. The attorney's review moves from 2 hours of typing to 15 minutes of judgment."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits family and collaborative practice",
+    "paragraphs": [
+      "Collaborative practice is administratively repetitive in the best way. Every session generates the same 5 outputs. Every divorce moves through the same disclosure stages. Every parenting plan rests on the same set of recurring decisions. The agents don't touch the emotional judgment, the strategy, or the client relationship. They handle the production work around it so the attorney can spend 100% of their time where they're irreplaceable.",
+      "Intake is the other pressure point. Family law leads are emotionally heavy, and response speed matters. An intake triage agent scores leads against your fit criteria, flags conflicts in your practice management system, and drafts a warm first response in the minutes after the form arrives. The consult is on your calendar before the client has finished their coffee."
+    ]
+  },
+  "agentRelevance": {
+    "heading": "Agents we've built for family law practices",
+    "intro": "These agents apply to family and collaborative law firms. Most teams start with intake triage and a session-summary agent, then add the disclosure tracker and client communication agent once the first 2 are running."
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "We start with Blueprint, a 2-week engagement where we watch 3 or 4 real matters move from intake through a collaborative session or a mediation prep and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Build is 4 to 6 weeks. We stand up your first 2 or 3 agents in your account, connect them to your practice management system, your intake sources, and your document storage, and run them in shadow mode while we tune. Session summaries ship in your voice, not a generic template.",
+      "Managed is the ongoing operating mode. We monitor the agents, refine prompts as your process evolves, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Can an agent actually capture the nuance of a collaborative session?",
+      "answer": "The agent captures what's on the record: disclosures exchanged, terms agreed, action items assigned, deadlines set. The nuance, the emotional turn, the client who is suddenly ready to settle, the moment to pause and reset, stays with the attorney. The agent writes the paper trail. You shape the process."
+    },
+    {
+      "question": "How does this handle confidentiality and privilege?",
+      "answer": "The agent runs in your account, on your infrastructure, with your data. Nothing is used to train models. Session recordings and notes stay inside your practice management system and document storage. Every AI-assisted work product is logged in an audit trail that supports ABA Opinion 512's competence, confidentiality, and supervision obligations."
+    },
+    {
+      "question": "What about split distribution, where different people need different sections of the summary?",
+      "answer": "That's the thing agents do cleanly. The summary is generated once with a structure, then split by audience: coach gets the dynamics section, financial neutral gets the asset tables, each spouse gets their action items in plain language, each attorney gets the redline term sheet. One pass, four distributions, all drafts, all reviewed before they go out."
+    },
+    {
+      "question": "Does this work for litigated family law, not just collaborative?",
+      "answer": "Yes. The session-summary agent doesn't apply the same way, but intake triage, conflict check, docketing, client communications, discovery response, and motion drafting all apply directly. A mixed-mode family practice benefits from both sides of the agent catalog."
+    },
+    {
+      "question": "How long until we see results?",
+      "answer": "The first agent runs in production within 4 to 6 weeks of the Blueprint finishing. Most family practices report that the first agent pays for the engagement inside 3 months through reclaimed attorney hours on production work. The second and third agents compound from there."
+    }
+  ]
+}

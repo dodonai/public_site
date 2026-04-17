@@ -1,0 +1,53 @@
+{
+  "slug": "deadlines-and-compliance",
+  "seo": {
+    "title": "AI Agents for Law Firm Deadlines & Compliance | Dodonai",
+    "description": "Custom AI agents for docketing, SOL tracking, trust account reconciliation, ABA 512 ethics audits, court rules monitoring, filing readiness.",
+    "canonical": "/ai-services/by-function/deadlines-and-compliance/"
+  },
+  "hero": {
+    "headline": "AI Agents for Deadlines & Compliance",
+    "subheadline": "Missed deadlines are malpractice. Trust account errors are ethics referrals. ABA Opinion 512 makes AI supervision an ethics obligation. We build AI agents that catch every deadline, audit every work product, and keep the compliance posture clean."
+  },
+  "scenario": {
+    "heading": "The 1 deadline that slips",
+    "paragraphs": [
+      "Every firm has a docketing process. Most run it in a combination of calendar entries, practice management fields, and a spreadsheet someone maintains. Most of the time it works. Once every few months, a deadline slips. A SOL computed from the wrong incident date. A response deadline that wasn't calendared because the service date was ambiguous. A filing deadline that fell on a day the office was closed for a conference. The slip is usually caught before it becomes a claim. Sometimes it isn't.",
+      "With a docketing and deadlines agent in place, the computation moves to software with explicit rules. Every matter gets its SOL, filing, and response deadlines computed from the jurisdiction's statute, the filing or service date, and the applicable tolling rules. The agent watches for new matter data that would change a deadline (amended complaint, agreed extension, removed action) and recomputes. Escalation is automatic: 90, 60, 30, 14, and 7 days out, with a different severity at each step.",
+      "Compliance is the partner workstream. An ethics guardian agent audits every AI-assisted work product against ABA Opinion 512 supervision requirements. A trust account reconciler runs IOLTA reconciliation monthly with variance alerts. A court rules monitor watches local rule changes in the jurisdictions you practice. None of this replaces the attorney's judgment. All of it removes the tracking load."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits deadlines and compliance",
+    "paragraphs": [
+      "Deadline computation is explicit-rules work. The rules are in the statute. The trigger events are in the matter record. The escalation schedule is a function of the deadline date and today's date. The computation and the escalation are both mechanical. The legal judgment, how to respond, whether to request an extension, how to structure a filing, stays with the attorney.",
+      "Compliance is audit-trail work. ABA Opinion 512 requires supervision of AI-assisted work product. That means a log: what was generated, what was reviewed, who signed off. Agents do this as a side effect of doing the work. The audit trail is the free byproduct. Ethics investigations happen less often to firms that can hand over a clean log."
+    ]
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "Blueprint is 2 weeks. We walk through your current docketing, trust account, and compliance processes, review how AI is used in the firm today, and map where the agents would land. You leave with a prioritized roadmap.",
+      "Build is 4 to 6 weeks. The docketing and SOL tracker agent is usually the first to stand up because it pays back immediately. We connect it to your practice management system, encode the jurisdictions you practice, and run it in shadow mode against your existing calendar while we tune. Trust account and ethics guardian follow in the same engagement or the next one.",
+      "Managed is the ongoing operating mode. We monitor the agents, update jurisdiction rules as statutes and court rules change, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does this interact with our practice management system's docketing?",
+      "answer": "Your practice management system (Clio, MyCase, PracticePanther, Centerbase) holds the calendar entries. The agent computes the deadlines, pushes entries into the system, and monitors for changes that would require recomputation. If your PMS already has a docketing rules engine, we compare outputs and use whichever is more accurate per jurisdiction."
+    },
+    {
+      "question": "What does ABA Opinion 512 compliance actually look like in practice?",
+      "answer": "ABA Opinion 512 (July 2024) imposes 3 duties when using AI: competence, confidentiality, and supervision. The ethics guardian agent logs every AI-assisted work product with a timestamp, the model used, the source matter, the reviewer, and the disposition. The log is your evidence of supervision if anyone ever asks. Every Dodonai-built agent writes to this log by default."
+    },
+    {
+      "question": "How does the trust account reconciler work without replacing our accountant?",
+      "answer": "It doesn't replace the accountant. It runs daily reconciliation against your IOLTA records and your practice management system's trust ledger, flags variances, surfaces unreconciled items, and drafts the monthly reconciliation report for accountant review. Your accountant signs off. The agent eliminates the reconciliation prep time and catches variances within a day of them occurring."
+    },
+    {
+      "question": "What about state-specific ethics rules, not just ABA?",
+      "answer": "State rules sit in the skill file alongside ABA Opinion 512. We start with the states you practice in and extend as needed. Where state rules are stricter than ABA, the stricter rule applies. Where they're silent, ABA is the default."
+    }
+  ]
+}

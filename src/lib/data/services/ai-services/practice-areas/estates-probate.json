@@ -1,0 +1,61 @@
+{
+  "slug": "estates-probate",
+  "seo": {
+    "title": "AI Services for Estates & Probate Law Firms | Dodonai",
+    "description": "Custom AI agents for estates and probate: lifecycle timelines, beneficiary notices, executor document intake, filing deadlines, closing binders.",
+    "canonical": "/ai-services/for/estates-probate/"
+  },
+  "hero": {
+    "headline": "AI Services for Estates & Probate Firms",
+    "subheadline": "A probate file is a 12-month lifecycle with sequential deadlines. Miss one and the executor, your client, is personally liable. We build AI agents that run the lifecycle on every file, on time, every time."
+  },
+  "scenario": {
+    "heading": "30 active files, all at different stages",
+    "paragraphs": [
+      "An estates practice managing 20 to 30 active files at any given time runs on a 12-month rhythm: executor appointment, beneficiary notification, asset inventory, creditor notification, court filings at specified intervals, interim accountings, final distribution. Unlike litigation, there is no opposing counsel creating surprise deadlines. The dates are known from the moment the file opens. That's the catch. Because the dates are known, there's an assumption they'll be tracked. When the Smith beneficiary notification falls the same week as the Jones accounting and the Patel distribution, all 3 demand action and only 1 gets the attorney's attention.",
+      "With an estates lifecycle agent in place, every new file generates its complete timeline the moment it opens: jurisdiction-specific deadlines, notification letter drafts ready for each stage, filing checklists for court submissions, and intake prompts for the executor's documents. The agent tracks which documents have landed, which are late, and which stages are approaching. It escalates at 30, 14, and 7 days out. The attorney opens a single dashboard every morning and sees what needs action today across every active estate.",
+      "The agent doesn't file anything. It drafts, it tracks, it escalates. The attorney reviews, signs, and submits. What changes is the confidence that nothing is slipping through when 3 estates hit filing week at the same time."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits estates and probate practice",
+    "paragraphs": [
+      "Estates work is pure lifecycle automation. The workflow is predictable, the stages are known, the outputs are templated, and the deadlines are computable from jurisdiction rules and filing dates. The only variable is the facts of the estate: who the executor is, what the assets are, who the beneficiaries are, which jurisdiction's rules apply.",
+      "That's exactly the shape agents handle well. The jurisdiction rules go into a skill file. The templates live in your document storage. The practice management system holds the matter data. The agent orchestrates across them and runs the lifecycle on every active file in parallel. The judgment, which estate needs a careful hand, which beneficiary is going to contest, which asset valuation needs to be defended, stays with the attorney."
+    ]
+  },
+  "agentRelevance": {
+    "heading": "Agents we've built for estates and probate practices",
+    "intro": "These agents apply to estates and probate firms. Most teams start with a lifecycle agent and a closing binder agent, then add docketing, beneficiary communications, and matter profitability as the book grows."
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "We start with Blueprint, a 2-week engagement where we walk through 3 or 4 active files at different lifecycle stages and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Build is 4 to 6 weeks. We encode your jurisdiction rules, template library, and notification preferences, then stand up the lifecycle agent in your account, connected to your practice management system and document storage. We run it in shadow mode while we tune, comparing the agent's timeline output against how your attorneys actually track files today.",
+      "Managed is the ongoing operating mode. We monitor the agent, update jurisdiction rules as they change, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does the agent handle jurisdiction-specific rules?",
+      "answer": "Jurisdiction rules live in a skill file your team can edit. We start with the jurisdictions you practice in, encode the statute-driven deadlines and required filings per stage, and validate against 3 or 4 of your recent matters. When rules change, the skill file updates and every active file's timeline refreshes automatically."
+    },
+    {
+      "question": "Can it handle complex estates with trust structures and multi-jurisdiction assets?",
+      "answer": "Yes. The base lifecycle applies to every estate. Complexity layers on top: cross-border asset tracking, trust administration timelines, tax-driven filing windows. The agent flags complexity during intake and lets the attorney choose which overlays to apply. The skill file can be extended as your book includes more of that work."
+    },
+    {
+      "question": "What about the executor's workload? Can an agent keep the executor on track too?",
+      "answer": "Yes. A client-facing communications agent drafts executor check-ins at each stage: what documents are needed next, what decisions are coming up, what the timeline looks like. Drafts go to your inbox for review before they go to the executor. The executor stays oriented without the attorney drafting each email personally."
+    },
+    {
+      "question": "How does this handle sensitive situations like a contested estate?",
+      "answer": "The agent doesn't negotiate or litigate. When the workflow signals contest, sibling dispute flagged in intake, beneficiary objection filed, caveat lodged, the agent escalates and pauses the automated communications on that file. The attorney takes over and the agent returns to tracking deadlines quietly in the background until the situation resolves."
+    },
+    {
+      "question": "How much does this cost?",
+      "answer": "We don't publish pricing because the scope varies by book size and jurisdictions covered. Most estates practices see the engagement pay back inside 6 months through reclaimed attorney and paralegal time and fewer near-misses on deadlines. We'll give you a fixed-fee Blueprint quote on a short fit call."
+    }
+  ]
+}

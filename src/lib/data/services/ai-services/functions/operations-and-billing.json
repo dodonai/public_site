@@ -1,0 +1,53 @@
+{
+  "slug": "operations-and-billing",
+  "seo": {
+    "title": "AI Agents for Law Firm Operations & Billing | Dodonai",
+    "description": "Custom AI agents for inbox triage, time capture, billing QA, vendor coordination, records requests, subpoena management.",
+    "canonical": "/ai-services/by-function/operations-and-billing/"
+  },
+  "hero": {
+    "headline": "AI Agents for Operations & Billing",
+    "subheadline": "Inbox sprawl, missed time entries, monthly billing catch-up, vendor chasing. It's the work that keeps the firm running and nobody wants to do. We build AI agents that handle it so your team can focus on practicing law."
+  },
+  "scenario": {
+    "heading": "The monthly billing scramble",
+    "paragraphs": [
+      "A mid-sized firm closes the month with the same 3 days every time. Attorneys reconstruct their time from calendar entries, email threads, and memory. The office manager chases missing entries by walking between offices. Invoice generation turns up scope creep on a third of the matters and nobody can trace where it came from. Write-offs pile up. Realization rates slip. The same 3 days happen next month.",
+      "With an operations team of agents in place, the monthly scramble disappears. A time capture agent captures billable time automatically from calendar, email, and document activity throughout the month. Attorneys review and confirm entries weekly, not at month end. A billing reconciler runs invoice QA before bills go out: scope creep flagged, narrative quality checked, write-off candidates surfaced, Clio or QuickBooks sync verified.",
+      "The inbox and meeting side scales the same way. An inbox triage agent sorts and labels every incoming email by priority, action, and FYI. A meeting prep agent assembles prep briefs before every meeting. A vendor coordination agent schedules court reporters, process servers, interpreters, and experts without the paralegal owning the chase."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits operations and billing",
+    "paragraphs": [
+      "Operations is the work that falls between cracks. It's not a client matter. It's not a billable hour. It's the scheduling, the coordination, the follow-up, the administrative overhead that keeps the firm functioning. Most of it is repetitive and pattern-driven. Agents handle it without complaint and without asking for a raise.",
+      "Billing is pattern recognition and data reconciliation. Time entries match calendar events match email activity match document access. Invoices match scope match engagement letter terms. Writedowns match partner authorization. All pattern work. The judgment calls, which writedown to authorize, which scope creep to swallow, which client to push back on, stays with the partners. The reconciliation that surfaces those calls moves to the agent."
+    ]
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "Blueprint is 2 weeks. We audit your current time capture, billing, and operations processes, identify the highest-leverage agent, and map the engagement. You leave with a prioritized roadmap.",
+      "Build is 4 to 6 weeks. Time capture and inbox triage are usually the first 2 agents because they pay back fastest and are the lowest-risk. We connect to your calendar, email, document storage, and practice management system, and run in shadow mode while we tune. Billing reconciler, vendor coordination, and subpoena management follow in the same engagement or the next one.",
+      "Managed is the ongoing operating mode. We monitor the agents, refine billing rules and inbox priorities as your team gives feedback, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Does the time capture agent actually capture accurate billable time?",
+      "answer": "It captures events (calendar meetings, emails sent, documents accessed, phone calls if we have the phone system integration) and proposes time entries tied to matters. The attorney reviews and confirms, usually weekly. Most attorneys find they were under-capturing by 15 to 30% because the small entries (6-minute phone calls, 10-minute email drafts) were getting forgotten. The agent doesn't guess at narrative. It captures the event and lets the attorney describe the work."
+    },
+    {
+      "question": "How does this integrate with Clio, QuickBooks, or our existing billing stack?",
+      "answer": "The agent reads and writes to your existing stack. Clio, MyCase, PracticePanther, Centerbase on the PMS side. QuickBooks, Xero on the accounting side. The agent doesn't replace the system of record. It runs the reconciliation layer that keeps your entries, your invoices, and your accounting in sync."
+    },
+    {
+      "question": "What about the vendor coordination side?",
+      "answer": "The vendor agent handles the coordination load: scheduling court reporters, process servers, interpreters, medical experts; tracking invoices; reconciling against matter budgets. Paralegals move from chasing vendors to managing exceptions. The vendor agent pays back on complexity, not volume. A firm with 20 active depositions a month sees the benefit immediately."
+    },
+    {
+      "question": "How does subpoena management work?",
+      "answer": "The subpoena manager agent drafts subpoenas from your templates, tracks service, monitors returns, logs objections, and flags compliance deadlines. The legal judgment, what to subpoena, how to craft the scope, how to handle objections, stays with the attorney. The tracking and drafting load moves to the agent."
+    }
+  ]
+}
