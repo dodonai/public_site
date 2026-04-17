@@ -1,0 +1,102 @@
+{
+  "slug": "mediation-settlement-prep",
+  "title": "Mediation & Settlement Prep Agent",
+  "shortDescription": "Assembles the mediation brief, the opposing-party leverage analysis, the BATNA memo, and the settlement-position one-pager before every mediation or settlement conference.",
+  "tier": "flagship",
+  "function": "casework-and-drafting",
+  "practiceAreas": ["personal-injury", "family-law", "real-estate", "all"],
+  "caseSkills": [
+    "litigation-personal-injury-mediation-statement.md",
+    "negotiation-support.md",
+    "alternative-dispute-resolution-adr-outcomes-summary.md",
+    "pre-hearing-statement-of-proof.md"
+  ],
+  "seo": {
+    "title": "AI Mediation & Settlement Prep Agent for Law Firms | Dodonai",
+    "description": "Assemble the mediation brief, leverage analysis, BATNA memo, and settlement one-pager before every mediation. The settlement work that determines outcome, structured.",
+    "canonical": "/ai-services/agents/mediation-settlement-prep/"
+  },
+  "hero": {
+    "headline": "AI Mediation & Settlement Prep Agent",
+    "subheadline": "Drafts the mediation brief, the opposing-party leverage analysis, the BATNA memo, and the settlement-position one-pager before every mediation or settlement conference. The hours of prep that determine the outcome happen in a structured queue with attorney refinement at the end.",
+    "bullets": [
+      "Mediation brief drafted to the case theory and the value position",
+      "Opposing-party leverage analysis pulled from the matter file",
+      "BATNA memo with the trial path and its expected value mapped",
+      "Client-facing settlement one-pager with the decision picture"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Mediation%20Settlement%20Prep%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The mediation that no longer starts with a half-prepared lawyer",
+    "paragraphs": [
+      "A personal injury matter mediates in 10 days. The damages are clear, the liability picture is mostly clear, and the carrier has signaled an opening offer well below the demand. In the old workflow, the partner spends the morning before mediation pulling the brief together, sketching out a leverage argument, and trying to hold the BATNA math in his head. The Mediation & Settlement Prep agent produces the working package in hours: the brief drafted to the theory and the value position, the leverage analysis pulled from the deposition admissions and the discovery record, a BATNA memo that maps the trial path against expected value, and a one-page settlement picture the client can read on the way to the mediator's office.",
+      "The partner walks into mediation having already spent 90 minutes refining the theory and rehearsing the leverage points instead of building the documents. The opening number lands tighter. The settlement that arrives is one the firm and the client both understand."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Mediation & Settlement Prep agent does",
+    "paragraphs": [
+      "The agent reads the matter file and assembles the prep package every mediation or settlement conference needs. The mediation brief gets drafted to the case theory and the value position the attorney has set, with the supporting evidence pulled from depositions, discovery responses, expert reports, and medical records. The leverage analysis identifies the admissions, contradictions, and exhibits the opposing party would prefer to keep out of the room and surfaces them in priority order. The BATNA memo maps the trial path: probable verdict range, fee and cost projection through trial, time horizon, appellate exposure.",
+      "The client-facing one-pager translates all of that into the picture the client needs to make the decision: the gross expected value, the net-to-client at each settlement band, the timeline difference between settling and trying. The whole package is a working draft. The attorney refines the theory, the leverage framing, and the value position. The agent saves the assembly hours so refinement gets the attention it deserves."
+    ]
+  },
+  "inputsOutputs": {
+    "heading": "Inputs and outputs",
+    "inputs": [
+      "Matter pleadings, deposition transcripts, and discovery responses",
+      "Medical chronology and expert reports where applicable",
+      "Prior offer history and settlement correspondence",
+      "Comparable past matter outcomes from your firm's archive",
+      "Attorney's working case theory and value position"
+    ],
+    "outputs": [
+      "Mediation brief drafted to the theory and value position",
+      "Leverage analysis with the priority points the opposing party wants buried",
+      "BATNA memo mapping the trial path and expected value",
+      "Settlement-band one-pager showing net-to-client at each band",
+      "Negotiation playbook with planned responses to likely opposing positions",
+      "Reviewer's checklist for the attorney's refinement pass"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter context and offer history",
+    "Document management system for depositions, discovery, and exhibits",
+    "Court-reporter platforms for deposition transcripts",
+    "Microsoft Word and Google Docs for brief and memo delivery",
+    "Email for the client-facing one-pager handoff"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Every deliverable is a working draft. The case theory, the value position, and the negotiation strategy are the attorney's calls; the agent assembles the supporting work so the attorney's time goes to judgment rather than typing. The client-facing one-pager doesn't go to the client without attorney review.",
+      "The matter file stays inside your account. The model partners we use operate under zero data retention so case content isn't stored after processing or used to train models. For matters under a protective order or with sensitive client circumstances, the agent inherits the same handling rules that govern the rest of your file."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about matters where the client is sophisticated and wants to participate in the strategy?",
+      "answer": "The settlement one-pager is built for client decision-making and works equally well as a starting point for a sophisticated client's own analysis. For matters where the client wants the underlying memo too, the BATNA memo can be adapted into a client-shareable version that strips work-product analysis while keeping the decision picture."
+    },
+    {
+      "question": "How does the BATNA math handle uncertainty in the trial outcome?",
+      "answer": "The BATNA memo reports a range with the underlying assumptions visible. Probable verdict ranges, fee and cost projections, and time-to-trial all carry confidence bands. The attorney can adjust the assumptions to test sensitivity. The memo is a tool for thinking about the decision, not a single number to defer to."
+    },
+    {
+      "question": "What about multi-party mediations with cross-claims and contribution?",
+      "answer": "For multi-party matters, the leverage analysis and BATNA memo carry per-party views so the attorney can see how the picture changes across different settlement permutations (settle with one defendant only, settle with all, settle and proceed against indemnity carrier). The complexity stays visible instead of getting averaged away."
+    },
+    {
+      "question": "Can it support settlement conferences with judges who want pre-conference statements?",
+      "answer": "Yes. The brief format is configurable per venue and per judge. For judges who want a specific pre-conference statement format (joint statement, separate statements, length-limited), the agent produces the document in the right format. The Build phase encodes the per-judge requirements your firm encounters."
+    },
+    {
+      "question": "How long does it take to stand up?",
+      "answer": "A Build cycle is typically 3 to 5 weeks. The first phase samples 5 to 10 of your firm's prior mediation briefs and settlement memos to learn the format, depth, and tone. The second phase shadow-runs the agent against upcoming mediations while the human-built package remains the system of record. The third phase brings it live with the attorney as reviewer and refiner."
+    }
+  ]
+}

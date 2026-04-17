@@ -1,0 +1,73 @@
+{
+  "slug": "demand-package",
+  "title": "Demand Package Agent",
+  "shortDescription": "Assembles the demand letter, the medical chronology, the lost-wage report, and the supporting exhibits into the demand package the carrier expects.",
+  "tier": "supporting",
+  "function": "casework-and-drafting",
+  "practiceAreas": ["personal-injury"],
+  "caseSkills": [
+    "litigation-personal-injury-demand-letter.md",
+    "litigation-personal-injury-settlement-demand-letter.md",
+    "litigation-personal-injury-demand-summary.md",
+    "demand-package-compilation.md",
+    "lost-wage-economic-loss-report.md"
+  ],
+  "seo": {
+    "title": "AI Demand Package Agent for Law Firms | Dodonai",
+    "description": "Assemble the demand letter, medical chronology, lost-wage report, and supporting exhibits into the package the carrier expects. The week-long workup, structured.",
+    "canonical": "/ai-services/agents/demand-package/"
+  },
+  "hero": {
+    "headline": "AI Demand Package Agent",
+    "subheadline": "Assembles the demand letter, the medical chronology, the lost-wage report, the liability summary, and the supporting exhibits into the package the carrier wants to see. The week-long demand workup becomes a 1-day review.",
+    "bullets": [
+      "Demand letter drafted to the case theory and the value position",
+      "Medical chronology folded in with treatment summaries",
+      "Lost-wage and economic-loss report computed from the source documents",
+      "Exhibit binder assembled with the right Bates ranges and tabs"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Demand%20Package%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The demand you would have spent a week assembling",
+    "paragraphs": [
+      "A personal injury matter is ready for demand. The medical records are in, the wage records are in, the liability investigation is closed. In the old workflow, the associate spends a week pulling the chronology, drafting the lost-wage analysis, writing the demand letter, and assembling the exhibits. The Demand Package agent produces the working draft of the entire package in 4 hours: letter, chronology, wage report, exhibit binder. The associate spends Tuesday refining the value argument and the supporting exhibits instead of starting from a blank page."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Demand Package agent does",
+    "bullets": [
+      "Drafts the demand letter to the case theory, the medical picture, and the value position",
+      "Folds in the medical chronology with treatment summaries",
+      "Computes the lost-wage and economic-loss report from the source documents",
+      "Assembles the supporting exhibits with Bates ranges and tabs",
+      "Produces the carrier-ready PDF or electronic submission"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter facts and value position",
+    "Document management system for medical records and wage documents",
+    "Microsoft Word for the demand letter editing layer",
+    "Carrier portals (Mitchell, Colossus) where electronic submission applies"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Every demand package is reviewed by the responsible attorney before submission. The value position, the legal arguments, and the exhibit selection are the attorney's calls; the agent assembles the working draft. The agent doesn't submit to the carrier; the attorney signs and sends."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does it handle the value argument?",
+      "answer": "The value position is set by the attorney. The agent supports it with the medical, wage, and liability picture in the format the carrier expects. The argument language is drafted from your firm's prior demand letters so the voice stays consistent. The number itself is the attorney's call."
+    },
+    {
+      "question": "What about non-economic damages and pain-and-suffering computations?",
+      "answer": "The agent doesn't compute pain-and-suffering values; that's the attorney's strategic call. It supports the position the attorney takes with the medical narrative and the prior comparable verdict and settlement data your firm has access to."
+    }
+  ]
+}

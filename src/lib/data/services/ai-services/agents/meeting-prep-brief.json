@@ -1,0 +1,69 @@
+{
+  "slug": "meeting-prep-brief",
+  "title": "Meeting Prep Brief Agent",
+  "shortDescription": "Pulls the matter file, researches every external attendee, and drafts the 1-page briefing 60 minutes before each meeting.",
+  "tier": "supporting",
+  "function": "client-communications",
+  "practiceAreas": ["all"],
+  "caseSkills": [
+    "case-summary-report.md"
+  ],
+  "seo": {
+    "title": "AI Meeting Prep Brief Agent for Law Firms | Dodonai",
+    "description": "Briefing on every external meeting attendee, the matter file pulled, the upcoming deadlines listed. Lands in Slack 60 minutes before the meeting starts.",
+    "canonical": "/ai-services/agents/meeting-prep-brief/"
+  },
+  "hero": {
+    "headline": "AI Meeting Prep Brief Agent",
+    "subheadline": "60 minutes before every external meeting, the briefing lands in your Slack: who you're meeting, what they care about, the matter context, the recent activity, and the questions worth opening with.",
+    "bullets": [
+      "Attendee research (firm, role, recent matters, public statements)",
+      "Matter file context with the recent activity surfaced",
+      "Suggested opening questions and items to confirm",
+      "Delivered 60 minutes before the meeting starts"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Meeting%20Prep%20Brief%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The meeting you would have walked into cold",
+    "paragraphs": [
+      "You have a 10am call with the claims adjuster on a matter you haven't touched in 3 weeks. In the old workflow, you spend the 8 minutes before the call skimming your notes and hoping you remember the open questions. The Meeting Prep Brief landed at 9: the claims adjuster's name, her authority limits, the offer history on this matter, the medical records that arrived last week, and 3 questions worth asking. You walk in informed, the call moves faster, and the offer that lands is one you can actually evaluate."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Meeting Prep Brief does",
+    "bullets": [
+      "Watches your calendar for upcoming external meetings",
+      "Researches each external attendee from public sources (firm site, bar profile, recent published work)",
+      "Pulls the matter file and surfaces the most recent activity, last contact, and open items",
+      "Drafts 3 to 5 suggested opening questions or items to confirm",
+      "Delivers the briefing in Slack 60 minutes before the meeting starts"
+    ]
+  },
+  "integrations": [
+    "Google Calendar or Outlook Calendar",
+    "Practice management system for matter context",
+    "Document management system for recent filings and correspondence",
+    "Slack or Microsoft Teams for delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The briefing is informational and internal-only. The agent doesn't reach out to attendees, doesn't share data externally, and doesn't act on the matter. The research is from public sources; the matter context comes from your file."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about back-to-back meetings where 60 minutes of lead time isn't enough?",
+      "answer": "For days with packed external schedules, the agent can deliver a morning summary covering all the day's meetings at once, then individual reminders 15 minutes before each one. The cadence is configurable per attorney."
+    },
+    {
+      "question": "Does it work for meetings where the attendees aren't on the calendar invite?",
+      "answer": "The agent uses the calendar entry as the starting point. For meetings where attendees are added late or not on the invite (a partner joining unexpectedly, a paralegal stepping in), the responsible attorney can ping the agent in Slack and get a fresh briefing in under a minute."
+    }
+  ]
+}

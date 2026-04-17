@@ -1,0 +1,102 @@
+{
+  "slug": "trial-prep",
+  "title": "Trial Prep Agent",
+  "shortDescription": "Assembles the trial notebook from the matter file: witness list, exhibit list, jury instructions, voir dire questions, and opening and closing outlines.",
+  "tier": "flagship",
+  "function": "casework-and-drafting",
+  "practiceAreas": ["personal-injury", "family-law", "all"],
+  "caseSkills": [
+    "trial-preparation-summaries.md",
+    "hearing-preparation-summaries.md",
+    "litigation-witness-statement-summaries.md",
+    "litigation-verdict-form-draft.md"
+  ],
+  "seo": {
+    "title": "AI Trial Prep Agent for Law Firms | Dodonai",
+    "description": "Assemble the trial notebook from the matter file: witnesses, exhibits, jury instructions, voir dire, opening and closing outlines. The 6-week sprint becomes a structured queue.",
+    "canonical": "/ai-services/agents/trial-prep/"
+  },
+  "hero": {
+    "headline": "AI Trial Prep Agent",
+    "subheadline": "Pulls the witness statements, the exhibits, the deposition transcripts, and the discovery responses into a working trial notebook. Witness order, exhibit list, jury instructions, voir dire questions, opening and closing outlines, all assembled and ready for the trial team to refine.",
+    "bullets": [
+      "Witness list with examination outlines drafted from prior statements",
+      "Exhibit list with foundation arguments and likely objections noted",
+      "Pattern jury instructions selected per cause of action and jurisdiction",
+      "Voir dire question outline and opening and closing arguments drafted"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Trial%20Prep%20Agent%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The 6-week sprint that no longer eats every weekend",
+    "paragraphs": [
+      "Trial is in 6 weeks on a personal injury matter that's been pending for 2 years. The matter file has 4 deposition transcripts, 312 exhibits in the production set, 2 expert reports, the medical chronology, and 18 months of correspondence. In the old workflow, your trial team starts the assembly process now and works every weekend through the trial date. The Trial Prep agent produces the working notebook in days: a witness list ordered to the case theory with examination outlines pulled from prior statements, an exhibit list with foundation arguments and likely objections noted, the pattern jury instructions for every cause of action and affirmative defense, a voir dire outline tuned to the venue, and first drafts of the opening and closing.",
+      "The trial team spends the next 6 weeks refining and rehearsing instead of assembling. The associate who used to lose every weekend through trial gets her Saturdays back. The partner walks into voir dire with the same notebook he would have built by hand, except now he had time to read it twice."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Trial Prep agent does",
+    "paragraphs": [
+      "The agent reads the entire matter file (depositions, discovery responses, expert reports, medical chronology, correspondence) and assembles the working trial notebook. The witness list is ordered to the case theory with examination outlines drafted from prior statements and contradictions flagged for impeachment. The exhibit list tracks every document, identifies the witness who can lay foundation, and notes the likely objections the opposing party will raise. Pattern jury instructions are selected per cause of action and per affirmative defense for the controlling jurisdiction.",
+      "Beyond the assembly, the agent drafts the soft documents: the voir dire question outline tuned to the venue and the matter type, the opening statement structured to the case theory, the closing argument anchored to the verdict form. Every deliverable is a working draft for the trial team to refine. The point isn't to replace trial judgment; it's to give the trial team the time to apply judgment instead of spending it on assembly."
+    ]
+  },
+  "inputsOutputs": {
+    "heading": "Inputs and outputs",
+    "inputs": [
+      "Deposition transcripts and prior witness statements",
+      "Discovery responses and the production set",
+      "Expert reports and Daubert filings",
+      "Pleadings and the matter chronology",
+      "Pattern jury instructions for the controlling jurisdiction"
+    ],
+    "outputs": [
+      "Witness list ordered to case theory with examination outlines",
+      "Exhibit list with foundation arguments and objection notes",
+      "Pattern jury instructions selected per cause of action and defense",
+      "Voir dire question outline tuned to venue and matter type",
+      "Opening statement and closing argument first drafts",
+      "Trial notebook structured for the trial team's preferred format"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter and pleading context",
+    "Document management system for the matter file",
+    "Trial-prep tools (TrialDirector, Sanction, OnCue, TrialPad) via export",
+    "Court-reporter platforms for deposition transcripts",
+    "Microsoft Word for the notebook delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Every deliverable is a working draft. The trial team owns every strategic call: which witnesses to call, which exhibits to publish, which arguments to lead with. The agent assembles the materials so the team can apply judgment to the trial, not to the prep. The reviewer's checklist surfaces the highest-stakes items (the impeachment material on the most important witnesses, the exhibit foundations most likely to be contested) so verification is built into the workflow.",
+      "The matter file stays inside your account. Model partners we use operate under zero data retention so transcripts and case content aren't stored after processing or used to train models. For matters under a protective order, the agent inherits the same handling rules that govern the rest of your file."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Does this work for cases that go to trial in front of a judge instead of a jury?",
+      "answer": "Yes. For bench trials, the agent skips voir dire and the jury instructions and produces a proposed findings of fact and conclusions of law document instead, anchored to the case theory and the trial-court record. The witness and exhibit assembly is the same."
+    },
+    {
+      "question": "How does the agent handle complex multi-defendant trials?",
+      "answer": "The witness list, exhibit list, and examination outlines all carry per-defendant attribution. For matters with overlapping examinations across defendants, the agent flags the overlaps so the trial team can plan the order to avoid duplication and maintain the case theory's flow."
+    },
+    {
+      "question": "What about trial themes and case theory? Doesn't the trial team set those?",
+      "answer": "Absolutely. The case theory is an input the trial team provides during the first prep meeting. The agent assembles to the theory; it doesn't propose one. The opening and closing drafts use the theory the team chose. If the theory shifts during prep, the documents regenerate against the new framing."
+    },
+    {
+      "question": "Can it integrate with our trial-presentation software?",
+      "answer": "The exhibit list exports to TrialDirector, Sanction, OnCue, and TrialPad. The witness order and examination outlines export to the formats your team uses for in-courtroom prep. The Build phase confirms the integrations against your firm's specific trial setup."
+    },
+    {
+      "question": "How long does it take to stand up?",
+      "answer": "A Build cycle is typically 4 to 6 weeks. The first phase samples 2 or 3 of your firm's prior trial notebooks to learn the structure, depth, and format your trial team uses. The second phase shadow-runs the agent against an upcoming trial while the human-built notebook remains the system of record. The third phase brings it live with the trial team as reviewer and editor."
+    }
+  ]
+}

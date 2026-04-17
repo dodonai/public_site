@@ -1,0 +1,99 @@
+{
+  "slug": "docketing-deadlines",
+  "title": "Docketing & Deadlines Agent",
+  "shortDescription": "Computes every response deadline, statute of limitations, and court-rule trigger across your active matters and surfaces what needs attention before it slips.",
+  "tier": "flagship",
+  "function": "deadlines-and-compliance",
+  "practiceAreas": ["personal-injury", "family-law", "estates-probate", "real-estate", "all"],
+  "caseSkills": [
+    "procedural-rule-summaries.md",
+    "court-order-summaries.md"
+  ],
+  "seo": {
+    "title": "AI Docketing & Deadlines Agent for Law Firms | Dodonai",
+    "description": "Compute response deadlines, SOL dates, and court-rule triggers across every active matter. A daily review of what's coming with the rule cited and the source attached.",
+    "canonical": "/ai-services/agents/docketing-deadlines/"
+  },
+  "hero": {
+    "headline": "AI Docketing & Deadlines Agent",
+    "subheadline": "Watches every active matter for new filings and orders, computes the response deadline against the right court's rules, and proposes a calendar entry for your review. Every date sourced, every rule cited.",
+    "bullets": [
+      "Daily scan of active matters for new orders, filings, and notices",
+      "Deadlines computed against the correct jurisdiction's rules",
+      "SOL alerts at 90, 60, 30, and 14 days for any matter without a filed demand",
+      "Calendar entries proposed with the rule cited and the source attached"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Docketing%20Agent%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The deadline you would have computed by hand",
+    "paragraphs": [
+      "It's a Wednesday at 7:30am. Overnight, a defendant's motion to dismiss landed in the docket on a personal injury matter you've had open for 4 months. By the time your paralegal is at her desk at 9, your Docketing & Deadlines agent has already pulled the filing, parsed it for the type and the service date, computed the response deadline under the local rules of the court (21 days, Saturday and Sunday excluded), drafted a calendar event for the response, and sent a Slack ping with a link to the source order and the rule it relied on.",
+      "Your paralegal opens Slack, opens the link, opens the order. She agrees with the computed deadline. She accepts the calendar entry. The whole confirmation takes 4 minutes. The motion would have sat in someone's email until lunchtime in the old workflow. By the new one, the deadline is on the calendar before the coffee is finished."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Docketing & Deadlines agent does",
+    "paragraphs": [
+      "The agent watches every active matter for incoming court documents (orders, motions, filings, notices), classifies them, and computes the response or compliance deadline under the rules of the court where the matter is pending. It accounts for weekends, holidays, court closures, and the local rules that vary between federal and state courts and between districts inside the same state. Every computed date is paired with the source rule and a link back to the underlying document.",
+      "It also runs a daily SOL sweep across your matter list. Any active claim approaching the statute of limitations gets surfaced at 90, 60, 30, and 14 days. The reminders escalate in tone, but the action is always yours. The agent proposes; the attorney accepts."
+    ]
+  },
+  "inputsOutputs": {
+    "heading": "Inputs and outputs",
+    "inputs": [
+      "Court PACER, ECF, or e-filing portal feeds for federal and state matters",
+      "Email inbox containing service of process, orders, and stipulations",
+      "Practice management system matter records (jurisdiction, parties, filing dates)",
+      "Court-rule reference for each jurisdiction your firm practices in"
+    ],
+    "outputs": [
+      "Daily docket digest with new filings, classified by type and matter",
+      "Computed response deadline for each filing with the rule cited",
+      "Proposed calendar entry on the responsible attorney's calendar",
+      "SOL watch list with days remaining and last activity per matter",
+      "Slack or email alert when a deadline is inside 7 days without a filed response",
+      "Audit log per computation showing the inputs, the rule, and the result"
+    ]
+  },
+  "integrations": [
+    "PACER, ECF, and state e-filing portals (Tyler Odyssey, eCourts, etc.)",
+    "Clio, MyCase, Practice Panther, or SmokeBall",
+    "Outlook Calendar, Google Calendar, or your court calendaring tool",
+    "Slack or Microsoft Teams for inbox-style alerts",
+    "Document management system (NetDocuments, iManage, Clio Drive)"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Deadlines are proposed, never silently entered. The agent puts a hold on the calendar with a rule citation and the source order; an attorney or paralegal accepts. If the rule is ambiguous (a court closure that fell on the same day as a filing, a local rule that overrides the federal default), the computation is flagged for human review with the conflict surfaced.",
+      "The audit trail covers every step: which document the agent saw, which rule it applied, which date it produced, who accepted or modified it. If a malpractice question ever lands on a missed deadline, the log shows what was flagged, when, and what happened next."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does it know which court's rules to apply?",
+      "answer": "Each matter carries jurisdiction metadata in your practice management system: court, district, division. The agent uses that to select the right rule set. For matters in courts with quirky local rules, we encode those rules in a skill file your team can review and update."
+    },
+    {
+      "question": "What if our court has a calendar tool already? Does this replace it?",
+      "answer": "It runs alongside. Your court calendaring system (CompuLaw, Aderant CompuLaw, Lawyaw) stays as the system of record. The agent adds the proactive layer: scanning new filings, computing deadlines, surfacing SOL exposure across matters that the calendar tool only tracks once a date is entered."
+    },
+    {
+      "question": "Can it handle the SOL when liability and damages are still uncertain?",
+      "answer": "The watch list includes any active claim with an open SOL clock, even when the firm hasn't yet decided to file. That visibility is the point: a partner can see that a borderline matter has 90 days left and decide whether to invest the workup time before the window closes on its own."
+    },
+    {
+      "question": "What about court holidays and emergency closures?",
+      "answer": "The agent maintains a holiday calendar for each court your firm practices in, including emergency closures (snow days, courthouse evacuations). When a closure shifts a deadline, the recomputation is logged and the calendar entry is updated. The attorney still confirms."
+    },
+    {
+      "question": "How long does it take to stand up?",
+      "answer": "A Blueprint plus Build cycle is typically 4 to 6 weeks. The first phase encodes the courts your firm practices in and the rule sets that govern them. The second phase shadow-runs the agent against past matters to validate the computations. The third phase brings it live on new filings under attorney supervision."
+    }
+  ]
+}

@@ -1,0 +1,71 @@
+{
+  "slug": "closing-binder",
+  "title": "Closing Binder Agent",
+  "shortDescription": "Assembles the matter closing binder when a case resolves: signed agreement, distribution statement, lien releases, file index, and the client-facing summary.",
+  "tier": "supporting",
+  "function": "casework-and-drafting",
+  "practiceAreas": ["personal-injury", "real-estate", "estates-probate", "family-law", "all"],
+  "caseSkills": [
+    "litigation-personal-injury-settlement-distribution-statement.md",
+    "lien-resolution-summary.md",
+    "verdict-judgment-summary.md"
+  ],
+  "seo": {
+    "title": "AI Closing Binder Agent for Law Firms | Dodonai",
+    "description": "Assemble the closing binder when a matter resolves: signed agreement, distribution statement, lien releases, file index, and a client-facing summary. The week-after-close work, structured.",
+    "canonical": "/ai-services/agents/closing-binder/"
+  },
+  "hero": {
+    "headline": "AI Closing Binder Agent",
+    "subheadline": "Assembles the closing binder the moment a matter resolves: signed settlement or judgment, distribution statement, lien releases, file index, and the client-facing close-out summary. The administrative tail of every closed matter, handled in a queue.",
+    "bullets": [
+      "Settlement or judgment documents indexed and filed",
+      "Distribution statement reconciled against the trust ledger",
+      "Lien releases tracked and confirmed",
+      "Client-facing close-out summary drafted in plain English"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Closing%20Binder%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The matter that would have stayed open in your PMS for 4 months",
+    "paragraphs": [
+      "A personal injury matter settles for $240,000. The check arrives, the client signs the disbursement statement, the attorney moves on to the next active matter. In the old workflow, the closing binder takes weeks to actually close: the lien releases trickle in, the file index never gets built, the close-out client letter sits in someone's drafts folder. The matter stays open in the PMS until the next quarterly cleanup. The Closing Binder agent runs the close the day the disbursement clears: every document indexed, every lien release tracked through to confirmation, the client-facing summary drafted, the file ready to archive. The matter actually closes when the matter actually closes."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Closing Binder agent does",
+    "bullets": [
+      "Indexes the settlement, judgment, or other resolution documents into the binder",
+      "Reconciles the distribution statement against the trust ledger and the fee agreement",
+      "Tracks every lien release through to confirmed satisfaction",
+      "Drafts the client-facing close-out summary in plain English",
+      "Triggers the matter-archive workflow once the binder is complete and signed off"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter and trust records",
+    "Document management system for the binder storage",
+    "Accounting system for distribution and trust reconciliation",
+    "Email for the lien-release follow-up and the client close-out delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The binder is reviewed and signed off by the responsible attorney before the matter archives. The agent surfaces the working version; the attorney confirms that every lien is released, every disbursement reconciled, every document filed. The client close-out summary doesn't go to the client without attorney review."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about matters with liens that take months to resolve?",
+      "answer": "The binder stays open with the outstanding liens visible until each is confirmed satisfied. The agent follows up with the lienholders on the cadence each typically needs. The matter doesn't archive until the binder is complete, which is the right behavior; a half-closed matter shouldn't get marked closed."
+    },
+    {
+      "question": "Does this work for non-litigation matters like real estate closings or probate?",
+      "answer": "Yes. The binder format adapts to the matter type. Real estate closings get the closing statement, the recorded deed, the title insurance, and the close-out letter. Probate matters get the order of distribution, the inventory and accounting, the receipts from beneficiaries, and the closing letter."
+    }
+  ]
+}

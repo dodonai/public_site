@@ -1,0 +1,74 @@
+{
+  "slug": "case-viability-screener",
+  "title": "Case Viability Screener Agent",
+  "shortDescription": "Scores each new matter against your firm's case-acceptance criteria and surfaces the borderline ones for partner judgment.",
+  "tier": "supporting",
+  "function": "intake-and-growth",
+  "practiceAreas": ["personal-injury", "family-law", "estates-probate", "all"],
+  "caseSkills": [
+    "case-viability-conflict-check-report.md",
+    "personal-injury-evidence-liability-summary.md"
+  ],
+  "seo": {
+    "title": "AI Case Viability Screener for Law Firms | Dodonai",
+    "description": "Score every new matter against your firm's acceptance criteria. Borderline cases surface for partner review before billable hours get spent.",
+    "canonical": "/ai-services/agents/case-viability-screener/"
+  },
+  "hero": {
+    "headline": "AI Case Viability Screener Agent",
+    "subheadline": "Every new matter scored against your firm's written criteria. Strong cases fast-tracked, borderline ones flagged for partner review, weak ones declined politely. The judgment work happens before the workup hours start.",
+    "bullets": [
+      "Lead scoring tuned to your firm's specific acceptance criteria",
+      "Estimated case value range based on similar past matters",
+      "Recommended disposition with the reasoning per criterion",
+      "Borderline cases routed to partner review automatically"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Case%20Viability%20Screener%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The case you would have worked up for nothing",
+    "paragraphs": [
+      "A new personal injury matter comes in. Slip and fall at a small commercial property, soft-tissue injuries, treatment ongoing. Your associate is about to spend 4 hours pulling the police report, ordering medical records, and drafting an evaluation memo. The Case Viability Screener flags it first: comparable matters in your archive settled in the $4,000 to $8,000 range; the property's insurance carrier disputes nearly every soft-tissue claim under $15,000; the case scores 38 against your acceptance criteria. The recommendation is decline. The partner agrees in 2 minutes. The 4 hours of workup never happens."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Case Viability Screener does",
+    "bullets": [
+      "Extracts the case facts from the intake form, supporting documents, and any uploaded medical or accident records",
+      "Scores the matter against the criteria your partners use today (injury severity, liability clarity, insurance coverage, jurisdictional venue, practice fit)",
+      "Pulls comparable past matters from your archive to estimate a value range with the basis cited",
+      "Produces a 1-page evaluation memo with the recommendation and the reasoning per criterion",
+      "Routes borderline scores (typically 50 to 70) to partner review rather than auto-declining"
+    ]
+  },
+  "integrations": [
+    "Clio, MyCase, Practice Panther, or your PMS",
+    "Document management system for the prior matter archive",
+    "Web intake forms (Typeform, Jotform, custom)",
+    "Slack or email for the partner-review queue"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The screener recommends; the attorney decides. It never auto-declines a matter or auto-signs an engagement letter. The acceptance criteria live in a file your partners can edit, so the judgment encoded in the agent is your firm's judgment, not a vendor's. Every score is logged with the inputs and the per-criterion reasoning so the call is auditable."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does it know what our acceptance criteria actually are?",
+      "answer": "The Build phase starts with a working session where your partners articulate the criteria you weigh today. We encode those into a skill file you can review and edit. After the first 20 matters, we calibrate the scoring against the calls your partners would have made to catch any drift."
+    },
+    {
+      "question": "What if our criteria change as the practice evolves?",
+      "answer": "The criteria file is editable by your team. A partner who wants to tighten the bar on borderline soft-tissue cases can adjust the weights and the threshold; the next intake reflects the change immediately. The Managed retainer includes quarterly criteria reviews to surface drift and validate the calibration."
+    },
+    {
+      "question": "Does it work for non-PI practices?",
+      "answer": "Yes. The same pattern applies to family law (custody complexity, asset profile, conflict potential), estates work (estate size, family dynamics, potential will contests), and other practice areas. The criteria are different; the architecture is the same."
+    }
+  ]
+}

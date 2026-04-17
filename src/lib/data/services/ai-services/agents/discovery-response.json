@@ -1,0 +1,69 @@
+{
+  "slug": "discovery-response",
+  "title": "Discovery Response Agent",
+  "shortDescription": "Drafts responses and objections to incoming discovery, organizes the document production, and keeps the privilege log current.",
+  "tier": "supporting",
+  "function": "casework-and-drafting",
+  "practiceAreas": ["personal-injury", "all"],
+  "caseSkills": [
+    "litigation-personal-injury-discovery-response-builder.md"
+  ],
+  "seo": {
+    "title": "AI Discovery Response Agent for Law Firms | Dodonai",
+    "description": "Draft responses and objections to incoming discovery, organize the document production, and keep the privilege log current. The discovery response that doesn't eat a week.",
+    "canonical": "/ai-services/agents/discovery-response/"
+  },
+  "hero": {
+    "headline": "AI Discovery Response Agent",
+    "subheadline": "Drafts the responses and objections to incoming discovery, organizes the production, and maintains the privilege log. The work that used to consume an associate week becomes a structured queue with attorney review at the gate.",
+    "bullets": [
+      "Drafts responses and objections per request",
+      "Organizes the document production with the right Bates numbering",
+      "Maintains the privilege log with the basis per withheld document",
+      "Surfaces requests where the response strategy needs partner judgment"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Discovery%20Response%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The discovery response week you would have lost",
+    "paragraphs": [
+      "Your client gets served with 47 interrogatories, 32 requests for production, and 18 requests for admission. The old workflow loses a week of associate time to drafting responses, reviewing the document set, and building the privilege log. The Discovery Response agent drafts a working response per request, surfaces the 9 that need partner judgment on objection strategy, organizes the production with the Bates ranges, and builds the privilege log with the basis per withheld document. The associate spends 2 days reviewing instead of a week assembling."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Discovery Response agent does",
+    "bullets": [
+      "Drafts a response per interrogatory, request for production, and request for admission",
+      "Identifies and proposes objections with the legal basis per request",
+      "Organizes the document production with Bates numbering and exhibit indexing",
+      "Maintains the privilege log with the basis (attorney-client, work product, joint defense) per document",
+      "Surfaces requests where the response strategy requires partner judgment"
+    ]
+  },
+  "integrations": [
+    "Document management system for the production set",
+    "Practice management system for matter facts and pleadings",
+    "E-discovery platforms (Everlaw, Relativity, Casepoint) where used",
+    "Microsoft Word for the response document delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Every response draft is reviewed by the responsible attorney before service. The privilege log is treated as high-stakes; the responsible attorney verifies the basis per document. The agent doesn't decide what to produce or what to withhold; it surfaces the working position and the basis for the attorney's call."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does it handle ESI and proportionality questions?",
+      "answer": "For matters with significant ESI, the agent reads the proposed scope from the request and assesses proportionality against the matter's value and complexity. The proposed objection cites the proportionality factors and proposes a narrower production scope where appropriate."
+    },
+    {
+      "question": "What about requests that touch privileged communications?",
+      "answer": "The agent flags any request that implicates privileged communications and proposes the privilege-based objection with the basis. The privilege log captures every withheld document. The attorney makes the call on every withholding decision."
+    }
+  ]
+}

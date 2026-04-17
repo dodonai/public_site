@@ -1,0 +1,70 @@
+{
+  "slug": "appellate-brief-drafter",
+  "title": "Appellate Brief Drafter Agent",
+  "shortDescription": "Drafts the statement of facts, the standard-of-review section, the argument, and the table of authorities for an appellate brief.",
+  "tier": "supporting",
+  "function": "casework-and-drafting",
+  "practiceAreas": ["all"],
+  "caseSkills": [
+    "legal-memoranda.md",
+    "legal-research-summaries.md"
+  ],
+  "seo": {
+    "title": "AI Appellate Brief Drafter Agent for Law Firms | Dodonai",
+    "description": "Draft the statement of facts, standard of review, argument, and table of authorities for an appellate brief. The appellate practice that scales without adding heads.",
+    "canonical": "/ai-services/agents/appellate-brief-drafter/"
+  },
+  "hero": {
+    "headline": "AI Appellate Brief Drafter Agent",
+    "subheadline": "Drafts the statement of facts grounded in the trial-court record, the standard of review per issue, the argument structured to the court's preferred format, and the table of authorities. The appellate practice that doesn't require a dedicated appellate associate.",
+    "bullets": [
+      "Statement of facts grounded in the trial-court record with citations",
+      "Standard of review identified per issue with controlling authority",
+      "Argument structured to the appellate court's preferred format",
+      "Table of authorities and table of contents generated automatically"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Appellate%20Brief%20Drafter%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The brief you would have outsourced",
+    "paragraphs": [
+      "Your firm doesn't have a dedicated appellate practice. A trial loss leaves a client wanting an appeal and your senior partner doesn't want to send the work out. In the old workflow, the partner spends 3 weekends pulling the record and drafting the brief from scratch. The Appellate Brief Drafter produces the working draft in days: statement of facts with the record citations, standard of review per issue, argument structured to the court's preferred format, table of authorities. The partner spends his weekends refining the argument instead of assembling the brief."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Appellate Brief Drafter does",
+    "bullets": [
+      "Drafts the statement of facts grounded in the trial-court record with full citations",
+      "Identifies the standard of review per issue with controlling authority",
+      "Drafts the argument section structured to the appellate court's preferred format",
+      "Generates the table of authorities and table of contents automatically",
+      "Verifies every citation against the underlying case, statute, or record cite"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter context",
+    "Document management system for the trial-court record",
+    "Westlaw, Lexis, or Fastcase for citation verification",
+    "Microsoft Word for the draft delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Every citation is verified against the underlying authority before the draft leaves the agent. The reviewer's checklist surfaces the highest-stakes citations and the most aggressive argument framings for the responsible attorney to confirm. The brief never files; the attorney signs and submits."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about appeals where the record is enormous?",
+      "answer": "For records spanning thousands of pages, the agent processes the full record and surfaces the entries that matter for the issues on appeal. The statement of facts cites the record by transcript page or appendix page. The attorney verifies the high-stakes record cites against the source."
+    },
+    {
+      "question": "Does this work for state appellate practice with very specific format rules?",
+      "answer": "The format requirements per appellate court (US Supreme Court, federal circuits, state courts of appeal, state supreme courts) are encoded in skill files. The brief that comes out of the agent matches the format of the court it's being filed in. The Build phase confirms coverage for your practice."
+    }
+  ]
+}

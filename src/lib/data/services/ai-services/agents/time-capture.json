@@ -1,0 +1,67 @@
+{
+  "slug": "time-capture",
+  "title": "Time Capture Agent",
+  "shortDescription": "Reconstructs the day's billable activity from email, calendar, and document edits and drafts the time entries for attorney review.",
+  "tier": "supporting",
+  "function": "operations-and-billing",
+  "practiceAreas": ["all"],
+  "caseSkills": [],
+  "seo": {
+    "title": "AI Time Capture Agent for Law Firms | Dodonai",
+    "description": "Reconstruct the day's billable activity from email, calendar, and document edits. Drafts time entries you review and post. The 2.3 hours that never made it onto the bill, recovered.",
+    "canonical": "/ai-services/agents/time-capture/"
+  },
+  "hero": {
+    "headline": "AI Time Capture Agent",
+    "subheadline": "Watches your email, calendar, and document edits during the day. At day's end, drafts the time entries with the matter, the activity, the duration, and a defensible narrative. You review and post. The unbilled work that used to slip stays on the bill.",
+    "bullets": [
+      "Activity reconstructed from email, calendar, and document edits",
+      "Time entries drafted per matter with a defensible narrative",
+      "End-of-day review queue, not a constantly-pinging interruption",
+      "Realization-rate uplift typically 8 to 15% in the first quarter"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Time%20Capture%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The 2 hours that would have stayed unbilled",
+    "paragraphs": [
+      "You spent your Monday on the Patel matter: 2 emails to opposing counsel in the morning, 45 minutes editing the discovery responses, a 30-minute call you didn't put on the calendar, an hour reviewing the supplemental medical records that came in. You meant to enter the time. By Friday only the 45-minute drafting block made it into Clio. The Time Capture agent drafts all 4 entries on Monday at 6pm with the defensible narrative attached. You review them in 90 seconds, post them, and Tuesday's bill reflects what Monday actually was."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Time Capture agent does",
+    "bullets": [
+      "Watches email metadata, calendar entries, and document-edit signals during the day",
+      "Attributes each block of activity to the matter it touched",
+      "Drafts a time entry per matter with the duration and a defensible narrative",
+      "Surfaces the entries in an end-of-day review queue rather than interrupting during the day",
+      "Posts approved entries to the practice management system on attorney signoff"
+    ]
+  },
+  "integrations": [
+    "Gmail or Outlook for email signals",
+    "Google Calendar or Outlook Calendar",
+    "Microsoft 365 or Google Workspace for document-edit signals",
+    "Practice management system (Clio, MyCase, Practice Panther) for time entry posting"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Entries are drafts. The attorney reviews and posts. The agent doesn't bill the client; it surfaces what the day looked like and lets the attorney decide what's billable. Entries flagged as ambiguous (a meeting that touched multiple matters, a research block with unclear attribution) wait for the attorney's call rather than guessing."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about non-billable activity that shouldn't end up on a client's invoice?",
+      "answer": "The agent classifies activity as billable, non-billable, or ambiguous. Non-billable entries (firm administration, business development, internal meetings) go into the corresponding internal time category rather than to a client matter. The classifications are tunable per attorney."
+    },
+    {
+      "question": "How does it handle confidential client matters where the agent shouldn't see the content?",
+      "answer": "The agent uses metadata (subject lines, recipients, document file paths) by default, not full content. For matters where even the metadata is sensitive, the matter can be excluded from the capture scope and the attorney enters the time manually. Exclusions are set during Build."
+    }
+  ]
+}

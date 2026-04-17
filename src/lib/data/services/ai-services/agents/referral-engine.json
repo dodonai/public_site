@@ -1,0 +1,73 @@
+{
+  "slug": "referral-engine",
+  "title": "Referral Engine Agent",
+  "shortDescription": "Tracks every referral source, drafts the thank-you note when a case closes, and surfaces the partners worth taking to lunch.",
+  "tier": "supporting",
+  "function": "intake-and-growth",
+  "practiceAreas": ["all"],
+  "caseSkills": [
+    "case-summary-report.md"
+  ],
+  "seo": {
+    "title": "AI Referral Engine Agent for Law Firms | Dodonai",
+    "description": "Track every referral source, draft the thank-you note on case close, and surface the relationships worth investing in. The growth lever most firms forget to pull.",
+    "canonical": "/ai-services/agents/referral-engine/"
+  },
+  "hero": {
+    "headline": "AI Referral Engine Agent",
+    "subheadline": "Tracks every referral, computes the lifetime value of each source, drafts the thank-you note when a case closes, and surfaces the relationships worth a coffee. The growth channel that compounds when you remember to nurture it.",
+    "bullets": [
+      "Automatic referral attribution from the intake record",
+      "Lifetime value computed per source by matter count and fee revenue",
+      "Thank-you notes drafted on case close, in your voice",
+      "Quarterly relationship-investment list with the next-touch suggestion"
+    ],
+    "ctaText": "Start a Fit Call",
+    "ctaUrl": "mailto:hello@dodon.ai?subject=Referral%20Engine%20Fit%20Call",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "scenario": {
+    "heading": "The relationship you would have let cool",
+    "paragraphs": [
+      "An estates partner at a downtown firm has been referring you family law matters for 3 years. You've closed 11 of those with combined fees north of $180,000. You meant to send her a real thank-you after the last one closed. You also meant to take her to lunch in February. Both slipped. The Referral Engine drafts the thank-you note within a day of every closed matter and posts a quarterly list of your top 10 sources with the last-touch date and a recommended next contact. The lunch she's owed shows up on your calendar before the relationship cools."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Referral Engine does",
+    "bullets": [
+      "Captures the referral source on every new matter from the intake record",
+      "Tracks matter count, fee revenue, and outcome per source over time",
+      "Drafts a thank-you note on case close, tuned to your voice and the source's relationship type",
+      "Posts a quarterly relationship-investment list ranked by lifetime value and last-touch recency",
+      "Suggests next-contact format (lunch, coffee, holiday note, case-related touch)"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter and source attribution",
+    "Accounting system for fee revenue per source",
+    "Gmail or Outlook for the thank-you draft layer",
+    "CRM (HubSpot, Pipedrive) if you use one alongside the PMS"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Thank-you notes are drafts you review and send. The agent doesn't send a personal message to a referral source on your behalf. The relationship analysis is internal-only by default, scoped to the partners and any business-development lead who should see it."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about referrals from sources where the attribution wasn't captured at intake?",
+      "answer": "The agent prompts the responsible attorney during the first matter update to confirm the source if it's missing. After 3 to 6 months of disciplined attribution, your historical picture starts to look reliable. The Managed retainer reviews unattributed matters monthly and surfaces them for cleanup."
+    },
+    {
+      "question": "Does this overlap with what our CRM does?",
+      "answer": "Most legal CRMs track contacts and pipelines but don't compute lifetime value across the matter book. The Referral Engine sits on top of whichever CRM you use (or directly on the PMS if you don't use a CRM) and adds the analysis and the drafting layer."
+    },
+    {
+      "question": "How does it handle reciprocal referrals?",
+      "answer": "Reciprocity is part of the relationship picture. The agent tracks both inbound and outbound referrals where you can attribute them, so the quarterly list shows whether the relationship is balanced or one-sided. That signal informs the next-touch recommendation."
+    }
+  ]
+}
