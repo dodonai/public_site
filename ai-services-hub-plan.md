@@ -20,17 +20,22 @@ Dodonai already has a single `/ai-services/` landing page on `public_site` (buil
 
 ---
 
-## Execution Status (as of 2026-04-16)
+## Execution Status (as of 2026-04-17)
 
-Branch: `feature/ai-services-hub` on `public_site`. Working without merging to `main` until Phase 5 ships.
+Branch: `feature/ai-services-hub` on `public_site`. All planned phases shipped; branch is ready for the Phase 5 acceptance checklist and merge to `main`.
 
 | Phase | Scope | Status |
 |-------|-------|--------|
 | **Phase 1** | Foundation: hub overview page, mega-menu nav, dynamic `[slug]` routes for agents/practice-areas/functions, catalog filter UI, `AiServicesHeroAnimation` 3-phase upgrade, `AgentCard` component | ✅ Done (commit `eb39d0a`) |
-| **Phase 2** | 3 core sub-pages: `/how-it-works/`, `/safety/`, `/our-agents/`. Sitemap entries added. Decision: no shared `+layout.svelte` — breadcrumbs render inline per page. | ✅ Done |
-| **Phase 3** | 38 agent JSONs (7 flagship + 31 supporting). Files live at `src/lib/data/services/ai-services/agents/<slug>.json`. Voice-DNA scan clean. | ✅ Done |
-| **Phase 4** | 7 practice-area JSONs + 6 function JSONs. Routes already exist from Phase 1 windfall. | ⬜ Next |
-| **Phase 5** | 6 new hero animations (HowItWorks, Safety, OurAgents, AgentCatalog, PracticeArea-shared, Function-shared). | ⬜ Pending |
+| **Phase 2** | 3 core sub-pages: `/how-it-works/`, `/safety/`, `/our-agents/`. Sitemap entries added. Decision: no shared `+layout.svelte` — breadcrumbs render inline per page. | ✅ Done (commit `41f65d1`) |
+| **Phase 3** | 38 agent JSONs (7 flagship + 31 supporting). Files live at `src/lib/data/services/ai-services/agents/<slug>.json`. Voice-DNA scan clean. | ✅ Done (commit `9cfee72`) |
+| **Phase 4** | 7 practice-area JSONs + 6 function JSONs. Routes already exist from Phase 1 windfall. | ✅ Done (commit `ac2835d`) |
+| **Phase 5** | 6 new hero animations (HowItWorks, Safety, OurAgents, AgentCatalog, PracticeArea-shared, Function-shared). | ✅ Done (commit `f651c63`) |
+
+**Additional work on branch beyond plan:**
+- `641315a` — per-agent workflow animations across all 38 agent pages
+- `dd9f2f2` — voice-DNA fix (em-dash in catalog title)
+- `6b7e6db` — card overflow fix in hero animations
 
 ### Key changes from original plan during execution
 
