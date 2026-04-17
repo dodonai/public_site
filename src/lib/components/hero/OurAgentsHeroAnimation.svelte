@@ -13,7 +13,7 @@
 	const rulerHours = Array.from({ length: 6 }, (_, i) => rulerRange.start + i * 2);
 </script>
 
-<AnimationStage durations={[4200, 4400, 4400, 4500]} height={520}>
+<AnimationStage durations={[4200, 4400, 4400, 4500]} height={560}>
 	{#snippet children(step)}
 		<!-- Phase 0: Roster grid -->
 		{#if step === 0}
@@ -225,7 +225,8 @@
 		padding: 18px 20px;
 		width: 100%;
 		max-width: 440px;
-		max-height: calc(100% - 24px);
+		max-height: 480px;
+		overflow: hidden;
 		animation: fadeInScale 0.5s ease-out forwards;
 		display: flex;
 		flex-direction: column;

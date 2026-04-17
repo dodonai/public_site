@@ -95,7 +95,7 @@
 			{@const Comp = HeroAnimation}
 			<Comp />
 		{:else}
-			<div style="height: 500px" aria-hidden="true"></div>
+			<div style="height: 540px" aria-hidden="true"></div>
 		{/if}
 	</ServiceHero>
 

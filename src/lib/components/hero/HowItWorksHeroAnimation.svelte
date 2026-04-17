@@ -22,7 +22,7 @@
 	];
 </script>
 
-<AnimationStage durations={[4200, 5400, 5600]} height={500}>
+<AnimationStage durations={[4200, 5400, 5600]} height={540}>
 	{#snippet children(step)}
 		<!-- Phase 0: Paralegal Test -->
 		{#if step === 0}
@@ -180,7 +180,8 @@
 		padding: 18px 20px;
 		width: 100%;
 		max-width: 420px;
-		max-height: calc(100% - 24px);
+		max-height: 460px;
+		overflow: hidden;
 		animation: fadeInScale 0.5s ease-out forwards;
 		display: flex;
 		flex-direction: column;
