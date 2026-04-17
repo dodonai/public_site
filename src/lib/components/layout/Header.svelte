@@ -199,7 +199,7 @@
 					onclick={() => (activeDropdown = activeDropdown === 'ai-services' ? null : 'ai-services')}
 					onblur={() => setTimeout(() => { if (activeDropdown === 'ai-services') activeDropdown = null; }, 200)}
 				>
-					AI Services
+					AI Agents
 					<svg
 						class="h-4 w-4 transition-transform {activeDropdown === 'ai-services' ? 'rotate-180' : ''}"
 						fill="none"
@@ -403,7 +403,7 @@
 						aria-expanded={mobileActiveSection === 'ai-services'}
 						onclick={() => (mobileActiveSection = mobileActiveSection === 'ai-services' ? null : 'ai-services')}
 					>
-						AI Services
+						AI Agents
 						<svg
 							class="h-4 w-4 transition-transform {mobileActiveSection === 'ai-services' ? 'rotate-180' : ''}"
 							fill="none"
