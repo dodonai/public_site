@@ -52,19 +52,20 @@
       "Lien releases tracked and confirmed",
       "Client-facing close-out summary drafted in plain English"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=Closing%20Binder%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
-    "heading": "The matter that would have stayed open in your PMS for 4 months",
+    "heading": "The matter that would have stayed open in your practice management system for 4 months",
     "paragraphs": [
-      "A personal injury matter settles for $240,000. The check arrives, the client signs the disbursement statement, the attorney moves on to the next active matter. In the old workflow, the closing binder takes weeks to actually close: the lien releases trickle in, the file index never gets built, the close-out client letter sits in someone's drafts folder. The matter stays open in the PMS until the next quarterly cleanup. The Closing Binder agent runs the close the day the disbursement clears: every document indexed, every lien release tracked through to confirmation, the client-facing summary drafted, the file ready to archive. The matter actually closes when the matter actually closes."
+      "A personal injury matter settles for $240,000. The check arrives, the client signs the disbursement statement, the attorney moves on to the next active matter. In the old workflow, the closing binder takes weeks to actually close: the lien releases trickle in, the file index never gets built, the close-out client letter sits in someone's drafts folder. The matter stays open in the practice management system until the next quarterly cleanup. The Closing Binder agent runs the close the day the disbursement clears: every document indexed, every lien release tracked through to confirmation, the client-facing summary drafted, the file ready to archive. The matter actually closes when the matter actually closes."
     ]
   },
   "whatItDoes": {

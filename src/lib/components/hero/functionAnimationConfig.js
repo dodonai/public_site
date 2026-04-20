@@ -22,7 +22,7 @@ export const functionAnimationConfig = {
 		label: 'Deadlines & Compliance',
 		icon: 'calendar',
 		before: [
-			{ label: 'Scattered calendars', detail: 'PMS, Outlook, spreadsheets' },
+			{ label: 'Scattered calendars', detail: 'practice management system, Outlook, spreadsheets' },
 			{ label: 'Manual SOL math', detail: 'Per-jurisdiction rules' },
 			{ label: 'Ethics tracking', detail: 'Done once a quarter' }
 		],

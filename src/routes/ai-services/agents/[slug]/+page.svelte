@@ -116,6 +116,7 @@
 		secondaryCtaText={agent.hero.secondaryCtaText}
 		secondaryCtaUrl={agent.hero.secondaryCtaUrl}
 		badges={agent.hero.badges}
+		guarantee={agent.hero.guarantee}
 		background="bg-transparent"
 	>
 		{#if HeroAnimation && agent.workflow}

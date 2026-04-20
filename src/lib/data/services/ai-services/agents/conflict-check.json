@@ -46,14 +46,15 @@
       "Ethical walls enforced across practice groups and attorneys",
       "Logged audit trail for every check"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=Conflict%20Check%20Agent%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
     "heading": "The conflict you would have missed",
@@ -86,7 +87,7 @@
   "faq": [
     {
       "question": "Does it replace our current conflict-check process?",
-      "answer": "It runs alongside it. Your existing Clio or PMS check stays in place as the system of record. The agent adds a full-text, related-party layer on top and flags anything the field-level check might have missed."
+      "answer": "It runs alongside it. Your existing Clio or practice management system check stays in place as the system of record. The agent adds a full-text, related-party layer on top and flags anything the field-level check might have missed."
     },
     {
       "question": "How do you handle client confidentiality during the check?",

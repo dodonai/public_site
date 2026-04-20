@@ -79,6 +79,7 @@
 		secondaryCtaText={data.hero.secondaryCtaText}
 		secondaryCtaUrl={data.hero.secondaryCtaUrl}
 		badges={data.hero.badges}
+		guarantee={data.hero.guarantee}
 		background="bg-transparent"
 	>
 		{#if HeroAnimation}
@@ -140,10 +141,10 @@
 						</svg>
 					</div>
 					<h3 class="mt-5 text-xl font-bold text-[#282876] group-hover:text-[#836ae4]">
-						See the 13 agents we run on ourselves
+						See the agents we run on ourselves
 					</h3>
 					<p class="mt-3 text-base leading-7 text-[#8181ac]">
-						Every morning, 13 custom agents process our inbox, outreach, account health, churn signals, and more. The playbook your firm gets is one we already run in production.
+						Every morning, dozens of custom agents process our inbox, outreach, account health, churn signals, and more. The playbook your firm gets is one we already run in production.
 					</p>
 					<span class="mt-5 inline-flex items-center gap-1 text-sm font-medium text-[#836ae4]">
 						See our agents

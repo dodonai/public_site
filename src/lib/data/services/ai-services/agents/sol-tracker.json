@@ -49,14 +49,15 @@
       "Escalating alerts at 90, 60, 30, and 14 days",
       "Cross-checked against your filed-complaint record so closed matters drop off"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=SOL%20Tracker%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
     "heading": "The clock you would have lost track of",
@@ -89,7 +90,7 @@
   "faq": [
     {
       "question": "How does it know which cause of action governs the SOL?",
-      "answer": "The matter file in your PMS carries the cause of action and the legal theory. For matters where the theory is unsettled (concurrent contract and tort claims, federal preemption questions), the agent applies the shorter SOL by default and flags the ambiguity for partner judgment."
+      "answer": "The matter file in your practice management system carries the cause of action and the legal theory. For matters where the theory is unsettled (concurrent contract and tort claims, federal preemption questions), the agent applies the shorter SOL by default and flags the ambiguity for partner judgment."
     },
     {
       "question": "What about discovery-rule jurisdictions where the trigger isn't the injury date?",

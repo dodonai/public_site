@@ -54,7 +54,7 @@
 		{
 			'@context': 'https://schema.org',
 			'@type': 'ItemList',
-			name: 'The 13 agents Dodonai runs in production',
+			name: 'The AI agents Dodonai runs in production',
 			itemListElement: data.morning.events.map((e, i) => ({
 				'@type': 'ListItem',
 				position: i + 1,
@@ -85,6 +85,7 @@
 		ctaUrl={data.hero.ctaUrl}
 		secondaryCtaText={data.hero.secondaryCtaText}
 		secondaryCtaUrl={data.hero.secondaryCtaUrl}
+		guarantee={data.hero.guarantee}
 		background="bg-transparent"
 	>
 		{#if HeroAnimation}
@@ -153,5 +154,5 @@
 
 <CTASection
 	headline="Want this architecture inside your firm?"
-	description="Email hello@dodon.ai or book a 30-minute fit call. We'll start by figuring out which 1 workflow makes you groan every week. That's your first agent."
+	description="Email hello@dodon.ai or book an intro call. We'll start by figuring out which 1 workflow makes you groan every week. That's your first agent."
 />

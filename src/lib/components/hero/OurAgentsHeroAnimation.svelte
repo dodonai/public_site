@@ -17,7 +17,7 @@
 	{#snippet children(step)}
 		<!-- Phase 0: Roster grid -->
 		{#if step === 0}
-			<PhaseWrapper caption="13 agents. Running every morning. On us.">
+			<PhaseWrapper caption="Dozens of agents. Running every morning. On us.">
 				<div class="scene">
 					<div class="roster-card">
 						<div class="card-header">
@@ -100,7 +100,7 @@
 					<div class="focus-card">
 						<div class="card-header">
 							<span class="card-title">Agent Outputs</span>
-							<span class="card-tag card-tag-violet">3 of 13</span>
+							<span class="card-tag card-tag-violet">Sample of 3</span>
 						</div>
 						<div class="focus-stack">
 							{#each focus as entry, i}

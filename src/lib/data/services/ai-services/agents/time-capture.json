@@ -26,8 +26,8 @@
       "detail": "Weekly batch for your confirmation"
     },
     {
-      "label": "Sync to PMS",
-      "detail": "Confirmed entries written to Clio or equivalent"
+      "label": "Sync to practice management system",
+      "detail": "Confirmed entries written to your practice management system"
     }
   ],
   "seo": {
@@ -44,19 +44,20 @@
       "End-of-day review queue, not a constantly-pinging interruption",
       "Realization-rate uplift typically 8 to 15% in the first quarter"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=Time%20Capture%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
     "heading": "The 2 hours that would have stayed unbilled",
     "paragraphs": [
-      "You spent your Monday on the Patel matter: 2 emails to opposing counsel in the morning, 45 minutes editing the discovery responses, a 30-minute call you didn't put on the calendar, an hour reviewing the supplemental medical records that came in. You meant to enter the time. By Friday only the 45-minute drafting block made it into Clio. The Time Capture agent drafts all 4 entries on Monday at 6pm with the defensible narrative attached. You review them in 90 seconds, post them, and Tuesday's bill reflects what Monday actually was."
+      "You spent your Monday on the Patel matter: 2 emails to opposing counsel in the morning, 45 minutes editing the discovery responses, a 30-minute call you didn't put on the calendar, an hour reviewing the supplemental medical records that came in. You meant to enter the time. By Friday only the 45-minute drafting block made it into your billing system. The Time Capture agent drafts all 4 entries on Monday at 6pm with the defensible narrative attached. You review them in 90 seconds, post them, and Tuesday's bill reflects what Monday actually was."
     ]
   },
   "whatItDoes": {

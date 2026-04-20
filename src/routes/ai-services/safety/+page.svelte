@@ -89,6 +89,7 @@
 		ctaUrl={data.hero.ctaUrl}
 		secondaryCtaText={data.hero.secondaryCtaText}
 		secondaryCtaUrl={data.hero.secondaryCtaUrl}
+		guarantee={data.hero.guarantee}
 		background="bg-transparent"
 	>
 		{#if HeroAnimation}
