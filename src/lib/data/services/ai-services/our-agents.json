@@ -1,16 +1,17 @@
 {
   "seo": {
-    "title": "Our 13 AI Agents: The Playbook We Run On Ourselves | Dodonai",
-    "description": "Every morning at Dodonai, 13 custom AI agents process our inbox, surface meeting intel, draft churn saves, monitor SEO, and report back. Same architecture we ship to law firms.",
+    "title": "The AI Agents We Run On Ourselves: Our Playbook | Dodonai",
+    "description": "Every morning at Dodonai, dozens of custom AI agents process our inbox, surface meeting intel, draft churn saves, monitor SEO, and report back. Same architecture we ship to law firms.",
     "canonical": "/ai-services/our-agents/"
   },
   "hero": {
     "headline": "What our AI team does every morning",
-    "subheadline": "13 custom agents run on us before our team is awake. Meeting prep, inbox triage, churn intelligence, SEO, ads, customer health. Different inputs from a law firm. Identical architecture. The playbook your firm gets is one we already run in production.",
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=AI%20Services%20Fit%20Call",
+    "subheadline": "Dozens of custom agents run on us before our team is awake. Meeting prep, inbox triage, churn intelligence, SEO, ads, customer health. Same architecture we ship to law firms, pointed at a different set of inputs. The playbook your firm gets is one we already run in production.",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "Browse the Agent Catalog",
-    "secondaryCtaUrl": "/ai-services/agents/"
+    "secondaryCtaUrl": "/ai-services/agents/",
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "morning": {
     "heading": "A weekday morning, before the team is up",
@@ -87,8 +88,8 @@
     "heading": "What this looks like translated into a law firm",
     "paragraphs": [
       "Same architecture, different inputs. The agents we run on ourselves were designed for a marketing-and-operations problem. The ones we ship to firms are designed for a casework-and-deadline problem. The pattern underneath is identical: skills written in plain English, connections to the systems your team already uses, schedules that fire on their own, drafts that wait for a human gate.",
-      "A 7am agent pulls the file history for every matter you have a meeting on, reviews recent correspondence, and surfaces approaching deadlines in a case-prep briefing before you leave the house. An 8am inbox triage classifies every overnight email, flagging motions and deposition notices immediately, archiving newsletters. A 9am billing reconciler compares your calendar and email activity against yesterday's time entries and finds the 2.3 hours you spent on the Patel file that never made it into Clio. A daily SOL monitor scans every active matter and flags any deadline within 30 days where no demand has been filed yet.",
-      "We didn't build all 13 of our agents on day one. We built one. We watched it work for a few weeks. We built the next one. {{link:/ai-services/how-it-works/|That's the same path}} we recommend for your firm. Pick the workflow that makes you groan every week. Build that one first. Add from there."
+      "Lead with an SOL monitor. It scans every active matter each morning and flags any deadline inside 30 days where nothing's been filed. That one's table stakes. Then a 7am case-prep agent pulls the file history for every matter on your calendar, reads recent correspondence, and drops a briefing before you leave the house. Inbox triage runs at 8am: classifies every overnight email, surfaces motions and deposition notices, archives the newsletters. A billing reconciler at 9am cross-checks your calendar and email against yesterday's time entries. Finds the 2.3 hours you spent on the Patel file that never made it into your practice management system.",
+      "We didn't build all of our agents on day one. We built one. We watched it work for a few weeks. We built the next one. {{link:/ai-services/how-it-works/|That's the same path}} we recommend for your firm. Pick the workflow that makes you groan every week. Build that one first. Add from there."
     ]
   },
   "proof": {

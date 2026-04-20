@@ -2,11 +2,11 @@
   "slug": "real-estate",
   "seo": {
     "title": "AI Services for Real Estate Law Firms | Dodonai",
-    "description": "Custom AI agents for real estate closings: closing condition tracking, title document matching, deadline cascades, FIRPTA flags, cross-border compliance.",
+    "description": "Custom AI agents for real estate firms. Track every closing condition, match title documents, flag missing estoppels, and layer FIRPTA and cross-border compliance automatically.",
     "canonical": "/ai-services/for/real-estate/"
   },
   "hero": {
-    "headline": "AI Services for Real Estate Law Firms",
+    "headline": "Never lose a closing to a missing estoppel",
     "subheadline": "A commercial closing involves dozens of conditions scattered across 20+ emails from title companies, lenders, surveyors, and opposing counsel. The missing estoppel surfaces the day before closing. We build AI agents that track every condition in real time."
   },
   "scenario": {
@@ -21,7 +21,7 @@
     "heading": "Why AI fits real estate practice",
     "paragraphs": [
       "Real estate closings are condition-tracking and deadline-monitoring. Documents come in, they satisfy checklist items, missing items escalate toward the closing date. The legal analysis per item is usually clean: this is the estoppel, this is the wire authorization, this is the title commitment. The challenge is orchestrating 30 or 40 items across 5 or 10 active closings in parallel, without dropping the one item that blows up the deal.",
-      "That orchestration is exactly what agents handle. The checklist is templated per deal type. The classification rules are clear. The deadlines are computable from the closing date. The attorney stays on negotiation, on structuring, on the calls that shape the deal. The mechanical tracking moves to the agent."
+      "That orchestration is exactly what agents handle. The checklist is templated per deal type. The classification rules are clear. The deadlines are computable from the closing date. The attorney stays on negotiation, on structuring, on the calls that shape the deal. The mechanical tracking moves to the agent. Real-estate work touches wire instructions and trust-account data, so agents run in your account under SOC 2 and HIPAA controls, with zero data retention from our LLM providers. Drafts only, never auto-sends: the agent flags; the attorney approves."
     ]
   },
   "agentRelevance": {
@@ -31,8 +31,8 @@
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
-      "We start with Blueprint, a 2-week engagement where we walk through 3 or 4 recent closings, map the conditions, and identify where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
-      "Build is 4 to 6 weeks. We encode your closing checklists by deal type, connect the agent to your email and document storage, and run it in shadow mode on an active closing while we tune. Cross-border compliance rules are added in the skill file so they fire automatically on the right deals.",
+      "We start with Blueprint, a 2 to 3 week engagement where we walk through 3 or 4 recent closings, map the conditions, and identify where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Build is 4 to 8 weeks. We encode your closing checklists by deal type, connect the agent to your email and document storage, and run it in shadow mode on an active closing while we tune. Cross-border compliance rules are added in the skill file so they fire automatically on the right deals.",
       "Managed is the ongoing operating mode. We monitor the agents, extend checklists as new deal types come through, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
     ]
   },
@@ -55,7 +55,7 @@
     },
     {
       "question": "How much does this cost?",
-      "answer": "We don't publish pricing because the scope varies by deal volume and jurisdiction complexity. Most real estate practices see the first agent pay back inside 4 months through reclaimed paralegal time and fewer near-misses on closing conditions. We'll give you a fixed-fee Blueprint quote on a short fit call."
+      "answer": "We don't publish pricing because the scope varies by deal volume and jurisdiction complexity. On a practice running 5 to 10 active closings, the agent usually pays back through reclaimed paralegal time and fewer near-misses on closing conditions. We'll model the math against your deal flow on a short fit call and give you a fixed-fee Blueprint quote."
     }
   ]
 }

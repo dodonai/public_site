@@ -13,29 +13,29 @@
     "heading": "The book you can't see",
     "paragraphs": [
       "A managing partner runs a 12-attorney firm. At any given Monday, there are 180 active matters. He knows the big ones. He knows the ones on fire. He has no line of sight into the quiet ones: the matter that hasn't had activity in 45 days, the one where the scope has crept 40% past the original estimate, the one where the paralegal is writing down time because she doesn't think the client will pay. He finds out about them in quarterly review, which is quarters late.",
-      "With a practice intelligence team of agents in place, the partner opens a dashboard on Monday morning and sees the book. Matters with no activity in 30+ days, flagged. Matters where scope has exceeded the engagement letter, flagged. Matters with declining realization rates, flagged. Referral sources ranked by profit per matter, not just intake volume. Pipeline forecasts by practice area with lead-to-retained conversion trends.",
-      "None of this replaces the partner's judgment. It surfaces the data the partner would have to ask 3 different people and wait a week for. The intelligence compounds. The firm runs less on gut and more on what's actually happening."
+      "With a practice intelligence team of agents in place, the partner opens a dashboard on Monday morning and sees the book. Matters with no activity in 30+ days. Scope creep past the engagement letter. Realization rates sliding on a partner's book. All flagged before the quarterly review catches them. Referral sources ranked by profit per matter, not intake volume. Pipeline forecasts by practice area with lead-to-retained conversion trends.",
+      "None of this replaces the partner's judgment. It surfaces the data the partner would have to ask 3 different people and wait a week for. The intelligence compounds. Decisions land on what's happening now."
     ]
   },
   "whyAi": {
     "heading": "Why AI fits practice intelligence",
     "paragraphs": [
       "Practice intelligence is aggregation, pattern recognition, and signal surfacing on data you already have. Matter records, time entries, invoices, referral sources, calendar entries, email threads. The data lives in your practice management system, your accounting platform, your CRM, and your email. The challenge is pulling it together and turning it into weekly decisions.",
-      "Agents do this well because the work is repetitive and the outputs are templated. The same weekly dashboard, the same monthly referral report, the same quarterly profitability review. Run once a month by hand, these reports eat a week of operations time and then get stale. Run daily by an agent, they stay current and the firm runs on current information."
+      "Agents do this well because the work is repetitive and the outputs are templated. The same weekly dashboard, the same monthly referral report, the same quarterly profitability review. Run once a month by hand, these reports eat a week of ops time and go stale on arrival. An agent runs them nightly and the dashboard is live when the partner opens it Monday. Data stays in your account. SOC 2 and HIPAA controls, zero data retention with our LLM providers, full audit trail on every access. Same posture we run on our own firm data."
     ]
   },
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
-      "Blueprint is 2 weeks. We audit your current reporting (most firms have one or two dashboards that are months out of date), interview the managing partner and office manager on what decisions need what data, and map where the agents would land. You leave with a prioritized roadmap.",
-      "Build is 4 to 6 weeks. The practice intelligence dashboard agent usually stands up first because it integrates the most data sources. We connect to your practice management system, accounting platform, CRM, and email, encode the metrics you want to see, and run in shadow mode while we tune. Matter profitability, pipeline, and referral ROI follow in the same engagement or the next one.",
+      "Blueprint is 2 to 3 weeks. We audit your current reporting (most firms have one or two dashboards that are months out of date), interview the managing partner and office manager on what decisions need what data, and map where the agents would land. You leave with a prioritized roadmap.",
+      "Build is 4 to 8 weeks. The practice intelligence dashboard agent usually stands up first because it integrates the most data sources. We connect to your practice management system, accounting platform, CRM, and email, encode the metrics you want to see, and run in shadow mode while we tune. Matter profitability, pipeline, and referral ROI follow in the same engagement or the next one.",
       "Managed is the ongoing operating mode. We monitor the agents, refine metrics as your priorities shift, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
     ]
   },
   "faq": [
     {
-      "question": "We already have Clio or our PMS's reporting. What does this add?",
-      "answer": "PMS reporting shows you what's in the system. The intelligence agent shows you what's changing: matters trending toward scope overrun before they hit it, realization rates slipping on a partner's book, a referral source whose leads are converting worse this quarter than last. PMS reporting is a snapshot. The agent is a monitor."
+      "question": "We already have Clio or our practice management system's reporting. What does this add?",
+      "answer": "practice management system reporting shows you what's in the system. The intelligence agent shows you what's changing: matters trending toward scope overrun before they hit it, realization rates slipping on a partner's book, a referral source whose leads are converting worse this quarter than last. practice management system reporting is a snapshot. The agent is a monitor."
     },
     {
       "question": "How does the matter profitability agent work without a full cost accounting system?",
@@ -43,7 +43,7 @@
     },
     {
       "question": "What about confidentiality if we give an agent access to all this data?",
-      "answer": "The agent runs in your account, on your infrastructure, with your data. Nothing leaves. Nothing is used to train models. Every access is logged in an audit trail that supports ABA Opinion 512's supervision requirement. The agent is a dedicated analyst with a confidentiality clearance, not a third-party reporting service."
+      "answer": "The agent runs in your account, on your infrastructure, with your data. Nothing leaves. Nothing is used to train models. Every access is logged in an audit trail that supports ABA Opinion 512's supervision requirement. Treat it as a dedicated analyst inside your environment, with every access logged for supervision."
     },
     {
       "question": "Can this help with strategic decisions, like which practice areas to grow?",

@@ -6,11 +6,12 @@
   },
   "hero": {
     "headline": "The safety layer every law firm needs",
-    "subheadline": "AI never sends an email. It creates drafts. You review. You send. Every action is logged. If the agent isn't 95% confident, it asks instead of guessing. AI is the engine. The attorney is always the pilot.",
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=AI%20Services%20Safety%20Question",
+    "subheadline": "AI never sends an email. It creates drafts. You review. You send. Every action is logged. If the agent isn't confident, it asks instead of guessing.",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "How It Works",
-    "secondaryCtaUrl": "/ai-services/how-it-works/"
+    "secondaryCtaUrl": "/ai-services/how-it-works/",
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "stakes": {
     "heading": "What's at stake when AI runs unsupervised",
@@ -70,7 +71,7 @@
       },
       {
         "icon": "adjustments",
-        "title": "Access controls scope the blast radius",
+        "title": "Access controls scope what an agent can touch",
         "description": "Each agent operates within defined permissions: read aggressively, write conservatively. An inbox triage agent reads email and applies labels; it can't delete, send, or forward. A deadline monitor reads court filings and proposes calendar events; it can't accept hearing dates or file documents. Errors stay contained to drafts and suggestions, both of which go through human review."
       }
     ]
@@ -78,7 +79,7 @@
   "wontProtect": {
     "heading": "What the safety layer won't protect you from",
     "paragraphs": [
-      "Overreliance. If your team stops reading drafts critically, rubber-stamping every output, the safety layer fails. It's a human gate, and gates only work when the human gates. Part of every Managed engagement is monthly review of the skip rate (how often the agent escalated to a human) to catch drift early.",
+      "Overreliance. If your team stops reading drafts critically, rubber-stamping every output, the safety layer fails. Gates only work when a human actually checks. Part of every Managed engagement is monthly review of the skip rate (how often the agent escalated to a human) to catch drift early.",
       "Tool drift. AI vendors update models and data handling practices. We watch the model partners we use and re-validate quarterly. If a vendor changes its retention policy, you'll hear from us before you hear from someone else.",
       "Staff training gaps. Your firm's policy is only as strong as the weakest user. If a paralegal pastes client data into a free-tier tool because nobody told them not to, the architecture above doesn't help. Every Build engagement includes a written firm AI policy and a 30-minute team walkthrough."
     ]

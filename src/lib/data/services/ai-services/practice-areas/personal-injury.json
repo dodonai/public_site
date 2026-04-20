@@ -21,7 +21,7 @@
     "heading": "Why AI fits personal injury practice",
     "paragraphs": [
       "PI work is repetitive document intake at scale. Records arrive in waves, deadlines count down from incident dates, and every case follows the same workflow: providers send records, chronology gets built, gaps get flagged, demand gets drafted, a lien is negotiated, a settlement statement is prepared. The vocabulary changes case to case. The structure does not.",
-      "That structure is exactly what agents handle well. The SOL is computable from the incident date and jurisdiction. Treatment gaps are visible in the dates. Demand components are formulaic. The legal judgment, picking the cases, pressing the theory, negotiating the settlement, stays with the attorney. The production work, the part that eats paralegal hours and burns during volume spikes, moves to the agents."
+      "That structure is exactly what agents handle well. The SOL is computable from the incident date and jurisdiction. Treatment gaps are visible in the dates. Demand components are formulaic. The legal judgment, picking the cases, pressing the theory, negotiating the settlement, stays with the attorney. The production work, the part that eats paralegal hours and burns during volume spikes, moves to the agents. PI means PHI, so agents run in your account under SOC 2 and HIPAA controls, with BAAs where needed and zero data retention from our model providers. Medical records aren't retained downstream. Drafts only, never auto-sends."
     ]
   },
   "agentRelevance": {
@@ -31,15 +31,15 @@
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
-      "We start with Blueprint, a 2-week engagement where we sit with your team, watch 3 or 4 real matters move through intake, records, and demand, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
-      "Build is 4 to 6 weeks. We stand up your first 2 or 3 agents in your account, connect them to your practice management system, your intake sources, and your document storage, and run them in shadow mode while we tune. Every agent ships with an audit trail that supports ABA Opinion 512's supervision requirement.",
+      "We start with Blueprint, a 2 to 3 week engagement where we sit with your team, watch 3 or 4 real matters move through intake, records, and demand, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Build is 4 to 8 weeks. We stand up your first 2 or 3 agents in your account, connect them to your practice management system, your intake sources, and your document storage, and run them in shadow mode while we tune. Every agent ships with an audit trail that supports ABA Opinion 512's supervision requirement.",
       "Managed is the ongoing operating mode. We monitor the agents, refine skill files as your intake criteria evolve, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
     ]
   },
   "faq": [
     {
       "question": "Does this replace our paralegals?",
-      "answer": "No, it reclaims their time. The agents handle the mechanical work: ordering records, chasing providers, building chronologies, drafting demand letters from template. Your paralegals move up to case strategy, client communication, and judgment calls the agents escalate. Most firms run leaner in production and stronger in case quality after a few months."
+      "answer": "No, it reclaims their time. The agents handle the mechanical work: ordering records, chasing providers, building chronologies, drafting demand letters from template. Your paralegals shift from ordering records to running the case: calling the client, drafting the narrative, pressing the theory. The production work moves to the agent."
     },
     {
       "question": "Does this compete with Dodonai's deposition summary or medical record chronology products?",
@@ -55,7 +55,7 @@
     },
     {
       "question": "How much does this cost?",
-      "answer": "We don't publish pricing because the scope varies by firm size and the agents you start with. Most PI firms see their first 2 or 3 agents return the engagement cost inside 90 days through reclaimed paralegal hours and faster time-to-demand. We'll give you a fixed-fee Blueprint quote on a short fit call."
+      "answer": "We don't publish pricing because the scope varies by firm size and the agents you start with. If the first 2 or 3 agents cut 6 to 10 hours of paralegal time per matter, at PI volume that recovers the engagement cost inside a quarter. We'll model the math against your book on a short fit call and give you a fixed-fee Blueprint quote."
     }
   ]
 }

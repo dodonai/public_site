@@ -1,16 +1,17 @@
 {
   "seo": {
-    "title": "How AI Services Work for Law Firms | Dodonai",
-    "description": "Custom AI agents start with the Paralegal Test, run on a 3-layer architecture (skills, connections, schedules), and ship through a Blueprint, Build, Managed engagement.",
+    "title": "How Dodonai's AI Agents Work: Blueprint, Build, Managed",
+    "description": "Custom AI agents for law firms: the Paralegal Test, a 4-layer safety architecture, and a Blueprint, Build, Managed engagement. See how it runs.",
     "canonical": "/ai-services/how-it-works/"
   },
   "hero": {
     "headline": "How an AI Services engagement runs",
     "subheadline": "We start with the work, not the model. If your team can write the procedure, we can ship the agent. Here's how the architecture, the engagement, and the safety layer fit together.",
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=AI%20Services%20How%20It%20Works",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "Browse the Agent Catalog",
-    "secondaryCtaUrl": "/ai-services/agents/"
+    "secondaryCtaUrl": "/ai-services/agents/",
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "paralegalTest": {
     "heading": "The Paralegal Test",
@@ -21,7 +22,7 @@
     ]
   },
   "architecture": {
-    "heading": "Every agent runs on the same three layers",
+    "heading": "Every agent runs on the same architecture",
     "cards": [
       {
         "icon": "document",
@@ -31,7 +32,7 @@
       {
         "icon": "folder",
         "title": "Connections",
-        "description": "Read-only access to the systems your team already uses. Clio, NetDocuments, Gmail, calendar, the practice management system you've trained your firm on. The agent works with the full picture, not whatever you remember to paste in."
+        "description": "Read-only access to the systems your team already uses. Your practice management system (Clio, MyCase, PracticePanther, Centerbase), document management (NetDocuments, iManage), email, calendar. The agent works with the full picture, not whatever you remember to paste in."
       },
       {
         "icon": "calendar",
@@ -55,7 +56,7 @@
         "summary": "We sit with your team, watch the work, and write the plan.",
         "details": [
           "Workflow audit across intake, casework, deadlines, billing, and client comms",
-          "Tool inventory of what you already pay for (Clio, document management, email, calendar, CRM)",
+          "Tool inventory of what you already pay for (practice management, document management, email, calendar, CRM)",
           "Written plan: which agents to build first, in what order, what each one is expected to save you",
           "If the Blueprint doesn't leave your firm with a clear path forward, we refund it"
         ]
@@ -124,7 +125,7 @@
     },
     {
       "question": "What if an agent gets it wrong?",
-      "answer": "It draft only, so 'wrong' shows up as a draft email you delete or a calendar suggestion you adjust. The audit trail logs what the agent did and why, so we can tune the skill file the same way you'd retrain a paralegal after their first week."
+      "answer": "Agents only draft. 'Wrong' shows up as a draft email you delete or a calendar suggestion you adjust. The audit trail logs what the agent did and why, so we tune the skill file the same way you'd retrain a paralegal after their first week."
     },
     {
       "question": "What does the Managed retainer actually include?",
