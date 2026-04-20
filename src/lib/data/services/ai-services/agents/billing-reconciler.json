@@ -44,14 +44,15 @@
       "Surfaces patterns of partner write-downs that may signal undertraining",
       "Flags narrative entries that wouldn't survive a client audit"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=Billing%20Reconciler%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
     "heading": "The invoice you would have sent with errors",

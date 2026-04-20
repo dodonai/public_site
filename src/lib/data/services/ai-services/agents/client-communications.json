@@ -51,14 +51,15 @@
       "Plain-English status summaries that explain what's actually happening",
       "Tone tuned to your firm's voice and the client's communication style"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=Client%20Communications%20Agent%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
     "heading": "The client you would have forgotten to call",
@@ -112,7 +113,7 @@
     },
     {
       "question": "What about clients who prefer phone calls?",
-      "answer": "The agent surfaces a suggested call list separately from the email drafts. For clients flagged in your PMS as preferring voice contact, the agent doesn't draft an email; it puts the matter in your call queue with the same status summary you'd use to brief yourself before dialing."
+      "answer": "The agent surfaces a suggested call list separately from the email drafts. For clients flagged in your practice management system as preferring voice contact, the agent doesn't draft an email; it puts the matter in your call queue with the same status summary you'd use to brief yourself before dialing."
     },
     {
       "question": "How does it handle confidential matter details?",

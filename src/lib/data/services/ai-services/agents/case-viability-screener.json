@@ -50,14 +50,15 @@
       "Recommended disposition with the reasoning per criterion",
       "Borderline cases routed to partner review automatically"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=Case%20Viability%20Screener%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
     "heading": "The case you would have worked up for nothing",
@@ -76,7 +77,7 @@
     ]
   },
   "integrations": [
-    "Clio, MyCase, Practice Panther, or your PMS",
+    "Clio, MyCase, Practice Panther, or your practice management system",
     "Document management system for the prior matter archive",
     "Web intake forms (Typeform, Jotform, custom)",
     "Slack or email for the partner-review queue"

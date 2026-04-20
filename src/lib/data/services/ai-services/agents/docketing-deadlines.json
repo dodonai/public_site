@@ -30,7 +30,7 @@
     },
     {
       "label": "Populate calendar",
-      "detail": "Written to your PMS with owner assigned"
+      "detail": "Written to your practice management system with owner assigned"
     },
     {
       "label": "Escalate at thresholds",
@@ -51,14 +51,15 @@
       "SOL alerts at 90, 60, 30, and 14 days for any matter without a filed demand",
       "Calendar entries proposed with the rule cited and the source attached"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=Docketing%20Agent%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
     "heading": "The deadline you would have computed by hand",

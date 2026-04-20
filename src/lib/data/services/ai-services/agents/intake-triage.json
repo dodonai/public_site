@@ -50,20 +50,21 @@
       "First-response email drafted in your voice, ready for review",
       "One-page consult memo with case value estimate"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=Intake%20Triage%20Agent%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
     "heading": "A Tuesday morning in a personal injury practice",
     "paragraphs": [
       "Sarah runs a 2-attorney personal injury firm. She gets about 15 inbound leads a month and signs 8. The other 7 still consume time in intake calls, conflict checks, and polite declines. The leads that do convert often sit in her inbox until she finds a gap between other work, which is often at the end of the day. That is exactly the window where faster-responding competitors reply first.",
-      "At 8:47 on a Tuesday morning, a new web form comes in. Rear-end collision, passenger injured, commercial policy on the at-fault driver. Before Sarah has pulled up the form, her Intake Triage agent has already extracted the case facts into a structured summary, scored the lead at 82 against her acceptance criteria, run a conflict check against Clio and come back clean, drafted a response email offering a consult slot from her Monday afternoon availability, and assembled a one-page consult memo with the facts, the score, the estimated case value, and a recommended opening question.",
+      "At 8:47 on a Tuesday morning, a new web form comes in. Rear-end collision, passenger injured, commercial policy on the at-fault driver. Before Sarah has pulled up the form, her Intake Triage agent has already extracted the case facts into a structured summary, scored the lead at 82 against her acceptance criteria, run a conflict check against her practice management system and come back clean, drafted a response email offering a consult slot from her Monday afternoon availability, and assembled a one-page consult memo with the facts, the score, the estimated case value, and a recommended opening question.",
       "Sarah reviews the memo over her first coffee, tweaks one sentence of the response email, and hits send. The consult is on her calendar before the potential client has finished their breakfast."
     ]
   },
@@ -96,7 +97,7 @@
     "Your web intake form (Typeform, Jotform, Gravity Forms, custom)",
     "Gmail or Outlook",
     "Google Calendar or Outlook Calendar",
-    "HubSpot or Pipedrive if you use a CRM alongside the PMS"
+    "HubSpot or Pipedrive if you use a CRM alongside the practice management system"
   ],
   "safety": {
     "heading": "Safety posture",

@@ -88,10 +88,11 @@
 	<ServiceHero
 		headline={heroHeadline}
 		subheadline={heroSubheadline}
-		ctaText="Start a Fit Call"
-		ctaUrl={`mailto:hello@dodon.ai?subject=AI%20Services%20Fit%20Call%20-%20${encodeURIComponent(fn.name)}`}
+		ctaText="Book an intro call"
+		ctaUrl="https://calendly.com/nick-dodonai"
 		secondaryCtaText="Browse All Agents"
 		secondaryCtaUrl="/ai-services/agents/"
+		guarantee="Blueprint refunded if we don't leave you with a clear path forward."
 		background="bg-transparent"
 	>
 		{#if HeroAnimation}

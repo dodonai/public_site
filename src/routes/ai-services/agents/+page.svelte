@@ -94,10 +94,11 @@
 	<ServiceHero
 		headline="Every agent we build for law firms"
 		subheadline="Each one is built around your firm's specific matter mix, your case acceptance criteria, and your team's review habits. Filter by practice area or function to find what fits your work."
-		ctaText="Start a Fit Call"
-		ctaUrl="mailto:hello@dodon.ai?subject=AI%20Agents%20Catalog"
+		ctaText="Book an intro call"
+		ctaUrl="https://calendly.com/nick-dodonai"
 		secondaryCtaText="How It Works"
 		secondaryCtaUrl="/ai-services/how-it-works/"
+		guarantee="Blueprint refunded if we don't leave you with a clear path forward."
 		background="bg-transparent"
 	>
 		{#if HeroAnimation}

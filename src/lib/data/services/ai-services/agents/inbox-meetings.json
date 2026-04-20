@@ -47,14 +47,15 @@
       "Post-meeting transcripts and follow-up email drafts within an hour",
       "Action items extracted and routed to the responsible attorney"
     ],
-    "ctaText": "Start a Fit Call",
-    "ctaUrl": "mailto:hello@dodon.ai?subject=Inbox%20Meetings%20Agent%20Fit%20Call",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "See Our Agents",
     "secondaryCtaUrl": "/ai-services/our-agents/",
     "badges": [
       "SOC-2 Certified",
       "HIPAA Compliant"
-    ]
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
   },
   "scenario": {
     "heading": "A morning that runs itself",
@@ -93,7 +94,7 @@
     "Google Calendar or Outlook Calendar",
     "Zoom, Microsoft Teams, or Google Meet for the recording feed",
     "Slack or Microsoft Teams for digest delivery",
-    "Clio, MyCase, Practice Panther, or your PMS for matter context"
+    "Clio, MyCase, Practice Panther, or your practice management system for matter context"
   ],
   "safety": {
     "heading": "Safety posture",
@@ -113,7 +114,7 @@
     },
     {
       "question": "Can we limit access to specific matters or partners?",
-      "answer": "Yes. The agent inherits the same access controls that govern your email, calendar, and PMS today. If a partner's matters are walled off from associates, the agent's inbox triage and briefing scope respect the same wall. Permissions are enforced at the source, not at the agent layer."
+      "answer": "Yes. The agent inherits the same access controls that govern your email, calendar, and practice management system today. If a partner's matters are walled off from associates, the agent's inbox triage and briefing scope respect the same wall. Permissions are enforced at the source, not at the agent layer."
     },
     {
       "question": "What about meetings that don't have a recording?",
