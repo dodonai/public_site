@@ -1,0 +1,131 @@
+{
+  "slug": "client-communications",
+  "title": "Client Communications Agent",
+  "shortDescription": "Drafts proactive client updates on every active matter, surfaces clients who haven't heard from you in too long, and keeps the relationship warm without burning attorney hours.",
+  "tier": "flagship",
+  "function": "client-communications",
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "estates-probate",
+    "immigration",
+    "all"
+  ],
+  "caseSkills": [
+    "litigation-personal-injury-initial-contact-summary.md",
+    "case-summary-report.md"
+  ],
+  "workflow": [
+    {
+      "label": "Matter state changes",
+      "detail": "Activity since last touch detected"
+    },
+    {
+      "label": "Pull recent activity",
+      "detail": "Filings, correspondence, and milestones"
+    },
+    {
+      "label": "Draft status letter",
+      "detail": "In your voice, tuned to matter stage"
+    },
+    {
+      "label": "Route for review",
+      "detail": "Attorney approves before anything goes out"
+    },
+    {
+      "label": "Send on approval",
+      "detail": "Logged to matter file with timestamp"
+    }
+  ],
+  "seo": {
+    "title": "AI Client Communications Agent for Law Firms | Dodonai",
+    "description": "Draft proactive client updates on every active matter and flag clients you haven't spoken to in too long. The number one bar complaint, fixed at the workflow level.",
+    "canonical": "/ai-services/agents/client-communications/"
+  },
+  "hero": {
+    "headline": "AI Client Communications Agent",
+    "subheadline": "Drafts proactive matter updates, flags clients who haven't heard from you in 30 days, and keeps the relationship warm without consuming attorney time. Every email is a draft for your review.",
+    "bullets": [
+      "Weekly matter-update drafts for every active client",
+      "Silence alerts when a client hasn't been contacted in 30 days",
+      "Plain-English status summaries that explain what's actually happening",
+      "Tone tuned to your firm's voice and the client's communication style"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The client you would have forgotten to call",
+    "paragraphs": [
+      "Mark runs a 4-attorney family law firm. He'd be the first to tell you that the bar's number one complaint category is failure to communicate. He'd also tell you that the gap is rarely about caring less. It's about volume. With 60 active matters across the firm, the client whose case is in a quiet phase is the one who waits 7 weeks for a check-in and starts wondering whether anyone is still working their file.",
+      "On a Friday afternoon, his Client Communications agent posts a digest in Slack: 12 clients haven't received an update in 30 days, 4 of them in 45 days. For each one, the agent has drafted a 3-paragraph status email pulling from the matter notes, the recent filings, and the upcoming calendar. Mark scrolls through the drafts on his phone over the weekend, edits 2 of them, approves 10 as written. By Monday morning every client has heard from him. The relationship work that used to disappear under the urgent work is back on the calendar."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Client Communications agent does",
+    "paragraphs": [
+      "The agent keeps a running record of when each active client last received a substantive communication from your firm and surfaces gaps before they become complaints. For matters where something has happened (a hearing, a filing, a response, a settlement offer), it drafts an update email explaining what occurred and what comes next, in plain English. For matters in a quiet phase, it drafts a holding update that maintains the relationship without overstating activity.",
+      "Tone matters. The agent learns your firm's voice from past client emails (warmth level, sentence length, signature style) and matches it. For sensitive matters (custody, end-of-life planning, criminal defense), the tone shifts accordingly. Every email is a draft. You read, edit, send."
+    ]
+  },
+  "inputsOutputs": {
+    "heading": "Inputs and outputs",
+    "inputs": [
+      "Practice management system matter notes and activity log",
+      "Calendar entries for upcoming hearings, depositions, and filing deadlines",
+      "Recent court filings and correspondence on each matter",
+      "Past client emails for tone and voice training"
+    ],
+    "outputs": [
+      "Weekly silence digest naming clients who haven't heard from you",
+      "Drafted status update emails per matter, in your firm's voice",
+      "A summary line per matter showing what changed and what's next",
+      "Suggested phone-call list for matters that need voice contact",
+      "Logged record of every drafted and sent communication",
+      "Quarterly trend report on response time and client engagement"
+    ]
+  },
+  "integrations": [
+    "Clio, MyCase, Practice Panther, or SmokeBall",
+    "Gmail or Outlook for the email layer",
+    "Slack or Microsoft Teams for the digest delivery",
+    "Document management system for matter notes and filings",
+    "Client portal (Clio for Clients, MyCase Client Portal) if you use one"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent never sends an email to a client. Every draft sits in your queue or your draft folder until an attorney reviews and sends it. For sensitive matters or material developments (settlement offers, adverse rulings), the agent flags the draft for partner review rather than associate review.",
+      "Confidentiality is preserved end to end. Client data stays inside your account, isn't used to train models, and is governed by the same access controls that govern your practice management system today. The audit trail logs every drafted communication, every edit, every send."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Doesn't this make our communications feel templated?",
+      "answer": "The agent doesn't use templates. It writes a fresh email for each matter, drawing on the actual case facts, the recent activity, and the upcoming calendar. Two clients in the same week with similar matters will get materially different emails because the underlying facts are different. The voice consistency comes from learning how you write, not from filling in blanks."
+    },
+    {
+      "question": "What about clients who prefer phone calls?",
+      "answer": "The agent surfaces a suggested call list separately from the email drafts. For clients flagged in your practice management system as preferring voice contact, the agent doesn't draft an email; it puts the matter in your call queue with the same status summary you'd use to brief yourself before dialing."
+    },
+    {
+      "question": "How does it handle confidential matter details?",
+      "answer": "It only references what's already in your matter file. It doesn't add facts, doesn't speculate about case outcomes, and doesn't include privileged work product in client-facing language. If the matter contains information the client shouldn't see (work-product analysis, attorney-eyes-only documents), those stay walled off from the drafting layer."
+    },
+    {
+      "question": "Can we use this for billing-related communications?",
+      "answer": "The default scope is matter status. Billing communications can be added as a separate workflow during the Build phase if you want them: invoice arrival notifications, past-due reminders, retainer replenishment requests. They live in the same draft-and-review pattern."
+    },
+    {
+      "question": "What's the proof it actually moves the needle on retention?",
+      "answer": "The Managed retainer includes a quarterly review of communication frequency, response time, and client satisfaction signals. The pattern we see across firms running this agent is the same: the silence-gap incidents drop to near zero within the first 90 days, and the bar-complaint exposure for the failure-to-communicate category drops with them."
+    }
+  ]
+}

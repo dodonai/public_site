@@ -1,0 +1,102 @@
+{
+  "seo": {
+    "title": "The AI Agents We Run On Ourselves: Our Playbook | Dodonai",
+    "description": "Every morning at Dodonai, dozens of custom AI agents process our inbox, surface meeting intel, draft churn saves, monitor SEO, and report back. Same architecture we ship to law firms.",
+    "canonical": "/ai-services/our-agents/"
+  },
+  "hero": {
+    "headline": "What our AI team does every morning",
+    "subheadline": "Dozens of custom agents run on us before our team is awake. Meeting prep, inbox triage, churn intelligence, SEO, ads, customer health. Same architecture we ship to law firms, pointed at a different set of inputs. The playbook your firm gets is one we already run in production.",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "Browse the Agent Catalog",
+    "secondaryCtaUrl": "/ai-services/agents/",
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "morning": {
+    "heading": "A weekday morning, before the team is up",
+    "intro": "This is what lands in Slack and our drafts folder by 9:30am, every weekday, without anyone asking.",
+    "events": [
+      {
+        "time": "7:00am",
+        "agent": "Meeting Intel",
+        "description": "Scans the calendar, identifies every external meeting, and researches each attendee: their company, their role, their history with us, recent news. A briefing lands in Slack."
+      },
+      {
+        "time": "8:00am",
+        "agent": "Inbox Manager",
+        "description": "Reads every overnight email, classifies it (customer, vendor, newsletter, outreach reply), applies labels, archives the noise, and surfaces anything urgent in a prioritized digest."
+      },
+      {
+        "time": "8:00am (Mondays)",
+        "agent": "Account Health",
+        "description": "Rolls up health scores, MRR movement, imminent churn alerts, save briefs, and outreach performance into the Monday digest. The week starts with the picture, not a meeting."
+      },
+      {
+        "time": "8:15am",
+        "agent": "Prospect Intel",
+        "description": "Cross-references prospect profiles with email, calendar, app activity, and inbox digests. Surfaces engagement signals, deadline alerts, and stage-change recommendations for the pipeline."
+      },
+      {
+        "time": "8:30am (Mondays)",
+        "agent": "SEO Monitor",
+        "description": "Pulls keyword positions from Ahrefs and Search Console, compares against last week's snapshot, and sends a digest of what moved up, what dropped, and what to write next."
+      },
+      {
+        "time": "9:00am (Mondays)",
+        "agent": "Campaign Tracker",
+        "description": "Audits the Google Ads search-terms report, recommends negative keywords, flags budget waste, and surfaces A/B test results from the prior week."
+      },
+      {
+        "time": "9:00am",
+        "agent": "Churn Intel",
+        "description": "Compares yesterday's subscriber list to today's. If someone canceled, it pulls their full history and drafts a personalized save email. The save email sits in drafts until Nick reviews."
+      },
+      {
+        "time": "9:30am",
+        "agent": "Lifecycle Monitor",
+        "description": "Checks every new user's onboarding milestones. If a 7-day trial is about to expire without an upload, drafts a nudge email. If a power user just hit a usage threshold, queues a check-in."
+      },
+      {
+        "time": "10:00am",
+        "agent": "Cold Outreach",
+        "description": "Pulls reply data from Instantly, classifies the genuine replies, alerts on anyone who said 'yes, let's talk,' and pauses any campaign with a deteriorating reply rate before it burns the domain."
+      },
+      {
+        "time": "11:00am (Mondays)",
+        "agent": "Market Intel",
+        "description": "Scans 4 named competitors plus G2, Capterra, and HARO. Surfaces product launches, pricing changes, review-mention shifts, and journalist queries we could answer."
+      },
+      {
+        "time": "4:00pm",
+        "agent": "Meeting Transcript",
+        "description": "Pulls Zoom recordings from the day, transcribes them, and updates each prospect's profile with the conversation summary, decision points, and the next-step action items."
+      },
+      {
+        "time": "6:00pm (Sundays)",
+        "agent": "Weekly Review",
+        "description": "Gathers data from every other agent, updates the roadmap, refreshes MRR and KPI statuses, and drafts Nick's task list for Monday morning."
+      },
+      {
+        "time": "On-demand",
+        "agent": "Outreach Composer",
+        "description": "When a segment needs touching (dormant power users, churn saves, review requests, referral asks), it drafts personalized emails for every name in the segment. Drafts only. Nick reviews and sends."
+      }
+    ]
+  },
+  "translation": {
+    "heading": "What this looks like translated into a law firm",
+    "paragraphs": [
+      "Same architecture, different inputs. The agents we run on ourselves were designed for a marketing-and-operations problem. The ones we ship to firms are designed for a casework-and-deadline problem. The pattern underneath is identical: skills written in plain English, connections to the systems your team already uses, schedules that fire on their own, drafts that wait for a human gate.",
+      "Lead with an SOL monitor. It scans every active matter each morning and flags any deadline inside 30 days where nothing's been filed. That one's table stakes. Then a 7am case-prep agent pulls the file history for every matter on your calendar, reads recent correspondence, and drops a briefing before you leave the house. Inbox triage runs at 8am: classifies every overnight email, surfaces motions and deposition notices, archives the newsletters. A billing reconciler at 9am cross-checks your calendar and email against yesterday's time entries. Finds the 2.3 hours you spent on the Patel file that never made it into your practice management system.",
+      "We didn't build all of our agents on day one. We built one. We watched it work for a few weeks. We built the next one. {{link:/ai-services/how-it-works/|That's the same path}} we recommend for your firm. Pick the workflow that makes you groan every week. Build that one first. Add from there."
+    ]
+  },
+  "proof": {
+    "heading": "Why this is the most useful thing on the page",
+    "paragraphs": [
+      "Most legal AI vendors will tell you about agents. We can show you the cron schedule, the audit logs, the Slack digests, the actual drafts that landed in our inbox this morning. The architecture isn't a sales deck. It's the operating layer of our company.",
+      "When we sit with your firm during the Blueprint, we're not pattern-matching from someone else's case study. We're describing what we're already running, where it broke when we first shipped it, and how we tuned it. That's the value our customers tell us they pay for: not the model, not the dashboard, the playbook from someone who's already made the mistakes."
+    ]
+  }
+}

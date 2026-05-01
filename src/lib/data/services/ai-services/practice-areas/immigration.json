@@ -1,0 +1,61 @@
+{
+  "slug": "immigration",
+  "seo": {
+    "title": "AI Services for Immigration Law Firms | Dodonai",
+    "description": "Custom AI agents for immigration: portal monitoring, biometrics and medical expiry tracking, status change alerts, client updates in plain language.",
+    "canonical": "/ai-services/for/immigration/"
+  },
+  "hero": {
+    "headline": "AI Services for Immigration Law Firms",
+    "subheadline": "Every milestone is a deadline. Biometrics windows expire, medical certs age out, work permits lapse. A solo managing 50 active files logs into portals daily. We build AI agents that check the portals, compute the cascades, and draft client updates in plain language."
+  },
+  "scenario": {
+    "heading": "7:00 AM, every weekday",
+    "paragraphs": [
+      "A solo immigration practitioner managing 50 or more active IRCC files starts every morning the same way: logging into portals, checking for status changes that arrived overnight without notification, and manually tracking which biometrics windows are closing and which medical certificates are expiring. A single client file can have a dozen concurrent deadlines. Miss the biometrics window and the application's on hold. Let the medical expire before landing and the client reorders and repays. Miss a work permit renewal and the client loses status.",
+      "With an immigration monitoring agent in place, the first hour of the morning changes. The agent has already checked every client portal at 7:00 AM, flagged overnight status changes, computed the downstream deadlines triggered by each change, and drafted client updates in plain language. The practitioner opens the dashboard, sees the 3 files that actually need attention today, and reviews drafts before they go out. The other 47 files quietly stay on track.",
+      "The agent doesn't make legal judgments. It watches, computes, and drafts. The attorney approves every client communication and every strategic move. What changes is that the mechanical portal-checking and deadline-computing that used to consume the first hour of every day happens before the attorney's alarm goes off."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits immigration practice",
+    "paragraphs": [
+      "Immigration law is the most naturally agent-shaped practice area we've found. Status checks repeat on schedule. Forms are standardized. Communications follow milestones. Every file runs the same loop: check status, compute downstream deadlines, draft updates, escalate on exceptions.",
+      "The 2026 Wolters Kluwer survey placed immigration at 47% AI adoption, the highest of any practice area. The structure (repetitive portal monitoring, standardized forms, date-driven milestones) is exactly what agents handle well. The judgment work (strategy calls, hearing prep, case-by-case calls) stays with the practitioner."
+    ]
+  },
+  "agentRelevance": {
+    "heading": "Agents we've built for immigration practices",
+    "intro": "These agents apply to immigration and refugee law practices. Most teams start with a portal monitoring agent and a client communications agent, then add docketing, intake, and bilingual translation as the book grows."
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "We start with Blueprint, a 2 to 3 week engagement where we walk through 3 or 4 active client files at different stages and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Build is 4 to 8 weeks. We connect the agent to your portal credentials, your case management system, and your document storage, encode the deadline rules per application type, and run it in shadow mode while we tune. Client communication drafts ship in your voice, with the option of Spanish, Mandarin, or Vietnamese translation before review.",
+      "Managed is the ongoing operating mode. We monitor the agents, refine skill files as portal structures and rules change, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Can the agent handle IRCC, USCIS, and other country portals?",
+      "answer": "Yes. We start with the portals you use most, typically IRCC for Canadian practices and USCIS plus state consulates for US practices, and add others as your work requires. The agent reads status pages, downloads correspondence, and flags changes. Portal structure changes occasionally and the skill file updates when that happens."
+    },
+    {
+      "question": "How does it handle bilingual or multilingual clients?",
+      "answer": "A bilingual translator agent pairs with the client communications agent. Drafts render in English for your review, then translate to Spanish, Mandarin, Vietnamese, or other supported languages before sending. You can review both versions or trust the English one and approve the translation side automatically."
+    },
+    {
+      "question": "What about client portal access and privacy?",
+      "answer": "Portal credentials stay in your account and are stored with the same security posture as any other password in your stack. Client data never leaves your infrastructure. Nothing is used to train models. Every access is logged in an audit trail that supports ABA Opinion 512's supervision requirement. Dodonai is SOC 2 and HIPAA-aligned (BAA available where needed), with zero data retention from our LLM providers."
+    },
+    {
+      "question": "How does this compare to immigration case management tools like Docketwise or INSZoom?",
+      "answer": "Those platforms hold the case data and form templates. The agent sits alongside them, reads portals and email, updates the case record when status changes, and drafts the next client communication. Your case management system is the system of record. The agent is the production layer that keeps it current."
+    },
+    {
+      "question": "How much does this cost?",
+      "answer": "We don't publish pricing because the scope varies by portal count and caseload. A solo with 50 active files reclaims the morning hour once the agent is running, and the 47 files that don't need attention today stop demanding it. We'll walk through the math on a short fit call and give you a fixed-fee Blueprint quote."
+    }
+  ]
+}

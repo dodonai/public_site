@@ -1,0 +1,97 @@
+{
+  "slug": "trust-account-reconciler",
+  "title": "Trust Account Reconciler Agent",
+  "shortDescription": "Reconciles your IOLTA monthly, flags any negative balance per matter, and produces the audit-ready ledger your state bar wants to see.",
+  "tier": "supporting",
+  "function": "deadlines-and-compliance",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [
+    "litigation-personal-injury-settlement-distribution-statement.md"
+  ],
+  "workflow": [
+    {
+      "label": "IOLTA activity posts",
+      "detail": "Bank feed + practice management system ledger both pulled"
+    },
+    {
+      "label": "Reconcile transactions",
+      "detail": "Match deposits, disbursements, and holds"
+    },
+    {
+      "label": "Flag variances",
+      "detail": "Unmatched entries and negative balances surfaced"
+    },
+    {
+      "label": "Draft monthly report",
+      "detail": "Ready for accountant review and sign-off"
+    },
+    {
+      "label": "Archive + log",
+      "detail": "Every reconciliation written to the audit trail"
+    }
+  ],
+  "seo": {
+    "title": "AI Trust Account Reconciler for Law Firms | Dodonai",
+    "description": "Reconcile IOLTA monthly with negative-balance flagging per matter and audit-ready ledgers. The bar inquiry that ends a practice, prevented at the workflow level.",
+    "canonical": "/ai-services/agents/trust-account-reconciler/"
+  },
+  "hero": {
+    "headline": "AI Trust Account Reconciler Agent",
+    "subheadline": "Monthly three-way reconciliation, per-matter ledger watch, and an audit-ready report your state bar can read. The compliance work that keeps you in good standing, automated end to end with attorney signoff.",
+    "bullets": [
+      "Three-way reconciliation between bank, books, and per-matter ledger",
+      "Negative-balance flagging the moment an entry would overdraw a client matter",
+      "Audit-ready monthly reports formatted for your state bar's requirements",
+      "Variances explained with the source transactions linked"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The variance you would have missed until audit",
+    "paragraphs": [
+      "Your bookkeeper closes the books on the 5th of the month. The bank statement, the trust ledger, and the per-matter sub-ledgers should match to the penny. They almost do, except for a $1,247 variance the bookkeeper plans to dig into next week. The Trust Account Reconciler runs the same morning, finds the variance, traces it to a misapplied wire that hit the wrong matter sub-ledger, and posts the source transactions linked. The fix takes 8 minutes instead of 2 hours. The state-bar audit-ready report generates clean."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Trust Account Reconciler does",
+    "bullets": [
+      "Pulls the bank statement, the trust ledger, and the per-matter sub-ledgers monthly",
+      "Performs the three-way reconciliation and identifies any variance to the penny",
+      "Traces variances to specific transactions and explains the source",
+      "Flags any matter sub-ledger that would go negative if a pending entry posted",
+      "Produces the monthly audit-ready report formatted for your state bar's requirements"
+    ]
+  },
+  "integrations": [
+    "QuickBooks, Xero, LeanLaw, or TrustBooks for the bookkeeping layer",
+    "Bank feeds for the IOLTA account",
+    "Practice management system for the per-matter sub-ledger",
+    "Email for the partner-signoff routing"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The reconciler reads the bank, books, and ledger; it doesn't post entries or move money. Variances and proposed corrections are surfaced for the bookkeeper or partner to act on. The audit-ready report is reviewed and signed by the attorney responsible for trust compliance before it's saved as the official record."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Does this work with our state's specific trust accounting requirements?",
+      "answer": "The report format is tunable per state. We've encoded the requirements for the most common state-bar trust audit formats and add others during the Build phase as needed. The skill file is editable so format changes from your bar can be applied without waiting on us."
+    },
+    {
+      "question": "What about a matter sub-ledger that's negative because of a recording error?",
+      "answer": "The agent flags the negative balance immediately and traces the entry that caused it. If the cause is a recording error (a deposit attributed to the wrong matter), the bookkeeper has the trail to fix it within the same day. The flag exists so the error doesn't sit until the monthly close."
+    }
+  ]
+}

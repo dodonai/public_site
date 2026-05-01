@@ -1,0 +1,96 @@
+{
+  "slug": "bilingual-translator",
+  "title": "Bilingual Translator Agent",
+  "shortDescription": "Drafts client communications in the client's preferred language and translates incoming documents back into English for the matter file.",
+  "tier": "supporting",
+  "function": "client-communications",
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "immigration",
+    "all"
+  ],
+  "caseSkills": [],
+  "workflow": [
+    {
+      "label": "English draft approved",
+      "detail": "Attorney-reviewed source document"
+    },
+    {
+      "label": "Translate to target language",
+      "detail": "Spanish, Mandarin, Vietnamese, or other"
+    },
+    {
+      "label": "Match legal terminology",
+      "detail": "Term-of-art consistency across filings"
+    },
+    {
+      "label": "Flag ambiguous phrases",
+      "detail": "Terms without a clean translation surfaced"
+    },
+    {
+      "label": "Route for bilingual review",
+      "detail": "Attorney or staff reviewer confirms"
+    }
+  ],
+  "seo": {
+    "title": "AI Bilingual Translator Agent for Law Firms | Dodonai",
+    "description": "Draft client communications in the client's preferred language and translate incoming documents back into English. The communication wall that doesn't have to slow the matter.",
+    "canonical": "/ai-services/agents/bilingual-translator/"
+  },
+  "hero": {
+    "headline": "AI Bilingual Translator Agent",
+    "subheadline": "Drafts every client-facing communication in the client's preferred language and renders incoming documents back into English for the matter file. The translation work that used to add days to a matter happens in minutes, with attorney review at the gate.",
+    "bullets": [
+      "Client-facing emails drafted in the client's preferred language",
+      "Incoming documents translated to English for the matter file",
+      "Plain-language explanations for legal concepts the client may not know",
+      "Translation provenance logged so verification is straightforward"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The translation lag you would have absorbed",
+    "paragraphs": [
+      "A Spanish-speaking immigration client emails a 6-page document from a USCIS notice he received that morning. In the old workflow, you wait 2 days for the contracted translator to turn it around, then 2 more days to draft and translate the response. The Bilingual Translator renders the USCIS notice into English within an hour, drafts the response in Spanish for the attorney's review (with a side-by-side English version), and the client has a substantive answer the same day."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Bilingual Translator does",
+    "bullets": [
+      "Drafts client-facing communications in the client's preferred language with attorney-review English alongside",
+      "Translates incoming client documents to English for the matter file",
+      "Adds plain-language explanations for legal concepts the client may not be familiar with",
+      "Logs translation provenance per document so a contracted translator can verify if needed"
+    ]
+  },
+  "integrations": [
+    "Email for the communication layer",
+    "Practice management system for matter and client language preference",
+    "Document management system for translated document storage"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Translations of incoming documents are flagged for review when the document is high-stakes (a court filing, an immigration notice, a settlement offer). For routine correspondence the attorney signs off; for high-stakes content the agent recommends a certified human translator and the engagement uses the AI version as the working draft, not the official record."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What languages does this support?",
+      "answer": "The major US-practice languages out of the box (Spanish, Mandarin, Vietnamese, Korean, Russian, Tagalog, Arabic, Haitian Creole, Portuguese, French). For other languages, the Build phase confirms model coverage before the agent goes live."
+    },
+    {
+      "question": "Does this replace our certified translator for court filings?",
+      "answer": "No. For documents that need certified translation for court use (foreign-language exhibits, sworn declarations), the agent produces the working draft to speed the certified translator's job. The certified translation remains the official record for filings that require one."
+    }
+  ]
+}

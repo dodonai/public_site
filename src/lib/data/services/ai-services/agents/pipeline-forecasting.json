@@ -1,0 +1,94 @@
+{
+  "slug": "pipeline-forecasting",
+  "title": "Pipeline Forecasting Agent",
+  "shortDescription": "Projects the next 90 days of fee revenue from the open pipeline using historical conversion and settlement velocity per matter type.",
+  "tier": "supporting",
+  "function": "practice-intelligence",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Lead + conversion data",
+      "detail": "Intake, consult, retained, and closed"
+    },
+    {
+      "label": "Model stage progression",
+      "detail": "Historical conversion rates by stage"
+    },
+    {
+      "label": "Forecast fee revenue",
+      "detail": "Per practice area and rolling quarter"
+    },
+    {
+      "label": "Compare vs. targets",
+      "detail": "Gap analysis by source and practice"
+    },
+    {
+      "label": "Surface trend signals",
+      "detail": "What's accelerating, what's cooling"
+    }
+  ],
+  "seo": {
+    "title": "AI Pipeline Forecasting Agent for Law Firms | Dodonai",
+    "description": "Project the next 90 days of fee revenue from the open pipeline. Historical conversion and settlement velocity per matter type folded in. The cash-flow picture, monthly.",
+    "canonical": "/ai-services/agents/pipeline-forecasting/"
+  },
+  "hero": {
+    "headline": "AI Pipeline Forecasting Agent",
+    "subheadline": "Projects fee revenue 30, 60, and 90 days out from the open pipeline using historical conversion rates and settlement velocity per matter type. The cash-flow conversation moves from guessing to forecasting.",
+    "bullets": [
+      "Revenue forecast at 30, 60, and 90 days from the open pipeline",
+      "Conversion rates pulled from your firm's history per matter type",
+      "Settlement velocity computed per matter type",
+      "Variance against forecast tracked monthly to keep the model honest"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The cash-flow picture you would have guessed at",
+    "paragraphs": [
+      "The managing partner is looking at hiring decisions and wants to know whether the firm can absorb a new associate's salary. In the old workflow, the answer is gut feel based on the matter inventory. The Pipeline Forecasting agent runs the numbers: $312,000 likely to settle in the next 30 days, $487,000 in 60 days, $640,000 in 90 days, with the bands per matter type so the partner can see which forecasts are tight and which are wide. The hiring decision moves from gut to model."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Pipeline Forecasting agent does",
+    "bullets": [
+      "Maintains historical conversion rates and settlement velocity per matter type",
+      "Projects revenue at 30, 60, and 90 days from the current pipeline",
+      "Reports per-matter-type ranges with the confidence band visible",
+      "Tracks forecast variance monthly and recalibrates the model",
+      "Surfaces matters whose stage signals don't match their typical velocity"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter and stage records",
+    "Accounting system for historical fee revenue per matter type",
+    "Slack or email for the monthly forecast delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The forecast is informational. The agent doesn't move money, doesn't assign work, doesn't change matter staging. The partners use the forecast to inform decisions; the underlying data and model stay readable so the assumptions can be challenged."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How accurate are the early forecasts?",
+      "answer": "The first 6 months are the calibration window. As the model learns your firm's specific conversion and velocity patterns, the variance drops. By the second quarter, most firms see forecast accuracy within 10 to 15% of actual at the 90-day horizon and tighter at 30 and 60."
+    },
+    {
+      "question": "What about plaintiff contingency practices where settlement timing is bimodal?",
+      "answer": "The model accounts for the bimodal pattern: most matters settle in a tight window after a specific milestone (demand response, mediation, summary judgment ruling), with a long tail for matters that go to trial. The forecast surfaces both the probable-near-term and the long-tail components separately."
+    }
+  ]
+}

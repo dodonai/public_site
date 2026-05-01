@@ -1,0 +1,61 @@
+{
+  "slug": "personal-injury",
+  "seo": {
+    "title": "AI Services for Personal Injury Law Firms | Dodonai",
+    "description": "Custom AI agents for PI firms: intake triage, records chasing, chronology, demand drafting, SOL tracking. Built around how your firm works.",
+    "canonical": "/ai-services/for/personal-injury/"
+  },
+  "hero": {
+    "headline": "AI Services for Personal Injury Firms",
+    "subheadline": "One auto case lands you 200 to 500 pages of medical records from 4 to 8 providers over weeks. We design, build, and run custom AI agents that turn that chaos into demand-ready files, without growing headcount."
+  },
+  "scenario": {
+    "heading": "A Tuesday morning on the Gulf Coast",
+    "paragraphs": [
+      "A mid-sized PI firm on the Louisiana coast runs at a steady pace most of the year, then hurricane season hits and intake doubles overnight. Every claimant needs records ordered from 4 to 8 providers, a chronology assembled, treatment gaps flagged, and a demand letter drafted while the statute of limitations counts down. Outsource the chronology and you're paying $500 to $800 per case. Keep it in-house and your paralegal spends 6 to 10 hours on manual review instead of case strategy.",
+      "With a custom AI team in place, the same firm processes 50 claimants as easily as 5. An intake triage agent scores leads against acceptance criteria and drafts the first response in the minutes after a form arrives. A records requester chases providers on a schedule and flags when an expected file is late. A chronology agent builds the treatment timeline the moment the last provider lands and marks gaps longer than 30 days, the ones defense counsel will exploit. When the file is ready for demand, an agent drafts the demand package from your firm's template with the medical summary, liability facts, and the damages model already populated.",
+      "Nothing leaves the firm without attorney review. Every draft, every chronology, every demand letter is a recommendation you approve or change. The agents do the sorting and the typing. You make the judgment calls."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits personal injury practice",
+    "paragraphs": [
+      "PI work is repetitive document intake at scale. Records arrive in waves, deadlines count down from incident dates, and every case follows the same workflow: providers send records, chronology gets built, gaps get flagged, demand gets drafted, a lien is negotiated, a settlement statement is prepared. The vocabulary changes case to case. The structure does not.",
+      "That structure is exactly what agents handle well. The SOL is computable from the incident date and jurisdiction. Treatment gaps are visible in the dates. Demand components are formulaic. The legal judgment, picking the cases, pressing the theory, negotiating the settlement, stays with the attorney. The production work, the part that eats paralegal hours and burns during volume spikes, moves to the agents. PI means PHI, so agents run in your account under SOC 2 and HIPAA controls, with BAAs where needed and zero data retention from our model providers. Medical records aren't retained downstream. Drafts only, never auto-sends."
+    ]
+  },
+  "agentRelevance": {
+    "heading": "Agents we've built for personal injury practices",
+    "intro": "These agents apply to PI firms. Most teams start with intake triage, records requesting, and the demand package, then add docketing and SOL tracking as the book scales."
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "We start with Blueprint, a 2 to 3 week engagement where we sit with your team, watch 3 or 4 real matters move through intake, records, and demand, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Build is 4 to 8 weeks. We stand up your first 2 or 3 agents in your account, connect them to your practice management system, your intake sources, and your document storage, and run them in shadow mode while we tune. Every agent ships with an audit trail that supports ABA Opinion 512's supervision requirement.",
+      "Managed is the ongoing operating mode. We monitor the agents, refine skill files as your intake criteria evolve, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Does this replace our paralegals?",
+      "answer": "No, it reclaims their time. The agents handle the mechanical work: ordering records, chasing providers, building chronologies, drafting demand letters from template. Your paralegals shift from ordering records to running the case: calling the client, drafting the narrative, pressing the theory. The production work moves to the agent."
+    },
+    {
+      "question": "Does this compete with Dodonai's deposition summary or medical record chronology products?",
+      "answer": "They're complementary. The Dodonai SaaS products are the engines for deposition summaries and medical chronologies. The consulting services build the orchestration around them: an agent that watches your inbox, routes the right document to the right engine, populates the right matter in your case management system, and flags the right attorney. Many firms use both together."
+    },
+    {
+      "question": "How does this handle statute of limitations risk?",
+      "answer": "A docketing and SOL tracking agent runs against every active matter. It computes jurisdiction-specific deadlines from the incident date, layers rule-based tolling where applicable, and escalates at 90, 60, 30, and 14 days out. Every matter's SOL is visible in one view, and the escalation is in your inbox, not buried in a checklist."
+    },
+    {
+      "question": "What happens during a volume spike, like after a storm or a multi-vehicle incident?",
+      "answer": "The skill file doesn't change. The volume just scales. Agents process 50 intakes as easily as 5. The ceiling is your attorneys' review capacity, which is where we want it, not on the mechanical side where a paralegal would hit the wall first."
+    },
+    {
+      "question": "How much does this cost?",
+      "answer": "We don't publish pricing because the scope varies by firm size and the agents you start with. If the first 2 or 3 agents cut 6 to 10 hours of paralegal time per matter, at PI volume that recovers the engagement cost inside a quarter. We'll model the math against your book on a short fit call and give you a fixed-fee Blueprint quote."
+    }
+  ]
+}

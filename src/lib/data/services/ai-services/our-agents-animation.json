@@ -1,0 +1,70 @@
+{
+  "roster": [
+    { "short": "Meeting Intel", "initials": "MI", "time": "7:00am" },
+    { "short": "Inbox Mgr", "initials": "IM", "time": "8:00am" },
+    { "short": "Account Health", "initials": "AH", "time": "8:00am" },
+    { "short": "Prospect Intel", "initials": "PI", "time": "8:15am" },
+    { "short": "SEO Monitor", "initials": "SM", "time": "8:30am" },
+    { "short": "Campaign Track", "initials": "CT", "time": "9:00am" },
+    { "short": "Churn Intel", "initials": "CI", "time": "9:00am" },
+    { "short": "Lifecycle Mon", "initials": "LM", "time": "9:30am" },
+    { "short": "Cold Outreach", "initials": "CO", "time": "10:00am" },
+    { "short": "Market Intel", "initials": "MX", "time": "11:00am" },
+    { "short": "Meeting Tx", "initials": "MT", "time": "4:00pm" },
+    { "short": "Weekly Review", "initials": "WR", "time": "6:00pm Sun" },
+    { "short": "Outreach Comp", "initials": "OC", "time": "On-demand" }
+  ],
+  "rulerMarkers": [
+    { "hour": 7, "label": "MI", "offsetHour": 7 },
+    { "hour": 8, "label": "IM", "offsetHour": 8 },
+    { "hour": 8, "label": "AH", "offsetHour": 8.05 },
+    { "hour": 8, "label": "PI", "offsetHour": 8.25 },
+    { "hour": 8, "label": "SM", "offsetHour": 8.5 },
+    { "hour": 9, "label": "CT", "offsetHour": 9 },
+    { "hour": 9, "label": "CI", "offsetHour": 9.05 },
+    { "hour": 9, "label": "LM", "offsetHour": 9.5 },
+    { "hour": 10, "label": "CO", "offsetHour": 10 },
+    { "hour": 11, "label": "MX", "offsetHour": 11 },
+    { "hour": 16, "label": "MT", "offsetHour": 16 }
+  ],
+  "rulerRange": { "start": 7, "end": 17 },
+  "focus": [
+    {
+      "agent": "Inbox Manager",
+      "time": "8:04am",
+      "input": "47 overnight emails",
+      "output": "3 urgent · 8 action · 12 FYI · 24 archived",
+      "action": "Slack digest sent"
+    },
+    {
+      "agent": "Churn Intel",
+      "time": "9:02am",
+      "input": "2 cancellations yesterday",
+      "output": "Save briefs drafted · history pulled",
+      "action": "Drafts in Nick's inbox"
+    },
+    {
+      "agent": "Outreach Composer",
+      "time": "11:40am",
+      "input": "18 dormant power users",
+      "output": "Personalized nudges, 1 per user",
+      "action": "Drafts in queue"
+    }
+  ],
+  "ticker": [
+    "Inbox → 47 triaged, 3 urgent",
+    "Meeting Intel → 6 prep briefs",
+    "Account Health → 2 save briefs",
+    "Prospect Intel → 8 stage changes",
+    "SEO Monitor → 14 positions up",
+    "Churn Intel → 2 save emails",
+    "Lifecycle → 5 nudges drafted",
+    "Cold Outreach → 3 genuine replies",
+    "Campaign Track → 7 negatives added"
+  ],
+  "footerStats": [
+    { "label": "Today", "value": "92 drafts" },
+    { "label": "Approved", "value": "84" },
+    { "label": "Sent", "value": "79" }
+  ]
+}

@@ -1,0 +1,61 @@
+{
+  "slug": "tax",
+  "seo": {
+    "title": "AI Services for Tax Dispute Law Firms | Dodonai",
+    "description": "Custom AI agents for tax disputes: assessment notice tracking, objection deadline computation, draft objections from precedent, escalating reminders.",
+    "canonical": "/ai-services/for/tax/"
+  },
+  "hero": {
+    "headline": "AI Services for Tax Dispute Firms",
+    "subheadline": "A taxpayer has 90 days from a Notice of Assessment to file a Notice of Objection. Miss it and the right to object is gone. We build AI agents that flag every notice the moment it lands, compute the objection deadline, and draft the first version."
+  },
+  "scenario": {
+    "heading": "The notice that sits through trial week",
+    "paragraphs": [
+      "A boutique tax dispute practice in Canada manages 100 or more active files, each with its own deadline windows computed from different assessment dates. A Notice of Assessment arrives on a Thursday in an envelope that looks like every other envelope from the CRA. It sits in a pile through a busy trial week. By the time someone calendars it, 3 weeks of the 90-day window have elapsed. Miss it entirely and the client's right to object is gone.",
+      "With a tax notices agent in place, the pile disappears. The agent monitors incoming correspondence (scanned mail, email, CRA portal, IRS notices), classifies each piece as an assessment, a proposed adjustment, or routine correspondence, extracts the taxpayer name and assessment details, and computes the objection deadline. It drafts the objection from your firm's precedent template, pre-populates the taxpayer and assessment data, and sets a reminder cascade at 60, 30, 14, and 7 days.",
+      "The practitioner opens a single dashboard every morning and sees every active objection deadline in order. The drafted objection is ready for legal arguments the moment the notice is opened. The mechanical risk, the notice sitting in a pile, the deadline slipping past a busy week, is gone."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits tax dispute practice",
+    "paragraphs": [
+      "Tax dispute work is pure deadline computation on incoming correspondence. The legal analysis per notice is usually clear on its face. The statutes are explicit about response windows. The risk isn't legal judgment. It's tracking dozens of overlapping deadlines across a 100-plus file caseload without letting one slip through a busy week.",
+      "That's the shape agents handle well. The statute rules go into a skill file. The precedent library lives in your document storage. The practice management system holds the matter data. The agent orchestrates across them and catches every notice the moment it arrives. Client tax data stays in your account: SOC 2 and HIPAA controls, zero data retention from our LLM providers, full audit trail, ABA Opinion 512 supervision logged on every work product. Drafts only, never auto-sends."
+    ]
+  },
+  "agentRelevance": {
+    "heading": "Agents we've built for tax dispute practices",
+    "intro": "These agents apply to tax dispute and tax litigation practices. Most teams start with the notice tracking agent and the objection drafter, then add docketing, client communications, and matter profitability as the book grows."
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "We start with Blueprint, a 2 to 3 week engagement where we walk through 3 or 4 recent matters, review your objection precedents, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Build is 4 to 8 weeks. We encode the deadline rules for CRA and IRS notices, connect the agent to your mail intake, email, and document storage, and run it in shadow mode while we tune. Objection drafts ship from your firm's templates in your voice.",
+      "Managed is the ongoing operating mode. We monitor the agents, update rules as CRA and IRS procedures evolve, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Does this work for US tax disputes as well as Canadian?",
+      "answer": "Yes. CRA and IRS have different procedures, different deadline windows, and different precedent libraries. We encode the rules per jurisdiction and route each notice to the right path. Firms that practice in both run a single agent with both rulesets."
+    },
+    {
+      "question": "Can it handle notices that arrive by physical mail?",
+      "answer": "Yes. Scanned mail feeds into the same pipeline as email and portal notices. Most firms already scan incoming mail into their document management system. The agent reads the scans, extracts the assessment details, and creates the matter entry if it's not already open."
+    },
+    {
+      "question": "How does the agent draft objections without losing the firm's voice?",
+      "answer": "The agent drafts from your firm's objection precedents, not a generic template. We load your last 20 or 30 strong objections during the Build phase, and the agent uses them as the style and structure reference. The first draft arrives in your voice, with the assessment-specific facts populated. You add the legal arguments."
+    },
+    {
+      "question": "What about tax planning work, not just disputes?",
+      "answer": "The agents apply narrowly to disputes in v1. For planning work, the patterns are different: client-driven scope, not notice-driven, and the deliverable is a memo or an opinion rather than an objection. Planning-focused agents are on the roadmap. For now, the dispute side is where the return is clearest."
+    },
+    {
+      "question": "How much does this cost?",
+      "answer": "We don't publish pricing because the scope varies by caseload and jurisdictions covered. A firm with 100 active files running the agent reclaims several hours a week on notice handling and eliminates the 'notice sitting in a pile' risk outright. We'll model the math against your caseload on a short fit call and give you a fixed-fee Blueprint quote."
+    }
+  ]
+}

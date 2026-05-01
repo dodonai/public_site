@@ -1,0 +1,98 @@
+{
+  "slug": "medical-records-requester",
+  "title": "Medical Records Requester Agent",
+  "shortDescription": "Drafts the HIPAA-compliant requests, tracks every provider response, and chases the records that don't arrive on time.",
+  "tier": "supporting",
+  "function": "operations-and-billing",
+  "practiceAreas": [
+    "personal-injury"
+  ],
+  "caseSkills": [
+    "personal-injury-authorization-packet-summary.md",
+    "litigation-personal-injury-medical-record-chronology.md"
+  ],
+  "workflow": [
+    {
+      "label": "Provider list confirmed",
+      "detail": "From intake, client, or records review"
+    },
+    {
+      "label": "Draft HIPAA authorization",
+      "detail": "Client-signed release attached"
+    },
+    {
+      "label": "Send and track request",
+      "detail": "Delivery confirmed, deadline set"
+    },
+    {
+      "label": "Chase non-responders",
+      "detail": "Follow-ups at 14 and 30 days"
+    },
+    {
+      "label": "Log to matter file",
+      "detail": "Every record indexed, every chase documented"
+    }
+  ],
+  "seo": {
+    "title": "AI Medical Records Requester Agent for Law Firms | Dodonai",
+    "description": "Draft HIPAA-compliant requests, track every provider response, and chase the records that don't arrive on time. The PI workflow that disappears into a queue.",
+    "canonical": "/ai-services/agents/medical-records-requester/"
+  },
+  "hero": {
+    "headline": "AI Medical Records Requester Agent",
+    "subheadline": "HIPAA-compliant request drafted per provider, tracked through the response window, and chased on the schedule each provider needs. The records-request workflow that consumes paralegal weeks, handled in a queue with attorney visibility.",
+    "bullets": [
+      "HIPAA-compliant request drafted per provider with the right authorizations attached",
+      "Per-provider response window tracked",
+      "Automatic chase cadence on overdue requests",
+      "Cost-recovery tracking against statutory rates per state"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The records request you would have lost track of",
+    "paragraphs": [
+      "A personal injury matter has records pending from 7 providers across 14 months of treatment. In the old workflow, the paralegal drafts the requests, sends them, and tries to track who responded with a spreadsheet that gets out of date by week 3. The Medical Records Requester sends each request with the right authorizations, watches the inbox for responses, follows up at the statutory deadline, and surfaces the 2 providers who are nonresponsive after 60 days. The records that take 14 weeks instead of 6 stop being silent failures."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Medical Records Requester does",
+    "bullets": [
+      "Drafts HIPAA-compliant records requests per provider with the right authorization forms",
+      "Tracks each request against the provider's typical response window and the statutory limit",
+      "Follows up on overdue requests at the cadence each provider needs",
+      "Logs costs as records arrive and tracks them against statutory rates per state",
+      "Surfaces nonresponsive providers for paralegal escalation"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter and provider records",
+    "Email for the request and follow-up layer",
+    "Document management system for the records archive as they arrive",
+    "Records-request platforms (RecordTrak, Briefpoint Health, Record Reports) where used"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Authorizations and request letters are reviewed by the responsible attorney before the first request goes out on a matter. After the matter is approved for automated requests, the agent operates within the authorized scope. For unusual requests (subpoenaed records, court-ordered productions), the workflow escalates to the attorney."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about providers who refuse the standard authorization?",
+      "answer": "Some providers (large hospital systems, specialized clinics) require their own authorization forms. The agent maintains a per-provider authorization library and uses the right form when it has it. For new providers without a known requirement, the agent uses the standard HIPAA authorization and adapts when the provider responds with a specific request."
+    },
+    {
+      "question": "How does this work with records-request platforms?",
+      "answer": "The agent can run the requests directly or coordinate with platforms like RecordTrak when your firm uses them. The platform handles the network of providers; the agent handles the matter-level orchestration (which records to request, when to chase, when to escalate)."
+    }
+  ]
+}

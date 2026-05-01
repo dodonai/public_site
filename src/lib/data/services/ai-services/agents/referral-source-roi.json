@@ -1,0 +1,95 @@
+{
+  "slug": "referral-source-roi",
+  "title": "Referral Source ROI Agent",
+  "shortDescription": "Computes the lifetime value of every referral source and the ROI on every business-development investment, so the marketing budget gets sharper every quarter.",
+  "tier": "supporting",
+  "function": "practice-intelligence",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Source attribution logged",
+      "detail": "Every matter tagged at creation"
+    },
+    {
+      "label": "Pull profit data",
+      "detail": "Matter profitability per source"
+    },
+    {
+      "label": "Rank by profit",
+      "detail": "Not by lead volume alone"
+    },
+    {
+      "label": "Compare vs. volume",
+      "detail": "High-volume low-profit sources surfaced"
+    },
+    {
+      "label": "Monthly report",
+      "detail": "Ready for marketing and referral meetings"
+    }
+  ],
+  "seo": {
+    "title": "AI Referral Source ROI Agent for Law Firms | Dodonai",
+    "description": "Compute lifetime value per referral source and ROI per business-development investment. The marketing budget that gets sharper every quarter on real numbers.",
+    "canonical": "/ai-services/agents/referral-source-roi/"
+  },
+  "hero": {
+    "headline": "AI Referral Source ROI Agent",
+    "subheadline": "Lifetime value per referral source, conversion rate per intake channel, ROI per business-development investment. The conversation about where to spend the next marketing dollar moves from instinct to evidence.",
+    "bullets": [
+      "Lifetime value per referral source by matter count and fee revenue",
+      "Conversion rate per intake channel (web, referral, advertising)",
+      "ROI per business-development line item",
+      "Quarterly recommendation on where to invest the next dollar"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The marketing spend you would have renewed without thinking",
+    "paragraphs": [
+      "The firm spends $42,000 a year on a sponsorship that everyone assumes is producing. The Referral Source ROI agent runs the trailing 24 months: 4 matters trace to the sponsorship, total fees $61,000, average matter value $15,250. The same dollars spent on the bar association lunch series produced 19 matters at $206,000 in fees. The renewal conversation moves from habit to math. The sponsorship gets a tighter scope; the lunch budget grows."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Referral Source ROI agent does",
+    "bullets": [
+      "Computes lifetime value per source from matter count and fee revenue",
+      "Tracks conversion rate at each stage (intake to consult to signed matter)",
+      "Attributes business-development spend to source where the trail exists",
+      "Computes ROI per spend line and ranks the marketing budget by return",
+      "Posts a quarterly recommendation on where to invest more and where to cut"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter source attribution",
+    "Accounting system for fee revenue and BD spend",
+    "CRM (HubSpot, Pipedrive) if you use one for top-of-funnel tracking",
+    "Slack or email for the quarterly digest"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The analysis is internal-only and scoped to the partners and the firm's BD lead. The recommendations are advisory; the firm makes the budget calls. For sources where attribution is uncertain (a matter that came from a sponsorship-related event without clean tracking), the agent shows the uncertainty rather than guessing."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about brand spend that doesn't trace to specific matters?",
+      "answer": "Brand spend (firm logo on a stadium board, name recognition advertising) gets reported separately from direct-attribution spend. The agent doesn't try to assign matters to brand spend; it tracks it as a category and surfaces the trend so the partners can decide whether the assumed lift is real."
+    },
+    {
+      "question": "How does it handle long-tail referral relationships?",
+      "answer": "Lifetime value is trailing 36 months by default, which captures most relationships fairly. For sources with longer cycles (estate planning relationships that produce a probate 10 years later), the agent flags the long-cycle pattern so the recommendation accounts for it."
+    }
+  ]
+}

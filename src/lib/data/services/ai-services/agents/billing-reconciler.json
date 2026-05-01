@@ -1,0 +1,95 @@
+{
+  "slug": "billing-reconciler",
+  "title": "Billing Reconciler Agent",
+  "shortDescription": "Reviews every draft invoice for missing time, write-down patterns, and billing-guideline compliance before it goes to the client.",
+  "tier": "supporting",
+  "function": "operations-and-billing",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Draft invoice generated",
+      "detail": "Pulled from time entries and costs"
+    },
+    {
+      "label": "Check scope",
+      "detail": "Compared against the engagement letter"
+    },
+    {
+      "label": "Review narratives",
+      "detail": "Quality and consistency flagged"
+    },
+    {
+      "label": "Flag write-off candidates",
+      "detail": "Scope creep and duplicates surfaced"
+    },
+    {
+      "label": "Route for approval",
+      "detail": "Clean invoice ready for billing partner"
+    }
+  ],
+  "seo": {
+    "title": "AI Billing Reconciler Agent for Law Firms | Dodonai",
+    "description": "Review every draft invoice for missing time, write-down patterns, and billing-guideline compliance before it leaves your firm. The variance you catch on review, prevented at draft.",
+    "canonical": "/ai-services/agents/billing-reconciler/"
+  },
+  "hero": {
+    "headline": "AI Billing Reconciler Agent",
+    "subheadline": "Reviews every draft invoice against the matter activity, the client's billing guidelines, and your firm's narrative standards. Surfaces missing time, write-down patterns, and compliance gaps before the invoice goes to the client.",
+    "bullets": [
+      "Cross-checks invoice entries against the matter activity record",
+      "Verifies entries comply with the client's published billing guidelines",
+      "Surfaces patterns of partner write-downs that may signal undertraining",
+      "Flags narrative entries that wouldn't survive a client audit"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The invoice you would have sent with errors",
+    "paragraphs": [
+      "Month-end. The bookkeeper generates 47 draft invoices. The Billing Reconciler runs against all of them in 6 minutes. 4 invoices are missing time the matter activity record shows happened. 3 have entries that violate the corporate client's published guidelines (block billing, vague narratives). 2 have arithmetic that doesn't tie to the cost ledger. The bookkeeper fixes everything before invoices ship. Realization holds; client guideline compliance audits return clean."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Billing Reconciler does",
+    "bullets": [
+      "Compares draft invoice entries against the matter activity record (calendar, email, document edits)",
+      "Surfaces matter activity that didn't make it onto the invoice",
+      "Verifies entries comply with the client's billing guidelines (block billing, narrative depth, task codes)",
+      "Identifies partner write-down patterns by associate and matter type",
+      "Flags entries with narratives that would likely fail a client audit"
+    ]
+  },
+  "integrations": [
+    "Practice management system for draft invoices and matter activity",
+    "Accounting system (QuickBooks, Xero, LeanLaw, TrustBooks) for cost ledger",
+    "Client billing-guideline documents for the compliance check",
+    "Slack or email for the reconciler digest"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent reviews and recommends; the bookkeeper and the responsible attorney post. No invoice goes to a client without human signoff. The agent's flags are advisory; the firm's billing partner makes the call on each one."
+    ]
+  },
+  "faq": [
+    {
+      "question": "What about clients whose billing guidelines aren't published in writing?",
+      "answer": "For clients with informal guidelines, the agent learns from past invoice history (which entries were approved, which were challenged or written down) and applies the inferred pattern. As patterns emerge, the firm can document them so the agent applies them more cleanly."
+    },
+    {
+      "question": "Does this overlap with what e-billing platforms already do?",
+      "answer": "E-billing platforms (LEDES, Tymetrix, Bottomline) enforce format compliance and run guideline checks at submission. The Billing Reconciler runs earlier, against the draft invoice, so the issues get fixed before submission rather than rejected after."
+    }
+  ]
+}

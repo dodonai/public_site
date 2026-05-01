@@ -33,3 +33,30 @@ export const industries = [
 	{ name: 'Law Firm Case Management', href: '/industries/law-firm-case-management/' },
 	{ name: 'Document Management', href: '/industries/document-management-law-firms/' }
 ];
+
+export const aiServicesOverview = [
+	{ name: 'AI Services Hub', href: '/ai-services/' },
+	{ name: 'How It Works', href: '/ai-services/how-it-works/' },
+	{ name: 'Safety & Trust', href: '/ai-services/safety/' },
+	{ name: 'Our Agents (the proof)', href: '/ai-services/our-agents/' },
+	{ name: 'Browse All Agents', href: '/ai-services/agents/' }
+];
+
+export const aiServicesPracticeAreas = [
+	{ slug: 'personal-injury', name: 'Personal Injury', href: '/ai-services/for/personal-injury/' },
+	{ slug: 'family-law', name: 'Family Law', href: '/ai-services/for/family-law/' },
+	{ slug: 'real-estate', name: 'Real Estate', href: '/ai-services/for/real-estate/' },
+	{ slug: 'tax', name: 'Tax', href: '/ai-services/for/tax/' },
+	{ slug: 'immigration', name: 'Immigration', href: '/ai-services/for/immigration/' },
+	{ slug: 'estates-probate', name: 'Estates & Probate', href: '/ai-services/for/estates-probate/' },
+	{ slug: 'cybersecurity-privacy', name: 'Cybersecurity & Privacy', href: '/ai-services/for/cybersecurity-privacy/' }
+];
+
+export const aiServicesFunctions = [
+	{ slug: 'intake-and-growth', name: 'Intake & Growth', href: '/ai-services/by-function/intake-and-growth/' },
+	{ slug: 'deadlines-and-compliance', name: 'Deadlines & Compliance', href: '/ai-services/by-function/deadlines-and-compliance/' },
+	{ slug: 'client-communications', name: 'Client Communications', href: '/ai-services/by-function/client-communications/' },
+	{ slug: 'operations-and-billing', name: 'Operations & Billing', href: '/ai-services/by-function/operations-and-billing/' },
+	{ slug: 'practice-intelligence', name: 'Practice Intelligence', href: '/ai-services/by-function/practice-intelligence/' },
+	{ slug: 'casework-and-drafting', name: 'Casework & Drafting', href: '/ai-services/by-function/casework-and-drafting/' }
+];
