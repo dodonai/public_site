@@ -154,6 +154,36 @@
 		</div>
 	</section>
 
+	<!-- Partnership strip -->
+	<section class="bg-white py-16 sm:py-20">
+		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-col items-center gap-10 sm:flex-row sm:items-center sm:gap-14">
+				<div class="flex-shrink-0">
+					<img
+						src="/images/people/legal-team-meeting-1.webp"
+						alt="Legal team collaborating"
+						width="380"
+						height="260"
+						loading="lazy"
+						class="h-[220px] w-[320px] rounded-2xl object-cover object-center shadow-lg sm:h-[260px] sm:w-[380px]"
+					/>
+				</div>
+				<div class="max-w-xl">
+					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">A team, not a tool</p>
+					<h2 class="mt-4 text-2xl font-extrabold leading-snug text-[#282876] sm:text-3xl">
+						You're not buying software. You're getting a team.
+					</h2>
+					<p class="mt-5 text-base leading-7 text-[#8181ac]">
+						Every engagement starts with us sitting with your people — not sending a survey. We map what you actually do, then build around that. Most firms are surprised how much we ship in the first build cycle, and how little their team had to change to make it work.
+					</p>
+					<a href="https://calendly.com/nick-dodonai" class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[#216fed] hover:underline">
+						Book a 30-minute intro call →
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Engagement tiers: Crawl, Walk, Run -->
 	<section class="bg-transparent py-20 sm:py-28">
 		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

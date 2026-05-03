@@ -6,6 +6,7 @@
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
 	import ContentSection from '$lib/components/content/ContentSection.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import LeadMagnetSection from '$lib/components/cta/LeadMagnetSection.svelte';
 	import data from '$lib/data/services/ai-services/our-agents.json';
 
 	let HeroAnimation = $state(null);
@@ -151,6 +152,40 @@
 		background="bg-transparent"
 	/>
 </BlobBackground>
+
+<!-- Human proof strip: professional photo + the "real firm" signal -->
+<section class="bg-white py-16 sm:py-20">
+	<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+		<div class="flex flex-col items-center gap-10 sm:flex-row sm:items-center sm:gap-14">
+			<div class="flex-shrink-0">
+				<img
+					src="/images/people/legal-team-meeting-1.webp"
+					alt="Legal professionals reviewing work together"
+					width="320"
+					height="260"
+					loading="lazy"
+					class="h-[220px] w-[320px] rounded-2xl object-cover object-center shadow-lg sm:h-[260px] sm:w-[380px]"
+				/>
+			</div>
+			<div class="max-w-xl">
+				<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">Built on real practice</p>
+				<blockquote class="mt-4 text-2xl font-bold leading-snug text-[#282876] sm:text-3xl">
+					"We don't sell workflows we drew on a whiteboard. Every agent in this catalog runs inside our own company, every morning."
+				</blockquote>
+				<p class="mt-5 text-base text-[#8181ac]">
+					The playbook we give your firm is the same one we've stress-tested on our own inbox, account health signals, and client ops — with real data, real edge cases, and real consequences when it breaks. That's the proof you can't get from a demo.
+				</p>
+				<p class="mt-5 text-sm font-semibold text-[#282876]">
+					The Dodonai Team
+					<span class="ml-2 font-normal text-[#8181ac]">· AI Services for Legal Teams</span>
+				</p>
+			</div>
+		</div>
+	</div>
+</section>
+
+<!-- Lead magnet: Going (AI) Native guide -->
+<LeadMagnetSection background="bg-[#f4f5fd]" />
 
 <CTASection
 	headline="Want this architecture inside your firm?"

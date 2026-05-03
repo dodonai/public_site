@@ -7,6 +7,7 @@
 	import ContentSection from '$lib/components/content/ContentSection.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import LeadMagnetSection from '$lib/components/cta/LeadMagnetSection.svelte';
 	import AgentCard from '$lib/components/ai-services/AgentCard.svelte';
 	import { aiServicesFunctions } from '$lib/data/navigation.js';
 
@@ -16,10 +17,21 @@
 		HeroAnimation = mod.default;
 	});
 
+	const AREA_PHOTOS = {
+		'personal-injury':      { src: '/images/people/attorney-serious-1.webp',       alt: 'Personal injury attorney reviewing a case file', portrait: true },
+		'family-law':           { src: '/images/people/attorney-consultation-1.webp',   alt: 'Family law attorney consulting with a client',   portrait: false },
+		'immigration':          { src: '/images/people/attorney-headshot-2.webp',       alt: 'Immigration attorney professional headshot',     portrait: true },
+		'real-estate':          { src: '/images/people/attorney-office-1.webp',         alt: 'Real estate attorney at their desk',             portrait: false },
+		'estates-probate':      { src: '/images/people/attorney-headshot-1.webp',       alt: 'Estates and probate attorney',                   portrait: true },
+		'tax':                  { src: '/images/people/attorney-serious-1.webp',        alt: 'Tax attorney reviewing documents',               portrait: true },
+		'cybersecurity-privacy':{ src: '/images/people/legal-team-meeting-1.webp',      alt: 'Legal team reviewing cybersecurity obligations', portrait: false },
+	};
+
 	let { data } = $props();
 	const area = $derived(data.area);
 	const customData = $derived(data.customData);
 	const agents = $derived(data.agents);
+	const areaPhoto = $derived(AREA_PHOTOS[area.slug] ?? { src: '/images/people/attorney-headshot-1.webp', alt: 'Legal professional', portrait: true });
 
 	const title = $derived(customData?.seo?.title ?? `AI Services for ${area.name} Firms | Dodonai`);
 	const description = $derived(
@@ -135,6 +147,47 @@
 		/>
 	{/if}
 
+	<!-- Legal expertise strip -->
+	<section class="bg-white py-16 sm:py-20">
+		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-col items-center gap-10 sm:flex-row sm:items-center sm:gap-14">
+				<div class="flex-shrink-0">
+					{#if areaPhoto.portrait}
+						<img
+							src={areaPhoto.src}
+							alt={areaPhoto.alt}
+							width="260"
+							height="310"
+							loading="lazy"
+							class="h-[280px] w-[220px] rounded-2xl object-cover object-top shadow-lg sm:h-[310px] sm:w-[260px]"
+						/>
+					{:else}
+						<img
+							src={areaPhoto.src}
+							alt={areaPhoto.alt}
+							width="380"
+							height="260"
+							loading="lazy"
+							class="h-[220px] w-[320px] rounded-2xl object-cover object-center shadow-lg sm:h-[260px] sm:w-[380px]"
+						/>
+					{/if}
+				</div>
+				<div class="max-w-xl">
+					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">Legal expertise first. AI second.</p>
+					<h2 class="mt-4 text-2xl font-extrabold leading-snug text-[#282876] sm:text-3xl">
+						Built around how {area.name.toLowerCase()} firms actually work.
+					</h2>
+					<p class="mt-5 text-base leading-7 text-[#8181ac]">
+						The agents below aren't generic. They're scoped to your intake patterns, your matter mix, and your team's review habits. We spend the first two weeks inside your workflows before we write a single prompt — because agents that don't fit how you work don't get used.
+					</p>
+					<a href="/ai-services/how-it-works/" class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[#216fed] hover:underline">
+						See how an engagement works →
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- Relevant agents, grouped by function -->
 	<section class="bg-transparent py-20 sm:py-28">
 		<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
@@ -182,5 +235,8 @@
 		<FAQAccordion items={customData.faq} background="bg-transparent" />
 	{/if}
 </BlobBackground>
+
+<!-- Lead magnet: Going (AI) Native guide -->
+<LeadMagnetSection />
 
 <CTASection />

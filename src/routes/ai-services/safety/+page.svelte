@@ -135,6 +135,36 @@
 		background="bg-transparent"
 	/>
 
+	<!-- Human accountability strip -->
+	<section class="bg-white py-16 sm:py-20">
+		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-col items-center gap-10 sm:flex-row sm:items-center sm:gap-14">
+				<div class="flex-shrink-0">
+					<img
+						src="/images/people/attorney-serious-1.webp"
+						alt="Legal professional reviewing work"
+						width="260"
+						height="310"
+						loading="lazy"
+						class="h-[280px] w-[220px] rounded-2xl object-cover object-top shadow-lg sm:h-[310px] sm:w-[260px]"
+					/>
+				</div>
+				<div class="max-w-xl">
+					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">Designed for accountability</p>
+					<h2 class="mt-4 text-2xl font-extrabold leading-snug text-[#282876] sm:text-3xl">
+						We designed these guardrails as if a bar examiner was the first reader.
+					</h2>
+					<p class="mt-5 text-base leading-7 text-[#8181ac]">
+						Every draft an agent produces goes through your attorneys — not around them. The agent's job is to surface and prepare. Yours is to decide and sign. That line never moves. No action is taken, no document is sent, no filing is made without explicit attorney review and approval.
+					</p>
+					<a href="/ai-services/how-it-works/" class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[#216fed] hover:underline">
+						See how we build the safeguards in →
+					</a>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- 4-principle framework -->
 	<section class="bg-transparent py-20 sm:py-28">
 		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">

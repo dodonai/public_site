@@ -571,12 +571,10 @@
 			</p>
 			<div class="mt-6">
 				<a
-					href="https://calendly.com/nick-dodonai"
-					target="_blank"
-					rel="noopener noreferrer"
+					href="/ai-services/"
 					class="inline-block rounded-md border-[1.5px] border-[#d0d0e0] px-7 py-2.5 text-sm font-bold text-[#282876] transition-colors hover:border-[#282876]"
 				>
-					Contact Us
+					See Our AI Services
 				</a>
 			</div>
 		</div>
