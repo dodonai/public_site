@@ -28,6 +28,14 @@ jobs:
       - name: Build static site
         run: npm run build
 
+      - name: Strip client deliverables from prod build
+        run: |
+          # Client-facing HTML deliverables are staged via the `stage` branch
+          # and served only from landing.dodonai.com (noindex). This guard
+          # prevents accidental leaks to www.dodon.ai if a client file ever
+          # lands on main via a bad merge.
+          rm -rf build/clients
+
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
