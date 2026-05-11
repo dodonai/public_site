@@ -422,6 +422,59 @@
   .si-table .item{font-weight:600;color:var(--midnight);width:48%}
   .si-table .from{font-family:'Source Code Pro',monospace;font-size:11.5px;color:var(--purple-bold)}
 
+  /* ===== Section nav (sticky) ===== */
+  .section-nav{position:sticky;top:0;z-index:50;background:rgba(20,20,58,0.96);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(124,58,237,0.30);box-shadow:0 1px 3px rgba(0,0,0,0.12)}
+  .section-nav .nav-inner{max-width:1100px;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .section-nav .nav-inner::-webkit-scrollbar{display:none}
+  .section-nav .nav-mark{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;color:#fff;letter-spacing:-0.01em;padding:14px 12px 14px 0;border-right:1px solid rgba(255,255,255,0.14);margin-right:8px;white-space:nowrap}
+  .section-nav .nav-mark .glyph{color:var(--purple-soft)}
+  .section-nav .nav-mark .sub{font-family:'Source Code Pro',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-left:6px}
+  .section-nav a{display:inline-flex;align-items:center;gap:7px;padding:14px 14px;font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.10em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);border:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s ease, border-color 0.15s ease, background 0.15s ease}
+  .section-nav a:hover{color:#fff;background:rgba(124,58,237,0.10);border-bottom-color:var(--purple-vivid)}
+  .section-nav a .num{color:var(--purple-vivid);font-weight:800;font-size:11px}
+  html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:64px}
+
+  /* ===== Hero summary grid (replaces commit-table) ===== */
+  .summary-grid{display:grid;grid-template-columns:1.18fr 1fr;gap:18px;margin-top:24px}
+  .summary-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.16);border-radius:10px;padding:22px 24px;display:flex;flex-direction:column}
+  .summary-card .sc-label{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:14px}
+  .sc-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 0;font-size:13px;color:rgba(255,255,255,0.88);line-height:1.4;border-bottom:1px dashed rgba(255,255,255,0.10)}
+  .sc-row .lbl{flex:1}
+  .sc-row .lbl strong{color:#fff;font-weight:700}
+  .sc-row .amt{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;color:#fff;white-space:nowrap;letter-spacing:-0.01em}
+  .sc-row.indent{padding:6px 0 6px 14px;border-bottom:none;font-size:12px;color:var(--purple-soft)}
+  .sc-row.indent .amt{font-family:'Source Code Pro',monospace;font-size:10.5px;font-weight:600;color:var(--purple-soft);text-transform:uppercase;letter-spacing:0.06em}
+  .sc-row.total{padding:12px 0 4px;margin-top:6px;border-top:1px solid rgba(255,255,255,0.18);border-bottom:none}
+  .sc-row.total .lbl{font-family:'Source Code Pro',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.10em;color:#fff;font-weight:700}
+  .sc-row.total .amt{font-size:22px;color:#fff}
+  .sc-row.monthly{margin-top:10px;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.18);border-bottom:none}
+  .sc-row.monthly .lbl{color:#fff}
+  .sc-row.monthly .lbl small{display:block;font-size:11px;color:var(--purple-soft);font-weight:400;margin-top:2px;letter-spacing:0}
+  .sc-row.monthly .amt{color:var(--purple-soft);font-size:17px}
+  .summary-card .sc-note{margin-top:auto;padding-top:12px;font-size:11.5px;color:var(--purple-soft);font-style:italic;line-height:1.5}
+
+  /* timeline card */
+  .timeline-card .tl-step{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,0.92);border-bottom:1px dashed rgba(255,255,255,0.10);align-items:start}
+  .timeline-card .tl-step:last-child{border-bottom:none}
+  .timeline-card .tl-when{font-family:'Source Code Pro',monospace;font-size:10.5px;letter-spacing:0.06em;color:var(--purple-vivid);font-weight:700;text-transform:uppercase;padding-top:1px}
+  .timeline-card .tl-what strong{color:#fff;font-weight:700}
+  .timeline-card .tl-what em{color:var(--purple-soft);font-style:normal}
+
+  /* workflow strip (full-width under summary-grid) */
+  .workflow-strip{margin-top:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:20px 24px}
+  .workflow-strip .ws-label{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:14px}
+  .workflow-strip .ws-row{display:grid;grid-template-columns:1fr 36px 1fr;gap:14px;align-items:stretch}
+  .workflow-strip .ws-side{padding:14px 18px;border-radius:8px;background:rgba(0,0,0,0.20)}
+  .workflow-strip .ws-side.today{border-left:3px solid #fca5a5}
+  .workflow-strip .ws-side.after{border-left:3px solid var(--purple-vivid)}
+  .workflow-strip .ws-tag{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  .workflow-strip .ws-side.today .ws-tag{color:#fca5a5}
+  .workflow-strip .ws-side.after .ws-tag{color:var(--purple-soft)}
+  .workflow-strip .ws-text{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,0.92)}
+  .workflow-strip .ws-text code{background:rgba(124,58,237,0.22);color:#fff;font-size:0.95em}
+  .workflow-strip .ws-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple-vivid);font-size:26px;font-weight:800;line-height:1}
+
   /* ===== Responsive ===== */
   @media (max-width:900px){
     .hero{padding:48px 24px 64px}
@@ -448,6 +501,12 @@
     .pl-arrow{transform:rotate(90deg);padding:4px 0}
     .verify{grid-template-columns:1fr}
     .canon-cats{grid-template-columns:1fr}
+    .section-nav .nav-inner{padding:0 16px}
+    .section-nav .nav-mark{display:none}
+    .section-nav a{padding:12px 10px;font-size:10.5px}
+    .summary-grid{grid-template-columns:1fr;gap:14px}
+    .workflow-strip .ws-row{grid-template-columns:1fr;gap:10px}
+    .workflow-strip .ws-arrow{transform:rotate(90deg);padding:4px 0;height:26px}
   }
   @media print{
     body{background:#fff}
@@ -485,17 +544,59 @@
       </div>
     </div>
 
-    <div class="commit-table">
-      <div class="commit-cell"><div class="ck">One-time build</div><div class="cv">$3,000</div></div>
-      <div class="commit-cell"><div class="ck">Managed service</div><div class="cv">$1,500/mo<br>(begins at go-live)</div></div>
-      <div class="commit-cell"><div class="ck">Build window</div><div class="cv">2–4 weeks</div></div>
-      <div class="commit-cell"><div class="ck">Your time during build</div><div class="cv">~2 hours total</div></div>
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="sc-label">Pricing summary</div>
+        <div class="sc-row"><span class="lbl"><strong>Module 1</strong> — brief skill + workflow integration</span><span class="amt">$2,000</span></div>
+        <div class="sc-row indent"><span class="lbl">incl. Dodonai medical chronology build (Stage 1)</span><span class="amt">included in M1</span></div>
+        <div class="sc-row"><span class="lbl"><strong>Module 2</strong> — wiki integration + ingestion helper</span><span class="amt">$1,000</span></div>
+        <div class="sc-row total"><span class="lbl">One-time build</span><span class="amt">$3,000</span></div>
+        <div class="sc-row monthly"><span class="lbl">Managed service<small>begins at go-live · §5</small></span><span class="amt">$1,000/mo</span></div>
+        <div class="sc-row monthly" style="margin-top:0;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.10)"><span class="lbl">Chronology usage<small>per page of medical record processed</small></span><span class="amt">$0.03/page</span></div>
+        <div class="sc-note">Chronology build is bundled into Module 1; page-processing is billed by usage and replaces your existing Case Frame spend.</div>
+      </div>
+
+      <div class="summary-card timeline-card">
+        <div class="sc-label">Timeline</div>
+        <div class="tl-step"><div class="tl-when">Kickoff</div><div class="tl-what"><strong>2 confirmation questions</strong> — folder + wiki master location · <em>~10 min</em></div></div>
+        <div class="tl-step"><div class="tl-when">Wk 1</div><div class="tl-what"><strong>Module 1's three layers</strong> — exhibit-aware parse, case-state, verification</div></div>
+        <div class="tl-step"><div class="tl-when">Wk 2</div><div class="tl-what"><strong>Wiki + Stage 1 chronology + workflow</strong> — Inbox→Drafts wired end-to-end</div></div>
+        <div class="tl-step"><div class="tl-when">Wk 3 / 4</div><div class="tl-what"><strong>Acceptance test on Nylander</strong> — five hard checks + stopwatch · <em>your ~60 min</em></div></div>
+        <div class="tl-step"><div class="tl-when">Go-live</div><div class="tl-what"><strong>Managed service begins</strong> — ~2 hrs of your time total across the build window</div></div>
+      </div>
+    </div>
+
+    <div class="workflow-strip">
+      <div class="ws-label">Workflow change</div>
+      <div class="ws-row">
+        <div class="ws-side today">
+          <div class="ws-tag">Today · manual end-to-end</div>
+          <div class="ws-text">Staff downloads from Assure → you spin up brief tool → load PDF → type prompt → wait → copy back → edit → file. Each step is a potential dropped ball.</div>
+        </div>
+        <div class="ws-arrow">→</div>
+        <div class="ws-side after">
+          <div class="ws-tag">After Phase 1 · event-driven</div>
+          <div class="ws-text">Staff drops PDF in <code>Inbox/</code> → service generates brief, worksheet, chronology in <code>Drafts/</code> → email lands at <code>ginsberg@gmail.com</code> → you review, edit, move to <code>Filed/</code>.</div>
+        </div>
+      </div>
     </div>
   </div>
 </div>
 
+<!-- ============ Section nav (sticky) ============ -->
+<nav class="section-nav" aria-label="Section navigation">
+  <div class="nav-inner">
+    <span class="nav-mark">Phase 1 Blueprint <span class="sub">Ginsberg</span></span>
+    <a href="#findings"><span class="num">§1</span><span>Findings</span></a>
+    <a href="#build"><span class="num">§2</span><span>What we'll build</span></a>
+    <a href="#acceptance"><span class="num">§3</span><span>Acceptance</span></a>
+    <a href="#kickoff"><span class="num">§4</span><span>Build &amp; kickoff</span></a>
+    <a href="#pricing"><span class="num">§5</span><span>Pricing</span></a>
+  </div>
+</nav>
+
 <!-- ============ §1 What we found ============ -->
-<section>
+<section id="findings">
   <span class="section-tag">§1</span>
   <h2>What we <span class="soft">found</span></h2>
 
@@ -543,7 +644,7 @@
 </section>
 
 <!-- ============ §2 What we'll build ============ -->
-<section>
+<section id="build">
   <span class="section-tag">§2</span>
   <h2>What we'll <span class="soft">build</span></h2>
   <p class="section-lede">Two modules and one integrated workflow. Together they replace a manual hour-plus-per-brief loop with an event-driven one. Here's the unified workflow first; the modules describe the components.</p>
@@ -965,11 +1066,11 @@
   <h4 style="margin-top:24px">How the brief and worksheet use it</h4>
   <p style="font-size:14px;line-height:1.65">The brief skill's Step 5 RFC discussion reads the chronology's structured findings — functional limitations, treating-source MSS quotes, off-task evidence — and incorporates them into the RFC argument. The worksheet's medical-summary section is the chronology, formatted for the hearing-prep document. Same source, two shapes.</p>
 
-  <p style="font-size:13.5px;color:var(--gray-meta-light);font-style:italic;margin-top:14px">This is part of the Phase 1 workflow build — no separate line item.</p>
+  <p style="font-size:13.5px;color:var(--gray-meta-light);font-style:italic;margin-top:14px">Chronology <strong>build</strong> is part of Module 1's Phase 1 workflow — no separate build line item. <strong>Page-processing</strong> is billed by usage on each case the chronology runs on; see §5 Usage block for the per-page rate.</p>
 </section>
 
 <!-- ============ §3 How we'll know it's done ============ -->
-<section class="dark">
+<section id="acceptance" class="dark">
   <div class="inner">
     <span class="section-tag" style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">§3</span>
     <h2>How we'll <span class="soft">know it's done</span></h2>
@@ -1049,7 +1150,7 @@
 </section>
 
 <!-- ============ §4 Build window + kickoff ============ -->
-<section>
+<section id="kickoff">
   <span class="section-tag">§4</span>
   <h2>Build window + <span class="soft">kickoff</span></h2>
   <p class="section-lede"><strong>2–4 weeks</strong> from your written go-ahead. Both modules and the integrated two-stage workflow from §2 ship inside this window.</p>
@@ -1119,7 +1220,6 @@
         <tr><td class="when">Kickoff</td><td>Answer the two confirmation questions above</td><td class="duration">~10 min</td></tr>
         <tr><td class="when">Build week 1</td><td>Validate the reconstructed baseline brief skill matches what you have locally</td><td class="duration">~30 min</td></tr>
         <tr><td class="when">Build week 3</td><td>Sit with the updated skill's Nylander output on the clock and answer the completeness questions</td><td class="duration">~60 min</td></tr>
-        <tr><td class="when">As needed</td><td>Provide the Nylander Assure PDF when build kicks off (we pull from Drive)</td><td class="duration">—</td></tr>
         <tr class="total"><td class="when">Total</td><td>Across the full build window</td><td class="duration">~2 hrs</td></tr>
       </tbody>
     </table>
@@ -1127,7 +1227,7 @@
 </section>
 
 <!-- ============ §5 Total + what's not in Phase 1 ============ -->
-<section>
+<section id="pricing">
   <span class="section-tag">§5</span>
   <h2>Total <span class="soft">and what's not in Phase 1</span></h2>
 
@@ -1137,7 +1237,7 @@
     <table>
       <thead><tr><th colspan="2" style="text-align:left;font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-bold);padding:14px 18px 6px;border:0;background:transparent;font-weight:700">One-time build</th></tr></thead>
       <tbody>
-        <tr><td class="label"><strong>Module 1</strong> — Updated brief-writing skill + workflow integration</td><td class="amount">$2,000</td></tr>
+        <tr><td class="label"><strong>Module 1</strong> — Updated brief-writing skill + workflow integration<br><span style="display:block;margin-top:4px;font-size:12.5px;color:var(--gray-meta-light);font-style:italic">Includes the Dodonai medical chronology build (Stage 1) — page-processing billed by usage (see Usage block below).</span></td><td class="amount">$2,000</td></tr>
         <tr><td class="label"><strong>Module 2</strong> — Hearing-prep wiki integration + ingestion helper</td><td class="amount">$1,000</td></tr>
         <tr class="total"><td class="label"><strong>Build total</strong></td><td class="amount">$3,000</td></tr>
       </tbody>
@@ -1147,9 +1247,17 @@
     <table>
       <thead><tr><th colspan="2" style="text-align:left;font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-bold);padding:14px 18px 6px;border:0;background:transparent;font-weight:700">Managed service · begins at go-live</th></tr></thead>
       <tbody>
-        <tr><td class="label"><strong>Service operation</strong> — infrastructure, compute, monitoring, alerting</td><td class="amount" style="font-family:'Source Code Pro',monospace;font-size:13px;font-weight:600;color:var(--purple-bold)">included</td></tr>
+        <tr><td class="label"><strong>Service operation</strong> — infrastructure, compute (brief + worksheet), monitoring, alerting</td><td class="amount" style="font-family:'Source Code Pro',monospace;font-size:13px;font-weight:600;color:var(--purple-bold)">included</td></tr>
         <tr><td class="label"><strong>Retainer-band iteration</strong> — prompt tuning, wiki additions you queue up, small workflow tweaks, new article triggers</td><td class="amount" style="font-family:'Source Code Pro',monospace;font-size:13px;font-weight:600;color:var(--purple-bold)">included</td></tr>
-        <tr class="total"><td class="label"><strong>Monthly</strong></td><td class="amount">$1,500/mo</td></tr>
+        <tr class="total"><td class="label"><strong>Monthly</strong></td><td class="amount">$1,000/mo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pricing">
+    <table>
+      <thead><tr><th colspan="2" style="text-align:left;font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-bold);padding:14px 18px 6px;border:0;background:transparent;font-weight:700">Usage · billed monthly based on volume</th></tr></thead>
+      <tbody>
+        <tr><td class="label"><strong>Dodonai medical chronology</strong> — per page of medical record processed<br><span style="display:block;margin-top:4px;font-size:12.5px;color:var(--gray-meta-light);font-style:italic">Pages counted from Section F of the Assure PDF on each case the chronology runs on. Replaces your current Case Frame chronology spend. You receive an itemized usage statement each month.</span></td><td class="amount">$0.03<span style="display:block;font-size:11px;font-family:'Source Code Pro',monospace;font-weight:600;color:var(--purple-bold);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px">per page</span></td></tr>
       </tbody>
     </table>
   </div>
@@ -1157,7 +1265,7 @@
   <h3>What the managed service covers</h3>
   <ul style="padding-left:22px;margin:8px 0 24px;max-width:880px">
     <li style="margin:10px 0;font-size:14.5px;line-height:1.65"><strong>The service runs in Dodonai's cloud, not on your machine.</strong> No Claude subscription required on your side, no machine that has to stay on, no software to install or update. Your firm's surface area is the cloud folder, your email, and the wiki master in Drive.</li>
-    <li style="margin:10px 0;font-size:14.5px;line-height:1.65"><strong>Compute, infrastructure, and monitoring are bundled in the monthly fee</strong> — there is no per-token billing pass-through and no separate cloud bill. We absorb the variable cost; you get a predictable line item.</li>
+    <li style="margin:10px 0;font-size:14.5px;line-height:1.65"><strong>Infrastructure, brief + worksheet compute, monitoring, and alerting are bundled in the flat $1,000/mo</strong> — no per-token pass-through on those, no separate cloud bill. The one variable line is chronology page-processing (above), which is billed per page so you only pay for the medical records the service actually parses. You get a predictable monthly fee plus an itemized usage statement.</li>
     <li style="margin:10px 0;font-size:14.5px;line-height:1.65"><strong>Retainer-band iteration is part of the service</strong>, not separate billable work. Examples that fit inside the retainer: adding a new wiki article trigger when you publish a new article, tuning a prompt because a class of brief drafts slightly off, adjusting the case-profile loader when you hit a profile we hadn't anticipated, expanding the abbreviation map.</li>
     <li style="margin:10px 0;font-size:14.5px;line-height:1.65"><strong>What's out of scope for the retainer</strong> — new skills (a separate intake automation, a mail-processing agent), new integrations (a fresh tool we haven't touched), or a meaningful change in volume (a second attorney's caseload added to the workflow). Those are scoped separately when and if you want them.</li>
   </ul>
