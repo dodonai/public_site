@@ -1,0 +1,992 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Green &amp; Schafle Chronology — Follow-Up from Today's Call</title>
+<style>
+  :root {
+    --ink: #1a2238;
+    --ink-2: #2d3654;
+    --muted: #6b7280;
+    --light: #f6f7fb;
+    --line: #e3e6ee;
+    --line-2: #d4d8e3;
+    --paper: #ffffff;
+    --accent: #1d4ed8;
+    --accent-soft: #eff4ff;
+    --ok: #16a34a;
+    --ok-soft: #e8f7ed;
+    --ask: #d97706;
+    --ask-soft: #fff5e6;
+    --opt: #6366f1;
+    --opt-soft: #eef0ff;
+    --warn: #b91c1c;
+    --warn-soft: #fdecec;
+    --verbatim: #6d28d9;
+    --verbatim-soft: #f3efff;
+    --summ: #0369a1;
+    --summ-soft: #e7f4fb;
+    --serif: "New York", "Iowan Old Style", "Georgia", "Cambria", "Times New Roman", serif;
+  }
+  * { box-sizing: border-box; }
+  html, body { margin: 0; padding: 0; }
+  body {
+    font: 15px/1.6 -apple-system, BlinkMacSystemFont, "SF Pro Text", "Inter", system-ui, sans-serif;
+    color: var(--ink);
+    background: var(--light);
+    -webkit-font-smoothing: antialiased;
+  }
+  .page {
+    max-width: 1080px;
+    margin: 0 auto;
+    background: var(--paper);
+    border-left: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+
+  /* Hero */
+  header.hero {
+    padding: 56px 64px 40px;
+    border-bottom: 1px solid var(--line);
+    background: linear-gradient(180deg, var(--accent-soft) 0%, transparent 100%);
+  }
+  header.hero .eyebrow {
+    font-size: 12px;
+    color: var(--accent);
+    font-weight: 700;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+  }
+  header.hero h1 {
+    margin: 0 0 14px;
+    font-family: var(--serif);
+    font-size: 34px;
+    font-weight: 500;
+    line-height: 1.15;
+    letter-spacing: -.01em;
+    color: var(--ink);
+  }
+  header.hero p {
+    margin: 0;
+    max-width: 720px;
+    color: var(--ink-2);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+  header.hero .meta {
+    margin-top: 22px;
+    color: var(--muted);
+    font-size: 13px;
+  }
+  header.hero .meta b { color: var(--ink-2); font-weight: 600; }
+
+  /* Sections */
+  section {
+    padding: 48px 64px;
+    border-bottom: 1px solid var(--line);
+  }
+  section:last-of-type { border-bottom: 0; }
+  section h2 {
+    font-family: var(--serif);
+    font-weight: 500;
+    font-size: 26px;
+    margin: 0 0 8px;
+    letter-spacing: -.005em;
+    color: var(--ink);
+  }
+  section h2 .num {
+    color: var(--accent);
+    font-weight: 600;
+    margin-right: 12px;
+  }
+  section .lede {
+    margin: 0 0 28px;
+    color: var(--ink-2);
+    font-size: 15.5px;
+    max-width: 760px;
+  }
+
+  /* Status pills */
+  .pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 3px 9px;
+    border-radius: 999px;
+    font-size: 11.5px;
+    font-weight: 600;
+    letter-spacing: .02em;
+  }
+  .pill .glyph { font-size: 13px; line-height: 1; }
+  .pill.ok       { background: var(--ok-soft);       color: #166534; }
+  .pill.ask      { background: var(--ask-soft);      color: #92400e; }
+  .pill.opt      { background: var(--opt-soft);      color: #3730a3; }
+  .pill.warn     { background: var(--warn-soft);     color: #991b1b; }
+  .pill.verbatim { background: var(--verbatim-soft); color: #5b21b6; }
+  .pill.summ     { background: var(--summ-soft);     color: #075985; }
+
+  /* Big "from the call" callout */
+  .recap {
+    background: linear-gradient(180deg, #fcfaff 0%, #f5f0ff 100%);
+    border: 1px solid #d8c8f4;
+    border-left: 5px solid var(--verbatim);
+    border-radius: 12px;
+    padding: 26px 30px;
+  }
+  .recap .stamp {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--verbatim);
+    letter-spacing: .12em;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+  }
+  .recap h3 {
+    margin: 0 0 10px;
+    font-family: var(--serif);
+    font-size: 22px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .recap p {
+    margin: 0 0 12px;
+    color: var(--ink-2);
+    font-size: 15px;
+  }
+  .recap .rule {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 8px;
+    padding: 16px 20px;
+    margin: 16px 0 4px;
+  }
+  .recap .rule strong { color: var(--ink); }
+  .recap .test {
+    font-family: var(--serif);
+    font-style: italic;
+    color: #5b21b6;
+    margin-top: 6px;
+    padding: 10px 14px;
+    background: rgba(109, 40, 217, 0.05);
+    border-radius: 6px;
+    font-size: 14.5px;
+  }
+
+  /* Flow diagram */
+  .flow {
+    background: var(--light);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 28px 24px 20px;
+    text-align: center;
+  }
+  .flow svg { max-width: 100%; height: auto; }
+  .flow .caption { color: var(--muted); font-size: 13px; margin-top: 12px; }
+
+  /* Matrix */
+  .matrix-wrap {
+    overflow-x: auto;
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    background: var(--paper);
+  }
+  table.matrix {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+    min-width: 700px;
+  }
+  table.matrix th,
+  table.matrix td {
+    padding: 12px 14px;
+    text-align: center;
+    border-bottom: 1px solid var(--line);
+    border-right: 1px solid var(--line);
+  }
+  table.matrix th:last-child,
+  table.matrix td:last-child { border-right: 0; }
+  table.matrix tr:last-child td { border-bottom: 0; }
+  table.matrix thead th {
+    background: var(--light);
+    font-weight: 600;
+    color: var(--ink-2);
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  table.matrix tbody th {
+    text-align: left;
+    background: var(--paper);
+    color: var(--ink);
+    font-weight: 600;
+    font-family: var(--serif);
+    font-size: 14.5px;
+    border-right: 1px solid var(--line);
+  }
+  table.matrix tbody th .sub {
+    display: block;
+    color: var(--muted);
+    font-size: 11.5px;
+    font-weight: 400;
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    margin-top: 2px;
+  }
+  td.cell-verbatim {
+    background: var(--verbatim-soft);
+    color: #5b21b6;
+    font-weight: 700;
+    font-size: 12px;
+    letter-spacing: .04em;
+  }
+  td.cell-summ {
+    background: var(--summ-soft);
+    color: #075985;
+    font-weight: 600;
+    font-size: 12px;
+  }
+  td.cell-na {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 12px;
+  }
+  td.cell-pending {
+    background: var(--ask-soft);
+    color: #92400e;
+    font-size: 12px;
+    font-weight: 600;
+  }
+  td.cell-special {
+    background: #fef3c7;
+    color: #78350f;
+    font-weight: 700;
+    font-size: 12px;
+  }
+
+  /* Legend for matrix */
+  .matrix-legend {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    margin-top: 14px;
+    color: var(--muted);
+    font-size: 12.5px;
+  }
+  .matrix-legend .item {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .matrix-legend .swatch {
+    width: 16px;
+    height: 16px;
+    border-radius: 3px;
+    border: 1px solid rgba(0,0,0,0.06);
+  }
+
+  /* Comparison block (kept for op-report visual) */
+  .compare {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+    margin: 24px 0 8px;
+  }
+  .compare > div {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+  }
+  .compare .head {
+    padding: 12px 18px;
+    background: var(--light);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  .compare .head h3 { margin: 0; font-size: 14px; font-weight: 600; color: var(--ink); }
+  .compare .body {
+    padding: 18px;
+    font-family: var(--serif);
+    font-size: 14.5px;
+    line-height: 1.6;
+    color: var(--ink-2);
+    flex: 1;
+  }
+  .compare .body strong { color: var(--ink); }
+  .compare .body ul { margin: 8px 0; padding-left: 22px; }
+  .compare .foot {
+    padding: 10px 18px;
+    font-size: 12.5px;
+    color: var(--muted);
+    background: var(--light);
+    border-top: 1px solid var(--line);
+  }
+
+  /* Sample chronology entry */
+  .sample {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 22px 26px;
+    margin: 18px 0;
+    font-family: var(--serif);
+    color: var(--ink-2);
+  }
+  .sample .label {
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 11px;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 600;
+    margin-bottom: 14px;
+  }
+  .sample h4 {
+    margin: 0 0 6px;
+    font-family: var(--serif);
+    font-size: 15px;
+    font-weight: 600;
+    color: var(--ink);
+  }
+  .sample p { margin: 8px 0; line-height: 1.65; font-size: 14.5px; }
+  .sample .cite { color: #777; font-style: italic; font-size: 13.5px; }
+  .sample .section-label {
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-weight: 700;
+    font-size: 13px;
+    color: var(--ink);
+    margin-top: 14px;
+    margin-bottom: 4px;
+  }
+  .sample .tag {
+    display: inline-block;
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+    font-size: 10px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    margin-left: 8px;
+    vertical-align: middle;
+  }
+  .sample .tag.v { background: var(--verbatim-soft); color: #5b21b6; }
+  .sample .tag.s { background: var(--summ-soft); color: #075985; }
+
+  /* Doc-type rows */
+  .row {
+    display: grid;
+    grid-template-columns: 220px 1fr;
+    gap: 28px;
+    align-items: flex-start;
+    padding: 24px 0;
+    border-top: 1px solid var(--line);
+  }
+  .row:first-of-type { border-top: 0; padding-top: 0; }
+  .row .row-head h3 {
+    margin: 0 0 4px;
+    font-family: var(--serif);
+    font-size: 19px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .row .row-head .sub { font-size: 12.5px; color: var(--muted); }
+  .row .row-head .status { margin-top: 8px; }
+  .row .row-body { color: var(--ink-2); font-size: 14.5px; line-height: 1.6; }
+  .row .row-body p { margin: 0 0 10px; }
+  .row .row-body ul { margin: 6px 0 12px; padding-left: 22px; }
+  .row .row-body li { margin: 3px 0; }
+  .row .row-body b { color: var(--ink); }
+
+  /* Inline word-target tag */
+  .tgt {
+    display: inline-block;
+    background: var(--accent-soft);
+    color: var(--accent);
+    border-radius: 4px;
+    padding: 0 6px;
+    font-size: 12px;
+    font-weight: 600;
+    margin: 0 2px;
+  }
+  .vbtag, .stag {
+    display: inline-block;
+    font-size: 11.5px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 4px;
+    text-transform: uppercase;
+    letter-spacing: .04em;
+  }
+  .vbtag { background: var(--verbatim-soft); color: #5b21b6; }
+  .stag  { background: var(--summ-soft); color: #075985; }
+
+  /* In-flight cards */
+  .inflight {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 14px;
+    margin-top: 16px;
+  }
+  .flite {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 10px;
+    padding: 18px 20px;
+  }
+  .flite .stamp {
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--ok);
+    letter-spacing: .08em;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .flite h4 {
+    margin: 0 0 8px;
+    font-family: var(--serif);
+    font-size: 16px;
+    font-weight: 500;
+    color: var(--ink);
+  }
+  .flite p {
+    margin: 0;
+    font-size: 13.5px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+
+  /* Decide callout */
+  .decide {
+    margin: 28px 0 0;
+    background: var(--ask-soft);
+    border: 1px solid #f4cf94;
+    border-left: 4px solid var(--ask);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .decide h3 {
+    margin: 0 0 6px;
+    color: #7c3b08;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .decide p { margin: 6px 0 0; color: #5b2c08; font-size: 14.5px; }
+
+  /* Proposal callout (handwritten) */
+  .propose {
+    margin: 16px 0 0;
+    background: var(--opt-soft);
+    border: 1px solid #c7cbf4;
+    border-left: 4px solid var(--opt);
+    border-radius: 10px;
+    padding: 20px 24px;
+  }
+  .propose h3 {
+    margin: 0 0 8px;
+    color: #3730a3;
+    font-size: 15px;
+    font-weight: 700;
+  }
+  .propose ol { margin: 6px 0 0 0; padding-left: 22px; color: #3730a3; }
+  .propose li { margin: 4px 0; }
+
+  /* Checklist */
+  .checklist {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    padding: 8px 0;
+    overflow: hidden;
+  }
+  .check {
+    display: grid;
+    grid-template-columns: 32px 1fr auto;
+    align-items: flex-start;
+    gap: 14px;
+    padding: 16px 24px;
+    border-bottom: 1px solid var(--line);
+  }
+  .check:last-child { border-bottom: 0; }
+  .check .box {
+    width: 20px; height: 20px;
+    border: 2px solid var(--line-2);
+    border-radius: 4px;
+    margin-top: 2px;
+  }
+  .check .q { color: var(--ink); font-size: 14.5px; font-weight: 500; }
+  .check .q .sub {
+    display: block; color: var(--muted); font-size: 13px;
+    font-weight: 400; margin-top: 4px;
+  }
+  .check .topic {
+    color: var(--accent); font-size: 12px; font-weight: 700;
+    text-transform: uppercase; letter-spacing: .08em;
+    align-self: flex-start; margin-top: 4px;
+  }
+
+  footer {
+    padding: 36px 64px 48px;
+    color: var(--muted);
+    font-size: 13px;
+    border-top: 1px solid var(--line);
+    background: var(--light);
+  }
+  footer .signoff {
+    color: var(--ink-2);
+    font-size: 14.5px;
+    font-style: italic;
+    font-family: var(--serif);
+    margin-bottom: 12px;
+  }
+
+  @media (max-width: 720px) {
+    header.hero, section, footer { padding-left: 24px; padding-right: 24px; }
+    .compare { grid-template-columns: 1fr; }
+    .row { grid-template-columns: 1fr; gap: 12px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<header class="hero">
+  <div class="eyebrow">Green &amp; Schafle · VICP Medical Chronology</div>
+  <h1>Following up from today's call</h1>
+  <p>
+    Captures what we heard you say, shows how we're translating it into the configuration, flags the items
+    we still need from you, and lists the fixes already in flight.
+    Use this as a checkpoint before sending us the more precise document-type list you mentioned —
+    if anything below misreads your intent, just mark it up and send back.
+  </p>
+  <div class="meta">For <b>David Carney, Esq.</b> · Prepared <b>May 12, 2026</b> · Based on our call earlier today + your autoimmune template</div>
+</header>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="num">1.</span>What we heard on the call</h2>
+  <p class="lede">
+    The core question — "should we summarize each section or quote it verbatim?" — got a more nuanced answer than a global toggle.
+    Here's how we're reading the rule you described:
+  </p>
+
+  <div class="recap">
+    <div class="stamp">The Rule</div>
+    <h3>Verbatim for plain-English clinical narrative. Summarize everything else.</h3>
+    <p>
+      Specifically: within <strong>admission summaries, discharge summaries, and consultations</strong>,
+      the <strong>History of Present Illness</strong> and <strong>Assessment</strong> sections should be quoted verbatim.
+      Everything else — chief complaint headers, ROS checkboxes, vitals, medications lists, MRI findings, daily progress notes,
+      nursing notes — should be summarized.
+    </p>
+
+    <div class="rule">
+      <strong>Why this split:</strong> the HPI and Assessment are written in real English by a resident, PA, or attending —
+      preserving the original wording is "gold." But sections like "Today's Visit Continued · cefazolin 2g IV · midazolam IV push · fentanyl patch"
+      read as a grocery list when extracted verbatim. Those are better summarized.
+    </div>
+
+    <div class="test">
+      Our litmus test for any section: <em>was this written as readable English by a human author?</em>
+      If yes, verbatim. If no (checkbox forms, vitals tables, med lists, structured templates), summarize.
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section style="background: #fbfbfd;">
+  <h2><span class="num">2.</span>How each section will be handled</h2>
+  <p class="lede">
+    The same set of section types appears across most clinical encounters.
+    Here's our matrix of what we'll quote verbatim vs. summarize, broken down by document type and section.
+    Sections marked <span class="pill ask"><span class="glyph">●</span> pending</span> are ones we'd like you to confirm or clarify.
+  </p>
+
+  <div class="matrix-wrap">
+    <table class="matrix">
+      <thead>
+        <tr>
+          <th style="text-align:left">Document type</th>
+          <th>Header / CC</th>
+          <th>HPI / Subjective</th>
+          <th>ROS &amp; Exam</th>
+          <th>Findings</th>
+          <th>Assessment</th>
+          <th>Plan / Disposition</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Admission Summary <span class="sub">within hospital records</span></th>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-verbatim">VERBATIM</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-verbatim">VERBATIM</td>
+          <td class="cell-summ">summarize</td>
+        </tr>
+        <tr>
+          <th>Discharge Summary <span class="sub">within hospital records</span></th>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-verbatim">VERBATIM</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-verbatim">VERBATIM</td>
+          <td class="cell-special">VERBATIM ?</td>
+        </tr>
+        <tr>
+          <th>Consultation <span class="sub">inpatient or outpatient</span></th>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-verbatim">VERBATIM</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-verbatim">VERBATIM</td>
+          <td class="cell-summ">summarize</td>
+        </tr>
+        <tr>
+          <th>Primary Care <span class="sub">PCP / family med</span></th>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-pending">VERBATIM ?</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-pending">VERBATIM ?</td>
+          <td class="cell-summ">summarize</td>
+        </tr>
+        <tr>
+          <th>Urgent Care <span class="sub">walk-in clinics</span></th>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-pending">VERBATIM ?</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-pending">VERBATIM ?</td>
+          <td class="cell-summ">summarize</td>
+        </tr>
+        <tr>
+          <th>Progress Note <span class="sub">daily inpatient notes</span></th>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+        </tr>
+        <tr>
+          <th>Nursing Note <span class="sub">per-shift nursing</span></th>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-na">—</td>
+          <td class="cell-summ">summarize</td>
+        </tr>
+        <tr>
+          <th>Imaging / MRI / CT / EMG <span class="sub">diagnostic reports</span></th>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-na">—</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+        </tr>
+        <tr>
+          <th>Operative Report <span class="sub">surgery narrative</span></th>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-na">—</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+        </tr>
+        <tr>
+          <th>PT / OT / Speech / Rehab</th>
+          <td class="cell-pending" colspan="6">pending — your guidance from upcoming list</td>
+        </tr>
+        <tr>
+          <th>Labs <span class="sub">single-line per lab</span></th>
+          <td colspan="6" style="text-align:left; color: var(--muted); padding-left: 18px;">25-word summary per lab — test, value, ref range, abnormal/normal</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="matrix-legend">
+    <span class="item"><span class="swatch" style="background: var(--verbatim-soft); border-color:#d8c8f4"></span> Quoted verbatim from the record</span>
+    <span class="item"><span class="swatch" style="background: var(--summ-soft); border-color:#c7e1ee"></span> Summarized into narrative</span>
+    <span class="item"><span class="swatch" style="background: #fef3c7; border-color:#fde68a"></span> Likely verbatim — confirm scope</span>
+    <span class="item"><span class="swatch" style="background: var(--ask-soft); border-color:#f4cf94"></span> Pending your confirmation</span>
+    <span class="item"><span class="swatch" style="background: var(--paper); border-color: var(--line)"></span> Not present in this doc type</span>
+  </div>
+
+  <div class="decide" style="margin-top: 28px;">
+    <h3>Three small confirmations we'd like</h3>
+    <p>
+      <strong>1. PCP / Urgent Care / outpatient specialist visits:</strong> these have the same HPI + Assessment structure as the
+      hospital docs above. Should we apply the same rule (HPI verbatim, Assessment verbatim, everything else summarized) to them too?
+      We'll default to "yes" unless you say otherwise.
+    </p>
+    <p>
+      <strong>2. Discharge summaries:</strong> on the call you highlighted an entire discharge-diagnoses paragraph as something
+      you'd want verbatim. Is that scope (whole discharge dx + follow-up plan paragraph) part of the verbatim treatment,
+      or are you OK with just HPI + Assessment being verbatim?
+    </p>
+    <p>
+      <strong>3. Physical therapy records:</strong> you mentioned PT as a doc type to tag separately. What should we quote
+      verbatim from a PT note (subjective complaints? assessment?) vs. summarize?
+    </p>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="num">3.</span>What a sample chronology entry will look like</h2>
+  <p class="lede">
+    To make the matrix above concrete, here's what an admission summary entry will look like under the agreed rules.
+    Verbatim portions are tagged <span class="vbtag">verbatim</span>; summarized portions are tagged <span class="stag">summarized</span>.
+  </p>
+
+  <div class="sample">
+    <div class="label">Sample entry — Admission Summary</div>
+    <h4>10/29/2021 — Admission to University Hospital</h4>
+
+    <div class="section-label">Reason for Admission <span class="tag s">summarized</span></div>
+    <p>
+      John Doe was admitted under the care of hospitalist Dr. Jennifer Lee for progressive bilateral lower-extremity weakness,
+      paresthesias, and gait instability following recent influenza vaccination. <span class="cite">(Ex. 14, p. 201.)</span>
+    </p>
+
+    <div class="section-label">History of Present Illness <span class="tag v">verbatim</span></div>
+    <p>
+      "63 y/o M presents with 1-week history of progressive bilateral foot numbness ascending into both legs, with worsening
+      gait instability and lower extremity weakness. Pt reports onset approximately 7 days after influenza vaccination
+      administered 10/15/2021. Pt denies recent GI illness, URI, trauma, or known toxic exposures. Endorses fatigue and
+      difficulty climbing stairs. No prior episodes of similar neurologic symptoms." <span class="cite">(Ex. 14, p. 206.)</span>
+    </p>
+
+    <div class="section-label">Examination, Diagnostics, &amp; Treatment <span class="tag s">summarized</span></div>
+    <p>
+      Initial neurologic examination demonstrated bilateral lower-extremity weakness (4/5) with diminished patellar and
+      Achilles reflexes. <span class="cite">(Ex. 14, p. 209.)</span>
+      Lumbar puncture demonstrated elevated CSF protein with normal cell count consistent with albuminocytologic dissociation.
+      <span class="cite">(Ex. 14, p. 212.)</span>
+      Five-day course of IVIG was initiated. <span class="cite">(Ex. 14, p. 215.)</span>
+    </p>
+
+    <div class="section-label">Assessment <span class="tag v">verbatim</span></div>
+    <p>
+      "Acute inflammatory demyelinating polyneuropathy, consistent with Guillain-Barré Syndrome. Onset within approximately
+      one week of influenza vaccination, with no alternative inciting trigger identified. Findings of ascending weakness,
+      hyporeflexia, abnormal EMG/NCS demonstrating demyelinating pattern, and elevated CSF protein support the diagnosis."
+      <span class="cite">(Ex. 14, p. 219.)</span>
+    </p>
+
+    <div class="section-label">Plan &amp; Disposition <span class="tag s">summarized</span></div>
+    <p>
+      Treatment plan included completion of IVIG course, daily neurologic monitoring, physical and occupational therapy
+      evaluations, fall precautions, and transition to inpatient rehabilitation. <span class="cite">(Ex. 14, p. 221.)</span>
+    </p>
+  </div>
+
+  <p style="color: var(--muted); font-size: 13.5px; margin-top: 16px;">
+    The "gold" causation language from the assessment is preserved verbatim — quotable as-is for petition drafting.
+    The repetitive boilerplate around exam findings, treatments, and admin details is summarized to keep the entry readable.
+  </p>
+</section>
+
+<!-- ============================================================ -->
+<section style="background: #fbfbfd;">
+  <h2><span class="num">4.</span>Operative reports — we're building dedicated handling</h2>
+  <p class="lede">
+    On the call you flagged that the Duda operative report wasn't being properly summarized.
+    We took a closer look and confirmed the gap — we don't yet have a dedicated format for surgical procedures.
+    Here's what we're adding.
+  </p>
+
+  <div class="compare">
+    <div>
+      <div class="head">
+        <h3>Today (the gap)</h3>
+        <span class="pill warn"><span class="glyph">●</span> missing coverage</span>
+      </div>
+      <div class="body">
+        <p>
+          The system detected the operative note in the Viera Hospital file but bucketed it as a generic hospital record.
+          The summary captured post-op care instructions and the medication list, but missed the surgeon's actual procedure
+          narrative — findings, technique, anchors used, etc.
+        </p>
+      </div>
+    </div>
+    <div>
+      <div class="head">
+        <h3>Coming in next update</h3>
+        <span class="pill opt"><span class="glyph">●</span> in flight</span>
+      </div>
+      <div class="body">
+        <p>Dedicated operative report format with summarized sections for:</p>
+        <ul>
+          <li>Surgeon &amp; credentials</li>
+          <li>Procedure performed</li>
+          <li>Pre-op &amp; post-op diagnoses</li>
+          <li>Anesthesia type</li>
+          <li>Intra-operative findings</li>
+          <li>Surgical technique</li>
+          <li>Hardware / anchors / sutures</li>
+          <li>EBL, fluids, specimens</li>
+          <li>Complications &amp; disposition</li>
+        </ul>
+        <p>~300 words per operative report, narrative.</p>
+      </div>
+    </div>
+  </div>
+
+  <p style="margin-top: 20px;">
+    This will apply to Duda automatically once shipped. If you have a sample operative-report summary in your preferred
+    style from a prior nurse-prepared chronology, send it our way and we'll calibrate the voice/depth to match.
+  </p>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="num">5.</span>Handwritten records — our proposed approach</h2>
+  <p class="lede">
+    You flagged the Suntree Chiropractic handwritten notes coming back as "no relevant content" — and noted that
+    these can contain critical information (like a patient's first report of symptoms relative to vaccination).
+    Here's what we'd like to propose, rather than asking you to design the policy.
+  </p>
+
+  <div class="propose">
+    <h3>Our proposed handling for handwritten / low-quality OCR records</h3>
+    <ol>
+      <li>
+        <strong>Always attempt extraction</strong> — never silently drop a handwritten record.
+        Run best-effort OCR and pull what we can read.
+      </li>
+      <li>
+        <strong>Flag the entry with a visible badge</strong> like "<em>Handwritten record — manual review recommended</em>"
+        so you know at a glance that the entry should be eyeballed against the source.
+      </li>
+      <li>
+        <strong>When OCR is unreadable</strong>, still surface the entry with the date, provider, and a placeholder note
+        like "<em>Handwritten chiropractic note dated 12/27/2024 — content not machine-readable; see Exhibit X, p. Y.</em>"
+        Better to know it exists than for it to disappear from the chronology.
+      </li>
+      <li>
+        <strong>Best-effort summary even of partial content</strong> — e.g., if we can read "symptom onset 11/29" but not
+        the surrounding paragraph, surface that fragment with a note that the rest is handwritten.
+      </li>
+    </ol>
+  </div>
+
+  <p style="margin-top: 16px; color: var(--ink-2);">
+    If this approach works for you, we'll build it. If you'd prefer a different handling (e.g., skip entirely, or
+    always include a thumbnail of the source page), let us know.
+  </p>
+</section>
+
+<!-- ============================================================ -->
+<section style="background: #fbfbfd;">
+  <h2><span class="num">6.</span>Fixes already in flight</h2>
+  <p class="lede">
+    Beyond the verbatim/summarize rules, here are the fixes our engineering team is shipping that affect what you've seen.
+  </p>
+
+  <div class="inflight">
+    <div class="flite">
+      <div class="stamp">● Fixing now</div>
+      <h4>Page citations</h4>
+      <p>The "p. 428 vs p. 335" mismatch you caught on the call. Citations will reference the page numbers in the source
+      PDFs you opened, not the position in the combined exhibit bundle. Shipping in the next release.</p>
+    </div>
+    <div class="flite">
+      <div class="stamp">● Fixing now</div>
+      <h4>Operative report extraction</h4>
+      <p>New format described in section 4 above. Will properly capture surgeon, procedure, intra-op findings, and technique
+      for Duda and future surgical cases.</p>
+    </div>
+    <div class="flite">
+      <div class="stamp">● Fixing now</div>
+      <h4>Duda summary rerun</h4>
+      <p>Once the templates are updated and the citation fix lands, Nick will rerun the Duda summary against the V2 rule set
+      and send you the refreshed output.</p>
+    </div>
+    <div class="flite">
+      <div class="stamp">● Investigating</div>
+      <h4>Rosado missing vaccination record</h4>
+      <p>You flagged that the Rosado output said "records do not specify vaccine type" despite the vaccination record being
+      uploaded. We're looking into why the system didn't surface it.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================ -->
+<section>
+  <h2><span class="num">7.</span>What we still need from you</h2>
+  <p class="lede">
+    A short list. The first item is the big one — your more precise document-type list with per-section rules. Once we have that,
+    we'll lock in the templates and run a fresh chronology for you to review.
+  </p>
+
+  <div class="checklist">
+    <div class="check">
+      <div class="box"></div>
+      <div class="q">
+        <b>Definitive document-type list with per-section rules.</b>
+        <span class="sub">At minimum: admission summary, discharge summary, consultation, PT records. For each, mark which sections should be verbatim vs summarized. Sections 1-2 above are our starting interpretation — confirm or correct.</span>
+      </div>
+      <div class="topic">Primary</div>
+    </div>
+    <div class="check">
+      <div class="box"></div>
+      <div class="q">
+        Apply the HPI-verbatim + Assessment-verbatim pattern to <b>PCP, urgent care, and outpatient specialist visits</b> too?
+        <span class="sub">We'll default to yes unless you say otherwise.</span>
+      </div>
+      <div class="topic">Confirm</div>
+    </div>
+    <div class="check">
+      <div class="box"></div>
+      <div class="q">
+        For <b>discharge summaries</b>, should the entire discharge-diagnoses + follow-up paragraph be verbatim, or just HPI + Assessment like the others?
+      </div>
+      <div class="topic">Confirm</div>
+    </div>
+    <div class="check">
+      <div class="box"></div>
+      <div class="q">
+        <b>Handwritten records</b> — does the proposed handling in section 5 work for you?
+      </div>
+      <div class="topic">Confirm</div>
+    </div>
+    <div class="check">
+      <div class="box"></div>
+      <div class="q">
+        <b>Sample operative-report summary</b> — if you have one in your preferred style, send it so we can calibrate.
+      </div>
+      <div class="topic">Optional</div>
+    </div>
+    <div class="check">
+      <div class="box"></div>
+      <div class="q">
+        <b>Executive Summary length</b> — your written template asks for ~200 words; we're currently producing ~1,500. Which do you want?
+        <span class="sub">Low priority — flag if you have a preference, otherwise we'll leave as-is and revisit later.</span>
+      </div>
+      <div class="topic">Optional</div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="signoff">— The Dodonai team</div>
+  Send your document-type list whenever it's ready — no rush, but the templates can't be finalized without it.
+  Once we have it, we'll roll the changes into your configuration, ship the citation + operative-report fixes,
+  and rerun Duda so you can see the updated output end-to-end. Thanks for the patience and the precision —
+  the more specific you can be about which sections you want verbatim, the closer we'll get to "set it and forget it."
+</footer>
+
+</div>
+</body>
+</html>
