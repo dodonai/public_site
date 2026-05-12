@@ -45,10 +45,7 @@ jobs:
       - name: Deploy to Google Cloud Storage (gzip in flight)
         run: |
           echo "Deploying build output to gs://stage-landing"
-          gcloud storage rsync build/ gs://stage-landing \
-            --recursive \
-            --delete-unmatched-destination-objects \
-            --gzip-in-flight=html,css,js,json,xml,txt,svg
+          gsutil -m rsync -d -r -j html,css,js,json,xml,txt,svg build/ gs://stage-landing
 
       - name: Set Cache Control for HTML files
         run: |
