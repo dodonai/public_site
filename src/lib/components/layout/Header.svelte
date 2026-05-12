@@ -300,7 +300,10 @@
 
 	<!-- Mobile Menu -->
 	{#if mobileMenuOpen}
-		<div class="absolute left-0 right-0 top-full border-t border-gray-200 bg-white shadow-lg lg:hidden">
+		<div
+			class="absolute left-0 right-0 top-full overflow-y-auto overscroll-contain border-t border-gray-200 bg-white shadow-lg lg:hidden"
+			style="max-height: calc(100dvh - 6rem);"
+		>
 			<nav class="mx-auto px-4 py-4 sm:px-6" style="width: 90%; max-width: 1250px;">
 				<!-- Services -->
 				<div class="border-b border-gray-100 pb-2">

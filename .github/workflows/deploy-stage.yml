@@ -42,23 +42,13 @@ jobs:
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
 
-      - name: Pre-compress text assets for GCS delivery
-        run: |
-          find build -type f \( -name "*.html" -o -name "*.css" -o -name "*.js" -o -name "*.json" -o -name "*.xml" -o -name "*.txt" -o -name "*.svg" \) | while read f; do
-            gzip -9n "$f" && mv "$f.gz" "$f"
-          done
-
-      - name: Deploy to Google Cloud Storage
+      - name: Deploy to Google Cloud Storage (gzip in flight)
         run: |
           echo "Deploying build output to gs://stage-landing"
-          gsutil -m rsync -d -r build/ gs://stage-landing
-
-      - name: Set gzip encoding on compressed text assets
-        run: |
-          for ext in html css js json xml txt svg; do
-            gsutil -m setmeta -h "Content-Encoding:gzip" "gs://stage-landing/**/*.$ext" 2>/dev/null || true
-            gsutil -m setmeta -h "Content-Encoding:gzip" "gs://stage-landing/*.$ext" 2>/dev/null || true
-          done
+          gcloud storage rsync build/ gs://stage-landing \
+            --recursive \
+            --delete-unmatched-destination-objects \
+            --gzip-in-flight-extensions=html,css,js,json,xml,txt,svg
 
       - name: Set Cache Control for HTML files
         run: |
