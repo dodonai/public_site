@@ -48,7 +48,7 @@ jobs:
           gcloud storage rsync build/ gs://stage-landing \
             --recursive \
             --delete-unmatched-destination-objects \
-            --gzip-in-flight-extensions=html,css,js,json,xml,txt,svg
+            --gzip-in-flight=html,css,js,json,xml,txt,svg
 
       - name: Set Cache Control for HTML files
         run: |
