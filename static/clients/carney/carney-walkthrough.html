@@ -545,6 +545,160 @@
     margin-bottom: 12px;
   }
 
+  /* At-a-glance summary table */
+  .glance {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    overflow: hidden;
+  }
+  .glance table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .glance th, .glance td {
+    text-align: left;
+    padding: 14px 18px;
+    border-bottom: 1px solid var(--line);
+    vertical-align: top;
+  }
+  .glance tr:last-child td { border-bottom: 0; }
+  .glance thead th {
+    background: var(--light);
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+  }
+  .glance .issue-cell {
+    color: var(--ink);
+    font-weight: 600;
+    font-family: var(--serif);
+    font-size: 15px;
+  }
+  .glance .issue-cell .num {
+    color: var(--muted);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    display: block;
+    margin-bottom: 2px;
+    font-family: -apple-system, BlinkMacSystemFont, system-ui, sans-serif;
+  }
+  .glance td { color: var(--ink-2); line-height: 1.5; font-size: 13.5px; }
+  .glance td b { color: var(--ink); }
+
+  /* Issue card — the spine of the doc */
+  .issue {
+    background: var(--paper);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    margin-bottom: 18px;
+    overflow: hidden;
+  }
+  .issue-head {
+    padding: 18px 24px 14px;
+    background: linear-gradient(180deg, #fafbff 0%, var(--paper) 100%);
+    border-bottom: 1px solid var(--line);
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .issue-head .label {
+    font-size: 11px;
+    color: var(--muted);
+    font-weight: 700;
+    text-transform: uppercase;
+    letter-spacing: .12em;
+    margin-bottom: 4px;
+  }
+  .issue-head h3 {
+    font-family: var(--serif);
+    font-size: 21px;
+    font-weight: 500;
+    margin: 0;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+  .issue-cols {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+  .issue-col {
+    padding: 20px 24px;
+    border-right: 1px solid var(--line);
+  }
+  .issue-col:last-child { border-right: 0; }
+  .issue-col .stamp {
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: .1em;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+  .issue-col .stamp .glyph {
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 11px;
+    font-weight: 700;
+    color: #fff;
+  }
+  .issue-col.reported .stamp { color: var(--warn); }
+  .issue-col.reported .stamp .glyph { background: var(--warn); }
+  .issue-col.decided  .stamp { color: var(--accent); }
+  .issue-col.decided  .stamp .glyph { background: var(--accent); }
+  .issue-col.built    .stamp { color: var(--ok); }
+  .issue-col.built    .stamp .glyph { background: var(--ok); }
+  .issue-col p {
+    margin: 0 0 8px;
+    font-size: 14px;
+    color: var(--ink-2);
+    line-height: 1.55;
+  }
+  .issue-col p:last-child { margin-bottom: 0; }
+  .issue-col .quote {
+    background: var(--light);
+    border-left: 3px solid var(--line-2);
+    padding: 8px 12px;
+    margin: 8px 0;
+    font-family: var(--serif);
+    font-style: italic;
+    font-size: 13.5px;
+    color: var(--ink-2);
+  }
+  .issue-col ul {
+    margin: 4px 0 8px;
+    padding-left: 20px;
+    font-size: 13.5px;
+    color: var(--ink-2);
+  }
+  .issue-col li { margin-bottom: 3px; line-height: 1.5; }
+  .issue-col code {
+    background: rgba(0,0,0,0.05);
+    padding: 1px 6px;
+    border-radius: 3px;
+    font-size: 12.5px;
+    font-family: "SF Mono", Menlo, monospace;
+  }
+
+  @media (max-width: 860px) {
+    .issue-cols { grid-template-columns: 1fr; }
+    .issue-col { border-right: 0; border-bottom: 1px solid var(--line); }
+    .issue-col:last-child { border-bottom: 0; }
+  }
   @media (max-width: 720px) {
     header.hero, section, footer { padding-left: 24px; padding-right: 24px; }
     .compare { grid-template-columns: 1fr; }
@@ -557,54 +711,305 @@
 
 <header class="hero">
   <div class="eyebrow">Green &amp; Schafle · VICP Medical Chronology</div>
-  <h1>Following up from today's call</h1>
+  <h1>The issues, your answers, and what we built</h1>
   <p>
-    Captures what we heard you say, shows how we're translating it into the configuration, flags the items
-    we still need from you, and lists the fixes already in flight.
-    Use this as a checkpoint before sending us the more precise document-type list you mentioned —
-    if anything below misreads your intent, just mark it up and send back.
+    A walk-through of every issue you raised, how you answered our clarifying questions, and the specific
+    changes we shipped to fix it. Everything in this document is live in your configuration today.
+    Your next chronology run will reflect all of it.
   </p>
-  <div class="meta">For <b>David Carney, Esq.</b> · Prepared <b>May 12, 2026</b> · Based on our call earlier today + your autoimmune template</div>
+  <div class="meta">For <b>David Carney, Esq.</b> · Updated <b>May 15, 2026</b> · Reflects your 5/12 call, your 5/12 email reply, and the operative-report sample you sent</div>
 </header>
 
 <!-- ============================================================ -->
 <section>
-  <h2><span class="num">1.</span>What we heard on the call</h2>
+  <h2><span class="num">1.</span>At a glance</h2>
   <p class="lede">
-    The core question — "should we summarize each section or quote it verbatim?" — got a more nuanced answer than a global toggle.
-    Here's how we're reading the rule you described:
+    Seven issues raised across your call and your 5/12 email reply. Five are fully fixed and live in your configuration today.
+    The handwritten-records UI is in progress on a parallel track. The Rosado vaccination case has a separate records-collection note worth your review.
   </p>
 
-  <div class="recap">
-    <div class="stamp">The Rule</div>
-    <h3>Verbatim for plain-English clinical narrative. Summarize everything else.</h3>
-    <p>
-      Specifically: within <strong>admission summaries, discharge summaries, and consultations</strong>,
-      the <strong>History of Present Illness</strong> and <strong>Assessment</strong> sections should be quoted verbatim.
-      Everything else — chief complaint headers, ROS checkboxes, vitals, medications lists, MRI findings, daily progress notes,
-      nursing notes — should be summarized.
-    </p>
-
-    <div class="rule">
-      <strong>Why this split:</strong> the HPI and Assessment are written in real English by a resident, PA, or attending —
-      preserving the original wording is "gold." But sections like "Today's Visit Continued · cefazolin 2g IV · midazolam IV push · fentanyl patch"
-      read as a grocery list when extracted verbatim. Those are better summarized.
-    </div>
-
-    <div class="test">
-      Our litmus test for any section: <em>was this written as readable English by a human author?</em>
-      If yes, verbatim. If no (checkbox forms, vitals tables, med lists, structured templates), summarize.
-    </div>
+  <div class="glance">
+    <table>
+      <thead>
+        <tr>
+          <th style="width: 24%">Issue</th>
+          <th style="width: 32%">Your answer</th>
+          <th style="width: 32%">Our fix</th>
+          <th style="width: 12%">Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="issue-cell"><span class="num">#1</span>Operative report not pulled in Duda</td>
+          <td>Sent red/blue-boxed Duke op-report sample showing exactly which sections should be verbatim vs. summarized.</td>
+          <td>New dedicated <b>Operative Report</b> format built and calibrated to your boxing. Wired into detection and routing.</td>
+          <td><span class="pill ok"><span class="glyph">●</span> live</span></td>
+        </tr>
+        <tr>
+          <td class="issue-cell"><span class="num">#2</span>Cited page numbers didn't match source PDF</td>
+          <td>No clarification needed — confirmed as a bug.</td>
+          <td>Fix shipped to prod May 11 (the chronologies you'd reviewed pre-date the fix). Citations now reference source-PDF pages.</td>
+          <td><span class="pill ok"><span class="glyph">●</span> shipped</span></td>
+        </tr>
+        <tr>
+          <td class="issue-cell"><span class="num">#3</span>Verbatim extraction produced "grocery list" output</td>
+          <td>Section-level rules: verbatim only for HPI &amp; Assessment in admission/discharge/consult docs. Summarize everywhere else.</td>
+          <td>Updated five templates (Primary Care, Urgent Care, Specialist, Hospital, Rehab) with section-level voice rules and your compound-header tie-breaker encoded.</td>
+          <td><span class="pill ok"><span class="glyph">●</span> live</span></td>
+        </tr>
+        <tr>
+          <td class="issue-cell"><span class="num">#4</span>Handwritten chiropractic showed "no relevant content"</td>
+          <td>Approved our flag-and-best-effort proposal with one addition: flagged entries must be editable in place.</td>
+          <td>Backend flag + best-effort extraction logic ready. UI for the editable badge is being built on a parallel track.</td>
+          <td><span class="pill ask"><span class="glyph">●</span> in progress</span></td>
+        </tr>
+        <tr>
+          <td class="issue-cell"><span class="num">#5</span>Rosado vaccination record missing from output</td>
+          <td>No clarification needed — investigated on our side.</td>
+          <td>Root cause was a routing bug. Built a dedicated <b>Vaccination Record</b> format + rerouted. <em>Separate note: the alleged-injury vaccination isn't in the records you've gathered — see card below.</em></td>
+          <td><span class="pill ok"><span class="glyph">●</span> live</span></td>
+        </tr>
+        <tr>
+          <td class="issue-cell"><span class="num">#6</span>Sample chronology format</td>
+          <td>"I would love an output to look like that, although a little more content would be great."</td>
+          <td>Format preserved. Updated templates instruct fuller depth where the source record supports it.</td>
+          <td><span class="pill ok"><span class="glyph">●</span> live</span></td>
+        </tr>
+        <tr>
+          <td class="issue-cell"><span class="num">#7</span>Executive summary length</td>
+          <td>"The longer summary length is fine as long as the citations are correct/accurate and I have the quick hitting facts at the top."</td>
+          <td>No template change needed — exec summary already produces the longer narrative with the 5-line quick-facts header. Conditional on the citation fix, which shipped May 11.</td>
+          <td><span class="pill ok"><span class="glyph">●</span> live</span></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
 </section>
 
 <!-- ============================================================ -->
 <section style="background: #fbfbfd;">
-  <h2><span class="num">2.</span>How each section will be handled</h2>
+  <h2><span class="num">2.</span>Issues, your answers, and our fixes</h2>
   <p class="lede">
-    The same set of section types appears across most clinical encounters.
-    Here's our matrix of what we'll quote verbatim vs. summarize, broken down by document type and section.
-    Sections marked <span class="pill ask"><span class="glyph">●</span> pending</span> are ones we'd like you to confirm or clarify.
+    The detailed story for each issue: what you reported, the decision or clarification you sent us, and the specific change we shipped.
+  </p>
+
+  <!-- ============ ISSUE #1: Operative report ============ -->
+  <div class="issue">
+    <div class="issue-head">
+      <div>
+        <div class="label">Issue 1</div>
+        <h3>Operative report not pulled in Duda chronology</h3>
+      </div>
+      <span class="pill ok"><span class="glyph">●</span> fixed &amp; live</span>
+    </div>
+    <div class="issue-cols">
+      <div class="issue-col reported">
+        <div class="stamp"><span class="glyph">!</span> You reported</div>
+        <div class="quote">"It didn't pull the operative report... The operative report was on page 335 and was not summarized."</div>
+        <p>The Duda chronology mentioned the date of the right shoulder rotator cuff repair but missed the surgeon's actual procedure narrative — findings, technique, anchors. We had no dedicated handling for operative reports; they were bucketed as generic hospital records and the surgical detail was lost.</p>
+      </div>
+      <div class="issue-col decided">
+        <div class="stamp"><span class="glyph">?</span> You decided</div>
+        <p>You sent us a sample operative report from Duke (rotator cuff repair) with the sections you want preserved boxed in <em>red</em> (verbatim) and the sections to summarize boxed in <em>blue</em>.</p>
+        <p><b>Red (verbatim):</b> the operative-note header (surgery date, pre-op &amp; post-op diagnoses, procedures performed), surgeon team, and indications for procedure.</p>
+        <p><b>Blue (summarize):</b> description of procedure / technique, intra-op findings, anesthesia, implants, EBL/specimens/complications, disposition.</p>
+      </div>
+      <div class="issue-col built">
+        <div class="stamp"><span class="glyph">✓</span> We built</div>
+        <p><b>New "Operative Report" format</b> with 9 fields organized exactly per your boxing. Verbatim fields preserve the surgeon's exact clinical reasoning (the "why surgery" language that anchors causation). Summarized fields produce readable 4–8 sentence prose on technique and admin.</p>
+        <p>Added <b>operative report</b> as its own document type in your configuration so surgical notes are now routed to this dedicated format instead of being lumped in with generic hospital records.</p>
+        <p style="color: var(--muted); font-size: 13px; margin-top: 8px;">~300–500 words per operative report.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ISSUE #2: Page citations ============ -->
+  <div class="issue">
+    <div class="issue-head">
+      <div>
+        <div class="label">Issue 2</div>
+        <h3>Cited page numbers didn't match your source PDF</h3>
+      </div>
+      <span class="pill ok"><span class="glyph">●</span> shipped to prod</span>
+    </div>
+    <div class="issue-cols">
+      <div class="issue-col reported">
+        <div class="stamp"><span class="glyph">!</span> You reported</div>
+        <div class="quote">"What are all of these page numbers like the 495 and 596… aren't the right page numbers."</div>
+        <p>You'd opened the Viera Hospital PDF to <b>page 335</b> looking for the operative note, but the chronology cited it as p. 428 / p. 496. Same content, different page numbering — the chronology was using the page position in the combined exhibit bundle rather than the page you actually see when you open the source PDF.</p>
+      </div>
+      <div class="issue-col decided">
+        <div class="stamp"><span class="glyph">?</span> You decided</div>
+        <p>No clarification needed — the misalignment was a bug. Source PDF page numbers are the ones you trust because they're what you read when you open the file.</p>
+      </div>
+      <div class="issue-col built">
+        <div class="stamp"><span class="glyph">✓</span> We fixed</div>
+        <p>The fix was already deployed to production on <b>May 11</b> — actually one day before our call. The chronologies you'd reviewed pre-date the fix, which is why you saw the mismatch.</p>
+        <p>Every chronology you run from here on will cite the page numbers in your source PDFs, not bundle-position numbers.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ISSUE #3: Verbatim grocery list ============ -->
+  <div class="issue">
+    <div class="issue-head">
+      <div>
+        <div class="label">Issue 3</div>
+        <h3>Verbatim extraction produced unreadable "grocery list" output</h3>
+      </div>
+      <span class="pill ok"><span class="glyph">●</span> fixed &amp; live</span>
+    </div>
+    <div class="issue-cols">
+      <div class="issue-col reported">
+        <div class="stamp"><span class="glyph">!</span> You reported</div>
+        <div class="quote">"This is a grocery list rather than a sentence… maintain PTO pain control fentanyl patch."</div>
+        <p>When we turned on verbatim extraction across the board, structured EHR content — medication administration records, checkbox forms, vitals tables — got dumped into the chronology as raw text fragments rather than readable narrative. Useful sections (HPI, Assessment) got the verbatim treatment they needed, but unreadable sections did too.</p>
+      </div>
+      <div class="issue-col decided">
+        <div class="stamp"><span class="glyph">?</span> You decided</div>
+        <p>Section-level hybrid voice. Verbatim <em>only</em> for HPI and Assessment within <b>admission summaries, discharge summaries, and consultations</b>. Summarize everything else, with these specific overrides from your email:</p>
+        <ul>
+          <li>Primary Care HPI &amp; Assessment → summarize</li>
+          <li>Urgent Care HPI &amp; Assessment → summarize</li>
+          <li>Discharge Summary Plan/Disposition → summarize</li>
+          <li>Rehab (PT/OT/SLP) — every section → summarize</li>
+        </ul>
+        <p><b>Tie-breaker rule:</b> if a section header in the source is compound (e.g., "Assessment/Plan", "Impression/Plan"), the entire section is verbatim.</p>
+      </div>
+      <div class="issue-col built">
+        <div class="stamp"><span class="glyph">✓</span> We built</div>
+        <p>Updated all five affected templates: Primary Care, Urgent Care, Specialist Consult, Hospital Records, and Rehab. Each section now carries its own voice instruction (verbatim or narrative) according to the matrix you confirmed.</p>
+        <p>The Hospital template uses conditional voice based on the type of hospital note: an admission summary entry quotes HPI &amp; Assessment verbatim, but a nursing note or progress note from the same admission summarizes everything.</p>
+        <p>The compound-header tie-breaker is encoded in the prompts so "Assessment/Plan" sections get treated as verbatim automatically.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ISSUE #4: Handwritten records ============ -->
+  <div class="issue">
+    <div class="issue-head">
+      <div>
+        <div class="label">Issue 4</div>
+        <h3>Handwritten chiropractic notes returned "no relevant content"</h3>
+      </div>
+      <span class="pill ask"><span class="glyph">●</span> UI in progress</span>
+    </div>
+    <div class="issue-cols">
+      <div class="issue-col reported">
+        <div class="stamp"><span class="glyph">!</span> You reported</div>
+        <div class="quote">"Sun Tree chiropractic records weren't summarized… it's a lot of chicken scratch."</div>
+        <p>The Suntree Chiropractic records came back blank because the notes were handwritten and OCR couldn't reliably read them. You called out that these can contain critical information — like the patient's first report of symptom onset relative to vaccination — and silently dropping them is the wrong default.</p>
+      </div>
+      <div class="issue-col decided">
+        <div class="stamp"><span class="glyph">?</span> You decided</div>
+        <p>You approved our proposed approach with one addition:</p>
+        <ul>
+          <li>Always attempt extraction — never silently drop a handwritten record</li>
+          <li>Flag the entry with a visible badge: "<em>Handwritten record — manual review recommended</em>"</li>
+          <li>Surface even unreadable entries with date, provider, and source citation</li>
+          <li><b>Plus your addition:</b> let you edit flagged entries in place after manual review</li>
+        </ul>
+      </div>
+      <div class="issue-col built">
+        <div class="stamp"><span class="glyph">✓</span> We're building</div>
+        <p>The backend flagging logic (OCR-confidence detection + entry tagging) is ready. The frontend UI for the editable badge — flag, manual-review label, and in-place edit — is being built on a parallel workstream.</p>
+        <p>Once shipped, your handwritten chiropractic entries will surface with the flag and you'll be able to type in corrections directly in the chronology view. We'll loop back when it lands.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ISSUE #5: Rosado vaccination missing ============ -->
+  <div class="issue">
+    <div class="issue-head">
+      <div>
+        <div class="label">Issue 5</div>
+        <h3>Rosado output said "records do not specify vaccine type"</h3>
+      </div>
+      <span class="pill ok"><span class="glyph">●</span> fixed &amp; live</span>
+    </div>
+    <div class="issue-cols">
+      <div class="issue-col reported">
+        <div class="stamp"><span class="glyph">!</span> You reported</div>
+        <div class="quote">"It said something like vaccine record doesn't exist… clearly at page four [it] says the records do not specify vaccine type."</div>
+        <p>You'd uploaded Rosado's records including an immunization record, but the chronology header said the vaccine type was "Not documented." You expected to see at least one vaccination entry in the output.</p>
+      </div>
+      <div class="issue-col decided">
+        <div class="stamp"><span class="glyph">?</span> You decided</div>
+        <p>No clarification needed — we investigated on our side and confirmed the routing was wrong for this document type.</p>
+      </div>
+      <div class="issue-col built">
+        <div class="stamp"><span class="glyph">✓</span> We fixed (and one note for you)</div>
+        <p><b>The bug:</b> vaccination records were being sent through the Primary Care template, which expects Chief Complaint / HPI / Exam / Plan sections. An immunization record has none of those — just a list of vaccines, dates, manufacturers, and lot numbers — so the template came up empty and the system marked the entry irrelevant.</p>
+        <p><b>The fix:</b> built a dedicated <b>Vaccination Record</b> format with a verbatim field for the vaccine list (name, manufacturer, lot, route, site, date) and rerouted vaccination records to it.</p>
+        <p style="background: var(--ask-soft); padding: 10px 12px; border-left: 3px solid var(--ask); margin-top: 10px; border-radius: 4px;">
+          <b>Records-collection note:</b> the only immunization record we detected in Rosado's matter is dated <b>03/15/2023</b> — after her 12/30/2020 GBS onset, so it can't be the alleged-injury vaccine. The exec summary did find documented flu shots from 2018 and 2019 in earlier PCP visits, but no 2020 administration is documented anywhere in the current records. If a fall-2020 flu shot exists, you'll likely need to obtain it from her PCP (Riverside Elizabeth Lakes) directly. This is a records-gathering gap separate from anything we can fix in the configuration.
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ISSUE #6: Sample format ============ -->
+  <div class="issue">
+    <div class="issue-head">
+      <div>
+        <div class="label">Issue 6</div>
+        <h3>Sample chronology format — depth calibration</h3>
+      </div>
+      <span class="pill ok"><span class="glyph">●</span> tuned &amp; live</span>
+    </div>
+    <div class="issue-cols">
+      <div class="issue-col reported">
+        <div class="stamp"><span class="glyph">!</span> You reported</div>
+        <p>We sent you a mock-up of how an admission summary entry would render under the new section-level voice rules. You wanted to confirm the format and let us know if you wanted anything different.</p>
+      </div>
+      <div class="issue-col decided">
+        <div class="stamp"><span class="glyph">?</span> You decided</div>
+        <div class="quote">"I would love an output to look like that, although a little more content would be great but obviously the original record depth will dictate that."</div>
+        <p>Format approved. Depth scales with what the source record actually contains — no padding when the record is sparse.</p>
+      </div>
+      <div class="issue-col built">
+        <div class="stamp"><span class="glyph">✓</span> We tuned</div>
+        <p>The updated templates instruct fuller narrative depth in the summarized sections where the source supports it. Verbatim sections preserve everything the surgeon/provider wrote — those scale naturally with the record's depth.</p>
+        <p>You'll see this in the Duda rerun: longer narrative paragraphs in the exam/diagnostics/treatment sections of hospital admissions where the source had detail to support it.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============ ISSUE #7: Executive summary length ============ -->
+  <div class="issue">
+    <div class="issue-head">
+      <div>
+        <div class="label">Issue 7</div>
+        <h3>Executive summary length and content</h3>
+      </div>
+      <span class="pill ok"><span class="glyph">●</span> live</span>
+    </div>
+    <div class="issue-cols">
+      <div class="issue-col reported">
+        <div class="stamp"><span class="glyph">!</span> You reported</div>
+        <p>Your written autoimmune template asked for a ~200-word executive summary, but our system was producing a longer 1,500-word multi-paragraph narrative. We weren't sure which you wanted.</p>
+      </div>
+      <div class="issue-col decided">
+        <div class="stamp"><span class="glyph">?</span> You decided</div>
+        <div class="quote">"The longer summary length is fine as long as the citations are correct/accurate and I have the quick hitting facts at the top that have the name, injury, vaccine date, vaccine type, onset."</div>
+        <p>Keep the longer narrative — but conditional on (1) citations being accurate, and (2) the 5-line quick-facts header staying at the top.</p>
+      </div>
+      <div class="issue-col built">
+        <div class="stamp"><span class="glyph">✓</span> Already in spec</div>
+        <p>No template change needed — our exec summary already produces a multi-paragraph narrative with a 5-line case-facts header (case name, vaccination date, vaccine type, injury/diagnosis, date of onset).</p>
+        <p>The accuracy condition is satisfied by the citation fix that shipped May 11 (Issue #2). Your next chronology run will reflect both.</p>
+      </div>
+    </div>
+  </div>
+
+</section>
+
+<!-- ============================================================ -->
+<section style="background: #fbfbfd;">
+  <h2><span class="num">3.</span>Quick reference — voice matrix</h2>
+  <p class="lede">
+    A compact reference showing what gets quoted verbatim vs. summarized across all document types and sections.
+    Cross-reference any chronology entry against this table to verify the voice is what you expect.
   </p>
 
   <div class="matrix-wrap">
@@ -637,7 +1042,7 @@
           <td class="cell-summ">summarize</td>
           <td class="cell-na">—</td>
           <td class="cell-verbatim">VERBATIM</td>
-          <td class="cell-special">VERBATIM ?</td>
+          <td class="cell-summ">summarize</td>
         </tr>
         <tr>
           <th>Consultation <span class="sub">inpatient or outpatient</span></th>
@@ -651,19 +1056,19 @@
         <tr>
           <th>Primary Care <span class="sub">PCP / family med</span></th>
           <td class="cell-summ">summarize</td>
-          <td class="cell-pending">VERBATIM ?</td>
+          <td class="cell-summ">summarize</td>
           <td class="cell-summ">summarize</td>
           <td class="cell-na">—</td>
-          <td class="cell-pending">VERBATIM ?</td>
+          <td class="cell-summ">summarize</td>
           <td class="cell-summ">summarize</td>
         </tr>
         <tr>
           <th>Urgent Care <span class="sub">walk-in clinics</span></th>
           <td class="cell-summ">summarize</td>
-          <td class="cell-pending">VERBATIM ?</td>
+          <td class="cell-summ">summarize</td>
           <td class="cell-summ">summarize</td>
           <td class="cell-na">—</td>
-          <td class="cell-pending">VERBATIM ?</td>
+          <td class="cell-summ">summarize</td>
           <td class="cell-summ">summarize</td>
         </tr>
         <tr>
@@ -704,7 +1109,12 @@
         </tr>
         <tr>
           <th>PT / OT / Speech / Rehab</th>
-          <td class="cell-pending" colspan="6">pending — your guidance from upcoming list</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-na">—</td>
+          <td class="cell-summ">summarize</td>
+          <td class="cell-summ">summarize</td>
         </tr>
         <tr>
           <th>Labs <span class="sub">single-line per lab</span></th>
@@ -717,35 +1127,25 @@
   <div class="matrix-legend">
     <span class="item"><span class="swatch" style="background: var(--verbatim-soft); border-color:#d8c8f4"></span> Quoted verbatim from the record</span>
     <span class="item"><span class="swatch" style="background: var(--summ-soft); border-color:#c7e1ee"></span> Summarized into narrative</span>
-    <span class="item"><span class="swatch" style="background: #fef3c7; border-color:#fde68a"></span> Likely verbatim — confirm scope</span>
-    <span class="item"><span class="swatch" style="background: var(--ask-soft); border-color:#f4cf94"></span> Pending your confirmation</span>
     <span class="item"><span class="swatch" style="background: var(--paper); border-color: var(--line)"></span> Not present in this doc type</span>
   </div>
 
-  <div class="decide" style="margin-top: 28px;">
-    <h3>Three small confirmations we'd like</h3>
+  <div class="recap" style="margin-top: 28px;">
+    <div class="stamp">Voice-rule summary</div>
+    <h3>The underlying principle</h3>
     <p>
-      <strong>1. PCP / Urgent Care / outpatient specialist visits:</strong> these have the same HPI + Assessment structure as the
-      hospital docs above. Should we apply the same rule (HPI verbatim, Assessment verbatim, everything else summarized) to them too?
-      We'll default to "yes" unless you say otherwise.
-    </p>
-    <p>
-      <strong>2. Discharge summaries:</strong> on the call you highlighted an entire discharge-diagnoses paragraph as something
-      you'd want verbatim. Is that scope (whole discharge dx + follow-up plan paragraph) part of the verbatim treatment,
-      or are you OK with just HPI + Assessment being verbatim?
-    </p>
-    <p>
-      <strong>3. Physical therapy records:</strong> you mentioned PT as a doc type to tag separately. What should we quote
-      verbatim from a PT note (subjective complaints? assessment?) vs. summarize?
+      Verbatim for plain-English clinical narrative authored by a human (the kind of writing that contains causation-anchoring statements).
+      Summarize structured / checkbox / list-style content where verbatim extraction produces unreadable output.
+      Compound section headers default to verbatim per your tie-breaker rule.
     </p>
   </div>
 </section>
 
 <!-- ============================================================ -->
 <section>
-  <h2><span class="num">3.</span>What a sample chronology entry will look like</h2>
+  <h2><span class="num">4.</span>Sample chronology entry</h2>
   <p class="lede">
-    To make the matrix above concrete, here's what an admission summary entry will look like under the agreed rules.
+    A concrete example: this is what an admission summary entry will look like under the new rules.
     Verbatim portions are tagged <span class="vbtag">verbatim</span>; summarized portions are tagged <span class="stag">summarized</span>.
   </p>
 
@@ -799,192 +1199,44 @@
 
 <!-- ============================================================ -->
 <section style="background: #fbfbfd;">
-  <h2><span class="num">4.</span>Operative reports — we're building dedicated handling</h2>
+  <h2><span class="num">5.</span>What's next</h2>
   <p class="lede">
-    On the call you flagged that the Duda operative report wasn't being properly summarized.
-    We took a closer look and confirmed the gap — we don't yet have a dedicated format for surgical procedures.
-    Here's what we're adding.
-  </p>
-
-  <div class="compare">
-    <div>
-      <div class="head">
-        <h3>Today (the gap)</h3>
-        <span class="pill warn"><span class="glyph">●</span> missing coverage</span>
-      </div>
-      <div class="body">
-        <p>
-          The system detected the operative note in the Viera Hospital file but bucketed it as a generic hospital record.
-          The summary captured post-op care instructions and the medication list, but missed the surgeon's actual procedure
-          narrative — findings, technique, anchors used, etc.
-        </p>
-      </div>
-    </div>
-    <div>
-      <div class="head">
-        <h3>Coming in next update</h3>
-        <span class="pill opt"><span class="glyph">●</span> in flight</span>
-      </div>
-      <div class="body">
-        <p>Dedicated operative report format with summarized sections for:</p>
-        <ul>
-          <li>Surgeon &amp; credentials</li>
-          <li>Procedure performed</li>
-          <li>Pre-op &amp; post-op diagnoses</li>
-          <li>Anesthesia type</li>
-          <li>Intra-operative findings</li>
-          <li>Surgical technique</li>
-          <li>Hardware / anchors / sutures</li>
-          <li>EBL, fluids, specimens</li>
-          <li>Complications &amp; disposition</li>
-        </ul>
-        <p>~300 words per operative report, narrative.</p>
-      </div>
-    </div>
-  </div>
-
-  <p style="margin-top: 20px;">
-    This will apply to Duda automatically once shipped. If you have a sample operative-report summary in your preferred
-    style from a prior nurse-prepared chronology, send it our way and we'll calibrate the voice/depth to match.
-  </p>
-</section>
-
-<!-- ============================================================ -->
-<section>
-  <h2><span class="num">5.</span>Handwritten records — our proposed approach</h2>
-  <p class="lede">
-    You flagged the Suntree Chiropractic handwritten notes coming back as "no relevant content" — and noted that
-    these can contain critical information (like a patient's first report of symptoms relative to vaccination).
-    Here's what we'd like to propose, rather than asking you to design the policy.
-  </p>
-
-  <div class="propose">
-    <h3>Our proposed handling for handwritten / low-quality OCR records</h3>
-    <ol>
-      <li>
-        <strong>Always attempt extraction</strong> — never silently drop a handwritten record.
-        Run best-effort OCR and pull what we can read.
-      </li>
-      <li>
-        <strong>Flag the entry with a visible badge</strong> like "<em>Handwritten record — manual review recommended</em>"
-        so you know at a glance that the entry should be eyeballed against the source.
-      </li>
-      <li>
-        <strong>When OCR is unreadable</strong>, still surface the entry with the date, provider, and a placeholder note
-        like "<em>Handwritten chiropractic note dated 12/27/2024 — content not machine-readable; see Exhibit X, p. Y.</em>"
-        Better to know it exists than for it to disappear from the chronology.
-      </li>
-      <li>
-        <strong>Best-effort summary even of partial content</strong> — e.g., if we can read "symptom onset 11/29" but not
-        the surrounding paragraph, surface that fragment with a note that the rest is handwritten.
-      </li>
-    </ol>
-  </div>
-
-  <p style="margin-top: 16px; color: var(--ink-2);">
-    If this approach works for you, we'll build it. If you'd prefer a different handling (e.g., skip entirely, or
-    always include a thumbnail of the source page), let us know.
-  </p>
-</section>
-
-<!-- ============================================================ -->
-<section style="background: #fbfbfd;">
-  <h2><span class="num">6.</span>Fixes already in flight</h2>
-  <p class="lede">
-    Beyond the verbatim/summarize rules, here are the fixes our engineering team is shipping that affect what you've seen.
-  </p>
-
-  <div class="inflight">
-    <div class="flite">
-      <div class="stamp">● Fixing now</div>
-      <h4>Page citations</h4>
-      <p>The "p. 428 vs p. 335" mismatch you caught on the call. Citations will reference the page numbers in the source
-      PDFs you opened, not the position in the combined exhibit bundle. Shipping in the next release.</p>
-    </div>
-    <div class="flite">
-      <div class="stamp">● Fixing now</div>
-      <h4>Operative report extraction</h4>
-      <p>New format described in section 4 above. Will properly capture surgeon, procedure, intra-op findings, and technique
-      for Duda and future surgical cases.</p>
-    </div>
-    <div class="flite">
-      <div class="stamp">● Fixing now</div>
-      <h4>Duda summary rerun</h4>
-      <p>Once the templates are updated and the citation fix lands, Nick will rerun the Duda summary against the V2 rule set
-      and send you the refreshed output.</p>
-    </div>
-    <div class="flite">
-      <div class="stamp">● Investigating</div>
-      <h4>Rosado missing vaccination record</h4>
-      <p>You flagged that the Rosado output said "records do not specify vaccine type" despite the vaccination record being
-      uploaded. We're looking into why the system didn't surface it.</p>
-    </div>
-  </div>
-</section>
-
-<!-- ============================================================ -->
-<section>
-  <h2><span class="num">7.</span>What we still need from you</h2>
-  <p class="lede">
-    A short list. The first item is the big one — your more precise document-type list with per-section rules. Once we have that,
-    we'll lock in the templates and run a fresh chronology for you to review.
+    Nothing pending from you right now. Here's what to expect:
   </p>
 
   <div class="checklist">
     <div class="check">
-      <div class="box"></div>
+      <div class="box" style="border-color: var(--accent); background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">→</div>
       <div class="q">
-        <b>Definitive document-type list with per-section rules.</b>
-        <span class="sub">At minimum: admission summary, discharge summary, consultation, PT records. For each, mark which sections should be verbatim vs summarized. Sections 1-2 above are our starting interpretation — confirm or correct.</span>
+        <b>Duda chronology rerun.</b>
+        <span class="sub">We'll re-run the full Duda matter under the new templates + citation fix.</span>
       </div>
-      <div class="topic">Primary</div>
+      <div class="topic">This week</div>
     </div>
     <div class="check">
-      <div class="box"></div>
+      <div class="box" style="border-color: var(--accent); background: var(--accent); color: white; display: flex; align-items: center; justify-content: center; font-weight: 700;">→</div>
       <div class="q">
-        Apply the HPI-verbatim + Assessment-verbatim pattern to <b>PCP, urgent care, and outpatient specialist visits</b> too?
-        <span class="sub">We'll default to yes unless you say otherwise.</span>
+        <b>Handwritten record flag + edit-in-place UI.</b>
+        <span class="sub">Front-end UI being built on a parallel track. We'll loop back when it lands.</span>
       </div>
-      <div class="topic">Confirm</div>
+      <div class="topic">Parallel</div>
     </div>
     <div class="check">
-      <div class="box"></div>
+      <div class="box" style="border-color: var(--ask); background: var(--ask-soft); color: var(--ask); display: flex; align-items: center; justify-content: center; font-weight: 700;">?</div>
       <div class="q">
-        For <b>discharge summaries</b>, should the entire discharge-diagnoses + follow-up paragraph be verbatim, or just HPI + Assessment like the others?
+        <b>Rosado records-collection question (for you).</b>
+        <span class="sub">If a fall-2020 flu shot exists for Debra Rosado, you may want to request it from her PCP (Riverside Elizabeth Lakes) directly — it doesn't appear in the records currently in the system. See Issue #5 above for context.</span>
       </div>
-      <div class="topic">Confirm</div>
-    </div>
-    <div class="check">
-      <div class="box"></div>
-      <div class="q">
-        <b>Handwritten records</b> — does the proposed handling in section 5 work for you?
-      </div>
-      <div class="topic">Confirm</div>
-    </div>
-    <div class="check">
-      <div class="box"></div>
-      <div class="q">
-        <b>Sample operative-report summary</b> — if you have one in your preferred style, send it so we can calibrate.
-      </div>
-      <div class="topic">Optional</div>
-    </div>
-    <div class="check">
-      <div class="box"></div>
-      <div class="q">
-        <b>Executive Summary length</b> — your written template asks for ~200 words; we're currently producing ~1,500. Which do you want?
-        <span class="sub">Low priority — flag if you have a preference, otherwise we'll leave as-is and revisit later.</span>
-      </div>
-      <div class="topic">Optional</div>
+      <div class="topic">Your call</div>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="signoff">— The Dodonai team</div>
-  Send your document-type list whenever it's ready — no rush, but the templates can't be finalized without it.
-  Once we have it, we'll roll the changes into your configuration, ship the citation + operative-report fixes,
-  and rerun Duda so you can see the updated output end-to-end. Thanks for the patience and the precision —
-  the more specific you can be about which sections you want verbatim, the closer we'll get to "set it and forget it."
+  Thanks for the precision in your reply — that was exactly what we needed to finalize the configuration.
+  We're moving on template updates today and will email you the refreshed Duda chronology as soon as the citation
+  fix lands and the rerun completes.
 </footer>
 
 </div>
