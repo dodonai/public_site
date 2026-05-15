@@ -1,0 +1,53 @@
+{
+  "slug": "client-communications",
+  "seo": {
+    "title": "AI Agents for Law Firm Client Communications | Dodonai",
+    "description": "Custom AI agents for client status updates, meeting prep briefs, settlement explainers, bilingual translation, court date reminders.",
+    "canonical": "/ai-services/by-function/client-communications/"
+  },
+  "hero": {
+    "headline": "AI Agents for Client Communications",
+    "subheadline": "Clients who hear from you feel represented. Clients who don't, fire you and leave a 1-star review. We build AI agents that draft status letters, meeting prep briefs, settlement explanations, and court reminders in your voice, ready for your review."
+  },
+  "scenario": {
+    "heading": "The client who goes quiet",
+    "paragraphs": [
+      "A client calls their PI attorney's office at 4:47 on a Thursday. She's 8 months into her case. She's heard 3 things in that time: the initial retainer call, a records update from the paralegal in month 4, and a voicemail about a deposition date that got rescheduled. She's calling because her cousin told her to call. She's calling because she wants to fire her lawyer. The case is actually fine. The communication is not.",
+      "With a client communications agent in place, the same client would have gotten a monthly status letter tuned to her case state: records received, chronology in progress, demand package expected in 90 days, no action needed from her. The letters don't say 'we're working hard.' They say what's happening, what's next, and what she needs to do. They arrive on a schedule she can count on.",
+      "The pattern scales across the communications surface. Pre-meeting, a client-specific prep brief lands in the attorney's inbox. After a settlement, a plain-language explanation letter drafts itself with the gross-to-net walkthrough. Before every court date, the client gets an SMS with the time, location, dress code, and any documents to bring. Bilingual clients get drafts in English for attorney review, then translated before sending. All of it, drafted and ready for approval."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits client communications",
+    "paragraphs": [
+      "Client communications is high-volume, repetitive, and voice-sensitive. Every matter in the book needs regular touches at predictable cadences. The content differs by matter state. The voice has to sound like the firm, not a generic template. The schedule has to hold.",
+      "That's exactly what agents do well. Case state sits in your practice management system. Voice comes from the templates and past communications we train on. Scheduling runs on a clock we set with you. The agent drafts on time, in voice, with matter-specific content. Every draft goes to the attorney before it goes to the client. Nothing ships without approval. Client communications touch PII and privilege, so agents run in your account under SOC 2 and HIPAA controls, with zero data retention from our model providers and BAA available where needed."
+    ]
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "Blueprint is 2 to 3 weeks. We audit your current client communication cadence, look at 10 or 20 recent matters to see what communications did and didn't happen, and map where the agents would land. You leave with a prioritized roadmap.",
+      "Build is 4 to 8 weeks. The monthly status letter agent usually stands up first. We load your template library and 20 or 30 of your best past communications to train the voice, connect to your practice management system for matter state, and run in shadow mode while we tune. Meeting prep, settlement explainers, and court date reminders follow in the same engagement or the next one.",
+      "Managed is the ongoing operating mode. We monitor the agents, refine voice and content as you give feedback, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does the agent avoid sounding like a template?",
+      "answer": "We train on your past communications, not a generic library. The agent learns your sentence length, your openers and closers, your level of formality, your explanation style for legal concepts. The first draft usually feels close to how the attorney would write it. Review is minutes per letter, not a full rewrite."
+    },
+    {
+      "question": "What about sensitive situations, like a bad trial outcome or a client's passing?",
+      "answer": "The agent flags sensitive situations and pauses its drafting. The attorney handles those communications directly. The agent picks back up once the situation is stable. Sensitivity detection is part of the skill file and we tune it per firm based on practice area."
+    },
+    {
+      "question": "Can it handle multilingual clients?",
+      "answer": "Yes. The bilingual translator agent pairs with the communications agent. Drafts render in English for attorney review, then translate to Spanish, Mandarin, Vietnamese, or other supported languages before sending. You can review both versions or approve the English and let the translation flow automatically."
+    },
+    {
+      "question": "Does this replace our client portal?",
+      "answer": "No. The client portal is where clients check status and upload documents. The communications agent drafts proactive touches: letters, emails, SMS. They complement each other. Firms that run both see lower inbound 'status?' calls because clients are already informed."
+    }
+  ]
+}

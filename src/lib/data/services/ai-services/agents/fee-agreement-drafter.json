@@ -1,0 +1,105 @@
+{
+  "slug": "fee-agreement-drafter",
+  "title": "Fee Agreement Drafter Agent",
+  "shortDescription": "Generates the right engagement letter for the matter type, jurisdiction, and fee structure, with the clauses your partners insist on baked in.",
+  "tier": "supporting",
+  "function": "intake-and-growth",
+  "practiceAreas": [
+    "personal-injury",
+    "family-law",
+    "estates-probate",
+    "real-estate",
+    "all"
+  ],
+  "caseSkills": [
+    "attorney-representation-agreement-litigation-personal-injury.md"
+  ],
+  "workflow": [
+    {
+      "label": "Matter type confirmed",
+      "detail": "Practice area and engagement scope selected"
+    },
+    {
+      "label": "Pull scope templates",
+      "detail": "Your firm's approved retainer language"
+    },
+    {
+      "label": "Tune retainer terms",
+      "detail": "Fee structure, scope, and advanced costs"
+    },
+    {
+      "label": "Draft agreement",
+      "detail": "Ready-to-sign document in your voice"
+    },
+    {
+      "label": "Route to attorney",
+      "detail": "Draft in your queue for review and send"
+    }
+  ],
+  "seo": {
+    "title": "AI Fee Agreement Drafter for Law Firms | Dodonai",
+    "description": "Generate engagement letters tuned to matter type, jurisdiction, and fee structure. Partner-required clauses built in. Speeds the conversion-critical first 24 hours.",
+    "canonical": "/ai-services/agents/fee-agreement-drafter/"
+  },
+  "hero": {
+    "headline": "AI Fee Agreement Drafter Agent",
+    "subheadline": "The right engagement letter generated for the matter type, jurisdiction, and fee structure. Partner-required clauses baked in. Sent for e-signature with the consult confirmation. The 24-hour close window stops being a bottleneck.",
+    "bullets": [
+      "Engagement letters per matter type and fee structure (contingency, hourly, flat, hybrid)",
+      "Jurisdiction-specific disclosures and bar-required language",
+      "Your partners' preferred clauses (lien language, costs, withdrawal terms) included",
+      "E-signature ready, with a logged audit trail of versions and changes"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The signature you would have lost to delay",
+    "paragraphs": [
+      "A consult finishes at 11:30am. The prospective client is ready to sign. In the old workflow, your paralegal pulls a Word template, fills in the blanks, walks down the hall to confirm the contingency percentage with the partner, sends the PDF for signature by 4pm. By then half the prospective clients have second-guessed and gone quiet. The Fee Agreement Drafter generates the letter the moment the consult ends, the partner reviews it on the way back to her desk, the e-sign request goes out by 11:45. Most signatures land within the hour."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Fee Agreement Drafter does",
+    "bullets": [
+      "Selects the right base template for the matter type, fee structure, and jurisdiction",
+      "Populates client and matter details from the intake record",
+      "Inserts your partners' preferred clauses (lien language, cost responsibility, withdrawal terms, dispute resolution)",
+      "Generates the document in your firm's branded format with the right signatories",
+      "Routes to e-signature (DocuSign, HelloSign, Adobe Sign, Clio Draft) on attorney approval"
+    ]
+  },
+  "integrations": [
+    "Clio Draft, Lawyaw, NetDocuments, or iManage for the document layer",
+    "DocuSign, HelloSign, or Adobe Sign for the signature flow",
+    "Practice management system for the matter and client record",
+    "Slack or email for the attorney-review handoff"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent never sends the agreement to a client without attorney review. Generated drafts sit in the responsible attorney's queue with the changes from the base template highlighted so review takes a minute, not 10. Versions and edits are logged so the firm can show what was sent, when, and by whom if a fee dispute or bar inquiry ever arises."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Can it handle our partners' personal preferences without becoming inconsistent?",
+      "answer": "Each partner can have a profile that captures their preferred language for the clauses they care most about. The agent applies the right profile based on which partner owns the matter. The base template stays consistent across the firm; the partner-specific edits are tracked and reviewable."
+    },
+    {
+      "question": "What about jurisdictions where the bar requires specific disclosure language?",
+      "answer": "The jurisdiction-specific requirements are encoded in skill files maintained alongside the templates. When a state bar updates its required disclosures (the way several did after AI-related guidance), we update the skill file and every new agreement reflects the change. The Managed retainer covers the maintenance."
+    },
+    {
+      "question": "Does this replace our document automation tool?",
+      "answer": "It can or it can run alongside. If you already use Clio Draft or Lawyaw, the agent can call those tools to do the actual document generation and add the AI judgment layer (which template, which clauses, which partner profile). If you don't use one, the agent handles the generation directly."
+    }
+  ]
+}

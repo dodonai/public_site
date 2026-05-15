@@ -1,0 +1,95 @@
+{
+  "slug": "workload-balancer",
+  "title": "Workload Balancer Agent",
+  "shortDescription": "Surfaces uneven workloads across attorneys and recommends matter reassignments before someone burns out or a matter stalls.",
+  "tier": "supporting",
+  "function": "practice-intelligence",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [],
+  "workflow": [
+    {
+      "label": "Pull time + matter counts",
+      "detail": "Current load per attorney and paralegal"
+    },
+    {
+      "label": "Compute capacity",
+      "detail": "Active matters weighted by complexity"
+    },
+    {
+      "label": "Flag overload",
+      "detail": "Team members over threshold for 2+ weeks"
+    },
+    {
+      "label": "Suggest rebalance",
+      "detail": "Matters that could shift, with rationale"
+    },
+    {
+      "label": "Surface for partner review",
+      "detail": "Staffing call stays with the partner"
+    }
+  ],
+  "seo": {
+    "title": "AI Workload Balancer Agent for Law Firms | Dodonai",
+    "description": "Surface uneven workloads across attorneys and recommend matter reassignments before burnout or matter stall. The supervision pattern that scales beyond a small firm.",
+    "canonical": "/ai-services/agents/workload-balancer/"
+  },
+  "hero": {
+    "headline": "AI Workload Balancer Agent",
+    "subheadline": "Tracks active matter load per attorney weighted by complexity and stage. Surfaces overloaded attorneys, underutilized capacity, and matters that have stalled because of misallocation. The supervision conversation a partner already wants to have, with the data ready.",
+    "bullets": [
+      "Weighted matter load per attorney (count, hours, complexity, stage)",
+      "Surfaces overloaded attorneys and underutilized capacity",
+      "Identifies matters that have stalled due to misallocation",
+      "Recommends reassignments with the impact estimated"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The associate you would have lost to burnout",
+    "paragraphs": [
+      "One of your associates has been carrying 22 active personal injury matters while another is at 9. The 22-matter associate hasn't said anything because she doesn't want to look like she can't handle it. The Workload Balancer surfaces the imbalance in the partners' weekly digest with 5 matters proposed for reassignment, each with the rationale (similar matter types, shared client overlap, the receiving associate's bandwidth). The partner has the conversation with both associates that week. The matters move; nobody quits."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Workload Balancer does",
+    "bullets": [
+      "Weights active matter load per attorney by count, hours-to-date, complexity, and stage",
+      "Compares loads against your firm's target capacity per role",
+      "Surfaces matters that have stalled (no activity in 14 days) attributable to load",
+      "Recommends specific reassignments with the rationale and the receiving attorney's bandwidth",
+      "Tracks load trends quarterly so chronic patterns surface"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter and assignment records",
+    "Time-entry system for hours-to-date per attorney",
+    "Calendar for upcoming deadline density",
+    "Slack or email for digest delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent recommends; partners decide. Reassignments are conversations, not automatic moves. The framing in the digest is supportive (catch overload before it becomes a complaint or a quit) rather than evaluative. Per-attorney views are scoped to partners and any office manager who handles assignments."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does it weight complexity?",
+      "answer": "Complexity weights are set during Build with input from the partners. A typical pattern: a contested family law matter weighs more than an uncontested probate; a personal injury matter in active litigation weighs more than one in workup. The weights are tunable as the firm's matter mix evolves."
+    },
+    {
+      "question": "What about partners whose work doesn't fit a matter-load model?",
+      "answer": "Partners with significant business development, supervision, or firm-management time can have those categories included in their load picture so the comparison stays honest. The agent doesn't try to force every role into the same shape."
+    }
+  ]
+}
