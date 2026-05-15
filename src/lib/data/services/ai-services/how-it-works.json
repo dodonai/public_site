@@ -1,0 +1,135 @@
+{
+  "seo": {
+    "title": "How Dodonai's AI Agents Work: Blueprint, Build, Managed",
+    "description": "Custom AI agents for law firms: the Paralegal Test, a 4-layer safety architecture, and a Blueprint, Build, Managed engagement. See how it runs.",
+    "canonical": "/ai-services/how-it-works/"
+  },
+  "hero": {
+    "headline": "How an AI Services engagement runs",
+    "subheadline": "We start with the work, not the model. If your team can write the procedure, we can ship the agent. Here's how the architecture, the engagement, and the safety layer fit together.",
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "Browse the Agent Catalog",
+    "secondaryCtaUrl": "/ai-services/agents/",
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "paralegalTest": {
+    "heading": "The Paralegal Test",
+    "paragraphs": [
+      "Here's how we know if something in your practice can be automated. Can you write instructions for how a paralegal would do it? If yes, that's an AI skill we can build.",
+      "A document arrives. Read it. Classify it. Compute the deadline. Calendar it. File it. Notify the attorney. That's not a person anymore. That's a skill running every 15 minutes, on a schedule, against your data, with a human gate before anything reaches the outside world.",
+      "Most attorneys we work with come in expecting to talk about models, prompts, and licenses. We start somewhere else: which 3 workflows make you groan every week. The ones a trained paralegal could do from a procedure manual. Those are your first agents."
+    ]
+  },
+  "architecture": {
+    "heading": "Every agent runs on the same architecture",
+    "cards": [
+      {
+        "icon": "document",
+        "title": "Skills",
+        "description": "A skill is plain-English instructions: how to evaluate an intake lead, how to format a status update, how to compute deadlines under your jurisdiction's rules. Written once, applied every time. Your firm's judgment, encoded."
+      },
+      {
+        "icon": "folder",
+        "title": "Connections",
+        "description": "Read-only access to the systems your team already uses. Your practice management system (Clio, MyCase, PracticePanther, Centerbase), document management (NetDocuments, iManage), email, calendar. The agent works with the full picture, not whatever you remember to paste in."
+      },
+      {
+        "icon": "calendar",
+        "title": "Schedules",
+        "description": "A trigger that runs the agent on its own. Every weekday at 7am. Every Friday afternoon. Every 15 minutes when a new email lands. The agent does its job whether anyone remembers to ask."
+      },
+      {
+        "icon": "shield",
+        "title": "Safety layer (always on)",
+        "description": "The agent drafts. You decide. Nothing reaches a client, court, or outside party without your review. Every action is logged for the audit trail ABA Opinion 512 expects. {{link:/ai-services/safety/|See the full safety architecture.}}"
+      }
+    ]
+  },
+  "engagement": {
+    "heading": "Blueprint, Build, Managed",
+    "intro": "Every engagement runs through the same three phases. You can stop after any of them, and you keep everything we've built for you.",
+    "phases": [
+      {
+        "title": "Blueprint",
+        "duration": "2 to 3 weeks",
+        "summary": "We sit with your team, watch the work, and write the plan.",
+        "details": [
+          "Workflow audit across intake, casework, deadlines, billing, and client comms",
+          "Tool inventory of what you already pay for (practice management, document management, email, calendar, CRM)",
+          "Written plan: which agents to build first, in what order, what each one is expected to save you",
+          "If the Blueprint doesn't leave your firm with a clear path forward, we refund it"
+        ]
+      },
+      {
+        "title": "Build",
+        "duration": "4 to 8 weeks",
+        "summary": "We deploy the agents, in your account, tuned to how your firm actually operates.",
+        "details": [
+          "3 to 6 custom agents in the first cycle, scoped from the Blueprint",
+          "Integrations wired: practice management, email, calendar, document management",
+          "Skill files written from your written acceptance criteria, voice samples, and past matters",
+          "Shadow run before anything sends: the agent drafts for 1 to 2 weeks while your team reviews"
+        ]
+      },
+      {
+        "title": "Managed",
+        "duration": "Monthly retainer",
+        "summary": "We keep the agents running, add new ones as your practice changes, and share what we learn from other firms.",
+        "details": [
+          "Monthly review of every agent's outputs, drift, and skipped escalations",
+          "New agents added as new workflows surface",
+          "Model upgrades when a better one ships, without you switching vendors",
+          "Priority support during deadlines, hearings, and trial weeks"
+        ]
+      }
+    ]
+  },
+  "tiers": {
+    "heading": "Pick the size that fits",
+    "intro": "Most firms don't sign up for the full architecture on day one. They start small, prove it on themselves, and expand once they trust the pattern.",
+    "cards": [
+      {
+        "icon": "bolt",
+        "title": "Crawl: 1 agent",
+        "description": "Pick the workflow that makes you groan every week. We build that one agent, prove it on real work, and stop there. About 4 weeks. Your team gets a working agent and a feel for how the pattern works in your firm."
+      },
+      {
+        "icon": "squares",
+        "title": "Walk: 3 to 6 agents",
+        "description": "The standard engagement. A Blueprint plus a Build cycle that ships a small team of agents covering your highest-leverage work. Most firms start here. About 8 to 12 weeks end to end."
+      },
+      {
+        "icon": "growth",
+        "title": "Run: Managed program",
+        "description": "Monthly retainer that keeps the agents tuned, adds new ones as your practice grows, and rolls in upgrades from the broader portfolio. The point you reach when you stop thinking of agents as a project and start treating them as the operating layer of the firm."
+      }
+    ]
+  },
+  "faq": [
+    {
+      "question": "Do we have to know which agents we want before we start?",
+      "answer": "No. The Blueprint is the part where we figure that out together. Most firms come in with a vague sense of what hurts and a clear sense of what they don't want to keep doing. We work backwards from there."
+    },
+    {
+      "question": "What does 'in your account' actually mean?",
+      "answer": "The skills, configurations, and prompts live in infrastructure your firm controls. If we ever part ways, your agents keep running and your team keeps working. You aren't renting the playbook from us."
+    },
+    {
+      "question": "Who writes the skill files?",
+      "answer": "We do, in collaboration with your team. The first draft comes from sitting with whoever owns the workflow today (the senior paralegal, the intake coordinator, the partner) and watching how they do it. Then we write the procedure manual that becomes the skill."
+    },
+    {
+      "question": "How fast can we see something working?",
+      "answer": "A first agent in the Crawl tier ships in about 4 weeks. The first 2 weeks are encoding your criteria and connecting your tools. Weeks 3 and 4 are a shadow run where the agent drafts but doesn't send, so your team can compare its output against what they would've done."
+    },
+    {
+      "question": "What if an agent gets it wrong?",
+      "answer": "Agents only draft. 'Wrong' shows up as a draft email you delete or a calendar suggestion you adjust. The audit trail logs what the agent did and why, so we tune the skill file the same way you'd retrain a paralegal after their first week."
+    },
+    {
+      "question": "What does the Managed retainer actually include?",
+      "answer": "Monthly review of every agent's outputs and skipped escalations, model upgrades when a better one ships, new agents added as you ask for them, priority support during deadline and trial weeks, and the cross-firm learnings we pick up from other clients."
+    }
+  ]
+}

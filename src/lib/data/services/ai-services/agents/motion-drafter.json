@@ -1,0 +1,99 @@
+{
+  "slug": "motion-drafter",
+  "title": "Motion Drafter Agent",
+  "shortDescription": "Drafts the motion, the brief in support, and the proposed order with the right citations and the right local format.",
+  "tier": "supporting",
+  "function": "casework-and-drafting",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [
+    "litigation-personal-injury-motion-for-summary-judgment.md",
+    "summary-judgment-summarization.md",
+    "legal-memoranda.md"
+  ],
+  "workflow": [
+    {
+      "label": "Motion type confirmed",
+      "detail": "MSJ, motion in limine, or motion to compel"
+    },
+    {
+      "label": "Pull pleadings + deps",
+      "detail": "Facts sourced from the record, not memory"
+    },
+    {
+      "label": "Draft statement of facts",
+      "detail": "Cited from deposition and stipulation"
+    },
+    {
+      "label": "Draft legal argument",
+      "detail": "Built from your firm's brief precedent"
+    },
+    {
+      "label": "Assemble exhibit list",
+      "detail": "Cross-referenced to the brief text"
+    }
+  ],
+  "seo": {
+    "title": "AI Motion Drafter Agent for Law Firms | Dodonai",
+    "description": "Draft the motion, the brief in support, and the proposed order in the right local format. Citations verified. The first-draft work that consumes a Friday.",
+    "canonical": "/ai-services/agents/motion-drafter/"
+  },
+  "hero": {
+    "headline": "AI Motion Drafter Agent",
+    "subheadline": "Drafts the motion, the brief in support, and the proposed order in the format the local court requires. Citations verified against the underlying authority. The blank-page Friday becomes a refinement Friday.",
+    "bullets": [
+      "Motion, brief, and proposed order drafted together",
+      "Local court format applied automatically",
+      "Citations verified against the underlying case or rule",
+      "Outline and tone tuned to your firm's prior motion practice"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "The Friday that would have been a blank page",
+    "paragraphs": [
+      "Your associate has a motion to compel due Tuesday. Friday morning is supposed to be the drafting day. In the old workflow, she spends 3 hours staring at the blank page before the structure starts coming together. The Motion Drafter produces the working draft by 10am: the motion in the local format, the brief structured to the firm's pattern, the proposed order, and the cited cases linked to the underlying opinions. She spends the rest of Friday refining the argument instead of building the scaffolding."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Motion Drafter does",
+    "bullets": [
+      "Drafts the motion, the brief in support, and the proposed order together",
+      "Applies the local court's format requirements (caption, font, page limits)",
+      "Verifies every cited case and rule against the underlying authority",
+      "Tunes the outline and tone to your firm's prior motion practice",
+      "Surfaces the strongest 2 to 3 arguments and the weakest 1 for the attorney's call"
+    ]
+  },
+  "integrations": [
+    "Practice management system for matter and venue context",
+    "Document management system for prior motion templates",
+    "Westlaw, Lexis, or Fastcase for citation verification",
+    "Microsoft Word for the draft delivery"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "Every cited case is verified against the underlying opinion before the draft leaves the agent. The reviewer's checklist surfaces the highest-stakes citations for the responsible attorney to confirm against the source. The agent never files; the attorney signs and submits."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does this address the hallucination risk that's gotten attorneys sanctioned?",
+      "answer": "Every citation the agent uses is verified against the case or rule it references during drafting. Citations that don't verify don't make it into the draft. The reviewer's checklist exists for the substantive arguments; the citations are mechanical and the agent is calibrated to be conservative."
+    },
+    {
+      "question": "What about novel arguments where the case law isn't directly on point?",
+      "answer": "For arguments without direct authority, the agent surfaces the analogous cases with the analogy explained, rather than citing them as if they were directly on point. The attorney makes the call on whether the argument is worth making and how aggressively to frame the analogy."
+    }
+  ]
+}

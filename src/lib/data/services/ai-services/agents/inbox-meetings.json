@@ -1,0 +1,128 @@
+{
+  "slug": "inbox-meetings",
+  "title": "Inbox & Meetings Agent",
+  "shortDescription": "Triages every overnight email, briefs you on every meeting before it starts, and drafts the follow-ups when it's over. Two of the loudest workflows, handled.",
+  "tier": "flagship",
+  "function": "operations-and-billing",
+  "practiceAreas": [
+    "all"
+  ],
+  "caseSkills": [
+    "case-summary-report.md",
+    "case-intake-initial-fact-memo.md"
+  ],
+  "workflow": [
+    {
+      "label": "Overnight batch arrives",
+      "detail": "Inbox and calendar both reviewed"
+    },
+    {
+      "label": "Classify each item",
+      "detail": "Urgent, action, FYI, or archive"
+    },
+    {
+      "label": "Apply priority labels",
+      "detail": "Inbox labeled, calendar prepped per meeting"
+    },
+    {
+      "label": "Queue urgent digest",
+      "detail": "Top 3 items surfaced for your morning"
+    },
+    {
+      "label": "Archive the noise",
+      "detail": "Newsletters and routine out of your way"
+    }
+  ],
+  "seo": {
+    "title": "AI Inbox & Meetings Agent for Law Firms | Dodonai",
+    "description": "Triage every overnight email, brief every meeting before it starts, and draft follow-ups after. The two loudest workflows in legal operations, handled by one agent.",
+    "canonical": "/ai-services/agents/inbox-meetings/"
+  },
+  "hero": {
+    "headline": "AI Inbox & Meetings Agent",
+    "subheadline": "Reads every overnight email and classifies it. Researches every meeting attendee and drafts a briefing. Transcribes every Zoom and writes the follow-up. The two workflows that consume the most attorney time, automated end to end with you in the pilot seat.",
+    "bullets": [
+      "Overnight inbox triage with classification, labeling, and a prioritized digest",
+      "Pre-meeting briefings on every external attendee, in Slack by 7am",
+      "Post-meeting transcripts and follow-up email drafts within an hour",
+      "Action items extracted and routed to the responsible attorney"
+    ],
+    "ctaText": "Book an intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "secondaryCtaText": "See Our Agents",
+    "secondaryCtaUrl": "/ai-services/our-agents/",
+    "badges": [
+      "SOC-2 Certified",
+      "HIPAA Compliant"
+    ],
+    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+  },
+  "scenario": {
+    "heading": "A morning that runs itself",
+    "paragraphs": [
+      "It's 6:45am. The Inbox & Meetings agent has been working since 6. It read the 47 emails that came in overnight, classified them (12 from clients, 8 from opposing counsel, 4 from the court, 23 newsletters and outreach), archived the noise, applied labels, and drafted a 4-line digest of what needs attention.",
+      "It also looked at your calendar. You have a 9am call with a prospective client, a 10:30 deposition prep with co-counsel, and a 2pm settlement conference. For each meeting, the agent has researched the attendees (their firm, their recent matters, their published work), pulled the matter file, and drafted a 1-page briefing that lands in your Slack with a link to the source documents.",
+      "By the time you finish breakfast, the inbox is clean, the day's meetings are pre-briefed, and you've sent 4 emails by tapping approve on the drafts. The work that used to consume the first 90 minutes of your morning is done before you start your morning."
+    ]
+  },
+  "whatItDoes": {
+    "heading": "What the Inbox & Meetings agent does",
+    "paragraphs": [
+      "The agent runs in two coordinated tracks. The inbox track triages every incoming email, classifies it (client, opposing counsel, court, vendor, marketing, internal), applies the right labels in your email system, archives the noise, and surfaces a prioritized digest of what needs attorney attention. For routine replies (scheduling confirmations, document acknowledgments), it drafts a response and leaves it in your drafts folder.",
+      "The meeting track watches your calendar for external meetings, researches each attendee, pulls the relevant matter file, and assembles a pre-meeting briefing. After the meeting, it pulls the recording from Zoom or Teams, transcribes the conversation, extracts action items, drafts the follow-up email, and updates the matter file in your practice management system. Both tracks share the same audit trail."
+    ]
+  },
+  "inputsOutputs": {
+    "heading": "Inputs and outputs",
+    "inputs": [
+      "Gmail or Outlook inbox with the appropriate scope of access",
+      "Google Calendar or Outlook Calendar feed",
+      "Zoom, Microsoft Teams, or Google Meet recordings",
+      "Practice management system matter records and contact lists"
+    ],
+    "outputs": [
+      "Morning inbox digest with prioritized items and routine replies drafted",
+      "Pre-meeting briefing in Slack 60 minutes before each external meeting",
+      "Meeting transcript filed to the matter within an hour of the meeting ending",
+      "Follow-up email draft with action items extracted",
+      "Matter timeline updated automatically with the meeting summary",
+      "Weekly review of inbox response time and meeting throughput"
+    ]
+  },
+  "integrations": [
+    "Gmail or Outlook (with appropriate OAuth scopes)",
+    "Google Calendar or Outlook Calendar",
+    "Zoom, Microsoft Teams, or Google Meet for the recording feed",
+    "Slack or Microsoft Teams for digest delivery",
+    "Clio, MyCase, Practice Panther, or your practice management system for matter context"
+  ],
+  "safety": {
+    "heading": "Safety posture",
+    "paragraphs": [
+      "The agent reads aggressively, writes conservatively. It can apply labels, file emails, archive noise, and draft replies. It cannot send an email, accept a meeting on your behalf, delete a message, or share a transcript externally. Every outbound communication waits in your drafts folder for review and send.",
+      "Privileged content stays inside your account. The transcription layer runs through partners with zero data retention so call audio isn't stored after processing. For matters that contain privileged or work-product content, the briefings and follow-ups respect the same access boundaries that govern the underlying file."
+    ]
+  },
+  "faq": [
+    {
+      "question": "Won't the inbox triage miss something important?",
+      "answer": "The threshold is conservative. Anything the agent isn't certain belongs in a low-priority bucket gets surfaced in the digest for human review. Over the first 30 days the threshold gets tuned based on which calls the agent got right and which it got wrong, with the partner reviewing the misses each week. After tuning, the false-archive rate is typically under 1%."
+    },
+    {
+      "question": "How does the meeting briefing handle attendees with limited public footprint?",
+      "answer": "For attendees without much public presence (a new claims adjuster, an opposing counsel solo who doesn't publish), the briefing focuses on the matter context and any prior interaction history with your firm. The briefing is honest about what it found and what it didn't, so you're not walking in with false confidence about a stranger."
+    },
+    {
+      "question": "Can we limit access to specific matters or partners?",
+      "answer": "Yes. The agent inherits the same access controls that govern your email, calendar, and practice management system today. If a partner's matters are walled off from associates, the agent's inbox triage and briefing scope respect the same wall. Permissions are enforced at the source, not at the agent layer."
+    },
+    {
+      "question": "What about meetings that don't have a recording?",
+      "answer": "For in-person meetings or phone calls without a recording, the agent still produces the pre-meeting briefing. The post-meeting follow-up is triggered by a 1-line note from you (a quick voice memo or text) describing what happened. The agent expands that note into the full follow-up draft."
+    },
+    {
+      "question": "What does this cost in attorney time during the first month?",
+      "answer": "More than it does later. The first 2 weeks involve reviewing the agent's classification calls and tone for the email drafts, which is roughly 15 minutes per day. By week 4 the system has learned your patterns and the review collapses to a few minutes. The Managed retainer includes the tuning work."
+    }
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "slug": "intake-and-growth",
+  "seo": {
+    "title": "AI Agents for Law Firm Intake & Growth | Dodonai",
+    "description": "Custom AI agents for intake triage, conflict checks, case viability, fee agreements, referral tracking, and reputation management.",
+    "canonical": "/ai-services/by-function/intake-and-growth/"
+  },
+  "hero": {
+    "headline": "AI Agents for Intake & Growth",
+    "subheadline": "The lead that sits in your inbox until the end of the day is the lead your faster-responding competitor already called. We build AI agents that score, respond, conflict-check, and book in the minutes that matter for conversion."
+  },
+  "scenario": {
+    "heading": "Where leads go to die",
+    "paragraphs": [
+      "Most firms have a good intake process on paper and a leaky one in practice. A web form comes in at 8:47 on a Tuesday. The attorney is in a call. The paralegal is on records. Nobody sees it until 4:30 when someone pulls up email between client meetings. By then, 2 other firms have already called the lead. The conversion rate on that lead was 30% when the form landed. It's 5% by the end of the day.",
+      "The same pattern repeats inside the firm. A referral partner sends 3 leads in a month. One gets a thank-you email. The other 2 sit in the referral inbox. The partner stops sending. A client leaves a 5-star Google review with a specific question about the outcome. Nobody responds for 6 weeks. The next prospect reads the review and the unanswered question and goes elsewhere.",
+      "With an intake and growth team of agents in place, the leaks close. Inbound leads get scored, conflict-checked, and responded to in minutes. Referral partners get thank-yous, quarterly source-ROI reports, and relationship-warming touches without the partner thinking about it. Reviews get monitored and response drafts arrive in your inbox before the review is 24 hours old."
+    ]
+  },
+  "whyAi": {
+    "heading": "Why AI fits intake and growth",
+    "paragraphs": [
+      "Intake is speed-driven and judgment-light at the top of the funnel. Score the lead, check for conflicts, draft the response, book the consult. The judgment calls, whether to take the case, how to position the engagement, how to handle the difficult prospect, stay with the attorney. The mechanical work that costs you leads sitting in an inbox moves to the agent.",
+      "Growth runs on tracking. Referral sources, review platforms, content pipelines, prospect touches. Every one is a pattern the agent can monitor on schedule and surface for the attorney's review. Nothing here replaces relationship-building. Everything here makes the relationship-building time available by removing the tracking load. Intake touches sensitive data (injury detail, insurance, prior counsel), so agents run in your account under SOC 2 and HIPAA controls, with BAAs where needed and zero data retention from our LLM providers. Drafts only: the attorney approves before anything leaves the firm."
+    ]
+  },
+  "engagementPath": {
+    "heading": "How we'd build this for your firm",
+    "paragraphs": [
+      "Blueprint is 2 to 3 weeks. We watch a few real leads move through your current intake, interview your intake team, look at your referral sources and review platforms, and map where the agents would land. You leave with a prioritized roadmap.",
+      "Build is 4 to 8 weeks. The intake triage agent is usually the first one standing up. We connect it to your web forms, intake email, and practice management system, encode your acceptance criteria, and run it in shadow mode while we tune. Conflict check, referral tracking, and reviews follow in the same engagement or the next one.",
+      "Managed is the ongoing operating mode. We monitor the agents, refine acceptance criteria as your book evolves, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+    ]
+  },
+  "faq": [
+    {
+      "question": "How does lead scoring reflect our firm's judgment?",
+      "answer": "We start with your written acceptance criteria and the factors your partners weigh today (case value, injury severity, liability clarity, insurance, practice fit). Weights live in a file your team can edit. After the first 10 or 20 leads, we review which scores matched your instinct and tune from there."
+    },
+    {
+      "question": "Does this replace our intake staff?",
+      "answer": "No. It changes what they do. The mechanical scoring and drafting move to the agent. Your intake staff handle the phone calls, the client-side tone, the judgment calls on borderline leads, and the follow-through on warm prospects. The intake team spends more time on the prospects that matter and less time typing the same acknowledgment email."
+    },
+    {
+      "question": "What about phone leads that don't come through a form?",
+      "answer": "Voicemail transcripts and call summaries from your phone system (RingCentral, Grasshopper, Dialpad, CallRail) feed into the same pipeline. Live calls go to a human. The agent picks up once a voicemail transcript lands or a call summary is generated."
+    },
+    {
+      "question": "How does this compare to intake tools like Clio Grow or Lawmatics?",
+      "answer": "Those platforms run the pipeline. They hold the lead, the form, the funnel stages. The agents sit on top: scoring, conflict-checking, drafting responses in your voice, preparing consult memos. Your intake platform is the system of record. The agents are the judgment layer."
+    }
+  ]
+}
