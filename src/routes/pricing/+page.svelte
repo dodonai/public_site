@@ -50,13 +50,6 @@
 		return '$' + (Math.round(cost * factor) / factor).toFixed(decimals);
 	}
 
-	function fmtRange(perCredit, low, high) {
-		const factor = Math.pow(10, decimals);
-		const lo = (Math.round(perCredit * low * factor) / factor).toFixed(decimals);
-		const hi = (Math.round(perCredit * high * factor) / factor).toFixed(decimals);
-		return '$' + lo + '–' + hi;
-	}
-
 	const faqItems = [
 		{
 			question: 'What is a credit?',
@@ -66,7 +59,7 @@
 		{
 			question: 'How do credits work with different process types?',
 			answer:
-				'Standard summaries (deposition, medical record, and general document) use 1 credit per page. Custom summaries use 2 credits per page. Advanced and index-based analysis uses 3-4 credits per page. OCR and transcription are always free and included with every plan.'
+				'Standard summaries (deposition, medical record, and general document) use 1 credit per page. Custom summaries use 2 credits per page. Advanced and index-based analysis uses 3 credits per page. OCR and transcription are always free and included with every plan.'
 		},
 		{
 			question: 'Do unused credits roll over?',
@@ -525,15 +518,15 @@
 						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
 							>Advanced Analysis</td
 						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">3–4x</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">3x</td>
 						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmtRange(pps[0], 3, 4)}</td
+							>{fmt(pps[0], 3)}</td
 						>
 						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmtRange(pps[1], 3, 4)}</td
+							>{fmt(pps[1], 3)}</td
 						>
 						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmtRange(pps[2], 3, 4)}</td
+							>{fmt(pps[2], 3)}</td
 						>
 					</tr>
 					<tr>
@@ -571,12 +564,10 @@
 			</p>
 			<div class="mt-6">
 				<a
-					href="https://calendly.com/nick-dodonai"
-					target="_blank"
-					rel="noopener noreferrer"
+					href="/ai-services/"
 					class="inline-block rounded-md border-[1.5px] border-[#d0d0e0] px-7 py-2.5 text-sm font-bold text-[#282876] transition-colors hover:border-[#282876]"
 				>
-					Contact Us
+					See Our AI Services
 				</a>
 			</div>
 		</div>

@@ -7,6 +7,7 @@
 	import ValueProposition from '$lib/components/features/ValueProposition.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import LeadMagnetSection from '$lib/components/cta/LeadMagnetSection.svelte';
 	import { stripLinks } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/ai-services.json';
 
@@ -157,11 +158,49 @@
 		</div>
 	</section>
 
+	<!-- Human + AI experts strip -->
+	<section class="bg-white py-16 sm:py-20">
+		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+			<div class="flex flex-col items-center gap-10 sm:flex-row sm:items-center sm:gap-14">
+				<div class="flex-shrink-0">
+					<img
+						src="/images/people/attorney-headshot-1.webp"
+						alt="Legal professional"
+						width="260"
+						height="310"
+						loading="lazy"
+						class="h-[280px] w-[220px] rounded-2xl object-cover object-top shadow-lg sm:h-[310px] sm:w-[260px]"
+					/>
+				</div>
+				<div class="max-w-xl">
+					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">Legal experts + AI</p>
+					<h2 class="mt-4 text-2xl font-extrabold leading-snug text-[#282876] sm:text-3xl">
+						The attorney stays in every loop. The AI handles the volume.
+					</h2>
+					<p class="mt-5 text-base leading-7 text-[#8181ac]">
+						Every agent we build creates drafts, surfaces signals, and flags deadlines — it never decides, sends, or files on its own. Your team reviews and approves every action. That's not a limitation; it's the architecture. AI handles what scales. Humans handle what matters.
+					</p>
+					<div class="mt-6 flex flex-wrap gap-4">
+						<a href="/ai-services/safety/" class="text-sm font-semibold text-[#216fed] hover:underline">
+							How we keep attorneys in control →
+						</a>
+						<a href="/ai-services/our-agents/" class="text-sm font-semibold text-[#836ae4] hover:underline">
+							See our own agent stack →
+						</a>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+
 	<!-- FAQ -->
 	{#if data.faq.length > 0}
 		<FAQAccordion items={data.faq} sectionTitle="AI Services: Asked & Answered" background="bg-transparent" />
 	{/if}
 </BlobBackground>
+
+<!-- Lead magnet: Going (AI) Native guide -->
+<LeadMagnetSection />
 
 <!-- CTA -->
 <CTASection />
