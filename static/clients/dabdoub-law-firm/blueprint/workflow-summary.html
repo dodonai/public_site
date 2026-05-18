@@ -701,7 +701,7 @@ footer {
             </div>
           </div>
           <div class="gantt-row">
-            <div class="gantt-label">Wave 1B · Appeals + Ingest</div>
+            <div class="gantt-label">Wave 1B · Appeals Completion</div>
             <div class="gantt-track">
               <div class="gantt-bar bar-1b" style="left:23.8%; width:13.2%;">5 wks</div>
             </div>
@@ -758,13 +758,13 @@ footer {
           <td><strong>Wave 1A</strong> · Foundation + First-Draft Appeals</td>
           <td>Jun 1 – Jul 12</td>
           <td>6 wks</td>
-          <td>F-01 Microsoft Graph foundation, past-response retrieval index, A-16 first-draft appeal, A-23 medical-review rebuttal, claim-file summarizer</td>
+          <td>F-01 Microsoft Graph foundation, F-02 SharePoint folder watch + insurer-letter classifier, past-response retrieval index, claim-file summarizer, A-02/A-18 calendaring, A-13 IME/FCE cover letter, A-16 first-draft appeal, A-23 medical-review rebuttal</td>
         </tr>
         <tr>
-          <td><strong>Wave 1B</strong> · Appeals Completion + Ingest Substrate</td>
+          <td><strong>Wave 1B</strong> · Appeals Completion</td>
           <td>Jul 13 – Aug 16</td>
           <td>5 wks</td>
-          <td>A-13 IME/FCE cover letter, A-02/A-18 calendaring, 7 lifecycle letters, F-02 SharePoint folder watch + insurer-letter classifier, 19 cleanup items</td>
+          <td>7 lifecycle letters (A-04, A-05, A-06, A-19, A-20, A-24, A-27), 19 cleanup items (15 mid-appeal + 4 initial-claim sub-flow)</td>
         </tr>
         <tr>
           <td><strong>Phase 2</strong> · On Claims</td>
@@ -826,13 +826,22 @@ footer {
           <h4 class="cluster-h4">Substrate</h4>
           <ul class="wf-list">
             <li><span class="id id-substrate">F-01</span> Microsoft Graph foundation (Outlook + SharePoint + Word .docx)</li>
+            <li><span class="id id-substrate">F-02</span> SharePoint folder watch + insurer-letter classifier (10-category taxonomy)</li>
             <li><span class="id id-substrate">Retrieval</span> Past-response retrieval index over historical DLF appeal letters + rebuttals</li>
             <li><span class="id id-substrate">Summarizer</span> Claim-file summarizer tuned to DLF claim-file structure</li>
             <li><span class="id id-substrate">Webhook</span> HubSpot ↔ Dodonai webhook + custom code action pattern</li>
           </ul>
         </div>
         <div class="cluster">
-          <h4 class="cluster-h4">Workflow IDs</h4>
+          <h4 class="cluster-h4">Calendaring &amp; cover letter</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-02</span> Appeal deadline → 14d/7d/0d Outlook reminders (atty + Eddie + assistant)</li>
+            <li><span class="id">A-13</span> IME/FCE cover letter + MR packet (T-7 from evaluation)</li>
+            <li><span class="id">A-18</span> Appeal submitted → 45d + 90d Outlook events</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Drafting workflow IDs</h4>
           <ul class="wf-list">
             <li><span class="id">A-16</span> AI-drafted first-pass appeal letters (carrier + condition aware)</li>
             <li><span class="id">A-23</span> Medical-review rebuttal drafting (grounded in firm's past response letters)</li>
@@ -844,23 +853,9 @@ footer {
     <div class="phase-block">
       <div class="phase-block-header">
         <span class="phase-tag t-1b">Wave 1B</span>
-        <span class="phase-block-title">Appeals Completion + Ingest Substrate</span>
+        <span class="phase-block-title">Appeals Completion</span>
       </div>
       <div class="phase-block-body">
-        <div class="cluster">
-          <h4 class="cluster-h4">Substrate</h4>
-          <ul class="wf-list">
-            <li><span class="id id-substrate">F-02</span> SharePoint folder watch + insurer-letter classifier (10-category taxonomy)</li>
-          </ul>
-        </div>
-        <div class="cluster">
-          <h4 class="cluster-h4">Calendaring &amp; cover letter</h4>
-          <ul class="wf-list">
-            <li><span class="id">A-02</span> Appeal deadline → 14d/7d/0d Outlook reminders (atty + Eddie + assistant)</li>
-            <li><span class="id">A-13</span> IME/FCE cover letter + MR packet (T-7 from evaluation)</li>
-            <li><span class="id">A-18</span> Appeal submitted → 45d + 90d Outlook events</li>
-          </ul>
-        </div>
         <div class="cluster">
           <h4 class="cluster-h4">7 lifecycle letters</h4>
           <ul class="wf-list">
