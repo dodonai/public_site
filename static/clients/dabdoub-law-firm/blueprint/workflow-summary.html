@@ -469,6 +469,113 @@ body {
   .gantt-bar { font-size: 8pt; padding: 0 8px; }
 }
 
+/* ========== WORKFLOWS BY PHASE ========== */
+.phase-block {
+  margin-bottom: 28px;
+  border: 1px solid var(--cream-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+.phase-block-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--cream-line);
+}
+.phase-tag {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 5px 11px;
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.phase-tag.t-kickoff { background: var(--purple-mid); color: var(--midnight-deep); }
+.phase-tag.t-1a      { background: var(--purple-mid); }
+.phase-tag.t-1b      { background: var(--purple-bold); }
+.phase-tag.t-2       { background: var(--purple-vivid); }
+.phase-tag.t-3       { background: #c47adf; }
+.phase-tag.t-4       { background: var(--accent-coral); }
+.phase-tag.t-5       { background: var(--midnight-soft); }
+.phase-tag.t-retainer{ background: #5fb595; }
+.phase-block-title {
+  font-size: 12pt;
+  font-weight: 700;
+  color: var(--midnight);
+  letter-spacing: -0.01em;
+}
+.phase-block-body {
+  padding: 16px 20px 18px;
+}
+.phase-block-note {
+  font-size: 9.5pt;
+  color: var(--gray-meta-light);
+  font-style: italic;
+  margin: 0 0 12px;
+}
+.cluster {
+  margin-bottom: 14px;
+}
+.cluster:last-child { margin-bottom: 0; }
+.cluster-h4 {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-meta-light);
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.wf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+}
+.wf-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--cream);
+}
+.wf-list li:last-child { border-bottom: none; }
+.wf-list .id {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  font-size: 8.5pt;
+  color: var(--purple-bold);
+  background: rgba(124, 58, 237, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  min-width: 56px;
+  text-align: center;
+}
+.wf-list .id.id-substrate {
+  color: var(--midnight);
+  background: rgba(26, 26, 69, 0.08);
+  min-width: auto;
+  padding: 2px 10px;
+}
+.wf-inline {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  font-weight: 600;
+  color: var(--purple-bold);
+  letter-spacing: 0.04em;
+  word-spacing: 4px;
+  line-height: 1.7;
+}
+
 footer {
   margin-top: 64px;
   padding-top: 24px;
@@ -561,7 +668,7 @@ footer {
   <!-- ========== IMPLEMENTATION CALENDAR ========== -->
   <section class="dept" id="implementation-calendar">
     <div class="dept-header"><h2>Implementation Calendar</h2><span class="dept-count">mapped to proposal v2</span></div>
-    <p class="dept-note">Mapped to the sent proposal (<code style="font-family:'Source Code Pro', monospace; font-size:9pt;">proposals/2026-05-14_proposal-v2.md</code>). Kickoff anchored to the week of Jun 1, 2026. Retainer begins at end of Wave 1B. Targeting Thanksgiving 2026 for Phases 1–4; Phase 5 lands in December.</p>
+    <p class="dept-note">Mapped to the sent proposal (<code style="font-family:'Source Code Pro', monospace; font-size:9pt;">proposals/2026-05-14_proposal-v2.md</code>). Kickoff anchored to the week of Jun 1, 2026. Retainer begins post-implementation (after Phase 5 go-live). Targeting Thanksgiving 2026 for Phases 1–4; Phase 5 lands in late December.</p>
 
     <div class="gantt">
       <div class="gantt-grid">
@@ -570,68 +677,69 @@ footer {
             <div class="gantt-label"></div>
             <div class="gantt-track gantt-axis-track">
               <span style="left:0%">May</span>
-              <span style="left:9.0%">Jun</span>
-              <span style="left:21.8%">Jul</span>
-              <span style="left:35.0%">Aug</span>
-              <span style="left:48.3%">Sep</span>
-              <span style="left:61.1%">Oct</span>
-              <span style="left:74.4%">Nov</span>
-              <span style="left:87.2%">Dec</span>
+              <span style="left:7.9%">Jun</span>
+              <span style="left:19.2%">Jul</span>
+              <span style="left:30.9%">Aug</span>
+              <span style="left:42.6%">Sep</span>
+              <span style="left:54.0%">Oct</span>
+              <span style="left:65.7%">Nov</span>
+              <span style="left:77.0%">Dec</span>
+              <span style="left:88.7%">Jan</span>
             </div>
           </div>
 
           <div class="gantt-row">
             <div class="gantt-label">Kickoff</div>
             <div class="gantt-track">
-              <div class="gantt-bar bar-kickoff" style="left:6.0%; width:3.0%;"></div>
+              <div class="gantt-bar bar-kickoff" style="left:5.3%; width:2.6%;"></div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label">Wave 1A · Foundation + Appeals</div>
             <div class="gantt-track">
-              <div class="gantt-bar bar-1a" style="left:9.0%; width:18.0%;">6 wks</div>
+              <div class="gantt-bar bar-1a" style="left:7.9%; width:15.8%;">6 wks</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label">Wave 1B · Appeals + Ingest</div>
             <div class="gantt-track">
-              <div class="gantt-bar bar-1b" style="left:27.0%; width:15.0%;">5 wks</div>
+              <div class="gantt-bar bar-1b" style="left:23.8%; width:13.2%;">5 wks</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label">Phase 2 · On Claims</div>
             <div class="gantt-track">
-              <div class="gantt-bar bar-2" style="left:42.0%; width:15.0%;">5 wks</div>
+              <div class="gantt-bar bar-2" style="left:37.0%; width:13.2%;">5 wks</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label">Phase 3 · Litigation</div>
             <div class="gantt-track">
-              <div class="gantt-bar bar-3" style="left:57.0%; width:21.0%;">7 wks</div>
+              <div class="gantt-bar bar-3" style="left:50.2%; width:18.5%;">7 wks</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label">Phase 4 · Accounting</div>
             <div class="gantt-track">
-              <div class="gantt-bar bar-4" style="left:78.0%; width:6.0%;">2 wks</div>
+              <div class="gantt-bar bar-4" style="left:68.7%; width:5.3%;">2 wks</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label">Phase 5 · Firm Intel + Intake</div>
             <div class="gantt-track">
-              <div class="gantt-bar bar-5" style="left:84.0%; width:15.0%;">5 wks</div>
+              <div class="gantt-bar bar-5" style="left:74.0%; width:13.2%;">5 wks</div>
             </div>
           </div>
           <div class="gantt-row">
             <div class="gantt-label">Retainer</div>
             <div class="gantt-track">
-              <div class="gantt-bar bar-retainer" style="left:42.0%; width:58.0%;">→ ongoing</div>
+              <div class="gantt-bar bar-retainer" style="left:87.2%; width:12.8%;">→ ongoing</div>
             </div>
           </div>
         </div>
 
         <div class="gantt-today-overlay">
-          <div class="gantt-today-line" style="left:3.0%;"></div>
+          <div class="gantt-today-line" style="left:2.6%;"></div>
         </div>
       </div>
     </div>
@@ -684,13 +792,287 @@ footer {
         </tr>
         <tr>
           <td><strong>Retainer</strong></td>
-          <td>Aug 17 → ongoing</td>
+          <td>Dec 28, 2026 → ongoing</td>
           <td>indefinite</td>
-          <td>New letter templates, SOP coverage, deferred items (L-19 MSJ briefing), quarterly SOP review, on-demand additions</td>
+          <td>New letter templates, SOP coverage, deferred items (L-18, L-19, X-01, X-02, X-05, X-06, I-05, I-08, M-02, M-07), quarterly SOP review, on-demand additions</td>
         </tr>
       </tbody>
     </table>
 
+  </section>
+
+  <!-- ========== WORKFLOWS BY PHASE ========== -->
+  <section class="dept" id="phase-workflows">
+    <div class="dept-header"><h2>Workflows by Phase</h2><span class="dept-count">per-phase breakdown</span></div>
+    <p class="dept-note">Every workflow ID assigned to a phase, grouped by cluster. Items deferred to retainer (Phase 3 + Phase 5 leftovers + Dialpad-gated intake) listed at the bottom.</p>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-kickoff">Kickoff</span>
+        <span class="phase-block-title">Substrate decisions only</span>
+      </div>
+      <div class="phase-block-body">
+        <p class="phase-block-note">Not workflow building. Outputs: SharePoint canonical folder template, inbound-letter classification taxonomy, past-rebuttal corpus location, evaluation question pattern, attorney handoff signaling, Dodonai-Graph tenant admin consent.</p>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-1a">Wave 1A</span>
+        <span class="phase-block-title">Foundation + First-Draft Appeals</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Substrate</h4>
+          <ul class="wf-list">
+            <li><span class="id id-substrate">F-01</span> Microsoft Graph foundation (Outlook + SharePoint + Word .docx)</li>
+            <li><span class="id id-substrate">Retrieval</span> Past-response retrieval index (Chroma over historical DLF appeal letters + rebuttals)</li>
+            <li><span class="id id-substrate">Summarizer</span> Claim-file summarizer tuned to DLF claim-file structure</li>
+            <li><span class="id id-substrate">Webhook</span> HubSpot ↔ Dodonai webhook + custom code action pattern</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Workflow IDs</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-16</span> AI-drafted first-pass appeal letters (carrier + condition aware)</li>
+            <li><span class="id">A-23</span> Medical-review rebuttal drafting (grounded in firm's past response letters)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-1b">Wave 1B</span>
+        <span class="phase-block-title">Appeals Completion + Ingest Substrate</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Substrate</h4>
+          <ul class="wf-list">
+            <li><span class="id id-substrate">F-02</span> SharePoint folder watch + insurer-letter classifier (10-category taxonomy)</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Calendaring &amp; cover letter</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-02</span> Appeal deadline → 14d/7d/0d Outlook reminders (atty + Eddie + assistant)</li>
+            <li><span class="id">A-13</span> IME/FCE cover letter + MR packet (T-7 from evaluation)</li>
+            <li><span class="id">A-18</span> Appeal submitted → 45d + 90d Outlook events</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">7 lifecycle letters</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-04</span> Claim File request letter</li>
+            <li><span class="id">A-05</span> Policy &amp; Plan Docs request letter</li>
+            <li><span class="id">A-06</span> Treating Doctor info form email to client</li>
+            <li><span class="id">A-19</span> Acknowledgement chase letter (submission + 7d)</li>
+            <li><span class="id">A-20</span> Copy of appeal letter to client</li>
+            <li><span class="id">A-24</span> 45-day blown letter</li>
+            <li><span class="id">A-27</span> "Next steps" email to client after approval</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Mid-appeal cleanup (15)</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-01</span> Denial letter ingest → extract appeal deadline + facts</li>
+            <li><span class="id">A-07</span> HW call setup email (2 variants: spoke vs voicemail)</li>
+            <li><span class="id">A-08</span> 2-week follow-up on CF / Policy requests (finish PARTIAL)</li>
+            <li><span class="id">A-09</span> HW outline email auto-draft (finish PARTIAL)</li>
+            <li><span class="id">A-10</span> Homework tracking (weekly/biweekly client follow-ups)</li>
+            <li><span class="id">A-11</span> IME / FCE / CPET 3-way scheduling</li>
+            <li><span class="id">A-12</span> Evaluation date confirmed → 1w/2w/1d reminders</li>
+            <li><span class="id">A-14</span> IME / Peer Review report tracking (1-wk provider follow-ups)</li>
+            <li><span class="id">A-17</span> Appeal submission packet bundling</li>
+            <li><span class="id">A-21</span> SSDI attorney evidence forward (2 variants)</li>
+            <li><span class="id">A-22</span> Medical review classify → calendar → notify attorney</li>
+            <li><span class="id">A-25</span> Extension granted → calendar new deadline</li>
+            <li><span class="id">A-28</span> Approval → email Julieth (marketing routing only)</li>
+            <li><span class="id">A-31</span> Denial → Termination route letter drafts (finish PARTIAL)</li>
+            <li><span class="id">A-32</span> Denial → Second appeal route restart (finish PARTIAL)</li>
+            <li><span class="id">A-33</span> LTD/STD dual approval branching</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Initial-claim sub-flow (4)</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-34</span> Notice of Intent letter</li>
+            <li><span class="id">A-35</span> Claim form follow-up cadence (1w + 2w)</li>
+            <li><span class="id">A-36</span> Initial claim submission packet</li>
+            <li><span class="id">A-37</span> 45d + 105d decision deadlines (finish PARTIAL)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-2">Phase 2</span>
+        <span class="phase-block-title">On Claims</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Cluster A — 24-day past-benefit ladder + intro + max-benefit watch (16)</h4>
+          <div class="wf-inline">O-02 · O-04 · O-05 · O-06 · O-07 · O-08 · O-09 · O-10 · O-11 · O-12 · O-13 · O-15 · O-16 · O-17 · O-29 · O-30</div>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Cluster B — Active claim &amp; Definition Change (11)</h4>
+          <div class="wf-inline">O-18 · O-19 · O-20 · O-21 · O-22 · O-23 · O-24 · O-25 · O-26 · O-27 · O-28</div>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Cluster C — Overpayment workflows (9)</h4>
+          <div class="wf-inline">O-31 · O-32 · O-33 · O-34 · O-35 · O-36 · O-37 · O-38 · O-39</div>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Cluster D — Buyout + termination (9)</h4>
+          <div class="wf-inline">O-40 · O-41 · O-42 · O-43 · O-44 · O-45 · O-46 · O-47 · O-48</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-3">Phase 3</span>
+        <span class="phase-block-title">Litigation</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Substrate</h4>
+          <ul class="wf-list">
+            <li><span class="id id-substrate">Retrieval</span> Past-complaint retrieval index (jurisdiction + claim-type scoped)</li>
+            <li><span class="id id-substrate">Corpora</span> Past JSR / mediation statement / demand corpora</li>
+            <li><span class="id id-substrate">Templates</span> Court-jurisdiction-aware template engine (FL Southern District primary)</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">High-frequency drafts (10)</h4>
+          <ul class="wf-list">
+            <li><span class="id">L-02</span> Calendar deadline to file suit + 1w/2w reminders</li>
+            <li><span class="id">L-03</span> Paralegal request CF + policy + HR contact letter</li>
+            <li><span class="id">L-06</span> Filing tracking + service tracking</li>
+            <li><span class="id">L-07</span> Initial disclosures email to client</li>
+            <li><span class="id">L-08</span> OC answer deadline + extension tracking</li>
+            <li><span class="id">L-09</span> JSR / PSO drafting from case facts</li>
+            <li><span class="id">L-10</span> Joint scheduling conference / meet-and-confer coordination</li>
+            <li><span class="id">L-11</span> Scheduling order received → calendar all deadlines</li>
+            <li><span class="id">L-12</span> Mediation scheduling — multi-party coordination</li>
+            <li><span class="id">L-13</span> Mediation calendar — 1w/2w + statement + cancel-fee + report</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">High-effort drafts (9)</h4>
+          <ul class="wf-list">
+            <li><span class="id">L-04</span> Complaint draft from claim file + denial + facts + past complaints</li>
+            <li><span class="id">L-05</span> Civil cover sheet + summons auto-prep</li>
+            <li><span class="id">L-14</span> Mediation statement auto-draft</li>
+            <li><span class="id">L-15</span> Settlement demand letter</li>
+            <li><span class="id">L-16</span> Notice of settlement + accounting notification</li>
+            <li><span class="id">L-17</span> Settlement release — DocuSign integration</li>
+            <li><span class="id">L-20</span> Friday accounting status report (cron Fri 11am)</li>
+            <li><span class="id">L-21</span> Approval-during-litigation handoff (finish PARTIAL)</li>
+            <li><span class="id">L-22</span> Notice of resolution + joint stip of dismissal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-4">Phase 4</span>
+        <span class="phase-block-title">Accounting</span>
+      </div>
+      <div class="phase-block-body">
+        <ul class="wf-list">
+          <li><span class="id">C-06</span> Disbursement statement auto-generate (fee % + cost reimbursement + net to client)</li>
+          <li><span class="id">C-07</span> Disbursement statement DocuSign send</li>
+          <li><span class="id">C-08</span> QuickBooks recording of disbursement</li>
+          <li><span class="id">C-09</span> Cancelled check exception workflow</li>
+          <li><span class="id">C-10</span> Late payment escalation (finish PARTIAL)</li>
+          <li><span class="id">C-11</span> Approval-during-lit past-due fees on Friday report (feeds L-20)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-5">Phase 5</span>
+        <span class="phase-block-title">Firm Intel + Intake + Marketing</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Firm Intelligence (4)</h4>
+          <ul class="wf-list">
+            <li><span class="id">X-03</span> Per-case state chat over case file + HubSpot state</li>
+            <li><span class="id">X-04</span> Wiki Q&amp;A productionization (carrier + condition + ERISA grounded)</li>
+            <li><span class="id">X-08</span> Per-case high-priority date dashboard</li>
+            <li><span class="id">X-09</span> Paralegal task surface — chat-as-task-list + chat-as-drafter</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Intake / Pre-Case (8)</h4>
+          <ul class="wf-list">
+            <li><span class="id">I-04</span> 3rd-party referral lead capture + attribution</li>
+            <li><span class="id">I-09</span> Auto-draft rejection letter on case decline</li>
+            <li><span class="id">I-12</span> SMS reminder cadence (lead) while FA pending</li>
+            <li><span class="id">I-13</span> Email reminder cadence (lead) while FA pending</li>
+            <li><span class="id">I-15</span> SharePoint case folder auto-create on Closed Won</li>
+            <li><span class="id">I-18</span> "New Case" intro email auto-draft on Closed Won</li>
+            <li><span class="id">I-19</span> Referral OUT — referral letter + tracking</li>
+            <li><span class="id">I-20</span> Lead source attribution (finish PARTIAL)</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Marketing / Reporting (4)</h4>
+          <ul class="wf-list">
+            <li><span class="id">M-01</span> Lead-source attribution dashboard (finish PARTIAL)</li>
+            <li><span class="id">M-04</span> Fee Agreement close rate report</li>
+            <li><span class="id">M-05</span> Attorney productivity report</li>
+            <li><span class="id">M-06</span> Approval/denial routing to Julieth</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-retainer">Retainer</span>
+        <span class="phase-block-title">Post-implementation, pulled in on demand</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Phase 3 deferrals</h4>
+          <ul class="wf-list">
+            <li><span class="id">L-18</span> Discovery propounding decision support (chat-assist nature)</li>
+            <li><span class="id">L-19</span> MSJ briefing assistance (XL; case-specific)</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Phase 5 Firm Intel deferrals</h4>
+          <ul class="wf-list">
+            <li><span class="id">X-01</span> Q&amp;A queue between assistants ↔ attorneys with urgency tiers</li>
+            <li><span class="id">X-02</span> Custom checklists per case service stage</li>
+            <li><span class="id">X-05</span> Treating team auto-form-fill</li>
+            <li><span class="id">X-06</span> Medical records gap detection</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Phase 5 Intake deferrals (Dialpad-gated)</h4>
+          <ul class="wf-list">
+            <li><span class="id">I-05</span> Intake call recording → transcript → form auto-fill</li>
+            <li><span class="id">I-08</span> Attorney call recording → notes → case value estimate</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Marketing tail</h4>
+          <ul class="wf-list">
+            <li><span class="id">M-02</span> ROI report (cases by lead source × collected revenue)</li>
+            <li><span class="id">M-07</span> Phone number attribution / call recording (Twilio)</li>
+          </ul>
+        </div>
+        <p class="phase-block-note" style="margin-top:14px;">Ongoing additions: new letter templates, new carrier rule sets, A-16/A-23 quality tuning, HubSpot maintenance, quarterly SOP review.</p>
+      </div>
+    </div>
   </section>
 
   <!-- ========== FOUNDATIONAL ========== -->
