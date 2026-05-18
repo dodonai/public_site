@@ -340,146 +340,131 @@ body {
 .pill-effort { background: var(--cream); color: var(--midnight); border: 1px solid var(--cream-line); font-weight: 700; }
 .pill-dim    { color: var(--gray-meta); }
 
-/* ========== CALENDAR VIEW ========== */
-.cal-h3 {
-  font-family: 'Plus Jakarta Sans', sans-serif;
-  font-size: 11pt;
-  font-weight: 700;
-  text-transform: uppercase;
-  letter-spacing: 0.08em;
-  color: var(--midnight);
-  margin: 28px 0 14px;
-  display: flex;
-  align-items: baseline;
-  gap: 12px;
-}
-.cal-h3::before {
-  content: "";
-  display: inline-block;
-  width: 18px;
-  height: 2px;
-  background: var(--purple-bold);
-  border-radius: 2px;
-}
-.cal-h3 .cal-meta {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 8pt;
-  font-weight: 500;
-  letter-spacing: 0.06em;
-  text-transform: none;
-  color: var(--gray-meta-light);
-}
-
-.cron-grid {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  gap: 16px;
-  margin-bottom: 8px;
-}
-.cron-card {
-  background: linear-gradient(135deg, #fff 0%, var(--cream-deep) 100%);
+/* ========== IMPLEMENTATION CALENDAR (Gantt) ========== */
+.gantt {
+  background: linear-gradient(135deg, #fff 0%, var(--cream) 100%);
   border: 1px solid var(--cream-line);
-  border-left: 3px solid var(--purple-bold);
-  border-radius: 10px;
-  padding: 16px 20px;
+  border-radius: 12px;
+  padding: 22px 24px 20px;
+  margin: 0 0 22px;
+  overflow-x: auto;
 }
-.cron-when {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 8pt;
-  font-weight: 600;
-  letter-spacing: 0.16em;
-  text-transform: uppercase;
-  color: var(--purple-bold);
-  margin-bottom: 8px;
-}
-.cron-card .cron-id {
-  display: inline-block;
-  font-family: 'Source Code Pro', monospace;
-  font-weight: 700;
-  font-size: 9pt;
-  color: var(--midnight);
-  background: #fff;
-  border: 1px solid var(--cream-line);
-  padding: 2px 8px;
-  border-radius: 999px;
-  margin-bottom: 8px;
-}
-.cron-action {
-  font-size: 10pt;
-  color: var(--midnight);
-  font-weight: 500;
-}
-
-.ladder {
-  display: grid;
-  grid-template-columns: repeat(10, 1fr);
-  gap: 8px;
-  margin-bottom: 16px;
+.gantt-grid {
   position: relative;
-  padding: 8px 0 4px;
+  min-width: 720px;
 }
-.ladder::before {
-  content: "";
-  position: absolute;
-  top: 28px;
-  left: 4%;
-  right: 4%;
-  height: 2px;
-  background: linear-gradient(90deg, var(--purple-soft) 0%, var(--purple-bold) 50%, var(--accent-coral) 100%);
-  z-index: 0;
-  border-radius: 2px;
-}
-.ladder-node {
-  position: relative;
-  z-index: 1;
-  background: #fff;
-  border: 1px solid var(--cream-line);
-  border-radius: 10px;
-  padding: 8px 6px 10px;
-  text-align: center;
+.gantt-rows {
   display: flex;
   flex-direction: column;
+  gap: 6px;
+}
+.gantt-row {
+  display: flex;
+  align-items: stretch;
+}
+.gantt-row .gantt-label {
+  width: 220px;
+  flex-shrink: 0;
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: var(--midnight);
+  padding: 0 14px 0 0;
+  display: flex;
   align-items: center;
-  gap: 4px;
-  box-shadow: 0 1px 0 var(--cream-line);
+  height: 30px;
 }
-.ladder-node .dot {
-  width: 14px;
-  height: 14px;
-  border-radius: 50%;
-  background: var(--purple-bold);
-  box-shadow: 0 0 0 4px rgba(124, 58, 237, 0.12);
-  margin-bottom: 4px;
+.gantt-track {
+  flex: 1;
+  position: relative;
+  height: 30px;
+  background: linear-gradient(90deg, var(--cream-deep) 0%, #fff 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(155, 155, 184, 0.18);
 }
-.ladder-node.escalate .dot { background: var(--accent-amber); box-shadow: 0 0 0 4px rgba(232, 166, 60, 0.18); }
-.ladder-node.terminal .dot { background: var(--accent-coral); box-shadow: 0 0 0 4px rgba(230, 108, 92, 0.18); }
-.ladder-node.passive .dot  { background: var(--gray-meta); box-shadow: 0 0 0 4px rgba(155, 155, 184, 0.18); }
-.ladder-day {
+.gantt-row-axis .gantt-track {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--cream-line);
+  border-radius: 0;
+  height: 26px;
+}
+.gantt-axis-track span {
+  position: absolute;
+  top: 4px;
+  transform: translateX(-50%);
   font-family: 'Source Code Pro', monospace;
   font-size: 8pt;
   font-weight: 700;
-  letter-spacing: 0.06em;
-  color: var(--midnight);
+  letter-spacing: 0.14em;
   text-transform: uppercase;
-}
-.ladder-id {
-  font-family: 'Source Code Pro', monospace;
-  font-size: 8.5pt;
-  font-weight: 700;
-  color: var(--purple-bold);
-  letter-spacing: 0.04em;
-}
-.ladder-action {
-  font-size: 7.5pt;
-  line-height: 1.3;
   color: var(--gray-meta-light);
-  margin-top: 2px;
+}
+.gantt-bar {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 8px rgba(26, 26, 69, 0.18);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.bar-discovery { background: linear-gradient(135deg, var(--purple-soft) 0%, var(--purple-mid) 100%); color: var(--midnight-deep); }
+.bar-1a        { background: linear-gradient(135deg, var(--purple-mid) 0%, var(--purple-bold) 100%); }
+.bar-1b        { background: linear-gradient(135deg, var(--purple-bold) 0%, var(--purple-vivid) 100%); }
+.bar-2         { background: linear-gradient(135deg, var(--purple-vivid) 0%, #c47adf 100%); }
+.bar-3         { background: linear-gradient(135deg, var(--accent-amber) 0%, var(--accent-coral) 100%); }
+.bar-retainer  {
+  background: repeating-linear-gradient(45deg, var(--accent-mint) 0, var(--accent-mint) 10px, #5fb595 10px, #5fb595 20px);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
 }
 
-@media (max-width: 900px) {
-  .ladder { grid-template-columns: repeat(5, 1fr); }
-  .ladder::before { display: none; }
-  .cron-grid { grid-template-columns: 1fr; }
+.gantt-today-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 220px;
+  right: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.gantt-today-line {
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  width: 0;
+  border-left: 2px dashed var(--accent-coral);
+}
+.gantt-today-line::before {
+  content: 'TODAY';
+  position: absolute;
+  top: 0;
+  left: 5px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--accent-coral);
+  background: #fff;
+  padding: 2px 6px;
+  border: 1px solid rgba(230, 108, 92, 0.4);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .gantt { padding: 14px; }
+  .gantt-row .gantt-label { width: 140px; font-size: 8.5pt; padding-right: 10px; }
+  .gantt-today-overlay { left: 140px; }
+  .gantt-bar { font-size: 8pt; padding: 0 8px; }
 }
 
 footer {
@@ -571,114 +556,122 @@ footer {
     </table>
   </section>
 
-  <!-- ========== CALENDAR VIEW ========== -->
-  <section class="dept" id="calendar">
-    <div class="dept-header"><h2>Calendar View</h2><span class="dept-count">when they fire</span></div>
-    <p class="dept-note">Workflows organized by their temporal pattern, not by department. Untimed workflows (e.g. trigger-on-stage-change) are omitted.</p>
+  <!-- ========== IMPLEMENTATION CALENDAR ========== -->
+  <section class="dept" id="implementation-calendar">
+    <div class="dept-header"><h2>Implementation Calendar</h2><span class="dept-count">six-phase build · $54,500</span></div>
+    <p class="dept-note">Anchored to a Jun 2026 kickoff (close target end of May; today 2026-05-18). Retainer runs in parallel from end of Wave 1B. Target Build completion before Thanksgiving 2026 (Thu, Nov 26).</p>
 
-    <h3 class="cal-h3">Fixed-clock crons <span class="cal-meta">no case context required</span></h3>
-    <div class="cron-grid">
-      <div class="cron-card">
-        <div class="cron-when">Friday · 11:00 am</div>
-        <div class="cron-id">L-20</div>
-        <div class="cron-action">Auto-generated accounting status report</div>
-      </div>
-      <div class="cron-card">
-        <div class="cron-when">3rd of each month</div>
-        <div class="cron-id">O-38</div>
-        <div class="cron-action">Overpayment list email → accounting (cc Morgan)</div>
+    <div class="gantt">
+      <div class="gantt-grid">
+        <div class="gantt-rows">
+          <div class="gantt-row gantt-row-axis">
+            <div class="gantt-label"></div>
+            <div class="gantt-track gantt-axis-track">
+              <span style="left:0%">May</span>
+              <span style="left:9.4%">Jun</span>
+              <span style="left:22.8%">Jul</span>
+              <span style="left:36.6%">Aug</span>
+              <span style="left:50.4%">Sep</span>
+              <span style="left:63.8%">Oct</span>
+              <span style="left:77.7%">Nov</span>
+              <span style="left:91.1%">Dec</span>
+            </div>
+          </div>
+
+          <div class="gantt-row">
+            <div class="gantt-label">Discovery</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-discovery" style="left:9.4%; width:8.0%;">$5K</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Wave 1A · Foundation + Ladder</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-1a" style="left:18.8%; width:8.0%;">$7K</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Wave 1B · Top 12 letters</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-1b" style="left:28.1%; width:8.0%;">$7.5K</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Wave 2 · Inbound + Intelligence</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-2" style="left:37.5%; width:23.7%;">$20K</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Wave 3 · Litigation + Disbursement</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-3" style="left:62.5%; width:20.5%;">$15K</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Retainer · $2.5K/mo</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-retainer" style="left:37.5%; width:62.5%;">→ ongoing</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gantt-today-overlay">
+          <div class="gantt-today-line" style="left:3.1%;"></div>
+        </div>
       </div>
     </div>
 
-    <h3 class="cal-h3">Past-benefit ladder <span class="cal-meta">days from "On Claim" stage entry</span></h3>
-    <div class="ladder">
-      <div class="ladder-node"><div class="dot"></div><div class="ladder-day">Day 1</div><div class="ladder-id">O-04</div><div class="ladder-action">Call task + DOP/Auth resend</div></div>
-      <div class="ladder-node"><div class="dot"></div><div class="ladder-day">Day 2</div><div class="ladder-id">O-05</div><div class="ladder-action">On Claims Initial Letter</div></div>
-      <div class="ladder-node passive"><div class="dot"></div><div class="ladder-day">Day 3–6</div><div class="ladder-id">O-06</div><div class="ladder-action">Daily follow-up tasks</div></div>
-      <div class="ladder-node"><div class="dot"></div><div class="ladder-day">Day 7</div><div class="ladder-id">O-07</div><div class="ladder-action">1st Follow-Up letter</div></div>
-      <div class="ladder-node passive"><div class="dot"></div><div class="ladder-day">Day 8–10</div><div class="ladder-id">O-08</div><div class="ladder-action">Daily follow-up tasks</div></div>
-      <div class="ladder-node escalate"><div class="dot"></div><div class="ladder-day">Day 11</div><div class="ladder-id">O-09</div><div class="ladder-action">2nd Follow-Up (escalation)</div></div>
-      <div class="ladder-node passive"><div class="dot"></div><div class="ladder-day">Day 12–13</div><div class="ladder-id">O-10</div><div class="ladder-action">Daily follow-up tasks</div></div>
-      <div class="ladder-node escalate"><div class="dot"></div><div class="ladder-day">Day 14</div><div class="ladder-id">O-11</div><div class="ladder-action">3rd Follow-Up letter</div></div>
-      <div class="ladder-node escalate"><div class="dot"></div><div class="ladder-day">Day 17</div><div class="ladder-id">O-12</div><div class="ladder-action">4th &amp; Final (threatens complaint)</div></div>
-      <div class="ladder-node terminal"><div class="dot"></div><div class="ladder-day">Day 24</div><div class="ladder-id">O-13</div><div class="ladder-action">Email atty + complaint trigger</div></div>
-    </div>
-
-    <h3 class="cal-h3">Appeals lifecycle <span class="cal-meta">offsets from key events</span></h3>
     <table class="wf-table">
-      <colgroup><col style="width:38%"><col class="col-id"><col></colgroup>
-      <thead><tr><th>Offset</th><th>ID</th><th>Action</th></tr></thead>
+      <colgroup><col style="width:22%"><col style="width:15%"><col style="width:9%"><col style="width:9%"><col></colgroup>
+      <thead><tr><th>Phase</th><th>Window</th><th>Duration</th><th>Price</th><th>Workflows in scope</th></tr></thead>
       <tbody>
-        <tr><td>Appeal deadline −14d / −7d / 0d</td><td class="id-cell">A-02</td><td>Reminders on 3 Outlook calendars</td></tr>
-        <tr><td>CF / Policy request +14d, no response</td><td class="id-cell">A-08</td><td>Follow-up task / email</td></tr>
-        <tr><td>Appeal submission +7d, no acknowledgement</td><td class="id-cell">A-19</td><td>Acknowledgement chase letter</td></tr>
-        <tr><td>Appeal submission +45d / +90d</td><td class="id-cell">A-18</td><td>Decision-deadline calendar events</td></tr>
-        <tr><td>45-day deadline −3d, no decision</td><td class="id-cell">A-24</td><td>Auto-draft 45-day blown letter</td></tr>
-        <tr><td>Initial claim submission +45d / +105d</td><td class="id-cell">A-37</td><td>Decision deadlines calendared</td></tr>
+        <tr>
+          <td><strong>Discovery</strong></td>
+          <td>Jun 1 – Jun 19</td>
+          <td>2–3 wks</td>
+          <td>$5,000</td>
+          <td>All 155 (refine blueprint, template inventory, volume baselines, classification taxonomy, SharePoint canonical template, notification matrix)</td>
+        </tr>
+        <tr>
+          <td><strong>Wave 1A</strong> · Foundation + Ladder</td>
+          <td>Jun 22 – Jul 10</td>
+          <td>~3 wks</td>
+          <td>$7,000</td>
+          <td>F-01, O-04 → O-13 (24-day ladder), A-33, I-15, A-03, A-02, A-18</td>
+        </tr>
+        <tr>
+          <td><strong>Wave 1B</strong> · Top 12 letters</td>
+          <td>Jul 13 – Jul 31</td>
+          <td>~3 wks</td>
+          <td>$7,500</td>
+          <td>I-09, I-10, I-18, A-04, A-05, A-06, A-19, A-24, A-27, O-02, O-05, O-21</td>
+        </tr>
+        <tr>
+          <td><strong>Wave 2</strong> · Inbound + Intelligence</td>
+          <td>Aug 3 – Sep 25</td>
+          <td>8–12 wks</td>
+          <td>$20,000</td>
+          <td>Ingest engine + classifier (A-22, O-18, O-24, O-33, O-40, O-42); past-response retrieval index (A-23); production chat (X-03, X-04, X-09); O-23, O-29, O-30; OP workflow (O-31 → O-39); buyout (O-42 → O-48); ~30 remaining letters</td>
+        </tr>
+        <tr>
+          <td><strong>Wave 3</strong> · Litigation + Disbursement</td>
+          <td>Sep 28 – Nov 13</td>
+          <td>6–8 wks</td>
+          <td>$15,000</td>
+          <td>L-04, L-09, L-15, L-12, L-13, L-20, L-21, C-06, C-07, C-08, C-09, C-10</td>
+        </tr>
+        <tr>
+          <td><strong>Retainer</strong></td>
+          <td>Aug 3 → ongoing</td>
+          <td>indefinite</td>
+          <td>$2,500/mo</td>
+          <td>New letter templates, SOP coverage, M-01 → M-07 dashboards, Wave 3 deferrals (L-14 mediation stmt, L-19 MSJ briefing), quarterly SOP review</td>
+        </tr>
       </tbody>
     </table>
 
-    <h3 class="cal-h3">Evaluation lifecycle <span class="cal-meta">offsets around IME / FCE / CPET date</span></h3>
-    <table class="wf-table">
-      <colgroup><col style="width:38%"><col class="col-id"><col></colgroup>
-      <thead><tr><th>Offset</th><th>ID</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr><td>Eval date −7d</td><td class="id-cell">A-13</td><td>Cover letter + MR packet auto-prep</td></tr>
-        <tr><td>Eval date −2d to −1d</td><td class="id-cell">A-12</td><td>Outlook reminders + client email</td></tr>
-        <tr><td>Eval date +7d, no report</td><td class="id-cell">A-14</td><td>Provider follow-up email</td></tr>
-      </tbody>
-    </table>
-
-    <h3 class="cal-h3">On-Claim deadlines &amp; long-horizon watches</h3>
-    <table class="wf-table">
-      <colgroup><col style="width:38%"><col class="col-id"><col></colgroup>
-      <thead><tr><th>Offset</th><th>ID</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr><td>Expected payment date passed</td><td class="id-cell">O-15</td><td>Reminders to OC + accounting</td></tr>
-        <tr><td>Expected payment date +7d</td><td class="id-cell">O-16</td><td>Escalate to attorney</td></tr>
-        <tr><td>Insurer info request received</td><td class="id-cell">O-18</td><td>30-day deadline calendared</td></tr>
-        <tr><td>Info request +14d, no client response</td><td class="id-cell">O-20</td><td>Follow-up email</td></tr>
-        <tr><td>Info request +14d (no response) → No-Contact</td><td class="id-cell">O-21</td><td>No-Contact letter</td></tr>
-        <tr><td>Def-change deadline −7d, no forms</td><td class="id-cell">O-26</td><td>Extension request letter</td></tr>
-        <tr><td>Def-change submission +14d, no response</td><td class="id-cell">O-28</td><td>Chase letter</td></tr>
-        <tr><td>20 / 24 / 30 / 48 months from policy</td><td class="id-cell">O-23</td><td>Definition Change auto-fire</td></tr>
-        <tr><td>Max benefit −365d</td><td class="id-cell">O-29</td><td>1-year-out highlight</td></tr>
-        <tr><td>Max benefit reached</td><td class="id-cell">O-30</td><td>Termination letters drafted</td></tr>
-      </tbody>
-    </table>
-
-    <h3 class="cal-h3">Litigation deadlines</h3>
-    <table class="wf-table">
-      <colgroup><col style="width:38%"><col class="col-id"><col></colgroup>
-      <thead><tr><th>Offset</th><th>ID</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr><td>Deadline to file suit, −1w / −2w</td><td class="id-cell">L-02</td><td>Outlook calendar reminders</td></tr>
-        <tr><td>Answer date set</td><td class="id-cell">L-08</td><td>OC answer deadline + extension tracking</td></tr>
-        <tr><td>Scheduling order: +30d / +75d disco, MSJ, etc. w/ −1w / −2w reminders</td><td class="id-cell">L-11</td><td>All deadlines calendared</td></tr>
-        <tr><td>Mediation date: −1w / −2w + statement / cancel-fee / report deadlines</td><td class="id-cell">L-13</td><td>Multi-event Outlook write</td></tr>
-        <tr><td>Mediation date −14d</td><td class="id-cell">L-14</td><td>Mediation statement auto-draft</td></tr>
-      </tbody>
-    </table>
-
-    <h3 class="cal-h3">Lead &amp; FA cadences</h3>
-    <table class="wf-table">
-      <colgroup><col style="width:38%"><col class="col-id"><col></colgroup>
-      <thead><tr><th>Offset</th><th>ID</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr><td>FA sent + N days, no signature</td><td class="id-cell">I-12</td><td>SMS reminder to lead</td></tr>
-        <tr><td>FA sent + N days, no signature</td><td class="id-cell">I-13</td><td>Email reminder to lead</td></tr>
-      </tbody>
-    </table>
-
-    <h3 class="cal-h3">Recurring per-item cadences</h3>
-    <table class="wf-table">
-      <colgroup><col style="width:38%"><col class="col-id"><col></colgroup>
-      <thead><tr><th>Cadence</th><th>ID</th><th>Action</th></tr></thead>
-      <tbody>
-        <tr><td>Weekly / biweekly per open HW item</td><td class="id-cell">A-10</td><td>Client follow-up email</td></tr>
-        <tr><td>Weekly / biweekly</td><td class="id-cell">A-35</td><td>Initial claim form follow-up</td></tr>
-      </tbody>
-    </table>
+    <p class="dept-note" style="margin-top:18px;"><strong>Build subtotal:</strong> $54,500 across ~6 months. <strong>Annualized retainer:</strong> $30K/yr. <strong>Collapse option:</strong> bundle Wave 1A + 1B into a single Wave 1 ($13,500, ~6 weeks) and present three phases (Discovery / Wave 1 / Wave 2) for a tighter close — trades flexibility for fewer yeses to extract (Decision #16, blueprint 2026-05-05).</p>
   </section>
 
   <!-- ========== FOUNDATIONAL ========== -->
