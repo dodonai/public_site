@@ -8,7 +8,6 @@
 		secondaryCtaText = '',
 		secondaryCtaUrl = '',
 		badges = [],
-		guarantee = '',
 		background = 'bg-[#f4f5fd]',
 		children
 	} = $props();
@@ -68,12 +67,6 @@
 							</a>
 						{/if}
 					</div>
-
-					{#if guarantee}
-						<p class="mt-4 text-sm text-[#8181ac] max-lg:text-center">
-							{guarantee}
-						</p>
-					{/if}
 
 					{#if badges.length > 0}
 						<div class="mt-10 flex flex-wrap items-center gap-4 max-lg:justify-center sm:gap-5">
@@ -137,12 +130,6 @@
 						</a>
 					{/if}
 				</div>
-
-				{#if guarantee}
-					<p class="mt-4 text-sm text-[#8181ac] max-lg:text-center">
-						{guarantee}
-					</p>
-				{/if}
 
 				{#if badges.length > 0}
 					<div class="mt-10 flex flex-wrap items-center gap-4 max-lg:justify-center sm:gap-5">
