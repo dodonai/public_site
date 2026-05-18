@@ -1,7 +1,7 @@
 <script>
-	import { practiceAreas, useCases, compare, industries, aiServicesOverview } from '$lib/data/navigation.js';
+	import { practiceAreas, useCases, compare, industries } from '$lib/data/navigation.js';
 
-	const platformLinks = [
+	const servicesLinks = [
 		{ name: 'AI Deposition Summary', href: '/deposition-summary-software/' },
 		{ name: 'AI Deposition Software', href: '/ai-deposition-transcript-software/' },
 		{ name: 'AI E-Discovery Software', href: '/electronic-discovery-software/' },
@@ -97,29 +97,14 @@
 				</div>
 			</div>
 
-			<!-- Footer grid: Platform / AI Services / Resources / Legal -->
-			<div class="grid w-[70%] max-w-[850px] grid-cols-[1.4fr_1.2fr_1fr_0.9fr] gap-x-4 gap-y-[37px] max-lg:w-full max-lg:gap-x-0 max-md:grid-cols-[1fr_1fr] max-sm:flex max-sm:flex-col max-sm:flex-wrap">
-				<!-- Platform -->
+			<!-- Footer grid: Services / Resources / Legal -->
+			<div class="grid w-[70%] max-w-[850px] grid-cols-[1.75fr_1fr_1fr] gap-x-4 gap-y-[37px] max-lg:w-full max-lg:gap-x-0 max-md:grid-cols-[1fr_1fr] max-sm:flex max-sm:flex-col max-sm:flex-wrap">
+				<!-- Services -->
 				<div class="flex flex-col items-start justify-start">
 					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Platform</h2>
+						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Services</h2>
 					</div>
-					{#each platformLinks as link}
-						<a
-							href={link.href}
-							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-						>
-							{link.name}
-						</a>
-					{/each}
-				</div>
-
-				<!-- AI Services -->
-				<div class="flex flex-col items-start justify-start">
-					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">AI Services</h2>
-					</div>
-					{#each aiServicesOverview as link}
+					{#each servicesLinks as link}
 						<a
 							href={link.href}
 							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
@@ -229,19 +214,64 @@
 		</div>
 
 		<!-- Row 3: Selected Blog Posts -->
-		<div class="pb-10">
-			<div class="mb-[25px]">
-				<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Selected Blog Posts</h2>
-			</div>
-			<div class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-x-4 gap-y-0 max-md:grid-cols-2 max-md:grid-rows-3 max-sm:flex max-sm:flex-col">
-				{#each blogPosts as post}
+		<div class="flex flex-wrap items-start justify-between pb-10">
+			<div class="grid w-full grid-cols-[1fr_1fr_1fr] gap-x-4 gap-y-[37px] max-md:grid-cols-[1fr_1fr] max-sm:flex max-sm:flex-col max-sm:flex-wrap">
+				<!-- Column 1 -->
+				<div class="flex flex-col items-start justify-start">
+					<div class="mb-[25px]">
+						<h2 class="text-[18px] leading-[28px] text-transparent select-none">&nbsp;</h2>
+					</div>
 					<a
-						href={post.href}
+						href={blogPosts[0].href}
 						class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
 					>
-						{post.name}
+						{blogPosts[0].name}
 					</a>
-				{/each}
+					<a
+						href={blogPosts[1].href}
+						class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
+					>
+						{blogPosts[1].name}
+					</a>
+				</div>
+
+				<!-- Column 2 (with heading) -->
+				<div class="flex flex-col items-start justify-start">
+					<div class="mb-[25px] w-full">
+						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Selected Blog Posts</h2>
+					</div>
+					<a
+						href={blogPosts[2].href}
+						class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
+					>
+						{blogPosts[2].name}
+					</a>
+					<a
+						href={blogPosts[3].href}
+						class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
+					>
+						{blogPosts[3].name}
+					</a>
+				</div>
+
+				<!-- Column 3 -->
+				<div class="flex flex-col items-start justify-start">
+					<div class="mb-[25px]">
+						<h2 class="text-[18px] leading-[28px] text-transparent select-none">&nbsp;</h2>
+					</div>
+					<a
+						href={blogPosts[4].href}
+						class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
+					>
+						{blogPosts[4].name}
+					</a>
+					<a
+						href={blogPosts[5].href}
+						class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
+					>
+						{blogPosts[5].name}
+					</a>
+				</div>
 			</div>
 		</div>
 
