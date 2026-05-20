@@ -2,8 +2,8 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="robots" content="noindex,nofollow">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
 <title>Phase 1 Build Plan — Loke Moore Law × Dodonai</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -213,24 +213,28 @@ tbody tr:last-child td { border-bottom: 2px solid var(--midnight); }
   background: #fff;
   border: 1px solid var(--cream-line);
   border-radius: 8px;
-  padding: 32px 24px;
+  padding: 20px 16px;
   margin: 1.4em 0;
   text-align: center;
 }
 .diagram-frame .diagram-caption {
   font-family: 'Source Code Pro', monospace;
-  font-size: 8.5pt; color: var(--gray-meta-light);
+  font-size: 8pt; color: var(--gray-meta-light);
   letter-spacing: 0.10em; text-transform: uppercase;
-  font-weight: 600; margin-top: 20px;
+  font-weight: 600; margin-top: 14px;
 }
 
 .mermaid {
   display: flex;
   justify-content: center;
   align-items: center;
-  min-height: 240px;
+  min-height: 0;
 }
-.mermaid svg { max-width: 100% !important; height: auto !important; }
+.mermaid svg {
+  max-width: 520px !important;
+  width: 100% !important;
+  height: auto !important;
+}
 
 .q-list { counter-reset: qcount; padding: 0; list-style: none; margin: 1em 0; }
 .q-list li {
@@ -550,7 +554,7 @@ flowchart TB
     theme: 'base',
     themeVariables: {
       fontFamily: 'Plus Jakarta Sans, sans-serif',
-      fontSize: '15px',
+      fontSize: '12px',
       primaryColor: '#7C3AED',
       primaryTextColor: '#1A1A45',
       primaryBorderColor: '#6B46C1',
@@ -566,9 +570,9 @@ flowchart TB
     },
     flowchart: {
       curve: 'basis',
-      padding: 18,
-      nodeSpacing: 40,
-      rankSpacing: 70,
+      padding: 10,
+      nodeSpacing: 24,
+      rankSpacing: 40,
       htmlLabels: true,
       useMaxWidth: true
     }
