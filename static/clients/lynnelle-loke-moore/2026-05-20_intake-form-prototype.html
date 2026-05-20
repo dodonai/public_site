@@ -1,0 +1,1586 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Medicaid Long-Term Care Intake — Loke Moore Law, PLLC</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --midnight:        #1A1A45;
+  --midnight-deep:   #14143A;
+  --midnight-soft:   #252556;
+  --purple-soft:     #B5A8E6;
+  --purple-mid:      #8B7AB8;
+  --purple-bold:     #6B46C1;
+  --purple-vivid:    #7C3AED;
+  --cream:           #F4F1E8;
+  --cream-deep:      #EBE6D7;
+  --cream-line:      #D8D3C2;
+  --gray-meta:       #9B9BB8;
+  --gray-meta-light: #6B6B85;
+  --field-bg:        #FFFFFF;
+  --field-border:    #C9C4B4;
+  --field-focus:     #7C3AED;
+  --error:           #C53030;
+  --ok:              #2F855A;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--cream); }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.5;
+  color: var(--midnight);
+}
+
+/* ============ Header ============ */
+.app-header {
+  background: var(--midnight);
+  color: #fff;
+  padding: 28px 40px 30px;
+  position: sticky; top: 0; z-index: 50;
+  border-bottom: 4px solid var(--purple-vivid);
+}
+.app-header-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 18px;
+}
+.app-brand { display: flex; align-items: center; gap: 14px; }
+.app-brand .firm-name {
+  font-weight: 800; font-size: 17pt; letter-spacing: -0.01em; line-height: 1.1;
+}
+.app-brand .firm-sub {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt; color: var(--purple-soft);
+  letter-spacing: 0.16em; text-transform: uppercase;
+  font-weight: 600; margin-top: 3px;
+}
+.app-meta {
+  display: flex; align-items: center; gap: 24px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-soft);
+  letter-spacing: 0.10em; text-transform: uppercase; font-weight: 600;
+}
+.prototype-pill {
+  background: var(--purple-vivid); color: #fff;
+  padding: 5px 11px; border-radius: 20px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt; letter-spacing: 0.12em; font-weight: 700;
+  text-transform: uppercase;
+}
+
+/* ============ Intro ============ */
+.intro-bar {
+  background: var(--cream-deep);
+  border-bottom: 1px solid var(--cream-line);
+  padding: 18px 40px;
+}
+.intro-inner {
+  max-width: 1180px; margin: 0 auto;
+  display: flex; gap: 28px; align-items: flex-start;
+}
+.intro-inner .intro-text {
+  flex: 1;
+  font-size: 10.5pt; color: var(--midnight); line-height: 1.55;
+}
+.intro-inner .intro-text strong { color: var(--midnight-deep); }
+.intro-inner .progress-block {
+  text-align: right;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.08em; text-transform: uppercase; font-weight: 700;
+  min-width: 200px;
+}
+.progress-bar {
+  width: 200px; height: 5px;
+  background: var(--cream-line);
+  border-radius: 3px; overflow: hidden;
+  margin-top: 6px;
+}
+.progress-bar .progress-fill {
+  height: 100%;
+  background: linear-gradient(90deg, var(--purple-bold), var(--purple-vivid));
+  width: 0%; transition: width 0.3s ease;
+}
+
+/* ============ Layout ============ */
+.layout {
+  max-width: 1180px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 36px;
+  padding: 32px 40px 60px;
+}
+
+/* ============ Side nav ============ */
+.side-nav {
+  position: sticky; top: 130px;
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 8px;
+  padding: 10px 0;
+  font-size: 10pt;
+  max-height: calc(100vh - 160px);
+  overflow-y: auto;
+}
+.side-nav ol { list-style: none; padding: 0; margin: 0; counter-reset: navnum; }
+.side-nav li { counter-increment: navnum; }
+.side-nav a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 16px;
+  color: var(--gray-meta-light);
+  text-decoration: none;
+  border-left: 3px solid transparent;
+  font-weight: 500;
+}
+.side-nav a::before {
+  content: counter(navnum, decimal-leading-zero);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt;
+  color: var(--gray-meta);
+  letter-spacing: 0.06em; font-weight: 700;
+  min-width: 22px;
+}
+.side-nav a:hover {
+  background: var(--cream);
+  color: var(--purple-bold);
+  border-left-color: var(--purple-soft);
+}
+.side-nav a.active {
+  background: var(--cream-deep);
+  color: var(--midnight-deep);
+  border-left-color: var(--purple-vivid);
+  font-weight: 600;
+}
+.side-nav a.done::before { color: var(--ok); }
+.side-nav li.hidden { display: none; }
+
+/* ============ Form main ============ */
+.form-main { min-width: 0; }
+
+.section {
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 10px;
+  padding: 32px 36px;
+  margin-bottom: 22px;
+  scroll-margin-top: 130px;
+}
+.section.hidden { display: none; }
+.section-header {
+  border-bottom: 2px solid var(--purple-bold);
+  padding-bottom: 12px;
+  margin-bottom: 22px;
+}
+.section-header .section-num {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+}
+.section-header h2 {
+  font-weight: 700; font-size: 18pt; line-height: 1.15;
+  letter-spacing: -0.01em; color: var(--midnight);
+  margin: 4px 0 6px 0;
+}
+.section-header .section-help {
+  font-size: 10pt; color: var(--gray-meta-light);
+  margin: 0;
+}
+
+.subgroup-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; margin: 24px 0 12px 0;
+  padding-bottom: 6px;
+  border-bottom: 1px dashed var(--cream-line);
+}
+.subgroup-label:first-child { margin-top: 0; }
+
+.field-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px 22px;
+}
+.field-grid.three { grid-template-columns: repeat(3, 1fr); }
+.field-grid.one { grid-template-columns: 1fr; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field.hidden { display: none; }
+
+.field label {
+  font-size: 10pt; font-weight: 600;
+  color: var(--midnight-deep);
+  line-height: 1.4;
+}
+.field label .required { color: var(--error); margin-left: 3px; }
+.field .help {
+  font-size: 9pt; color: var(--gray-meta-light);
+  margin: 0; font-weight: 400; line-height: 1.4;
+}
+.field input[type="text"],
+.field input[type="number"],
+.field input[type="date"],
+.field input[type="email"],
+.field textarea,
+.field select {
+  width: 100%;
+  font-family: inherit;
+  font-size: 10.5pt;
+  color: var(--midnight);
+  background: var(--field-bg);
+  border: 1px solid var(--field-border);
+  border-radius: 6px;
+  padding: 9px 12px;
+  transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field input:focus,
+.field textarea:focus,
+.field select:focus {
+  outline: none;
+  border-color: var(--field-focus);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+.field textarea { resize: vertical; min-height: 90px; line-height: 1.5; }
+.field.money input { padding-left: 24px; }
+.field.money { position: relative; }
+.field.money::after {
+  content: "$";
+  position: absolute;
+  left: 12px; top: 32px;
+  color: var(--gray-meta-light);
+  font-weight: 600;
+  pointer-events: none;
+}
+.field.money.with-help::after { top: auto; bottom: 11px; transform: none; }
+
+.choice-group {
+  display: flex; gap: 10px; flex-wrap: wrap;
+}
+.choice-group input[type="radio"] { display: none; }
+.choice-group label {
+  display: inline-flex; align-items: center;
+  padding: 8px 16px;
+  border: 1px solid var(--field-border);
+  border-radius: 20px;
+  background: var(--field-bg);
+  font-size: 10pt; font-weight: 500;
+  color: var(--midnight);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.choice-group label:hover {
+  border-color: var(--purple-soft);
+  background: var(--cream);
+}
+.choice-group input[type="radio"]:checked + label {
+  background: var(--midnight);
+  color: #fff;
+  border-color: var(--midnight);
+  font-weight: 600;
+}
+
+.yesno-group { display: flex; gap: 8px; }
+.yesno-group input[type="radio"] { display: none; }
+.yesno-group label {
+  flex: 1;
+  text-align: center;
+  padding: 9px 14px;
+  border: 1px solid var(--field-border);
+  border-radius: 6px;
+  background: var(--field-bg);
+  font-size: 10pt; font-weight: 500;
+  color: var(--midnight);
+  cursor: pointer;
+  transition: all 0.15s;
+}
+.yesno-group label:hover { border-color: var(--purple-soft); background: var(--cream); }
+.yesno-group input[type="radio"]:checked + label {
+  background: var(--purple-bold); color: #fff; border-color: var(--purple-bold);
+  font-weight: 600;
+}
+
+.attorney-note {
+  margin-top: 6px;
+  display: none;
+  background: rgba(192, 86, 33, 0.08);
+  border-left: 3px solid #C05621;
+  padding: 8px 12px;
+  border-radius: 4px;
+  font-size: 9pt;
+  color: #7a3514;
+}
+.attorney-note.show { display: block; }
+
+/* ============ Footer / submit ============ */
+.form-footer {
+  margin-top: 28px;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 18px;
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 10px;
+  padding: 22px 28px;
+}
+.form-footer .footer-meta {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--gray-meta-light);
+  letter-spacing: 0.08em; text-transform: uppercase;
+}
+.btn {
+  font-family: inherit;
+  font-weight: 700;
+  font-size: 10.5pt;
+  padding: 12px 22px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s;
+  letter-spacing: 0.02em;
+}
+.btn-primary {
+  background: var(--purple-vivid);
+  color: #fff;
+}
+.btn-primary:hover { background: var(--purple-bold); }
+.btn-secondary {
+  background: var(--cream);
+  color: var(--midnight);
+  border: 1px solid var(--field-border);
+  margin-right: 8px;
+}
+.btn-secondary:hover { background: var(--cream-deep); }
+
+/* ============ Output panel ============ */
+.output-panel {
+  display: none;
+  background: var(--midnight);
+  color: #fff;
+  border-radius: 10px;
+  padding: 24px 28px;
+  margin-top: 22px;
+}
+.output-panel.show { display: block; }
+.output-panel h3 {
+  margin: 0 0 8px 0;
+  font-size: 14pt; font-weight: 700; letter-spacing: -0.01em;
+}
+.output-panel .output-sub {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-soft);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  margin-bottom: 14px;
+}
+.output-panel pre {
+  background: var(--midnight-deep);
+  border: 1px solid var(--midnight-soft);
+  border-radius: 6px;
+  padding: 16px 20px;
+  color: #E0DCEF;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5pt;
+  line-height: 1.55;
+  max-height: 520px;
+  overflow: auto;
+  margin: 0;
+}
+.calc-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 16px;
+}
+.calc-card {
+  background: var(--midnight-soft);
+  border: 1px solid var(--midnight-deep);
+  border-radius: 6px;
+  padding: 14px 16px;
+}
+.calc-card .calc-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt; color: var(--purple-soft);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 6px;
+}
+.calc-card .calc-value {
+  font-weight: 700; font-size: 14pt; color: #fff;
+  letter-spacing: -0.01em;
+}
+.calc-card .calc-flag-yes { color: #68D391; }
+.calc-card .calc-flag-no { color: var(--purple-soft); }
+.calc-card .calc-flag-warn { color: #F6AD55; }
+
+.error-banner {
+  display: none;
+  background: rgba(197, 48, 48, 0.08);
+  border-left: 4px solid var(--error);
+  color: #7a1f1f;
+  padding: 14px 18px;
+  border-radius: 6px;
+  margin-bottom: 18px;
+  font-size: 10pt;
+}
+.error-banner.show { display: block; }
+
+@media (max-width: 900px) {
+  .layout { grid-template-columns: 1fr; padding: 20px 16px 40px; }
+  .side-nav { position: relative; top: 0; max-height: none; }
+  .app-header { padding: 18px 16px 20px; }
+  .intro-bar { padding: 14px 16px; }
+  .intro-inner { flex-direction: column; gap: 12px; }
+  .intro-inner .progress-block { text-align: left; }
+  .section { padding: 22px 18px; }
+  .field-grid, .field-grid.three { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="app-brand">
+      <div>
+        <div class="firm-name">Loke Moore Law, PLLC</div>
+        <div class="firm-sub">Medicaid Long-Term Care Intake</div>
+      </div>
+    </div>
+    <div class="app-meta">
+      <span class="prototype-pill">Prototype</span>
+      <span>Schema v1.4</span>
+      <span>Built by Dodon.ai</span>
+    </div>
+  </div>
+</header>
+
+<div class="intro-bar">
+  <div class="intro-inner">
+    <div class="intro-text">
+      <strong>Welcome.</strong> This intake collects the financial and personal information our office needs to evaluate your Medicaid eligibility and design a strategy tailored to your circumstances. All responses are protected by attorney-client privilege. If you don't know an exact figure, an estimate is fine — just note that it's an estimate.
+    </div>
+    <div class="progress-block">
+      <span id="progressText">0 of 9 sections</span>
+      <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+
+  <nav class="side-nav" aria-label="Form sections">
+    <ol>
+      <li><a href="#sec-1" data-target="sec-1" class="active">Case Type</a></li>
+      <li><a href="#sec-2" data-target="sec-2">Applicant</a></li>
+      <li id="nav-3" class="hidden"><a href="#sec-3" data-target="sec-3">Community Spouse</a></li>
+      <li><a href="#sec-4" data-target="sec-4">Applicant Income</a></li>
+      <li id="nav-5" class="hidden"><a href="#sec-5" data-target="sec-5">CS Income</a></li>
+      <li><a href="#sec-6" data-target="sec-6">Applicant Resources</a></li>
+      <li id="nav-7" class="hidden"><a href="#sec-7" data-target="sec-7">CS Resources</a></li>
+      <li><a href="#sec-8" data-target="sec-8">Gifts &amp; Transfers</a></li>
+      <li><a href="#sec-9" data-target="sec-9">Expenses</a></li>
+      <li><a href="#sec-10" data-target="sec-10">Estate Documents</a></li>
+      <li id="nav-11" class="hidden"><a href="#sec-11" data-target="sec-11">SPW Interest List</a></li>
+    </ol>
+  </nav>
+
+  <main class="form-main">
+    <div class="error-banner" id="errorBanner"></div>
+
+    <form id="intakeForm" novalidate>
+
+      <!-- ============ Section 1: Case Type ============ -->
+      <section class="section" id="sec-1">
+        <div class="section-header">
+          <div class="section-num">Section 01</div>
+          <h2>Case Type</h2>
+          <p class="section-help">A few questions about who the applicant is and what kind of care you're planning for. This drives which sections appear below.</p>
+        </div>
+
+        <div class="field-grid">
+          <div class="field">
+            <label>Applicant's first name <span class="required">*</span></label>
+            <input type="text" name="client_first_name" required>
+          </div>
+          <div class="field">
+            <label>Applicant's last name <span class="required">*</span></label>
+            <input type="text" name="client_last_name" required>
+          </div>
+          <div class="field full">
+            <label>Applicant's mailing address <span class="required">*</span></label>
+            <input type="text" name="client_mailing_address" placeholder="Street, city, state, zip" required>
+          </div>
+          <div class="field">
+            <label>Date of intake meeting <span class="required">*</span></label>
+            <input type="date" name="intake_date" required>
+          </div>
+          <div class="field">
+            <label>Is the applicant currently residing in a nursing home? <span class="required">*</span></label>
+            <div class="yesno-group">
+              <input type="radio" name="applicant_currently_in_nh" value="Yes" id="nh-y" required>
+              <label for="nh-y">Yes</label>
+              <input type="radio" name="applicant_currently_in_nh" value="No" id="nh-n">
+              <label for="nh-n">No</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label>Is the Medicaid applicant married? <span class="required">*</span></label>
+            <div class="choice-group" id="maritalGroup">
+              <input type="radio" name="marital_status" value="Single" id="ms-s" required>
+              <label for="ms-s">Single</label>
+              <input type="radio" name="marital_status" value="Married" id="ms-m">
+              <label for="ms-m">Married</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label>Care setting goal <span class="required">*</span></label>
+            <p class="help">Choose the program you're primarily planning for. If you're not sure, pick Undecided — the letter will discuss all relevant options.</p>
+            <div class="choice-group" id="careGroup">
+              <input type="radio" name="care_setting_goal" value="Nursing home" id="cs-nh" required>
+              <label for="cs-nh">Nursing home</label>
+              <input type="radio" name="care_setting_goal" value="SPW" id="cs-spw">
+              <label for="cs-spw">Star Plus Plus Waiver (SPW)</label>
+              <input type="radio" name="care_setting_goal" value="CAS" id="cs-cas">
+              <label for="cs-cas">Community Attendant Services (CAS)</label>
+              <input type="radio" name="care_setting_goal" value="Undecided" id="cs-u">
+              <label for="cs-u">Undecided</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 2: Applicant Demographics ============ -->
+      <section class="section" id="sec-2">
+        <div class="section-header">
+          <div class="section-num">Section 02</div>
+          <h2>Applicant Demographics</h2>
+          <p class="section-help">The applicant is the person applying for Medicaid (the institutionalized spouse, if married).</p>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Applicant's date of birth <span class="required">*</span></label>
+            <input type="date" name="applicant_dob" id="applicantDob" required>
+            <p class="help" id="applicantAgeHelp" style="display:none"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 3: CS Demographics ============ -->
+      <section class="section hidden" id="sec-3">
+        <div class="section-header">
+          <div class="section-num">Section 03</div>
+          <h2>Community Spouse Demographics</h2>
+          <p class="section-help">The community spouse is the spouse who will continue to live at home.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Community spouse's first name</label>
+            <input type="text" name="cs_first_name">
+          </div>
+          <div class="field">
+            <label>Community spouse's date of birth</label>
+            <input type="date" name="cs_dob" id="csDob">
+            <p class="help" id="csAgeHelp" style="display:none"></p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 4: Applicant Income ============ -->
+      <section class="section" id="sec-4">
+        <div class="section-header">
+          <div class="section-num">Section 04</div>
+          <h2>Applicant Income</h2>
+          <p class="section-help">All amounts monthly unless noted. Gross figures are preferred; if you only have the net deposit amount, enter that — we'll adjust for the 2026 Medicare Part B premium ($202.90).</p>
+        </div>
+
+        <div class="subgroup-label">Social Security</div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>Monthly Social Security — <strong>gross</strong></label>
+            <p class="help">Before any Medicare deduction. Preferred.</p>
+            <input type="number" name="applicant_ss_gross" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Monthly Social Security — net deposit</label>
+            <p class="help">Used only if you don't have the gross figure.</p>
+            <input type="number" name="applicant_ss_net" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+
+        <div class="subgroup-label">Pension / Retirement</div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>Monthly pension (non-VA, non-SS) — <strong>gross</strong></label>
+            <p class="help">Preferred.</p>
+            <input type="number" name="applicant_pension_gross" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Monthly pension — net deposit</label>
+            <p class="help">Used only if gross is not available.</p>
+            <input type="number" name="applicant_pension_net" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field full">
+            <label>What deductions are taken from the pension?</label>
+            <p class="help">e.g., income tax, health insurance. Only needed if you provided a net figure.</p>
+            <input type="text" name="applicant_pension_deductions" placeholder="Optional">
+          </div>
+        </div>
+
+        <div class="subgroup-label">VA, Railroad, IRA RMD</div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>Monthly VA pension — base amount</label>
+            <p class="help">Excluding Aid &amp; Attendance.</p>
+            <input type="number" name="applicant_va_pension_base" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Monthly VA Aid &amp; Attendance</label>
+            <p class="help">Not countable toward the income cap.</p>
+            <input type="number" name="applicant_va_aid_attendance" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Monthly Railroad Retirement</label>
+            <p class="help">Countable.</p>
+            <input type="number" name="applicant_railroad_retirement" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help hidden" id="field-applicant_ira_rmd_annual">
+            <label>Annual IRA Required Minimum Distribution</label>
+            <p class="help">Shown because applicant is age 73 or older. Annual amount; we'll divide by 12.</p>
+            <input type="number" name="applicant_ira_rmd_annual" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+
+        <div class="subgroup-label">Other Income (not countable toward cap)</div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>Monthly interest / dividend income</label>
+            <p class="help">From countable resources. Not countable toward income cap.</p>
+            <input type="number" name="applicant_interest_dividend_income" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Monthly rental income</label>
+            <p class="help">From countable resources. Not countable toward income cap.</p>
+            <input type="number" name="applicant_rental_income" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field full">
+            <label>Other income source — description</label>
+            <input type="text" name="applicant_other_income_description" id="appOtherIncDesc" placeholder="Optional">
+          </div>
+          <div class="field money with-help hidden" id="field-applicant_other_income_amount">
+            <label>Monthly amount of other income</label>
+            <input type="number" name="applicant_other_income_amount" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 5: CS Income ============ -->
+      <section class="section hidden" id="sec-5">
+        <div class="section-header">
+          <div class="section-num">Section 05</div>
+          <h2>Community Spouse Income</h2>
+          <p class="section-help">Used for the MMMNA test and SPRA expansion analysis.</p>
+        </div>
+
+        <div class="subgroup-label">Social Security</div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>CS monthly Social Security — <strong>gross</strong></label>
+            <p class="help">Preferred.</p>
+            <input type="number" name="cs_ss_gross" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>CS monthly Social Security — net</label>
+            <p class="help">Used only if gross is not available.</p>
+            <input type="number" name="cs_ss_net" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+
+        <div class="subgroup-label">Pension</div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>CS monthly pension — <strong>gross</strong></label>
+            <input type="number" name="cs_pension_gross" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>CS monthly pension — net</label>
+            <input type="number" name="cs_pension_net" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field full">
+            <label>What deductions are taken from CS pension?</label>
+            <input type="text" name="cs_pension_deductions" placeholder="Optional">
+          </div>
+        </div>
+
+        <div class="subgroup-label">VA, IRA RMD, Other</div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>CS monthly VA pension — base</label>
+            <input type="number" name="cs_va_pension_base" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>CS monthly VA Aid &amp; Attendance</label>
+            <input type="number" name="cs_va_aid_attendance" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help hidden" id="field-cs_ira_rmd_annual">
+            <label>CS annual IRA RMD</label>
+            <p class="help">Shown because CS is age 73 or older.</p>
+            <input type="number" name="cs_ira_rmd_annual" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field full">
+            <label>CS other income — description</label>
+            <input type="text" name="cs_other_income_description" id="csOtherIncDesc" placeholder="Optional">
+          </div>
+          <div class="field money with-help hidden" id="field-cs_other_income_amount">
+            <label>Monthly amount of CS other income</label>
+            <input type="number" name="cs_other_income_amount" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 6: Applicant Resources ============ -->
+      <section class="section" id="sec-6">
+        <div class="section-header">
+          <div class="section-num">Section 06</div>
+          <h2>Applicant Resources (Assets)</h2>
+          <p class="section-help">Current fair-market value or account balance. We split countable from exempt — both matter.</p>
+        </div>
+
+        <div class="subgroup-label">Countable Resources</div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>Checking &amp; savings — total balance</label>
+            <p class="help">All accounts in applicant's name or jointly held.</p>
+            <input type="number" name="checking_savings_balance" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Certificates of Deposit — total</label>
+            <input type="number" name="cd_balance" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Brokerage / investment accounts (non-IRA)</label>
+            <input type="number" name="brokerage_investment_balance" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help hidden" id="field-ira_balance_under73">
+            <label>IRA accounts (applicant under age 73)</label>
+            <p class="help">Countable while not in RMD status.</p>
+            <input type="number" name="ira_balance_under73" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Cash surrender value of life insurance</label>
+            <p class="help">Total CSV across all policies.</p>
+            <input type="number" name="life_insurance_csv" id="lifeCsv" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field hidden" id="field-life_insurance_csv_confirmed">
+            <label>Has CSV been confirmed in writing by the insurer?</label>
+            <div class="yesno-group">
+              <input type="radio" name="life_insurance_csv_confirmed" value="Yes" id="csv-y">
+              <label for="csv-y">Yes</label>
+              <input type="radio" name="life_insurance_csv_confirmed" value="No" id="csv-n">
+              <label for="csv-n">No</label>
+            </div>
+            <p class="attorney-note show">If not confirmed, attorney needs to request written confirmation from each insurer before the worksheet is final.</p>
+          </div>
+          <div class="field money with-help">
+            <label>Regular (non-compliant) annuities</label>
+            <input type="number" name="regular_annuity_value" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field full">
+            <label>Other countable asset — description</label>
+            <input type="text" name="other_countable_asset_description" id="otherCountableDesc" placeholder="Optional">
+          </div>
+          <div class="field money with-help hidden" id="field-other_countable_asset_value">
+            <label>Value of other countable asset</label>
+            <input type="number" name="other_countable_asset_value" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+
+        <div class="subgroup-label">Exempt Resources</div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>Estimated fair market value of primary home</label>
+            <input type="number" name="home_value" id="homeValue" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field hidden" id="field-home_has_mortgage">
+            <label>Is there a mortgage on the home?</label>
+            <div class="yesno-group">
+              <input type="radio" name="home_has_mortgage" value="Yes" id="mort-y">
+              <label for="mort-y">Yes</label>
+              <input type="radio" name="home_has_mortgage" value="No" id="mort-n">
+              <label for="mort-n">No</label>
+            </div>
+          </div>
+          <div class="field money with-help hidden" id="field-home_mortgage_balance">
+            <label>Remaining mortgage balance</label>
+            <input type="number" name="home_mortgage_balance" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Value of one vehicle</label>
+            <p class="help">One vehicle is exempt.</p>
+            <input type="number" name="vehicle_value" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help hidden" id="field-ira_balance_rmd_status">
+            <label>IRA accounts (applicant age 73+, in RMD status)</label>
+            <p class="help">IRA is exempt; the RMD is countable income (entered above).</p>
+            <input type="number" name="ira_balance_rmd_status" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Irrevocable prepaid funeral contract</label>
+            <input type="number" name="irrevocable_funeral_contract" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field">
+            <label>Does the applicant own a burial plot?</label>
+            <div class="yesno-group">
+              <input type="radio" name="burial_plot" value="Yes" id="bp-y">
+              <label for="bp-y">Yes</label>
+              <input type="radio" name="burial_plot" value="No" id="bp-n">
+              <label for="bp-n">No</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 7: CS Resources ============ -->
+      <section class="section hidden" id="sec-7">
+        <div class="section-header">
+          <div class="section-num">Section 07</div>
+          <h2>Community Spouse Resources</h2>
+          <p class="section-help">CS-only resources, for SPRA calculation. (Jointly held assets go in Section 6.)</p>
+        </div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>CS separate checking &amp; savings</label>
+            <input type="number" name="cs_checking_savings_balance" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>CS brokerage / investment accounts (non-IRA)</label>
+            <input type="number" name="cs_brokerage_investment_balance" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help hidden" id="field-cs_ira_balance_under73">
+            <label>CS IRA accounts (CS under 73)</label>
+            <input type="number" name="cs_ira_balance_under73" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field money with-help hidden" id="field-cs_ira_balance_rmd_status">
+            <label>CS IRA accounts (CS age 73+)</label>
+            <input type="number" name="cs_ira_balance_rmd_status" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field full">
+            <label>Other CS countable asset — description</label>
+            <input type="text" name="cs_other_countable_asset_description" id="csOtherAssetDesc" placeholder="Optional">
+          </div>
+          <div class="field money with-help hidden" id="field-cs_other_countable_asset_value">
+            <label>Value of CS other countable asset</label>
+            <input type="number" name="cs_other_countable_asset_value" min="0" step="0.01" placeholder="0.00">
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 8: Gifts ============ -->
+      <section class="section" id="sec-8">
+        <div class="section-header">
+          <div class="section-num">Section 08</div>
+          <h2>Gifts &amp; Transfers — 5-Year Lookback</h2>
+          <p class="section-help">Free-form notes are fine. Your attorney reviews this at the meeting.</p>
+        </div>
+        <div class="field-grid one">
+          <div class="field">
+            <label>Describe any gifts, transfers, or sales below fair market value in the past 5 years</label>
+            <p class="help">Approximate dates, amounts, and recipients. Leave blank if none.</p>
+            <textarea name="gifts_notes" rows="5" placeholder="Optional"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 9: Expenses / Burn Rate ============ -->
+      <section class="section" id="sec-9">
+        <div class="section-header">
+          <div class="section-num">Section 09</div>
+          <h2>Monthly Expenses &amp; Burn Rate</h2>
+          <p class="section-help">Used for the private-pay vs. Medicaid cost analysis in the strategy letter.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field money with-help">
+            <label>Monthly cost of care (private pay rate) <span class="required">*</span></label>
+            <p class="help">Current rate or quoted rate at chosen facility.</p>
+            <input type="number" name="monthly_cost_of_care" min="0" step="0.01" required placeholder="0.00">
+          </div>
+          <div class="field money with-help">
+            <label>Total monthly living expenses</label>
+            <p class="help">Including the cost of care above.</p>
+            <input type="number" name="monthly_living_expenses" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field">
+            <label>Estimated years care will be needed</label>
+            <p class="help">Rough estimate is fine.</p>
+            <input type="number" name="estimated_life_expectancy_years" min="0" step="0.5" placeholder="e.g., 3">
+          </div>
+          <div class="field hidden" id="field-nh_facility_identified">
+            <label>Has a nursing home facility been identified?</label>
+            <div class="yesno-group">
+              <input type="radio" name="nh_facility_identified" value="Yes" id="nhf-y">
+              <label for="nhf-y">Yes</label>
+              <input type="radio" name="nh_facility_identified" value="No" id="nhf-n">
+              <label for="nhf-n">No</label>
+            </div>
+          </div>
+          <div class="field hidden" id="field-nh_facility_name">
+            <label>Name of the nursing home facility</label>
+            <input type="text" name="nh_facility_name" id="nhFacilityName">
+          </div>
+          <div class="field hidden" id="field-nh_medicaid_bed_confirmed">
+            <label>Has a Medicaid bed been confirmed at that facility?</label>
+            <div class="yesno-group">
+              <input type="radio" name="nh_medicaid_bed_confirmed" value="Yes" id="nhb-y">
+              <label for="nhb-y">Yes</label>
+              <input type="radio" name="nh_medicaid_bed_confirmed" value="No" id="nhb-n">
+              <label for="nhb-n">No</label>
+            </div>
+            <p class="attorney-note show">If not confirmed, this becomes an action item in the strategy letter.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 10: Estate Documents ============ -->
+      <section class="section" id="sec-10">
+        <div class="section-header">
+          <div class="section-num">Section 10</div>
+          <h2>Existing Estate Planning Documents</h2>
+          <p class="section-help">"No" answers feed the recommendations section of the letter.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field">
+            <label>Does the applicant have a Will?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_will" value="Yes" id="will-y">
+              <label for="will-y">Yes</label>
+              <input type="radio" name="has_will" value="No" id="will-n">
+              <label for="will-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>A Trust?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_trust" value="Yes" id="trust-y">
+              <label for="trust-y">Yes</label>
+              <input type="radio" name="has_trust" value="No" id="trust-n">
+              <label for="trust-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Statutory Durable Power of Attorney (DPOA)?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_dpoa" value="Yes" id="dpoa-y">
+              <label for="dpoa-y">Yes</label>
+              <input type="radio" name="has_dpoa" value="No" id="dpoa-n">
+              <label for="dpoa-n">No</label>
+            </div>
+          </div>
+          <div class="field hidden" id="field-dpoa_medicaid_authority">
+            <label>Does the DPOA include Medicaid planning authority?</label>
+            <div class="choice-group">
+              <input type="radio" name="dpoa_medicaid_authority" value="Yes" id="dpoam-y">
+              <label for="dpoam-y">Yes</label>
+              <input type="radio" name="dpoa_medicaid_authority" value="No" id="dpoam-n">
+              <label for="dpoam-n">No</label>
+              <input type="radio" name="dpoa_medicaid_authority" value="Unknown" id="dpoam-u">
+              <label for="dpoam-u">Unknown</label>
+            </div>
+            <p class="attorney-note show">If No or Unknown, the letter will recommend reviewing or replacing the DPOA.</p>
+          </div>
+          <div class="field">
+            <label>Medical Power of Attorney (MPOA)?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_mpoa" value="Yes" id="mpoa-y">
+              <label for="mpoa-y">Yes</label>
+              <input type="radio" name="has_mpoa" value="No" id="mpoa-n">
+              <label for="mpoa-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Advance Directive (Directive to Physicians)?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_advanced_directive" value="Yes" id="ad-y">
+              <label for="ad-y">Yes</label>
+              <input type="radio" name="has_advanced_directive" value="No" id="ad-n">
+              <label for="ad-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Declaration of Guardian in Event of Later Incapacity?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_declaration_of_guardian" value="Yes" id="dg-y">
+              <label for="dg-y">Yes</label>
+              <input type="radio" name="has_declaration_of_guardian" value="No" id="dg-n">
+              <label for="dg-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>HIPAA Release?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_hipaa_release" value="Yes" id="hipaa-y">
+              <label for="hipaa-y">Yes</label>
+              <input type="radio" name="has_hipaa_release" value="No" id="hipaa-n">
+              <label for="hipaa-n">No</label>
+            </div>
+          </div>
+          <div class="field hidden" id="field-has_ladybird_or_todd_deed">
+            <label>Lady Bird Deed or Transfer on Death Deed on the home?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_ladybird_or_todd_deed" value="Yes" id="lbd-y">
+              <label for="lbd-y">Yes</label>
+              <input type="radio" name="has_ladybird_or_todd_deed" value="No" id="lbd-n">
+              <label for="lbd-n">No</label>
+            </div>
+            <p class="attorney-note show">Critical for MERP avoidance. "No" raises MERP-risk flag in the letter.</p>
+          </div>
+          <div class="field">
+            <label>Do all financial accounts have named beneficiaries?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_beneficiaries_on_accounts" value="Yes" id="ben-y">
+              <label for="ben-y">Yes</label>
+              <input type="radio" name="has_beneficiaries_on_accounts" value="No" id="ben-n">
+              <label for="ben-n">No</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label>Does the applicant currently have mental capacity to sign legal documents? <span class="required">*</span></label>
+            <div class="yesno-group">
+              <input type="radio" name="applicant_has_capacity" value="Yes" id="cap-y" required>
+              <label for="cap-y">Yes</label>
+              <input type="radio" name="applicant_has_capacity" value="No" id="cap-n">
+              <label for="cap-n">No</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 11: SPW Interest List ============ -->
+      <section class="section hidden" id="sec-11">
+        <div class="section-header">
+          <div class="section-num">Section 11</div>
+          <h2>SPW Interest List</h2>
+          <p class="section-help">Shown because Star Plus Plus Waiver is in your care-setting goal.</p>
+        </div>
+        <div class="field-grid one">
+          <div class="field">
+            <label>Is the applicant already on the SPW interest list?</label>
+            <div class="choice-group">
+              <input type="radio" name="spw_interest_list_status" value="Yes" id="spw-y">
+              <label for="spw-y">Yes</label>
+              <input type="radio" name="spw_interest_list_status" value="No" id="spw-n">
+              <label for="spw-n">No</label>
+              <input type="radio" name="spw_interest_list_status" value="Not sure" id="spw-u">
+              <label for="spw-u">Not sure</label>
+            </div>
+            <p class="help">If not, the letter will include SPW call-in instructions (877-438-5658).</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Footer ============ -->
+      <div class="form-footer">
+        <div class="footer-meta">All data stays on this page · Prototype only</div>
+        <div>
+          <button type="button" class="btn btn-secondary" id="loadSampleBtn">Load sample data</button>
+          <button type="submit" class="btn btn-primary">Generate JSON &amp; Calculations</button>
+        </div>
+      </div>
+
+      <div class="output-panel" id="outputPanel">
+        <h3>Form output</h3>
+        <div class="output-sub">What Claude Code would receive · schema v1.4</div>
+        <div class="calc-cards" id="calcCards"></div>
+        <h3 style="margin-top:24px">JSON payload</h3>
+        <div class="output-sub">Validated &amp; calculated fields</div>
+        <pre id="jsonOutput"></pre>
+      </div>
+
+    </form>
+  </main>
+</div>
+
+<script>
+/* ============================================================
+   Intake form prototype — schema v1.4
+   Branching logic, age calculation, calculated fields,
+   and JSON output that mirrors what Claude Code would consume.
+   ============================================================ */
+
+const PART_B_2026 = 202.90;
+const INCOME_CAP_NH_2026 = 2982;
+const MMMNA_2026 = 4066.50;
+const SPRA_MIN_2026 = 32532;
+const SPRA_MAX_2026 = 162660;
+
+function ageFromDob(dobStr) {
+  if (!dobStr) return null;
+  const dob = new Date(dobStr);
+  if (isNaN(dob.getTime())) return null;
+  const today = new Date();
+  let age = today.getFullYear() - dob.getFullYear();
+  const m = today.getMonth() - dob.getMonth();
+  if (m < 0 || (m === 0 && today.getDate() < dob.getDate())) age--;
+  return age;
+}
+
+function setShown(id, shouldShow) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  el.classList.toggle('hidden', !shouldShow);
+}
+
+function getRadioVal(name) {
+  const el = document.querySelector(`input[name="${name}"]:checked`);
+  return el ? el.value : null;
+}
+
+function getNum(name) {
+  const el = document.querySelector(`[name="${name}"]`);
+  if (!el || el.value === '') return 0;
+  const n = parseFloat(el.value);
+  return isNaN(n) ? 0 : n;
+}
+
+function getStr(name) {
+  const el = document.querySelector(`[name="${name}"]`);
+  return el ? (el.value || '').trim() : '';
+}
+
+/* -------- Branching engine -------- */
+function applyBranching() {
+  const marital = getRadioVal('marital_status');
+  const careGoal = getRadioVal('care_setting_goal');
+  const appAge = ageFromDob(document.getElementById('applicantDob').value);
+  const csAge = ageFromDob(document.getElementById('csDob').value);
+  const lifeCsv = getNum('life_insurance_csv');
+  const homeValue = getNum('home_value');
+  const homeMortgage = getRadioVal('home_has_mortgage');
+  const hasDpoa = getRadioVal('has_dpoa');
+  const nhFacIdentified = getRadioVal('nh_facility_identified');
+  const nhFacName = getStr('nh_facility_name');
+  const appOtherDesc = getStr('applicant_other_income_description');
+  const csOtherDesc = getStr('cs_other_income_description');
+  const otherCountableDesc = getStr('other_countable_asset_description');
+  const csOtherAssetDesc = getStr('cs_other_countable_asset_description');
+
+  /* Spouse sections */
+  const married = marital === 'Married';
+  setShown('sec-3', married);
+  setShown('sec-5', married);
+  setShown('sec-7', married);
+  setShown('nav-3', married);
+  setShown('nav-5', married);
+  setShown('nav-7', married);
+
+  /* Applicant age-driven */
+  setShown('field-applicant_ira_rmd_annual', appAge !== null && appAge >= 73);
+  setShown('field-ira_balance_under73', appAge !== null && appAge < 73);
+  setShown('field-ira_balance_rmd_status', appAge !== null && appAge >= 73);
+  const ageHelp = document.getElementById('applicantAgeHelp');
+  if (appAge !== null) {
+    ageHelp.textContent = `Calculated age: ${appAge}` + (appAge >= 73 ? ' · IRA RMD fields enabled below' : '');
+    ageHelp.style.display = 'block';
+  } else {
+    ageHelp.style.display = 'none';
+  }
+
+  /* CS age-driven */
+  if (married) {
+    setShown('field-cs_ira_rmd_annual', csAge !== null && csAge >= 73);
+    setShown('field-cs_ira_balance_under73', csAge !== null && csAge < 73);
+    setShown('field-cs_ira_balance_rmd_status', csAge !== null && csAge >= 73);
+    const csHelp = document.getElementById('csAgeHelp');
+    if (csAge !== null) {
+      csHelp.textContent = `Calculated age: ${csAge}`;
+      csHelp.style.display = 'block';
+    } else {
+      csHelp.style.display = 'none';
+    }
+  }
+
+  /* Other-income / other-asset description triggers */
+  setShown('field-applicant_other_income_amount', appOtherDesc.length > 0);
+  setShown('field-cs_other_income_amount', married && csOtherDesc.length > 0);
+  setShown('field-other_countable_asset_value', otherCountableDesc.length > 0);
+  setShown('field-cs_other_countable_asset_value', married && csOtherAssetDesc.length > 0);
+
+  /* CSV confirmation */
+  setShown('field-life_insurance_csv_confirmed', lifeCsv > 0);
+
+  /* Home / mortgage */
+  setShown('field-home_has_mortgage', homeValue > 0);
+  setShown('field-home_mortgage_balance', homeValue > 0 && homeMortgage === 'Yes');
+  setShown('field-has_ladybird_or_todd_deed', homeValue > 0);
+
+  /* DPOA Medicaid authority */
+  setShown('field-dpoa_medicaid_authority', hasDpoa === 'Yes');
+
+  /* NH facility chain (only if care_setting_goal includes NH or Undecided) */
+  const showNhFac = careGoal === 'Nursing home' || careGoal === 'Undecided';
+  setShown('field-nh_facility_identified', showNhFac);
+  setShown('field-nh_facility_name', showNhFac && nhFacIdentified === 'Yes');
+  setShown('field-nh_medicaid_bed_confirmed', showNhFac && nhFacName.length > 0);
+
+  /* SPW section */
+  const showSpw = careGoal === 'SPW' || careGoal === 'Undecided';
+  setShown('sec-11', showSpw);
+  setShown('nav-11', showSpw);
+
+  updateProgress();
+}
+
+/* -------- Progress (sections with at least one filled field) -------- */
+function updateProgress() {
+  const sections = Array.from(document.querySelectorAll('.section')).filter(s => !s.classList.contains('hidden'));
+  let touched = 0;
+  sections.forEach(sec => {
+    const inputs = sec.querySelectorAll('input, textarea, select');
+    let hasValue = false;
+    inputs.forEach(inp => {
+      if ((inp.type === 'radio' || inp.type === 'checkbox') && inp.checked) hasValue = true;
+      else if (inp.type !== 'radio' && inp.type !== 'checkbox' && inp.value && inp.value.trim() !== '') hasValue = true;
+    });
+    if (hasValue) {
+      touched++;
+      const navLink = document.querySelector(`.side-nav a[data-target="${sec.id}"]`);
+      if (navLink) navLink.classList.add('done');
+    } else {
+      const navLink = document.querySelector(`.side-nav a[data-target="${sec.id}"]`);
+      if (navLink) navLink.classList.remove('done');
+    }
+  });
+  const total = sections.length;
+  document.getElementById('progressText').textContent = `${touched} of ${total} sections`;
+  document.getElementById('progressFill').style.width = `${total > 0 ? (touched / total) * 100 : 0}%`;
+}
+
+/* -------- Calculated fields (mirror of schema v1.4) -------- */
+function calculate() {
+  const marital = getRadioVal('marital_status');
+  const married = marital === 'Married';
+  const appAge = ageFromDob(document.getElementById('applicantDob').value);
+  const csAge = ageFromDob(document.getElementById('csDob').value);
+
+  /* SS resolved */
+  const appSsGross = getNum('applicant_ss_gross');
+  const appSsNet = getNum('applicant_ss_net');
+  const appSsResolved = appSsGross > 0 ? appSsGross : (appSsNet > 0 ? appSsNet + PART_B_2026 : 0);
+  const appSsEstimated = appSsGross === 0 && appSsNet > 0;
+
+  /* Pension resolved */
+  const appPenGross = getNum('applicant_pension_gross');
+  const appPenNet = getNum('applicant_pension_net');
+  const appPenResolved = appPenGross > 0 ? appPenGross : appPenNet;
+  const appPenEstimated = appPenGross === 0 && appPenNet > 0;
+
+  /* IRA RMD (annual → monthly) */
+  const appRmdMonthly = (appAge !== null && appAge >= 73) ? getNum('applicant_ira_rmd_annual') / 12 : 0;
+
+  const appOtherIncomeAmount = getStr('applicant_other_income_description').length > 0 ? getNum('applicant_other_income_amount') : 0;
+
+  /* Applicant countable monthly income (toward income cap) */
+  const appCountableIncome =
+    appSsResolved +
+    appPenResolved +
+    getNum('applicant_va_pension_base') +
+    getNum('applicant_railroad_retirement') +
+    appRmdMonthly +
+    appOtherIncomeAmount;
+
+  /* CS income — resolved (used for MMMNA / combined income) */
+  let csSsResolved = 0, csPenResolved = 0, csRmdMonthly = 0, csCountableIncome = 0;
+  if (married) {
+    const csSsGross = getNum('cs_ss_gross');
+    const csSsNet = getNum('cs_ss_net');
+    csSsResolved = csSsGross > 0 ? csSsGross : (csSsNet > 0 ? csSsNet + PART_B_2026 : 0);
+
+    const csPenGross = getNum('cs_pension_gross');
+    const csPenNet = getNum('cs_pension_net');
+    csPenResolved = csPenGross > 0 ? csPenGross : csPenNet;
+
+    csRmdMonthly = (csAge !== null && csAge >= 73) ? getNum('cs_ira_rmd_annual') / 12 : 0;
+
+    const csOtherIncomeAmount = getStr('cs_other_income_description').length > 0 ? getNum('cs_other_income_amount') : 0;
+
+    csCountableIncome = csSsResolved + csPenResolved + getNum('cs_va_pension_base') + csRmdMonthly + csOtherIncomeAmount;
+  }
+
+  const combinedMonthlyIncome = appCountableIncome + csCountableIncome;
+  const qitNeeded = appCountableIncome > INCOME_CAP_NH_2026;
+  const spraExpansionAvailable = married && combinedMonthlyIncome < MMMNA_2026;
+
+  /* Countable resources */
+  const appOtherCountableValue = getStr('other_countable_asset_description').length > 0 ? getNum('other_countable_asset_value') : 0;
+  const appCountableResources =
+    getNum('checking_savings_balance') +
+    getNum('cd_balance') +
+    getNum('brokerage_investment_balance') +
+    ((appAge !== null && appAge < 73) ? getNum('ira_balance_under73') : 0) +
+    getNum('life_insurance_csv') +
+    getNum('regular_annuity_value') +
+    appOtherCountableValue;
+
+  let csCountableResources = 0;
+  if (married) {
+    const csOtherAssetValue = getStr('cs_other_countable_asset_description').length > 0 ? getNum('cs_other_countable_asset_value') : 0;
+    csCountableResources =
+      getNum('cs_checking_savings_balance') +
+      getNum('cs_brokerage_investment_balance') +
+      ((csAge !== null && csAge < 73) ? getNum('cs_ira_balance_under73') : 0) +
+      csOtherAssetValue;
+  }
+  const combinedCountableResources = appCountableResources + csCountableResources;
+
+  let spendDownAmount = 0;
+  if (married) {
+    const halfShare = combinedCountableResources / 2;
+    const spraAmount = Math.min(SPRA_MAX_2026, Math.max(SPRA_MIN_2026, halfShare));
+    spendDownAmount = Math.max(0, combinedCountableResources - 2000 - spraAmount);
+  } else {
+    spendDownAmount = Math.max(0, appCountableResources - 2000);
+  }
+
+  /* Burn rate */
+  const burnRate = getNum('monthly_living_expenses');
+  const years = getNum('estimated_life_expectancy_years');
+  const projectedPrivatePay = burnRate * years * 12;
+
+  /* MERP risk */
+  const merpRiskFlag = getRadioVal('has_ladybird_or_todd_deed') === 'No' && getRadioVal('has_beneficiaries_on_accounts') === 'No';
+
+  /* Missing estate docs */
+  const docFields = [
+    ['has_will', 'Will'],
+    ['has_trust', 'Trust'],
+    ['has_dpoa', 'Statutory DPOA'],
+    ['has_mpoa', 'Medical POA'],
+    ['has_advanced_directive', 'Advance Directive'],
+    ['has_declaration_of_guardian', 'Declaration of Guardian'],
+    ['has_hipaa_release', 'HIPAA Release']
+  ];
+  const missingDocs = docFields
+    .filter(([k]) => getRadioVal(k) === 'No')
+    .map(([, label]) => label);
+  if (getNum('home_value') > 0 && getRadioVal('has_ladybird_or_todd_deed') === 'No') {
+    missingDocs.push('Lady Bird Deed / TODD');
+  }
+
+  /* Income estimation flag */
+  const incomeEstimationFlag = appSsEstimated || appPenEstimated;
+
+  return {
+    applicant_age: appAge,
+    cs_age: married ? csAge : null,
+    applicant_ss_resolved: round2(appSsResolved),
+    applicant_pension_resolved: round2(appPenResolved),
+    cs_ss_resolved: round2(csSsResolved),
+    cs_pension_resolved: round2(csPenResolved),
+    income_estimation_flag: incomeEstimationFlag,
+    total_countable_income_applicant: round2(appCountableIncome),
+    total_countable_income_cs: round2(csCountableIncome),
+    combined_monthly_income: round2(combinedMonthlyIncome),
+    income_cap_2026: INCOME_CAP_NH_2026,
+    qit_needed: qitNeeded,
+    mmmna_test_value: married ? MMMNA_2026 : null,
+    spra_expansion_available: spraExpansionAvailable,
+    applicant_countable_resources: round2(appCountableResources),
+    cs_countable_resources: round2(csCountableResources),
+    combined_countable_resources: round2(combinedCountableResources),
+    spend_down_amount: round2(spendDownAmount),
+    burn_rate_monthly: round2(burnRate),
+    total_projected_private_pay_cost: round2(projectedPrivatePay),
+    merp_risk_flag: merpRiskFlag,
+    missing_estate_docs: missingDocs
+  };
+}
+
+function round2(n) { return Math.round(n * 100) / 100; }
+
+function formatMoney(n) {
+  if (n === null || n === undefined) return '—';
+  return '$' + n.toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+}
+
+/* -------- Build JSON payload -------- */
+function buildPayload() {
+  const form = document.getElementById('intakeForm');
+  const fd = new FormData(form);
+  const obj = {};
+  fd.forEach((v, k) => {
+    if (v === '' || v === null) return;
+    if (obj[k] !== undefined) return;
+    const numeric = ['applicant_ss_gross','applicant_ss_net','applicant_va_pension_base','applicant_va_aid_attendance','applicant_pension_gross','applicant_pension_net','applicant_railroad_retirement','applicant_ira_rmd_annual','applicant_interest_dividend_income','applicant_rental_income','applicant_other_income_amount','cs_ss_gross','cs_ss_net','cs_pension_gross','cs_pension_net','cs_va_pension_base','cs_va_aid_attendance','cs_ira_rmd_annual','cs_other_income_amount','checking_savings_balance','cd_balance','brokerage_investment_balance','ira_balance_under73','life_insurance_csv','regular_annuity_value','other_countable_asset_value','home_value','home_mortgage_balance','vehicle_value','ira_balance_rmd_status','irrevocable_funeral_contract','cs_checking_savings_balance','cs_brokerage_investment_balance','cs_ira_balance_under73','cs_ira_balance_rmd_status','cs_other_countable_asset_value','monthly_cost_of_care','monthly_living_expenses','estimated_life_expectancy_years'];
+    obj[k] = numeric.includes(k) ? Number(v) : v;
+  });
+  return obj;
+}
+
+/* -------- Render calc cards -------- */
+function renderCalcCards(calc) {
+  const cards = [
+    { label: 'Marital', value: calc.cs_age !== null ? 'Married' : 'Single' },
+    { label: 'Applicant age', value: calc.applicant_age ?? '—' },
+    { label: 'Applicant SS resolved', value: formatMoney(calc.applicant_ss_resolved) },
+    { label: 'Countable monthly income · applicant', value: formatMoney(calc.total_countable_income_applicant) },
+    { label: 'Combined monthly income', value: formatMoney(calc.combined_monthly_income) },
+    { label: 'QIT needed?', value: calc.qit_needed ? 'YES' : 'No', flag: calc.qit_needed ? 'warn' : 'no' },
+    { label: 'SPRA expansion available?', value: calc.spra_expansion_available ? 'YES' : 'No', flag: calc.spra_expansion_available ? 'yes' : 'no' },
+    { label: 'Combined countable resources', value: formatMoney(calc.combined_countable_resources) },
+    { label: 'Spend-down amount', value: formatMoney(calc.spend_down_amount) },
+    { label: 'MERP risk flag', value: calc.merp_risk_flag ? 'AT RISK' : 'OK', flag: calc.merp_risk_flag ? 'warn' : 'yes' },
+    { label: 'Missing estate docs', value: calc.missing_estate_docs.length },
+  ];
+  const html = cards.map(c => {
+    const flagCls = c.flag === 'yes' ? 'calc-flag-yes' : c.flag === 'warn' ? 'calc-flag-warn' : c.flag === 'no' ? 'calc-flag-no' : '';
+    return `<div class="calc-card"><div class="calc-label">${c.label}</div><div class="calc-value ${flagCls}">${c.value}</div></div>`;
+  }).join('');
+  document.getElementById('calcCards').innerHTML = html;
+}
+
+/* -------- Side nav active-on-scroll -------- */
+function setupNavScroll() {
+  const links = document.querySelectorAll('.side-nav a');
+  links.forEach(l => l.addEventListener('click', (e) => {
+    e.preventDefault();
+    const target = document.getElementById(l.dataset.target);
+    if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  }));
+
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(e => {
+      if (e.isIntersecting) {
+        document.querySelectorAll('.side-nav a').forEach(a => a.classList.remove('active'));
+        const link = document.querySelector(`.side-nav a[data-target="${e.target.id}"]`);
+        if (link) link.classList.add('active');
+      }
+    });
+  }, { rootMargin: '-130px 0px -55% 0px', threshold: 0 });
+
+  document.querySelectorAll('.section').forEach(s => observer.observe(s));
+}
+
+/* -------- Sample data (anonymized case from Lynnelle) -------- */
+function loadSample() {
+  const sample = {
+    client_first_name: 'Husband',
+    client_last_name: 'Sample',
+    client_mailing_address: '6115 Ridge Glade, San Antonio, TX 78250',
+    intake_date: '2026-05-20',
+    applicant_currently_in_nh: 'No',
+    marital_status: 'Married',
+    care_setting_goal: 'Nursing home',
+    applicant_dob: '1948-03-15',
+    cs_first_name: 'Wife',
+    cs_dob: '1952-07-22',
+    applicant_ss_gross: 1889,
+    applicant_va_pension_base: 0,
+    applicant_va_aid_attendance: 0,
+    applicant_pension_gross: 1092.07,
+    applicant_railroad_retirement: 0,
+    applicant_ira_rmd_annual: 3868.32,
+    applicant_interest_dividend_income: 0,
+    applicant_rental_income: 0,
+    cs_ss_gross: 1066.90,
+    cs_pension_gross: 0,
+    cs_va_pension_base: 0,
+    checking_savings_balance: 213623.10,
+    cd_balance: 0,
+    brokerage_investment_balance: 0,
+    life_insurance_csv: 0,
+    regular_annuity_value: 0,
+    home_value: 210300,
+    home_has_mortgage: 'No',
+    vehicle_value: 16350,
+    ira_balance_rmd_status: 127211,
+    irrevocable_funeral_contract: 0,
+    burial_plot: 'No',
+    cs_checking_savings_balance: 0,
+    cs_brokerage_investment_balance: 0,
+    cs_ira_balance_rmd_status: 148076,
+    gifts_notes: 'None known.',
+    monthly_cost_of_care: 6935,
+    monthly_living_expenses: 8155,
+    estimated_life_expectancy_years: 4,
+    nh_facility_identified: 'No',
+    has_will: 'Yes',
+    has_trust: 'No',
+    has_dpoa: 'Yes',
+    dpoa_medicaid_authority: 'Unknown',
+    has_mpoa: 'Yes',
+    has_advanced_directive: 'Yes',
+    has_declaration_of_guardian: 'No',
+    has_hipaa_release: 'Yes',
+    has_ladybird_or_todd_deed: 'No',
+    has_beneficiaries_on_accounts: 'No',
+    applicant_has_capacity: 'No'
+  };
+  Object.entries(sample).forEach(([k, v]) => {
+    const el = document.querySelector(`[name="${k}"]`);
+    if (!el) return;
+    if (el.type === 'radio') {
+      const radio = document.querySelector(`input[name="${k}"][value="${v}"]`);
+      if (radio) radio.checked = true;
+    } else {
+      el.value = v;
+    }
+  });
+  applyBranching();
+}
+
+/* -------- Wire up -------- */
+document.addEventListener('DOMContentLoaded', () => {
+  setupNavScroll();
+  applyBranching();
+
+  document.getElementById('intakeForm').addEventListener('input', applyBranching);
+  document.getElementById('intakeForm').addEventListener('change', applyBranching);
+
+  document.getElementById('loadSampleBtn').addEventListener('click', loadSample);
+
+  document.getElementById('intakeForm').addEventListener('submit', (e) => {
+    e.preventDefault();
+    const banner = document.getElementById('errorBanner');
+    banner.classList.remove('show');
+    banner.textContent = '';
+
+    const requiredVisible = Array.from(document.querySelectorAll('[required]')).filter(el => {
+      let cur = el;
+      while (cur) {
+        if (cur.classList && cur.classList.contains('hidden')) return false;
+        cur = cur.parentElement;
+      }
+      return true;
+    });
+    const missing = [];
+    requiredVisible.forEach(el => {
+      if (el.type === 'radio') {
+        const checked = document.querySelector(`input[name="${el.name}"]:checked`);
+        if (!checked && !missing.includes(el.name)) missing.push(el.name);
+      } else if (!el.value || el.value.trim() === '') {
+        missing.push(el.name);
+      }
+    });
+    if (missing.length > 0) {
+      banner.textContent = `Please complete: ${missing.join(', ')}`;
+      banner.classList.add('show');
+      banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const payload = buildPayload();
+    const calc = calculate();
+    const merged = { schema_version: '1.4', inputs: payload, calculated: calc };
+    document.getElementById('jsonOutput').textContent = JSON.stringify(merged, null, 2);
+    renderCalcCards(calc);
+    const panel = document.getElementById('outputPanel');
+    panel.classList.add('show');
+    panel.scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+});
+</script>
+</body>
+</html>
