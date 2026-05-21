@@ -425,6 +425,101 @@ body {
 }
 .error-banner.show { display: block; }
 
+/* ============ Repeating row tables ============ */
+.repeating-table { margin-top: 4px; }
+.repeating-table .table-rows { display: flex; flex-direction: column; gap: 10px; margin-bottom: 12px; }
+.repeating-table .table-row {
+  position: relative;
+  background: var(--cream);
+  border: 1px solid var(--cream-line);
+  border-radius: 8px;
+  padding: 14px 44px 14px 16px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 10px 14px;
+}
+.repeating-table .table-row .row-field { display: flex; flex-direction: column; gap: 4px; }
+.repeating-table .table-row .row-field label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt; color: var(--gray-meta-light);
+  letter-spacing: 0.1em; text-transform: uppercase; font-weight: 700;
+}
+.repeating-table .table-row .row-field input,
+.repeating-table .table-row .row-field select {
+  width: 100%;
+  font-family: inherit; font-size: 10pt;
+  background: #fff;
+  border: 1px solid var(--field-border);
+  border-radius: 5px;
+  padding: 7px 10px;
+  color: var(--midnight);
+}
+.repeating-table .table-row .row-field input:focus,
+.repeating-table .table-row .row-field select:focus {
+  outline: none; border-color: var(--field-focus);
+  box-shadow: 0 0 0 2px rgba(124, 58, 237, 0.15);
+}
+.repeating-table .table-row .row-field.wide { grid-column: span 2; }
+.repeating-table .btn-remove-row {
+  position: absolute; top: 8px; right: 8px;
+  width: 26px; height: 26px;
+  border: none; background: transparent;
+  color: var(--gray-meta-light);
+  font-size: 18px; cursor: pointer;
+  border-radius: 4px; line-height: 1;
+}
+.repeating-table .btn-remove-row:hover { background: rgba(197, 48, 48, 0.1); color: var(--error); }
+.repeating-table .empty-state { font-size: 9.5pt; color: var(--gray-meta-light); font-style: italic; padding: 10px 4px; }
+.btn-add-row {
+  display: inline-flex; align-items: center; gap: 6px;
+  background: var(--field-bg);
+  color: var(--purple-bold);
+  border: 1px dashed var(--purple-soft);
+  border-radius: 6px;
+  padding: 9px 16px;
+  font-family: inherit; font-size: 9.5pt; font-weight: 600;
+  letter-spacing: 0.04em; cursor: pointer;
+  transition: all 0.15s;
+}
+.btn-add-row:hover { border-color: var(--purple-vivid); background: var(--cream); color: var(--purple-vivid); }
+.table-total {
+  display: flex; justify-content: space-between; align-items: center;
+  margin-top: 8px; padding: 10px 14px;
+  background: var(--midnight); color: #fff;
+  border-radius: 6px;
+  font-family: 'Source Code Pro', monospace; font-size: 10pt; letter-spacing: 0.04em;
+}
+.table-total .total-label { color: var(--purple-soft); text-transform: uppercase; font-size: 8.5pt; letter-spacing: 0.14em; font-weight: 700; }
+.table-total .total-value { font-weight: 700; font-size: 12pt; letter-spacing: -0.01em; }
+
+/* ============ File upload ============ */
+.file-upload-group {
+  display: flex; flex-direction: column; gap: 10px;
+  padding: 14px;
+  background: var(--cream);
+  border: 1px dashed var(--field-border);
+  border-radius: 8px;
+}
+.file-upload-group .upload-label { font-size: 10pt; font-weight: 600; color: var(--midnight-deep); }
+.file-upload-group .upload-help { font-size: 9pt; color: var(--gray-meta-light); margin: 0; }
+.file-upload-group input[type="file"] { font-family: inherit; font-size: 9.5pt; }
+
+/* ============ Branch group (nested follow-ups) ============ */
+.branch-group {
+  margin-top: 14px;
+  padding: 18px;
+  background: var(--cream);
+  border-left: 3px solid var(--purple-soft);
+  border-radius: 0 8px 8px 0;
+}
+.branch-group .branch-title {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; margin: 0 0 12px 0;
+}
+.branch-group.hidden { display: none; }
+
 @media (max-width: 900px) {
   .layout { grid-template-columns: 1fr; padding: 20px 16px 40px; }
   .side-nav { position: relative; top: 0; max-height: none; }
@@ -434,6 +529,8 @@ body {
   .intro-inner .progress-block { text-align: left; }
   .section { padding: 22px 18px; }
   .field-grid, .field-grid.three { grid-template-columns: 1fr; }
+  .repeating-table .table-row { grid-template-columns: 1fr; }
+  .repeating-table .table-row .row-field.wide { grid-column: span 1; }
 }
 </style>
 </head>
@@ -449,7 +546,7 @@ body {
     </div>
     <div class="app-meta">
       <span class="prototype-pill">Prototype</span>
-      <span>Schema v1.4</span>
+      <span>Schema v2.0 (Draft)</span>
       <span>Built by Dodon.ai</span>
     </div>
   </div>
@@ -461,7 +558,7 @@ body {
       <strong>Welcome.</strong> This intake collects the financial and personal information our office needs to evaluate your Medicaid eligibility and design a strategy tailored to your circumstances. All responses are protected by attorney-client privilege. If you don't know an exact figure, an estimate is fine — just note that it's an estimate.
     </div>
     <div class="progress-block">
-      <span id="progressText">0 of 9 sections</span>
+      <span id="progressText">0 of 19 sections</span>
       <div class="progress-bar"><div class="progress-fill" id="progressFill"></div></div>
     </div>
   </div>
@@ -472,16 +569,24 @@ body {
   <nav class="side-nav" aria-label="Form sections">
     <ol>
       <li><a href="#sec-1" data-target="sec-1" class="active">Case Type</a></li>
-      <li><a href="#sec-2" data-target="sec-2">Applicant</a></li>
-      <li id="nav-3" class="hidden"><a href="#sec-3" data-target="sec-3">Community Spouse</a></li>
-      <li><a href="#sec-4" data-target="sec-4">Applicant Income</a></li>
-      <li id="nav-5" class="hidden"><a href="#sec-5" data-target="sec-5">CS Income</a></li>
-      <li><a href="#sec-6" data-target="sec-6">Applicant Resources</a></li>
-      <li id="nav-7" class="hidden"><a href="#sec-7" data-target="sec-7">CS Resources</a></li>
-      <li><a href="#sec-8" data-target="sec-8">Gifts &amp; Transfers</a></li>
-      <li><a href="#sec-9" data-target="sec-9">Expenses</a></li>
-      <li><a href="#sec-10" data-target="sec-10">Estate Documents</a></li>
-      <li id="nav-11" class="hidden"><a href="#sec-11" data-target="sec-11">SPW Interest List</a></li>
+      <li><a href="#sec-2" data-target="sec-2">Representative</a></li>
+      <li><a href="#sec-3" data-target="sec-3">Applicant</a></li>
+      <li id="nav-4" class="hidden"><a href="#sec-4" data-target="sec-4">Community Spouse</a></li>
+      <li><a href="#sec-5" data-target="sec-5">Children</a></li>
+      <li><a href="#sec-6" data-target="sec-6">Health &amp; Capacity</a></li>
+      <li><a href="#sec-7" data-target="sec-7">Care Situation</a></li>
+      <li><a href="#sec-8" data-target="sec-8">Military Service</a></li>
+      <li id="nav-9" class="hidden"><a href="#sec-9" data-target="sec-9">Home</a></li>
+      <li><a href="#sec-10" data-target="sec-10">Applicant Income</a></li>
+      <li id="nav-11" class="hidden"><a href="#sec-11" data-target="sec-11">CS Income</a></li>
+      <li><a href="#sec-12" data-target="sec-12">Applicant Resources</a></li>
+      <li id="nav-13" class="hidden"><a href="#sec-13" data-target="sec-13">CS Resources</a></li>
+      <li><a href="#sec-14" data-target="sec-14">Gifts &amp; Transfers</a></li>
+      <li><a href="#sec-15" data-target="sec-15">Expenses</a></li>
+      <li><a href="#sec-16" data-target="sec-16">Beneficiaries</a></li>
+      <li><a href="#sec-17" data-target="sec-17">Estate Documents</a></li>
+      <li><a href="#sec-18" data-target="sec-18">Goals &amp; Documents</a></li>
+      <li id="nav-19" class="hidden"><a href="#sec-19" data-target="sec-19">SPW Interest List</a></li>
     </ol>
   </nav>
 
@@ -516,12 +621,13 @@ body {
             <input type="date" name="intake_date" required>
           </div>
           <div class="field">
-            <label>Is the applicant currently residing in a nursing home? <span class="required">*</span></label>
+            <label>Does the applicant own a home? <span class="required">*</span></label>
+            <p class="help">"Yes" reveals Section 9 with MERP-relevant follow-up questions.</p>
             <div class="yesno-group">
-              <input type="radio" name="applicant_currently_in_nh" value="Yes" id="nh-y" required>
-              <label for="nh-y">Yes</label>
-              <input type="radio" name="applicant_currently_in_nh" value="No" id="nh-n">
-              <label for="nh-n">No</label>
+              <input type="radio" name="owns_home_v2" value="Yes" id="ownh-y" required>
+              <label for="ownh-y">Yes</label>
+              <input type="radio" name="owns_home_v2" value="No" id="ownh-n">
+              <label for="ownh-n">No</label>
             </div>
           </div>
           <div class="field full">
@@ -550,26 +656,152 @@ body {
         </div>
       </section>
 
-      <!-- ============ Section 2: Applicant Demographics ============ -->
+      <!-- ============ Section 2: Representative ============ -->
       <section class="section" id="sec-2">
         <div class="section-header">
           <div class="section-num">Section 02</div>
+          <h2>Representative</h2>
+          <p class="section-help">Who is filling out this form? If you are the applicant filling it out for yourself, choose "Self."</p>
+        </div>
+        <div class="field-grid">
+          <div class="field full">
+            <label>Relationship to the applicant <span class="required">*</span></label>
+            <div class="choice-group" id="repRelationshipGroup">
+              <input type="radio" name="rep_relationship" value="Self" id="rep-self" required>
+              <label for="rep-self">Self</label>
+              <input type="radio" name="rep_relationship" value="Spouse" id="rep-spouse">
+              <label for="rep-spouse">Spouse</label>
+              <input type="radio" name="rep_relationship" value="Adult Child" id="rep-child">
+              <label for="rep-child">Adult Child</label>
+              <input type="radio" name="rep_relationship" value="Sibling" id="rep-sibling">
+              <label for="rep-sibling">Sibling</label>
+              <input type="radio" name="rep_relationship" value="Friend" id="rep-friend">
+              <label for="rep-friend">Friend</label>
+              <input type="radio" name="rep_relationship" value="Other" id="rep-other">
+              <label for="rep-other">Other</label>
+            </div>
+          </div>
+          <div class="branch-group hidden" id="branch-representative-details" style="grid-column: 1 / -1;">
+            <div class="branch-title">Representative details</div>
+            <div class="field-grid">
+              <div class="field">
+                <label>Representative's first name</label>
+                <input type="text" name="rep_first_name">
+              </div>
+              <div class="field">
+                <label>Representative's last name</label>
+                <input type="text" name="rep_last_name">
+              </div>
+              <div class="field">
+                <label>Representative's date of birth</label>
+                <input type="date" name="rep_dob">
+              </div>
+              <div class="field">
+                <label>Gender</label>
+                <select name="rep_gender">
+                  <option value="">—</option>
+                  <option value="Female">Female</option>
+                  <option value="Male">Male</option>
+                  <option value="Other">Other / prefer not to say</option>
+                </select>
+              </div>
+              <div class="field">
+                <label>Phone</label>
+                <input type="text" name="rep_phone" placeholder="(210) 555-1234">
+              </div>
+              <div class="field">
+                <label>Email</label>
+                <input type="email" name="rep_email" placeholder="name@example.com">
+              </div>
+              <div class="field full">
+                <label>Mailing address</label>
+                <input type="text" name="rep_mailing_address" placeholder="Street, city, state, zip">
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 3: Applicant Demographics ============ -->
+      <section class="section" id="sec-3">
+        <div class="section-header">
+          <div class="section-num">Section 03</div>
           <h2>Applicant Demographics</h2>
           <p class="section-help">The applicant is the person applying for Medicaid (the institutionalized spouse, if married).</p>
         </div>
         <div class="field-grid">
           <div class="field">
+            <label>Applicant's preferred / nickname</label>
+            <input type="text" name="applicant_nickname">
+          </div>
+          <div class="field">
+            <label>Applicant's prior names / aliases</label>
+            <input type="text" name="applicant_prior_names" placeholder="Maiden name, etc.">
+          </div>
+          <div class="field">
             <label>Applicant's date of birth <span class="required">*</span></label>
             <input type="date" name="applicant_dob" id="applicantDob" required>
             <p class="help" id="applicantAgeHelp" style="display:none"></p>
           </div>
+          <div class="field">
+            <label>Applicant's gender</label>
+            <select name="applicant_gender">
+              <option value="">—</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Other">Other / prefer not to say</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Citizenship status</label>
+            <select name="applicant_citizenship">
+              <option value="">—</option>
+              <option value="US Citizen">US Citizen</option>
+              <option value="US Permanent Resident">US Permanent Resident</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Has applicant been married previously?</label>
+            <div class="yesno-group">
+              <input type="radio" name="applicant_prev_married" value="Yes" id="prev-y">
+              <label for="prev-y">Yes</label>
+              <input type="radio" name="applicant_prev_married" value="No" id="prev-n">
+              <label for="prev-n">No</label>
+            </div>
+          </div>
+          <div class="field hidden" id="field-applicant_date_of_marriage">
+            <label>Date of current marriage</label>
+            <input type="date" name="applicant_date_of_marriage">
+          </div>
+          <div class="field hidden" id="field-applicant_prior_marriage_end">
+            <label>How did the prior marriage end?</label>
+            <select name="applicant_prior_marriage_end">
+              <option value="">—</option>
+              <option value="Divorce">Divorce</option>
+              <option value="Death">Death of spouse</option>
+            </select>
+          </div>
+          <div class="field hidden" id="field-applicant_prior_marriage_date">
+            <label>Date the prior marriage ended</label>
+            <input type="date" name="applicant_prior_marriage_date">
+          </div>
+          <div class="field full">
+            <label>Does the applicant have children? (answer yes even if a child is deceased)</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_children" value="Yes" id="kids-y">
+              <label for="kids-y">Yes</label>
+              <input type="radio" name="has_children" value="No" id="kids-n">
+              <label for="kids-n">No</label>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- ============ Section 3: CS Demographics ============ -->
-      <section class="section hidden" id="sec-3">
+      <!-- ============ Section 4: CS Demographics ============ -->
+      <section class="section hidden" id="sec-4">
         <div class="section-header">
-          <div class="section-num">Section 03</div>
+          <div class="section-num">Section 04</div>
           <h2>Community Spouse Demographics</h2>
           <p class="section-help">The community spouse is the spouse who will continue to live at home.</p>
         </div>
@@ -579,17 +811,512 @@ body {
             <input type="text" name="cs_first_name">
           </div>
           <div class="field">
+            <label>Community spouse's last name</label>
+            <input type="text" name="cs_last_name">
+          </div>
+          <div class="field">
+            <label>CS preferred / nickname</label>
+            <input type="text" name="cs_nickname">
+          </div>
+          <div class="field">
+            <label>CS prior names / aliases</label>
+            <input type="text" name="cs_prior_names" placeholder="Maiden name, etc.">
+          </div>
+          <div class="field">
             <label>Community spouse's date of birth</label>
             <input type="date" name="cs_dob" id="csDob">
             <p class="help" id="csAgeHelp" style="display:none"></p>
           </div>
+          <div class="field">
+            <label>CS gender</label>
+            <select name="cs_gender">
+              <option value="">—</option>
+              <option value="Female">Female</option>
+              <option value="Male">Male</option>
+              <option value="Other">Other / prefer not to say</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>CS citizenship status</label>
+            <select name="cs_citizenship">
+              <option value="">—</option>
+              <option value="US Citizen">US Citizen</option>
+              <option value="US Permanent Resident">US Permanent Resident</option>
+              <option value="Other">Other</option>
+            </select>
+          </div>
+          <div class="field">
+            <label>Has CS been married previously?</label>
+            <div class="yesno-group">
+              <input type="radio" name="cs_prev_married" value="Yes" id="csprev-y">
+              <label for="csprev-y">Yes</label>
+              <input type="radio" name="cs_prev_married" value="No" id="csprev-n">
+              <label for="csprev-n">No</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label>Does CS have children from a prior marriage?</label>
+            <div class="yesno-group">
+              <input type="radio" name="cs_children_prior" value="Yes" id="cskidsprior-y">
+              <label for="cskidsprior-y">Yes</label>
+              <input type="radio" name="cs_children_prior" value="No" id="cskidsprior-n">
+              <label for="cskidsprior-n">No</label>
+            </div>
+          </div>
         </div>
       </section>
 
-      <!-- ============ Section 4: Applicant Income ============ -->
-      <section class="section" id="sec-4">
+      <!-- ============ Section 5: Children ============ -->
+      <section class="section" id="sec-5">
         <div class="section-header">
-          <div class="section-num">Section 04</div>
+          <div class="section-num">Section 05</div>
+          <h2>Children</h2>
+          <p class="section-help">Add a row for each child, including those who are deceased. Adoption dates and special-needs flags affect MERP and inheritance planning.</p>
+        </div>
+        <div class="repeating-table" data-table="children">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="children">+ Add child</button>
+        </div>
+        <div class="field-grid" style="margin-top:18px">
+          <div class="field full">
+            <label>If any child should not be relied upon for the parent's care, who and why?</label>
+            <p class="help">Free-form. Leave blank if not applicable.</p>
+            <textarea name="children_excluded_notes" rows="3" placeholder="Optional"></textarea>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 6: Health & Capacity ============ -->
+      <section class="section" id="sec-6">
+        <div class="section-header">
+          <div class="section-num">Section 06</div>
+          <h2>Health &amp; Capacity</h2>
+          <p class="section-help">Required to evaluate signature capacity for DPOA, MAPT, and the H1200 itself. Diagnoses do not affect Medicaid eligibility.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field full">
+            <label>Health-related problems (diagnoses, medications, etc.)</label>
+            <textarea name="health_problems" rows="3" placeholder="e.g., dementia, hypertension under control"></textarea>
+          </div>
+          <div class="field full">
+            <label>Memory or understanding issues — please describe</label>
+            <textarea name="capacity_memory_notes" rows="3" placeholder="Optional"></textarea>
+          </div>
+          <div class="field">
+            <label>Can the applicant sign their name?</label>
+            <div class="yesno-group">
+              <input type="radio" name="can_sign_name" value="Yes" id="sign-y">
+              <label for="sign-y">Yes</label>
+              <input type="radio" name="can_sign_name" value="No" id="sign-n">
+              <label for="sign-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Can the applicant speak / communicate?</label>
+            <div class="choice-group">
+              <input type="radio" name="can_speak" value="Yes" id="spk-y">
+              <label for="spk-y">Yes</label>
+              <input type="radio" name="can_speak" value="Limited" id="spk-l">
+              <label for="spk-l">Limited</label>
+              <input type="radio" name="can_speak" value="No" id="spk-n">
+              <label for="spk-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Can the applicant recognize friends and family?</label>
+            <div class="choice-group">
+              <input type="radio" name="can_recognize" value="Yes" id="rec-y">
+              <label for="rec-y">Yes</label>
+              <input type="radio" name="can_recognize" value="Sometimes" id="rec-s">
+              <label for="rec-s">Sometimes</label>
+              <input type="radio" name="can_recognize" value="No" id="rec-n">
+              <label for="rec-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Cognizant of property and possessions?</label>
+            <div class="yesno-group">
+              <input type="radio" name="cognizant_of_property" value="Yes" id="cog-y">
+              <label for="cog-y">Yes</label>
+              <input type="radio" name="cognizant_of_property" value="No" id="cog-n">
+              <label for="cog-n">No</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label>Able to leave current residence?</label>
+            <textarea name="can_leave_residence" rows="2" placeholder="Yes / No / with assistance. Brief explanation."></textarea>
+          </div>
+        </div>
+        <div class="subgroup-label" style="margin-top:24px">People providing care</div>
+        <p class="help" style="margin-bottom:10px">Family members, friends, or other people currently helping with custodial or other care.</p>
+        <div class="repeating-table" data-table="caregivers">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="caregivers">+ Add caregiver</button>
+        </div>
+      </section>
+
+      <!-- ============ Section 7: Care Situation ============ -->
+      <section class="section" id="sec-7">
+        <div class="section-header">
+          <div class="section-num">Section 07</div>
+          <h2>Care Situation</h2>
+          <p class="section-help">Three branches: long-term care, hospitalization, and LTC insurance. Each "Yes" opens additional questions.</p>
+        </div>
+
+        <div class="field-grid">
+          <div class="field full">
+            <label>Is the applicant currently receiving long-term care? <span class="required">*</span></label>
+            <p class="help">Includes nursing home, assisted living, home care, and similar.</p>
+            <div class="yesno-group">
+              <input type="radio" name="currently_in_ltc" value="Yes" id="ltc-y" required>
+              <label for="ltc-y">Yes</label>
+              <input type="radio" name="currently_in_ltc" value="No" id="ltc-n">
+              <label for="ltc-n">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="branch-group hidden" id="branch-ltc-details">
+          <div class="branch-title">LTC facility / provider details</div>
+          <div class="field-grid">
+            <div class="field">
+              <label>Date entered facility / care started</label>
+              <input type="date" name="ltc_entry_date">
+            </div>
+            <div class="field">
+              <label>Setting</label>
+              <select name="ltc_setting">
+                <option value="">—</option>
+                <option value="Nursing home">Nursing home</option>
+                <option value="Assisted living">Assisted living</option>
+                <option value="Home care">Home care</option>
+                <option value="Other">Other</option>
+              </select>
+            </div>
+            <div class="field full">
+              <label>Name of facility / provider</label>
+              <input type="text" name="ltc_facility_name">
+            </div>
+            <div class="field full">
+              <label>Facility address &amp; phone</label>
+              <input type="text" name="ltc_facility_address" placeholder="Street, city, state, zip · phone">
+            </div>
+            <div class="field">
+              <label>Administrator / contact name</label>
+              <input type="text" name="ltc_admin_name">
+            </div>
+            <div class="field">
+              <label>Does the facility accept Medicaid?</label>
+              <div class="yesno-group">
+                <input type="radio" name="ltc_accepts_medicaid" value="Yes" id="ltcm-y">
+                <label for="ltcm-y">Yes</label>
+                <input type="radio" name="ltc_accepts_medicaid" value="No" id="ltcm-n">
+                <label for="ltcm-n">No</label>
+                <input type="radio" name="ltc_accepts_medicaid" value="Unknown" id="ltcm-u">
+                <label for="ltcm-u">Unknown</label>
+              </div>
+            </div>
+            <div class="field money">
+              <label>Current monthly cost being paid</label>
+              <p class="help">Used as the burn-rate basis when applicant is already in care.</p>
+              <input type="number" name="ltc_monthly_cost_actual" min="0" step="0.01" placeholder="0.00">
+            </div>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-top:18px">
+          <div class="field full">
+            <label>Is the applicant currently in a hospital?</label>
+            <div class="yesno-group">
+              <input type="radio" name="currently_in_hospital" value="Yes" id="hosp-y">
+              <label for="hosp-y">Yes</label>
+              <input type="radio" name="currently_in_hospital" value="No" id="hosp-n">
+              <label for="hosp-n">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="branch-group hidden" id="branch-hospital-details">
+          <div class="branch-title">Hospital details</div>
+          <div class="field-grid">
+            <div class="field full">
+              <label>Hospital name &amp; location</label>
+              <input type="text" name="hospital_name_location">
+            </div>
+            <div class="field">
+              <label>Date admitted</label>
+              <input type="date" name="hospital_admit_date">
+            </div>
+            <div class="field">
+              <label>Expected duration of stay</label>
+              <input type="text" name="hospital_duration" placeholder="e.g., 5 more days">
+            </div>
+            <div class="field full">
+              <label>Brief description of the medical issue</label>
+              <textarea name="hospital_issue" rows="2" placeholder="Optional"></textarea>
+            </div>
+            <div class="field">
+              <label>Is LTC placement expected after discharge?</label>
+              <div class="yesno-group">
+                <input type="radio" name="hospital_ltc_expected" value="Yes" id="hltc-y">
+                <label for="hltc-y">Yes</label>
+                <input type="radio" name="hospital_ltc_expected" value="No" id="hltc-n">
+                <label for="hltc-n">No</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>Likely to return home?</label>
+              <div class="yesno-group">
+                <input type="radio" name="hospital_return_home" value="Yes" id="hrh-y">
+                <label for="hrh-y">Yes</label>
+                <input type="radio" name="hospital_return_home" value="No" id="hrh-n">
+                <label for="hrh-n">No</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-top:18px">
+          <div class="field full">
+            <label>Does the applicant have long-term care insurance?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_ltc_insurance" value="Yes" id="ltci-y">
+              <label for="ltci-y">Yes</label>
+              <input type="radio" name="has_ltc_insurance" value="No" id="ltci-n">
+              <label for="ltci-n">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="branch-group hidden" id="branch-ltci-details">
+          <div class="branch-title">LTC insurance details</div>
+          <div class="field-grid">
+            <div class="field">
+              <label>Have the Policy Schedule / Benefit Summary on hand?</label>
+              <div class="yesno-group">
+                <input type="radio" name="ltci_has_policy" value="Yes" id="ltcp-y">
+                <label for="ltcp-y">Yes</label>
+                <input type="radio" name="ltci_has_policy" value="No" id="ltcp-n">
+                <label for="ltcp-n">No</label>
+              </div>
+              <p class="help">Upload in Section 18 if Yes.</p>
+            </div>
+            <div class="field">
+              <label>Are all required premiums paid up?</label>
+              <div class="yesno-group">
+                <input type="radio" name="ltci_premiums_paid" value="Yes" id="ltcprem-y">
+                <label for="ltcprem-y">Yes</label>
+                <input type="radio" name="ltci_premiums_paid" value="No" id="ltcprem-n">
+                <label for="ltcprem-n">No</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>Has a claim been made on this policy?</label>
+              <div class="yesno-group">
+                <input type="radio" name="ltci_claim_made" value="Yes" id="ltccl-y">
+                <label for="ltccl-y">Yes</label>
+                <input type="radio" name="ltci_claim_made" value="No" id="ltccl-n">
+                <label for="ltccl-n">No</label>
+              </div>
+            </div>
+            <div class="field money">
+              <label>Monthly premium</label>
+              <p class="help">Make sure this is listed in Section 15 Expenses too.</p>
+              <input type="number" name="ltci_monthly_premium" min="0" step="0.01" placeholder="0.00">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 8: Military Service ============ -->
+      <section class="section" id="sec-8">
+        <div class="section-header">
+          <div class="section-num">Section 08</div>
+          <h2>Military Service</h2>
+          <p class="section-help">VA pension and Aid &amp; Attendance interact with Medicaid eligibility. If the applicant is a veteran, the spouse's veteran status also matters.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field full">
+            <label>Is the applicant a veteran?</label>
+            <div class="yesno-group">
+              <input type="radio" name="is_veteran" value="Yes" id="vet-y">
+              <label for="vet-y">Yes</label>
+              <input type="radio" name="is_veteran" value="No" id="vet-n">
+              <label for="vet-n">No</label>
+            </div>
+          </div>
+        </div>
+
+        <div class="branch-group hidden" id="branch-veteran-details">
+          <div class="branch-title">VA benefits status</div>
+          <div class="field-grid">
+            <div class="field">
+              <label>Receiving VA pension, Housebound, or Aid &amp; Attendance now?</label>
+              <div class="yesno-group">
+                <input type="radio" name="va_receiving_benefits" value="Yes" id="varec-y">
+                <label for="varec-y">Yes</label>
+                <input type="radio" name="va_receiving_benefits" value="No" id="varec-n">
+                <label for="varec-n">No</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>If not receiving, is the applicant eligible?</label>
+              <div class="choice-group">
+                <input type="radio" name="va_eligibility_known" value="Yes" id="vael-y">
+                <label for="vael-y">Yes</label>
+                <input type="radio" name="va_eligibility_known" value="No" id="vael-n">
+                <label for="vael-n">No</label>
+                <input type="radio" name="va_eligibility_known" value="Unknown" id="vael-u">
+                <label for="vael-u">Unknown</label>
+              </div>
+            </div>
+            <div class="field full">
+              <label>If eligibility unknown — served 90+ days during a "wartime period" (Gulf War, Vietnam, Korea, WWII)?</label>
+              <div class="yesno-group">
+                <input type="radio" name="va_wartime_service" value="Yes" id="vaw-y">
+                <label for="vaw-y">Yes</label>
+                <input type="radio" name="va_wartime_service" value="No" id="vaw-n">
+                <label for="vaw-n">No</label>
+                <input type="radio" name="va_wartime_service" value="Unknown" id="vaw-u">
+                <label for="vaw-u">Unknown</label>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="field-grid" style="margin-top:18px">
+          <div class="field full hidden" id="field-cs_is_veteran">
+            <label>Is the community spouse a veteran?</label>
+            <div class="yesno-group">
+              <input type="radio" name="cs_is_veteran" value="Yes" id="csvet-y">
+              <label for="csvet-y">Yes</label>
+              <input type="radio" name="cs_is_veteran" value="No" id="csvet-n">
+              <label for="csvet-n">No</label>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 9: Home ============ -->
+      <section class="section hidden" id="sec-9">
+        <div class="section-header">
+          <div class="section-num">Section 09</div>
+          <h2>Home</h2>
+          <p class="section-help">Shown because the applicant owns a home. These questions determine MERP risk and which protection tools (Lady Bird deed, TODD, transfer to caretaker child, sibling transfer) may apply.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field money">
+            <label>Estimated fair market value of primary home <span class="required">*</span></label>
+            <input type="number" name="home_value" id="homeValue" min="0" step="0.01" placeholder="0.00" required>
+          </div>
+          <div class="field">
+            <label>Is there a mortgage on the home?</label>
+            <div class="yesno-group">
+              <input type="radio" name="home_has_mortgage" value="Yes" id="mort-y">
+              <label for="mort-y">Yes</label>
+              <input type="radio" name="home_has_mortgage" value="No" id="mort-n">
+              <label for="mort-n">No</label>
+            </div>
+          </div>
+          <div class="field money hidden" id="field-home_mortgage_balance">
+            <label>Remaining mortgage balance</label>
+            <input type="number" name="home_mortgage_balance" min="0" step="0.01" placeholder="0.00">
+          </div>
+          <div class="field hidden" id="field-home_reverse_mortgage">
+            <label>Is the mortgage a reverse mortgage?</label>
+            <div class="yesno-group">
+              <input type="radio" name="home_reverse_mortgage" value="Yes" id="rmort-y">
+              <label for="rmort-y">Yes</label>
+              <input type="radio" name="home_reverse_mortgage" value="No" id="rmort-n">
+              <label for="rmort-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Single-family residence?</label>
+            <div class="yesno-group">
+              <input type="radio" name="home_single_family" value="Yes" id="sfr-y">
+              <label for="sfr-y">Yes</label>
+              <input type="radio" name="home_single_family" value="No" id="sfr-n">
+              <label for="sfr-n">No</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label>How is the title held?</label>
+            <input type="text" name="home_title_held" placeholder="e.g., joint with spouse, sole, in trust">
+          </div>
+          <div class="field">
+            <label>Lady Bird Deed or Transfer-on-Death Deed in place?</label>
+            <div class="yesno-group">
+              <input type="radio" name="has_ladybird_or_todd_deed" value="Yes" id="lbd-y">
+              <label for="lbd-y">Yes</label>
+              <input type="radio" name="has_ladybird_or_todd_deed" value="No" id="lbd-n">
+              <label for="lbd-n">No</label>
+            </div>
+            <p class="attorney-note show">Critical for MERP avoidance. "No" raises MERP-risk flag in the letter.</p>
+          </div>
+          <div class="field">
+            <label>Have the owners used the capital gains tax exclusion?</label>
+            <div class="yesno-group">
+              <input type="radio" name="home_cap_gains_used" value="Yes" id="cg-y">
+              <label for="cg-y">Yes</label>
+              <input type="radio" name="home_cap_gains_used" value="No" id="cg-n">
+              <label for="cg-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Adult unmarried child living in the residence?</label>
+            <p class="help">MERP releases its claim if resided &gt; 1 year.</p>
+            <div class="yesno-group">
+              <input type="radio" name="home_adult_child_resident" value="Yes" id="acr-y">
+              <label for="acr-y">Yes</label>
+              <input type="radio" name="home_adult_child_resident" value="No" id="acr-n">
+              <label for="acr-n">No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label>Blind or disabled child living in the home?</label>
+            <div class="yesno-group">
+              <input type="radio" name="home_disabled_child_resident" value="Yes" id="dcr-y">
+              <label for="dcr-y">Yes</label>
+              <input type="radio" name="home_disabled_child_resident" value="No" id="dcr-n">
+              <label for="dcr-n">No</label>
+            </div>
+          </div>
+          <div class="field full">
+            <label>Caretaker child who delayed nursing-home placement &gt; 2 years &amp; lived in the home?</label>
+            <p class="help">42 U.S.C. § 1396p(c)(2)(A)(iv) — home may be transferred to caretaker child.</p>
+            <div class="yesno-group">
+              <input type="radio" name="home_caretaker_child" value="Yes" id="ctc-y">
+              <label for="ctc-y">Yes</label>
+              <input type="radio" name="home_caretaker_child" value="No" id="ctc-n">
+              <label for="ctc-n">No</label>
+            </div>
+          </div>
+          <div class="field hidden" id="field-home_caretaker_move_date">
+            <label>When did the caretaker child move in?</label>
+            <input type="date" name="home_caretaker_move_date">
+          </div>
+          <div class="field">
+            <label>Sibling with ownership interest also living in the home?</label>
+            <p class="help">Penalty-free transfer if resided &gt; 1 year prior to NH (federal law).</p>
+            <div class="yesno-group">
+              <input type="radio" name="home_sibling_coowner" value="Yes" id="sib-y">
+              <label for="sib-y">Yes</label>
+              <input type="radio" name="home_sibling_coowner" value="No" id="sib-n">
+              <label for="sib-n">No</label>
+            </div>
+          </div>
+          <div class="field hidden" id="field-home_sibling_move_date">
+            <label>When did the sibling move into the home?</label>
+            <input type="date" name="home_sibling_move_date">
+          </div>
+        </div>
+      </section>
+
+      <!-- ============ Section 10: Applicant Income ============ -->
+      <section class="section" id="sec-10">
+        <div class="section-header">
+          <div class="section-num">Section 10</div>
           <h2>Applicant Income</h2>
           <p class="section-help">All amounts monthly unless noted. Gross figures are preferred; if you only have the net deposit amount, enter that — we'll adjust for the 2026 Medicare Part B premium ($202.90).</p>
         </div>
@@ -675,9 +1402,9 @@ body {
       </section>
 
       <!-- ============ Section 5: CS Income ============ -->
-      <section class="section hidden" id="sec-5">
+      <section class="section hidden" id="sec-11">
         <div class="section-header">
-          <div class="section-num">Section 05</div>
+          <div class="section-num">Section 11</div>
           <h2>Community Spouse Income</h2>
           <p class="section-help">Used for the MMMNA test and SPRA expansion analysis.</p>
         </div>
@@ -739,93 +1466,108 @@ body {
       </section>
 
       <!-- ============ Section 6: Applicant Resources ============ -->
-      <section class="section" id="sec-6">
+      <section class="section" id="sec-12">
         <div class="section-header">
-          <div class="section-num">Section 06</div>
+          <div class="section-num">Section 12</div>
           <h2>Applicant Resources (Assets)</h2>
-          <p class="section-help">Current fair-market value or account balance. We split countable from exempt — both matter.</p>
+          <p class="section-help">Itemized per-account, since the H1200 application requires per-account name, type, account number, owner, and balance. Three-month balance series is optional — fill in only if you are applying for Medicaid now.</p>
         </div>
 
-        <div class="subgroup-label">Countable Resources</div>
-        <div class="field-grid">
-          <div class="field money with-help">
-            <label>Checking &amp; savings — total balance</label>
-            <p class="help">All accounts in applicant's name or jointly held.</p>
-            <input type="number" name="checking_savings_balance" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field money with-help">
-            <label>Certificates of Deposit — total</label>
-            <input type="number" name="cd_balance" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field money with-help">
-            <label>Brokerage / investment accounts (non-IRA)</label>
-            <input type="number" name="brokerage_investment_balance" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field money with-help hidden" id="field-ira_balance_under73">
-            <label>IRA accounts (applicant under age 73)</label>
-            <p class="help">Countable while not in RMD status.</p>
-            <input type="number" name="ira_balance_under73" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field money with-help">
-            <label>Cash surrender value of life insurance</label>
-            <p class="help">Total CSV across all policies.</p>
-            <input type="number" name="life_insurance_csv" id="lifeCsv" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field hidden" id="field-life_insurance_csv_confirmed">
-            <label>Has CSV been confirmed in writing by the insurer?</label>
-            <div class="yesno-group">
-              <input type="radio" name="life_insurance_csv_confirmed" value="Yes" id="csv-y">
-              <label for="csv-y">Yes</label>
-              <input type="radio" name="life_insurance_csv_confirmed" value="No" id="csv-n">
-              <label for="csv-n">No</label>
-            </div>
-            <p class="attorney-note show">If not confirmed, attorney needs to request written confirmation from each insurer before the worksheet is final.</p>
-          </div>
-          <div class="field money with-help">
-            <label>Regular (non-compliant) annuities</label>
-            <input type="number" name="regular_annuity_value" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field full">
-            <label>Other countable asset — description</label>
-            <input type="text" name="other_countable_asset_description" id="otherCountableDesc" placeholder="Optional">
-          </div>
-          <div class="field money with-help hidden" id="field-other_countable_asset_value">
-            <label>Value of other countable asset</label>
-            <input type="number" name="other_countable_asset_value" min="0" step="0.01" placeholder="0.00">
-          </div>
+        <div class="subgroup-label">Bank Accounts</div>
+        <p class="help" style="margin-bottom:10px">Checking, savings, money market, CDs. Include all accounts in applicant's name or jointly held.</p>
+        <div class="repeating-table" data-table="bank_accounts">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="bank_accounts">+ Add bank account</button>
+        </div>
+        <div class="table-total"><span class="total-label">Bank accounts subtotal</span><span class="total-value" data-total="bank_accounts.balance">$0.00</span></div>
+
+        <div class="subgroup-label">Brokerage &amp; Non-IRA Investments</div>
+        <div class="repeating-table" data-table="brokerage_accounts">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="brokerage_accounts">+ Add brokerage account</button>
+        </div>
+        <div class="table-total"><span class="total-label">Brokerage subtotal</span><span class="total-value" data-total="brokerage_accounts.balance">$0.00</span></div>
+
+        <div class="subgroup-label">Retirement Accounts (IRA / 401(k) / etc.)</div>
+        <p class="help" style="margin-bottom:10px">Countable if applicant is under 73; exempt as a resource (RMD is countable income) if 73+. Either way, list each account.</p>
+        <div class="repeating-table" data-table="retirement_accounts">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="retirement_accounts">+ Add retirement account</button>
+        </div>
+        <div class="table-total"><span class="total-label">Retirement subtotal</span><span class="total-value" data-total="retirement_accounts.balance">$0.00</span></div>
+
+        <div class="subgroup-label">Life Insurance Policies</div>
+        <p class="help" style="margin-bottom:10px">Cash surrender value is countable; term policies with no CSV are not. List every policy.</p>
+        <div class="repeating-table" data-table="life_insurance_policies">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="life_insurance_policies">+ Add policy</button>
+        </div>
+        <div class="table-total"><span class="total-label">Total cash surrender value</span><span class="total-value" data-total="life_insurance_policies.csv">$0.00</span></div>
+
+        <div class="subgroup-label">Annuities</div>
+        <div class="repeating-table" data-table="annuities">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="annuities">+ Add annuity</button>
+        </div>
+        <div class="table-total"><span class="total-label">Annuities subtotal</span><span class="total-value" data-total="annuities.value">$0.00</span></div>
+
+        <div class="subgroup-label">Real Estate (other than primary residence)</div>
+        <p class="help" style="margin-bottom:10px">Rentals, second homes, undeveloped land. The primary residence is captured in Section 09.</p>
+        <div class="repeating-table" data-table="real_estate">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="real_estate">+ Add property</button>
         </div>
 
-        <div class="subgroup-label">Exempt Resources</div>
+        <div class="subgroup-label">Vehicles</div>
+        <p class="help" style="margin-bottom:10px">One vehicle is exempt; additional vehicles are countable at fair-market value minus debt.</p>
+        <div class="repeating-table" data-table="vehicles">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="vehicles">+ Add vehicle</button>
+        </div>
+
+        <div class="subgroup-label">Business Interests</div>
+        <div class="repeating-table" data-table="business_interests">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="business_interests">+ Add business interest</button>
+        </div>
+
+        <div class="subgroup-label">Anticipated Inheritance / Gift / Judgment</div>
+        <div class="repeating-table" data-table="anticipated_inheritance">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="anticipated_inheritance">+ Add anticipated receipt</button>
+        </div>
+
+        <div class="subgroup-label">Money Owed to Applicant</div>
+        <p class="help" style="margin-bottom:10px">Notes receivable, personal loans, etc.</p>
+        <div class="repeating-table" data-table="money_owed_to_applicant">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="money_owed_to_applicant">+ Add receivable</button>
+        </div>
+
+        <div class="subgroup-label">Cryptocurrency</div>
+        <div class="repeating-table" data-table="cryptocurrency">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="cryptocurrency">+ Add crypto holding</button>
+        </div>
+
+        <div class="subgroup-label">Liabilities (Money Applicant Owes)</div>
+        <div class="repeating-table" data-table="liabilities">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="liabilities">+ Add liability</button>
+        </div>
+
+        <div class="subgroup-label">Other Countable Assets (catch-all)</div>
+        <p class="help" style="margin-bottom:10px">Anything that doesn't fit a category above — jewelry, art, collections, guns, etc.</p>
+        <div class="repeating-table" data-table="other_assets">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="other_assets">+ Add other asset</button>
+        </div>
+
+        <div class="subgroup-label">Exempt Resources (flat)</div>
         <div class="field-grid">
-          <div class="field money with-help">
-            <label>Estimated fair market value of primary home</label>
-            <input type="number" name="home_value" id="homeValue" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field hidden" id="field-home_has_mortgage">
-            <label>Is there a mortgage on the home?</label>
-            <div class="yesno-group">
-              <input type="radio" name="home_has_mortgage" value="Yes" id="mort-y">
-              <label for="mort-y">Yes</label>
-              <input type="radio" name="home_has_mortgage" value="No" id="mort-n">
-              <label for="mort-n">No</label>
-            </div>
-          </div>
-          <div class="field money with-help hidden" id="field-home_mortgage_balance">
-            <label>Remaining mortgage balance</label>
-            <input type="number" name="home_mortgage_balance" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field money with-help">
-            <label>Value of one vehicle</label>
-            <p class="help">One vehicle is exempt.</p>
-            <input type="number" name="vehicle_value" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field money with-help hidden" id="field-ira_balance_rmd_status">
-            <label>IRA accounts (applicant age 73+, in RMD status)</label>
-            <p class="help">IRA is exempt; the RMD is countable income (entered above).</p>
-            <input type="number" name="ira_balance_rmd_status" min="0" step="0.01" placeholder="0.00">
-          </div>
           <div class="field money with-help">
             <label>Irrevocable prepaid funeral contract</label>
+            <p class="help">One per spouse is exempt.</p>
             <input type="number" name="irrevocable_funeral_contract" min="0" step="0.01" placeholder="0.00">
           </div>
           <div class="field">
@@ -841,73 +1583,101 @@ body {
       </section>
 
       <!-- ============ Section 7: CS Resources ============ -->
-      <section class="section hidden" id="sec-7">
+      <section class="section hidden" id="sec-13">
         <div class="section-header">
-          <div class="section-num">Section 07</div>
+          <div class="section-num">Section 13</div>
           <h2>Community Spouse Resources</h2>
-          <p class="section-help">CS-only resources, for SPRA calculation. (Jointly held assets go in Section 6.)</p>
+          <p class="section-help">CS-only resources, for SPRA calculation. Jointly held assets stay in Section 12.</p>
         </div>
-        <div class="field-grid">
+
+        <div class="subgroup-label">CS Bank Accounts</div>
+        <div class="repeating-table" data-table="cs_bank_accounts">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="cs_bank_accounts">+ Add CS bank account</button>
+        </div>
+        <div class="table-total"><span class="total-label">CS bank subtotal</span><span class="total-value" data-total="cs_bank_accounts.balance">$0.00</span></div>
+
+        <div class="subgroup-label">CS Brokerage &amp; Non-IRA Investments</div>
+        <div class="repeating-table" data-table="cs_brokerage_accounts">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="cs_brokerage_accounts">+ Add CS brokerage account</button>
+        </div>
+        <div class="table-total"><span class="total-label">CS brokerage subtotal</span><span class="total-value" data-total="cs_brokerage_accounts.balance">$0.00</span></div>
+
+        <div class="subgroup-label">CS Retirement Accounts</div>
+        <div class="repeating-table" data-table="cs_retirement_accounts">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="cs_retirement_accounts">+ Add CS retirement account</button>
+        </div>
+        <div class="table-total"><span class="total-label">CS retirement subtotal</span><span class="total-value" data-total="cs_retirement_accounts.balance">$0.00</span></div>
+
+        <div class="subgroup-label">CS Other Assets</div>
+        <p class="help" style="margin-bottom:10px">CS-only annuities, business interests, etc.</p>
+        <div class="repeating-table" data-table="cs_other_assets">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="cs_other_assets">+ Add CS other asset</button>
+        </div>
+
+        <div class="field-grid" style="margin-top:18px">
           <div class="field money with-help">
-            <label>CS separate checking &amp; savings</label>
-            <input type="number" name="cs_checking_savings_balance" min="0" step="0.01" placeholder="0.00">
+            <label>CS irrevocable prepaid funeral contract</label>
+            <input type="number" name="cs_irrevocable_funeral_contract" min="0" step="0.01" placeholder="0.00">
           </div>
-          <div class="field money with-help">
-            <label>CS brokerage / investment accounts (non-IRA)</label>
-            <input type="number" name="cs_brokerage_investment_balance" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field money with-help hidden" id="field-cs_ira_balance_under73">
-            <label>CS IRA accounts (CS under 73)</label>
-            <input type="number" name="cs_ira_balance_under73" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field money with-help hidden" id="field-cs_ira_balance_rmd_status">
-            <label>CS IRA accounts (CS age 73+)</label>
-            <input type="number" name="cs_ira_balance_rmd_status" min="0" step="0.01" placeholder="0.00">
-          </div>
-          <div class="field full">
-            <label>Other CS countable asset — description</label>
-            <input type="text" name="cs_other_countable_asset_description" id="csOtherAssetDesc" placeholder="Optional">
-          </div>
-          <div class="field money with-help hidden" id="field-cs_other_countable_asset_value">
-            <label>Value of CS other countable asset</label>
-            <input type="number" name="cs_other_countable_asset_value" min="0" step="0.01" placeholder="0.00">
+          <div class="field">
+            <label>Does the CS own a burial plot?</label>
+            <div class="yesno-group">
+              <input type="radio" name="cs_burial_plot" value="Yes" id="csbp-y">
+              <label for="csbp-y">Yes</label>
+              <input type="radio" name="cs_burial_plot" value="No" id="csbp-n">
+              <label for="csbp-n">No</label>
+            </div>
           </div>
         </div>
       </section>
 
       <!-- ============ Section 8: Gifts ============ -->
-      <section class="section" id="sec-8">
+      <section class="section" id="sec-14">
         <div class="section-header">
-          <div class="section-num">Section 08</div>
+          <div class="section-num">Section 14</div>
           <h2>Gifts &amp; Transfers — 5-Year Lookback</h2>
-          <p class="section-help">Free-form notes are fine. Your attorney reviews this at the meeting.</p>
+          <p class="section-help">Every transfer of value (cash, property, or below-market sale) in the past 60 months. Each one is reviewed for the Medicaid penalty calculation. Leave blank if none.</p>
         </div>
-        <div class="field-grid one">
-          <div class="field">
-            <label>Describe any gifts, transfers, or sales below fair market value in the past 5 years</label>
-            <p class="help">Approximate dates, amounts, and recipients. Leave blank if none.</p>
-            <textarea name="gifts_notes" rows="5" placeholder="Optional"></textarea>
+
+        <div class="subgroup-label">Itemized Gifts &amp; Transfers</div>
+        <div class="repeating-table" data-table="gifts">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="gifts">+ Add gift / transfer</button>
+        </div>
+
+        <div class="subgroup-label">Transfers To or From Trusts</div>
+        <div class="repeating-table" data-table="trust_transfers">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="trust_transfers">+ Add trust transfer</button>
+        </div>
+
+        <div class="field-grid" style="margin-top:18px">
+          <div class="field full">
+            <label>Additional notes about gifts or transfers</label>
+            <p class="help">Optional context. Especially helpful if you filed gift tax returns or have backup documentation.</p>
+            <textarea name="gifts_notes" rows="3" placeholder="Optional"></textarea>
           </div>
         </div>
       </section>
 
       <!-- ============ Section 9: Expenses / Burn Rate ============ -->
-      <section class="section" id="sec-9">
+      <section class="section" id="sec-15">
         <div class="section-header">
-          <div class="section-num">Section 09</div>
+          <div class="section-num">Section 15</div>
           <h2>Monthly Expenses &amp; Burn Rate</h2>
-          <p class="section-help">Used for the private-pay vs. Medicaid cost analysis in the strategy letter.</p>
+          <p class="section-help">Itemized monthly expenses by category. Used for the private-pay vs. Medicaid cost analysis in the strategy letter.</p>
         </div>
+
+        <div class="subgroup-label">Cost of Care</div>
         <div class="field-grid">
           <div class="field money with-help">
-            <label>Monthly cost of care (private pay rate) <span class="required">*</span></label>
-            <p class="help">Current rate or quoted rate at chosen facility.</p>
+            <label>Monthly cost of care — actual or quoted <span class="required">*</span></label>
+            <p class="help" id="costOfCareHelp">If the applicant is already receiving care, this is the actual amount being paid. Otherwise we default to the San Antonio nursing-home average ($6,935 private).</p>
             <input type="number" name="monthly_cost_of_care" min="0" step="0.01" required placeholder="0.00">
-          </div>
-          <div class="field money with-help">
-            <label>Total monthly living expenses</label>
-            <p class="help">Including the cost of care above.</p>
-            <input type="number" name="monthly_living_expenses" min="0" step="0.01" placeholder="0.00">
           </div>
           <div class="field">
             <label>Estimated years care will be needed</label>
@@ -938,12 +1708,57 @@ body {
             <p class="attorney-note show">If not confirmed, this becomes an action item in the strategy letter.</p>
           </div>
         </div>
+
+        <div class="subgroup-label">Housing Expenses</div>
+        <p class="help" style="margin-bottom:10px">Mortgage, rent, taxes, utilities, HOA, maintenance, etc.</p>
+        <div class="repeating-table" data-table="housing_expenses">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="housing_expenses">+ Add housing expense</button>
+        </div>
+        <div class="table-total"><span class="total-label">Housing subtotal / mo</span><span class="total-value" data-total="housing_expenses.amount">$0.00</span></div>
+
+        <div class="subgroup-label">Living Expenses</div>
+        <p class="help" style="margin-bottom:10px">Groceries, transportation, phone, subscriptions, entertainment, gifts, etc.</p>
+        <div class="repeating-table" data-table="living_expenses">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="living_expenses">+ Add living expense</button>
+        </div>
+        <div class="table-total"><span class="total-label">Living subtotal / mo</span><span class="total-value" data-total="living_expenses.amount">$0.00</span></div>
+
+        <div class="subgroup-label">Insurance Expenses</div>
+        <p class="help" style="margin-bottom:10px">Health, disability, life, long-term-care insurance premiums.</p>
+        <div class="repeating-table" data-table="insurance_expenses">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="insurance_expenses">+ Add insurance expense</button>
+        </div>
+        <div class="table-total"><span class="total-label">Insurance subtotal / mo</span><span class="total-value" data-total="insurance_expenses.amount">$0.00</span></div>
+
+        <div class="subgroup-label">Medical Expenses</div>
+        <p class="help" style="margin-bottom:10px">Prescriptions, out-of-pocket medical, durable medical equipment.</p>
+        <div class="repeating-table" data-table="medical_expenses">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="medical_expenses">+ Add medical expense</button>
+        </div>
+        <div class="table-total"><span class="total-label">Medical subtotal / mo</span><span class="total-value" data-total="medical_expenses.amount">$0.00</span></div>
       </section>
 
-      <!-- ============ Section 10: Estate Documents ============ -->
-      <section class="section" id="sec-10">
+      <!-- ============ Section 16: Beneficiaries ============ -->
+      <section class="section" id="sec-16">
         <div class="section-header">
-          <div class="section-num">Section 10</div>
+          <div class="section-num">Section 16</div>
+          <h2>Beneficiaries</h2>
+          <p class="section-help">People who should be named as beneficiaries on accounts and policies, or who have a relevant role in the estate plan. Children are already captured in Section 5.</p>
+        </div>
+        <div class="repeating-table" data-table="beneficiaries">
+          <div class="table-rows"></div>
+          <button type="button" class="btn-add-row" data-table="beneficiaries">+ Add beneficiary</button>
+        </div>
+      </section>
+
+      <!-- ============ Section 17: Estate Documents ============ -->
+      <section class="section" id="sec-17">
+        <div class="section-header">
+          <div class="section-num">Section 17</div>
           <h2>Existing Estate Planning Documents</h2>
           <p class="section-help">"No" answers feed the recommendations section of the letter.</p>
         </div>
@@ -1054,10 +1869,53 @@ body {
         </div>
       </section>
 
-      <!-- ============ Section 11: SPW Interest List ============ -->
-      <section class="section hidden" id="sec-11">
+      <!-- ============ Section 18: Goals & Documents ============ -->
+      <section class="section" id="sec-18">
         <div class="section-header">
-          <div class="section-num">Section 11</div>
+          <div class="section-num">Section 18</div>
+          <h2>Goals &amp; Documents</h2>
+          <p class="section-help">What do you hope to accomplish with this planning? And upload any relevant documents you have on hand.</p>
+        </div>
+        <div class="field-grid">
+          <div class="field full">
+            <label>What are your goals?</label>
+            <p class="help">e.g., protect assets for spouse, qualify for Medicaid by a target date, keep the home, leave inheritance to children, fund care without depleting savings.</p>
+            <textarea name="client_goals" rows="4" placeholder="Optional but helpful — this shapes the recommendations section of the letter."></textarea>
+          </div>
+        </div>
+
+        <div class="subgroup-label">Document Uploads</div>
+        <p class="help" style="margin-bottom:10px">Optional but speeds the review. Existing estate planning documents, LTC insurance policy, recent bank statements, etc.</p>
+
+        <div class="file-upload-group">
+          <div class="upload-label">Prior estate planning documents (Will, Trust, DPOA, MPOA, HIPAA, Advance Directive, Declaration of Guardian, deeds)</div>
+          <p class="upload-help">PDF, DOCX, or image. Multiple files OK.</p>
+          <input type="file" name="upload_estate_docs" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+        </div>
+
+        <div class="file-upload-group" style="margin-top:10px">
+          <div class="upload-label">Long-term care insurance policy (Schedule, Benefit Summary, Outline of Coverage)</div>
+          <p class="upload-help">Upload if you indicated LTC insurance in Section 7.</p>
+          <input type="file" name="upload_ltci_policy" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+        </div>
+
+        <div class="file-upload-group" style="margin-top:10px">
+          <div class="upload-label">Bank statements (last 3 months per account)</div>
+          <p class="upload-help">Required if filing the H1200 Medicaid application now. Skip if this is strategy-only.</p>
+          <input type="file" name="upload_bank_statements" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+        </div>
+
+        <div class="file-upload-group" style="margin-top:10px">
+          <div class="upload-label">Other relevant documents</div>
+          <p class="upload-help">Deeds, prior gift tax returns, military discharge papers (DD-214), prior Medicaid denials, etc.</p>
+          <input type="file" name="upload_other" multiple accept=".pdf,.doc,.docx,.png,.jpg,.jpeg">
+        </div>
+      </section>
+
+      <!-- ============ Section 19: SPW Interest List ============ -->
+      <section class="section hidden" id="sec-19">
+        <div class="section-header">
+          <div class="section-num">Section 19</div>
           <h2>SPW Interest List</h2>
           <p class="section-help">Shown because Star Plus Plus Waiver is in your care-setting goal.</p>
         </div>
@@ -1146,71 +2004,440 @@ function getStr(name) {
   return el ? (el.value || '').trim() : '';
 }
 
+/* -------- Repeating-row tables --------
+   Each schema below defines the columns for a section's add-a-row table.
+   Field types: text, date, money, select (with options).
+   Mark a field wide:true to make it span two grid columns. */
+const OWNER_OPTS = ['Applicant', 'CS', 'Joint'];
+const tableSchemas = {
+  children: {
+    addLabel: 'child',
+    fields: [
+      { key: 'first_name', label: 'First name', type: 'text', wide: true },
+      { key: 'last_name', label: 'Last name', type: 'text', wide: true },
+      { key: 'gender', label: 'Gender', type: 'select', options: ['Female', 'Male', 'Other'] },
+      { key: 'dob', label: 'DOB', type: 'date' },
+      { key: 'relationship', label: 'Relationship', type: 'select', options: ['Joint child', 'Applicant prior', 'CS prior', 'Adopted', 'Step'] },
+      { key: 'special_needs', label: 'Special needs?', type: 'select', options: ['No', 'Yes'] },
+      { key: 'deceased', label: 'Deceased?', type: 'select', options: ['No', 'Yes'] }
+    ]
+  },
+  caregivers: {
+    addLabel: 'caregiver',
+    fields: [
+      { key: 'name', label: 'Name', type: 'text', wide: true },
+      { key: 'relationship', label: 'Relationship', type: 'text' },
+      { key: 'phone', label: 'Phone', type: 'text' },
+      { key: 'role', label: 'Role / hours', type: 'text', wide: true }
+    ]
+  },
+  bank_accounts: {
+    addLabel: 'bank account',
+    fields: [
+      { key: 'bank', label: 'Bank', type: 'text', wide: true },
+      { key: 'account_type', label: 'Type', type: 'select', options: ['Checking', 'Savings', 'CD', 'Money Market', 'Other'] },
+      { key: 'account_number', label: 'Acct no. (last 4 OK)', type: 'text' },
+      { key: 'owner', label: 'Owner', type: 'select', options: OWNER_OPTS },
+      { key: 'balance', label: 'Balance', type: 'money' },
+      { key: 'snapshot_minus1', label: 'Mo. prior (opt.)', type: 'money' },
+      { key: 'snapshot', label: 'Snapshot mo. (opt.)', type: 'money' },
+      { key: 'snapshot_plus1', label: 'Mo. after (opt.)', type: 'money' },
+      { key: 'snapshot_plus2', label: '2 mos. after (opt.)', type: 'money' }
+    ]
+  },
+  brokerage_accounts: {
+    addLabel: 'brokerage account',
+    fields: [
+      { key: 'institution', label: 'Institution', type: 'text', wide: true },
+      { key: 'account_number', label: 'Acct no.', type: 'text' },
+      { key: 'owner', label: 'Owner', type: 'select', options: OWNER_OPTS },
+      { key: 'balance', label: 'Balance', type: 'money' }
+    ]
+  },
+  retirement_accounts: {
+    addLabel: 'retirement account',
+    fields: [
+      { key: 'institution', label: 'Institution', type: 'text', wide: true },
+      { key: 'account_type', label: 'Type', type: 'select', options: ['IRA', 'Roth IRA', '401(k)', 'Roth 401(k)', '403(b)', '457', 'Other'] },
+      { key: 'account_number', label: 'Acct no.', type: 'text' },
+      { key: 'owner', label: 'Owner', type: 'select', options: ['Applicant', 'CS'] },
+      { key: 'balance', label: 'Balance', type: 'money' },
+      { key: 'beneficiaries', label: 'Beneficiaries', type: 'text', wide: true }
+    ]
+  },
+  life_insurance_policies: {
+    addLabel: 'policy',
+    fields: [
+      { key: 'company', label: 'Company', type: 'text', wide: true },
+      { key: 'policy_type', label: 'Type', type: 'select', options: ['Term', 'Whole Life', 'Universal', 'Other'] },
+      { key: 'insured', label: 'Insured', type: 'select', options: ['Applicant', 'CS', 'Other'] },
+      { key: 'policy_number', label: 'Policy no.', type: 'text' },
+      { key: 'death_benefit', label: 'Death benefit', type: 'money' },
+      { key: 'csv', label: 'Cash surrender value', type: 'money' },
+      { key: 'loans_against_csv', label: 'Loans against CSV', type: 'money' },
+      { key: 'beneficiaries', label: 'Beneficiaries', type: 'text', wide: true }
+    ]
+  },
+  annuities: {
+    addLabel: 'annuity',
+    fields: [
+      { key: 'company', label: 'Company', type: 'text', wide: true },
+      { key: 'annuity_type', label: 'Type', type: 'select', options: ['Qualified (in IRA)', 'Non-Qualified', 'Other'] },
+      { key: 'account_number', label: 'Acct no.', type: 'text' },
+      { key: 'owner', label: 'Owner', type: 'select', options: OWNER_OPTS },
+      { key: 'value', label: 'Value', type: 'money' },
+      { key: 'beneficiaries', label: 'Beneficiaries', type: 'text', wide: true }
+    ]
+  },
+  real_estate: {
+    addLabel: 'property',
+    fields: [
+      { key: 'property_type', label: 'Type', type: 'select', options: ['Second home', 'Rental', 'Land', 'Other'] },
+      { key: 'address', label: 'Address / description', type: 'text', wide: true },
+      { key: 'estimated_value', label: 'Estimated value', type: 'money' },
+      { key: 'mortgage_balance', label: 'Mortgage balance', type: 'money' },
+      { key: 'title_held', label: 'How titled', type: 'text', wide: true }
+    ]
+  },
+  vehicles: {
+    addLabel: 'vehicle',
+    fields: [
+      { key: 'description', label: 'Make / Model / Year', type: 'text', wide: true },
+      { key: 'vin', label: 'VIN (optional)', type: 'text' },
+      { key: 'estimated_value', label: 'Estimated value', type: 'money' },
+      { key: 'outstanding_debt', label: 'Outstanding debt', type: 'money' },
+      { key: 'titled_to', label: 'Titled to', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  business_interests: {
+    addLabel: 'business interest',
+    fields: [
+      { key: 'business_name', label: 'Business name', type: 'text', wide: true },
+      { key: 'entity_type', label: 'Type', type: 'select', options: ['S-Corp', 'C-Corp', 'Pro. Corp', 'LLC', 'Partnership', 'Sole Prop', 'Other'] },
+      { key: 'ownership_pct', label: 'Ownership %', type: 'text' },
+      { key: 'ein', label: 'EIN', type: 'text' },
+      { key: 'estimated_value', label: 'Estimated value', type: 'money' },
+      { key: 'owner', label: 'Held by', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  anticipated_inheritance: {
+    addLabel: 'anticipated receipt',
+    fields: [
+      { key: 'description', label: 'Description', type: 'text', wide: true },
+      { key: 'approx_value', label: 'Approximate value', type: 'money' },
+      { key: 'anticipated_by', label: 'Anticipated by', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  money_owed_to_applicant: {
+    addLabel: 'receivable',
+    fields: [
+      { key: 'description', label: 'Description', type: 'text', wide: true },
+      { key: 'secured_by', label: 'Secured by', type: 'select', options: ['No Security', 'Mortgage/Deed of Trust', 'Lien', 'Other'] },
+      { key: 'amount', label: 'Amount', type: 'money' },
+      { key: 'owed_to', label: 'Owed to', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  cryptocurrency: {
+    addLabel: 'crypto holding',
+    fields: [
+      { key: 'description', label: 'Coin / Description', type: 'text', wide: true },
+      { key: 'amount', label: 'USD value', type: 'money' },
+      { key: 'owner', label: 'Owner', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  liabilities: {
+    addLabel: 'liability',
+    fields: [
+      { key: 'description', label: 'Description', type: 'text', wide: true },
+      { key: 'amount', label: 'Amount', type: 'money' },
+      { key: 'owed_by', label: 'Owed by', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  other_assets: {
+    addLabel: 'other asset',
+    fields: [
+      { key: 'description', label: 'Description', type: 'text', wide: true },
+      { key: 'value', label: 'Value', type: 'money' },
+      { key: 'owner', label: 'Owner', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  cs_bank_accounts: {
+    addLabel: 'CS bank account',
+    fields: [
+      { key: 'bank', label: 'Bank', type: 'text', wide: true },
+      { key: 'account_type', label: 'Type', type: 'select', options: ['Checking', 'Savings', 'CD', 'Money Market', 'Other'] },
+      { key: 'account_number', label: 'Acct no.', type: 'text' },
+      { key: 'balance', label: 'Balance', type: 'money' }
+    ]
+  },
+  cs_brokerage_accounts: {
+    addLabel: 'CS brokerage account',
+    fields: [
+      { key: 'institution', label: 'Institution', type: 'text', wide: true },
+      { key: 'account_number', label: 'Acct no.', type: 'text' },
+      { key: 'balance', label: 'Balance', type: 'money' }
+    ]
+  },
+  cs_retirement_accounts: {
+    addLabel: 'CS retirement account',
+    fields: [
+      { key: 'institution', label: 'Institution', type: 'text', wide: true },
+      { key: 'account_type', label: 'Type', type: 'select', options: ['IRA', 'Roth IRA', '401(k)', 'Roth 401(k)', '403(b)', '457', 'Other'] },
+      { key: 'account_number', label: 'Acct no.', type: 'text' },
+      { key: 'balance', label: 'Balance', type: 'money' },
+      { key: 'beneficiaries', label: 'Beneficiaries', type: 'text', wide: true }
+    ]
+  },
+  cs_other_assets: {
+    addLabel: 'CS other asset',
+    fields: [
+      { key: 'description', label: 'Description', type: 'text', wide: true },
+      { key: 'value', label: 'Value', type: 'money' }
+    ]
+  },
+  gifts: {
+    addLabel: 'gift / transfer',
+    fields: [
+      { key: 'recipient', label: 'Recipient', type: 'text', wide: true },
+      { key: 'date', label: 'Date', type: 'date' },
+      { key: 'item', label: 'Item / cash / property', type: 'text', wide: true },
+      { key: 'value', label: 'Value', type: 'money' },
+      { key: 'given_by', label: 'Given by', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  trust_transfers: {
+    addLabel: 'trust transfer',
+    fields: [
+      { key: 'date', label: 'Date', type: 'date' },
+      { key: 'trust_name', label: 'Trust name', type: 'text', wide: true },
+      { key: 'amount', label: 'Amount', type: 'money' },
+      { key: 'direction', label: 'Direction', type: 'select', options: ['To trust', 'From trust'] },
+      { key: 'by_whom', label: 'By whom', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  housing_expenses: {
+    addLabel: 'housing expense',
+    fields: [
+      { key: 'expense_type', label: 'Type', type: 'select', options: ['Mortgage', 'Rent', 'RE Taxes', 'Water', 'Sewer', 'Utilities', 'Homeowners Ins', 'HOA/POA', 'Condo Fees', 'Maintenance', 'Other'] },
+      { key: 'description', label: 'Description', type: 'text', wide: true },
+      { key: 'amount', label: 'Monthly amount', type: 'money' },
+      { key: 'payer', label: 'Paid by', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  living_expenses: {
+    addLabel: 'living expense',
+    fields: [
+      { key: 'expense_type', label: 'Type', type: 'select', options: ['Medical', 'Income Taxes', 'Transportation', 'Subscriptions', 'Telephone', 'Car Insurance', 'Groceries', 'Restaurant', 'Entertainment', 'Clothing', 'Travel', 'Gifts', 'Charity', 'Other'] },
+      { key: 'description', label: 'Description', type: 'text', wide: true },
+      { key: 'amount', label: 'Monthly amount', type: 'money' },
+      { key: 'payer', label: 'Paid by', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  insurance_expenses: {
+    addLabel: 'insurance expense',
+    fields: [
+      { key: 'expense_type', label: 'Type', type: 'select', options: ['Health', 'Disability', 'Life', 'Long-Term Care', 'Other'] },
+      { key: 'description', label: 'Description', type: 'text', wide: true },
+      { key: 'amount', label: 'Monthly premium', type: 'money' },
+      { key: 'payer', label: 'Paid by', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  medical_expenses: {
+    addLabel: 'medical expense',
+    fields: [
+      { key: 'description', label: 'Description', type: 'text', wide: true },
+      { key: 'amount', label: 'Monthly amount', type: 'money' },
+      { key: 'payer', label: 'Paid by', type: 'select', options: OWNER_OPTS }
+    ]
+  },
+  beneficiaries: {
+    addLabel: 'beneficiary',
+    fields: [
+      { key: 'name', label: 'Legal name', type: 'text', wide: true },
+      { key: 'relationship', label: 'Relationship', type: 'text' },
+      { key: 'gender', label: 'Gender', type: 'select', options: ['Female', 'Male', 'Other'] }
+    ]
+  }
+};
+
+function tableContainer(name) {
+  return document.querySelector(`.repeating-table[data-table="${name}"]`);
+}
+
+function rowFieldHtml(f) {
+  const wide = f.wide ? ' wide' : '';
+  const money = f.type === 'money' ? ' money' : '';
+  if (f.type === 'select') {
+    const opts = ['<option value=""></option>']
+      .concat(f.options.map(o => `<option value="${o}">${o}</option>`))
+      .join('');
+    return `<div class="row-field${wide}"><label>${f.label}</label><select data-field="${f.key}">${opts}</select></div>`;
+  }
+  const inputType = f.type === 'date' ? 'date' : (f.type === 'money' ? 'number' : 'text');
+  const extra = f.type === 'money' ? ' min="0" step="0.01" placeholder="0.00"' : '';
+  return `<div class="row-field${wide}${money}"><label>${f.label}</label><input type="${inputType}" data-field="${f.key}"${extra}></div>`;
+}
+
+function addRow(tableName, data) {
+  const container = tableContainer(tableName);
+  if (!container) return;
+  const schema = tableSchemas[tableName];
+  if (!schema) return;
+  const rows = container.querySelector('.table-rows');
+  const row = document.createElement('div');
+  row.className = 'table-row';
+  row.innerHTML = schema.fields.map(rowFieldHtml).join('') +
+    `<button type="button" class="btn-remove-row" aria-label="Remove row">×</button>`;
+  rows.appendChild(row);
+  if (data) {
+    Object.entries(data).forEach(([k, v]) => {
+      const input = row.querySelector(`[data-field="${k}"]`);
+      if (input) input.value = v;
+    });
+  }
+  return row;
+}
+
+function readTable(tableName) {
+  const container = tableContainer(tableName);
+  if (!container) return [];
+  const schema = tableSchemas[tableName];
+  if (!schema) return [];
+  return Array.from(container.querySelectorAll('.table-row')).map(row => {
+    const obj = {};
+    schema.fields.forEach(f => {
+      const input = row.querySelector(`[data-field="${f.key}"]`);
+      if (!input || input.value === '' || input.value == null) return;
+      if (f.type === 'money') {
+        const n = parseFloat(input.value);
+        if (!isNaN(n)) obj[f.key] = n;
+      } else {
+        obj[f.key] = input.value;
+      }
+    });
+    return obj;
+  }).filter(r => Object.keys(r).length > 0);
+}
+
+function sumTable(tableName, fieldKey, filterFn) {
+  return readTable(tableName).reduce((sum, row) => {
+    if (filterFn && !filterFn(row)) return sum;
+    const v = row[fieldKey];
+    return sum + (typeof v === 'number' ? v : 0);
+  }, 0);
+}
+
+function updateTableTotals() {
+  document.querySelectorAll('[data-total]').forEach(el => {
+    const [tableName, field] = el.getAttribute('data-total').split('.');
+    const total = sumTable(tableName, field);
+    el.textContent = formatMoney(round2(total));
+  });
+}
+
+/* Wire add/remove buttons via event delegation */
+document.addEventListener('click', (e) => {
+  const addBtn = e.target.closest('.btn-add-row');
+  if (addBtn) {
+    addRow(addBtn.getAttribute('data-table'));
+    applyBranching();
+    return;
+  }
+  const removeBtn = e.target.closest('.btn-remove-row');
+  if (removeBtn) {
+    removeBtn.closest('.table-row').remove();
+    applyBranching();
+    return;
+  }
+});
+
 /* -------- Branching engine -------- */
 function applyBranching() {
   const marital = getRadioVal('marital_status');
   const careGoal = getRadioVal('care_setting_goal');
   const appAge = ageFromDob(document.getElementById('applicantDob').value);
   const csAge = ageFromDob(document.getElementById('csDob').value);
-  const lifeCsv = getNum('life_insurance_csv');
-  const homeValue = getNum('home_value');
-  const homeMortgage = getRadioVal('home_has_mortgage');
   const hasDpoa = getRadioVal('has_dpoa');
   const nhFacIdentified = getRadioVal('nh_facility_identified');
   const nhFacName = getStr('nh_facility_name');
   const appOtherDesc = getStr('applicant_other_income_description');
   const csOtherDesc = getStr('cs_other_income_description');
-  const otherCountableDesc = getStr('other_countable_asset_description');
-  const csOtherAssetDesc = getStr('cs_other_countable_asset_description');
+
+  /* New v2 gates */
+  const isVeteran = getRadioVal('is_veteran') === 'Yes';
+  const currentlyInLtc = getRadioVal('currently_in_ltc') === 'Yes';
+  const currentlyInHospital = getRadioVal('currently_in_hospital') === 'Yes';
+  const hasLtcInsurance = getRadioVal('has_ltc_insurance') === 'Yes';
+  const ownsHome = getRadioVal('owns_home_v2') === 'Yes' || getNum('home_value') > 0;
+  const repRelationship = getRadioVal('rep_relationship');
+  const prevMarried = getRadioVal('applicant_prev_married') === 'Yes';
+  const homeMortgage = getRadioVal('home_has_mortgage');
+  const homeCaretakerChild = getRadioVal('home_caretaker_child') === 'Yes';
+  const homeSiblingCoowner = getRadioVal('home_sibling_coowner') === 'Yes';
 
   /* Spouse sections */
   const married = marital === 'Married';
-  setShown('sec-3', married);
-  setShown('sec-5', married);
-  setShown('sec-7', married);
-  setShown('nav-3', married);
-  setShown('nav-5', married);
-  setShown('nav-7', married);
+  setShown('sec-4', married);
+  setShown('sec-11', married);
+  setShown('sec-13', married);
+  setShown('nav-4', married);
+  setShown('nav-11', married);
+  setShown('nav-13', married);
+  setShown('field-cs_is_veteran', married);
+
+  /* Representative details — only shown if rep is not Self */
+  setShown('branch-representative-details', repRelationship && repRelationship !== 'Self');
+
+  /* Marital history follow-ups */
+  setShown('field-applicant_date_of_marriage', married);
+  setShown('field-applicant_prior_marriage_end', prevMarried);
+  setShown('field-applicant_prior_marriage_date', prevMarried);
+
+  /* Care situation branches */
+  setShown('branch-ltc-details', currentlyInLtc);
+  setShown('branch-hospital-details', currentlyInHospital);
+  setShown('branch-ltci-details', hasLtcInsurance);
+
+  /* Military service branch */
+  setShown('branch-veteran-details', isVeteran);
+
+  /* Home section visibility — drives sec-9 visibility */
+  setShown('sec-9', ownsHome);
+  setShown('nav-9', ownsHome);
+  setShown('field-home_mortgage_balance', ownsHome && homeMortgage === 'Yes');
+  setShown('field-home_reverse_mortgage', ownsHome && homeMortgage === 'Yes');
+  setShown('field-home_caretaker_move_date', ownsHome && homeCaretakerChild);
+  setShown('field-home_sibling_move_date', ownsHome && homeSiblingCoowner);
 
   /* Applicant age-driven */
   setShown('field-applicant_ira_rmd_annual', appAge !== null && appAge >= 73);
-  setShown('field-ira_balance_under73', appAge !== null && appAge < 73);
-  setShown('field-ira_balance_rmd_status', appAge !== null && appAge >= 73);
   const ageHelp = document.getElementById('applicantAgeHelp');
-  if (appAge !== null) {
-    ageHelp.textContent = `Calculated age: ${appAge}` + (appAge >= 73 ? ' · IRA RMD fields enabled below' : '');
-    ageHelp.style.display = 'block';
-  } else {
-    ageHelp.style.display = 'none';
+  if (ageHelp) {
+    if (appAge !== null) {
+      ageHelp.textContent = `Calculated age: ${appAge}` + (appAge >= 73 ? ' · IRA RMD fields enabled below' : '');
+      ageHelp.style.display = 'block';
+    } else {
+      ageHelp.style.display = 'none';
+    }
   }
 
   /* CS age-driven */
   if (married) {
     setShown('field-cs_ira_rmd_annual', csAge !== null && csAge >= 73);
-    setShown('field-cs_ira_balance_under73', csAge !== null && csAge < 73);
-    setShown('field-cs_ira_balance_rmd_status', csAge !== null && csAge >= 73);
     const csHelp = document.getElementById('csAgeHelp');
-    if (csAge !== null) {
-      csHelp.textContent = `Calculated age: ${csAge}`;
-      csHelp.style.display = 'block';
-    } else {
-      csHelp.style.display = 'none';
+    if (csHelp) {
+      if (csAge !== null) {
+        csHelp.textContent = `Calculated age: ${csAge}`;
+        csHelp.style.display = 'block';
+      } else {
+        csHelp.style.display = 'none';
+      }
     }
   }
 
-  /* Other-income / other-asset description triggers */
+  /* Other-income description triggers */
   setShown('field-applicant_other_income_amount', appOtherDesc.length > 0);
   setShown('field-cs_other_income_amount', married && csOtherDesc.length > 0);
-  setShown('field-other_countable_asset_value', otherCountableDesc.length > 0);
-  setShown('field-cs_other_countable_asset_value', married && csOtherAssetDesc.length > 0);
-
-  /* CSV confirmation */
-  setShown('field-life_insurance_csv_confirmed', lifeCsv > 0);
-
-  /* Home / mortgage */
-  setShown('field-home_has_mortgage', homeValue > 0);
-  setShown('field-home_mortgage_balance', homeValue > 0 && homeMortgage === 'Yes');
-  setShown('field-has_ladybird_or_todd_deed', homeValue > 0);
 
   /* DPOA Medicaid authority */
   setShown('field-dpoa_medicaid_authority', hasDpoa === 'Yes');
@@ -1221,11 +2448,20 @@ function applyBranching() {
   setShown('field-nh_facility_name', showNhFac && nhFacIdentified === 'Yes');
   setShown('field-nh_medicaid_bed_confirmed', showNhFac && nhFacName.length > 0);
 
+  /* NH cost-of-care help text branches on currently-in-LTC */
+  const costHelp = document.getElementById('costOfCareHelp');
+  if (costHelp) {
+    costHelp.textContent = currentlyInLtc
+      ? 'Use the actual monthly amount you are paying now (mirrors Section 7).'
+      : 'Default to the San Antonio average ($6,935 private NH) if no facility is identified yet.';
+  }
+
   /* SPW section */
   const showSpw = careGoal === 'SPW' || careGoal === 'Undecided';
-  setShown('sec-11', showSpw);
-  setShown('nav-11', showSpw);
+  setShown('sec-19', showSpw);
+  setShown('nav-19', showSpw);
 
+  updateTableTotals();
   updateProgress();
 }
 
@@ -1309,25 +2545,41 @@ function calculate() {
   const qitNeeded = appCountableIncome > INCOME_CAP_NH_2026;
   const spraExpansionAvailable = married && combinedMonthlyIncome < MMMNA_2026;
 
-  /* Countable resources */
-  const appOtherCountableValue = getStr('other_countable_asset_description').length > 0 ? getNum('other_countable_asset_value') : 0;
+  /* Countable resources — v2: itemized tables, owner-filtered.
+     Bank/brokerage/annuities/other: include rows owned by Applicant OR Joint.
+     Retirement: applicant-owned, countable only if applicant under 73. */
+  const appOwned = (r) => !r.owner || r.owner === 'Applicant' || r.owner === 'Joint';
+  const csOwned = (r) => r.owner === 'CS';
+
+  const appBankBal = sumTable('bank_accounts', 'balance', appOwned);
+  const appBrokerage = sumTable('brokerage_accounts', 'balance', appOwned);
+  const appAnnuities = sumTable('annuities', 'value', appOwned);
+  const appLifeCsv = sumTable('life_insurance_policies', 'csv', r => !r.insured || r.insured === 'Applicant' || r.insured === 'Other');
+  const appOtherAssets = sumTable('other_assets', 'value', appOwned);
+  const appRetirementOwned = sumTable('retirement_accounts', 'balance', r => !r.owner || r.owner === 'Applicant');
+  const appRetirementCountable = (appAge !== null && appAge < 73) ? appRetirementOwned : 0;
+
   const appCountableResources =
-    getNum('checking_savings_balance') +
-    getNum('cd_balance') +
-    getNum('brokerage_investment_balance') +
-    ((appAge !== null && appAge < 73) ? getNum('ira_balance_under73') : 0) +
-    getNum('life_insurance_csv') +
-    getNum('regular_annuity_value') +
-    appOtherCountableValue;
+    appBankBal + appBrokerage + appAnnuities + appLifeCsv + appOtherAssets + appRetirementCountable;
 
   let csCountableResources = 0;
+  let csRetirementOwned = 0;
   if (married) {
-    const csOtherAssetValue = getStr('cs_other_countable_asset_description').length > 0 ? getNum('cs_other_countable_asset_value') : 0;
-    csCountableResources =
-      getNum('cs_checking_savings_balance') +
-      getNum('cs_brokerage_investment_balance') +
-      ((csAge !== null && csAge < 73) ? getNum('cs_ira_balance_under73') : 0) +
-      csOtherAssetValue;
+    const csBank = sumTable('cs_bank_accounts', 'balance');
+    const csBrokerage = sumTable('cs_brokerage_accounts', 'balance');
+    csRetirementOwned = sumTable('cs_retirement_accounts', 'balance');
+    const csRetirementCountable = (csAge !== null && csAge < 73) ? csRetirementOwned : 0;
+    const csOtherAssetsCs = sumTable('cs_other_assets', 'value');
+    /* Plus shared tables filtered to CS-owner rows */
+    const csSharedBank = sumTable('bank_accounts', 'balance', csOwned);
+    const csSharedBrokerage = sumTable('brokerage_accounts', 'balance', csOwned);
+    const csSharedAnnuities = sumTable('annuities', 'value', csOwned);
+    const csSharedLifeCsv = sumTable('life_insurance_policies', 'csv', r => r.insured === 'CS');
+    const csSharedOther = sumTable('other_assets', 'value', csOwned);
+    const csSharedRet = sumTable('retirement_accounts', 'balance', r => r.owner === 'CS');
+    const csSharedRetCountable = (csAge !== null && csAge < 73) ? csSharedRet : 0;
+    csCountableResources = csBank + csBrokerage + csRetirementCountable + csOtherAssetsCs
+      + csSharedBank + csSharedBrokerage + csSharedAnnuities + csSharedLifeCsv + csSharedOther + csSharedRetCountable;
   }
   const combinedCountableResources = appCountableResources + csCountableResources;
 
@@ -1340,13 +2592,21 @@ function calculate() {
     spendDownAmount = Math.max(0, appCountableResources - 2000);
   }
 
-  /* Burn rate */
-  const burnRate = getNum('monthly_living_expenses');
+  /* Burn rate — v2 sums itemized expense tables + cost of care */
+  const currentlyInLtc = getRadioVal('currently_in_ltc') === 'Yes';
+  const ltcActualCost = currentlyInLtc ? getNum('ltc_monthly_cost_actual') : 0;
+  const monthlyCostOfCare = getNum('monthly_cost_of_care') || ltcActualCost;
+  const housingTotal = sumTable('housing_expenses', 'amount');
+  const livingTotal = sumTable('living_expenses', 'amount');
+  const insuranceTotal = sumTable('insurance_expenses', 'amount');
+  const medicalTotal = sumTable('medical_expenses', 'amount');
+  const totalMonthlyExpenses = monthlyCostOfCare + housingTotal + livingTotal + insuranceTotal + medicalTotal;
   const years = getNum('estimated_life_expectancy_years');
-  const projectedPrivatePay = burnRate * years * 12;
+  const projectedPrivatePay = totalMonthlyExpenses * years * 12;
 
   /* MERP risk */
-  const merpRiskFlag = getRadioVal('has_ladybird_or_todd_deed') === 'No' && getRadioVal('has_beneficiaries_on_accounts') === 'No';
+  const ownsHomeForMerp = getRadioVal('owns_home_v2') === 'Yes' || getNum('home_value') > 0;
+  const merpRiskFlag = ownsHomeForMerp && getRadioVal('has_ladybird_or_todd_deed') === 'No' && getRadioVal('has_beneficiaries_on_accounts') === 'No';
 
   /* Missing estate docs */
   const docFields = [
@@ -1361,14 +2621,24 @@ function calculate() {
   const missingDocs = docFields
     .filter(([k]) => getRadioVal(k) === 'No')
     .map(([, label]) => label);
-  if (getNum('home_value') > 0 && getRadioVal('has_ladybird_or_todd_deed') === 'No') {
+  if (ownsHomeForMerp && getRadioVal('has_ladybird_or_todd_deed') === 'No') {
     missingDocs.push('Lady Bird Deed / TODD');
   }
+
+  /* v2 capacity flag — drives DPOA/MAPT signature feasibility */
+  const capacityFlag = getRadioVal('applicant_has_capacity') === 'No' || getRadioVal('can_sign_name') === 'No';
+
+  /* Veteran flag — drives VA-pension-vs-Medicaid-coordination paragraph */
+  const veteranFlag = getRadioVal('is_veteran') === 'Yes';
+
+  /* Gift lookback total — itemized table sum, drives transfer-penalty paragraph */
+  const totalGiftValue = sumTable('gifts', 'value');
 
   /* Income estimation flag */
   const incomeEstimationFlag = appSsEstimated || appPenEstimated;
 
   return {
+    schema_version: '2.0',
     applicant_age: appAge,
     cs_age: married ? csAge : null,
     applicant_ss_resolved: round2(appSsResolved),
@@ -1387,10 +2657,18 @@ function calculate() {
     cs_countable_resources: round2(csCountableResources),
     combined_countable_resources: round2(combinedCountableResources),
     spend_down_amount: round2(spendDownAmount),
-    burn_rate_monthly: round2(burnRate),
+    monthly_cost_of_care_resolved: round2(monthlyCostOfCare),
+    monthly_expenses_housing: round2(housingTotal),
+    monthly_expenses_living: round2(livingTotal),
+    monthly_expenses_insurance: round2(insuranceTotal),
+    monthly_expenses_medical: round2(medicalTotal),
+    burn_rate_monthly: round2(totalMonthlyExpenses),
     total_projected_private_pay_cost: round2(projectedPrivatePay),
     merp_risk_flag: merpRiskFlag,
-    missing_estate_docs: missingDocs
+    missing_estate_docs: missingDocs,
+    capacity_flag: capacityFlag,
+    veteran_flag: veteranFlag,
+    total_gift_lookback_value: round2(totalGiftValue)
   };
 }
 
@@ -1406,11 +2684,27 @@ function buildPayload() {
   const form = document.getElementById('intakeForm');
   const fd = new FormData(form);
   const obj = {};
+  const NUMERIC_FLAT = new Set([
+    'applicant_ss_gross','applicant_ss_net','applicant_va_pension_base','applicant_va_aid_attendance',
+    'applicant_pension_gross','applicant_pension_net','applicant_railroad_retirement','applicant_ira_rmd_annual',
+    'applicant_interest_dividend_income','applicant_rental_income','applicant_other_income_amount',
+    'cs_ss_gross','cs_ss_net','cs_pension_gross','cs_pension_net','cs_va_pension_base','cs_va_aid_attendance',
+    'cs_ira_rmd_annual','cs_other_income_amount',
+    'home_value','home_mortgage_balance','irrevocable_funeral_contract','cs_irrevocable_funeral_contract',
+    'monthly_cost_of_care','estimated_life_expectancy_years',
+    'ltc_monthly_cost_actual','ltci_monthly_premium'
+  ]);
   fd.forEach((v, k) => {
     if (v === '' || v === null) return;
     if (obj[k] !== undefined) return;
-    const numeric = ['applicant_ss_gross','applicant_ss_net','applicant_va_pension_base','applicant_va_aid_attendance','applicant_pension_gross','applicant_pension_net','applicant_railroad_retirement','applicant_ira_rmd_annual','applicant_interest_dividend_income','applicant_rental_income','applicant_other_income_amount','cs_ss_gross','cs_ss_net','cs_pension_gross','cs_pension_net','cs_va_pension_base','cs_va_aid_attendance','cs_ira_rmd_annual','cs_other_income_amount','checking_savings_balance','cd_balance','brokerage_investment_balance','ira_balance_under73','life_insurance_csv','regular_annuity_value','other_countable_asset_value','home_value','home_mortgage_balance','vehicle_value','ira_balance_rmd_status','irrevocable_funeral_contract','cs_checking_savings_balance','cs_brokerage_investment_balance','cs_ira_balance_under73','cs_ira_balance_rmd_status','cs_other_countable_asset_value','monthly_cost_of_care','monthly_living_expenses','estimated_life_expectancy_years'];
-    obj[k] = numeric.includes(k) ? Number(v) : v;
+    /* Skip file inputs — uploads aren't part of the JSON payload */
+    if (v instanceof File) return;
+    obj[k] = NUMERIC_FLAT.has(k) ? Number(v) : v;
+  });
+  /* Itemized tables — read each schema as an array of objects */
+  Object.keys(tableSchemas).forEach(tableName => {
+    const rows = readTable(tableName);
+    if (rows.length > 0) obj[tableName] = rows;
   });
   return obj;
 }
@@ -1418,6 +2712,7 @@ function buildPayload() {
 /* -------- Render calc cards -------- */
 function renderCalcCards(calc) {
   const cards = [
+    { label: 'Schema version', value: calc.schema_version || '2.0' },
     { label: 'Marital', value: calc.cs_age !== null ? 'Married' : 'Single' },
     { label: 'Applicant age', value: calc.applicant_age ?? '—' },
     { label: 'Applicant SS resolved', value: formatMoney(calc.applicant_ss_resolved) },
@@ -1427,7 +2722,12 @@ function renderCalcCards(calc) {
     { label: 'SPRA expansion available?', value: calc.spra_expansion_available ? 'YES' : 'No', flag: calc.spra_expansion_available ? 'yes' : 'no' },
     { label: 'Combined countable resources', value: formatMoney(calc.combined_countable_resources) },
     { label: 'Spend-down amount', value: formatMoney(calc.spend_down_amount) },
+    { label: 'Cost of care / mo', value: formatMoney(calc.monthly_cost_of_care_resolved) },
+    { label: 'Burn rate / mo', value: formatMoney(calc.burn_rate_monthly) },
     { label: 'MERP risk flag', value: calc.merp_risk_flag ? 'AT RISK' : 'OK', flag: calc.merp_risk_flag ? 'warn' : 'yes' },
+    { label: 'Capacity flag', value: calc.capacity_flag ? 'IMPAIRED' : 'OK', flag: calc.capacity_flag ? 'warn' : 'yes' },
+    { label: 'Veteran flag', value: calc.veteran_flag ? 'YES' : 'No', flag: calc.veteran_flag ? 'yes' : 'no' },
+    { label: 'Gifts in 5-yr lookback', value: formatMoney(calc.total_gift_lookback_value) },
     { label: 'Missing estate docs', value: calc.missing_estate_docs.length },
   ];
   const html = cards.map(c => {
@@ -1461,45 +2761,63 @@ function setupNavScroll() {
 
 /* -------- Sample data (anonymized case from Lynnelle) -------- */
 function loadSample() {
+  /* Anonymized sample case from the 2026-05-03 hand-built worksheet.
+     Maps to schema v2.0 — itemized accounts and expanded sections. */
   const sample = {
     client_first_name: 'Husband',
     client_last_name: 'Sample',
     client_mailing_address: '6115 Ridge Glade, San Antonio, TX 78250',
     intake_date: '2026-05-20',
-    applicant_currently_in_nh: 'No',
+    owns_home_v2: 'Yes',
     marital_status: 'Married',
     care_setting_goal: 'Nursing home',
+    rep_relationship: 'Spouse',
+    rep_first_name: 'Wife',
+    rep_last_name: 'Sample',
+    rep_phone: '(210) 555-0100',
+    rep_email: 'wife@example.com',
     applicant_dob: '1948-03-15',
+    applicant_gender: 'Male',
+    applicant_citizenship: 'US Citizen',
+    applicant_prev_married: 'No',
+    applicant_date_of_marriage: '1972-06-10',
+    has_children: 'Yes',
     cs_first_name: 'Wife',
+    cs_last_name: 'Sample',
     cs_dob: '1952-07-22',
-    applicant_ss_gross: 1889,
-    applicant_va_pension_base: 0,
-    applicant_va_aid_attendance: 0,
-    applicant_pension_gross: 1092.07,
-    applicant_railroad_retirement: 0,
-    applicant_ira_rmd_annual: 3868.32,
-    applicant_interest_dividend_income: 0,
-    applicant_rental_income: 0,
-    cs_ss_gross: 1066.90,
-    cs_pension_gross: 0,
-    cs_va_pension_base: 0,
-    checking_savings_balance: 213623.10,
-    cd_balance: 0,
-    brokerage_investment_balance: 0,
-    life_insurance_csv: 0,
-    regular_annuity_value: 0,
+    cs_gender: 'Female',
+    cs_citizenship: 'US Citizen',
+    health_problems: 'Dementia, hypertension (controlled by medication).',
+    capacity_memory_notes: 'Does not understand most commands. Cannot dress/feed/toilet without help.',
+    can_sign_name: 'No',
+    can_speak: 'Limited',
+    can_recognize: 'Sometimes',
+    cognizant_of_property: 'No',
+    can_leave_residence: 'Not on his own; difficult to transfer to/from a vehicle.',
+    currently_in_ltc: 'No',
+    currently_in_hospital: 'No',
+    has_ltc_insurance: 'No',
+    is_veteran: 'Yes',
+    va_receiving_benefits: 'No',
+    va_eligibility_known: 'Unknown',
+    va_wartime_service: 'Yes',
     home_value: 210300,
     home_has_mortgage: 'No',
-    vehicle_value: 16350,
-    ira_balance_rmd_status: 127211,
+    home_single_family: 'Yes',
+    home_title_held: 'Joint with spouse',
+    has_ladybird_or_todd_deed: 'No',
+    home_cap_gains_used: 'No',
+    home_adult_child_resident: 'No',
+    home_disabled_child_resident: 'No',
+    home_caretaker_child: 'No',
+    home_sibling_coowner: 'No',
+    applicant_ss_gross: 1889,
+    applicant_pension_gross: 1092.07,
+    applicant_ira_rmd_annual: 3868.32,
+    cs_ss_gross: 1066.90,
     irrevocable_funeral_contract: 0,
     burial_plot: 'No',
-    cs_checking_savings_balance: 0,
-    cs_brokerage_investment_balance: 0,
-    cs_ira_balance_rmd_status: 148076,
-    gifts_notes: 'None known.',
     monthly_cost_of_care: 6935,
-    monthly_living_expenses: 8155,
     estimated_life_expectancy_years: 4,
     nh_facility_identified: 'No',
     has_will: 'Yes',
@@ -1510,10 +2828,52 @@ function loadSample() {
     has_advanced_directive: 'Yes',
     has_declaration_of_guardian: 'No',
     has_hipaa_release: 'Yes',
-    has_ladybird_or_todd_deed: 'No',
     has_beneficiaries_on_accounts: 'No',
-    applicant_has_capacity: 'No'
+    applicant_has_capacity: 'No',
+    client_goals: 'Protect assets for the community spouse; qualify for Medicaid LTC as soon as the spend-down permits.'
   };
+
+  /* Clear any existing table rows first so re-loading sample data is idempotent */
+  document.querySelectorAll('.repeating-table .table-rows').forEach(el => { el.innerHTML = ''; });
+
+  /* Itemized tables from the spend-down worksheet */
+  const sampleTables = {
+    children: [
+      { first_name: 'Son', gender: 'Male', relationship: 'Joint child' },
+      { first_name: 'Daughter', gender: 'Female', relationship: 'Joint child' }
+    ],
+    bank_accounts: [
+      { bank: 'USAA', account_type: 'Savings', owner: 'Applicant', balance: 1549.95 },
+      { bank: 'Security Service FCU', account_type: 'Savings', owner: 'Joint', balance: 25486.79 },
+      { bank: 'Security Service FCU', account_type: 'Checking', owner: 'Joint', balance: 25828.68 },
+      { bank: 'Security Service FCU', account_type: 'Savings', owner: 'Joint', balance: 59071.01 },
+      { bank: 'Security Service FCU', account_type: 'Savings', owner: 'Joint', balance: 1396.70 },
+      { bank: 'Security Service FCU', account_type: 'Savings', owner: 'CS', balance: 100289.97 }
+    ],
+    retirement_accounts: [
+      { institution: 'Charles Schwab', account_type: 'IRA', owner: 'CS', balance: 148076 },
+      { institution: 'Charles Schwab', account_type: 'IRA', owner: 'Applicant', balance: 105110 },
+      { institution: 'USAA Life Insurance', account_type: 'IRA', owner: 'Applicant', balance: 22101 }
+    ],
+    life_insurance_policies: [
+      { company: 'North American Company', policy_type: 'Term', insured: 'Applicant', death_benefit: 100000, csv: 0 }
+    ],
+    vehicles: [
+      { description: 'Ford F-150 2011', estimated_value: 16350, titled_to: 'Joint' },
+      { description: 'Honda Element 2004', estimated_value: 5500, titled_to: 'Joint' }
+    ],
+    living_expenses: [
+      { expense_type: 'Groceries', description: 'Household', amount: 1000, payer: 'Joint' }
+    ],
+    housing_expenses: [
+      { expense_type: 'Maintenance', description: 'Maintain home', amount: 1219.95, payer: 'Joint' }
+    ],
+    insurance_expenses: [
+      { expense_type: 'Health', description: 'Medigap (Wife)', amount: 127.90, payer: 'CS' },
+      { expense_type: 'Life', description: 'Term life premium', amount: 189.53, payer: 'Applicant' }
+    ]
+  };
+
   Object.entries(sample).forEach(([k, v]) => {
     const el = document.querySelector(`[name="${k}"]`);
     if (!el) return;
@@ -1523,6 +2883,9 @@ function loadSample() {
     } else {
       el.value = v;
     }
+  });
+  Object.entries(sampleTables).forEach(([tableName, rows]) => {
+    rows.forEach(row => addRow(tableName, row));
   });
   applyBranching();
 }
