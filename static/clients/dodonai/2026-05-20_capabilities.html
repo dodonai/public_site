@@ -42,7 +42,27 @@
   .eyebrow{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-bold);letter-spacing:0.16em;text-transform:uppercase;font-weight:700}
 
   /* ===== Scroll progress bar ===== */
-  .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--teal-bright));width:0%;z-index:1000;transition:width 0.1s linear;box-shadow:0 0 8px rgba(124,58,237,0.5)}
+  .scroll-progress{position:fixed;top:0;left:0;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--teal-bright));width:0%;z-index:1001;transition:width 0.1s linear;box-shadow:0 0 8px rgba(124,58,237,0.5)}
+
+  /* ===== Sticky section nav ===== */
+  .sticky-nav{position:sticky;top:0;z-index:999;background:rgba(244,241,232,0.94);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid var(--cream-line);box-shadow:0 1px 3px rgba(20,20,58,0.04)}
+  .sticky-nav .sn-inner{max-width:1100px;margin:0 auto;padding:0 48px;height:48px;display:flex;align-items:center;gap:28px}
+  .sticky-nav .sn-brand{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;color:var(--midnight-deep);letter-spacing:-0.01em;text-decoration:none;border-bottom:none;flex-shrink:0}
+  .sticky-nav .sn-brand:hover{color:var(--purple-bold)}
+  .sticky-nav .sn-glyph{color:var(--purple-vivid)}
+  .sticky-nav .sn-links{display:flex;align-items:center;gap:2px;overflow-x:auto;scrollbar-width:none;flex:1;min-width:0}
+  .sticky-nav .sn-links::-webkit-scrollbar{display:none}
+  .sticky-nav .sn-links a{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--gray-meta-light);letter-spacing:0.06em;text-transform:uppercase;font-weight:600;text-decoration:none;border-bottom:none;padding:7px 10px;border-radius:5px;white-space:nowrap;transition:background 0.15s ease,color 0.15s ease}
+  .sticky-nav .sn-links a:hover{color:var(--purple-bold);background:rgba(124,58,237,0.06)}
+  .sticky-nav .sn-links a.active{color:var(--purple-bold);background:rgba(124,58,237,0.10)}
+  .sticky-nav .sn-cta{font-family:'Source Code Pro',monospace;font-size:10px;color:#fff;background:var(--purple-vivid);letter-spacing:0.12em;text-transform:uppercase;font-weight:700;padding:7px 12px;border-radius:5px;text-decoration:none;border-bottom:none;flex-shrink:0;transition:background 0.15s ease}
+  .sticky-nav .sn-cta:hover{background:var(--purple-bold)}
+  @media (max-width:720px){
+    .sticky-nav .sn-inner{padding:0 18px;height:44px;gap:14px}
+    .sticky-nav .sn-brand{font-size:13px}
+    .sticky-nav .sn-links a{font-size:10px;padding:6px 8px}
+    .sticky-nav .sn-cta{display:none}
+  }
 
   /* ===== Hero ===== */
   .hero{background:var(--midnight);color:#fff;padding:72px 48px 88px;position:relative;overflow:hidden}
@@ -463,6 +483,7 @@
     /* Re-enable any animations stopped state */
     .reveal{opacity:1 !important;transform:none !important}
     .scroll-progress{display:none}
+    .sticky-nav{display:none}
     /* Hide hero glow/star backdrops in print — they don't render meaningfully */
     .hero::before,.hero::after{display:none}
     .hero{padding:32px 40px 36px}
@@ -536,6 +557,25 @@
     </div>
   </div>
 </div>
+
+<!-- ============ Sticky section nav ============ -->
+<nav class="sticky-nav" aria-label="Section navigation">
+  <div class="sn-inner">
+    <a href="#" class="sn-brand" data-scroll-top="true">dodon<span class="sn-glyph">·</span>ai</a>
+    <div class="sn-links">
+      <a href="#s2" data-section="s2">Architecture</a>
+      <a href="#s3a" data-section="s3a">Packages</a>
+      <a href="#s3b" data-section="s3b">Built &amp; deployed</a>
+      <a href="#s3c" data-section="s3c">Productized</a>
+      <a href="#s3d" data-section="s3d">Pattern library</a>
+      <a href="#s5" data-section="s5">Engagements</a>
+      <a href="#s6" data-section="s6">Compliance</a>
+      <a href="#s9" data-section="s9">Stories</a>
+      <a href="#s12" data-section="s12">Next steps</a>
+    </div>
+    <a href="https://calendly.com/nick-dodonai" target="_blank" rel="noopener" class="sn-cta">Schedule call</a>
+  </div>
+</nav>
 
 <!-- ============ §1 What this is ============ -->
 <section id="s1">
@@ -776,7 +816,11 @@
   <div class="pkg-grid">
     <div class="pkg-card teal reveal">
       <div class="pkg-head"><h3 class="pkg-name">Marketing Suite</h3><span class="pkg-dur">3–4 wk</span></div>
-      <p class="pkg-desc">Blog Publisher + Social Repurposer (LinkedIn / Facebook / Instagram) + SEO Topic Scout + Newsletter Drafter + <strong>Website Reclamation</strong> (migrate the firm site off Wix / Squarespace / Webflow / vendor-hosted infrastructure onto firm-owned hosting) + <strong>AI Editor</strong> (in-browser editor that drafts, edits, and publishes pages without a web vendor in the loop). Typically displaces the firm's outside content vendor and website-vendor retainer.</p>
+      <p class="pkg-desc">Blog Publisher + Social Repurposer (LinkedIn / Facebook / Instagram) + SEO Topic Scout + Newsletter Drafter. Content lands directly on the firm-owned site (see <em>AI Website Platform</em> below). Typically displaces the firm's outside content-marketing vendor.</p>
+    </div>
+    <div class="pkg-card teal reveal">
+      <div class="pkg-head"><h3 class="pkg-name">AI Website Platform</h3><span class="pkg-dur">2–4 wk</span></div>
+      <p class="pkg-desc">Migrate the firm site off WordPress / Wix / Squarespace / Webflow / vendor-hosted infrastructure onto Dodonai-hosted infrastructure you edit by <strong>chatting with AI</strong> — describe a change in plain language, the change ships. Eliminates the monthly web-vendor retainer and the edit-ticket workflow. <strong>Apps on top:</strong> the same platform hosts interactive client-facing tools built on demand and published alongside your content — eligibility calculators, custom intake forms (replacing Decision Vault-style point tools), client-facing AI chat assistants, scoping wizards.</p>
     </div>
     <div class="pkg-card teal reveal">
       <div class="pkg-head"><h3 class="pkg-name">Intake-to-Engagement Pack</h3><span class="pkg-dur">4–6 wk</span></div>
@@ -1563,6 +1607,41 @@
       });
     }, {threshold:0.5});
     document.querySelectorAll('[data-counter]').forEach(function(el){cobs.observe(el);});
+  })();
+
+  // Sticky nav: active-section highlight + brand scroll-to-top
+  (function(){
+    var brand = document.querySelector('.sticky-nav .sn-brand[data-scroll-top]');
+    if(brand){
+      brand.addEventListener('click', function(e){
+        e.preventDefault();
+        window.scrollTo({top:0, behavior:'smooth'});
+      });
+    }
+    var navLinks = document.querySelectorAll('.sticky-nav .sn-links a[data-section]');
+    if(!navLinks.length || !('IntersectionObserver' in window)) return;
+    var linkMap = {};
+    var sectionIds = [];
+    navLinks.forEach(function(a){
+      var id = a.getAttribute('data-section');
+      if(id){ linkMap[id] = a; sectionIds.push(id); }
+    });
+    var sections = sectionIds.map(function(id){return document.getElementById(id);}).filter(Boolean);
+    if(!sections.length) return;
+    var visible = {};
+    var sObs = new IntersectionObserver(function(entries){
+      entries.forEach(function(e){
+        visible[e.target.id] = e.isIntersecting ? e.intersectionRatio : 0;
+      });
+      var best = null, bestRatio = 0;
+      sectionIds.forEach(function(id){
+        var r = visible[id] || 0;
+        if(r > bestRatio){ bestRatio = r; best = id; }
+      });
+      navLinks.forEach(function(a){a.classList.remove('active');});
+      if(best && linkMap[best]) linkMap[best].classList.add('active');
+    }, {rootMargin:'-45% 0px -45% 0px', threshold:[0, 0.25, 0.5, 0.75, 1]});
+    sections.forEach(function(s){sObs.observe(s);});
   })();
 </script>
 
