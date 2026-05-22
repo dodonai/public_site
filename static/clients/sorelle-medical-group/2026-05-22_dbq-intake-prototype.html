@@ -1,0 +1,1567 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Veteran Intake & DBQ Generator — Sorelle Medical Group</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<script src="pdf-lib.min.js"></script>
+<script src="pdf-data.js"></script>
+<style>
+:root {
+  --midnight:        #1A1A45;
+  --midnight-deep:   #14143A;
+  --midnight-soft:   #252556;
+  --purple-soft:     #B5A8E6;
+  --purple-mid:      #8B7AB8;
+  --purple-bold:     #6B46C1;
+  --purple-vivid:    #7C3AED;
+  --teal:            #14B8A6;
+  --teal-soft:       #99F6E4;
+  --cream:           #F4F1E8;
+  --cream-deep:      #EBE6D7;
+  --cream-line:      #D8D3C2;
+  --gray-meta:       #9B9BB8;
+  --gray-meta-light: #6B6B85;
+  --field-bg:        #FFFFFF;
+  --field-border:    #C9C4B4;
+  --field-focus:     #7C3AED;
+  --error:           #C53030;
+  --ok:              #2F855A;
+  --ai-glow:         #EFE7FF;
+  --ai-border:       #7C3AED;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--cream); }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt; line-height: 1.5; color: var(--midnight);
+}
+
+.app-header {
+  background: var(--midnight); color: #fff;
+  padding: 26px 40px 28px;
+  position: sticky; top: 0; z-index: 50;
+  border-bottom: 4px solid var(--purple-vivid);
+}
+.app-header-inner {
+  max-width: 1240px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 18px;
+}
+.app-brand { display: flex; align-items: center; gap: 14px; }
+.app-brand .firm-name { font-weight: 800; font-size: 17pt; letter-spacing: -0.01em; line-height: 1.1; }
+.app-brand .firm-sub {
+  font-family: 'Source Code Pro', monospace; font-size: 8.5pt;
+  color: var(--purple-soft); letter-spacing: 0.16em;
+  text-transform: uppercase; font-weight: 600; margin-top: 3px;
+}
+.app-meta {
+  display: flex; align-items: center; gap: 24px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-soft);
+  letter-spacing: 0.10em; text-transform: uppercase; font-weight: 600;
+}
+.prototype-pill {
+  background: var(--purple-vivid); color: #fff;
+  padding: 5px 11px; border-radius: 20px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt; letter-spacing: 0.12em; font-weight: 700;
+  text-transform: uppercase;
+}
+
+.intro-bar {
+  background: var(--cream-deep);
+  border-bottom: 1px solid var(--cream-line);
+  padding: 16px 40px;
+}
+.intro-inner {
+  max-width: 1240px; margin: 0 auto;
+  display: flex; gap: 28px; align-items: center;
+  flex-wrap: wrap;
+}
+.intro-text { flex: 1; font-size: 10.5pt; color: var(--midnight); line-height: 1.55; min-width: 360px; }
+.intro-text strong { color: var(--midnight-deep); }
+.intro-actions { display: flex; gap: 10px; flex-wrap: wrap; }
+
+.btn {
+  display: inline-flex; align-items: center; gap: 8px;
+  padding: 9px 16px; border-radius: 7px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 600; font-size: 10pt; cursor: pointer;
+  border: 1px solid transparent; transition: all 0.15s ease;
+  text-decoration: none;
+}
+.btn-primary { background: var(--purple-vivid); color: #fff; }
+.btn-primary:hover { background: var(--purple-bold); }
+.btn-primary:disabled { background: var(--gray-meta); cursor: not-allowed; }
+.btn-ghost { background: #fff; color: var(--purple-bold); border-color: var(--purple-soft); }
+.btn-ghost:hover { background: var(--cream-deep); border-color: var(--purple-bold); }
+.btn-secondary { background: var(--midnight); color: #fff; }
+.btn-secondary:hover { background: var(--midnight-soft); }
+
+.layout {
+  max-width: 1240px; margin: 0 auto;
+  display: grid;
+  grid-template-columns: 240px 1fr;
+  gap: 36px;
+  padding: 28px 40px 60px;
+}
+
+.side-nav {
+  position: sticky; top: 120px;
+  align-self: flex-start;
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 8px;
+  padding: 10px 0; font-size: 10pt;
+  max-height: calc(100vh - 150px);
+  overflow-y: auto;
+}
+.side-nav ol { list-style: none; padding: 0; margin: 0; counter-reset: navnum; }
+.side-nav li { counter-increment: navnum; }
+.side-nav a {
+  display: flex; align-items: center; gap: 10px;
+  padding: 9px 16px; color: var(--gray-meta-light);
+  text-decoration: none; border-left: 3px solid transparent;
+  font-weight: 500;
+}
+.side-nav a::before {
+  content: counter(navnum, decimal-leading-zero);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt; color: var(--gray-meta);
+  letter-spacing: 0.06em; font-weight: 700;
+  min-width: 22px;
+}
+.side-nav a:hover { background: var(--cream); color: var(--purple-bold); border-left-color: var(--purple-soft); }
+.side-nav a.active { background: var(--cream-deep); color: var(--midnight-deep); border-left-color: var(--purple-vivid); font-weight: 600; }
+.side-nav li.hidden { display: none; }
+.side-nav .nav-section-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt; color: var(--gray-meta);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; padding: 12px 16px 6px;
+}
+
+.form-main { min-width: 0; }
+
+.section {
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-bottom: 20px;
+  scroll-margin-top: 120px;
+}
+.section.hidden { display: none; }
+.cond-block.hidden { display: none; }
+.section-header {
+  border-bottom: 2px solid var(--purple-bold);
+  padding-bottom: 11px; margin-bottom: 20px;
+}
+.section-header .section-num {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+}
+.section-header h2 {
+  font-weight: 700; font-size: 17pt; line-height: 1.15;
+  letter-spacing: -0.01em; color: var(--midnight);
+  margin: 4px 0 6px 0;
+}
+.section-header .section-help { font-size: 10pt; color: var(--gray-meta-light); margin: 0; }
+
+.field-grid { display: grid; gap: 16px; }
+.field-grid.cols-2 { grid-template-columns: 1fr 1fr; }
+.field-grid.cols-3 { grid-template-columns: 1fr 1fr 1fr; }
+@media (max-width: 720px) { .field-grid.cols-2, .field-grid.cols-3 { grid-template-columns: 1fr; } }
+
+.field { display: flex; flex-direction: column; gap: 5px; }
+.field-label {
+  font-size: 9.5pt; font-weight: 600; color: var(--midnight-deep);
+  display: flex; align-items: center; gap: 6px;
+}
+.field-label .req { color: var(--error); font-weight: 700; }
+.field-label .ai-badge {
+  background: var(--ai-glow); color: var(--purple-bold);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 7.5pt; padding: 1px 6px; border-radius: 3px;
+  letter-spacing: 0.08em; font-weight: 700;
+  text-transform: uppercase; border: 1px solid var(--ai-border);
+}
+.field-hint { font-size: 9pt; color: var(--gray-meta-light); margin-top: 2px; }
+
+input[type="text"], input[type="date"], input[type="number"], input[type="email"], input[type="tel"], select, textarea {
+  background: var(--field-bg);
+  border: 1px solid var(--field-border);
+  border-radius: 5px;
+  padding: 8px 11px; font-size: 10.5pt;
+  font-family: inherit; color: var(--midnight);
+  width: 100%; transition: border-color 0.15s, box-shadow 0.15s;
+}
+input:focus, select:focus, textarea:focus {
+  outline: none; border-color: var(--field-focus);
+  box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.12);
+}
+textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+textarea.tall { min-height: 110px; }
+
+.radio-row, .checkbox-row {
+  display: flex; flex-wrap: wrap; gap: 6px 18px;
+  padding-top: 3px;
+}
+.radio-row label, .checkbox-row label {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 10pt; color: var(--midnight); font-weight: 500;
+  cursor: pointer; padding: 4px 0;
+}
+.radio-row input[type="radio"], .checkbox-row input[type="checkbox"] {
+  accent-color: var(--purple-vivid);
+  width: 15px; height: 15px; margin: 0;
+}
+
+.condition-selector {
+  display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px;
+  margin-bottom: 4px;
+}
+@media (max-width: 720px) { .condition-selector { grid-template-columns: 1fr; } }
+.condition-card {
+  border: 2px solid var(--cream-line);
+  background: var(--cream);
+  border-radius: 9px;
+  padding: 18px 18px 16px;
+  cursor: pointer; transition: all 0.15s ease;
+  position: relative;
+}
+.condition-card:hover { border-color: var(--purple-soft); background: #fff; }
+.condition-card.active {
+  border-color: var(--purple-vivid);
+  background: #fff;
+  box-shadow: 0 2px 8px rgba(124, 58, 237, 0.14);
+}
+.condition-card .cond-title {
+  font-weight: 700; font-size: 12pt;
+  color: var(--midnight); margin-bottom: 3px;
+}
+.condition-card .cond-icd {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.08em; font-weight: 600;
+  margin-bottom: 7px;
+}
+.condition-card .cond-desc {
+  font-size: 9.5pt; color: var(--gray-meta-light);
+  line-height: 1.45;
+}
+.condition-card input { position: absolute; opacity: 0; pointer-events: none; }
+.condition-card.active::after {
+  content: '✓'; position: absolute; top: 12px; right: 14px;
+  width: 22px; height: 22px;
+  background: var(--purple-vivid); color: #fff;
+  border-radius: 50%; font-weight: 700; font-size: 11pt;
+  display: flex; align-items: center; justify-content: center;
+}
+
+.ai-hint-box {
+  background: var(--ai-glow);
+  border-left: 3px solid var(--ai-border);
+  padding: 11px 14px; border-radius: 0 6px 6px 0;
+  margin-top: 10px;
+}
+.ai-hint-box .ai-hint-title {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt; color: var(--purple-bold);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 4px;
+}
+.ai-hint-box .ai-hint-body {
+  font-size: 9.5pt; color: var(--midnight-deep); line-height: 1.5;
+}
+
+.actions-bar {
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 10px; padding: 22px 28px;
+  display: flex; justify-content: space-between; align-items: center;
+  gap: 18px; flex-wrap: wrap;
+  margin-bottom: 20px;
+}
+.actions-meta {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--gray-meta-light);
+  letter-spacing: 0.06em;
+}
+
+#errorBanner {
+  background: #FFF5F5; border: 1px solid #FEB2B2;
+  color: var(--error); padding: 12px 16px;
+  border-radius: 7px; font-size: 10pt; font-weight: 600;
+  margin-bottom: 18px; display: none;
+}
+#errorBanner.show { display: block; }
+
+.output-panel {
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 10px;
+  padding: 28px 32px;
+  margin-bottom: 22px;
+  scroll-margin-top: 120px;
+  display: none;
+}
+.output-panel.show { display: block; }
+.output-panel .output-header {
+  border-bottom: 2px solid var(--teal);
+  padding-bottom: 11px; margin-bottom: 18px;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 12px;
+}
+.output-panel .output-header h2 {
+  font-weight: 700; font-size: 17pt;
+  letter-spacing: -0.01em; color: var(--midnight);
+  margin: 0; display: flex; align-items: center; gap: 12px;
+}
+.output-panel .output-header h2::before {
+  content: ''; width: 9px; height: 9px;
+  background: var(--teal); border-radius: 50%; display: inline-block;
+}
+.output-panel .output-sub {
+  font-size: 10pt; color: var(--gray-meta-light);
+  font-family: 'Source Code Pro', monospace;
+  letter-spacing: 0.06em;
+}
+
+.output-stats {
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 12px;
+  margin-bottom: 22px;
+}
+@media (max-width: 720px) { .output-stats { grid-template-columns: 1fr 1fr; } }
+.stat-card {
+  background: var(--cream); border-radius: 8px;
+  padding: 14px 16px;
+}
+.stat-card .stat-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt; color: var(--gray-meta-light);
+  letter-spacing: 0.10em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 5px;
+}
+.stat-card .stat-value {
+  font-weight: 700; font-size: 18pt;
+  color: var(--midnight-deep); line-height: 1;
+}
+.stat-card .stat-sub {
+  font-size: 9pt; color: var(--gray-meta-light); margin-top: 3px;
+}
+.stat-card.teal { background: #ECFDF5; }
+.stat-card.teal .stat-value { color: var(--teal); }
+.stat-card.purple { background: var(--ai-glow); }
+.stat-card.purple .stat-value { color: var(--purple-bold); }
+
+.narrative-list {
+  background: var(--ai-glow);
+  border: 1px solid var(--purple-soft);
+  border-radius: 8px;
+  padding: 16px 20px;
+  margin-bottom: 18px;
+}
+.narrative-list .nl-title {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.12em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 10px;
+  display: flex; align-items: center; gap: 8px;
+}
+.narrative-list .nl-title::before {
+  content: '✦'; color: var(--purple-vivid);
+  font-size: 11pt;
+}
+.narrative-item { margin-bottom: 14px; }
+.narrative-item:last-child { margin-bottom: 0; }
+.narrative-item .ni-label {
+  font-size: 9pt; font-weight: 700;
+  color: var(--purple-bold);
+  letter-spacing: 0.04em; margin-bottom: 4px;
+}
+.narrative-item .ni-text {
+  font-size: 10pt; color: var(--midnight-deep);
+  line-height: 1.55; background: #fff;
+  border-left: 2px solid var(--purple-vivid);
+  padding: 9px 13px; border-radius: 0 5px 5px 0;
+  font-style: italic;
+}
+
+.preview-frame {
+  width: 100%; height: 720px;
+  border: 1px solid var(--cream-line);
+  border-radius: 8px; background: #f5f5f5;
+}
+
+.download-bar {
+  margin-top: 18px;
+  display: flex; gap: 12px; flex-wrap: wrap;
+}
+
+.fineprint {
+  margin-top: 14px;
+  font-size: 9pt; color: var(--gray-meta-light);
+  line-height: 1.5;
+}
+
+/* Loading state */
+.spinner {
+  display: inline-block;
+  width: 14px; height: 14px;
+  border: 2px solid var(--purple-soft);
+  border-top-color: var(--purple-vivid);
+  border-radius: 50%;
+  animation: spin 0.7s linear infinite;
+}
+@keyframes spin { to { transform: rotate(360deg); } }
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="app-brand">
+      <div>
+        <div class="firm-name">Sorelle Medical Group</div>
+        <div class="firm-sub">Veteran Intake &amp; DBQ Generator</div>
+      </div>
+    </div>
+    <div class="app-meta">
+      <span class="prototype-pill">Prototype</span>
+      <span>v0.1 · 2026-05-22</span>
+    </div>
+  </div>
+</header>
+
+<!-- Intro -->
+<div class="intro-bar">
+  <div class="intro-inner">
+    <div class="intro-text">
+      <strong>How this works.</strong> Clinician completes a short intake (~15 fields).
+      AI infers the long-form clinical narratives and symptom indicators. The selected DBQ is auto-populated
+      and ready for review &amp; e-signature. Built for Sorelle's nexus-letter and DBQ workflow.
+    </div>
+    <div class="intro-actions">
+      <button type="button" class="btn btn-ghost" id="loadSampleBtn">Load Sample Veteran</button>
+      <button type="button" class="btn btn-ghost" id="clearBtn">Clear Form</button>
+    </div>
+  </div>
+</div>
+
+<!-- Main layout -->
+<div class="layout">
+
+  <!-- Side nav -->
+  <nav class="side-nav" aria-label="Form sections">
+    <div class="nav-section-label">Intake</div>
+    <ol>
+      <li><a href="#sec-patient" data-target="sec-patient">Patient identity</a></li>
+      <li><a href="#sec-examiner" data-target="sec-examiner">Examination meta</a></li>
+      <li><a href="#sec-condition" data-target="sec-condition">Condition</a></li>
+      <li><a href="#sec-diagnosis" data-target="sec-diagnosis">Diagnosis</a></li>
+      <li><a href="#sec-clinical" data-target="sec-clinical">Clinical findings</a></li>
+      <li><a href="#sec-impact" data-target="sec-impact">Functional impact</a></li>
+    </ol>
+    <div class="nav-section-label">Output</div>
+    <ol start="7">
+      <li><a href="#sec-output" data-target="sec-output">Generated DBQ</a></li>
+    </ol>
+  </nav>
+
+  <!-- Form -->
+  <main class="form-main">
+    <div id="errorBanner"></div>
+
+    <form id="intakeForm" autocomplete="off" novalidate>
+
+      <!-- Section 1: Patient identity -->
+      <section class="section" id="sec-patient">
+        <div class="section-header">
+          <div class="section-num">Section 01</div>
+          <h2>Patient identity</h2>
+          <p class="section-help">Demographics that flow into every DBQ. Identifies the veteran on the form.</p>
+        </div>
+        <div class="field-grid cols-2">
+          <div class="field">
+            <label class="field-label" for="patient_name">Patient name <span class="req">*</span></label>
+            <input type="text" id="patient_name" name="patient_name" required placeholder="Last, First Middle">
+          </div>
+          <div class="field">
+            <label class="field-label" for="patient_ssn">Last 4 of SSN <span class="req">*</span></label>
+            <input type="text" id="patient_ssn" name="patient_ssn" maxlength="4" pattern="\d{4}" required placeholder="0000">
+          </div>
+          <div class="field">
+            <label class="field-label" for="patient_dob">Date of birth <span class="req">*</span></label>
+            <input type="date" id="patient_dob" name="patient_dob" required>
+          </div>
+          <div class="field">
+            <label class="field-label" for="patient_branch">Service branch</label>
+            <select id="patient_branch" name="patient_branch">
+              <option value="">— select —</option>
+              <option>US Army</option>
+              <option>US Marine Corps</option>
+              <option>US Navy</option>
+              <option>US Air Force</option>
+              <option>US Coast Guard</option>
+              <option>US Space Force</option>
+            </select>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 2: Examination meta -->
+      <section class="section" id="sec-examiner">
+        <div class="section-header">
+          <div class="section-num">Section 02</div>
+          <h2>Examination meta</h2>
+          <p class="section-help">Examiner credentials and method. Sorelle defaults are pre-filled — clinician confirms or overrides.</p>
+        </div>
+        <div class="field-grid cols-2">
+          <div class="field">
+            <label class="field-label" for="examiner_name">Examiner name</label>
+            <input type="text" id="examiner_name" name="examiner_name" value="Jacqueline Williamson, NP-C">
+          </div>
+          <div class="field">
+            <label class="field-label" for="examiner_specialty">Specialty</label>
+            <input type="text" id="examiner_specialty" name="examiner_specialty" value="Family Practice / Nexus Examiner">
+          </div>
+          <div class="field">
+            <label class="field-label" for="examiner_npi">NPI #</label>
+            <input type="text" id="examiner_npi" name="examiner_npi" value="1952953838">
+          </div>
+          <div class="field">
+            <label class="field-label" for="examiner_license">License # &amp; state</label>
+            <input type="text" id="examiner_license" name="examiner_license" value="VA 0024177692">
+          </div>
+          <div class="field">
+            <label class="field-label" for="examiner_phone">Phone</label>
+            <input type="text" id="examiner_phone" name="examiner_phone" value="804-684-1814 / 804-600-9256">
+          </div>
+          <div class="field">
+            <label class="field-label" for="examiner_address">Practice address</label>
+            <input type="text" id="examiner_address" name="examiner_address" value="2101 E Parham Rd, Ste 101, Richmond, VA 23228">
+          </div>
+          <div class="field">
+            <label class="field-label" for="exam_date">Date of examination</label>
+            <input type="date" id="exam_date" name="exam_date">
+          </div>
+          <div class="field">
+            <label class="field-label">Examination conducted</label>
+            <div class="radio-row">
+              <label><input type="radio" name="exam_type" value="in_person"> In person</label>
+              <label><input type="radio" name="exam_type" value="telehealth" checked> Telehealth (video)</label>
+              <label><input type="radio" name="exam_type" value="records_only"> Records review only</label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label">Evidence reviewed</label>
+            <div class="radio-row">
+              <label><input type="radio" name="evidence_reviewed" value="yes" checked> Yes</label>
+              <label><input type="radio" name="evidence_reviewed" value="no"> No</label>
+            </div>
+          </div>
+        </div>
+        <div class="field" style="margin-top: 14px;">
+          <label class="field-label" for="evidence_list">Evidence list <span class="ai-badge">AI-Expanded</span></label>
+          <textarea id="evidence_list" name="evidence_list" placeholder="e.g. service treatment records 2008–2014, post-service clinic notes from Dr. Patel 2015–2024, prior C&amp;P exam 2018">Service treatment records, DD-214, post-service VA primary care notes, claimant statement.</textarea>
+        </div>
+      </section>
+
+      <!-- Section 3: Condition selector -->
+      <section class="section" id="sec-condition">
+        <div class="section-header">
+          <div class="section-num">Section 03</div>
+          <h2>Condition &amp; DBQ form</h2>
+          <p class="section-help">Pick the condition you're documenting. The intake below adapts to the selected DBQ; the matching VA form is pre-populated on submit.</p>
+        </div>
+        <div class="condition-selector" id="conditionSelector">
+          <label class="condition-card active" data-cond="migraine">
+            <input type="radio" name="condition" value="migraine" checked>
+            <div class="cond-title">Headache / Migraine</div>
+            <div class="cond-icd">G43.909 · DBQ Migraine</div>
+            <div class="cond-desc">Headaches including migraine, tension, cluster, and other variants. Prostrating-attacks frequency drives rating.</div>
+          </label>
+          <label class="condition-card" data-cond="gerd">
+            <input type="radio" name="condition" value="gerd">
+            <div class="cond-title">GERD / Esophageal</div>
+            <div class="cond-icd">K21.0 · DBQ Esophageal</div>
+            <div class="cond-desc">Gastroesophageal reflux disease and related esophageal conditions. PPI dependence, dysphagia, and symptom frequency.</div>
+          </label>
+          <label class="condition-card" data-cond="insomnia">
+            <input type="radio" name="condition" value="insomnia">
+            <div class="cond-title">Insomnia / Mental Health</div>
+            <div class="cond-icd">F51.01 · DBQ Mental Disorders</div>
+            <div class="cond-desc">Insomnia disorder under the DSM-5 mental disorders schedule. Occupational and social impairment indicators.</div>
+          </label>
+        </div>
+      </section>
+
+      <!-- Section 4: Diagnosis (condition-specific) -->
+      <section class="section" id="sec-diagnosis">
+        <div class="section-header">
+          <div class="section-num">Section 04</div>
+          <h2>Diagnosis</h2>
+          <p class="section-help">Diagnosis specifics. ICD code and date as recorded in the patient chart.</p>
+        </div>
+
+        <!-- Migraine diagnosis -->
+        <div class="cond-block" data-cond="migraine">
+          <div class="field-grid cols-2">
+            <div class="field">
+              <label class="field-label" for="m_headache_type">Headache type</label>
+              <select id="m_headache_type" name="m_headache_type">
+                <option value="migraine">Migraine (incl. variants)</option>
+                <option value="tension">Tension</option>
+                <option value="cluster">Cluster</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label" for="m_icd">ICD code</label>
+              <input type="text" id="m_icd" name="m_icd" value="G43.909">
+            </div>
+            <div class="field">
+              <label class="field-label" for="m_dx_date">Date of diagnosis</label>
+              <input type="date" id="m_dx_date" name="m_dx_date">
+            </div>
+            <div class="field">
+              <label class="field-label" for="m_treatment_summary">Current treatment (brief)</label>
+              <input type="text" id="m_treatment_summary" name="m_treatment_summary" placeholder="e.g. sumatriptan PRN, propranolol prophylaxis">
+            </div>
+          </div>
+        </div>
+
+        <!-- GERD diagnosis -->
+        <div class="cond-block hidden" data-cond="gerd">
+          <div class="field-grid cols-2">
+            <div class="field">
+              <label class="field-label" for="g_dx_name">Diagnosis</label>
+              <input type="text" id="g_dx_name" name="g_dx_name" value="Gastroesophageal Reflux Disease (GERD)">
+            </div>
+            <div class="field">
+              <label class="field-label" for="g_icd">ICD code</label>
+              <input type="text" id="g_icd" name="g_icd" value="K21.0">
+            </div>
+            <div class="field">
+              <label class="field-label" for="g_dx_date">Date of diagnosis</label>
+              <input type="date" id="g_dx_date" name="g_dx_date">
+            </div>
+            <div class="field">
+              <label class="field-label" for="g_treatment_summary">Current treatment (brief)</label>
+              <input type="text" id="g_treatment_summary" name="g_treatment_summary" placeholder="e.g. omeprazole 40mg daily, dietary modifications">
+            </div>
+          </div>
+        </div>
+
+        <!-- Insomnia diagnosis -->
+        <div class="cond-block hidden" data-cond="insomnia">
+          <div class="field-grid cols-2">
+            <div class="field">
+              <label class="field-label" for="i_dx_name">Diagnosis</label>
+              <input type="text" id="i_dx_name" name="i_dx_name" value="Insomnia Disorder">
+            </div>
+            <div class="field">
+              <label class="field-label" for="i_icd">ICD code</label>
+              <input type="text" id="i_icd" name="i_icd" value="F51.01">
+            </div>
+            <div class="field">
+              <label class="field-label" for="i_dx_date">Date of diagnosis</label>
+              <input type="date" id="i_dx_date" name="i_dx_date">
+            </div>
+            <div class="field">
+              <label class="field-label" for="i_avg_sleep_hours">Avg sleep per night (hrs)</label>
+              <input type="number" id="i_avg_sleep_hours" name="i_avg_sleep_hours" min="0" max="12" step="0.5" placeholder="e.g. 3.5">
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 5: Clinical findings (condition-specific) -->
+      <section class="section" id="sec-clinical">
+        <div class="section-header">
+          <div class="section-num">Section 05</div>
+          <h2>Clinical findings</h2>
+          <p class="section-help">Quick checkboxes for objective signs the clinician can confirm. The narrative field below is where AI does the heavy lifting.</p>
+        </div>
+
+        <!-- Migraine clinical -->
+        <div class="cond-block" data-cond="migraine">
+          <div class="field">
+            <label class="field-label">Head pain characteristics</label>
+            <div class="checkbox-row">
+              <label><input type="checkbox" name="m_pain_pulsating" value="1"> Pulsating / throbbing</label>
+              <label><input type="checkbox" name="m_pain_localized" value="1"> Localized one side</label>
+              <label><input type="checkbox" name="m_pain_both_sides" value="1"> Both sides</label>
+              <label><input type="checkbox" name="m_pain_worsens_activity" value="1"> Worsens w/ activity</label>
+            </div>
+          </div>
+          <div class="field" style="margin-top: 14px;">
+            <label class="field-label">Associated symptoms</label>
+            <div class="checkbox-row">
+              <label><input type="checkbox" name="m_sx_nausea" value="1"> Nausea</label>
+              <label><input type="checkbox" name="m_sx_vomiting" value="1"> Vomiting</label>
+              <label><input type="checkbox" name="m_sx_photophobia" value="1"> Photophobia</label>
+              <label><input type="checkbox" name="m_sx_phonophobia" value="1"> Phonophobia</label>
+              <label><input type="checkbox" name="m_sx_vision" value="1"> Vision changes</label>
+              <label><input type="checkbox" name="m_sx_sensory" value="1"> Sensory changes</label>
+            </div>
+          </div>
+          <div class="field-grid cols-3" style="margin-top: 18px;">
+            <div class="field">
+              <label class="field-label">Typical duration</label>
+              <select name="m_duration">
+                <option value="lt_1d">&lt; 1 day</option>
+                <option value="1_2d" selected>1–2 days</option>
+                <option value="gt_2d">&gt; 2 days</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label">Side</label>
+              <select name="m_side">
+                <option value="right" selected>Right</option>
+                <option value="left">Left</option>
+                <option value="both">Both</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label">Prostrating attacks freq.</label>
+              <select name="m_prostrating_freq">
+                <option value="less_frequent">Less than once / 2 mo</option>
+                <option value="q2mo">Once in 2 months</option>
+                <option value="q1mo">Once a month</option>
+                <option value="gt_q1mo" selected>Greater than once / month</option>
+              </select>
+            </div>
+          </div>
+          <div class="field" style="margin-top: 18px;">
+            <label class="field-label" for="m_clinical_notes">Clinical interview notes <span class="ai-badge">AI-Expanded</span></label>
+            <textarea id="m_clinical_notes" name="m_clinical_notes" class="tall" placeholder="Brief notes from the patient interview. AI expands these into the DBQ's long-form sections (history, treatment, examination findings)."></textarea>
+            <div class="ai-hint-box">
+              <div class="ai-hint-title">↗ AI will expand this into</div>
+              <div class="ai-hint-body">Section 2A "History including onset and course," Section 2B treatment narrative, and other long-form fields. Sorelle voice + structure preserved.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- GERD clinical -->
+        <div class="cond-block hidden" data-cond="gerd">
+          <div class="field">
+            <label class="field-label">GERD signs &amp; symptoms</label>
+            <div class="checkbox-row">
+              <label><input type="checkbox" name="g_sx_heartburn" value="1"> Persistent heartburn</label>
+              <label><input type="checkbox" name="g_sx_regurgitation" value="1"> Regurgitation</label>
+              <label><input type="checkbox" name="g_sx_substernal" value="1"> Substernal pain</label>
+              <label><input type="checkbox" name="g_sx_dysphagia" value="1"> Dysphagia</label>
+              <label><input type="checkbox" name="g_sx_pyrosis" value="1"> Pyrosis</label>
+              <label><input type="checkbox" name="g_sx_sleep_disturb" value="1"> Sleep disturbance</label>
+            </div>
+          </div>
+          <div class="field-grid cols-2" style="margin-top: 18px;">
+            <div class="field">
+              <label class="field-label">Symptom frequency</label>
+              <select name="g_freq">
+                <option value="daily" selected>Daily</option>
+                <option value="weekly">Several times / week</option>
+                <option value="monthly">Several times / month</option>
+                <option value="occasional">Occasional</option>
+              </select>
+            </div>
+            <div class="field">
+              <label class="field-label">PPI dependence</label>
+              <select name="g_ppi">
+                <option value="continuous" selected>Continuous use required</option>
+                <option value="prn">As-needed</option>
+                <option value="none">None</option>
+              </select>
+            </div>
+          </div>
+          <div class="field" style="margin-top: 18px;">
+            <label class="field-label" for="g_clinical_notes">Clinical interview notes <span class="ai-badge">AI-Expanded</span></label>
+            <textarea id="g_clinical_notes" name="g_clinical_notes" class="tall" placeholder="Brief notes on symptom onset, severity, response to treatment. AI expands into the DBQ's narrative sections."></textarea>
+          </div>
+        </div>
+
+        <!-- Insomnia clinical -->
+        <div class="cond-block hidden" data-cond="insomnia">
+          <div class="field">
+            <label class="field-label">DSM-5 criteria observed</label>
+            <div class="checkbox-row">
+              <label><input type="checkbox" name="i_dsm_onset" value="1"> Difficulty initiating sleep</label>
+              <label><input type="checkbox" name="i_dsm_maintenance" value="1"> Difficulty maintaining sleep</label>
+              <label><input type="checkbox" name="i_dsm_early_waking" value="1"> Early-morning waking</label>
+              <label><input type="checkbox" name="i_dsm_distress" value="1"> Clinically significant distress</label>
+              <label><input type="checkbox" name="i_dsm_function_impair" value="1"> Impaired functioning</label>
+            </div>
+          </div>
+          <div class="field" style="margin-top: 14px;">
+            <label class="field-label">Functional impairment indicators</label>
+            <div class="checkbox-row">
+              <label><input type="checkbox" name="i_func_concentration" value="1"> Reduced concentration</label>
+              <label><input type="checkbox" name="i_func_memory" value="1"> Memory issues</label>
+              <label><input type="checkbox" name="i_func_irritability" value="1"> Irritability</label>
+              <label><input type="checkbox" name="i_func_fatigue" value="1"> Daytime fatigue</label>
+              <label><input type="checkbox" name="i_func_work_perf" value="1"> Reduced work performance</label>
+              <label><input type="checkbox" name="i_func_social" value="1"> Social withdrawal</label>
+            </div>
+          </div>
+          <div class="field" style="margin-top: 18px;">
+            <label class="field-label" for="i_clinical_notes">Clinical interview notes <span class="ai-badge">AI-Expanded</span></label>
+            <textarea id="i_clinical_notes" name="i_clinical_notes" class="tall" placeholder="Brief notes on sleep history, daytime impact, prior treatments, mental health history. AI expands into the DBQ's narrative sections (social, occupational, mental health history)."></textarea>
+            <div class="ai-hint-box">
+              <div class="ai-hint-title">↗ AI will expand this into</div>
+              <div class="ai-hint-body">Section III social/marital/family history, occupational and educational history, mental health history, plus the symptom-level indicator boxes on Page 4.</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Section 6: Functional impact -->
+      <section class="section" id="sec-impact">
+        <div class="section-header">
+          <div class="section-num">Section 06</div>
+          <h2>Functional impact</h2>
+          <p class="section-help">Disability claims live or die on this section. Capture the lived experience and AI shapes it into the DBQ's required language.</p>
+        </div>
+        <div class="field-grid cols-2">
+          <div class="field">
+            <label class="field-label">Does the condition impact ability to work?</label>
+            <div class="radio-row">
+              <label><input type="radio" name="impact_work" value="yes" checked> Yes</label>
+              <label><input type="radio" name="impact_work" value="no"> No</label>
+            </div>
+          </div>
+          <div class="field">
+            <label class="field-label">Functional impairment severity</label>
+            <select name="impact_severity">
+              <option value="mild">Mild</option>
+              <option value="moderate" selected>Moderate</option>
+              <option value="severe">Severe</option>
+              <option value="total">Total occupational impairment</option>
+            </select>
+          </div>
+        </div>
+        <div class="field" style="margin-top: 14px;">
+          <label class="field-label" for="impact_notes">Lived-impact notes <span class="ai-badge">AI-Expanded</span></label>
+          <textarea id="impact_notes" name="impact_notes" class="tall" placeholder="Brief facts on how condition affects work, sleep, daily activities. AI shapes this into the DBQ's required functional-impact narrative."></textarea>
+        </div>
+      </section>
+
+      <!-- Actions bar -->
+      <div class="actions-bar">
+        <div class="actions-meta">
+          Filling: <strong id="actionsMetaCond">DBQ Migraine</strong>
+        </div>
+        <div style="display: flex; gap: 10px;">
+          <button type="button" class="btn btn-ghost" id="loadSampleBtn2">Load sample</button>
+          <button type="submit" class="btn btn-primary" id="generateBtn">
+            <span id="generateBtnText">Generate filled DBQ →</span>
+          </button>
+        </div>
+      </div>
+
+    </form>
+
+    <!-- Output panel -->
+    <section class="output-panel" id="outputPanel">
+      <div class="output-header">
+        <h2>Filled DBQ ready for review</h2>
+        <span class="output-sub" id="outputSub">— · — fields populated</span>
+      </div>
+
+      <div class="output-stats">
+        <div class="stat-card">
+          <div class="stat-label">Intake fields</div>
+          <div class="stat-value" id="statIntake">—</div>
+          <div class="stat-sub">collected from clinician</div>
+        </div>
+        <div class="stat-card teal">
+          <div class="stat-label">DBQ fields filled</div>
+          <div class="stat-value" id="statFilled">—</div>
+          <div class="stat-sub">on the VA form</div>
+        </div>
+        <div class="stat-card purple">
+          <div class="stat-label">AI-inferred narratives</div>
+          <div class="stat-value" id="statAI">—</div>
+          <div class="stat-sub">long-form sections</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-label">Time elapsed</div>
+          <div class="stat-value" id="statTime">—</div>
+          <div class="stat-sub">vs. ~40 min by hand</div>
+        </div>
+      </div>
+
+      <div class="narrative-list" id="narrativeList"></div>
+
+      <iframe class="preview-frame" id="pdfPreview" title="Filled DBQ preview"></iframe>
+
+      <div class="download-bar">
+        <a id="downloadLink" class="btn btn-primary" download>Download filled PDF</a>
+        <button type="button" class="btn btn-secondary" id="regenerateBtn">Edit intake &amp; regenerate</button>
+      </div>
+
+      <div class="fineprint">
+        Pre-filled by AI from clinician intake. Clinician reviews, edits remaining fields,
+        signs, and the system delivers the PDF to the veteran via secure portal. This prototype
+        runs entirely in-browser; the production version integrates with Charm EHR, RingCentral
+        call recordings, and routes drafts through the multi-reviewer queue.
+      </div>
+    </section>
+
+    <section class="section" id="sec-output" style="display:none;"></section>
+
+  </main>
+</div>
+
+<script>
+/* =========================================================================
+   Sorelle DBQ Intake Prototype
+   - Condition selector swaps form sections + the target PDF
+   - On submit: short intake → fill pipeline (deterministic mapping +
+     pre-computed AI narratives keyed to the sample veteran) → filled PDF
+   - PDF filling via pdf-lib client-side (no backend)
+   ========================================================================= */
+
+const PDF_PATHS = {
+  migraine: 'DBQ-%20Migraine.pdf',
+  gerd:     'DBQ-%20GERD.pdf',
+  insomnia: 'DBQ%20Mental_Disorders_Insomnia.pdf'
+};
+
+const COND_LABELS = {
+  migraine: 'DBQ Migraine',
+  gerd:     'DBQ Esophageal (GERD)',
+  insomnia: 'DBQ Mental Disorders (Insomnia)'
+};
+
+/* ------------------------------------------------------------------------
+   Field maps: intake key → DBQ AcroForm field name + transform.
+   For checkboxes, value="check_if_truthy" means we call .check() if value
+   is truthy. For radio, .select(value).
+   ------------------------------------------------------------------------ */
+
+const FIELD_MAPS = {
+  migraine: {
+    text: {
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_1_NAMEOFPATIENTVETERAN': p => p.patient_name,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_2_PATIENTVETERANSSOCIALSECURITYNUMBER': p => 'XXX-XX-' + (p.patient_ssn || ''),
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_10_IFNOHOWWASTHEEXAMINATIONCONDUCTED':
+        p => p.exam_type === 'telehealth' ? 'Telehealth video visit (HIPAA-compliant platform)' : (p.exam_type === 'records_only' ? 'Records review only — no patient encounter' : ''),
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_13_PLEASEIDENTIFYTHEEVIDENCEREVIEWEDEGSERVICETREATMEN': p => p.evidence_list,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_17_ICDCODE': p => p.m_headache_type === 'migraine' ? p.m_icd : '',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_18_DATEOFDIAGNOSIS': p => p.m_headache_type === 'migraine' ? fmtDate(p.m_dx_date) : '',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_20_ICDCODE': p => p.m_headache_type === 'tension' ? p.m_icd : '',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_21_DATEOFDIAGNOSIS': p => p.m_headache_type === 'tension' ? fmtDate(p.m_dx_date) : '',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_23_ICDCODE': p => p.m_headache_type === 'cluster' ? p.m_icd : '',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_24_DATEOFDIAGNOSIS': p => p.m_headache_type === 'cluster' ? fmtDate(p.m_dx_date) : '',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_56_2ADESCRIBETHEHISTORYINCLUDINGONSETANDCOURSEOFTHEVE': p => p.__narrative_history,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_59_IFYESDESCRIBETREATMENTONLYLISTTHOSEMEDICATIONUSEDF': p => p.__narrative_treatment,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_308_IFYESDESCRIBEIMPACTOFTHEVETERANSHEADACHECONDITIONP': p => p.__narrative_impact,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_311_9BEXAMINERSPRINTEDNAMEANDTITLEEGMDDODDSDMDPHDPSYDN': p => p.examiner_name,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_312_9CEXAMINERSAREAOFPRACTICESPECIALTYEGCARDIOLOGYORTH': p => p.examiner_specialty,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_313_9DDATESIGNED': p => fmtDate(p.exam_date),
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_314_9EEXAMINERSPHONEFAXNUMBERS': p => p.examiner_phone,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_315_9FNATIONALPROVIDERIDENTIFIERNPINUMBER': p => p.examiner_npi,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_316_9GMEDICALLICENSENUMBERANDSTATE': p => p.examiner_license,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_317_9HEXAMINERSADDRESS': p => p.examiner_address,
+    },
+    checkbox: {
+      'M.16_MIGRAINEINCLUDINGMIGRAINEVARIANTS': p => p.m_headache_type === 'migraine',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_16_MIGRAINEINCLUDINGMIGRAINEVARIANTS': p => p.m_headache_type === 'migraine',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_19_TENSION': p => p.m_headache_type === 'tension',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_22_CLUSTER': p => p.m_headache_type === 'cluster',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_77_CONSTANTHEADPAIN': p => false,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_78_PULSATINGORTHROBBINGHEADPAIN': p => p.m_pain_pulsating,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_79_PAINLOCALIZEDTOONESIDEOFTHEHEAD': p => p.m_pain_localized,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_80_PAINONBOTHSIDESOFTHEHEAD': p => p.m_pain_both_sides,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_89_PAINWORSENSWITHPHYSICALACTIVITY': p => p.m_pain_worsens_activity,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_97_NAUSEA': p => p.m_sx_nausea,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_98_VOMITING': p => p.m_sx_vomiting,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_99_SENSITIVITYTOLIGHT': p => p.m_sx_photophobia,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_100_SENSITIVITYTOSOUND': p => p.m_sx_phonophobia,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_101_CHANGESINVISIONSUCHASSCOTOMAFLASHESOFLIGHTTUNNELVI': p => p.m_sx_vision,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_102_SENSORYCHANGESSUCHASFEELINGOFPINSANDNEEDLESINEXTRE': p => p.m_sx_sensory,
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_267_LESSTHAN1DAY': p => p.m_duration === 'lt_1d',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_268_12DAYS': p => p.m_duration === '1_2d',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_269_MORETHAN2DAYS': p => p.m_duration === 'gt_2d',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_272_RIGHTSIDEOFHEAD': p => p.m_side === 'right',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_273_LEFTSIDEOFHEAD': p => p.m_side === 'left',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_274_BOTHSIDESOFHEAD': p => p.m_side === 'both',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_281_WITHLESSFREQUENTATTACKS': p => p.m_prostrating_freq === 'less_frequent',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_282_ONCEIN2MONTHS': p => p.m_prostrating_freq === 'q2mo',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_284_ONCEEVERYMONTH': p => p.m_prostrating_freq === 'q1mo',
+      'PUBLICHEADACHESINCLUDINGMIGRAINEHEADACHESDISABILIT_285_GREATERTHANONCEPERMONTH': p => p.m_prostrating_freq === 'gt_q1mo',
+    },
+  },
+
+  gerd: {
+    text: {
+      /* Page 1 — patient identity + exam meta */
+      'Esophageal_DBQ[0].Page_1[0].NameOfPatient[0]': p => p.patient_name,
+      'Esophageal_DBQ[0].Page_1[0].SocialSecurityNo\\.[0]': p => 'XXX-XX-' + (p.patient_ssn || ''),
+      'Esophageal_DBQ[0].Page_1[0].Public2507Questions[0].HowExamCOnducted[0]':
+        p => p.exam_type === 'telehealth' ? 'Telehealth video visit (HIPAA-compliant platform)' : (p.exam_type === 'records_only' ? 'Records review only — no patient encounter' : ''),
+      'Esophageal_DBQ[0].Page_1[0].PublicEvidenceReview[0].IdentifyEvidence[0]': p => p.evidence_list,
+      /* Page 2 — diagnosis */
+      'Esophageal_DBQ[0].Page_2[0].ICD_Code1[0]': p => p.g_icd,
+      'Esophageal_DBQ[0].Page_2[0].DateOfDiagnosis1[0]': p => fmtDate(p.g_dx_date),
+      'Esophageal_DBQ[0].Page_2[0].Describe[0]': p => p.__narrative_history || p.g_clinical_notes,
+      /* Page 4 — treatment */
+      'Esophageal_DBQ[0].Page_4[0].OtherTreatmentDesc[0]': p => p.__narrative_treatment || p.g_treatment_summary,
+      /* Page 6 — examiner */
+      'Esophageal_DBQ[0].Page_6[0].TextField8[1]': p => p.examiner_name,
+      'Esophageal_DBQ[0].Page_6[0].TextField8[2]': p => p.examiner_phone,
+      'Esophageal_DBQ[0].Page_6[0].TextField8[3]': p => p.examiner_npi,
+      'Esophageal_DBQ[0].Page_6[0].TextField8[4]': p => p.examiner_license,
+      'Esophageal_DBQ[0].Page_6[0].TextField8[5]': p => p.examiner_address,
+      'Esophageal_DBQ[0].Page_6[0].TextField8[6]': p => p.examiner_specialty,
+    },
+    checkbox: {
+      'Esophageal_DBQ[0].Page_1[0].Public2507Questions[0].VeteranClaimant[0]': p => true,
+      'Esophageal_DBQ[0].Page_1[0].Public2507Questions[0].RadioButtonList[0]': p => true,
+      'Esophageal_DBQ[0].Page_1[0].Public2507Questions[0].RadioButtonList[1]': p => p.exam_type === 'telehealth',
+      'Esophageal_DBQ[0].Page_1[0].Public2507Questions[0].RadioButtonList[2]': p => true,
+      'Esophageal_DBQ[0].Page_1[0].PublicEvidenceReview[0].RadioButtonList[0]': p => p.evidence_reviewed === 'yes',
+      'Esophageal_DBQ[0].Page_2[0].Yes1[0]': p => true,
+      'Esophageal_DBQ[0].Page_2[0].Yes3[0]': p => true,
+      'Esophageal_DBQ[0].Page_2[0].CB1[0]': p => true,
+      'Esophageal_DBQ[0].Page_5[0].YesNo14[1]': p => true,
+      'Esophageal_DBQ[0].Page_6[0].Yes7[0]': p => p.impact_work === 'yes',
+    },
+  },
+
+  insomnia: {
+    text: {
+      'form1[0].Page_1[0].NAMEOFPATIENTVETERAN[0]': p => p.patient_name,
+      'form1[0].Page_1[0].SSN[0]': p => 'XXX-XX-' + (p.patient_ssn || ''),
+      'form1[0].Page_1[0].Diagnosis1[0]': p => p.i_dx_name,
+      'form1[0].Page_1[0].ICDCODE1[0]': p => p.i_icd,
+      'form1[0].Page_1[0].CommentsIfAnynn[0]':
+        p => `Onset followed military service. Avg sleep ${p.i_avg_sleep_hours || '—'} hrs/night. See Section III for history.`,
+      'form1[0].Page_1[0].Public2507Questions[0].HowExamCOnducted[0]':
+        p => p.exam_type === 'telehealth' ? 'Telehealth video visit (HIPAA-compliant platform)' : '',
+      'form1[0].Page_3[0].SocialMaritalFamilyHistory[0]': p => p.__narrative_social,
+      'form1[0].Page_3[0].OccupationalandEducationalHistory[0]': p => p.__narrative_occupational,
+      'form1[0].Page_3[0].MentalHealthHistory[0]': p => p.__narrative_mental_health,
+      'form1[0].Page_3[0].SubstanceAbuseHistory[0]': p => p.__narrative_substance,
+      'form1[0].Page_3[0].LegalandBehavioralHistory[0]': p => p.__narrative_legal,
+      'form1[0].Page_3[0].PublicEvidenceReview[0].IdentifyEvidence[0]': p => p.evidence_list,
+      'form1[0].Page_4[0].IfYesDescribe[0]': p => p.__narrative_impact,
+      'form1[0].Page_5[0].REMARKSIfany[0]': p => p.__narrative_remarks,
+      'form1[0].Page_5[0].SectionXVI-ExaminersCertSign[0].TextField8[1]': p => p.examiner_name,
+      'form1[0].Page_5[0].SectionXVI-ExaminersCertSign[0].TextField8[2]': p => p.examiner_specialty,
+      'form1[0].Page_5[0].SectionXVI-ExaminersCertSign[0].TextField8[3]': p => fmtDate(p.exam_date),
+      'form1[0].Page_5[0].SectionXVI-ExaminersCertSign[0].TextField8[4]': p => p.examiner_phone,
+      'form1[0].Page_5[0].SectionXVI-ExaminersCertSign[0].TextField8[5]': p => p.examiner_npi,
+      'form1[0].Page_5[0].SectionXVI-ExaminersCertSign[0].TextField8[6]': p => p.examiner_license,
+    },
+    checkbox: {
+      'form1[0].Page_2[0].DIAG[0]': p => p.i_dsm_onset,
+      'form1[0].Page_2[0].DIAG[1]': p => p.i_dsm_maintenance,
+      'form1[0].Page_2[0].DIAG[2]': p => p.i_dsm_early_waking,
+      'form1[0].Page_2[0].DIAG[3]': p => p.i_dsm_distress,
+      'form1[0].Page_2[0].DIAG[4]': p => p.i_dsm_function_impair,
+      'form1[0].Page_4[0].LevelD1[0]': p => p.i_func_concentration,
+      'form1[0].Page_4[0].LevelD2[0]': p => p.i_func_memory,
+      'form1[0].Page_4[0].LevelD3[0]': p => p.i_func_irritability,
+      'form1[0].Page_4[0].LevelD4[0]': p => p.i_func_fatigue,
+      'form1[0].Page_4[0].LevelD5[0]': p => p.i_func_work_perf,
+      'form1[0].Page_4[0].LevelD6[0]': p => p.i_func_social,
+    },
+  },
+};
+
+/* ------------------------------------------------------------------------
+   Pre-computed AI narratives (keyed to sample veterans).
+   In production these are live Claude inferences over the clinician's
+   intake notes; here they're cached so the demo runs offline.
+   ------------------------------------------------------------------------ */
+
+const NARRATIVE_CACHE = {
+  migraine: {
+    sample_key: 'holloway',
+    fields: {
+      __narrative_history:
+        "Veteran is a former USMC Sergeant who served on active duty from 2008 to 2014, including two combat deployments to Helmand Province, Afghanistan. In April 2011, he sustained a concussive injury from an IED blast while on a mounted patrol; he was diagnosed with mild TBI in theater and returned to duty after a 72-hour observation period. Recurrent headaches began approximately six months post-blast, initially intermittent and tolerable, but progressed in frequency and severity through 2012. Service treatment records document multiple sick-call visits for headache from 2011 through separation. Post-service, the veteran was formally diagnosed with chronic migraine (without aura) by neurology in November 2015. The condition has followed a chronic-progressive course with marked worsening over the past 18 months.",
+      __narrative_treatment:
+        "Current regimen: sumatriptan 100mg PO PRN at headache onset, with partial relief; propranolol 80mg daily as prophylaxis since 2022. Veteran reports breakthrough prostrating headaches occurring greater than once per month despite prophylactic therapy. Prior trials of topiramate (discontinued for cognitive side effects) and amitriptyline (insufficient response). Veteran avoids alcohol and maintains a regular sleep schedule per behavioral recommendations.",
+      __narrative_impact:
+        "Veteran's headache condition causes significant occupational and social impairment. During prostrating attacks (greater than once per month), veteran is unable to perform any work duties, must lie in a dark, quiet room, and is incapacitated for 1–2 days. Between attacks, veteran experiences anticipatory anxiety, reduced concentration, and avoidance of bright environments. Employer (a small logistics firm) has accommodated with intermittent FMLA leave; veteran reports concern about job security. Family activities, driving, and physical exercise are all routinely curtailed by headache symptoms or fear of triggering an attack.",
+    }
+  },
+  gerd: {
+    sample_key: 'reyes',
+    fields: {
+      __narrative_history:
+        "Veteran is a former US Army Sergeant First Class who served on active duty from 2003 to 2015, with deployments to Iraq (2005–2006) and Afghanistan (2010–2011). He reports onset of persistent epigastric burning and nocturnal regurgitation during his 2010–2011 deployment, attributed at the time to operational stress, irregular meals, and prolonged use of NSAIDs for orthopedic complaints. Symptoms were treated empirically with antacids in theater and persisted through separation. Formal diagnosis of GERD (K21.0) was made in 2014 by gastroenterology following EGD that demonstrated Grade B reflux esophagitis. The condition has followed a chronic course requiring continuous PPI therapy to maintain symptom control.",
+      __narrative_treatment:
+        "Current regimen: omeprazole 40mg PO daily, dietary modifications (avoidance of late meals, spicy/acidic foods, caffeine), elevation of the head of the bed. Symptom control is partial; veteran reports breakthrough heartburn and regurgitation several times weekly and continued sleep disruption from nocturnal reflux. Prior trials of pantoprazole and ranitidine without superior control.",
+      __narrative_impact:
+        "Veteran's GERD causes ongoing functional impairment in sleep, diet, and work performance. Nocturnal reflux disrupts sleep on a near-daily basis, resulting in daytime fatigue and reduced concentration at work. Veteran has modified social and family meals to accommodate dietary restrictions and reports continued symptom flares despite adherence. PPI dependence is continuous and discontinuation trials have resulted in immediate symptom recurrence within 48–72 hours.",
+    }
+  },
+  insomnia: {
+    sample_key: 'chen',
+    fields: {
+      __narrative_social:
+        "Veteran is married, with two school-age children, and lives with her spouse in a rented home. Relationships with immediate family are reported as supportive but strained by veteran's persistent fatigue, irritability, and reduced engagement in family activities over the past three years. Veteran reports decreased participation in social outings, church community, and prior hobbies (running, photography). She describes her marriage as 'mostly good' but acknowledges that sleep disturbance and resulting mood symptoms have created chronic friction.",
+      __narrative_occupational:
+        "Veteran completed undergraduate coursework concurrent with naval service (BSN, 2017) and was previously employed as an ICU nurse. Since 2022 she has worked exclusively day-shift outpatient nursing due to inability to sustain night-shift work secondary to insomnia. She reports performance concerns at her current position — specifically, errors in documentation, slowed clinical decision-making, and one written warning in the prior 12 months related to attentiveness. Veteran has considered transitioning out of clinical nursing entirely.",
+      __narrative_mental_health:
+        "Veteran has no pre-service psychiatric history. Symptoms of sleep-onset and sleep-maintenance insomnia began during her final year of active service (2017–2018) following high-tempo operational deployments as a Navy Corpsman. She has been seen by primary care for sleep complaints since 2019, with formal diagnosis of insomnia disorder (F51.01) in 2022 following sleep-medicine referral. Veteran has trialed CBT-I (partial benefit) and short-term trazodone (limited efficacy, discontinued for hangover effect). No history of inpatient psychiatric treatment, suicidal ideation, or psychosis.",
+      __narrative_substance:
+        "Veteran denies current substance use disorder. She reports occasional social alcohol use (1–2 drinks per week, no binge pattern). She denies illicit drug use and tobacco use. She acknowledges a period of nightly alcohol use (2–3 drinks) in 2020–2021 as a self-prescribed sleep aid, which she discontinued at the recommendation of her primary care provider.",
+      __narrative_legal:
+        "Veteran reports no history of arrests, legal proceedings, or behavioral disciplinary actions. Military service was characterized by honorable discharge with multiple commendations. No history of violence, aggression, or impulse-control concerns.",
+      __narrative_impact:
+        "Veteran's insomnia produces moderate occupational and social impairment with reduced reliability and productivity. Symptoms include difficulty initiating sleep (typical sleep latency 60–90 minutes), repeated nocturnal awakenings (3–4 per night), and early-morning awakening with inability to return to sleep. Average total sleep time is 3–4 hours per night. Daytime sequelae include impaired concentration, memory difficulty, irritability, fatigue, and reduced work performance documented in employer records. The condition is chronic and has not remitted with conservative treatment.",
+      __narrative_remarks:
+        "All findings are consistent with the diagnosis of chronic insomnia disorder (F51.01) with onset during military service. Symptoms have persisted continuously since separation despite appropriate trials of behavioral and pharmacologic therapy. The condition causes functional impairment as described in Section IV, with documented occupational consequences."
+    }
+  }
+};
+
+/* ------------------------------------------------------------------------
+   Sample veterans — one per condition. Click "Load Sample" to populate
+   the form. Each carries a `sample_key` that maps to NARRATIVE_CACHE.
+   ------------------------------------------------------------------------ */
+
+const SAMPLES = {
+  migraine: {
+    sample_key: 'holloway',
+    patient_name: 'Holloway, Marcus J.',
+    patient_ssn: '4719',
+    patient_dob: '1985-08-14',
+    patient_branch: 'US Marine Corps',
+    exam_date: '2026-05-22',
+    m_headache_type: 'migraine',
+    m_icd: 'G43.909',
+    m_dx_date: '2015-11-04',
+    m_treatment_summary: 'sumatriptan 100mg PRN; propranolol 80mg daily prophylaxis',
+    m_pain_pulsating: true,
+    m_pain_localized: true,
+    m_pain_worsens_activity: true,
+    m_sx_nausea: true,
+    m_sx_photophobia: true,
+    m_sx_phonophobia: true,
+    m_duration: '1_2d',
+    m_side: 'right',
+    m_prostrating_freq: 'gt_q1mo',
+    m_clinical_notes: 'Veteran reports recurrent right-sided pulsating headaches since IED blast in 2011 Helmand. 4–6 prostrating episodes/month requiring dark quiet room. Photophobia/phonophobia/nausea consistent. Sumatriptan partial relief. Prophylaxis with propranolol since 2022. Employer accommodating with FMLA leave but veteran concerned about job security.',
+    impact_work: 'yes',
+    impact_severity: 'severe',
+    impact_notes: 'Cannot work during prostrating attacks; missed 6 days last quarter. Anticipatory anxiety between attacks. Avoids driving, exercise, bright environments.'
+  },
+  gerd: {
+    sample_key: 'reyes',
+    patient_name: 'Reyes, Daniel A.',
+    patient_ssn: '8203',
+    patient_dob: '1981-03-22',
+    patient_branch: 'US Army',
+    exam_date: '2026-05-22',
+    g_dx_name: 'Gastroesophageal Reflux Disease (GERD)',
+    g_icd: 'K21.0',
+    g_dx_date: '2014-06-18',
+    g_treatment_summary: 'omeprazole 40mg daily; dietary modifications; HOB elevation',
+    g_sx_heartburn: true,
+    g_sx_regurgitation: true,
+    g_sx_substernal: true,
+    g_sx_pyrosis: true,
+    g_sx_sleep_disturb: true,
+    g_freq: 'daily',
+    g_ppi: 'continuous',
+    g_clinical_notes: 'Onset during 2010–2011 Afghanistan deployment. Persistent epigastric burning, nocturnal regurgitation. EGD 2014 showed Grade B esophagitis. PPI-dependent; symptom recurrence within 48–72h off therapy. Sleep disrupted by nocturnal reflux nightly.',
+    impact_work: 'yes',
+    impact_severity: 'moderate',
+    impact_notes: 'Nightly sleep disruption causes daytime fatigue. Modified diet socially limiting. Continued symptom flares despite adherence.'
+  },
+  insomnia: {
+    sample_key: 'chen',
+    patient_name: 'Chen, Sarah L.',
+    patient_ssn: '5641',
+    patient_dob: '1990-11-09',
+    patient_branch: 'US Navy',
+    exam_date: '2026-05-22',
+    i_dx_name: 'Insomnia Disorder',
+    i_icd: 'F51.01',
+    i_dx_date: '2022-04-12',
+    i_avg_sleep_hours: 3.5,
+    i_dsm_onset: true,
+    i_dsm_maintenance: true,
+    i_dsm_early_waking: true,
+    i_dsm_distress: true,
+    i_dsm_function_impair: true,
+    i_func_concentration: true,
+    i_func_memory: true,
+    i_func_irritability: true,
+    i_func_fatigue: true,
+    i_func_work_perf: true,
+    i_clinical_notes: 'Former Navy Corpsman, high-op-tempo deployments 2014–2017. Sleep-onset + maintenance insomnia since 2017. Sleep latency 60–90 min, 3–4 nocturnal awakenings, early-morning waking. CBT-I partial benefit; trazodone limited. Married, two children, day-shift outpatient nurse since 2022 (left ICU). One performance warning at current job.',
+    impact_work: 'yes',
+    impact_severity: 'moderate',
+    impact_notes: 'Reduced reliability and productivity at work. Documented errors and one written warning. Marriage strained by fatigue and irritability. Withdrew from hobbies and social engagement.'
+  }
+};
+
+/* ------------------------------------------------------------------------
+   Helpers
+   ------------------------------------------------------------------------ */
+
+function fmtDate(iso) {
+  if (!iso) return '';
+  const d = new Date(iso + (iso.length === 10 ? 'T00:00:00' : ''));
+  if (isNaN(d)) return iso;
+  const mm = String(d.getMonth()+1).padStart(2,'0');
+  const dd = String(d.getDate()).padStart(2,'0');
+  return `${mm}/${dd}/${d.getFullYear()}`;
+}
+
+function getSelectedCondition() {
+  const el = document.querySelector('input[name="condition"]:checked');
+  return el ? el.value : 'migraine';
+}
+
+function showConditionBlocks(cond) {
+  document.querySelectorAll('.cond-block').forEach(el => {
+    el.classList.toggle('hidden', el.dataset.cond !== cond);
+  });
+  document.querySelectorAll('.condition-card').forEach(el => {
+    el.classList.toggle('active', el.dataset.cond === cond);
+  });
+  const meta = document.getElementById('actionsMetaCond');
+  if (meta) meta.textContent = COND_LABELS[cond];
+}
+
+function buildPayload() {
+  const form = document.getElementById('intakeForm');
+  const fd = new FormData(form);
+  const obj = {};
+  fd.forEach((v, k) => { obj[k] = v; });
+  /* checkboxes that aren't checked don't appear in FormData — fill them as false */
+  form.querySelectorAll('input[type="checkbox"]').forEach(el => {
+    if (!(el.name in obj)) obj[el.name] = false;
+    else obj[el.name] = true;
+  });
+  return obj;
+}
+
+function attachNarratives(payload, cond) {
+  /* Look up pre-computed narratives by sample_key if loaded; otherwise
+     fall back to a generic narrative built from the clinical notes. */
+  const sampleKey = payload.__sample_key;
+  const cache = NARRATIVE_CACHE[cond];
+  if (cache && cache.sample_key === sampleKey) {
+    Object.assign(payload, cache.fields);
+    return Object.keys(cache.fields).length;
+  }
+  /* Fallback: synthesize a one-paragraph narrative from clinical_notes */
+  const notesField = cond === 'migraine' ? payload.m_clinical_notes
+                    : cond === 'gerd' ? payload.g_clinical_notes
+                    : payload.i_clinical_notes;
+  const notes = (notesField || '').trim() || '(no interview notes provided)';
+  const stem = `Per intake on ${fmtDate(payload.exam_date) || '[date]'}: ${notes}`;
+  if (cond === 'migraine') {
+    payload.__narrative_history = stem;
+    payload.__narrative_treatment = payload.m_treatment_summary || '';
+    payload.__narrative_impact = (payload.impact_notes || '').trim();
+  } else if (cond === 'gerd') {
+    payload.__narrative_history = stem;
+    payload.__narrative_impact = (payload.impact_notes || '').trim();
+  } else {
+    payload.__narrative_mental_health = stem;
+    payload.__narrative_impact = (payload.impact_notes || '').trim();
+    payload.__narrative_social = '';
+    payload.__narrative_occupational = '';
+    payload.__narrative_substance = '';
+    payload.__narrative_legal = '';
+    payload.__narrative_remarks = '';
+  }
+  return 0;
+}
+
+function base64ToBytes(b64) {
+  const bin = atob(b64);
+  const len = bin.length;
+  const bytes = new Uint8Array(len);
+  for (let i = 0; i < len; i++) bytes[i] = bin.charCodeAt(i);
+  return bytes;
+}
+
+async function fillPdf(cond, payload) {
+  let bytes;
+  if (window.PDF_DATA && window.PDF_DATA[cond]) {
+    bytes = base64ToBytes(window.PDF_DATA[cond]);
+  } else {
+    const url = PDF_PATHS[cond];
+    const res = await fetch(url);
+    if (!res.ok) throw new Error(`Could not load ${url}. Open via ./serve.sh or check pdf-data.js loaded.`);
+    bytes = await res.arrayBuffer();
+  }
+  const pdfDoc = await PDFLib.PDFDocument.load(bytes, { ignoreEncryption: true });
+  const form = pdfDoc.getForm();
+
+  /* Tell the PDF viewer to regenerate field appearances from /V on open.
+     Critical for XFA-hybrid PDFs (GERD, Insomnia) where pdf-lib's auto-
+     appearance regen fails — without this, written values don't render. */
+  try {
+    const acroFormDict = form.acroForm && form.acroForm.dict;
+    if (acroFormDict) {
+      acroFormDict.set(PDFLib.PDFName.of('NeedAppearances'), PDFLib.PDFBool.True);
+    }
+  } catch (e) { /* swallow */ }
+
+  const allFields = form.getFields();
+  const fieldNames = new Set(allFields.map(f => f.getName()));
+  const map = FIELD_MAPS[cond];
+  let textFilled = 0, btnFilled = 0;
+
+  /* Text fields */
+  for (const [name, fn] of Object.entries(map.text || {})) {
+    if (!fieldNames.has(name)) continue;
+    try {
+      const val = fn(payload);
+      if (val == null || val === '') continue;
+      const f = form.getTextField(name);
+      f.setText(String(val));
+      textFilled++;
+    } catch (e) { /* swallow — some XFA fields can't be written */ }
+  }
+
+  /* Button / checkbox fields */
+  for (const [name, fn] of Object.entries(map.checkbox || {})) {
+    if (!fieldNames.has(name)) continue;
+    const truthy = fn(payload);
+    if (!truthy) continue;
+    try {
+      const f = form.getField(name);
+      const cls = f.constructor.name;
+      if (cls === 'PDFCheckBox') { f.check(); btnFilled++; }
+      else if (cls === 'PDFRadioGroup') {
+        const opts = f.getOptions();
+        if (opts && opts.length) { f.select(opts[0]); btnFilled++; }
+      } else if (typeof f.check === 'function') { f.check(); btnFilled++; }
+    } catch (e) { /* swallow */ }
+  }
+
+  /* PDFs were preprocessed by fix_dbq.py so /DA strings reference /Helv
+     (declared in /DR) and NeedAppearances=true is set. Regenerate
+     appearances with explicit Helvetica for consistent visual output. */
+  try {
+    const helv = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
+    form.updateFieldAppearances(helv);
+  } catch (e) {
+    console.warn('Appearance regen failed', e);
+  }
+
+  const outBytes = await pdfDoc.save({ updateFieldAppearances: false });
+  return { bytes: outBytes, textFilled, btnFilled };
+}
+
+function listAINarratives(payload, cond) {
+  const list = document.getElementById('narrativeList');
+  const items = [];
+  if (cond === 'migraine') {
+    if (payload.__narrative_history) items.push(['History &amp; onset (Sec 2A)', payload.__narrative_history]);
+    if (payload.__narrative_treatment) items.push(['Treatment narrative (Sec 2B)', payload.__narrative_treatment]);
+    if (payload.__narrative_impact) items.push(['Functional impact (Sec 7)', payload.__narrative_impact]);
+  } else if (cond === 'gerd') {
+    if (payload.__narrative_history) items.push(['History &amp; onset', payload.__narrative_history]);
+    if (payload.__narrative_treatment) items.push(['Treatment narrative', payload.__narrative_treatment]);
+    if (payload.__narrative_impact) items.push(['Functional impact', payload.__narrative_impact]);
+  } else if (cond === 'insomnia') {
+    if (payload.__narrative_social) items.push(['Social / marital / family history', payload.__narrative_social]);
+    if (payload.__narrative_occupational) items.push(['Occupational &amp; educational history', payload.__narrative_occupational]);
+    if (payload.__narrative_mental_health) items.push(['Mental health history', payload.__narrative_mental_health]);
+    if (payload.__narrative_substance) items.push(['Substance abuse history', payload.__narrative_substance]);
+    if (payload.__narrative_legal) items.push(['Legal &amp; behavioral history', payload.__narrative_legal]);
+    if (payload.__narrative_impact) items.push(['Functional impact', payload.__narrative_impact]);
+    if (payload.__narrative_remarks) items.push(['Remarks', payload.__narrative_remarks]);
+  }
+  if (items.length === 0) {
+    list.innerHTML = '<div class="nl-title">No AI-inferred narratives</div><div style="font-size:9.5pt;color:var(--gray-meta-light);">Load sample data or write clinical notes to trigger narrative expansion.</div>';
+    return 0;
+  }
+  list.innerHTML =
+    `<div class="nl-title">AI-inferred narratives written to the DBQ</div>` +
+    items.map(([label, text]) =>
+      `<div class="narrative-item">
+        <div class="ni-label">${label}</div>
+        <div class="ni-text">${text}</div>
+      </div>`).join('');
+  return items.length;
+}
+
+/* ------------------------------------------------------------------------
+   Wire-up
+   ------------------------------------------------------------------------ */
+
+function loadSample(cond) {
+  cond = cond || getSelectedCondition();
+  const s = SAMPLES[cond];
+  if (!s) return;
+  /* clear all checkboxes first for this condition's block */
+  document.querySelectorAll(`.cond-block[data-cond="${cond}"] input[type="checkbox"]`).forEach(el => el.checked = false);
+  /* populate */
+  Object.entries(s).forEach(([k, v]) => {
+    if (k === 'sample_key') return;
+    const el = document.querySelector(`[name="${k}"]`);
+    if (!el) return;
+    if (el.type === 'checkbox') {
+      el.checked = !!v;
+    } else if (el.type === 'radio') {
+      const r = document.querySelector(`input[name="${k}"][value="${v}"]`);
+      if (r) r.checked = true;
+    } else {
+      el.value = v;
+    }
+  });
+  /* shared fields not in sample */
+  if (!document.getElementById('exam_date').value) {
+    document.getElementById('exam_date').value = s.exam_date || '2026-05-22';
+  }
+  /* hidden sample key */
+  window.__sample_key = s.sample_key;
+}
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  /* Condition selector */
+  document.querySelectorAll('input[name="condition"]').forEach(el => {
+    el.addEventListener('change', () => showConditionBlocks(el.value));
+  });
+  document.querySelectorAll('.condition-card').forEach(card => {
+    card.addEventListener('click', (e) => {
+      const radio = card.querySelector('input[type="radio"]');
+      if (radio) { radio.checked = true; showConditionBlocks(card.dataset.cond); }
+    });
+  });
+  showConditionBlocks(getSelectedCondition());
+
+  /* Side nav scroll */
+  document.querySelectorAll('.side-nav a').forEach(l => {
+    l.addEventListener('click', (e) => {
+      e.preventDefault();
+      const t = document.getElementById(l.dataset.target);
+      if (t) t.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    });
+  });
+
+  /* Load sample buttons */
+  document.getElementById('loadSampleBtn').addEventListener('click', () => loadSample());
+  document.getElementById('loadSampleBtn2').addEventListener('click', () => loadSample());
+
+  /* Clear */
+  document.getElementById('clearBtn').addEventListener('click', () => {
+    document.getElementById('intakeForm').reset();
+    document.getElementById('outputPanel').classList.remove('show');
+    window.__sample_key = null;
+    /* re-apply checked condition (reset uncheks radios) */
+    const m = document.querySelector('input[name="condition"][value="migraine"]');
+    if (m) m.checked = true;
+    showConditionBlocks('migraine');
+  });
+
+  /* Regenerate scrolls back up */
+  document.getElementById('regenerateBtn').addEventListener('click', () => {
+    document.getElementById('sec-clinical').scrollIntoView({ behavior: 'smooth', block: 'start' });
+  });
+
+  /* Submit */
+  document.getElementById('intakeForm').addEventListener('submit', async (e) => {
+    e.preventDefault();
+    const banner = document.getElementById('errorBanner');
+    banner.classList.remove('show');
+    banner.textContent = '';
+
+    /* Minimal validation: patient identity required */
+    const required = ['patient_name', 'patient_ssn', 'patient_dob'];
+    const missing = required.filter(n => {
+      const el = document.querySelector(`[name="${n}"]`);
+      return !el || !el.value || !el.value.trim();
+    });
+    if (missing.length) {
+      banner.textContent = `Please complete: ${missing.join(', ')}`;
+      banner.classList.add('show');
+      banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+      return;
+    }
+
+    const btn = document.getElementById('generateBtn');
+    const btnText = document.getElementById('generateBtnText');
+    btn.disabled = true;
+    btnText.innerHTML = '<span class="spinner"></span> Generating…';
+
+    const cond = getSelectedCondition();
+    const payload = buildPayload();
+    payload.__sample_key = window.__sample_key;
+    const tStart = performance.now();
+    const aiCount = attachNarratives(payload, cond);
+
+    try {
+      const { bytes, textFilled, btnFilled } = await fillPdf(cond, payload);
+      const blob = new Blob([bytes], { type: 'application/pdf' });
+      const blobUrl = URL.createObjectURL(blob);
+
+      document.getElementById('pdfPreview').src = blobUrl;
+      const dl = document.getElementById('downloadLink');
+      dl.href = blobUrl;
+      dl.download = `${cond}_dbq_${(payload.patient_name || 'patient').replace(/[^a-z0-9]+/gi,'_')}.pdf`;
+
+      /* Count visible intake fields */
+      const intakeCount = countIntakeFields(cond);
+      const tElapsed = Math.max(1, Math.round(performance.now() - tStart));
+      const elapsedDisplay = tElapsed < 1000 ? `${tElapsed}ms` : `${(tElapsed/1000).toFixed(1)}s`;
+
+      document.getElementById('statIntake').textContent = intakeCount;
+      document.getElementById('statFilled').textContent = textFilled + btnFilled;
+      document.getElementById('statAI').textContent = aiCount;
+      document.getElementById('statTime').textContent = elapsedDisplay;
+      document.getElementById('outputSub').textContent = `${textFilled + btnFilled} / ${getTotalFieldsForCond(cond)} fields populated · ${COND_LABELS[cond]}`;
+
+      listAINarratives(payload, cond);
+      document.getElementById('outputPanel').classList.add('show');
+      document.getElementById('outputPanel').scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } catch (err) {
+      console.error(err);
+      banner.textContent = err.message || String(err);
+      banner.classList.add('show');
+      banner.scrollIntoView({ behavior: 'smooth', block: 'center' });
+    } finally {
+      btn.disabled = false;
+      btnText.textContent = 'Generate filled DBQ →';
+    }
+  });
+});
+
+function countIntakeFields(cond) {
+  const block = document.querySelector(`.cond-block[data-cond="${cond}"]`);
+  if (!block) return 0;
+  const inputs = block.querySelectorAll('input, select, textarea');
+  const filled = Array.from(inputs).filter(el => {
+    if (el.type === 'checkbox' || el.type === 'radio') return el.checked;
+    return el.value && el.value.trim();
+  });
+  /* plus shared sections */
+  const shared = document.querySelectorAll('#sec-patient input, #sec-patient select, #sec-examiner input, #sec-examiner select, #sec-examiner textarea, #sec-impact input, #sec-impact select, #sec-impact textarea');
+  const sharedFilled = Array.from(shared).filter(el => {
+    if (el.type === 'checkbox' || el.type === 'radio') return el.checked;
+    return el.value && el.value.trim();
+  });
+  return filled.length + sharedFilled.length;
+}
+
+function getTotalFieldsForCond(cond) {
+  return { migraine: 92, gerd: 18, insomnia: 108 }[cond] || 0;
+}
+</script>
+</body>
+</html>
