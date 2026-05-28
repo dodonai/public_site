@@ -1,18 +1,22 @@
 {
   "seo": {
-    "title": "AI Medical Record Summaries & Chronologies",
-    "description": "Generate AI medical record summaries and chronologies in minutes. Medical chronology software for personal injury, malpractice, and mass torts. Try free.",
+    "title": "AI Medical Chronology & Record Summary Software | Dodonai",
+    "description": "AI medical chronology software for attorneys. Turn 1,000+ pages of patient records into a date-ordered timeline in minutes, with page citations to every source. HIPAA compliant.",
     "canonical": "/ai-medical-record-summaries-chronologies/"
   },
   "hero": {
     "headline": "AI Medical Record Summaries & Chronologies",
-    "subheadline": "Dodonai's AI-assisted medical records summarization software generates a full medical chronology and summary of essential medical history in minutes. Designed for legal professionals, Dodonai ensures that you receive the crucial medical information you need efficiently and accurately.",
+    "subheadline": "Dodonai's AI medical chronology software generates a full date-ordered timeline and narrative summary from a patient's medical records in minutes — with page citations to every source. Built for personal injury, medical malpractice, workers' comp, and disability benefits attorneys.",
     "bullets": [],
     "ctaText": "Free Summary",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Pricing",
     "secondaryCtaUrl": "/pricing/",
     "badges": ["SOC-2 Certified", "HIPAA Compliant"]
+  },
+  "definition": {
+    "term": "What is a medical chronology?",
+    "body": "A medical chronology is a structured, date-ordered summary of all medical records relevant to a legal case. It condenses hundreds of pages of physician notes, lab results, imaging reports, and treatment records into a single timeline attorneys use to evaluate damages, build case strategy, or prepare for deposition. Dodonai generates a medical chronology automatically, reducing a task that takes paralegals hours into minutes."
   },
   "features": [],
   "howItWorks": [
@@ -36,11 +40,6 @@
       "description": "Medical record summaries provide a succinct overview of a patient's medical history, condensing large amounts of detailed information into a digestible and accessible format. These summaries describe the patient's medical status and history, including treatments, diagnoses, lab reports, and other critical medical data. Essential for legal and medical professionals, medical record summaries simplify the review process, making it easier to understand and utilize complex medical information."
     },
     {
-      "title": "What Are Medical Chronologies?",
-      "icon": "calendar",
-      "description": "Medical chronologies detail the timeline of a patient's medical history, organizing treatments, consultations, and significant medical events in chronological order. This structured format allows professionals to quickly grasp the sequence of medical events, providing a clear and logical overview of a patient's medical journey."
-    },
-    {
       "title": "How Do Lawyers Use Medical Record Summaries?",
       "icon": "briefcase",
       "description": "Medical record summaries and chronologies are indispensable for many types of litigation alongside {{link:/deposition-summary-software/|deposition summaries}} and other evidentiary tools. They provide attorneys with essential health information formatted in a way that supports case analysis, evidence gathering, and trial preparation. Accurate and timely access to summarized medical data can significantly influence the outcome of legal proceedings by clarifying the medical aspects of a case."
@@ -48,7 +47,12 @@
     {
       "title": "Challenges of Manual Medical Record Summaries",
       "icon": "warning",
-      "description": "Manually creating accurate medical record summaries and chronologies requires extensive time and expertise in both medical and legal nuances. This process can be labor-intensive, with a high potential for error, often leading to delays and increased costs. Ensuring efficiency and accuracy in summarization not just a benefit, but a necessity."
+      "description": "Manually creating accurate medical record summaries and chronologies requires extensive time and expertise in both medical and legal nuances. This process can be labor-intensive, with a high potential for error, often leading to delays and increased costs. Ensuring efficiency and accuracy in summarization is not just a benefit, but a necessity."
+    },
+    {
+      "title": "Records Dodonai Processes",
+      "icon": "document",
+      "description": "Physician office notes, emergency room records, hospital discharge summaries, surgical and operative reports, IME (independent medical examination) reports, physical therapy notes, lab results, imaging reports including MRI and X-ray, pharmacy and prescription records, and provider correspondence. Scanned, handwritten, and faxed records are processed alongside digital files through built-in {{link:/ai-pdf-ocr/|AI OCR}}. The output: a single chronology covering every provider, every visit, every event — with page citations to the original source for {{link:/use-cases/medical-record-review/|review of individual medical records}} on demand."
     }
   ],
   "aiOverview": {
@@ -192,7 +196,7 @@
     },
     {
       "question": "Who can benefit from AI Medical Record Summarization?",
-      "answer": "AI medical record summarization can benefit a wide range of professionals including lawyers, paralegals, insurance claims adjusters, medical consultants, and healthcare providers. It is particularly useful for those involved in personal injury cases, medical malpractice suits, workers' compensation cases, and any legal or healthcare area requiring quick and reliable interpretation of complex medical records."
+      "answer": "AI medical record summarization is built for legal professionals: plaintiff and defense attorneys, paralegals, and insurance defense firms working personal injury, medical malpractice, workers' compensation, mass tort, and {{link:/practice-areas/disability-benefits/|disability benefits cases}} (SSDI, LTD, VA). Insurance claims adjusters, medical consultants, IME companies, and medical record retrieval services also use Dodonai for high-volume processing."
     },
     {
       "question": "How does AI improve the accuracy of medical record summaries?",
@@ -211,12 +215,20 @@
       "answer": "A thorough medical record summary should include the patient's demographics and identifying information, a chronological list of all providers and facilities, diagnoses and conditions with ICD codes where available, treatments and procedures performed, medications prescribed, lab results and imaging findings, and any referrals or follow-up recommendations. For litigation, the summary should also highlight gaps in treatment, pre-existing conditions, and causal connections between events and medical outcomes."
     },
     {
-      "question": "How long does it take to create a medical record summary?",
-      "answer": "Manually creating a medical record summary typically takes 4 to 8 hours for a standard case with 200 to 500 pages of records. Complex cases with thousands of pages can take days. Dodonai's AI generates a complete medical record summary and chronology in minutes, regardless of record volume. A 500-page file typically processes in under 5 minutes."
+      "question": "How long does it take to generate a medical chronology?",
+      "answer": "Manually building a medical chronology from a 200–500 page record set takes a paralegal hours; complex cases with thousands of pages can take days. Dodonai's AI generates a complete medical chronology and narrative summary in minutes regardless of record volume, with page citations to every source. For attorneys comparing options, see our {{link:/compare/best-medical-chronology-software/|comparison of medical chronology software}}."
     },
     {
       "question": "What is the difference between a medical record summary and a medical chronology?",
       "answer": "A medical record summary provides a narrative overview of the patient's medical history, highlighting key diagnoses, treatments, and outcomes. A medical chronology organizes the same information into a date-ordered timeline, showing each provider visit, procedure, and clinical event in sequence. Most litigation teams use both: the summary for quick case assessment and the chronology for detailed timeline analysis. Dodonai generates both formats from a single upload. For a detailed comparison, see our guide on {{link:/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/|medical chronology vs narrative summary}}."
+    },
+    {
+      "question": "Can Dodonai handle scanned or handwritten medical records?",
+      "answer": "Yes. Built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} processes scanned PDFs, image-based documents, faxed records, and handwritten provider notes. There is no separate OCR step — upload the file as-is and the AI extracts text accurately so nothing gets missed during chronology generation."
+    },
+    {
+      "question": "What file formats does Dodonai accept for medical records?",
+      "answer": "PDF (including scanned and image-only), Word, and plain text files for upload. Output formats include PDF, Word (.docx), Excel (.xls), and text (.txt). The interactive viewer lets you work with the chronology in the browser with side-by-side source linking before downloading."
     },
     {
       "question": "I have more questions. Where can I find answers?",

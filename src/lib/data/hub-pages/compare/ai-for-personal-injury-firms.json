@@ -1,0 +1,157 @@
+{
+  "seo": {
+    "title": "AI for Personal Injury Firms — Deposition & Medical Records | Dodonai",
+    "description": "Personal injury cases live in deposition transcripts and medical records. Dodonai turns both into prep-ready summaries and chronologies in minutes — built for PI firm workflow.",
+    "canonical": "/compare/ai-for-personal-injury-firms/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Compare", "href": null },
+    { "name": "AI for Personal Injury Firms" }
+  ],
+  "hero": {
+    "headline": "AI for Personal Injury Firms: Depositions and Medical Records in Minutes",
+    "subheadline": "Every PI case is built on two stacks of documents — deposition transcripts and medical records. Dodonai turns both into case-ready summaries and chronologies with citations, so case prep that took associate-weeks happens in an afternoon.",
+    "ctaText": "Start Free Trial",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Medical Record Review",
+    "secondaryCtaUrl": "/use-cases/medical-record-review/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "The Two Workflows That Define PI Case Prep",
+      "paragraphs": [
+        "A personal injury firm's economics depend on two things: how fast a case moves from intake to demand, and how strong the file is when it gets there. Both come down to document work — turning deposition transcripts into cross-examination outlines, and turning thousands of pages of medical records into a clean chronology that supports the damages model.",
+        "Done manually, this is associate and paralegal time measured in weeks per case. Outsourced to a summary service, it's a 3–7 business day turnaround at $3–$10 per page. With AI built for legal workflow, it's an afternoon at a fraction of the cost — and the output is consistent across every case in the firm."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "What PI Firms Use Dodonai For",
+      "cards": [
+        {
+          "icon": "document",
+          "title": "Deposition Summaries with Citations",
+          "description": "Upload the plaintiff, defendant, and expert deposition transcripts. Receive page-line summaries, narrative summaries, or issue-based summaries in roughly 3 minutes per 100 pages. Every point cites back to the testimony for instant verification."
+        },
+        {
+          "icon": "heart",
+          "title": "Medical Record Chronologies",
+          "description": "Process the full medical records production — ER visits, hospitalizations, specialist referrals, surgeries, PT sessions, medication changes, IME findings — into a date-ordered chronology with page citations. Surfaces gaps in treatment, prior conditions, and IME contradictions."
+        },
+        {
+          "icon": "search",
+          "title": "Search Across the Whole Case File",
+          "description": "Load every transcript, expert report, and medical record into the case. Search by meaning, not just keywords. Find every place a defense expert mentioned causation, every reference to a preexisting condition, every inconsistency."
+        },
+        {
+          "icon": "clock",
+          "title": "Same-Week Demand Letter Inputs",
+          "description": "Medical chronology, treatment cost summary, and deposition highlights in the same week the records arrive. Cases move from intake to demand in a fraction of the standard timeline."
+        },
+        {
+          "icon": "shield",
+          "title": "HIPAA-Compliant by Default",
+          "description": "Medical records are protected health information. Dodonai is SOC 2 certified, HIPAA compliant, AES-256 encrypted, and signs BAAs. Your case data is never used to train AI models."
+        },
+        {
+          "icon": "dollar",
+          "title": "Predictable Cost Per Case",
+          "description": "Subscription pricing — Lite $30/month for 200 pages, Basic $60/month for 1,000 pages, Pro $100/month for 5,000 pages. A typical PI case file runs $5–$30 to fully process, against hundreds of dollars per case for outsourced summary services."
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "AI for Personal Injury Firms: Options Compared",
+      "columns": ["Capability", "Dodonai", "PI-Focused AI Tools", "Outsourced Summary Services", "Manual / In-House"],
+      "rows": [
+        ["Deposition summaries with page-line citations", true, "Varies", true, true],
+        ["Medical record chronologies with citations", true, true, true, true],
+        ["Searchable case library across documents", true, "Varies", false, false],
+        ["Handles scanned and handwritten records", true, "Varies", true, true],
+        ["Turnaround for typical case file", "Hours", "Hours to days", "3–7 business days", "Days to weeks"],
+        ["Cost per typical PI case", "$5–$30", "Varies — often higher tier pricing", "$300–$1,000+", "Billed paralegal/attorney rate"],
+        ["Self-serve, no implementation", true, "Varies", "N/A", "N/A"],
+        ["Also handles contract review and IME reports", true, "Often PI-only", "Varies", true],
+        ["SOC 2 + HIPAA + signed BAA", true, "Varies", "Varies", "Depends on firm"],
+        ["Data not used for AI training", true, "Varies", "N/A", "N/A"],
+        ["Free trial available", true, "Sometimes", false, false]
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "heading": "Typical PI Case Flow with Dodonai",
+      "items": [
+        {
+          "title": "Upload the Case Documents",
+          "description": "Drop in deposition transcripts, medical records, IME reports, and expert disclosures. PDF, Word, scanned files, and handwritten records all work. No preprocessing required."
+        },
+        {
+          "title": "Generate the Core Outputs",
+          "description": "Run deposition summaries, build the medical chronology, and process the IME report. Each output completes in minutes and includes page citations to the source."
+        },
+        {
+          "title": "Search the Full Case File",
+          "description": "Use semantic search across the whole case to find every mention of causation, prior conditions, treatment gaps, or specific medications. Search by meaning so phrasing differences don't hide relevant testimony."
+        },
+        {
+          "title": "Build the Demand Package",
+          "description": "Compile the chronology, deposition highlights, treatment cost summary, and expert findings into a demand letter or settlement memo. Source citations carry through to the final document."
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "Beyond Personal Injury",
+      "paragraphs": [
+        "PI firms often grow into adjacent practice areas — medical malpractice, workers' compensation, mass tort, product liability. Dodonai works the same way across all of them: same deposition summaries, same medical chronologies, same searchable case library. Firms that adopt Dodonai for PI usually expand it across the rest of the litigation practice within a few months because the workflow is the same."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How does Dodonai compare to AI tools built specifically for personal injury firms?",
+      "answer": "PI-focused AI tools tend to bundle case management, intake, and document review into a single platform. Dodonai is focused on the document review piece — deposition summaries, medical chronologies, and case-file search — and integrates alongside whatever case management system you already use. The tradeoff: less bundling, more focus on output quality and turnaround speed for the documents that drive case value."
+    },
+    {
+      "question": "Can Dodonai handle the volume of records on a complex PI case?",
+      "answer": "Yes. The Pro plan processes 5,000 pages per month at $100. A typical PI case file — full medical records, two or three depositions, IME report, expert disclosures — usually runs 800 to 2,500 pages. Enterprise plans are available for high-volume firms or mass tort docket work."
+    },
+    {
+      "question": "Are the medical chronologies usable for demand letters?",
+      "answer": "Yes. The chronology is date-ordered with each entry citing the source record page, which makes it easy to pull directly into a demand letter and link evidence back to the underlying records. The chronology surfaces treatment gaps, prior conditions, and inconsistencies that affect case value."
+    },
+    {
+      "question": "How does Dodonai protect protected health information?",
+      "answer": "SOC 2 certified, HIPAA compliant, AES-256 encryption from upload to deletion, and signed BAAs. Your data is never used to train AI models, and you control the retention schedule. Medical records workflow was a foundational use case, not an add-on."
+    },
+    {
+      "question": "What's the fastest way to see if Dodonai fits our firm?",
+      "answer": "Start the free trial, upload one real deposition transcript and one set of medical records from a recent case, and compare the output to what your team produced manually. Most PI firms make a decision after running one or two cases through."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "Page-line, narrative, and issue-based summaries with citations in minutes."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "Chronologies, summaries, and gap analysis across thousands of pages of records."
+    },
+    {
+      "title": "Personal Injury Practice",
+      "href": "/practice-areas/personal-injury/",
+      "description": "How Dodonai supports the full PI case workflow from intake to demand."
+    },
+    {
+      "title": "Demand Letters",
+      "href": "/use-cases/demand-letters/",
+      "description": "Turn the case file into a demand-ready package with cited evidence."
+    }
+  ]
+}
