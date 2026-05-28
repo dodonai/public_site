@@ -86,33 +86,35 @@
 
 				<!-- Paragraph -->
 				<p class="mt-6 max-w-xl text-base leading-7 text-[#8181ac] sm:text-lg">
-					Dodonai's HIPAA and SOC-2 compliant secure software automates document analysis so
-					legal and medical professionals can focus on servicing clients and patients and
-					growing their practices.
+					Dodonai's HIPAA and SOC-2 compliant secure software automates document analysis so legal
+					and medical professionals can focus on servicing clients and patients and growing their
+					practices.
 				</p>
 
 				<!-- CTA Buttons -->
 				<div class="mt-8 flex flex-wrap items-center gap-4 max-lg:justify-center sm:gap-6">
 					<a
-						href="https://app.dodon.ai/signup"
+						href="https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=hero"
 						target="_blank"
 						rel="noopener noreferrer"
 						class="btn-brand-primary inline-block"
 					>
 						Free Summary
 					</a>
-					<a href="/pricing/" class="btn-brand-outline inline-block">
-						See Pricing
-					</a>
+					<a href="/pricing/" class="btn-brand-outline inline-block"> See Pricing </a>
 				</div>
 
 				<!-- Security certifications -->
 				<div class="mt-10 flex flex-wrap items-center gap-4 max-lg:justify-center sm:gap-5">
-					<div class="flex items-center gap-3 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-5 py-2.5">
+					<div
+						class="flex items-center gap-3 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-5 py-2.5"
+					>
 						<img src="/images/brand/icon-soc2.svg" alt="SOC-2 shield" class="h-7 w-7" />
 						<span class="text-sm font-semibold tracking-wide text-[#282876]">SOC-2 Certified</span>
 					</div>
-					<div class="flex items-center gap-3 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-5 py-2.5">
+					<div
+						class="flex items-center gap-3 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-5 py-2.5"
+					>
 						<img src="/images/brand/icon-hipaa.svg" alt="HIPAA shield" class="h-7 w-7" />
 						<span class="text-sm font-semibold tracking-wide text-[#282876]">HIPAA Compliant</span>
 					</div>
