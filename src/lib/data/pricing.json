@@ -1,75 +1,64 @@
 [
-  {
-    "id": "lite",
-    "name": "Lite",
-    "monthlyPrice": 30,
-    "yearlyPrice": 300,
-    "yearlyMonthlyPrice": 25,
-    "monthlyCredits": 200,
-    "yearlyCredits": 4800,
-    "description": "For solo practitioners and small teams getting started with AI document processing.",
-    "features": [
-      "AI deposition summaries",
-      "Medical record chronologies",
-      "AI-powered OCR",
-      "Extract & Draft Agents",
-      "Custom rule engine",
-      "E-Discovery tools",
-      "Transcript management",
-      "Chat & email support"
-    ],
-    "ctaText": "Get Started",
-    "ctaUrl": "https://app.dodon.ai/signup"
-  },
-  {
-    "id": "basic",
-    "name": "Basic",
-    "monthlyPrice": 60,
-    "yearlyPrice": 600,
-    "yearlyMonthlyPrice": 50,
-    "monthlyCredits": 1000,
-    "yearlyCredits": 24000,
-    "description": "For growing firms that need more capacity and advanced features.",
-    "features": [
-      "Everything in Lite",
-      "Chat & email support"
-    ],
-    "ctaText": "Get Started",
-    "ctaUrl": "https://app.dodon.ai/signup"
-  },
-  {
-    "id": "pro",
-    "name": "Pro",
-    "monthlyPrice": 100,
-    "yearlyPrice": 1000,
-    "yearlyMonthlyPrice": 84,
-    "monthlyCredits": 5000,
-    "yearlyCredits": 120000,
-    "popular": true,
-    "description": "For litigation teams handling high-volume caseloads with demanding deadlines.",
-    "features": [
-      "Everything in Basic",
-      "Dedicated onboarding",
-      "Chat, email & phone support"
-    ],
-    "ctaText": "Get Started",
-    "ctaUrl": "https://app.dodon.ai/signup"
-  },
-  {
-    "id": "enterprise",
-    "name": "Enterprise",
-    "monthlyPrice": null,
-    "yearlyPrice": null,
-    "yearlyMonthlyPrice": null,
-    "monthlyCredits": null,
-    "yearlyCredits": null,
-    "description": "For large firms and legal departments with custom requirements and unlimited volume.",
-    "features": [
-      "Everything in Pro",
-      "Custom integrations",
-      "SLA guarantees"
-    ],
-    "ctaText": "Contact Us",
-    "ctaUrl": "https://calendly.com/nick-dodonai"
-  }
+	{
+		"id": "lite",
+		"name": "Lite",
+		"monthlyPrice": 30,
+		"yearlyPrice": 300,
+		"yearlyMonthlyPrice": 25,
+		"monthlyCredits": 200,
+		"yearlyCredits": 4800,
+		"description": "For solo practitioners and small teams getting started with AI document processing.",
+		"features": [
+			"AI deposition summaries",
+			"Medical record chronologies",
+			"AI-powered OCR",
+			"Extract & Draft Agents",
+			"Custom rule engine",
+			"E-Discovery tools",
+			"Transcript management",
+			"Chat & email support"
+		],
+		"ctaText": "Get Started",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=pricing_lite"
+	},
+	{
+		"id": "basic",
+		"name": "Basic",
+		"monthlyPrice": 60,
+		"yearlyPrice": 600,
+		"yearlyMonthlyPrice": 50,
+		"monthlyCredits": 1000,
+		"yearlyCredits": 24000,
+		"description": "For growing firms that need more capacity and advanced features.",
+		"features": ["Everything in Lite", "Chat & email support"],
+		"ctaText": "Get Started",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=pricing_basic"
+	},
+	{
+		"id": "pro",
+		"name": "Pro",
+		"monthlyPrice": 100,
+		"yearlyPrice": 1000,
+		"yearlyMonthlyPrice": 84,
+		"monthlyCredits": 5000,
+		"yearlyCredits": 120000,
+		"popular": true,
+		"description": "For litigation teams handling high-volume caseloads with demanding deadlines.",
+		"features": ["Everything in Basic", "Dedicated onboarding", "Chat, email & phone support"],
+		"ctaText": "Get Started",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=pricing_pro"
+	},
+	{
+		"id": "enterprise",
+		"name": "Enterprise",
+		"monthlyPrice": null,
+		"yearlyPrice": null,
+		"yearlyMonthlyPrice": null,
+		"monthlyCredits": null,
+		"yearlyCredits": null,
+		"description": "For large firms and legal departments with custom requirements and unlimited volume.",
+		"features": ["Everything in Pro", "Custom integrations", "SLA guarantees"],
+		"ctaText": "Contact Us",
+		"ctaUrl": "https://calendly.com/nick-dodonai"
+	}
 ]

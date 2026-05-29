@@ -1,5 +1,11 @@
 <script>
-	import { practiceAreas, useCases, compare, industries, aiServicesOverview } from '$lib/data/navigation.js';
+	import {
+		practiceAreas,
+		useCases,
+		compare,
+		industries,
+		aiServicesOverview
+	} from '$lib/data/navigation.js';
 
 	const platformLinks = [
 		{ name: 'AI Deposition Summary', href: '/deposition-summary-software/' },
@@ -14,7 +20,11 @@
 		{ name: 'Pricing', href: '/pricing/' },
 		{ name: 'Blog', href: '/blog/' },
 		{ name: 'Help Center', href: 'https://app.dodon.ai/help', external: true },
-		{ name: 'Sign Up', href: 'https://app.dodon.ai/signup', external: true },
+		{
+			name: 'Sign Up',
+			href: 'https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=footer',
+			external: true
+		},
 		{ name: 'Log In', href: 'https://app.dodon.ai/login', external: true }
 	];
 
@@ -52,13 +62,23 @@
 </script>
 
 <footer class="relative z-40 overflow-hidden">
-	<div class="mx-auto flex w-[85%] max-w-[1250px] flex-col items-stretch justify-between pt-10 pb-0">
+	<div
+		class="mx-auto flex w-[85%] max-w-[1250px] flex-col items-stretch justify-between pt-10 pb-0"
+	>
 		<!-- Row 1: Logo + Services / Resources / Legal -->
-		<div class="flex flex-wrap items-start justify-between pb-10 max-md:flex-wrap max-md:justify-between">
+		<div
+			class="flex flex-wrap items-start justify-between pb-10 max-md:flex-wrap max-md:justify-between"
+		>
 			<!-- Logo + Email + Social -->
 			<div class="flex w-[25%] flex-col items-center justify-center max-lg:mb-[50px] max-lg:w-full">
 				<a href="/" class="inline-block max-w-[200px]">
-					<img src="/images/brand/logo-purple.webp" alt="Dodonai" class="w-full" width="200" height="35" />
+					<img
+						src="/images/brand/logo-purple.webp"
+						alt="Dodonai"
+						class="w-full"
+						width="200"
+						height="35"
+					/>
 				</a>
 				<a
 					href="mailto:hello@dodon.ai"
@@ -74,7 +94,13 @@
 						class="flex h-[24px] flex-col items-center justify-end transition-all duration-300 hover:mt-[-5px]"
 						aria-label="LinkedIn"
 					>
-						<img src="/images/brand/linkedin.svg" alt="LinkedIn" class="h-full" width="24" height="24" />
+						<img
+							src="/images/brand/linkedin.svg"
+							alt="LinkedIn"
+							class="h-full"
+							width="24"
+							height="24"
+						/>
 					</a>
 					<a
 						href="https://twitter.com/Dodon_ai"
@@ -83,7 +109,13 @@
 						class="flex h-[24px] flex-col items-center justify-end transition-all duration-300 hover:mt-[-5px]"
 						aria-label="Twitter"
 					>
-						<img src="/images/brand/twitter.svg" alt="Twitter" class="h-full" width="24" height="24" />
+						<img
+							src="/images/brand/twitter.svg"
+							alt="Twitter"
+							class="h-full"
+							width="24"
+							height="24"
+						/>
 					</a>
 					<a
 						href="https://www.youtube.com/@dodon-ai"
@@ -92,13 +124,21 @@
 						class="flex h-[24px] flex-col items-center justify-end transition-all duration-300 hover:mt-[-5px]"
 						aria-label="YouTube"
 					>
-						<img src="/images/brand/youtube.webp" alt="YouTube" class="w-[21px]" width="21" height="15" />
+						<img
+							src="/images/brand/youtube.webp"
+							alt="YouTube"
+							class="w-[21px]"
+							width="21"
+							height="15"
+						/>
 					</a>
 				</div>
 			</div>
 
 			<!-- Footer grid: Platform / AI Services / Resources / Legal -->
-			<div class="grid w-[70%] max-w-[850px] grid-cols-[1.4fr_1.2fr_1fr_0.9fr] gap-x-4 gap-y-[37px] max-lg:w-full max-lg:gap-x-0 max-md:grid-cols-[1fr_1fr] max-sm:flex max-sm:flex-col max-sm:flex-wrap">
+			<div
+				class="grid w-[70%] max-w-[850px] grid-cols-[1.4fr_1.2fr_1fr_0.9fr] gap-x-4 gap-y-[37px] max-lg:w-full max-lg:gap-x-0 max-md:grid-cols-[1fr_1fr] max-sm:flex max-sm:flex-col max-sm:flex-wrap"
+			>
 				<!-- Platform -->
 				<div class="flex flex-col items-start justify-start">
 					<div class="mb-[25px]">
@@ -165,7 +205,9 @@
 
 		<!-- Row 2: Hub Pages — Practice Areas / Use Cases / Compare / Industries -->
 		<div class="pb-10">
-			<div class="grid grid-cols-4 gap-x-4 gap-y-[37px] max-md:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:flex-wrap">
+			<div
+				class="grid grid-cols-4 gap-x-4 gap-y-[37px] max-md:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:flex-wrap"
+			>
 				<!-- Practice Areas -->
 				<div class="flex flex-col items-start justify-start">
 					<div class="mb-[25px]">
@@ -233,7 +275,9 @@
 			<div class="mb-[25px]">
 				<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Selected Blog Posts</h2>
 			</div>
-			<div class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-x-4 gap-y-0 max-md:grid-cols-2 max-md:grid-rows-3 max-sm:flex max-sm:flex-col">
+			<div
+				class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-x-4 gap-y-0 max-md:grid-cols-2 max-md:grid-rows-3 max-sm:flex max-sm:flex-col"
+			>
 				{#each blogPosts as post}
 					<a
 						href={post.href}
@@ -246,7 +290,9 @@
 		</div>
 
 		<!-- Copyright -->
-		<div class="mt-[80px] flex justify-between max-lg:flex-col max-lg:items-start max-sm:mt-[40px] max-sm:flex-col-reverse">
+		<div
+			class="mt-[80px] flex justify-between max-lg:flex-col max-lg:items-start max-sm:mt-[40px] max-sm:flex-col-reverse"
+		>
 			<p class="text-[14px] leading-[28px] text-[#8181ac]">
 				&copy; {new Date().getFullYear()} Dodonai. All rights reserved.
 			</p>
