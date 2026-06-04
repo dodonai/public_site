@@ -1,0 +1,584 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Dodonai: How Law Firms Run on AI</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --midnight:#1A1A45;
+    --midnight-deep:#14143A;
+    --midnight-soft:#252556;
+    --purple-soft:#B5A8E6;
+    --purple-mid:#8B7AB8;
+    --purple-bold:#6B46C1;
+    --purple-vivid:#7C3AED;
+    --cream:#F4F1E8;
+    --cream-deep:#EBE6D7;
+    --cream-line:#D8D3C2;
+    --gray-meta:#9B9BB8;
+    --gray-meta-light:#6B6B85;
+    --teal:#0e7490;
+    --teal-bright:#06b6d4;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--midnight);font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--purple-bold);text-decoration:none;border-bottom:1px solid var(--purple-soft)}
+  a:hover{border-bottom-color:var(--purple-bold)}
+  strong{color:var(--midnight-deep);font-weight:700}
+  em{color:var(--purple-bold);font-style:italic}
+  p{margin:0 0 14px}
+
+  /* ===== Hero ===== */
+  .hero{background:var(--midnight);color:#fff;padding:64px 48px 72px;position:relative;overflow:hidden}
+  .hero::before{content:"";position:absolute;inset:0;background:
+    radial-gradient(circle at 15% 30%,rgba(124,58,237,0.22) 0%,transparent 45%),
+    radial-gradient(circle at 85% 70%,rgba(6,182,212,0.13) 0%,transparent 50%),
+    radial-gradient(circle at 50% 110%,rgba(181,168,230,0.10) 0%,transparent 55%);
+    animation:meshShift 24s ease-in-out infinite alternate}
+  @keyframes meshShift{
+    0%{transform:scale(1) translate(0,0)}
+    100%{transform:scale(1.1) translate(-30px,-20px)}
+  }
+  .hero::after{content:"";position:absolute;inset:0;background-image:
+    radial-gradient(circle 1px at 18% 22%,rgba(181,168,230,0.6) 0,transparent 100%),
+    radial-gradient(circle 1px at 67% 38%,rgba(181,168,230,0.5) 0,transparent 100%),
+    radial-gradient(circle 1px at 88% 14%,rgba(181,168,230,0.4) 0,transparent 100%),
+    radial-gradient(circle 1px at 32% 70%,rgba(181,168,230,0.55) 0,transparent 100%),
+    radial-gradient(circle 1px at 78% 84%,rgba(181,168,230,0.5) 0,transparent 100%),
+    radial-gradient(circle 1px at 8% 90%,rgba(181,168,230,0.45) 0,transparent 100%),
+    radial-gradient(circle 1px at 92% 50%,rgba(181,168,230,0.55) 0,transparent 100%),
+    radial-gradient(circle 1px at 45% 12%,rgba(181,168,230,0.4) 0,transparent 100%);
+    animation:starsDrift 60s linear infinite;pointer-events:none}
+  @keyframes starsDrift{
+    0%{opacity:0.6;transform:translateY(0)}
+    50%{opacity:1}
+    100%{opacity:0.6;transform:translateY(-20px)}
+  }
+  .hero-inner{max-width:1080px;margin:0 auto;position:relative;z-index:1}
+  .brand{display:flex;align-items:center;gap:14px;margin-bottom:40px}
+  .brand .wordmark{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;letter-spacing:-0.01em;color:#fff}
+  .brand .wordmark .glyph{color:var(--purple-soft)}
+  .brand .vrule{width:1px;height:20px;background:rgba(255,255,255,0.3)}
+  .brand .label{font-family:'Source Code Pro',monospace;font-size:10px;color:var(--purple-soft);letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
+  .eyebrow{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-soft);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:18px}
+  .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:48px;line-height:1.08;letter-spacing:-0.02em;color:#fff;margin:0 0 22px;max-width:860px}
+  .hero h1 .soft{color:var(--purple-soft);font-weight:700}
+  .hero .lede{font-size:19px;line-height:1.5;color:rgba(255,255,255,0.92);font-weight:400;max-width:780px;margin:0 0 36px;font-style:italic}
+  .hero .lede strong{color:#fff}
+
+  .stat-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:18px;margin:32px 0 0}
+  .stat-card{background:rgba(255,255,255,0.05);border:1px solid rgba(181,168,230,0.18);border-radius:12px;padding:22px 22px;backdrop-filter:blur(10px);position:relative;overflow:hidden}
+  .stat-card::before{content:"";position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--purple-vivid),var(--teal-bright))}
+  .stat-card .stat-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:40px;color:#fff;line-height:1;letter-spacing:-0.02em;margin-bottom:6px;background:linear-gradient(135deg,#fff 0%,var(--purple-soft) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .stat-card .stat-label{font-family:'Source Code Pro',monospace;font-size:10px;color:var(--purple-soft);letter-spacing:0.12em;text-transform:uppercase;font-weight:700;line-height:1.4}
+
+  /* ===== Sections ===== */
+  section{padding:56px 48px;max-width:1080px;margin:0 auto}
+  section.dark{background:var(--midnight);color:#fff;max-width:none;padding:56px 0}
+  section.dark .inner{max-width:1080px;margin:0 auto;padding:0 48px}
+  section.dark h2{color:#fff;border-bottom-color:var(--purple-vivid)}
+  section.dark p{color:rgba(255,255,255,0.92)}
+  section.dark strong{color:#fff}
+  section.dark em{color:var(--purple-soft)}
+
+  h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:30px;line-height:1.15;letter-spacing:-0.01em;color:var(--midnight);margin:0 0 8px;padding-bottom:14px;border-bottom:2px solid var(--purple-bold)}
+  h2 .num{font-family:'Source Code Pro',monospace;font-weight:700;font-size:14px;color:var(--purple-bold);letter-spacing:0.16em;margin-right:14px;vertical-align:middle}
+  section.dark h2 .num{color:var(--purple-soft)}
+  .section-lede{font-size:16.5px;color:var(--gray-meta-light);margin:16px 0 28px;max-width:780px;line-height:1.55}
+  section.dark .section-lede{color:var(--purple-soft)}
+
+  /* ===== Positioning callout ===== */
+  .pos-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:32px;margin:24px 0 8px}
+  .pos-grid .pos-body p{font-size:15.5px;line-height:1.65}
+  .pos-grid .pos-aside{background:var(--cream-deep);border:1px solid var(--cream-line);border-left:3px solid var(--purple-vivid);border-radius:10px;padding:24px 26px}
+  .pos-grid .pos-aside .ph{font-family:'Source Code Pro',monospace;font-size:10px;color:var(--purple-bold);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:14px}
+  .pos-grid .pos-aside ul{list-style:none;padding:0;margin:0}
+  .pos-grid .pos-aside ul li{padding:8px 0 8px 22px;font-size:14px;line-height:1.5;color:var(--midnight-deep);border-bottom:1px dashed var(--cream-line);position:relative}
+  .pos-grid .pos-aside ul li:last-child{border-bottom:none}
+  .pos-grid .pos-aside ul li::before{content:"✕";position:absolute;left:0;top:8px;color:var(--purple-bold);font-weight:700;font-size:13px}
+
+  /* ===== Four-bucket cards ===== */
+  .buckets{display:grid;grid-template-columns:1fr 1fr;gap:20px;margin:8px 0 28px}
+  .bucket{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(20,20,58,0.04);transition:transform 0.3s ease,box-shadow 0.3s ease;display:flex;flex-direction:column}
+  .bucket:hover{transform:translateY(-2px);box-shadow:0 8px 24px rgba(20,20,58,0.08)}
+  .bucket .b-head{padding:18px 24px;background:linear-gradient(135deg,var(--purple-bold) 0%,var(--purple-vivid) 100%);color:#fff;display:flex;align-items:center;gap:16px;position:relative;overflow:hidden}
+  .bucket .b-head::after{content:"";position:absolute;top:-50%;right:-20%;width:240px;height:240px;background:radial-gradient(circle,rgba(255,255,255,0.10) 0%,transparent 60%);pointer-events:none}
+  .bucket.b2 .b-head{background:linear-gradient(135deg,var(--midnight) 0%,var(--purple-bold) 100%)}
+  .bucket.b3 .b-head{background:linear-gradient(135deg,var(--teal) 0%,var(--purple-bold) 100%)}
+  .bucket.b4 .b-head{background:linear-gradient(135deg,var(--midnight-deep) 0%,var(--teal) 100%)}
+  .bucket .b-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;color:rgba(255,255,255,0.55);line-height:1;letter-spacing:-0.02em;flex-shrink:0;min-width:36px;position:relative;z-index:1}
+  .bucket .b-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px;color:#fff;line-height:1.25;letter-spacing:-0.01em;margin:0;flex:1;position:relative;z-index:1}
+  .bucket .b-tag{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;padding:4px 9px;border-radius:4px;background:rgba(255,255,255,0.18);color:#fff;flex-shrink:0;position:relative;z-index:1}
+  .bucket .b-body{padding:20px 24px;font-size:14.5px;line-height:1.6;color:var(--midnight);flex:1}
+  .bucket .b-body p{color:var(--midnight)}
+  .bucket .b-body strong{color:var(--midnight-deep)}
+  .bucket .b-body em{color:var(--purple-bold)}
+
+  /* ===== Quote ===== */
+  .quote{background:linear-gradient(135deg,var(--midnight-deep) 0%,var(--midnight-soft) 100%);color:#fff;border-radius:14px;padding:32px 36px;margin:28px 0 0;position:relative;overflow:hidden}
+  .quote::before{content:"";position:absolute;top:0;right:0;width:280px;height:280px;background:radial-gradient(circle,rgba(124,58,237,0.20) 0%,transparent 70%);pointer-events:none}
+  .quote::after{content:"\201C";position:absolute;top:8px;left:18px;font-family:Georgia,serif;font-size:120px;color:rgba(181,168,230,0.18);line-height:1;font-weight:700;pointer-events:none}
+  .quote .q-text{font-size:18px;line-height:1.55;color:#fff;font-style:italic;margin:0 0 18px;position:relative;z-index:1;font-weight:400;max-width:880px}
+  .quote .q-text em{color:var(--purple-soft);font-weight:500}
+  .quote .q-cite{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-soft);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;position:relative;z-index:1}
+
+  /* ===== Package table ===== */
+  .pkg-table{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;margin:8px 0 24px;box-shadow:0 1px 2px rgba(20,20,58,0.04)}
+  .pkg-table table{width:100%;border-collapse:collapse;font-size:14px}
+  .pkg-table th{background:var(--midnight);color:#fff;font-family:'Source Code Pro',monospace;font-weight:700;font-size:10.5px;letter-spacing:0.12em;text-transform:uppercase;padding:14px 18px;text-align:left}
+  .pkg-table td{padding:16px 18px;border-bottom:1px solid var(--cream-line);vertical-align:top;line-height:1.55}
+  .pkg-table tr:last-child td{border-bottom:none}
+  .pkg-table tr:nth-child(even) td{background:rgba(124,58,237,0.04)}
+  .pkg-table tr:hover td{background:rgba(124,58,237,0.10)}
+  .pkg-table td:first-child{font-weight:700;color:var(--midnight-deep);width:25%;font-size:14.5px}
+  .pkg-table td:last-child{width:16%;font-family:'Source Code Pro',monospace;font-size:12.5px;color:var(--purple-bold);font-weight:600;letter-spacing:0.02em;white-space:nowrap}
+  .pkg-table .front-door{display:inline-block;font-family:'Source Code Pro',monospace;font-size:9.5px;letter-spacing:0.12em;text-transform:uppercase;font-weight:700;background:var(--purple-vivid);color:#fff;padding:2px 7px;border-radius:3px;margin-left:6px;vertical-align:middle}
+  .alacarte{background:var(--cream-deep);border-left:3px solid var(--teal-bright);border-radius:0 8px 8px 0;padding:18px 22px;margin:18px 0 0;font-size:14.5px;line-height:1.6}
+  .alacarte strong{color:var(--midnight-deep)}
+
+  /* ===== Proof cards ===== */
+  .proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:8px 0}
+  .proof-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(20,20,58,0.04);display:flex;flex-direction:column}
+  .proof-card .p-head{padding:18px 24px;background:var(--cream-deep);border-bottom:1px solid var(--cream-line)}
+  .proof-card .p-tag{font-family:'Source Code Pro',monospace;font-size:10px;color:var(--purple-bold);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  .proof-card .p-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;color:var(--midnight-deep);line-height:1.3;margin:0}
+  .proof-card .p-body{padding:20px 24px;font-size:14px;line-height:1.6;flex:1}
+  .proof-card .p-stats{display:flex;gap:18px;padding:14px 24px;background:var(--midnight);color:#fff;border-top:1px solid var(--midnight-soft)}
+  .proof-card .p-stat{flex:1}
+  .proof-card .p-stat .pn{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:#fff;line-height:1;letter-spacing:-0.01em;background:linear-gradient(135deg,#fff 0%,var(--purple-soft) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .proof-card .p-stat .pl{font-family:'Source Code Pro',monospace;font-size:9.5px;color:var(--purple-soft);letter-spacing:0.12em;text-transform:uppercase;font-weight:700;margin-top:4px;line-height:1.3}
+
+  /* ===== Trust line (under hero stat strip) ===== */
+  .trust-line{margin:28px 0 0;padding:18px 24px;background:rgba(255,255,255,0.04);border:1px dashed rgba(181,168,230,0.28);border-radius:10px;font-size:14px;line-height:1.55;color:rgba(255,255,255,0.85);text-align:center}
+  .trust-line .trust-eyebrow{font-family:'Source Code Pro',monospace;font-size:10px;color:var(--purple-soft);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-right:6px}
+  .trust-line strong{color:#fff}
+
+  /* ===== Why now band ===== */
+  .why-now-band{background:linear-gradient(135deg,var(--midnight-deep) 0%,var(--midnight-soft) 100%);color:#fff;padding:32px 48px;position:relative;overflow:hidden}
+  .why-now-band::before{content:"";position:absolute;top:0;right:0;width:340px;height:100%;background:radial-gradient(circle,rgba(124,58,237,0.18) 0%,transparent 70%);pointer-events:none}
+  .why-now-inner{max-width:1080px;margin:0 auto;display:flex;align-items:center;gap:32px;position:relative;z-index:1}
+  .why-now-tag{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-soft);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;flex-shrink:0;padding:8px 14px;border:1px solid rgba(181,168,230,0.4);border-radius:6px}
+  .why-now-text{font-size:17px;line-height:1.55;color:rgba(255,255,255,0.95);margin:0;font-weight:400}
+  .why-now-text strong{color:#fff}
+  .why-now-text em{color:var(--purple-soft);font-style:normal;font-weight:600}
+
+  /* ===== Mid-CTA band ===== */
+  .mid-cta-band{max-width:1080px;margin:0 auto;padding:8px 48px 32px}
+  .mid-cta{background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--purple-vivid);border-radius:10px;padding:22px 28px;display:flex;align-items:center;justify-content:space-between;gap:24px;box-shadow:0 1px 2px rgba(20,20,58,0.04)}
+  .mid-cta-left{flex:1;min-width:0}
+  .mid-cta-tag{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-bold);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  .mid-cta-line{font-size:15.5px;line-height:1.5;color:var(--midnight-deep);font-weight:500}
+  .mid-cta-btn{font-family:'Source Code Pro',monospace;font-size:12px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;background:var(--purple-vivid);color:#fff;padding:14px 22px;border-radius:8px;text-decoration:none;border-bottom:none;flex-shrink:0;transition:background 0.15s ease,transform 0.15s ease;white-space:nowrap}
+  .mid-cta-btn:hover{background:var(--purple-bold);transform:translateY(-1px);border-bottom:none}
+
+  /* ===== Outcomes list inside proof cards ===== */
+  .p-outcomes-label{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--purple-bold);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin:14px 0 8px;padding-top:14px;border-top:1px dashed var(--cream-line)}
+  .p-outcomes{list-style:none;padding:0;margin:0 0 6px}
+  .p-outcomes li{position:relative;padding:6px 0 6px 24px;font-size:13.5px;line-height:1.55;color:var(--midnight)}
+  .p-outcomes li::before{content:"→";position:absolute;left:0;top:6px;color:var(--purple-vivid);font-weight:800;font-size:14px}
+  .p-outcomes li strong{color:var(--midnight-deep)}
+
+  /* ===== Reciprocity card ===== */
+  .recip{background:linear-gradient(135deg,var(--cream-deep) 0%,#fff 100%);border:1px solid var(--cream-line);border-left:4px solid var(--teal-bright);border-radius:10px;padding:22px 28px;margin:20px 0 0;font-size:14.5px;line-height:1.6;color:var(--midnight)}
+  .recip-tag{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--teal);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+  .recip strong{color:var(--midnight-deep)}
+  .recip a{color:var(--teal);border-bottom-color:var(--teal-bright)}
+  .recip a:hover{color:var(--teal-bright);border-bottom-color:var(--teal)}
+
+  /* ===== Compliance + Differentiator lists ===== */
+  .check-list{list-style:none;padding:0;margin:18px 0 0}
+  .check-list li{position:relative;padding:10px 0 10px 32px;font-size:15px;line-height:1.6;border-bottom:1px dashed rgba(181,168,230,0.25)}
+  .check-list li:last-child{border-bottom:none}
+  .check-list li::before{content:"✓";position:absolute;left:0;top:10px;color:var(--purple-vivid);font-weight:800;font-size:16px;background:rgba(124,58,237,0.12);width:22px;height:22px;border-radius:50%;display:flex;align-items:center;justify-content:center;line-height:1}
+  section.dark .check-list li{border-bottom-color:rgba(181,168,230,0.2)}
+  section.dark .check-list li::before{background:rgba(181,168,230,0.18);color:var(--purple-soft)}
+
+  /* ===== Next steps ===== */
+  .steps{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin:16px 0 0}
+  .step{background:rgba(255,255,255,0.06);border:1px solid rgba(181,168,230,0.22);border-radius:12px;padding:24px 24px;position:relative;overflow:hidden}
+  .step::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--teal-bright))}
+  .step .s-num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:32px;color:var(--purple-soft);line-height:1;letter-spacing:-0.02em;margin-bottom:10px;opacity:0.6}
+  .step .s-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:17px;color:#fff;line-height:1.3;margin:0 0 8px}
+  .step .s-body{font-size:13.5px;line-height:1.55;color:rgba(255,255,255,0.85);margin:0}
+
+  /* ===== Footer ===== */
+  footer{background:var(--midnight-deep);color:rgba(255,255,255,0.7);padding:32px 48px;text-align:center;font-size:13px;line-height:1.6}
+  footer .ft-brand{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-0.01em}
+  footer .ft-brand .glyph{color:var(--purple-soft)}
+  footer a{color:var(--purple-soft);border-bottom-color:rgba(181,168,230,0.4)}
+  footer a:hover{color:#fff;border-bottom-color:var(--purple-soft)}
+  footer .meta{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--gray-meta);letter-spacing:0.12em;text-transform:uppercase;margin-top:8px}
+
+  /* ===== Responsive ===== */
+  @media (max-width:880px){
+    .hero{padding:48px 28px 56px}
+    .hero h1{font-size:36px}
+    .hero .lede{font-size:17px}
+    section{padding:40px 28px}
+    section.dark .inner{padding:0 28px}
+    h2{font-size:24px}
+    .stat-strip{grid-template-columns:repeat(2,1fr)}
+    .buckets{grid-template-columns:1fr}
+    .pos-grid{grid-template-columns:1fr}
+    .proof-grid{grid-template-columns:1fr}
+    .steps{grid-template-columns:1fr}
+    .quote{padding:24px 24px 24px 28px}
+    .quote .q-text{font-size:16px}
+    .pkg-table td{padding:12px 14px;font-size:13.5px}
+    .pkg-table td:first-child{width:auto}
+    .pkg-table td:last-child{width:auto;font-size:11.5px}
+    .why-now-band{padding:24px 28px}
+    .why-now-inner{flex-direction:column;align-items:flex-start;gap:16px}
+    .why-now-text{font-size:15.5px}
+    .mid-cta-band{padding:8px 28px 24px}
+    .mid-cta{flex-direction:column;align-items:flex-start;padding:20px 22px;gap:14px}
+    .mid-cta-btn{width:100%;text-align:center}
+    .trust-line{font-size:13px;padding:14px 18px}
+  }
+
+  @media print{
+    .hero::before,.hero::after,.quote::before,.quote::after{display:none}
+    .bucket:hover,.proof-card:hover{transform:none;box-shadow:0 1px 2px rgba(20,20,58,0.04)}
+    section{padding:32px 24px;page-break-inside:avoid}
+    .buckets,.proof-grid,.steps{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="hero-inner">
+    <div class="brand">
+      <div class="wordmark">Dodon<span class="glyph">◆</span>ai</div>
+      <div class="vrule"></div>
+      <div class="label">Consulting · Capabilities Overview</div>
+    </div>
+    <div class="eyebrow">For Prospect Review · Confidential</div>
+    <h1>How law firms <span class="soft">run on AI</span>, without rebuilding their stack.</h1>
+    <p class="lede"><strong>AI agents that draft your firm's specific work, in your firm's specific voice, triggered by your firm's specific matter state</strong>, landing in your folders for human review. They sit on top of the stack you already run, alongside your chat tool and your practice-management system.</p>
+
+    <div class="stat-strip">
+      <div class="stat-card">
+        <div class="stat-num">250+</div>
+        <div class="stat-label">Firms on the<br>Dodonai platform</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">16+</div>
+        <div class="stat-label">Internal agents<br>we run on ourselves</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">30+</div>
+        <div class="stat-label">Client agents<br>shipped in production</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-num">0</div>
+        <div class="stat-label">Long-term<br>contracts required</div>
+      </div>
+    </div>
+
+    <div class="trust-line">
+      <span class="trust-eyebrow">Trusted by</span> members of <strong>Ernie Svenson's Inner Circle AI Lab</strong> · tech-forward solo &amp; small-firm attorneys · in-house counsel teams piloting AI workflow
+    </div>
+  </div>
+</header>
+
+<!-- ===== WHY NOW ===== -->
+<div class="why-now-band">
+  <div class="why-now-inner">
+    <div class="why-now-tag">Why Now</div>
+    <p class="why-now-text">AI hit law firms 18 months ago. Most firms now have a generalist chat tool (Harvey, StrongSuit, CoCounsel) and <em>zero</em> workflow automation. <strong>Everyone has the models. Almost nobody has the implementation.</strong> The work we do is the layer between the chat surface and the matter file.</p>
+  </div>
+</div>
+
+<!-- ===== DISCOVERY ===== -->
+<section>
+  <h2><span class="num">01</span>Discovery</h2>
+  <p class="section-lede">Where every engagement starts: 1–2 weeks, flat fee, satisfaction-guaranteed. Two audits run together and produce a single written plan with fixed-fee pricing for build-out.</p>
+
+  <div class="buckets">
+    <div class="bucket b1">
+      <div class="b-head">
+        <div class="b-num">01</div>
+        <h3 class="b-title">Workflow Audit</h3>
+        <div class="b-tag">maps the work</div>
+      </div>
+      <div class="b-body">
+        <p>We map the <strong>repeatable work</strong> across your firm (letters, briefs, intake, billing descriptions, discovery review, classification, scheduling) to specific AI agents, sequenced by ROI.</p>
+        <p>The output is a prioritized build order: what to automate first, what it's worth, and what it takes.</p>
+      </div>
+    </div>
+
+    <div class="bucket b3">
+      <div class="b-head">
+        <div class="b-num">02</div>
+        <h3 class="b-title">Tool / Software-Stack Audit</h3>
+        <div class="b-tag">integrated firm OS</div>
+      </div>
+      <div class="b-body">
+        <p>We inventory every SaaS line item you run today and tag each one <strong>Replace &amp; Build</strong> or <strong>Integrate</strong>. The goal: replace the narrow-use applications you pay for now with internal apps, and bridge in the tools worth keeping.</p>
+        <p>The endgame is <em>one integrated firm OS</em>: your tools converging onto a single substrate instead of a dozen disconnected subscriptions.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="recip">
+    <div class="recip-tag">The deliverable: your Blueprint</div>
+    <p style="margin:0"><strong>A written implementation plan with firm fixed-fee pricing for build-out.</strong> <em>Satisfaction guaranteed</em>: if the Blueprint doesn't give you a clear, actionable roadmap, you're under no obligation to continue.</p>
+  </div>
+</section>
+
+<!-- ===== IMPLEMENTATION ===== -->
+<section class="dark">
+  <div class="inner">
+    <h2><span class="num">02</span>Implementation</h2>
+    <p class="section-lede">Modular build-out, priced from the Blueprint. Foundation first, then workflows. Each module ships with safety rails and ends in a deliverable and a decision point: keep going, pause, or stop.</p>
+
+    <div class="buckets">
+      <div class="bucket b2">
+        <div class="b-head">
+          <div class="b-num">01</div>
+          <h3 class="b-title">Build the Foundation</h3>
+          <div class="b-tag">2–16 wks · modular</div>
+        </div>
+        <div class="b-body">
+          <p><strong>Firm Wiki</strong>: your institutional knowledge (SOPs, templates, voice, theory-of-case patterns, condition libraries) as the AI substrate every agent reads from.</p>
+          <p><strong>Modern AI Software Stack</strong>: custom internal apps replace narrow-use SaaS; bridges integrate the tools you keep (incl. systems with no open API). The endgame: <em>one integrated firm OS</em>.</p>
+        </div>
+      </div>
+
+      <div class="bucket b3">
+        <div class="b-head">
+          <div class="b-num">02</div>
+          <h3 class="b-title">Build the Workflows</h3>
+          <div class="b-tag">3–7 wks per module</div>
+        </div>
+        <div class="b-body">
+          <p>Pick from the packaged menu (Marketing Suite, Discovery Operations, Managing Partner Dashboard, Intake-to-Engagement, Voice Library) or assemble agents à la carte from a catalog of <strong>30+ shipped capabilities</strong>.</p>
+          <p>Safety rails throughout: default to draft / review. Live-action agents run in shadow mode for 3 days before flipping to drafting authority.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== MANAGEMENT ===== -->
+<section>
+  <h2><span class="num">03</span>Management</h2>
+  <p class="section-lede">Optional, month-to-month. Once your agents are live, the moving parts are ours to track, not yours.</p>
+
+  <div class="buckets">
+    <div class="bucket b1">
+      <div class="b-head">
+        <div class="b-num">01</div>
+        <h3 class="b-title">We track the moving parts</h3>
+        <div class="b-tag">always-on</div>
+      </div>
+      <div class="b-body">
+        <p>When Anthropic ships a model upgrade, when a vendor's API changes, when a new agent makes sense for your firm: <strong>you don't track any of it. We do.</strong></p>
+      </div>
+    </div>
+
+    <div class="bucket b4">
+      <div class="b-head">
+        <div class="b-num">02</div>
+        <h3 class="b-title">Four service tiers</h3>
+        <div class="b-tag">cancel anytime</div>
+      </div>
+      <div class="b-body">
+        <p>From self-serve handoff (full documentation + Loom walkthroughs) up to fully managed (proactive monitoring + monthly review + iteration hours + cross-client insights). Cancel any time with 30 days' notice.</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="quote">
+    <p class="q-text">I love your business model. Tech companies are slow to convince lawyers they need something, but once convinced, they'll throw money at it without training their people. So the fact that you're like (<em>hey, let's diagnose what's going on, let me help you automate workflows, let's create some customized AI products, let's go out with an ongoing strategic and maintenance thing</em>), I think that's brilliant.</p>
+    <p class="q-cite">Managing partner, mid-sized VA/NC firm · 3 offices · 13 attorneys</p>
+  </div>
+</section>
+
+<!-- ===== WHAT YOU CAN BUY ===== -->
+<section>
+  <h2><span class="num">04</span>Example Packages</h2>
+  <p class="section-lede">Six packaged deliverables. Fixed scope. Defined exit point. Buy a package, or assemble individual agents à la carte.</p>
+
+  <div class="pkg-table">
+    <table>
+      <thead>
+        <tr><th>Package</th><th>What you get</th><th>Duration</th></tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>AI Discovery Audit <span class="front-door">Front door</span></td>
+          <td>Workflow audit + software-stack audit → written implementation plan with fixed-fee pricing for build-out. <em>Satisfaction guaranteed.</em></td>
+          <td>1–2 weeks</td>
+        </tr>
+        <tr>
+          <td>Firm Wiki / LLM Brain</td>
+          <td>Your institutional knowledge (SOPs, templates, voice, condition libraries, theory-of-case patterns) as a queryable AI brain and the substrate every drafting agent reads from.</td>
+          <td>2–4 weeks</td>
+        </tr>
+        <tr>
+          <td>Modern AI Software Stack</td>
+          <td>Replace narrow-use SaaS with custom internal apps on the Dodonai substrate. Bridge in the tools you keep (incl. systems with no open API via email-routing + scraping fallbacks). One integrated firm OS.</td>
+          <td>6–16 weeks</td>
+        </tr>
+        <tr>
+          <td>Marketing Suite</td>
+          <td>Blog Publisher + Social Repurposer + SEO Topic Scout + Newsletter Drafter + Website Reclamation + AI Editor. Typically displaces an outside content-vendor retainer.</td>
+          <td>3–4 weeks</td>
+        </tr>
+        <tr>
+          <td>Discovery Operations Pack</td>
+          <td>Substantive issue surfacing, financial-forensics scanning, text-message + email-thread parsing, production-set inventory with cite-back, deficiency-letter drafting, deadline parser → Outlook events. <em>Cross-practice.</em></td>
+          <td>4–6 weeks</td>
+        </tr>
+        <tr>
+          <td>Managing Partner Dashboard</td>
+          <td>One-screen rollup: practice-area revenue, attorney utilization, matter aging, lead-source ROI, pipeline forecast, per-case state chat (<em>"what's the status on Smith?"</em>), auto-compiled Monday brief.</td>
+          <td>3–4 weeks</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="alacarte">
+    <strong>À la carte.</strong> 30+ shipped agents across drafting (appeal letters, demand letters, complaints, JSRs, mediation statements, hearing briefs, estate-doc proofreading), classification (carrier-letter intake, deadline parsing, definition-change triggers), firm-brain Q&amp;A, calendaring, accounting close-loop, and intake automation. Plus 15+ pattern-library workflows we'll build on demand in 1–4 weeks.
+  </div>
+</section>
+
+<!-- ===== MID CTA ===== -->
+<div class="mid-cta-band">
+  <div class="mid-cta">
+    <div class="mid-cta-left">
+      <div class="mid-cta-tag">Ready to map your stack</div>
+      <div class="mid-cta-line">A 45-minute working call. We walk through your stack, your top workflows, what's already working and what hurts. <strong>No pitch deck.</strong></div>
+    </div>
+    <a class="mid-cta-btn" href="https://calendly.com/nick-dodonai" target="_blank" rel="noopener">Book a working call →</a>
+  </div>
+</div>
+
+<!-- ===== PROOF ===== -->
+<section>
+  <h2><span class="num">05</span>Proof: Two Anonymized Engagements</h2>
+  <p class="section-lede">Full anonymized customer stories available on request before signature.</p>
+
+  <div class="proof-grid">
+    <div class="proof-card">
+      <div class="p-head">
+        <div class="p-tag">Boutique family law</div>
+        <h3 class="p-title">Sole attorney + part-time paralegal</h3>
+      </div>
+      <div class="p-body">
+        <p><strong>Discovery (2 wks) → Build (6–7 wks): 6 agents shipped.</strong> Firm Wiki · Marketing Suite · Discovery Augmentation · Calendar Coordinator · Billing-Description Drafter · Welcome-Letter Drafter.</p>
+        <div class="p-outcomes-label">Outcomes at the design point</div>
+        <ul class="p-outcomes">
+          <li><strong>~12+ hours/week reclaimed</strong> across attorney + paralegal time</li>
+          <li><strong>Outside content-vendor retainer eliminated at week 3</strong>: blog + social + newsletter produced in-house by the Marketing Suite</li>
+          <li><strong>Multi-party scheduling</strong> (collaborative 4-ways, 6-ways, expert depositions): email chains → one-click magic links, no public booking page</li>
+          <li><strong>Billing descriptions drafted</strong> from Clio timer + Outlook + Teams call logs → one-click attorney approval</li>
+          <li>Calendar Coordinator: 3-day shadow → live drafting authority. <em>Nothing books without firm review.</em></li>
+          <li>Tribal "firm wiki" stuck in folders → queryable AI brain feeding every drafting agent</li>
+        </ul>
+      </div>
+      <div class="p-stats">
+        <div class="p-stat"><div class="pn">~12+ hrs</div><div class="pl">per week<br>reclaimed</div></div>
+        <div class="p-stat"><div class="pn">6</div><div class="pl">agents<br>shipped</div></div>
+        <div class="p-stat"><div class="pn">7 wks</div><div class="pl">total<br>build</div></div>
+      </div>
+    </div>
+
+    <div class="proof-card">
+      <div class="p-head">
+        <div class="p-tag">ERISA disability litigation</div>
+        <h3 class="p-title">Multi-attorney, M365 / SharePoint stack</h3>
+      </div>
+      <div class="p-body">
+        <p><strong>Discovery → Build in 7 waves over ~30 weeks: 24 agents shipped or in flight.</strong> Foundation → Appeals → On-Claims → Litigation → Accounting → Firm Intel → Intake + Marketing.</p>
+        <div class="p-outcomes-label">Outcomes</div>
+        <ul class="p-outcomes">
+          <li><strong>Appeal letters draft at 80–90% of finished quality on first pass</strong>: closest 5 past firm appeals retrieved automatically as the voice reference</li>
+          <li><strong>Inbound carrier mail/fax classified within minutes of arrival</strong> (vs. ~1-day manual triage); downstream agents fire automatically: def-change letter at month 24, past-benefit ladder on every active claim</li>
+          <li><strong>Federal complaint + JSR + mediation statement + settlement demand</strong> all drafted from the denied-appeal claim file</li>
+          <li><strong>Tribal knowledge → queryable</strong>: theory-of-case patterns, carrier behavior libraries, grid rules, condition-specific lab panels; chat surface grounded in firm wiki</li>
+          <li><strong>Disbursement statement → DocuSign → QuickBooks</strong> closes the loop end-to-end on contingency accounting</li>
+          <li>Every recurring workflow in the firm has an agent drafting it. Safety rails everywhere: nothing files, sends, or books without firm review.</li>
+        </ul>
+      </div>
+      <div class="p-stats">
+        <div class="p-stat"><div class="pn">24</div><div class="pl">agents<br>in production</div></div>
+        <div class="p-stat"><div class="pn">7</div><div class="pl">build<br>waves</div></div>
+        <div class="p-stat"><div class="pn">~30 wks</div><div class="pl">total<br>engagement</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DATA HANDLING + DIFFERENTIATORS ===== -->
+<section class="dark">
+  <div class="inner">
+    <h2><span class="num">06</span>How We Handle Your Data</h2>
+    <p class="section-lede">The part most firms ask first. Short version:</p>
+    <ul class="check-list">
+      <li><strong>No retention.</strong> Dodonai does not retain firm data after processing.</li>
+      <li><strong>No training.</strong> Firm data is never used to train any model. Anthropic's API does not train on inputs by default.</li>
+      <li><strong>Tenant-resident option.</strong> Agents run inside your own Microsoft 365 / Google Workspace tenant. Drafts land in your own SharePoint / Drive. No third-party storage.</li>
+      <li><strong>SOC 2-aligned controls. HIPAA-aware document handling. BAA available</strong> where required (e.g., medical-records summarization workflows).</li>
+      <li><strong>Privilege stays with the attorney.</strong> Every draft is human-reviewed before it leaves the firm. Agents draft and prepare; the attorney reviews and files.</li>
+    </ul>
+    <p style="margin-top:24px;font-size:14.5px;color:var(--purple-soft);font-style:italic">A written compliance brief is available on request before signature.</p>
+  </div>
+</section>
+
+<!-- ===== WHATS DIFFERENT ===== -->
+<section>
+  <h2><span class="num">07</span>What's Different About Working With Us</h2>
+  <ul class="check-list">
+    <li><strong>Practitioner-built.</strong> A trial attorney (JD, University of Chicago) built the platform and runs the engagements. Practice-management quirks, billing discipline, client confidentiality, the difference between <em>"drafted by AI"</em> and <em>"practiced by a lawyer"</em>. All of that is in the substrate, not bolted on.</li>
+    <li><strong>Eat-our-own-cooking.</strong> Every agent we sell to a firm runs in some form on our own books first. We know what works at month six, not just week one.</li>
+    <li><strong>Model-agnostic.</strong> Claude is our default; the architecture supports any frontier model. When OpenAI / Google / Anthropic ships a meaningful upgrade, we re-evaluate per agent. No single-vendor lock-in.</li>
+    <li><strong>No long-term contracts.</strong> Each phase is a discrete commitment. Retainer is month-to-month with 30 days' notice. The substrate is yours to keep regardless.</li>
+    <li><strong>Satisfaction guarantees on Discovery + Wave 1.</strong> If the Blueprint doesn't give you an actionable roadmap, no obligation. If Wave 1's drafts don't clear the agreed quality bar, no obligation to continue to Wave 2.</li>
+  </ul>
+</section>
+
+<!-- ===== NEXT STEPS ===== -->
+<section class="dark">
+  <div class="inner">
+    <h2><span class="num">08</span>Next Steps</h2>
+    <p class="section-lede">From here, in three moves. Each phase ends in a deliverable and a decision point. No long-term commitment sets up downstream.</p>
+
+    <div class="steps">
+      <div class="step">
+        <div class="s-num">01</div>
+        <h3 class="s-title">A working call</h3>
+        <p class="s-body">~45 minutes. We walk through your stack, your top workflows, what's already working and what hurts. <em>No pitch deck.</em></p>
+      </div>
+      <div class="step">
+        <div class="s-num">02</div>
+        <h3 class="s-title">AI Discovery Audit</h3>
+        <p class="s-body">1–2 weeks, satisfaction-guaranteed. Workflow + software-stack diagnostic produces a written implementation plan with firm fixed-fee pricing for build-out.</p>
+      </div>
+      <div class="step">
+        <div class="s-num">03</div>
+        <h3 class="s-title">Build (modular)</h3>
+        <p class="s-body">Pick a package or assemble agents à la carte. Every build ships with safety rails: default to draft / review; nothing sends, files, or books without approval.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="ft-brand">Dodon<span class="glyph">◆</span>ai</div>
+  <p>Questions or to schedule a working call: <a href="mailto:nick@dodon.ai">nick@dodon.ai</a></p>
+  <p class="meta">Capabilities &amp; Engagement Overview · 2026 · Confidential · for prospect review</p>
+</footer>
+
+</body>
+</html>
