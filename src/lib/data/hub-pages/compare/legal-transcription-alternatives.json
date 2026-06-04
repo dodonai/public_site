@@ -1,17 +1,25 @@
 {
   "seo": {
-    "title": "Legal Transcription Alternatives — AI Summary & Search | Dodonai",
-    "description": "Most legal transcription services give you text. Dodonai gives you the summary, citations, and searchable record. Compare alternatives for deposition and case prep work.",
+    "title": "Legal Transcription Alternatives | Dodonai",
+    "description": "Most legal transcription services give you text. Dodonai gives you the summary, citations, and a searchable record for case prep.",
     "canonical": "/compare/legal-transcription-alternatives/"
   },
   "breadcrumbs": [
-    { "name": "Home", "href": "/" },
-    { "name": "Compare", "href": null },
-    { "name": "Legal Transcription Alternatives" }
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "Compare",
+      "href": null
+    },
+    {
+      "name": "Legal Transcription Alternatives"
+    }
   ],
   "hero": {
     "headline": "Legal Transcription Alternatives: From Raw Text to Case-Ready Summary",
-    "subheadline": "Transcription services hand you a verbatim record — and 200 pages you still have to read. Dodonai goes further: page-line summaries with citations, searchable transcripts across your case library, and topic-based reprocessing in minutes.",
+    "subheadline": "Transcription services hand you a verbatim record \u2014 and 200 pages you still have to read. Dodonai goes further: page-line summaries with citations, searchable transcripts across your case library, and topic-based reprocessing in minutes.",
     "ctaText": "Try Dodonai Free",
     "ctaUrl": "https://app.dodon.ai/signup",
     "secondaryCtaText": "See Deposition Summary",
@@ -22,28 +30,106 @@
       "type": "content",
       "heading": "The Gap Between a Transcript and Case Prep",
       "paragraphs": [
-        "Legal transcription services solve one problem: getting from audio to accurate text. That's the easy part of the workflow. The hard part is what happens next — reading 200 pages of testimony, finding the moments that matter, building a chronology, locating the contradiction the witness already gave in a prior depo.",
-        "Most attorneys searching for transcription alternatives aren't unhappy with the transcript itself. They're frustrated that they still have to do everything else manually. The alternative they're looking for is a tool that closes the loop — turns the transcript into a summary, makes the full case library searchable, and surfaces the cross-examination angles automatically.",
+        "Legal transcription services solve one problem: getting from audio to accurate text. That's the easy part of the workflow. The hard part is what happens next \u2014 reading 200 pages of testimony, finding the moments that matter, building a chronology, locating the contradiction the witness already gave in a prior depo.",
+        "Most attorneys searching for transcription alternatives aren't unhappy with the transcript itself. They're frustrated that they still have to do everything else manually. The alternative they're looking for is a tool that closes the loop \u2014 turns the transcript into a summary, makes the full case library searchable, and surfaces the cross-examination angles automatically.",
         "That's a different category of product. Transcription services finish at the text file. Dodonai starts there."
       ]
     },
     {
       "type": "comparison",
       "heading": "Legal Transcription Alternatives Compared",
-      "columns": ["Capability", "Dodonai", "Transcription Services", "Court Reporters", "General AI Chatbots"],
+      "columns": [
+        "Capability",
+        "Dodonai",
+        "Transcription Services",
+        "Court Reporters",
+        "General AI Chatbots"
+      ],
       "rows": [
-        ["Produces accurate transcript", true, true, true, "Varies"],
-        ["Page-line summary of testimony", true, false, false, "Unreliable"],
-        ["Narrative summary with citations", true, false, false, "Unreliable"],
-        ["Semantic search across multiple transcripts", true, false, false, false],
-        ["Identifies contradictions across depositions", true, false, false, false],
-        ["Reprocess with new focus topics in minutes", true, false, false, true],
-        ["Turnaround per 100 pages", "~3 minutes", "Hours to days", "Days to weeks", "Manual paste required"],
-        ["Cost structure", "Subscription, $0.02–$0.15/page", "Per-minute or per-page", "Per-page certified", "Free or subscription"],
-        ["SOC 2 + HIPAA + AES-256", true, "Varies", "Varies", false],
-        ["Data not used for AI training", true, "Varies", "N/A", false],
-        ["Bulk transcript processing", true, "Limited", false, false],
-        ["Free trial available", true, "Sometimes", false, true]
+        [
+          "Produces accurate transcript",
+          true,
+          true,
+          true,
+          "Varies"
+        ],
+        [
+          "Page-line summary of testimony",
+          true,
+          false,
+          false,
+          "Unreliable"
+        ],
+        [
+          "Narrative summary with citations",
+          true,
+          false,
+          false,
+          "Unreliable"
+        ],
+        [
+          "Semantic search across multiple transcripts",
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          "Identifies contradictions across depositions",
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          "Reprocess with new focus topics in minutes",
+          true,
+          false,
+          false,
+          true
+        ],
+        [
+          "Turnaround per 100 pages",
+          "~3 minutes",
+          "Hours to days",
+          "Days to weeks",
+          "Manual paste required"
+        ],
+        [
+          "Cost structure",
+          "Subscription, $0.02\u2013$0.15/page",
+          "Per-minute or per-page",
+          "Per-page certified",
+          "Free or subscription"
+        ],
+        [
+          "SOC 2 + HIPAA + AES-256",
+          true,
+          "Varies",
+          "Varies",
+          false
+        ],
+        [
+          "Data not used for AI training",
+          true,
+          "Varies",
+          "N/A",
+          false
+        ],
+        [
+          "Bulk transcript processing",
+          true,
+          "Limited",
+          false,
+          false
+        ],
+        [
+          "Free trial available",
+          true,
+          "Sometimes",
+          false,
+          true
+        ]
       ]
     },
     {
@@ -76,15 +162,15 @@
       "type": "content",
       "heading": "When a Transcription Service Is Still the Right Choice",
       "paragraphs": [
-        "If you only need the verbatim record for filing — certified transcripts for a court submission, sworn testimony for the record, audio-to-text for client interview archives — a dedicated transcription service or court reporter remains the right tool. Dodonai is not a certified transcription provider.",
-        "The case for Dodonai is when the transcript is the input to your real work, not the output. Deposition prep, expert review, cross-examination outlines, settlement analysis, MSJ briefing — anywhere the next step after 'we have the transcript' is 'now we have to read it,' Dodonai compresses that step from hours to minutes."
+        "If you only need the verbatim record for filing \u2014 certified transcripts for a court submission, sworn testimony for the record, audio-to-text for client interview archives \u2014 a dedicated transcription service or court reporter remains the right tool. Dodonai is not a certified transcription provider.",
+        "The case for Dodonai is when the transcript is the input to your real work, not the output. Deposition prep, expert review, cross-examination outlines, settlement analysis, MSJ briefing \u2014 anywhere the next step after 'we have the transcript' is 'now we have to read it,' Dodonai compresses that step from hours to minutes."
       ]
     }
   ],
   "faq": [
     {
       "question": "Does Dodonai produce certified transcripts?",
-      "answer": "No. Dodonai is a deposition summary and analysis platform — not a certified transcription service. Upload transcripts you already have from court reporters or transcription vendors and Dodonai turns them into summaries, chronologies, and searchable testimony."
+      "answer": "No. Dodonai is a deposition summary and analysis platform \u2014 not a certified transcription service. Upload transcripts you already have from court reporters or transcription vendors and Dodonai turns them into summaries, chronologies, and searchable testimony."
     },
     {
       "question": "What if my transcripts come in different formats from different court reporters?",
@@ -92,7 +178,7 @@
     },
     {
       "question": "How does the cost compare to running everything through a transcription service?",
-      "answer": "Transcription services price per minute of audio or per page of transcript. Dodonai prices per page processed — Lite at $30/month for 200 pages, Basic at $60/month for 1,000 pages, Pro at $100/month for 5,000 pages. A typical 100-page deposition costs roughly $2 to $6 to summarize, far below per-page transcription rates because you're paying for analysis, not the underlying text."
+      "answer": "Transcription services price per minute of audio or per page of transcript. Dodonai prices per page processed \u2014 Lite at $30/month for 200 pages, Basic at $60/month for 1,000 pages, Pro at $100/month for 5,000 pages. A typical 100-page deposition costs roughly $2 to $6 to summarize, far below per-page transcription rates because you're paying for analysis, not the underlying text."
     },
     {
       "question": "Can I use Dodonai alongside an existing transcription service?",
