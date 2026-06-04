@@ -71,8 +71,8 @@
 </script>
 
 <SEOHead
-	title="AI Managed Services Results: Representative Law-Firm Engagements | Dodonai"
-	description="Representative AI engagements across family law, personal injury, estates, litigation, and Social Security disability — anonymized and composited from the automations Dodonai has shipped."
+	title="AI Law Firm Case Studies: Real Engagements | Dodonai"
+	description="Anonymized AI engagements from family law, personal injury, estates, litigation, and disability practices. Composited from real shipped work."
 	url={canonical}
 	{jsonLd}
 />
