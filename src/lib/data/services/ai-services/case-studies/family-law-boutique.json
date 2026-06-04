@@ -5,11 +5,11 @@
 		"description": "How a boutique family-law practice used six custom AI agents to reclaim 12+ hours a week and bring its marketing in-house. A representative Dodonai engagement.",
 		"canonical": "/ai-managed-services/results/family-law-boutique/"
 	},
-	"descriptor": "Boutique family-law practice — sole attorney + part-time paralegal",
+	"descriptor": "Boutique family-law practice: sole attorney plus part-time paralegal",
 	"practiceArea": "Family Law",
 	"practiceAreaSlug": "family-law",
 	"headline": "A boutique family-law practice reclaimed 12+ hours a week and brought its marketing in-house",
-	"summary": "Six agents covering the production work around collaborative sessions, intake, billing, and content — so the attorney's time goes to the people in the room.",
+	"summary": "Six agents cover the production work around collaborative sessions, intake, billing, and content, so the attorney's time goes to the people in the room.",
 	"statStrip": [
 		{ "value": "~12+ hrs/wk", "label": "reclaimed across attorney + paralegal" },
 		{ "value": "6 agents", "label": "shipped in one build cycle" },
@@ -24,7 +24,7 @@
 	},
 	"built": {
 		"heading": "What we built",
-		"intro": "A six-agent build, scoped from a two-week discovery, each one tuned to the firm's voice and matter state. Names below are the agents shipped into this engagement.",
+		"intro": "A six-agent build, scoped from a two-week discovery, each one tuned to the firm's voice and matter state. It's a typical {{link:/ai-managed-services/|AI managed services}} engagement. Names below are the agents shipped into this one.",
 		"agents": [
 			{ "name": "Firm Wiki / LLM Brain", "slug": null },
 			{ "name": "Marketing Suite", "slug": null },
@@ -38,16 +38,17 @@
 		"heading": "What changed",
 		"items": [
 			"Roughly 12+ hours a week reclaimed across the attorney and paralegal.",
-			"The outside content-vendor retainer was eliminated by week 3 — blog, social, and newsletter now produced in-house by the Marketing Suite.",
+			"The outside content-vendor retainer was eliminated by week 3. Blog, social, and newsletter now get produced in-house by the Marketing Suite.",
+			"The Discovery Augmentation agent speeds up review and deficiency letters, the same work our {{link:/electronic-discovery-software/|e-discovery software}} handles at scale.",
 			"Multi-party scheduling went from long email chains to one-click links, with no public booking page exposing the calendar.",
 			"Billing descriptions are drafted from the timer, calendar, and call logs for one-click attorney approval.",
-			"The Calendar Coordinator ran in shadow mode for three days, then went live with drafting authority — nothing books without firm review.",
+			"The Calendar Coordinator ran in shadow mode for three days, then went live with drafting authority. Nothing books without firm review.",
 			"Tribal knowledge stuck in folders became a queryable AI brain that every other drafting agent reads from."
 		]
 	},
 	"engagementArc": {
 		"discovery": "2 weeks",
-		"build": "6–7 weeks · 6 agents",
+		"build": "6 to 7 weeks · 6 agents",
 		"retainer": "Optional, month-to-month"
 	}
 }
