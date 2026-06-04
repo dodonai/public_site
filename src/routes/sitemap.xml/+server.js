@@ -61,10 +61,21 @@ export async function GET() {
 	} catch {
 		agentModules = {};
 	}
+	// Agents re-titled in the 2026-06-04 SEO keyword repositioning pass
+	const updatedAgents = new Set([
+		'trust-account-reconciler',
+		'billing-reconciler',
+		'intake-triage',
+		'docketing-deadlines',
+		'conflict-check',
+		'time-capture'
+	]);
 	const agentPages = Object.keys(agentModules)
 		.map((filePath) => {
 			const match = filePath.match(/\/agents\/(.+)\.json$/);
-			return match ? { path: `/ai-managed-services/agents/${match[1]}`, lastmod: '2026-04-16', priority: '0.7' } : null;
+			if (!match) return null;
+			const lastmod = updatedAgents.has(match[1]) ? '2026-06-04' : '2026-04-16';
+			return { path: `/ai-managed-services/agents/${match[1]}`, lastmod, priority: '0.7' };
 		})
 		.filter(Boolean);
 
@@ -84,14 +95,28 @@ export async function GET() {
 		})
 		.filter(Boolean);
 
+	// Practice areas + functions re-titled in the 2026-06-04 SEO repositioning pass
+	const updatedTaxonomy = new Set([
+		'family-law',
+		'personal-injury',
+		'real-estate',
+		'estates-probate',
+		'immigration',
+		'cybersecurity-privacy',
+		'casework-and-drafting'
+	]);
 	const aiServicesTaxonomy = [
 		...aiServicesPracticeAreas.map((a) => a.href),
 		...aiServicesFunctions.map((f) => f.href)
-	].map((href) => ({
-		path: href.replace(/\/$/, ''),
-		lastmod: '2026-04-16',
-		priority: '0.7'
-	}));
+	].map((href) => {
+		const path = href.replace(/\/$/, '');
+		const slug = path.split('/').pop();
+		return {
+			path,
+			lastmod: updatedTaxonomy.has(slug) ? '2026-06-04' : '2026-04-16',
+			priority: '0.7'
+		};
+	});
 
 	const allStaticPages = [
 		...staticPages,
