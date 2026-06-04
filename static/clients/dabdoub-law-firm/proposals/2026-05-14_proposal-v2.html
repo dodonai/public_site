@@ -1,0 +1,1871 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dodonai Proposal v2 · Dabdoub Law Firm</title>
+<style>
+/* ============================================================
+   Dodonai Proposal — v2 Web/Print Hybrid
+   Web: rich visuals + scroll animations
+   Print: clean letter-format PDF
+   Design system: Plus Jakarta Sans + Source Code Pro, Midnight + Cream + Purple
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap');
+
+:root {
+  --midnight:        #1A1A45;
+  --midnight-deep:   #14143A;
+  --midnight-soft:   #252556;
+  --purple-soft:     #B5A8E6;
+  --purple-mid:      #8B7AB8;
+  --purple-bold:     #6B46C1;
+  --purple-vivid:    #7C3AED;
+  --purple-glow:     rgba(124, 58, 237, 0.35);
+  --cream:           #F4F1E8;
+  --cream-deep:      #EBE6D7;
+  --cream-line:      #D8D3C2;
+  --gray-meta:       #9B9BB8;
+  --gray-meta-light: #6B6B85;
+  --accent-amber:    #E8A63C;
+  --accent-mint:     #6CC4A1;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--cream);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: var(--midnight);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ==================================================================
+   ANIMATIONS — scroll reveal, count up, gradient flow, pulse
+   ================================================================== */
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-32px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes gradientFlow {
+  0%, 100% { background-position: 0% 50%; }
+  50%      { background-position: 100% 50%; }
+}
+@keyframes pulseGlow {
+  0%, 100% { box-shadow: 0 0 0 0 var(--purple-glow); }
+  50%      { box-shadow: 0 0 0 18px rgba(124, 58, 237, 0); }
+}
+@keyframes drawLine {
+  from { stroke-dashoffset: var(--dash-len, 1000); }
+  to   { stroke-dashoffset: 0; }
+}
+@keyframes coverHeadlineGlow {
+  0%, 100% { text-shadow: 0 0 28px rgba(181, 168, 230, 0.0); }
+  50%      { text-shadow: 0 0 48px rgba(181, 168, 230, 0.4); }
+}
+@keyframes bgShift {
+  0%   { background-position: 0% 0%; }
+  100% { background-position: 100% 100%; }
+}
+
+.reveal {
+  opacity: 0;
+  transform: translateY(24px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+.reveal.in {
+  opacity: 1;
+  transform: translateY(0);
+}
+.reveal-left {
+  opacity: 0;
+  transform: translateX(-32px);
+  transition: opacity 0.8s cubic-bezier(0.16, 1, 0.3, 1), transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.reveal-left.in {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* ==================================================================
+   COVER PAGE — animated midnight, headline glow
+   ================================================================== */
+.cover-page {
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  margin: 0;
+  padding: 6vh 8vw;
+  background:
+    radial-gradient(ellipse at 20% 10%, rgba(107, 70, 193, 0.35) 0%, transparent 55%),
+    radial-gradient(ellipse at 80% 90%, rgba(124, 58, 237, 0.25) 0%, transparent 55%),
+    linear-gradient(135deg, var(--midnight-deep) 0%, var(--midnight) 50%, var(--midnight-soft) 100%);
+  background-size: 200% 200%;
+  animation: bgShift 20s ease-in-out infinite alternate;
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  overflow: hidden;
+}
+
+/* drifting orbs */
+.cover-page::before,
+.cover-page::after {
+  content: "";
+  position: absolute;
+  border-radius: 50%;
+  pointer-events: none;
+  filter: blur(80px);
+  opacity: 0.5;
+}
+.cover-page::before {
+  width: 420px; height: 420px;
+  background: radial-gradient(circle, var(--purple-vivid) 0%, transparent 70%);
+  top: -80px; right: -80px;
+  animation: gradientFlow 14s ease-in-out infinite;
+}
+.cover-page::after {
+  width: 380px; height: 380px;
+  background: radial-gradient(circle, var(--purple-soft) 0%, transparent 70%);
+  bottom: -120px; left: -120px;
+  animation: gradientFlow 18s ease-in-out infinite reverse;
+}
+
+.cover-page > * { position: relative; z-index: 1; }
+
+.cover-revision-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(124, 58, 237, 0.18);
+  border: 1px solid rgba(181, 168, 230, 0.35);
+  border-radius: 999px;
+  padding: 7px 16px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 36px;
+  animation: pulseGlow 3.5s ease-in-out infinite;
+}
+.cover-revision-tag .dot {
+  width: 8px; height: 8px; border-radius: 50%;
+  background: var(--accent-mint);
+  box-shadow: 0 0 12px var(--accent-mint);
+}
+
+.cover-logos {
+  display: flex;
+  align-items: center;
+  gap: 22px;
+  margin-bottom: 0.5in;
+  flex-wrap: nowrap;
+}
+.cover-logos .dab-logo {
+  height: 42px;
+  width: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+.cover-logos .vrule {
+  width: 1px;
+  height: 34px;
+  background: rgba(255,255,255,0.3);
+  flex: 0 0 auto;
+}
+.cover-logos .dodonai-wordmark {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 32pt;
+  letter-spacing: -0.01em;
+  color: #fff;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.cover-logos .dodonai-wordmark .glyph {
+  color: var(--purple-soft);
+}
+
+.cover-eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 28px;
+}
+
+.cover-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: clamp(48pt, 7.5vw, 76pt);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 24px 0;
+  max-width: 9in;
+  animation: coverHeadlineGlow 5s ease-in-out infinite;
+}
+.cover-headline .soft {
+  color: var(--purple-soft);
+  font-weight: 700;
+}
+
+.cover-subhead {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: clamp(14pt, 1.6vw, 18pt);
+  line-height: 1.45;
+  color: var(--purple-soft);
+  max-width: 7in;
+  margin: 0 0 0.25in 0;
+}
+
+/* Hero stat grid — dark variant of stat cards */
+.cover-stats {
+  margin: 0.45in 0 0.4in 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+}
+.cover-stat {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(181, 168, 230, 0.22);
+  border-radius: 10px;
+  padding: 18px 20px;
+  position: relative;
+  overflow: hidden;
+  transition: transform 0.3s, background 0.3s, border-color 0.3s;
+}
+.cover-stat:hover {
+  background: rgba(124, 58, 237, 0.18);
+  border-color: var(--purple-soft);
+  transform: translateY(-2px);
+}
+.cover-stat::after {
+  content: "";
+  position: absolute;
+  top: -30px; right: -30px;
+  width: 100px; height: 100px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.22) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+.cover-stat .cs-eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 8px;
+  position: relative;
+}
+.cover-stat .cs-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 32pt;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: #fff;
+  margin: 0 0 4px 0;
+  display: block;
+  position: relative;
+}
+.cover-stat .cs-line {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 9.5pt;
+  color: var(--purple-soft);
+  font-weight: 500;
+  line-height: 1.35;
+  position: relative;
+}
+@media (max-width: 900px) {
+  .cover-stats { grid-template-columns: repeat(2, 1fr); }
+}
+
+.cover-meta {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 36px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding-top: 28px;
+}
+.cover-meta-block .label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 8px;
+  font-weight: 600;
+}
+.cover-meta-block .value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13pt;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.scroll-hint {
+  position: absolute;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  opacity: 0.7;
+  animation: fadeIn 3s ease-in-out 2s infinite alternate;
+}
+.scroll-hint::after {
+  content: " ↓";
+  display: inline-block;
+  margin-left: 6px;
+}
+
+/* ==================================================================
+   BODY CONTENT
+   ================================================================== */
+.proposal-body {
+  max-width: 7.2in;
+  margin: 0 auto;
+  padding: 80px 32px 120px;
+}
+
+@media (max-width: 768px) {
+  .proposal-body { padding: 48px 20px 80px; }
+  .cover-meta { grid-template-columns: 1fr; }
+}
+
+.eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 1.6em 0 0.4em 0;
+}
+
+h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 30pt;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--midnight);
+  margin: 0.6em 0 0.4em 0;
+}
+
+h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 22pt;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--midnight);
+  margin: 2em 0 0.5em 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--purple-bold);
+}
+h2 .soft, h2 em { color: var(--purple-bold); font-style: normal; font-weight: 700; }
+
+h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15pt;
+  color: var(--midnight);
+  margin: 1.6em 0 0.4em 0;
+}
+
+h4 {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  font-size: 9.5pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin: 1.2em 0 0.3em 0;
+}
+
+p { margin: 0.6em 0; color: var(--midnight); }
+strong { color: var(--midnight-deep); font-weight: 700; }
+em { color: var(--purple-bold); font-style: italic; }
+a { color: var(--purple-bold); text-decoration: none; border-bottom: 1px solid var(--purple-soft); transition: color 0.2s; }
+a:hover { color: var(--purple-vivid); }
+
+ul, ol { margin: 0.6em 0; padding-left: 1.5em; }
+li { margin: 0.35em 0; }
+li::marker { color: var(--purple-vivid); }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--cream-line);
+  margin: 3em 0;
+}
+
+/* ==================================================================
+   BRYN CALLOUTS — the centerpiece of v2
+   ================================================================== */
+.bryn-callout {
+  position: relative;
+  margin: 2.4em 0;
+  padding: 28px 30px 28px 36px;
+  background: linear-gradient(135deg, #fbfaf4 0%, var(--cream-deep) 100%);
+  border-radius: 10px;
+  box-shadow:
+    0 1px 0 var(--cream-line),
+    0 16px 32px -16px rgba(26, 26, 69, 0.18);
+  overflow: hidden;
+}
+.bryn-callout::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 0; bottom: 0;
+  width: 5px;
+  background: linear-gradient(180deg, var(--purple-vivid) 0%, var(--purple-bold) 100%);
+}
+.bryn-callout::after {
+  content: "";
+  position: absolute;
+  top: -50px; right: -50px;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.08) 0%, transparent 70%);
+  border-radius: 50%;
+  pointer-events: none;
+}
+
+.bryn-callout .callout-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 14px;
+}
+.bryn-callout .callout-eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.bryn-callout .callout-eyebrow .speaker-dot {
+  width: 24px; height: 24px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--purple-vivid), var(--purple-bold));
+  color: #fff;
+  font-size: 10pt;
+  font-weight: 800;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  letter-spacing: 0;
+  box-shadow: 0 4px 10px rgba(124, 58, 237, 0.35);
+}
+.bryn-callout .callout-tag {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt;
+  color: #fff;
+  background: var(--midnight);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-weight: 700;
+  padding: 5px 12px;
+  border-radius: 999px;
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+.bryn-callout .callout-tag::before {
+  content: "";
+  width: 6px; height: 6px; border-radius: 50%;
+  background: var(--accent-mint);
+  box-shadow: 0 0 8px var(--accent-mint);
+}
+
+.bryn-callout .callout-question {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 15pt;
+  font-style: italic;
+  color: var(--midnight);
+  margin: 0 0 18px 0;
+  line-height: 1.35;
+  position: relative;
+  padding-left: 20px;
+}
+.bryn-callout .callout-question::before {
+  content: "";
+  position: absolute;
+  left: 0; top: 8px; bottom: 8px;
+  width: 3px;
+  background: var(--purple-soft);
+  border-radius: 2px;
+}
+
+.bryn-callout .callout-body { margin-top: 4px; }
+.bryn-callout .callout-body p:first-child { margin-top: 0; }
+.bryn-callout .callout-body p:last-child { margin-bottom: 0; }
+
+.bryn-callout table {
+  margin: 1em 0;
+}
+
+/* ==================================================================
+   TABLES
+   ================================================================== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.4em 0;
+  font-size: 10.5pt;
+  background: rgba(255, 255, 255, 0.5);
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 1px 0 var(--cream-line);
+}
+th, td {
+  padding: 11px 14px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--cream-line);
+}
+th {
+  background: var(--midnight);
+  color: #fff;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  font-size: 9pt;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+tbody tr { transition: background 0.2s; }
+tbody tr:nth-child(even) td { background: rgba(107, 70, 193, 0.035); }
+tbody tr:hover td { background: rgba(124, 58, 237, 0.08); }
+tbody tr:last-child td { border-bottom: 2px solid var(--midnight); }
+
+/* ==================================================================
+   ROADMAP VISUAL — animated horizontal phase track
+   ================================================================== */
+.roadmap-viz {
+  background: linear-gradient(135deg, var(--midnight-deep) 0%, var(--midnight) 100%);
+  border-radius: 14px;
+  padding: 28px 22px;
+  margin: 2em -1.2em 1.6em;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+@media (max-width: 900px) {
+  .roadmap-viz { margin: 2em 0 1.6em; padding: 24px 16px; }
+}
+.roadmap-viz::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background:
+    radial-gradient(ellipse at 0% 0%, rgba(124, 58, 237, 0.25) 0%, transparent 50%),
+    radial-gradient(ellipse at 100% 100%, rgba(181, 168, 230, 0.15) 0%, transparent 50%);
+  pointer-events: none;
+}
+.roadmap-viz > * { position: relative; z-index: 1; }
+
+.roadmap-viz .roadmap-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 18px;
+}
+
+.roadmap-track {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 5px;
+  margin-top: 18px;
+}
+.roadmap-cell {
+  background: rgba(255, 255, 255, 0.06);
+  border: 1px solid rgba(181, 168, 230, 0.2);
+  border-radius: 6px;
+  padding: 11px 7px;
+  text-align: center;
+  transition: all 0.3s;
+  cursor: default;
+  min-width: 0;
+}
+.roadmap-cell:hover {
+  background: rgba(124, 58, 237, 0.25);
+  border-color: var(--purple-soft);
+  transform: translateY(-3px);
+}
+.roadmap-cell .phase-num {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 7.5pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.10em;
+  font-weight: 700;
+  margin-bottom: 5px;
+  white-space: nowrap;
+}
+.roadmap-cell .phase-name {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 9pt;
+  color: #fff;
+  line-height: 1.18;
+  margin-bottom: 6px;
+  word-break: break-word;
+  hyphens: auto;
+}
+.roadmap-cell .phase-when {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 7.5pt;
+  color: var(--gray-meta);
+  letter-spacing: 0.05em;
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .roadmap-track { grid-template-columns: repeat(4, 1fr); }
+}
+@media (max-width: 560px) {
+  .roadmap-track { grid-template-columns: repeat(2, 1fr); }
+}
+
+/* ==================================================================
+   PHASE TIMELINE — vertical with animated draw
+   ================================================================== */
+.timeline {
+  position: relative;
+  margin: 2em 0;
+  padding-left: 36px;
+}
+.timeline::before {
+  content: "";
+  position: absolute;
+  left: 12px;
+  top: 8px;
+  bottom: 8px;
+  width: 2px;
+  background: linear-gradient(180deg, var(--purple-vivid) 0%, var(--purple-bold) 50%, var(--cream-line) 100%);
+  border-radius: 2px;
+}
+.timeline-item {
+  position: relative;
+  margin-bottom: 28px;
+}
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  left: -36px;
+  top: 6px;
+  width: 14px; height: 14px;
+  border-radius: 50%;
+  background: var(--purple-vivid);
+  border: 3px solid var(--cream);
+  box-shadow: 0 0 0 1px var(--purple-bold), 0 0 20px var(--purple-glow);
+}
+.timeline-item .ti-week {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+.timeline-item .ti-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 12pt;
+  color: var(--midnight);
+  margin-bottom: 4px;
+}
+.timeline-item .ti-detail {
+  color: var(--gray-meta-light);
+  font-size: 10pt;
+}
+
+/* ==================================================================
+   STAT CARDS
+   ================================================================== */
+.stat-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 18px;
+  margin: 1.8em 0;
+}
+.stat-card {
+  background: linear-gradient(135deg, #fbfaf4 0%, var(--cream-deep) 100%);
+  border: 1px solid var(--cream-line);
+  border-radius: 10px;
+  padding: 24px 26px;
+  transition: transform 0.3s, box-shadow 0.3s;
+  position: relative;
+  overflow: hidden;
+}
+.stat-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 12px 36px -10px rgba(26, 26, 69, 0.2);
+}
+.stat-card::after {
+  content: "";
+  position: absolute;
+  top: -40px; right: -40px;
+  width: 120px; height: 120px;
+  background: radial-gradient(circle, var(--purple-glow) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.stat-card .stat-eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+  position: relative;
+}
+.stat-card .stat-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 38pt;
+  line-height: 1.0;
+  letter-spacing: -0.025em;
+  color: var(--purple-vivid);
+  margin: 0 0 6px 0;
+  display: block;
+  position: relative;
+}
+.stat-card .stat-line {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 10.5pt;
+  color: var(--midnight);
+  font-weight: 500;
+  line-height: 1.4;
+  position: relative;
+}
+
+/* ==================================================================
+   PULL QUOTES
+   ================================================================== */
+blockquote, .pull-quote {
+  margin: 1.6em 0;
+  padding: 1em 0 1em 1.4em;
+  border-left: 4px solid var(--purple-vivid);
+  font-style: italic;
+  color: var(--midnight);
+  background: linear-gradient(90deg, rgba(124, 58, 237, 0.05) 0%, transparent 100%);
+  border-radius: 0 6px 6px 0;
+}
+blockquote p { margin: 0.25em 0; }
+
+/* ==================================================================
+   CODE
+   ================================================================== */
+code {
+  background: var(--cream-deep);
+  padding: 1px 6px;
+  border-radius: 4px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5pt;
+  color: var(--purple-bold);
+}
+
+/* ==================================================================
+   "WHAT'S NEW IN V2" BANNER
+   ================================================================== */
+.v2-banner {
+  background: linear-gradient(135deg, var(--midnight) 0%, var(--midnight-soft) 100%);
+  color: #fff;
+  padding: 32px 36px;
+  border-radius: 12px;
+  margin: 2em 0 3em;
+  position: relative;
+  overflow: hidden;
+}
+.v2-banner::before {
+  content: "";
+  position: absolute;
+  top: -60px; right: -60px;
+  width: 240px; height: 240px;
+  background: radial-gradient(circle, rgba(181, 168, 230, 0.25) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.v2-banner > * { position: relative; }
+.v2-banner .banner-eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+}
+.v2-banner .banner-eyebrow::before {
+  content: "v2";
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 11pt;
+  letter-spacing: 0;
+  background: var(--purple-vivid);
+  color: #fff;
+  padding: 2px 10px;
+  border-radius: 4px;
+}
+.v2-banner h2 {
+  border: none;
+  padding: 0;
+  margin: 0 0 12px;
+  color: #fff;
+  font-size: 22pt;
+}
+.v2-banner p {
+  color: rgba(255, 255, 255, 0.85);
+  margin: 0.6em 0;
+}
+.v2-banner .question-chips {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-top: 18px;
+}
+.v2-banner .chip {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(181, 168, 230, 0.35);
+  color: #fff;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 6px 12px;
+  border-radius: 999px;
+  transition: all 0.2s;
+  cursor: default;
+}
+.v2-banner .chip:hover {
+  background: var(--purple-vivid);
+  border-color: var(--purple-vivid);
+  transform: translateY(-1px);
+}
+
+/* ==================================================================
+   COST PROJECTION CHART (simple HTML+CSS chart)
+   ================================================================== */
+.cost-chart {
+  margin: 1.6em 0;
+  background: linear-gradient(135deg, #fbfaf4 0%, var(--cream-deep) 100%);
+  border-radius: 10px;
+  padding: 24px 26px;
+  border: 1px solid var(--cream-line);
+}
+.cost-chart-title {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+.cost-bar-row {
+  display: grid;
+  grid-template-columns: 110px 1fr 110px;
+  gap: 12px;
+  align-items: center;
+  margin: 10px 0;
+}
+.cost-bar-row .cb-stage {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5pt;
+  color: var(--midnight);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.cost-bar-row .cb-bar {
+  height: 22px;
+  background: rgba(107, 70, 193, 0.08);
+  border-radius: 4px;
+  position: relative;
+  overflow: hidden;
+}
+.cost-bar-row .cb-fill {
+  position: absolute;
+  left: var(--lo, 0%);
+  right: calc(100% - var(--hi, 100%));
+  top: 0;
+  bottom: 0;
+  background: linear-gradient(90deg, var(--purple-vivid), var(--purple-bold));
+  border-radius: 4px;
+  box-shadow: 0 0 12px rgba(124, 58, 237, 0.3);
+  transform: scaleX(0);
+  transform-origin: left;
+  transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.cost-bar-row.in .cb-fill { transform: scaleX(1); }
+.cost-bar-row .cb-range {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10pt;
+  color: var(--purple-vivid);
+  font-weight: 700;
+  text-align: right;
+  letter-spacing: 0.04em;
+}
+.cost-chart-axis {
+  display: grid;
+  grid-template-columns: 110px 1fr 110px;
+  gap: 12px;
+  margin-top: 12px;
+  padding-top: 10px;
+  border-top: 1px solid var(--cream-line);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt;
+  color: var(--gray-meta-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+}
+.cost-chart-axis .ax-scale {
+  display: flex;
+  justify-content: space-between;
+}
+
+/* ==================================================================
+   WORKFLOW DIAGRAM (Wave 1A)
+   ================================================================== */
+.workflow-diagram {
+  margin: 1.6em 0;
+  background: linear-gradient(135deg, var(--midnight-deep) 0%, var(--midnight) 100%);
+  border-radius: 12px;
+  padding: 32px 24px;
+  color: #fff;
+  position: relative;
+  overflow: hidden;
+}
+.workflow-diagram::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(124, 58, 237, 0.18) 0%, transparent 60%);
+  pointer-events: none;
+}
+.workflow-diagram > * { position: relative; }
+.wf-title {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 24px;
+  text-align: center;
+}
+.wf-chain {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 6px;
+  font-family: 'Plus Jakarta Sans', sans-serif;
+}
+.wf-node {
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(181, 168, 230, 0.3);
+  border-radius: 8px;
+  padding: 10px 14px;
+  font-size: 10pt;
+  font-weight: 600;
+  color: #fff;
+  text-align: center;
+  min-width: 110px;
+  transition: all 0.3s;
+}
+.wf-node:hover {
+  background: rgba(124, 58, 237, 0.35);
+  border-color: var(--purple-soft);
+  transform: scale(1.04);
+}
+.wf-node.accent {
+  background: linear-gradient(135deg, var(--purple-vivid), var(--purple-bold));
+  border-color: var(--purple-vivid);
+  box-shadow: 0 6px 16px rgba(124, 58, 237, 0.45);
+}
+.wf-arrow {
+  color: var(--purple-soft);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 14pt;
+  font-weight: 700;
+}
+.wf-caption {
+  text-align: center;
+  margin-top: 16px;
+  color: var(--purple-soft);
+  font-size: 9.5pt;
+  font-family: 'Source Code Pro', monospace;
+  letter-spacing: 0.06em;
+}
+
+/* ==================================================================
+   PRICING TABLE — emphasized
+   ================================================================== */
+.pricing-block {
+  margin: 2em 0;
+  border-radius: 12px;
+  overflow: hidden;
+  border: 2px solid var(--midnight);
+}
+.pricing-block table {
+  margin: 0;
+  border-radius: 0;
+  box-shadow: none;
+}
+.pricing-block table tr.total td {
+  background: rgba(107, 70, 193, 0.12);
+  font-weight: 800;
+  color: var(--purple-vivid);
+  font-size: 12pt;
+  border-top: 2px solid var(--midnight);
+}
+
+/* ==================================================================
+   NEXT STEPS
+   ================================================================== */
+.next-steps {
+  background: linear-gradient(135deg, var(--midnight-deep), var(--midnight));
+  color: #fff;
+  padding: 36px 36px 40px;
+  border-radius: 12px;
+  margin: 2em 0;
+  position: relative;
+  overflow: hidden;
+}
+.next-steps::before {
+  content: "";
+  position: absolute;
+  bottom: -80px; right: -80px;
+  width: 280px; height: 280px;
+  background: radial-gradient(circle, rgba(124, 58, 237, 0.3) 0%, transparent 70%);
+  border-radius: 50%;
+}
+.next-steps > * { position: relative; }
+.next-steps h2 { border: none; padding: 0; color: #fff; margin: 0 0 16px; }
+.next-steps ol { padding-left: 1.4em; }
+.next-steps li {
+  margin: 0.8em 0;
+  color: rgba(255, 255, 255, 0.92);
+  font-size: 11pt;
+}
+.next-steps li::marker { color: var(--purple-soft); font-weight: 800; }
+.next-steps li strong { color: #fff; }
+
+/* ==================================================================
+   FOOTER
+   ================================================================== */
+.proposal-footer {
+  margin-top: 4em;
+  padding-top: 24px;
+  border-top: 1px solid var(--cream-line);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--gray-meta-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+/* ==================================================================
+   PRINT
+   ================================================================== */
+@media print {
+  @page {
+    size: letter;
+    margin: 0.7in 0.6in 0.85in 0.6in;
+    background: var(--cream);
+    @bottom-left {
+      content: "Prepared for Edward P. Dabdoub, JD MBA · Bryn Natland";
+      font-size: 8pt;
+      color: var(--purple-bold);
+      font-family: 'Source Code Pro', monospace;
+      letter-spacing: 0.10em;
+      text-transform: uppercase;
+    }
+    @bottom-right {
+      content: counter(page) " / " counter(pages);
+      font-size: 8pt;
+      color: var(--purple-bold);
+      font-family: 'Source Code Pro', monospace;
+      letter-spacing: 0.10em;
+    }
+    @top-right {
+      content: "DODON.AI · v2";
+      font-size: 8pt;
+      color: var(--purple-vivid);
+      font-family: 'Source Code Pro', monospace;
+      font-weight: 700;
+      letter-spacing: 0.14em;
+    }
+  }
+  @page :first {
+    margin: 0;
+    background: var(--midnight);
+    @bottom-left { content: ""; }
+    @bottom-right { content: ""; }
+    @top-right { content: ""; }
+  }
+
+  /* disable animations */
+  *, *::before, *::after {
+    animation: none !important;
+    transition: none !important;
+  }
+  .reveal, .reveal-left { opacity: 1 !important; transform: none !important; }
+  .cost-bar-row .cb-fill { transform: scaleX(1) !important; }
+
+  body { font-size: 10pt; }
+
+  .cover-page {
+    page-break-after: always;
+    width: 8.5in;
+    height: 11in;
+    min-height: 11in;
+    padding: 0.9in 0.7in 0.7in 0.7in;
+    background: var(--midnight) !important;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .cover-page::before, .cover-page::after { display: none; }
+  .scroll-hint { display: none; }
+  .cover-headline { font-size: 50pt; }
+  .cover-subhead { font-size: 14pt; }
+
+  .proposal-body {
+    max-width: none;
+    padding: 0;
+  }
+
+  h2 { font-size: 18pt; page-break-after: avoid; }
+  h3 { font-size: 12pt; page-break-after: avoid; }
+
+  .bryn-callout {
+    page-break-inside: avoid;
+    box-shadow: none;
+    border: 1px solid var(--cream-line);
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+  .bryn-callout::after { display: none; }
+
+  .roadmap-viz, .next-steps, .v2-banner, .workflow-diagram {
+    page-break-inside: avoid;
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+
+  table { page-break-inside: avoid; }
+  .timeline-item { page-break-inside: avoid; }
+
+  .stat-card:hover, .roadmap-cell:hover, tbody tr:hover td { transform: none; box-shadow: none; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============================================================
+     COVER PAGE
+     ============================================================ -->
+<div class="cover-page">
+  <div>
+    <div class="cover-revision-tag">
+      <span class="dot"></span>
+      v2 · Revised May 14, 2026 · Responses to Bryn's review
+    </div>
+    <div class="cover-logos">
+      <img class="dab-logo" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAgIAAAA3CAMAAABJs9LJAAAABGdBTUEAALGPC/xhBQAAAAFzUkdCAK7OHOkAAAMAUExURQAAAP///////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////wc9CwgAAAD/dFJOUwD4+hPv5RULEvYn1kkaEJL0xvueOsEHAfwyCQriZNIbqQ4CnMsMaBljizEwFpg9yK7R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" alt="Dabdoub Law Firm">
+      <span class="vrule"></span>
+      <span class="dodonai-wordmark">DODON<span class="glyph">.AI</span></span>
+    </div>
+    <div class="cover-eyebrow">FULL ROADMAP PROPOSAL · REV. MAY 14, 2026</div>
+    <h1 class="cover-headline">Appeals by July.<br/><span class="soft">AI Native by Thanksgiving.</span></h1>
+    <p class="cover-subhead">Revised May 14 with explicit answers to your May 13 review. Every answer below is contract-ready and will be reflected in the engagement agreement.</p>
+
+    <div class="cover-stats">
+      <div class="cover-stat">
+        <div class="cs-eyebrow">Hours recovered / year</div>
+        <span class="cs-num">4,800</span>
+        <div class="cs-line">Staff + attorney work returned to the firm at full deployment</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cs-eyebrow">Attorney hours / year</div>
+        <span class="cs-num">1,440</span>
+        <div class="cs-line">The 30% that flows back to attorneys, your caseload bottleneck</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cs-eyebrow">Additional cases / year</div>
+        <span class="cs-num">~65</span>
+        <div class="cs-line">Capacity uplift at current headcount, ~25 attorney hours per marginal case</div>
+      </div>
+      <div class="cover-stat">
+        <div class="cs-eyebrow">Revenue ceiling / year</div>
+        <span class="cs-num">$2.3M</span>
+        <div class="cs-line">At ~$35K average ERISA LTD fee, with no new hires</div>
+      </div>
+    </div>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-block">
+      <div class="label">Prepared for</div>
+      <div class="value">Edward P. Dabdoub, JD MBA<br>Bryn Natland<br>Dabdoub Law Firm</div>
+    </div>
+    <div class="cover-meta-block">
+      <div class="label">Prepared by</div>
+      <div class="value">Nick Chapleau<br>Dodonai Consulting</div>
+    </div>
+    <div class="cover-meta-block">
+      <div class="label">Revision</div>
+      <div class="value">v2 · 2026-05-14<br><span style="color:var(--purple-soft); font-weight:500; font-size:11pt;">Supersedes v1 (2026-05-07)</span></div>
+    </div>
+  </div>
+
+  <div class="scroll-hint">Scroll for details</div>
+</div>
+
+<!-- ============================================================
+     BODY
+     ============================================================ -->
+<div class="proposal-body">
+
+<!-- What's New banner -->
+<div class="v2-banner reveal">
+  <div class="banner-eyebrow">What's new in this revision</div>
+  <h2>Your May 13 review, answered.</h2>
+  <p>v1 was silent or under-specified on seven topics. Each one now has an explicit answer in this document, called out in a purple-bordered box where it belongs in the flow. A separate May 14 question added an eighth on Claude for Legal.</p>
+  <p style="margin-top: 1em;">Substantive commitments in the callouts will be reflected in the engagement agreement. Dodonai's Master Services Agreement (MSA) and Data Processing Addendum (DPA) cover the general terms; the Kickoff SOW and Data Handling Memo cover the engagement-specific pieces. The underlying roadmap, scope, and pricing are unchanged from v1.</p>
+  <div class="question-chips">
+    <span class="chip">Timeline realism</span>
+    <span class="chip">Ownership &amp; portability</span>
+    <span class="chip">HubSpot scope</span>
+    <span class="chip">Claim-file summarization</span>
+    <span class="chip">API cost projection</span>
+    <span class="chip">Staff training</span>
+    <span class="chip">Client confidentiality</span>
+    <span class="chip">Claude for Legal positioning</span>
+  </div>
+</div>
+
+<!-- Executive Summary -->
+<h2 class="reveal">Executive Summary</h2>
+<p class="reveal">Six months of HubSpot pipeline work, two days of discovery, and 155 mapped workflows across every department. The question now is how fast we can roll AI automation across the firm, and what that's worth on a contingency book where every recovered hour is room for another case.</p>
+<p class="reveal">This proposal scopes the full roadmap. <strong>Appeals end-to-end first, then On Claims, Litigation, Accounting, and Firm Intelligence. Every department covered by Thanksgiving.</strong></p>
+
+<p class="reveal">Across the build, the firm recovers roughly <strong>4,800 hours per year</strong> of staff and attorney work. About 30% of those (~1,440 hours) come back to attorneys, the bottleneck on caseload. At your case mix, that's room for <strong>~65 additional cases per year</strong> at current headcount, and at a conservative ~$35K average ERISA LTD fee, a capacity-uplift ceiling near <strong>$2.3M/year</strong>.</p>
+
+<p class="reveal">The deeper outcome is positional. Dabdoub Law Firm becomes the most technologically capable disability-insurance firm in the country. Carriers notice. Referral attorneys notice. Associates want to work where the tools are modern. The fee capture pays for the engagement many times over, and the competitive edge compounds for years.</p>
+
+<hr>
+
+<!-- What We Heard -->
+<h2 class="reveal">What We Heard</h2>
+<p class="reveal">From discovery on May 5 and the partner pitch on May 7, three things are true at the same time.</p>
+<p class="reveal"><strong>Bryn: staff and caseload.</strong> <em>"We could double our caseloads because AI is saving us so much time without doubling our staff and attorneys."</em> The bigger risk than the build is change management. The team has to want to use it. Staff buy-in is earned in their day, not in demos.</p>
+<p class="reveal"><strong>Eddie: cost, time, and lift.</strong> Cost and time-to-ROI are the gating criteria. Speed to value matters: months, not quarters. And the engagement should run with the team, not through Eddie personally.</p>
+<p class="reveal"><strong>Our response: department-first, on-site, six weeks to first drafts.</strong> We start with Appeals end-to-end. Every part of one department covered before we move on to the next. Nick is at the firm two-to-three days a week through the first wave, and the first AI-drafted appeals land in your case files in six weeks from kickoff.</p>
+<p class="reveal">The blueprint inventory we walked through on May 5 has <strong>155 workflows</strong> across the firm, sequenced department-by-department in this engagement, with the highest-ROI work first.</p>
+
+<hr>
+
+<!-- The Roadmap -->
+<h2 class="reveal">The Roadmap</h2>
+<p class="reveal">Seven phases, each a standalone SOW with an explicit pause-point. You commit one phase at a time. The <em>pricing</em> and <em>scope</em> are locked across all seven so you can plan the year.</p>
+
+<div class="roadmap-viz reveal">
+  <div class="roadmap-label">Seven phases · Kickoff → Thanksgiving 2026</div>
+  <div class="roadmap-track">
+    <div class="roadmap-cell"><div class="phase-num">PHASE 0</div><div class="phase-name">Kickoff</div><div class="phase-when">Week 0</div></div>
+    <div class="roadmap-cell"><div class="phase-num">WAVE 1A</div><div class="phase-name">Foundation + Appeals</div><div class="phase-when">Wks 1–6</div></div>
+    <div class="roadmap-cell"><div class="phase-num">WAVE 1B</div><div class="phase-name">Appeals Complete</div><div class="phase-when">Wks 7–11</div></div>
+    <div class="roadmap-cell"><div class="phase-num">PHASE 2</div><div class="phase-name">On Claims</div><div class="phase-when">Wks 12–16</div></div>
+    <div class="roadmap-cell"><div class="phase-num">PHASE 3</div><div class="phase-name">Litigation</div><div class="phase-when">Wks 17–23</div></div>
+    <div class="roadmap-cell"><div class="phase-num">PHASE 4</div><div class="phase-name">Accounting</div><div class="phase-when">Wks 24–25</div></div>
+    <div class="roadmap-cell"><div class="phase-num">PHASE 5</div><div class="phase-name">Intel + Intake</div><div class="phase-when">Wks 26–30</div></div>
+  </div>
+</div>
+
+<p class="reveal"><strong>Wave 1A is the engine.</strong> Five reusable substrate pieces ship in Wave 1A: Microsoft Graph foundation, past-response retrieval pattern, the carrier-pattern drafting framework, the HubSpot ↔ Dodonai webhook pattern, and the Word <code>.docx</code> output engine. Without that substrate, downstream phases would price ~$60–80K higher across the program. Phase 3 Litigation in particular is only feasible at this price <em>because</em> Wave 1A ships first.</p>
+
+<!-- BRYN CALLOUT 1: Realism / Hurdles -->
+<aside class="bryn-callout reveal">
+  <div class="callout-head">
+    <div class="callout-eyebrow"><span class="speaker-dot">B</span>Bryn asked · May 13</div>
+    <div class="callout-tag">For the engagement agreement</div>
+  </div>
+  <p class="callout-question">"This is very ambitious, but is it realistic? What hurdles could delay the end date?"</p>
+  <div class="callout-body">
+    <p>The timeline is tight but not unrealistic. Each phase has its own pause-point, so a slip in one phase doesn't compress the next. We re-baseline at every phase boundary. We don't compress quality to hit dates. If a phase slips by more than two weeks, we tell you immediately and walk through the trade-offs.</p>
+    <p><strong>Five specific risks we're watching, and how each is mitigated:</strong></p>
+    <ol>
+      <li><strong>M365 tenant admin consent delays.</strong> If IT can't grant tenant consent in Week 0, F-01 slips. <em>Mitigation:</em> tenant admin consent is the very first item in Kickoff, before any code is written. We'll have the consent URL pre-prepared.</li>
+      <li><strong>Past-response corpus quality.</strong> If historical appeal letters are scattered across folders or buried inside PDFs without consistent naming, indexing takes longer. <em>Mitigation:</em> corpus location and tagging is a Kickoff decision, not a build-phase surprise.</li>
+      <li><strong>HubSpot custom-code quota.</strong> Workflows that rely on custom code actions can hit per-portal limits at scale. <em>Mitigation:</em> we've been inside your portal six months and know the quota. If we approach the limit, we shift to Dodonai-side serverless actions and use HubSpot only as the trigger.</li>
+      <li><strong>Staff adoption velocity.</strong> If attorneys aren't running drafts through real cases in Weeks 7+, the tuning loop stalls. <em>Mitigation:</em> training is scoped per phase (see Training callout) and Bryn owns adoption sign-off before we move to the next phase.</li>
+      <li><strong>Scope expansion mid-phase.</strong> Every "while you're in there" request is a slip risk. <em>Mitigation:</em> a written change-request process inside the engagement. New asks get triaged into the current phase, the next phase, or the retainer backlog. Never silently absorbed.</li>
+    </ol>
+  </div>
+</aside>
+
+<hr>
+
+<!-- Phase Scope -->
+<h2 class="reveal">Phase Scope</h2>
+
+<h3 class="reveal">Kickoff: $5,000</h3>
+<p class="reveal"><strong>Duration:</strong> 1 day on-site + ~1 week of async substrate decisions</p>
+<p class="reveal">One day at the firm with Eddie, Bryn, and IT to lock in the cross-phase substrate decisions: canonical SharePoint folder template, taxonomy bones for inbound-letter classification, past-rebuttal corpus location, evaluation question pattern, attorney handoff signaling. Tenant admin consent for the Dodonai-Graph application is initiated in the same session.</p>
+<p class="reveal"><strong>What you walk away with:</strong> every cross-phase decision resolved before Wave 1A code starts, no week-1 surprise that ripples through every later phase, and a ~10-page Kickoff memo that becomes the source-of-truth document for the engagement. The <strong>Data Handling &amp; Confidentiality Memo</strong> (see Confidentiality callout) is signed at Kickoff.</p>
+
+<h3 class="reveal">Wave 1A: Foundation + First-Draft Appeals ($22,000)</h3>
+<p class="reveal"><strong>Duration:</strong> 6 weeks · ~17 dev-days single-developer</p>
+<p class="reveal">The minimum-viable Appeals build that hits Bryn's June target. Five deliverables:</p>
+
+<div class="workflow-diagram reveal">
+  <div class="wf-title">Wave 1A workflow · denial → appeal in your case folder</div>
+  <div class="wf-chain">
+    <div class="wf-node">Inbound denial</div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-node">Claim-file summarizer</div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-node">Retrieval index</div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-node accent">A-16 draft</div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-node">SharePoint <code style="background:rgba(255,255,255,0.15); color:#fff; padding:1px 4px; font-size:9pt;">.docx</code></div>
+    <span class="wf-arrow">→</span>
+    <div class="wf-node">Attorney review</div>
+  </div>
+  <div class="wf-caption">Every step lives inside your M365 tenant · LLM provider API processes only the drafting step</div>
+</div>
+
+<ul class="reveal">
+  <li><strong>F-01 Microsoft Graph foundation:</strong> auth + Outlook / SharePoint / Word ops. Substrate that every downstream phase rides on.</li>
+  <li><strong>Past-response retrieval index:</strong> collection over the firm's historical appeal letters and rebuttals, retrieval helper that pulls the closest 5 past responses for any new draft. Bryn's explicit ask: the AI must ground in Dabdoub's own past writing, not generic legal drafting.</li>
+  <li><strong>Dabdoub-specific claim-file summarizer:</strong> custom extraction tuned to your claim-file structure: key dates, policy provisions, denial rationale, treating-physician statements, IME conclusions. Output format feeds directly into A-16's drafting prompt. <em>(Answer to Bryn's claim-file question; see callout below.)</em></li>
+  <li><strong>A-16 AI-drafted first-pass appeal letters:</strong> triggered when the appeals coordinator marks "homework complete" in HubSpot. Pulls claim file summary + denial + policy review + retrieved past-response context. Drops a <code>.docx</code> first draft into the SharePoint case folder. Quality bar at end of Wave 1A + 2 weeks of post-launch tuning: <strong>80–90% of a finished appeal.</strong></li>
+  <li><strong>A-23 Medical-review rebuttal drafting:</strong> same retrieval-grounded engine, retargeted at peer-review / IME / FCE rebuttals.</li>
+</ul>
+<p class="reveal"><strong>What you walk away with:</strong> first AI-drafted appeals in your case files at week 6. Two weeks of tuning included.</p>
+
+<!-- BRYN CALLOUT 2: Claim-File Summarization -->
+<aside class="bryn-callout reveal">
+  <div class="callout-head">
+    <div class="callout-eyebrow"><span class="speaker-dot">B</span>Bryn asked · May 13</div>
+    <div class="callout-tag">For the engagement agreement</div>
+  </div>
+  <p class="callout-question">"What's the plan for claim-file summarization? We have credits with Dodonai and it just hasn't worked."</p>
+  <div class="callout-body">
+    <p>A direct answer to a question that deserved one in v1: <strong>claim-file summarization is a Wave 1A deliverable, not a separate scope item or a future ask.</strong></p>
+    <p>The challenge with the existing Dodonai credits isn't model capability. It's that the summarization wasn't tuned to Dabdoub's specific document types (denial letters with attached medical reviews, mixed-source claim files with carrier notes interleaved with records, IME reports with embedded conclusions), output format (the structured intake A-16 needs to draft an appeal), or workflow trigger (SharePoint file → summary → HubSpot property → drafting agent).</p>
+    <p><strong>What ships in Wave 1A:</strong></p>
+    <ul>
+      <li>Built on the Dodonai app's bulk-document infrastructure, which already handles the OCR, multi-page PHI, and large-file ingest reliably.</li>
+      <li>Custom extraction tuned to your claim-file structure: key dates, policy provisions, denial rationale, treating-physician statements, IME conclusions, prior appeal history.</li>
+      <li>Output format designed to feed directly into A-16's drafting prompt, with no human-in-the-middle re-formatting.</li>
+      <li>Triggered automatically when the appeals coordinator marks "homework complete" in HubSpot.</li>
+    </ul>
+    <p>The custom extraction and workflow integration are inside Wave 1A's $22,000 price, not a separate line item.</p>
+    <p><strong>A note on cost layering:</strong> the claim-file summarizer rides on your existing Dodonai SaaS subscription (which handles the document processing, OCR, and ingest infrastructure). That subscription is separate from both the consulting engagement and the LLM API pass-through costs. Three distinct line items that together cover the full system. The cost projection callout below covers only the LLM API portion.</p>
+  </div>
+</aside>
+
+<h3 class="reveal">Wave 1B: Appeals Completion + Ingest Substrate ($10,000)</h3>
+<p class="reveal"><strong>Duration:</strong> ~5 weeks · ~13 dev-days</p>
+<p class="reveal">Closes Appeals end-to-end and ships the SharePoint ingest substrate every downstream phase needs.</p>
+<ul class="reveal">
+  <li><strong>A-13 IME/FCE cover letter + MR packet:</strong> T-7 days from evaluation, condition-aware cover letter drafted into attorney inbox.</li>
+  <li><strong>A-02 / A-18 Outlook calendaring:</strong> appeal submission triggers 14d / 7d / 0d for attorney + Eddie + assistant; 45d / 90d follow-ups.</li>
+  <li><strong>7 lifecycle letters:</strong> A-04, A-05, A-06, A-19, A-20, A-24, A-27. Each triggered by HubSpot stage or property change; drafted into SharePoint with a HubSpot review task created for the attorney.</li>
+  <li><strong>F-02 SharePoint folder watch + insurer-letter classifier:</strong> inbound mail/fax routes to designated folders → classifier categorizes (medical review · approval · denial · OP letter · buyout offer · extension · def-change · termination · other) with confidence scoring → HubSpot property writes + workflow trigger.</li>
+  <li><strong>19 Appeals cleanup items:</strong> A-01 denial-letter ingest, A-09/A-10/A-11 mid-appeal homework, A-22 medical-review classifier integration, A-33 LTD/STD dual approval, A-34–A-37 initial-claim sub-flow, plus eight more.</li>
+</ul>
+
+<h3 class="reveal">Phase 2: On Claims ($15,000)</h3>
+<p class="reveal"><strong>Duration:</strong> ~5 weeks · ~30 line items</p>
+<p class="reveal">The largest under-served department: 41 GAP items + 2 PARTIAL out of 48. Bryn's "staff-first" lever.</p>
+<ul class="reveal">
+  <li><strong>24-day past-benefit ladder</strong> (O-04 through O-13): automated cadence on every active claim through the past-benefit period.</li>
+  <li><strong>Def-change auto-fire:</strong> definition-change letters triggered when a claim hits the 24-month transition.</li>
+  <li><strong>OP workflows:</strong> Office of the President / appeal-of-internal-denial workflow.</li>
+  <li><strong>Buyout drafting + termination:</strong> both directions (carrier-initiated and firm-initiated).</li>
+</ul>
+
+<h3 class="reveal">Phase 3: Litigation ($25,000)</h3>
+<p class="reveal"><strong>Duration:</strong> ~7 weeks · ~13 line items</p>
+<p class="reveal">Denied appeals route to litigation per A-29/A-30 (already BUILT).</p>
+<ul class="reveal">
+  <li><strong>L-04 Complaint drafting from claim file:</strong> the highest single-row ROI in the inventory ($50K/yr) outside of A-16.</li>
+  <li><strong>L-09 JSR / PSO drafting from case facts</strong></li>
+  <li><strong>L-14 Mediation statement auto-draft</strong></li>
+  <li><strong>L-15 Settlement demand letter</strong></li>
+  <li><strong>L-20 Friday report:</strong> feeds Eddie's litigation-pipeline visibility.</li>
+  <li><strong>L-22 Dismissal</strong></li>
+</ul>
+
+<h3 class="reveal">Phase 4: Accounting ($5,000)</h3>
+<p class="reveal"><strong>Duration:</strong> ~1.5 weeks · 6 line items</p>
+<ul class="reveal">
+  <li><strong>C-06 Disbursement statement auto-generate</strong></li>
+  <li><strong>C-07 DocuSign integration</strong></li>
+  <li><strong>C-08 QuickBooks recording</strong></li>
+  <li><strong>Late-payment escalation</strong></li>
+  <li><strong>Friday-report feeder</strong> for the litigation report</li>
+</ul>
+
+<h3 class="reveal">Phase 5: Firm Intel + Intake + Marketing ($14,000)</h3>
+<p class="reveal"><strong>Duration:</strong> ~4.5 weeks · 16 line items</p>
+<ul class="reveal">
+  <li><strong>X-04 Wiki-grounded firm Q&amp;A chat</strong> (carrier / condition / ERISA): productionized.</li>
+  <li><strong>X-09 Paralegal task surface in chat:</strong> the team asks the chat what's on their plate today.</li>
+  <li><strong>X-03 Per-case state lookup:</strong> natural-language case-state Q&amp;A grounded in HubSpot + SharePoint.</li>
+  <li><strong>8 intake automation items:</strong> lead → conflict check → consult scheduling → engagement letter → welcome letter → portal setup.</li>
+  <li><strong>4 marketing dashboards:</strong> lead-source attribution, productivity, intake conversion, retention.</li>
+</ul>
+
+<h3 class="reveal">Ongoing Retainer ($2,500/month)</h3>
+<p class="reveal"><strong>Begins at end of Wave 1B. 30-day off-ramp.</strong></p>
+<p class="reveal">The retainer is how Dabdoub stays on the leading edge without anyone in the firm having to track every model release. You keep practicing law; we keep your agents current.</p>
+<p class="reveal"><strong>Includes:</strong></p>
+<ul class="reveal">
+  <li>Monitoring and maintenance of all deployed agents</li>
+  <li>Monthly 30-minute review call: what's working, what needs adjustment</li>
+  <li>Up to 2 hours/month of iteration and tuning</li>
+  <li>Per-carrier expansion (Cigna, Hartford, Unum, MetLife, Aetna…), each new carrier extending the previous one's pattern</li>
+  <li>Priority email support</li>
+  <li><strong>New-model briefings</strong> when a major model provider ships a material capability</li>
+  <li><strong>Cross-client insights:</strong> patterns that work across our client base get adapted for your firm (within the no-cross-pollination rules in the Ownership section)</li>
+  <li><strong>Architecture cost optimization:</strong> prompt efficiency, caching, model selection</li>
+  <li><strong>Monthly client roundup call</strong> with live Q&amp;A</li>
+  <li><strong>Quarterly training refresh</strong> per active workflow (see Training callout)</li>
+</ul>
+
+<!-- BRYN CALLOUT 3: HubSpot -->
+<aside class="bryn-callout reveal">
+  <div class="callout-head">
+    <div class="callout-eyebrow"><span class="speaker-dot">B</span>Bryn asked · May 13</div>
+    <div class="callout-tag">For the engagement agreement</div>
+  </div>
+  <p class="callout-question">"Does this include taking back over monthly HubSpot management? If not, can you propose that?"</p>
+  <div class="callout-body">
+    <p>The implementation engagement scopes HubSpot work <em>directly tied to AI automation</em>: webhooks, custom code actions, property changes, and workflow triggers for each phase. Day-to-day HubSpot administration (pipeline tweaks, contact/deal cleanup, report-building, user setup, training new HubSpot users, day-to-day support) is available as an <strong>optional add-on, +$1,500/month, scoped to 6 hours/month</strong>.</p>
+    <p>If opted in, it's bundled into the consulting retainer rather than billed separately. A single $4,000/month invoice instead of two. You can add it at the start, add it later, or decline it; it doesn't affect the AI engagement either way.</p>
+  </div>
+</aside>
+
+<hr>
+
+<!-- Investment & ROI -->
+<h2 class="reveal">Investment &amp; ROI</h2>
+<h3 class="reveal">Proposed Investment</h3>
+
+<div class="pricing-block reveal">
+<table>
+<thead>
+<tr><th>Phase</th><th>Cost</th><th>Payment Terms</th></tr>
+</thead>
+<tbody>
+<tr><td>Kickoff</td><td>$5,000</td><td>Paid at signing</td></tr>
+<tr><td>Wave 1A: Foundation + First-Draft Appeals</td><td>$22,000</td><td>50% at Wave 1A start, 50% at go-live</td></tr>
+<tr><td>Wave 1B: Appeals Completion + Ingest Substrate</td><td>$10,000</td><td>50% at start, 50% at go-live</td></tr>
+<tr><td>Phase 2: On Claims</td><td>$15,000</td><td>50% at start, 50% at go-live</td></tr>
+<tr><td>Phase 3: Litigation</td><td>$25,000</td><td>50% at start, 50% at go-live</td></tr>
+<tr><td>Phase 4: Accounting</td><td>$5,000</td><td>50% at start, 50% at go-live</td></tr>
+<tr><td>Phase 5: Firm Intel + Intake + Marketing</td><td>$14,000</td><td>50% at start, 50% at go-live</td></tr>
+<tr class="total"><td><strong>Implementation total</strong></td><td><strong>$96,000</strong></td><td></td></tr>
+<tr><td>Consulting retainer</td><td>$2,500 / month</td><td>Billed monthly in advance, net 15. Begins end of Wave 1B.</td></tr>
+<tr><td>HubSpot admin add-on <em>(optional, bundled if opted in)</em></td><td>+$1,500 / month <span style="color: var(--gray-meta-light);">($4,000 total)</span></td><td>Bundled into a single retainer invoice when opted in.</td></tr>
+<tr><td>Dodonai SaaS subscription</td><td>Per existing plan</td><td>Powers the document-processing infrastructure.</td></tr>
+<tr><td>LLM API costs</td><td>Pass-through</td><td>Projected range below; provider-agnostic billing options.</td></tr>
+</tbody>
+</table>
+</div>
+
+<p class="reveal"><strong>Satisfaction guarantee:</strong> if Wave 1A's first AI-drafted appeals don't clear the 70% quality bar, you're under no obligation to continue to Wave 1B. The Kickoff memo and the Wave 1A substrate are yours to keep regardless.</p>
+
+<h3 class="reveal">Partnership Track ($88,000)</h3>
+<p class="reveal">If Dabdoub agrees to a joint case study, press release, and co-marketing rights (a written case study Dodonai can publish, Dabdoub speaking on a webinar or podcast as a reference, logo placement on dodon.ai, occasional reference calls for prospective Dodonai clients), the implementation total is <strong>$88,000</strong> instead of $96,000. A clean trade: $8,000 for the marketing assets we'd otherwise have to build without a real customer behind them. Retainer pricing is unchanged.</p>
+
+<!-- BRYN CALLOUT 4: Cost / API Estimate -->
+<aside class="bryn-callout reveal">
+  <div class="callout-head">
+    <div class="callout-eyebrow"><span class="speaker-dot">B</span>Bryn asked · May 13</div>
+    <div class="callout-tag">For the engagement agreement</div>
+  </div>
+  <p class="callout-question">"LLM API costs are pass-through, but what's the projected monthly range at full build-out?"</p>
+  <div class="callout-body">
+    <p>Reasonable projections based on your case volume and the phase deliverables, assuming a top-tier model for drafting and a faster, cheaper model for classification and retrieval. The architecture is model-agnostic. We use whichever provider gives the best result for the cost on each step, and re-evaluate as new models ship.</p>
+
+    <div class="cost-chart">
+      <div class="cost-chart-title">Projected monthly API spend by stage</div>
+      <div class="cost-bar-row" style="--lo: 8%; --hi: 20%;">
+        <div class="cb-stage">Wave 1A · Jul</div>
+        <div class="cb-bar"><div class="cb-fill"></div></div>
+        <div class="cb-range">$200–500</div>
+      </div>
+      <div class="cost-bar-row" style="--lo: 16%; --hi: 36%;">
+        <div class="cb-stage">Wave 1B · Aug</div>
+        <div class="cb-bar"><div class="cb-fill"></div></div>
+        <div class="cb-range">$400–900</div>
+      </div>
+      <div class="cost-bar-row" style="--lo: 24%; --hi: 52%;">
+        <div class="cb-stage">Phase 2 · Sep</div>
+        <div class="cb-bar"><div class="cb-fill"></div></div>
+        <div class="cb-range">$600–1,300</div>
+      </div>
+      <div class="cost-bar-row" style="--lo: 36%; --hi: 72%;">
+        <div class="cb-stage">Phase 3 · Nov</div>
+        <div class="cb-bar"><div class="cb-fill"></div></div>
+        <div class="cb-range">$900–1,800</div>
+      </div>
+      <div class="cost-bar-row" style="--lo: 48%; --hi: 100%;">
+        <div class="cb-stage">Full · Dec</div>
+        <div class="cb-bar"><div class="cb-fill"></div></div>
+        <div class="cb-range">$1,200–2,500</div>
+      </div>
+      <div class="cost-chart-axis">
+        <div></div>
+        <div class="ax-scale"><span>$0</span><span>$1,250</span><span>$2,500</span></div>
+        <div></div>
+      </div>
+    </div>
+
+    <p><strong>Assumptions:</strong> average appeal draft uses ~50K input tokens (claim file + retrieved past responses + denial) and ~10K output tokens. Heavy litigation months may spike above the upper range; quiet months land below. Prompt caching (live in Wave 1A) typically cuts 30–50% off the input side for repeated retrieval contexts.</p>
+
+    <p><strong>Three running cost layers, distinct from the implementation fees:</strong></p>
+    <ol>
+      <li><strong>Consulting retainer:</strong> $2,500/month (or $4,000/month with HubSpot admin bundled).</li>
+      <li><strong>Dodonai SaaS subscription</strong> (your existing one): handles the document-processing infrastructure the claim-file summarizer rides on. Pricing is per your existing plan.</li>
+      <li><strong>LLM API pass-through:</strong> the range above.</li>
+    </ol>
+
+    <p><strong>Billing options for the LLM layer:</strong></p>
+    <ul>
+      <li><strong>Direct provider key.</strong> You hold the API key, you control the bill, you see the usage in the provider's console.</li>
+      <li><strong>Through Dodonai at cost + 0%.</strong> We invoice monthly with a detailed usage breakdown by workflow.</li>
+    </ul>
+    <p>Architecture cost optimization is part of the retainer. We'll review actuals against this projection in every monthly retainer call.</p>
+  </div>
+</aside>
+
+<h3 class="reveal">The Math</h3>
+<p class="reveal"><strong>Direct labor recovered in year one:</strong> ~$260,000. That's the time-cost equivalent of the staff and attorney hours Wave 1 alone takes off your team's plate: A-16 first-draft appeals ($150K/yr), A-23 medical-review rebuttals ($75K/yr), A-13 cover letters ($25K/yr), and lifecycle letters (~$10K/yr). <strong>Wave 1 alone pays for the entire implementation in less than five months</strong> on labor savings before any caseload uplift.</p>
+<p class="reveal"><strong>Capacity-uplift ceiling at full deployment:</strong> ~$2.3M/year. ~4,800 hours saved across the firm; ~30% are attorney hours (~1,440 attorney hours/year freed); divided by ~25 attorney hours per marginal case = ~65 additional cases/year of capacity at current attorney headcount. At a conservative ~$35K average ERISA LTD fee, that's a ~$2.3M annual revenue ceiling with no new hires.</p>
+<p class="reveal"><em>The labor floor pays the bill. The capacity ceiling is the case for doing this.</em></p>
+
+<hr>
+
+<!-- Timeline -->
+<h2 class="reveal">Timeline</h2>
+<p class="reveal">Targeting Thanksgiving 2026 completion, anchored at a ~week-of-June-1 Kickoff (firmed up with you once the agreement is in motion).</p>
+
+<div class="timeline reveal">
+  <div class="timeline-item">
+    <div class="ti-week">Week 0 · ~Week of June 1</div>
+    <div class="ti-title">Kickoff</div>
+    <div class="ti-detail">On-site cross-phase decisions. Tenant admin consent. Signed Data Handling &amp; Confidentiality Memo.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="ti-week">Weeks 1–6 · → mid-July</div>
+    <div class="ti-title">Wave 1A</div>
+    <div class="ti-detail">Graph foundation + claim-file summarizer + retrieval index + A-16 + A-23. <strong>First AI-drafted appeals in case files at Week 6.</strong> Training session 1.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="ti-week">Weeks 7–11 · → mid-August</div>
+    <div class="ti-title">Wave 1B</div>
+    <div class="ti-detail">A-13 + lifecycle letters + calendaring + F-02 ingest + 19 cleanup items. Training session 2. Appeals fully covered.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="ti-week">Weeks 12–16 · → late September</div>
+    <div class="ti-title">Phase 2 · On Claims</div>
+    <div class="ti-detail">24-day ladder · def-change · OP workflows · buyout drafting. Training session 3.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="ti-week">Weeks 17–23 · → early November</div>
+    <div class="ti-title">Phase 3 · Litigation</div>
+    <div class="ti-detail">L-04 complaint · L-09 JSR/PSO · L-14 mediation · L-15 demand · L-22 dismissal · Friday report. Training session 4.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="ti-week">Weeks 24–25 · → mid-November</div>
+    <div class="ti-title">Phase 4 · Accounting</div>
+    <div class="ti-detail">Disbursement · DocuSign · QuickBooks · late-payment escalation. Training session 5.</div>
+  </div>
+  <div class="timeline-item">
+    <div class="ti-week">Weeks 26–30 · → December</div>
+    <div class="ti-title">Phase 5 · Intel + Intake + Marketing</div>
+    <div class="ti-detail">X-04/X-09/X-03 chat surfaces · 8 intake items · 4 marketing dashboards. Training session 6.</div>
+  </div>
+</div>
+
+<p class="reveal">Hitting Thanksgiving exactly assumes back-to-back execution with no slip from the June 1 anchor; Phase 5 may extend into mid-to-late December. We calibrate at each phase boundary.</p>
+
+<hr>
+
+<!-- How the System Improves -->
+<h2 class="reveal">How the System Improves Over Time</h2>
+<p class="reveal">A fair question on May 7: <em>can the platform learn and improve, or does it just reproduce existing work?</em> Three loops compound.</p>
+<p class="reveal"><strong>Per-letter retrieval.</strong> Every appeal edited in Word becomes training data for the next one. The retrieval index re-indexes finalized letters on a cadence, so the closer A-16 gets to the firm's voice, the closer it stays. Edits aren't friction; they're the training signal.</p>
+<p class="reveal"><strong>Per-carrier patterns.</strong> The first carrier we cover end-to-end is the hardest. Each carrier we add after that (Cigna, Hartford, Unum, MetLife, Aetna) extends the previous carrier's pattern instead of starting from scratch. After two or three carriers the firm's argument library compounds.</p>
+<p class="reveal"><strong>The case-pattern library compounds.</strong> Long COVID has a different argument structure than ME/CFS, which has a different one than ADHD-cap-disclosure, which has a different one than lung-cancer-pre-existing. Every condition the firm wins teaches the system how to argue it.</p>
+
+<blockquote class="reveal">
+  <p>"That first appeal that this thing writes is probably no offense, Nick, going to be garbage. We're going to work with it to fix it."</p>
+  <p style="font-family: 'Source Code Pro', monospace; font-size: 9pt; color: var(--purple-bold); letter-spacing: 0.10em; text-transform: uppercase; font-weight: 700; font-style: normal; margin-top: 0.6em;">Bryn · May 5 discovery</p>
+</blockquote>
+<p class="reveal">That is the system. The "fixing it" is the loop that makes everything after better.</p>
+
+<hr>
+
+<!-- Training section -->
+<h2 class="reveal">How the Team Learns the System</h2>
+<p class="reveal">Training is included in every phase price, not a separate cost. Four components, every phase:</p>
+<ol class="reveal">
+  <li><strong>Pre-go-live training session</strong> (60–90 min, on-site or recorded video). Walkthrough of every workflow shipping in that phase, with the staff and attorneys who will use it. Recorded for the firm's training library.</li>
+  <li><strong>Written runbook per workflow.</strong> Step-by-step "how to use this," "what to do if X breaks," "how to flag a bad draft." Lives in your SharePoint, owned by the firm.</li>
+  <li><strong>First-week shadow support.</strong> Nick is on Slack/email during the first week each phase goes live, with a 4-hour response SLA, for the staff actually running the workflow.</li>
+  <li><strong>30-day adoption check-in.</strong> Review with Bryn 30 days after each phase: who's using it, who isn't, what's friction. Bryn signs off on adoption before we move to the next phase.</li>
+</ol>
+<p class="reveal"><strong>For new hires during the retainer:</strong> a single SharePoint folder structured as a self-serve onboarding path with all runbooks, recorded sessions, and a "first 30 days on the system" checklist. Maintained as part of the retainer, refreshed when workflows materially change. The goal is that a new paralegal or attorney can ramp up mostly from the materials, without needing to schedule time with Dodonai.</p>
+<p class="reveal"><strong>Training ownership:</strong> Bryn is the firm-side training owner. Nick is the consulting-side owner. The runbooks and training videos are owned by the firm and stay accessible after the engagement ends.</p>
+
+<!-- BRYN CALLOUT 5: Training -->
+<aside class="bryn-callout reveal">
+  <div class="callout-head">
+    <div class="callout-eyebrow"><span class="speaker-dot">B</span>Bryn asked · May 13</div>
+    <div class="callout-tag">For the engagement agreement</div>
+  </div>
+  <p class="callout-question">"What does the staff training plan look like: pre-launch, ongoing, and for new hires after we're up and running?"</p>
+  <div class="callout-body">
+    <p>Covered in the section above, plus three commitments for the engagement agreement:</p>
+    <ol>
+      <li><strong>Training is included in every phase price.</strong> Not a separate line item, not an upcharge.</li>
+      <li><strong>All training materials (runbooks, recorded sessions, onboarding checklists) are owned by the firm</strong> and live in your SharePoint. They stay accessible if we ever part ways. (See Ownership section.)</li>
+      <li><strong>New-hire onboarding is designed to be self-serve.</strong> The onboarding folder is structured so a new paralegal or attorney can mostly ramp up from the materials.</li>
+    </ol>
+  </div>
+</aside>
+
+<hr>
+
+<!-- Ownership -->
+<h2 class="reveal">What You Own</h2>
+<p class="reveal">Every commitment below goes into the engagement agreement.</p>
+
+<!-- BRYN CALLOUT 6: Ownership -->
+<aside class="bryn-callout reveal">
+  <div class="callout-head">
+    <div class="callout-eyebrow"><span class="speaker-dot">B</span>Bryn asked · May 13</div>
+    <div class="callout-tag">For the engagement agreement</div>
+  </div>
+  <p class="callout-question">"If we ever part ways, do we own everything that was built? Can another vendor pick up? Who owns retainer-built improvements? Will our data benefit other clients?"</p>
+  <div class="callout-body">
+    <p>The framework: the Dodonai Master Services Agreement (MSA) and its Data Processing Addendum (DPA) govern these questions formally. The summary below describes how those terms apply to the Dabdoub engagement specifically. If anything needs to be tightened or expanded in the executed agreement, we'll write it in.</p>
+    <p><strong>Work product built for the firm.</strong> Workflows, automations, prompts, retrieval indexes, system prompts, HubSpot webhook configurations, custom code actions, SharePoint scripts, runbooks, and firm-specific documentation built for Dabdoub Law Firm belong to the firm outright. You can use it, modify it, or hand it to another vendor if you ever leave us. We have no residual control over what you do with it. The MSA's "Outputs" assignment clause puts this in writing.</p>
+    <p><strong>At any exit point</strong> (end of phase, mid-phase, or end of retainer), you keep everything we've built, and we deliver a <em>portability package</em> (skill files, prompts, configs, environment variable templates, runbooks, and a written transition memo) so another vendor or your in-house team can pick up without us. The portability package is a named deliverable in the SOW, not a courtesy.</p>
+    <p><strong>Retainer-built improvements:</strong> same treatment. Anything we ship inside the retainer is assigned to the firm under the MSA.</p>
+    <p><strong>What does NOT cross over to other clients:</strong> firm-specific content. Your claim files, medical records, client letters, identifiable workflow IP, and the specific prompts/configs we author against your data and templates stay inside the engagement. We will not reuse them, recycle them as "templates" for another client, or feed them into model training.</p>
+    <p><strong>What CAN inform our practice:</strong> general engineering patterns. For example, that a particular retrieval-grounding approach works well for letter drafting, or that a certain prompt structure handles IME rebuttals better than alternatives. Nothing identifiable to Dabdoub (or to any client) travels with us. The MSA covers what's permitted here; if it needs sharper lines, we'll draw them.</p>
+    <p><strong>Generic framework code</strong> that Dodonai develops across all clients (e.g., Microsoft Graph auth boilerplate, retry logic, evaluation harness shape) stays under Dodonai's ownership. Dabdoub gets a perpetual, royalty-free license to keep using it. The carveout doesn't cover anything firm-specific.</p>
+  </div>
+</aside>
+
+<hr>
+
+<!-- Confidentiality -->
+<h2 class="reveal">How Your Data (and Your Clients' Data) Is Handled</h2>
+<p class="reveal">Every workflow runs inside your Microsoft 365 tenant. Claim files and medical reviews route through Microsoft Graph to the LLM provider for the drafting step, then return as <code>.docx</code> files in your SharePoint. No third-party storage, no logging at Dodonai beyond what you'd see in your own audit trail.</p>
+<p class="reveal">Every draft is human-reviewed before it leaves the firm. Privilege stays with the attorney; agents draft and prepare, the attorney reviews and files. The retainer keeps this configuration current as the model providers and Microsoft ship changes.</p>
+
+<!-- BRYN CALLOUT 7: Confidentiality -->
+<aside class="bryn-callout reveal">
+  <div class="callout-head">
+    <div class="callout-eyebrow"><span class="speaker-dot">B</span>Bryn asked · May 13</div>
+    <div class="callout-tag">For the engagement agreement</div>
+  </div>
+  <p class="callout-question">"Who has access? What third parties? Real files in testing? Can we get written confirmation we can retain for compliance?"</p>
+  <div class="callout-body">
+    <p>The Dodonai MSA's confidentiality provisions and the DPA cover this formally. The summary below is how those terms apply to the Dabdoub engagement specifically.</p>
+    <p><strong>Who has access at Dodonai:</strong> the Dodonai internal team working on this engagement. Today that's a small group; as the engagement scales, anyone who touches Dabdoub files will be a Dodonai employee or contractor bound by the same confidentiality terms as the MSA, listed in writing, and limited to the access they need for their role. No outside subcontractors without written firm approval.</p>
+    <p><strong>Data flow:</strong></p>
+    <ul>
+      <li><strong>Files are stored in:</strong> your Microsoft 365 tenant (SharePoint, OneDrive). They do not leave.</li>
+      <li><strong>Files are processed by:</strong> the LLM provider's API, for the drafting/extraction step.</li>
+      <li><strong>Files are NOT routed through</strong> any other third-party storage, logging, or LLM provider beyond what's named in the engagement agreement.</li>
+      <li><strong>LLM provider terms:</strong> the providers we use under standard commercial API terms do not train on customer data. The relevant terms are attached as an exhibit to the engagement.</li>
+    </ul>
+    <p><strong>Testing with real files:</strong> Yes. Real files are used inside your tenant. We don't copy files to local development machines beyond what is technically required to run and debug a workflow. Any local cache used during debugging is purged at engagement end and documented in the Kickoff memo as part of the data-handling SOP.</p>
+    <p><strong>Written confirmation for compliance records:</strong> once signed, the MSA + DPA themselves serve as the written confirmation, with no separate document required. We'll also sign a one-page <strong>Data Handling &amp; Confidentiality Memo</strong> at Kickoff that summarizes the engagement-specific application of those terms, as a single-page reference for the firm's compliance records.</p>
+  </div>
+</aside>
+
+<hr>
+
+<!-- Claude for Legal -->
+<h2 class="reveal">Why Dodonai vs. Anthropic Directly</h2>
+<p class="reveal">Anthropic launched <strong>Claude for Legal</strong> on May 14, 2026: an open-source (Apache 2.0) suite of practice-area plugins for Claude Cowork and Claude Code, plus managed-agent cookbooks and 16+ MCP connectors. We've reviewed it and have thought through how it fits the Dabdoub build.</p>
+
+<!-- BRYN CALLOUT 8: Claude for Legal -->
+<aside class="bryn-callout reveal">
+  <div class="callout-head">
+    <div class="callout-eyebrow"><span class="speaker-dot">B</span>Bryn asked · May 14</div>
+    <div class="callout-tag">For the engagement agreement</div>
+  </div>
+  <p class="callout-question">"Anthropic just announced Claude for Legal. Why go with you over Anthropic directly?"</p>
+  <div class="callout-body">
+    <p><strong>The frame.</strong> Claude for Legal is an open-source reference implementation, explicitly designed to be customized and deployed by partners at specific firms. The relationship is the same shape as AWS↔solutions architect or Microsoft 365↔IT consultant: the platform vendor ships horizontal capability; the implementer ships the specific system that runs in your office on Monday morning. We're well-positioned to be that implementer for Dabdoub for several reasons.</p>
+    <p><strong>A few specifics:</strong></p>
+    <ol>
+      <li><strong>The plugin has real plug-and-play capability, plus a much larger gap beyond it.</strong> It'll get you to a generic baseline quickly. The version your partners will sign off on (reflecting your fee agreement language, your appeal SOP, your ERISA-LTD jurisdictional posture, your claim-file conventions, your house style on rebuttals) is a multi-week authoring project against your actual playbook. That authoring is the bulk of Discovery and Wave 1A, and it's not something an out-of-the-box plugin can do for you.</li>
+      <li><strong>Claude for Legal's litigation plugin is built for different work.</strong> The shipped skills assume eDiscovery platforms (Everlaw, Relativity), AmLaw-200 associates drafting brief sections, and corporate matter taxonomies. Your work is claim-file summarization, medical-record review, appeal drafting, IME analysis, and demand packages: bulk-document workflows for plaintiff and medical-legal practice. That's a strong overlap with what Dodonai already does, and one of several reasons we're well-positioned here.</li>
+      <li><strong>The plugins are single-user, file-system-scoped.</strong> Per-attorney install in Claude Cowork or Code. Your firm needs a multi-seat deployment integrated with HubSpot + M365 SharePoint + custom code actions, with scheduled agents, training, and runbooks for Sonya, Quay, Maria, the paralegal team, and the partners. Claude for Legal ships plugins; we ship the <em>system</em> those plugins run inside.</li>
+    </ol>
+    <p><strong>What we'll actually do:</strong> use Claude for Legal as our starting point. Borrow the plugin structures that fit your work, extend the ones that don't, drop what doesn't apply. You get the benefit of the open-source baseline <em>and</em> the firm-specific deployment we'd be doing anyway. Every model improvement that ships from a major provider flows through to your agents because we're built on their APIs. They're infrastructure; we're the application.</p>
+  </div>
+</aside>
+
+<hr>
+
+<!-- What You Provide -->
+<h2 class="reveal">What You Provide</h2>
+<ul class="reveal">
+  <li>LLM API costs (per the cost projection callout)</li>
+  <li>Tenant admin consent for the Dodonai application against your Microsoft Graph (one-click, in Kickoff)</li>
+  <li>Access to HubSpot, SharePoint, and Outlook for integration setup (we'll do this together)</li>
+  <li>Your existing template library, SOPs, and past-response corpus (template inventory walkthrough with Bryn in Week 1)</li>
+  <li>Feedback during testing. Bryn or designated attorney reviews drafts before anything goes live.</li>
+  <li>Bryn at ~30 minutes/week during the Build phases for tuning; ~1 day in Kickoff with Eddie + IT</li>
+  <li>Bryn's sign-off on adoption at each phase boundary before we move to the next phase</li>
+</ul>
+
+<hr>
+
+<!-- Assumptions -->
+<h2 class="reveal">Assumptions &amp; Out of Scope</h2>
+<p class="reveal"><strong>We're assuming:</strong></p>
+<ul class="reveal">
+  <li>Microsoft Graph access is granted within 5 business days of Kickoff</li>
+  <li>HubSpot custom-code quota and SharePoint folder permissions are sufficient for the workflows above. If a specific workflow is blocked, we'll surface alternatives in the Kickoff memo.</li>
+  <li>During Build phases, Bryn (or her designate) is available ~30 minutes/week for testing feedback and tuning marks</li>
+  <li>Third-party pricing and APIs (HubSpot, Microsoft, LLM providers) remain broadly stable</li>
+</ul>
+<p class="reveal"><strong>Out of scope unless specifically added:</strong></p>
+<ul class="reveal">
+  <li>Custom machine learning or model training</li>
+  <li>Direct court e-filing integration</li>
+  <li>Any workflow requiring bar-restricted legal judgment. Our agents draft and prepare; the attorney reviews and files.</li>
+  <li>Replacement of Westlaw / Lexis / primary research tools</li>
+  <li>Day-to-day HubSpot administration (available as an add-on retainer; see HubSpot callout)</li>
+</ul>
+
+<hr>
+
+<!-- About -->
+<h2 class="reveal">About Dodonai Consulting</h2>
+<p class="reveal">Dodonai is an AI platform purpose-built for legal practice, and it's built by someone who has actually practiced. Nick Chapleau, the founder, earned his JD from the University of Chicago Law School and practiced as a trial attorney for four years before moving into technology.</p>
+<p class="reveal">He understands the tooling, workflows, and constraints that matter inside a law firm from the inside: the difference between "drafted by AI" and "practiced by a lawyer," ERISA's record-locking nuances, the way contingency math and billable math pull in opposite directions.</p>
+<p class="reveal">After leaving practice, Nick co-founded Starchup (acquired by Cents in 2022, where he holds a fractional legal &amp; AI implementation position), then founded Dodonai to bring AI automation to legal professionals.</p>
+<p class="reveal">On the technical side: Nick built the Dodonai platform itself using custom coding agents, and operates 13+ production AI agents that automate marketing, sales, customer success, and operations workflows daily. This consulting practice brings that same proven architecture (Claude Code skills, scheduled agents, API integrations, and human-in-the-loop review) directly to your firm.</p>
+
+<!-- Next Steps -->
+<div class="next-steps reveal">
+  <h2>Next Steps</h2>
+  <ol>
+    <li><strong>Review this v2 proposal.</strong> Every callout above is intended to inform the engagement agreement. If any item needs to be tightened, named differently, or expanded, tell us and we'll work it in.</li>
+    <li><strong>Pick a track.</strong> Standard ($96K) or partnership ($88K with case-study + co-marketing rights). Pick the one that fits the firm.</li>
+    <li><strong>Decide on the HubSpot admin add-on.</strong> Optional. If opted in, +$1,500/mo bundles into a single $4,000/mo consulting retainer. Can be added at start or later.</li>
+    <li><strong>Sign the MSA, DPA, Kickoff SOW, and Data Handling &amp; Confidentiality Memo.</strong> The MSA + DPA are our standard agreements (templates already drafted); the Kickoff SOW and Memo are short and engagement-specific.</li>
+    <li><strong>Schedule Kickoff.</strong> 1 day on-site with you, Bryn, and IT. We'll firm up the exact date together once the agreement is in motion.</li>
+  </ol>
+</div>
+
+<div class="proposal-footer">
+  This proposal supersedes v1 (2026-05-07) · valid through June 14, 2026 · Dodonai Consulting · nick@dodon.ai
+</div>
+
+</div>
+
+<script>
+// Intersection Observer for scroll reveals
+(function() {
+  if (!('IntersectionObserver' in window)) {
+    document.querySelectorAll('.reveal, .reveal-left').forEach(el => el.classList.add('in'));
+    document.querySelectorAll('.cost-bar-row').forEach(el => el.classList.add('in'));
+    return;
+  }
+
+  const io = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('in');
+        io.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -8% 0px' });
+
+  document.querySelectorAll('.reveal, .reveal-left').forEach(el => io.observe(el));
+
+  // Stagger the cost-bar fills
+  const costBars = document.querySelectorAll('.cost-bar-row');
+  const costIO = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        costBars.forEach((bar, i) => {
+          setTimeout(() => bar.classList.add('in'), i * 140);
+        });
+        costIO.disconnect();
+      }
+    });
+  }, { threshold: 0.3 });
+  if (costBars.length > 0) costIO.observe(costBars[0]);
+})();
+</script>
+
+</body>
+</html>

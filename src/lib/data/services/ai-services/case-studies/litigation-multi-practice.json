@@ -1,0 +1,51 @@
+{
+	"slug": "litigation-multi-practice",
+	"seo": {
+		"title": "Litigation Firm AI Engagement: First Drafts + Practice Intelligence | Dodonai",
+		"description": "How a multi-attorney litigation firm used a foundation, drafting agents, and a managing-partner dashboard to put first drafts and practice intelligence on autopilot. A representative Dodonai engagement.",
+		"canonical": "/ai-managed-services/results/litigation-multi-practice/"
+	},
+	"descriptor": "Multi-attorney litigation firm — several practice groups on one stack",
+	"practiceArea": "Litigation",
+	"headline": "A multi-attorney litigation firm put first drafts and practice intelligence on autopilot",
+	"summary": "A foundation plus drafting agents and a partner dashboard — the shape of a larger, multi-wave build assembled module by module.",
+	"statStrip": [
+		{ "value": "Foundation +", "label": "drafting and dashboard waves" },
+		{ "value": "70–80%", "label": "of first-draft structure handled" },
+		{ "value": "One screen", "label": "for partner-level intelligence" }
+	],
+	"problem": {
+		"heading": "The starting state",
+		"paragraphs": [
+			"Associates rebuilt the same motion and pleading skeletons on every matter, and precedent was scattered across drives and inboxes. The structure of the work was identical case to case; the hours spent re-assembling it were not.",
+			"At the partner level there was no single view of the business — revenue by practice area, attorney utilization, matter aging, lead-source ROI, or pipeline — so management ran on gut and end-of-month scrambles."
+		]
+	},
+	"built": {
+		"heading": "What we built",
+		"intro": "A modular, multi-wave build starting with a knowledge foundation, then drafting agents, then practice intelligence.",
+		"agents": [
+			{ "name": "Firm Wiki / LLM Brain", "slug": null },
+			{ "name": "Pleading Drafter", "slug": "pleading-drafter" },
+			{ "name": "Motion Drafter", "slug": "motion-drafter" },
+			{ "name": "Discovery Operations Pack", "slug": null },
+			{ "name": "Practice Intelligence", "slug": "practice-intelligence" },
+			{ "name": "Managing Partner Dashboard", "slug": null }
+		]
+	},
+	"results": {
+		"heading": "What changed",
+		"items": [
+			"Motions and pleadings draft from the firm's precedent library at roughly 70 to 80% of first-draft structure, citing only verified sources.",
+			"Discovery operations surface substantive issues and draft deficiency letters across practice groups.",
+			"The managing-partner dashboard rolls up revenue, utilization, matter aging, and lead-source ROI, and answers 'what's the status on Smith?' in plain language.",
+			"Associates shift from typing the skeleton to sharpening the argument.",
+			"Every filing is attorney-reviewed; the agents draft, the lawyers decide."
+		]
+	},
+	"engagementArc": {
+		"discovery": "2–3 weeks",
+		"build": "Modular, multi-wave",
+		"retainer": "Optional, month-to-month"
+	}
+}

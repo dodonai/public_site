@@ -1,0 +1,52 @@
+{
+	"slug": "personal-injury-firm",
+	"seo": {
+		"title": "Personal-Injury Firm AI Engagement: Demand-Ready Files | Dodonai",
+		"description": "How a personal-injury firm used five custom AI agents to turn medical-records chaos into demand-ready files and keep SOL deadlines safe. A representative Dodonai engagement.",
+		"canonical": "/ai-managed-services/results/personal-injury-firm/"
+	},
+	"descriptor": "Personal-injury firm — steady caseload with seasonal intake spikes",
+	"practiceArea": "Personal Injury",
+	"practiceAreaSlug": "personal-injury",
+	"headline": "A personal-injury firm turned records chaos into demand-ready files — without adding headcount",
+	"summary": "Five agents across intake, records retrieval, and demand assembly, so the firm absorbs volume spikes without growing the team.",
+	"statStrip": [
+		{ "value": "5 agents", "label": "across intake, records, and demand" },
+		{ "value": "Minutes", "label": "to first response on new leads" },
+		{ "value": "Drafts only", "label": "every output attorney-reviewed" }
+	],
+	"problem": {
+		"heading": "The starting state",
+		"paragraphs": [
+			"One auto case can land 200 to 500 pages of medical records from four to eight providers over several weeks. The chronology gets built by hand, gaps get flagged late, and the demand gets drafted while the statute of limitations counts down from the incident date.",
+			"Intake was the other pressure point. Lead response speed drives conversion, but the team couldn't reliably respond in the minutes that matter — especially when intake doubled in a busy season."
+		]
+	},
+	"built": {
+		"heading": "What we built",
+		"intro": "Five agents, scoped from a two-week discovery, wired into the firm's practice management, intake sources, and document storage.",
+		"agents": [
+			{ "name": "Intake Triage", "slug": "intake-triage" },
+			{ "name": "Medical-Records Requester", "slug": "medical-records-requester" },
+			{ "name": "Demand Package", "slug": "demand-package" },
+			{ "name": "SOL Tracker", "slug": "sol-tracker" },
+			{ "name": "Settlement Explainer", "slug": "settlement-explainer" }
+		]
+	},
+	"results": {
+		"heading": "What changed",
+		"items": [
+			"New leads are scored against the firm's acceptance criteria and a first response is drafted within minutes of the form arriving.",
+			"The records requester chases providers and assembles the chronology as files land, instead of waiting for a paralegal to have a free afternoon.",
+			"Demand packages draft from the chronology on the firm's own template, ready for the attorney to sharpen.",
+			"The statute of limitations is computed from the incident date and jurisdiction, and escalated at 90, 60, 30, and 14 days out.",
+			"The settlement explainer turns the settlement statement into a plain-language letter the client can actually follow.",
+			"Nothing is sent, filed, or requested without attorney review."
+		]
+	},
+	"engagementArc": {
+		"discovery": "2 weeks",
+		"build": "~8 weeks · 5 agents",
+		"retainer": "Optional, month-to-month"
+	}
+}

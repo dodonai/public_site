@@ -38,6 +38,16 @@
 	title="Blog"
 	description="Insights on AI-powered legal document processing, deposition summaries, medical records, and more from the Dodonai team."
 	url="/blog/"
+	jsonLd={[
+		{
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
+				{ '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.dodon.ai/blog/' }
+			]
+		}
+	]}
 />
 
 <div>
@@ -71,8 +81,8 @@
 				Dodonai Briefs:<br />A Summary of Legal AI Insights
 			</h1>
 			<p class="mx-auto mt-4 max-w-2xl text-lg text-[#8181ac]">
-				Condensed and insightful summaries of the latest developments, reports, and articles in
-				the world of legal AI.
+				Condensed and insightful summaries of the latest developments, reports, and articles in the
+				world of legal AI.
 			</p>
 		</div>
 	</section>

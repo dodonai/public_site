@@ -1,147 +1,147 @@
 {
-  "seo": {
-    "title": "PDF to Text AI — AI-Powered OCR & Text Extraction",
-    "description": "Extract text from PDFs with AI-powered OCR. Handles handwriting, tables, and images. More accurate and affordable than legacy OCR. Try free.",
-    "canonical": "/ai-pdf-ocr/"
-  },
-  "hero": {
-    "headline": "PDF to Text AI — Next-Generation OCR & Text Extraction",
-    "subheadline": "Transform your PDFs - including tables, handwriting, and images - into editable and searchable documents effortlessly with Dodonai's advanced AI OCR.",
-    "bullets": [],
-    "ctaText": "Try for Free",
-    "ctaUrl": "https://app.dodon.ai/signup",
-    "secondaryCtaText": "See Pricing",
-    "secondaryCtaUrl": "/pricing/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
-  },
-  "features": [],
-  "educationalContent": [
-    {
-      "title": "What is PDF Document AI OCR?",
-      "icon": "document",
-      "description": "Dodonai's PDF Document AI OCR is advanced software utilizing artificial intelligence to extract text from PDFs, convert scanned documents to editable Word files, recognize handwriting, simplify tables, and interpret images. Dodonai offers greater accuracy, versatility, and affordability than legacy OCR."
-    },
-    {
-      "title": "How Can Lawyers Use PDF Document AI OCR?",
-      "icon": "briefcase",
-      "description": "PDF Document AI OCR is invaluable for lawyers and legal professionals, enhancing the efficiency and accuracy of case preparation. By converting PDFs into fully searchable and editable text, attorneys can quickly identify critical evidence, efficiently prepare {{link:/deposition-summary-software/|deposition summaries}}, and seamlessly integrate text into case management systems. Dodonai's AI OCR significantly reduces manual document processing, enabling legal teams to concentrate on strategic analysis and case-building, ultimately improving outcomes in litigation."
-    },
-    {
-      "title": "How is Dodonai's OCR different?",
-      "icon": "sparkles",
-      "description": "Dodonai OCR doesn't just extract text; it understands context, transcribes handwriting accurately, identifies and formats tables clearly, and provides meaningful descriptions of images. Additionally, our AI-powered summarization, {{link:/ai-medical-record-summaries-chronologies/|medical chronologies}}, and document indexing tools allow immediate indexing and summarizing within multi-document PDFs."
-    },
-    {
-      "title": "Why is legacy OCR insufficient?",
-      "icon": "warning",
-      "description": "Legacy OCR technologies struggle with complex documents, handwritten notes, varying font styles, and poor-quality scans, often resulting in inaccuracies, manual rework, and significant delays. They lack contextual understanding, meaning they cannot reliably differentiate text from tables or interpret image content. These limitations make legacy OCR solutions costly, inefficient, and inadequate for modern document processing demands."
-    }
-  ],
-  "howItWorks": [
-    {
-      "title": "Upload PDFs",
-      "description": "Upload your scanned PDFs or digital documents directly to Dodonai's secure platform. See our {{link:https://app.dodon.ai/help/uploading-documents|guide on uploading documents}} for supported formats and tips. Alternatively you can use our API or an integration with one of our document management partners."
-    },
-    {
-      "title": "Step-by-Step AI Processing",
-      "description": "AI scans and recognizes text and handwriting accurately. Tables and images within PDFs are automatically identified and formatted."
-    },
-    {
-      "title": "Summarize and Index",
-      "description": "Go further index individual documents within multi-page PDFs and create AI-powered summaries and custom reports. Learn more about {{link:https://app.dodon.ai/help/pdf-organization-overview|PDF organization and indexing}}. AI-driven summarization condenses documents into concise, actionable insights."
-    }
-  ],
-  "valueProposition": {
-    "heading": "Why Choose Dodonai's AI OCR?",
-    "cards": [
-      {
-        "title": "Exceptional Accuracy",
-        "icon": "shield",
-        "description": "Superior to traditional OCR, Dodonai's AI-powered OCR reduces manual corrections significantly."
-      },
-      {
-        "title": "Cost-Effective",
-        "icon": "dollar",
-        "description": "Better results at a fraction of the cost of OCR from many legacy providers."
-      },
-      {
-        "title": "Fast Processing",
-        "icon": "clock",
-        "description": "Handle extensive documents in minutes."
-      },
-      {
-        "title": "Accessible Anywhere",
-        "icon": "squares",
-        "description": "Cloud-based interface; access from any device."
-      },
-      {
-        "title": "Easy Integration",
-        "icon": "document",
-        "description": "Download converted documents as Word, TXT, or PDFs."
-      },
-      {
-        "title": "AI-Powered Summarization",
-        "icon": "sparkles",
-        "description": "Immediate, actionable insights from complex documents."
-      }
-    ]
-  },
-  "faq": [
-    {
-      "question": "What file formats does Dodonai's OCR support?",
-      "answer": "OCR is primarily used with PDFs and TIFFs to convert into editable Word, TXT, and PDF formats, but Dodonai can extract text from many different types of documents."
-    },
-    {
-      "question": "How accurate is handwriting recognition?",
-      "answer": "Dodonai leverages advanced AI techniques to transcribe handwritten documents, significantly outperforming traditional OCRs in accuracy. While not perfect - the quality of the document, the legibility of the handwriting, and the available context are each important determinants of accuracy - it offers high quality at a reasonable cost."
-    },
-    {
-      "question": "Is the OCR secure and compliant with regulations?",
-      "answer": "Yes, Dodonai ensures stringent encryption, compliance with HIPAA guidelines and alignment with SOC 2, and rigorous data security practices."
-    },
-    {
-      "question": "Is there a limit to document length or file size?",
-      "answer": "Large documents are supported, though processing times may vary based on length and complexity. Generally, the software efficiently handles hundreds of pages per hour."
-    },
-    {
-      "question": "Can I try Dodonai for free?",
-      "answer": "Absolutely! We offer a free trial to experience our superior OCR capabilities first-hand."
-    },
-    {
-      "question": "Do you store uploaded PDFs?",
-      "answer": "Uploaded documents are processed securely, and users retain full control of their data. Documents can be permanently deleted at user request."
-    }
-  ],
-  "testimonials": [
-    {
-      "quote": "\"Dodonai's medical records summaries are the same quality as what I used to pay $800 for elsewhere.\"",
-      "author": "Justin Wilmers",
-      "role": "",
-      "company": "Miller Wilmers, APC"
-    },
-    {
-      "quote": "\"The medical records summary tool is a definite force multiplier for my practice.\"",
-      "author": "Anthony",
-      "role": "Civil Litigator",
-      "company": ""
-    }
-  ],
-  "videoUrl": "",
-  "relatedServices": [
-    {
-      "name": "AI Deposition Summaries",
-      "description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
-      "href": "/deposition-summary-software/"
-    },
-    {
-      "name": "Medical Record Summaries",
-      "description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
-      "href": "/ai-medical-record-summaries-chronologies/"
-    },
-    {
-      "name": "AI eDiscovery",
-      "description": "Search thousands of documents by meaning with AI-powered semantic search for litigation teams.",
-      "href": "/electronic-discovery-software/"
-    }
-  ]
+	"seo": {
+		"title": "PDF to Text AI — AI-Powered OCR & Text Extraction",
+		"description": "Extract text from PDFs with AI-powered OCR. Handles handwriting, tables, and images. More accurate and affordable than legacy OCR. Try free.",
+		"canonical": "/ai-pdf-ocr/"
+	},
+	"hero": {
+		"headline": "PDF to Text AI — Next-Generation OCR & Text Extraction",
+		"subheadline": "Transform your PDFs - including tables, handwriting, and images - into editable and searchable documents effortlessly with Dodonai's advanced AI OCR.",
+		"bullets": [],
+		"ctaText": "Try for Free",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=service_ai-ocr",
+		"secondaryCtaText": "See Pricing",
+		"secondaryCtaUrl": "/pricing/",
+		"badges": ["SOC-2 Certified", "HIPAA Compliant"]
+	},
+	"features": [],
+	"educationalContent": [
+		{
+			"title": "What is PDF Document AI OCR?",
+			"icon": "document",
+			"description": "Dodonai's PDF Document AI OCR is advanced software utilizing artificial intelligence to extract text from PDFs, convert scanned documents to editable Word files, recognize handwriting, simplify tables, and interpret images. Dodonai offers greater accuracy, versatility, and affordability than legacy OCR."
+		},
+		{
+			"title": "How Can Lawyers Use PDF Document AI OCR?",
+			"icon": "briefcase",
+			"description": "PDF Document AI OCR is invaluable for lawyers and legal professionals, enhancing the efficiency and accuracy of case preparation. By converting PDFs into fully searchable and editable text, attorneys can quickly identify critical evidence, efficiently prepare {{link:/deposition-summary-software/|deposition summaries}}, and seamlessly integrate text into case management systems. Dodonai's AI OCR significantly reduces manual document processing, enabling legal teams to concentrate on strategic analysis and case-building, ultimately improving outcomes in litigation."
+		},
+		{
+			"title": "How is Dodonai's OCR different?",
+			"icon": "sparkles",
+			"description": "Dodonai OCR doesn't just extract text; it understands context, transcribes handwriting accurately, identifies and formats tables clearly, and provides meaningful descriptions of images. Additionally, our AI-powered summarization, {{link:/ai-medical-record-summaries-chronologies/|medical chronologies}}, and document indexing tools allow immediate indexing and summarizing within multi-document PDFs."
+		},
+		{
+			"title": "Why is legacy OCR insufficient?",
+			"icon": "warning",
+			"description": "Legacy OCR technologies struggle with complex documents, handwritten notes, varying font styles, and poor-quality scans, often resulting in inaccuracies, manual rework, and significant delays. They lack contextual understanding, meaning they cannot reliably differentiate text from tables or interpret image content. These limitations make legacy OCR solutions costly, inefficient, and inadequate for modern document processing demands."
+		}
+	],
+	"howItWorks": [
+		{
+			"title": "Upload PDFs",
+			"description": "Upload your scanned PDFs or digital documents directly to Dodonai's secure platform. See our {{link:https://app.dodon.ai/help/uploading-documents|guide on uploading documents}} for supported formats and tips. Alternatively you can use our API or an integration with one of our document management partners."
+		},
+		{
+			"title": "Step-by-Step AI Processing",
+			"description": "AI scans and recognizes text and handwriting accurately. Tables and images within PDFs are automatically identified and formatted."
+		},
+		{
+			"title": "Summarize and Index",
+			"description": "Go further index individual documents within multi-page PDFs and create AI-powered summaries and custom reports. Learn more about {{link:https://app.dodon.ai/help/pdf-organization-overview|PDF organization and indexing}}. AI-driven summarization condenses documents into concise, actionable insights."
+		}
+	],
+	"valueProposition": {
+		"heading": "Why Choose Dodonai's AI OCR?",
+		"cards": [
+			{
+				"title": "Exceptional Accuracy",
+				"icon": "shield",
+				"description": "Superior to traditional OCR, Dodonai's AI-powered OCR reduces manual corrections significantly."
+			},
+			{
+				"title": "Cost-Effective",
+				"icon": "dollar",
+				"description": "Better results at a fraction of the cost of OCR from many legacy providers."
+			},
+			{
+				"title": "Fast Processing",
+				"icon": "clock",
+				"description": "Handle extensive documents in minutes."
+			},
+			{
+				"title": "Accessible Anywhere",
+				"icon": "squares",
+				"description": "Cloud-based interface; access from any device."
+			},
+			{
+				"title": "Easy Integration",
+				"icon": "document",
+				"description": "Download converted documents as Word, TXT, or PDFs."
+			},
+			{
+				"title": "AI-Powered Summarization",
+				"icon": "sparkles",
+				"description": "Immediate, actionable insights from complex documents."
+			}
+		]
+	},
+	"faq": [
+		{
+			"question": "What file formats does Dodonai's OCR support?",
+			"answer": "OCR is primarily used with PDFs and TIFFs to convert into editable Word, TXT, and PDF formats, but Dodonai can extract text from many different types of documents."
+		},
+		{
+			"question": "How accurate is handwriting recognition?",
+			"answer": "Dodonai leverages advanced AI techniques to transcribe handwritten documents, significantly outperforming traditional OCRs in accuracy. While not perfect - the quality of the document, the legibility of the handwriting, and the available context are each important determinants of accuracy - it offers high quality at a reasonable cost."
+		},
+		{
+			"question": "Is the OCR secure and compliant with regulations?",
+			"answer": "Yes, Dodonai ensures stringent encryption, compliance with HIPAA guidelines and alignment with SOC 2, and rigorous data security practices."
+		},
+		{
+			"question": "Is there a limit to document length or file size?",
+			"answer": "Large documents are supported, though processing times may vary based on length and complexity. Generally, the software efficiently handles hundreds of pages per hour."
+		},
+		{
+			"question": "Can I try Dodonai for free?",
+			"answer": "Absolutely! We offer a free trial to experience our superior OCR capabilities first-hand."
+		},
+		{
+			"question": "Do you store uploaded PDFs?",
+			"answer": "Uploaded documents are processed securely, and users retain full control of their data. Documents can be permanently deleted at user request."
+		}
+	],
+	"testimonials": [
+		{
+			"quote": "\"Dodonai's medical records summaries are the same quality as what I used to pay $800 for elsewhere.\"",
+			"author": "Justin Wilmers",
+			"role": "",
+			"company": "Miller Wilmers, APC"
+		},
+		{
+			"quote": "\"The medical records summary tool is a definite force multiplier for my practice.\"",
+			"author": "Anthony",
+			"role": "Civil Litigator",
+			"company": ""
+		}
+	],
+	"videoUrl": "",
+	"relatedServices": [
+		{
+			"name": "AI Deposition Summaries",
+			"description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
+			"href": "/deposition-summary-software/"
+		},
+		{
+			"name": "Medical Record Summaries",
+			"description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
+			"href": "/ai-medical-record-summaries-chronologies/"
+		},
+		{
+			"name": "AI eDiscovery",
+			"description": "Search thousands of documents by meaning with AI-powered semantic search for litigation teams.",
+			"href": "/electronic-discovery-software/"
+		}
+	]
 }

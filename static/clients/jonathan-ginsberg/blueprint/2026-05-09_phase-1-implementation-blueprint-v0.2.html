@@ -1,0 +1,1296 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Phase 1 Implementation Blueprint — Ginsberg Law Offices</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --midnight:#1A1A45;
+    --midnight-deep:#14143A;
+    --midnight-soft:#252556;
+    --purple-soft:#B5A8E6;
+    --purple-mid:#8B7AB8;
+    --purple-bold:#6B46C1;
+    --purple-vivid:#7C3AED;
+    --cream:#F4F1E8;
+    --cream-deep:#EBE6D7;
+    --cream-line:#D8D3C2;
+    --gray-meta:#9B9BB8;
+    --gray-meta-light:#6B6B85;
+    --good:#16a34a;
+    --bad:#dc2626;
+    --warn:#d97706;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;background:var(--cream);color:var(--midnight);font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,sans-serif;font-size:15px;line-height:1.6;-webkit-font-smoothing:antialiased}
+  a{color:var(--purple-bold);text-decoration:none;border-bottom:1px solid var(--purple-soft)}
+  code{background:var(--cream-deep);padding:1px 5px;border-radius:3px;font-family:'Source Code Pro',monospace;font-size:0.9em;color:var(--purple-bold)}
+  strong{color:var(--midnight-deep);font-weight:700}
+  em{color:var(--purple-bold);font-style:italic}
+  p{margin:0 0 14px}
+
+  .eyebrow{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-bold);letter-spacing:0.16em;text-transform:uppercase;font-weight:700}
+
+  /* ===== Hero ===== */
+  .hero{background:var(--midnight);color:#fff;padding:72px 48px 88px;position:relative;overflow:hidden}
+  .hero::after{content:"";position:absolute;left:-200px;bottom:-300px;width:900px;height:900px;border-radius:50%;background:radial-gradient(circle,rgba(124,58,237,0.16) 0%,transparent 70%)}
+  .hero-inner{max-width:1100px;margin:0 auto;position:relative;z-index:1}
+  .hero .brand{display:flex;align-items:center;gap:14px;margin-bottom:48px}
+  .hero .brand .wordmark{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px;letter-spacing:-0.01em;color:#fff}
+  .hero .brand .wordmark .glyph{color:var(--purple-soft)}
+  .hero .brand .vrule{width:1px;height:22px;background:rgba(255,255,255,0.3)}
+  .hero .brand .label{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-soft);letter-spacing:0.18em;text-transform:uppercase;font-weight:600}
+  .hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+  .hero h1{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:54px;line-height:1.05;letter-spacing:-0.02em;color:#fff;margin:0 0 18px;max-width:900px}
+  .hero h1 .soft{color:var(--purple-soft);font-weight:700}
+  .hero .lede{font-size:19px;line-height:1.5;color:var(--purple-soft);font-weight:400;max-width:780px;margin:0 0 36px}
+  .meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,0.18);padding-top:28px}
+  .meta-block .label{font-family:'Source Code Pro',monospace;font-size:10px;color:var(--purple-soft);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:6px;font-weight:600}
+  .meta-block .value{font-size:14px;color:#fff;font-weight:600;line-height:1.35}
+
+  /* ===== Bar callout (in hero) ===== */
+  .bar-callout{margin:36px 0 0;padding:24px 28px;background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:10px}
+  .bar-callout blockquote{margin:0 0 14px;font-style:italic;font-size:18px;color:rgba(255,255,255,0.95);line-height:1.5;font-weight:500}
+  .bar-callout blockquote cite{display:block;font-style:normal;font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-soft);letter-spacing:0.06em;margin-top:8px}
+  .bar-callout .math{font-size:14px;color:rgba(255,255,255,0.85);line-height:1.55}
+  .bar-callout .math strong{color:#fff}
+  .bar-callout .math .big{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:36px;color:#fff;letter-spacing:-0.01em;line-height:1;display:block;margin-top:8px}
+
+  /* ===== Phase-1 commitment table (in hero) ===== */
+  .commit-table{display:grid;grid-template-columns:repeat(4,1fr);gap:0;margin-top:24px;border:1px solid rgba(255,255,255,0.18);border-radius:8px;overflow:hidden}
+  .commit-cell{padding:18px 22px;background:rgba(255,255,255,0.04);border-right:1px solid rgba(255,255,255,0.14)}
+  .commit-cell:last-child{border-right:none}
+  .commit-cell .ck{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:6px}
+  .commit-cell .cv{font-size:15px;font-weight:700;color:#fff;line-height:1.3}
+
+  /* ===== Section ===== */
+  section{padding:64px 48px;max-width:1100px;margin:0 auto}
+  section h2{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:32px;line-height:1.15;letter-spacing:-0.01em;color:var(--midnight);margin:0 0 8px;padding-bottom:14px;border-bottom:2px solid var(--purple-bold)}
+  section h2 .soft{color:var(--purple-bold)}
+  section h2 + .section-lede{font-size:17px;color:var(--gray-meta-light);margin:14px 0 32px;max-width:780px}
+  section h3{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:22px;color:var(--midnight);margin:36px 0 14px}
+  section h4{font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:16px;color:var(--midnight);margin:24px 0 10px}
+  section.dark{background:var(--midnight);color:#fff;max-width:none}
+  section.dark .inner{max-width:1100px;margin:0 auto;padding:0 48px}
+  section.dark h2{color:#fff;border-bottom-color:var(--purple-vivid)}
+  section.dark h2 .soft{color:var(--purple-soft)}
+  section.dark .section-lede{color:var(--purple-soft)}
+
+  .section-tag{display:inline-block;font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-bold);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;background:var(--cream-deep);padding:5px 10px;border-radius:4px;margin-bottom:10px}
+
+  /* ===== Failure list (§1) ===== */
+  .failure-list{margin:18px 0}
+  .fl-item{display:grid;grid-template-columns:48px 1fr;gap:16px;padding:16px 0;border-bottom:1px solid var(--cream-line);font-size:14px;line-height:1.6}
+  .fl-item:last-child{border-bottom:none}
+  .fl-item .num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:24px;color:var(--bad);line-height:1}
+  .fl-item strong{color:var(--midnight-deep)}
+
+  /* ===== Lever callout ===== */
+  .lever{background:linear-gradient(135deg,var(--midnight) 0%,var(--midnight-soft) 100%);color:#fff;border-radius:12px;padding:32px 36px;margin:24px 0}
+  .lever .lt{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-soft);letter-spacing:0.16em;text-transform:uppercase;font-weight:700;margin-bottom:8px}
+  .lever h3{margin:0 0 14px;color:#fff;font-size:24px;font-weight:700}
+  .lever p{font-size:15px;line-height:1.65;color:rgba(255,255,255,0.92);margin:0 0 12px}
+  .lever p:last-child{margin-bottom:0}
+  .lever strong{color:#fff}
+  .lever em{color:var(--purple-soft)}
+  .lever code{background:rgba(255,255,255,0.10);color:var(--purple-soft);font-size:0.92em}
+
+  /* ===== Module card ===== */
+  .module{background:#fff;border:1px solid var(--cream-line);border-radius:14px;margin:28px 0;overflow:hidden}
+  .module .m-head{padding:32px 36px;background:linear-gradient(135deg,var(--purple-bold) 0%,var(--purple-vivid) 100%);color:#fff;position:relative}
+  .module.optional .m-head{background:linear-gradient(135deg,#3a2c5e 0%,var(--purple-bold) 100%)}
+  .module .m-tag{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-soft);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+  .module .m-title{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;margin:0;color:#fff;line-height:1.15;letter-spacing:-0.01em}
+  .module .m-price{position:absolute;top:32px;right:36px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:32px;color:#fff;line-height:1;letter-spacing:-0.01em}
+  .module.optional .m-price{font-size:13px;font-family:'Source Code Pro',monospace;font-weight:600;letter-spacing:0.04em;color:var(--purple-soft);text-transform:uppercase;top:40px;text-align:right;line-height:1.3;max-width:160px}
+  .module .m-tagline{margin:10px 0 0;color:rgba(255,255,255,0.85);font-size:15px;line-height:1.5;max-width:640px}
+  .module .m-body{padding:32px 36px}
+  .module .m-body h4{font-family:'Source Code Pro',monospace;font-weight:700;font-size:11px;color:var(--purple-bold);letter-spacing:0.14em;text-transform:uppercase;margin:24px 0 12px}
+  .module .m-body h4:first-child{margin-top:0}
+  .module .m-body h4.heavy{font-family:'Plus Jakarta Sans',sans-serif;font-size:17px;text-transform:none;letter-spacing:0;color:var(--midnight);font-weight:700;margin:28px 0 12px}
+  .module .m-body p{font-size:14.5px;line-height:1.65}
+  .module .m-body ol,.module .m-body ul{padding-left:22px;margin:8px 0}
+  .module .m-body ol li,.module .m-body ul li{margin:8px 0;font-size:14px;line-height:1.6}
+  .module .m-body ol li::marker{color:var(--purple-vivid);font-weight:700}
+  .module .m-body ul li::marker{color:var(--purple-vivid)}
+
+  /* ===== Five additions list (Module 1) ===== */
+  .additions{margin:14px 0}
+  .add{display:grid;grid-template-columns:48px 1fr;gap:18px;padding:16px 0;border-bottom:1px dashed var(--cream-line);font-size:14px;line-height:1.6}
+  .add:last-child{border-bottom:none}
+  .add .num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:28px;color:var(--purple-vivid);line-height:0.9}
+  .add strong{color:var(--midnight-deep)}
+  .add ul{margin:8px 0 0;padding-left:18px;font-size:13.5px}
+  .add ul li{margin:6px 0}
+  .add ul li::marker{color:var(--purple-soft)}
+
+  /* ===== Folder contract table ===== */
+  .folder-contract{background:var(--cream-deep);border-radius:10px;overflow:hidden;margin:18px 0;border:1px solid var(--cream-line)}
+  .folder-contract table{width:100%;border-collapse:collapse}
+  .folder-contract th{background:var(--midnight);color:#fff;font-family:'Source Code Pro',monospace;font-weight:700;font-size:10px;letter-spacing:0.10em;text-transform:uppercase;padding:11px 16px;text-align:left}
+  .folder-contract td{padding:12px 16px;border-bottom:1px solid var(--cream-line);font-size:13.5px;vertical-align:top;line-height:1.5}
+  .folder-contract tr:last-child td{border-bottom:none}
+  .folder-contract tr:nth-child(even) td{background:rgba(124,58,237,0.04)}
+  .folder-contract .fc-folder{font-family:'Source Code Pro',monospace;font-weight:700;color:var(--purple-bold);width:18%}
+  .folder-contract .fc-actor{font-family:'Source Code Pro',monospace;font-size:11px;color:var(--gray-meta-light);width:22%;text-transform:uppercase;letter-spacing:0.06em}
+
+  /* ===== Wiki triggers table ===== */
+  .wiki-triggers{background:#fff;border:1px solid var(--cream-line);border-radius:10px;overflow:hidden;margin:18px 0}
+  .wiki-triggers table{width:100%;border-collapse:collapse}
+  .wiki-triggers th{background:var(--midnight);color:#fff;font-family:'Source Code Pro',monospace;font-weight:700;font-size:10px;letter-spacing:0.10em;text-transform:uppercase;padding:11px 16px;text-align:left}
+  .wiki-triggers td{padding:11px 16px;border-bottom:1px solid var(--cream-line);font-size:13px;line-height:1.5;vertical-align:top}
+  .wiki-triggers tr:last-child td{border-bottom:none}
+  .wiki-triggers tr:nth-child(even) td{background:rgba(124,58,237,0.03)}
+  .wiki-triggers .profile{font-weight:700;color:var(--midnight);width:38%}
+  .wiki-triggers .profile.always{color:var(--purple-vivid)}
+  .wiki-triggers .articles{font-family:'Source Code Pro',monospace;font-size:11.5px;color:var(--purple-bold)}
+
+  /* ===== Bullet pair grid (what changes / stays) ===== */
+  .stop-still{display:grid;grid-template-columns:1fr 1fr;gap:18px;margin:18px 0}
+  .ssn-card{background:var(--cream-deep);border:1px solid var(--cream-line);border-radius:8px;padding:20px 24px}
+  .ssn-card.stop{background:rgba(22,163,74,0.04);border-color:rgba(22,163,74,0.25)}
+  .ssn-card.still{background:rgba(217,119,6,0.04);border-color:rgba(217,119,6,0.25)}
+  .ssn-card h4{margin:0 0 10px;font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700}
+  .ssn-card.stop h4{color:var(--good)}
+  .ssn-card.still h4{color:var(--warn)}
+  .ssn-card ul{margin:0;padding-left:18px}
+  .ssn-card ul li{font-size:13px;line-height:1.55;margin:7px 0}
+  .ssn-card.stop ul li::marker{color:var(--good)}
+  .ssn-card.still ul li::marker{color:var(--warn)}
+
+  /* ===== Case Frame compare table (Module 3) ===== */
+  .compare-table{background:#fff;border:1px solid var(--cream-line);border-radius:10px;overflow:hidden;margin:18px 0}
+  .compare-table table{width:100%;border-collapse:collapse}
+  .compare-table th{background:var(--midnight);color:#fff;font-family:'Source Code Pro',monospace;font-weight:700;font-size:10px;letter-spacing:0.10em;text-transform:uppercase;padding:11px 14px;text-align:left}
+  .compare-table th.case-frame{color:rgba(255,255,255,0.65);font-weight:600}
+  .compare-table th.dodonai{color:var(--purple-soft)}
+  .compare-table td{padding:11px 14px;border-bottom:1px solid var(--cream-line);font-size:13px;line-height:1.45;vertical-align:top}
+  .compare-table tr:last-child td{border-bottom:none}
+  .compare-table tr:nth-child(even) td{background:rgba(124,58,237,0.03)}
+  .compare-table .dim{font-weight:700;color:var(--midnight);width:30%}
+  .compare-table .cf{color:var(--gray-meta-light);width:33%}
+  .compare-table .do{color:var(--purple-bold);font-weight:600}
+
+  /* ===== Augmentation callout ===== */
+  .augment-box{background:linear-gradient(135deg,#3a2c5e 0%,var(--purple-bold) 100%);color:#fff;border-radius:10px;padding:24px 28px;margin:18px 0}
+  .augment-box .at{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:8px}
+  .augment-box p{margin:0;font-size:14.5px;line-height:1.6;color:rgba(255,255,255,0.92)}
+  .augment-box strong{color:#fff}
+
+  /* ===== Five hard checks (§3) ===== */
+  .checks{margin:14px 0}
+  .check-row{display:grid;grid-template-columns:60px 1fr;gap:18px;padding:18px 0;border-bottom:1px solid var(--cream-line);font-size:14px;line-height:1.6}
+  .check-row:last-child{border-bottom:none}
+  .check-row .num{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:36px;color:var(--purple-vivid);line-height:0.9}
+  .check-row strong{color:var(--midnight-deep)}
+
+  /* ===== Stopwatch table ===== */
+  .stopwatch{background:#fff;border:1px solid var(--cream-line);border-radius:10px;overflow:hidden;margin:18px 0}
+  .stopwatch table{width:100%;border-collapse:collapse}
+  .stopwatch td{padding:14px 18px;border-bottom:1px solid var(--cream-line);font-size:14px;line-height:1.5}
+  .stopwatch tr:last-child td{border-bottom:none}
+  .stopwatch .label{font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.10em;text-transform:uppercase;font-weight:700;width:30%}
+  .stopwatch tr.target .label{color:var(--good)}
+  .stopwatch tr.acc .label{color:var(--warn)}
+  .stopwatch tr.fail .label{color:var(--bad)}
+
+  /* ===== Canonical case panel ===== */
+  .canon{background:linear-gradient(135deg,var(--midnight) 0%,var(--midnight-soft) 100%);color:#fff;border-radius:12px;padding:28px 32px;margin:18px 0}
+  .canon .ct{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:6px}
+  .canon h3{color:#fff;margin:0 0 8px;font-size:26px;font-weight:800;letter-spacing:-0.01em}
+  .canon p{font-size:14px;line-height:1.65;color:rgba(255,255,255,0.9);margin:0}
+  .canon strong{color:#fff}
+  .canon em{color:var(--purple-soft)}
+  .canon code{background:rgba(255,255,255,0.10);color:var(--purple-soft)}
+
+  /* ===== Build week / kickoff ===== */
+  .weeks{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin:18px 0}
+  .week{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:22px 24px;display:flex;flex-direction:column}
+  .week .wt{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold);margin-bottom:6px}
+  .week h4{margin:0 0 10px;font-size:18px;color:var(--midnight)}
+  .week p{font-size:13px;line-height:1.55;color:var(--midnight);margin:0}
+  .week .checkpoint{margin-top:auto;padding-top:12px;font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-bold);font-weight:600;letter-spacing:0.04em;border-top:1px dashed var(--cream-line);margin-top:14px;padding-top:10px}
+
+  /* ===== Question card ===== */
+  .question{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:0;margin:18px 0;overflow:hidden}
+  .question .qh{padding:20px 26px;background:linear-gradient(135deg,#7a3a0e 0%,#bf6f1c 100%);color:#fff}
+  .question .qh .qn{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:rgba(255,255,255,0.7);margin-bottom:6px}
+  .question .qh h4{margin:0;color:#fff;font-size:18px;font-weight:700;line-height:1.3}
+  .question .qb{padding:22px 26px}
+  .question .qb p{font-size:14px;line-height:1.6;margin:0 0 12px}
+  .question .qb ul{margin:0 0 14px;padding-left:20px}
+  .question .qb ul li{margin:8px 0;font-size:13.5px;line-height:1.55}
+  .question .qb ul li::marker{color:var(--warn);font-weight:700}
+  .question .qb .default{padding:14px 18px;background:var(--cream-deep);border-left:4px solid var(--purple-vivid);border-radius:0 6px 6px 0;font-size:13.5px;line-height:1.6}
+  .question .qb .default strong{color:var(--midnight-deep)}
+
+  /* ===== Time commitment table ===== */
+  .commit-time{background:#fff;border:1px solid var(--cream-line);border-radius:10px;overflow:hidden;margin:18px 0}
+  .commit-time table{width:100%;border-collapse:collapse}
+  .commit-time th{background:var(--midnight);color:#fff;font-family:'Source Code Pro',monospace;font-weight:700;font-size:10px;letter-spacing:0.10em;text-transform:uppercase;padding:11px 16px;text-align:left}
+  .commit-time td{padding:12px 16px;border-bottom:1px solid var(--cream-line);font-size:13.5px;vertical-align:top;line-height:1.5}
+  .commit-time tr:last-child td{border-bottom:none}
+  .commit-time tr.total td{background:rgba(124,58,237,0.06);font-weight:700}
+  .commit-time .when{font-family:'Source Code Pro',monospace;font-size:12px;color:var(--purple-bold);font-weight:600;width:22%}
+  .commit-time .duration{font-family:'Source Code Pro',monospace;font-size:12px;color:var(--gray-meta-light);width:18%;text-align:right}
+
+  /* ===== Pricing table ===== */
+  .pricing{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;margin:18px 0}
+  .pricing table{width:100%;border-collapse:collapse}
+  .pricing td{padding:18px 24px;border-bottom:1px solid var(--cream-line);font-size:15px;line-height:1.5;vertical-align:middle}
+  .pricing tr:last-child td{border-bottom:none}
+  .pricing .label{color:var(--midnight);width:65%}
+  .pricing .label strong{color:var(--midnight-deep)}
+  .pricing .amount{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:22px;color:var(--midnight);text-align:right;letter-spacing:-0.01em}
+  .pricing tr.total td{background:linear-gradient(135deg,var(--midnight) 0%,var(--midnight-soft) 100%);color:#fff;font-size:18px}
+  .pricing tr.total .label strong{color:#fff}
+  .pricing tr.total .amount{color:#fff;font-size:32px}
+  .pricing tr.optional td{background:rgba(124,58,237,0.04)}
+  .pricing tr.optional .amount{font-size:13px;font-family:'Source Code Pro',monospace;font-weight:600;letter-spacing:0.04em;color:var(--purple-bold);text-transform:uppercase;line-height:1.3}
+
+  /* ===== Trigger box ===== */
+  .trigger{background:linear-gradient(135deg,var(--purple-bold) 0%,var(--purple-vivid) 100%);color:#fff;border-radius:14px;padding:32px 36px;margin:24px 0;text-align:center}
+  .trigger .tt{font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:10px}
+  .trigger h3{margin:0 0 12px;color:#fff;font-size:28px;font-weight:800;letter-spacing:-0.01em}
+  .trigger p{margin:0;color:rgba(255,255,255,0.92);font-size:15px;line-height:1.55;max-width:680px;margin-left:auto;margin-right:auto}
+
+  /* ===== Workflow diagram ===== */
+  .workflow-diagram{margin:24px 0 36px;background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:36px 28px}
+  .wf-title{font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold);text-align:center;margin-bottom:24px}
+  .wf-sub{text-align:center;font-size:13.5px;color:var(--gray-meta-light);margin:-12px 0 24px;font-style:italic}
+  .wf-row{display:flex;justify-content:center;gap:14px;align-items:stretch}
+  .wf-box{flex:1;max-width:560px;background:var(--cream-deep);border:1px solid var(--cream-line);border-radius:10px;padding:16px 20px;text-align:center;display:flex;flex-direction:column;justify-content:center;align-items:center}
+  .wf-box .wf-actor{font-family:'Source Code Pro',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--gray-meta-light);margin-bottom:5px;font-weight:700}
+  .wf-box .wf-label{font-size:13.5px;font-weight:700;color:var(--midnight);line-height:1.35}
+  .wf-box .wf-detail{font-size:12px;color:var(--gray-meta-light);margin-top:4px;line-height:1.45}
+  .wf-box code{background:rgba(124,58,237,0.10);color:var(--purple-bold);font-size:0.92em}
+  .wf-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple-vivid);font-size:22px;font-weight:700;line-height:1;height:18px;margin:8px 0}
+  .wf-arrow-labeled{display:flex;align-items:center;justify-content:center;gap:8px;font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--purple-bold);font-weight:700;letter-spacing:0.06em;text-transform:uppercase;margin:6px 0}
+  .wf-arrow-labeled .a{color:var(--purple-vivid);font-size:18px;line-height:1}
+
+  .wf-skills{background:linear-gradient(135deg,var(--midnight) 0%,var(--midnight-soft) 100%);color:#fff;border-radius:12px;padding:22px 24px;max-width:760px;margin:0 auto}
+  .wf-skills .wf-stage-label{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-soft);text-align:center;margin-bottom:14px;font-weight:700}
+  .wf-skills-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px}
+  .wf-skill{background:rgba(124,58,237,0.12);border:1px solid rgba(255,255,255,0.16);border-radius:8px;padding:14px 12px;text-align:center}
+  .wf-skill .ws-num{font-family:'Source Code Pro',monospace;font-size:9.5px;letter-spacing:0.14em;color:var(--purple-soft);font-weight:700;text-transform:uppercase;margin-bottom:5px}
+  .wf-skill .ws-name{font-size:13px;color:#fff;font-weight:700;line-height:1.3}
+  .wf-skill .ws-out{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--purple-soft);margin-top:6px;line-height:1.3;background:rgba(255,255,255,0.05);padding:3px 6px;border-radius:3px;display:inline-block}
+  .wf-skills-foot{font-size:11.5px;color:rgba(255,255,255,0.7);text-align:center;margin-top:12px;font-style:italic}
+
+  .wf-branch{display:grid;grid-template-columns:1fr 1fr;gap:18px;max-width:760px;margin:0 auto}
+  .wf-branch-arm{display:flex;flex-direction:column;align-items:stretch;gap:0}
+  .wf-branch .wf-arm-label{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;text-align:center;margin-bottom:8px}
+  .wf-branch-arm.success .wf-arm-label{color:var(--good)}
+  .wf-branch-arm.failure .wf-arm-label{color:var(--bad)}
+  .wf-drafts{background:#fff;border:2px solid var(--purple-vivid);border-radius:10px;padding:14px 16px;text-align:center}
+  .wf-drafts .dh{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:8px}
+  .wf-drafts ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:5px}
+  .wf-drafts li{font-family:'Source Code Pro',monospace;font-size:10.5px;color:var(--midnight);background:var(--cream-deep);padding:4px 7px;border-radius:3px;text-align:left}
+  .wf-failed{background:#fff;border:2px solid var(--bad);border-radius:10px;padding:14px 16px;text-align:center}
+  .wf-failed .dh{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--bad);font-weight:700;margin-bottom:6px}
+  .wf-failed p{margin:0;font-size:12px;color:var(--midnight);line-height:1.45}
+  .wf-failed code{background:var(--cream-deep);color:var(--bad);font-size:11px}
+  .wf-email{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:14px 16px;text-align:center}
+  .wf-email .dh{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:5px}
+  .wf-email p{margin:0;font-size:12px;color:var(--midnight);line-height:1.4}
+  .wf-email.fail{border-color:rgba(220,38,38,0.4)}
+  .wf-email.fail .dh{color:var(--bad)}
+
+  .wf-you{background:linear-gradient(135deg,var(--purple-bold) 0%,var(--purple-vivid) 100%);color:#fff;border-radius:12px;padding:18px 22px;text-align:center;max-width:760px;margin:0 auto}
+  .wf-you .wf-actor{color:rgba(255,255,255,0.7);font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:5px}
+  .wf-you .wf-label{font-size:14.5px;font-weight:700;color:#fff;line-height:1.4}
+
+  .wf-converge{display:flex;justify-content:center;align-items:center;gap:0;max-width:760px;margin:6px auto;height:24px;position:relative}
+  .wf-converge::before{content:"";position:absolute;left:25%;right:25%;top:50%;height:2px;background:var(--purple-vivid)}
+  .wf-converge::after{content:"↓";position:absolute;left:50%;top:50%;transform:translate(-50%,-30%);color:var(--purple-vivid);font-size:18px;font-weight:700;background:#fff;padding:0 6px}
+
+  .wf-foot{font-size:12.5px;color:var(--gray-meta-light);text-align:center;margin-top:24px;line-height:1.5;font-style:italic;max-width:680px;margin-left:auto;margin-right:auto}
+  .wf-foot strong{color:var(--midnight-deep);font-style:normal}
+
+  /* ===== Out-of-scope ===== */
+  .oos{background:rgba(220,38,38,0.04);border:1px solid rgba(220,38,38,0.2);border-radius:10px;padding:24px 28px;margin:18px 0}
+  .oos h4{margin-top:0;color:var(--bad);font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700}
+  .oos ul{margin:8px 0;padding-left:20px}
+  .oos ul li{margin:8px 0;font-size:14px;line-height:1.6}
+  .oos ul li::marker{color:var(--bad)}
+  .oos strong{color:var(--midnight-deep)}
+
+  /* ===== Footer ===== */
+  footer{background:var(--midnight-deep);color:var(--purple-soft);padding:36px 48px;font-size:12px;text-align:center}
+  footer .wm{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:18px;color:#fff;margin-bottom:6px}
+  footer .wm .glyph{color:var(--purple-soft)}
+  footer p{margin:4px 0}
+  footer a{color:var(--purple-soft);border:none}
+
+  /* ===== Sign-off ===== */
+  .signoff{margin-top:40px;padding-top:24px;border-top:1px solid var(--cream-line);font-size:14px;line-height:1.6}
+  .signoff .sig{margin-top:24px;font-family:'Plus Jakarta Sans',sans-serif;font-weight:700;font-size:18px;color:var(--midnight)}
+
+  /* ===== Instruction → Mechanism shift table (Module 1) ===== */
+  .shift{margin:18px 0;background:#fff;border:1px solid var(--cream-line);border-radius:10px;overflow:hidden}
+  .shift-head{display:grid;grid-template-columns:1fr 1fr;gap:0;background:var(--midnight);color:#fff}
+  .shift-head .sh{padding:14px 18px;font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700}
+  .shift-head .sh.today{background:linear-gradient(135deg,#451a1a 0%,#5a2424 100%);color:#fca5a5}
+  .shift-head .sh.after{background:linear-gradient(135deg,var(--purple-bold) 0%,var(--purple-vivid) 100%);color:#fff;display:flex;align-items:center;gap:10px}
+  .shift-head .sh.after::before{content:"→";font-family:'Plus Jakarta Sans',sans-serif;font-size:14px;font-weight:800;color:var(--purple-soft);margin-right:4px}
+  .shift-row{display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid var(--cream-line)}
+  .shift-row:first-of-type{border-top:none}
+  .shift-row > div{padding:16px 20px;font-size:13.5px;line-height:1.55}
+  .shift-row .lhs{background:rgba(220,38,38,0.04);border-right:1px solid var(--cream-line);color:var(--gray-meta-light)}
+  .shift-row .lhs em{font-style:italic;color:var(--midnight-deep)}
+  .shift-row .lhs .src{display:block;font-family:'Source Code Pro',monospace;font-size:10px;color:#dc2626;letter-spacing:0.04em;margin-top:6px;text-transform:uppercase;font-weight:600}
+  .shift-row .rhs{background:rgba(124,58,237,0.04);color:var(--midnight)}
+  .shift-row .rhs strong{color:var(--midnight-deep)}
+  .shift-row .rhs code{background:rgba(124,58,237,0.10);color:var(--purple-bold);font-weight:600}
+  .shift-foot{padding:14px 20px;background:var(--cream-deep);font-size:12.5px;line-height:1.55;color:var(--gray-meta-light);border-top:1px solid var(--cream-line);font-style:italic}
+
+  /* ===== Case-state pipeline (Module 1) ===== */
+  .pipeline{margin:22px 0;background:linear-gradient(135deg,var(--midnight) 0%,var(--midnight-soft) 100%);color:#fff;border-radius:12px;padding:28px 32px}
+  .pipeline .pl-title{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:18px}
+  .pipeline-row{display:grid;grid-template-columns:repeat(5,1fr);gap:0;align-items:stretch}
+  .pl-stage{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.14);border-radius:8px;padding:14px 14px;text-align:center;display:flex;flex-direction:column;justify-content:center;min-height:88px}
+  .pl-stage .pn{font-family:'Source Code Pro',monospace;font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:6px}
+  .pl-stage .pl{font-size:13px;font-weight:700;color:#fff;line-height:1.3}
+  .pl-stage .pd{font-size:11px;color:rgba(255,255,255,0.7);margin-top:4px;line-height:1.35;font-family:'Source Code Pro',monospace}
+  .pl-stage.center{background:linear-gradient(135deg,var(--purple-bold) 0%,var(--purple-vivid) 100%);border-color:var(--purple-vivid)}
+  .pl-stage.center .pn{color:rgba(255,255,255,0.85)}
+  .pl-stage.center .pd{color:rgba(255,255,255,0.85)}
+  .pl-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple-soft);font-size:20px;font-weight:800}
+  .pipeline-foot{margin-top:14px;font-size:13px;color:rgba(255,255,255,0.85);line-height:1.6}
+  .pipeline-foot strong{color:#fff}
+
+  /* ===== Category cards (precomputed values) ===== */
+  .cats{margin:18px 0}
+  .cat{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:0;margin:14px 0;overflow:hidden}
+  .cat .ch{padding:14px 20px;background:var(--cream-deep);border-bottom:1px solid var(--cream-line);display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .cat .ch .cn{font-family:'Source Code Pro',monospace;font-size:11px;font-weight:700;color:var(--purple-bold);letter-spacing:0.1em;text-transform:uppercase}
+  .cat .ch .ct{font-family:'Plus Jakarta Sans',sans-serif;font-size:16px;font-weight:700;color:var(--midnight)}
+  .cat .ch .csub{font-size:12.5px;color:var(--gray-meta-light);width:100%;line-height:1.5;margin-top:4px}
+  .cat .cb{padding:14px 20px}
+  .cat .cb ul{margin:0;padding-left:18px}
+  .cat .cb ul li{margin:6px 0;font-size:13px;line-height:1.55}
+  .cat .cb ul li::marker{color:var(--purple-soft)}
+  .cat .cb code{background:rgba(124,58,237,0.06);color:var(--purple-bold);font-weight:600}
+  .cat .cb .principle{padding:14px 18px;background:rgba(124,58,237,0.04);border-left:4px solid var(--purple-vivid);border-radius:0 6px 6px 0;font-size:13px;line-height:1.6;margin-bottom:12px;color:var(--midnight)}
+  .cat .cb .principle strong{color:var(--midnight-deep)}
+
+  /* ===== Verification pass dual-card (Module 1) ===== */
+  .verify{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin:18px 0}
+  .vbox{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 22px}
+  .vbox .vn{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:700;color:var(--purple-bold);letter-spacing:0.14em;text-transform:uppercase;margin-bottom:8px}
+  .vbox h5{margin:0 0 8px;font-size:15px;color:var(--midnight)}
+  .vbox p{margin:0;font-size:13px;line-height:1.55;color:var(--midnight)}
+  .vbox code{background:rgba(124,58,237,0.06);color:var(--purple-bold)}
+
+  /* ===== Canonical case error-category cards (§3) ===== */
+  .canon-cats{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:18px 0 0}
+  .canon-cat{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.16);border-radius:8px;padding:14px 16px}
+  .canon-cat .cct{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:6px}
+  .canon-cat .ccb{font-size:13px;line-height:1.5;color:rgba(255,255,255,0.92)}
+  .canon-cat .ccb code{background:rgba(255,255,255,0.10);color:var(--purple-soft);font-size:0.92em}
+  .canon-cat .ccb em{color:#fff;font-style:normal;font-weight:600}
+
+  /* ===== Check-group label (§3 grouping) ===== */
+  .check-group{margin:24px 0 4px;padding:8px 14px;background:linear-gradient(135deg,rgba(124,58,237,0.20) 0%,rgba(107,70,193,0.10) 100%);border-left:3px solid var(--purple-vivid);border-radius:0 6px 6px 0;font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--purple-soft)}
+
+  /* ===== Verifies-tag (§3 sub-line on each check) ===== */
+  .verifies{display:block;margin-top:6px;font-family:'Source Code Pro',monospace;font-size:11px;color:var(--purple-soft);font-style:normal;letter-spacing:0.02em}
+
+  /* ===== Stage 1 chronology checks block (§3) ===== */
+  .chrono-block{margin:24px 0 0;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:24px 28px}
+  .chrono-block h4{margin:0 0 8px;color:#fff;font-size:17px;font-weight:700}
+  .chrono-block p.lede{font-size:13.5px;line-height:1.55;color:rgba(255,255,255,0.85);margin:0 0 14px}
+  .chrono-block ul{margin:0;padding-left:20px}
+  .chrono-block ul li{margin:8px 0;font-size:13.5px;line-height:1.55;color:rgba(255,255,255,0.92)}
+  .chrono-block ul li::marker{color:var(--purple-soft)}
+  .chrono-block ul li strong{color:#fff}
+  .chrono-block ul li code{background:rgba(255,255,255,0.10);color:var(--purple-soft)}
+  .chrono-block .side-by-side{margin-top:14px;padding:12px 16px;background:rgba(124,58,237,0.12);border-left:3px solid var(--purple-vivid);border-radius:0 6px 6px 0;font-size:13px;line-height:1.55;color:rgba(255,255,255,0.92)}
+  .chrono-block .side-by-side strong{color:#fff}
+
+  /* ===== Special-issues mech table ===== */
+  .si-table{background:#fff;border:1px solid var(--cream-line);border-radius:10px;overflow:hidden;margin:14px 0}
+  .si-table table{width:100%;border-collapse:collapse}
+  .si-table th{background:var(--midnight);color:#fff;font-family:'Source Code Pro',monospace;font-weight:700;font-size:10px;letter-spacing:0.10em;text-transform:uppercase;padding:11px 16px;text-align:left}
+  .si-table td{padding:10px 16px;border-bottom:1px solid var(--cream-line);font-size:12.5px;line-height:1.5;vertical-align:top}
+  .si-table tr:last-child td{border-bottom:none}
+  .si-table tr:nth-child(even) td{background:rgba(124,58,237,0.03)}
+  .si-table .item{font-weight:600;color:var(--midnight);width:48%}
+  .si-table .from{font-family:'Source Code Pro',monospace;font-size:11.5px;color:var(--purple-bold)}
+
+  /* ===== Section nav (sticky) ===== */
+  .section-nav{position:sticky;top:0;z-index:50;background:rgba(20,20,58,0.96);backdrop-filter:saturate(140%) blur(10px);-webkit-backdrop-filter:saturate(140%) blur(10px);border-bottom:1px solid rgba(124,58,237,0.30);box-shadow:0 1px 3px rgba(0,0,0,0.12)}
+  .section-nav .nav-inner{max-width:1100px;margin:0 auto;padding:0 48px;display:flex;align-items:center;gap:4px;overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:none}
+  .section-nav .nav-inner::-webkit-scrollbar{display:none}
+  .section-nav .nav-mark{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:13px;color:#fff;letter-spacing:-0.01em;padding:14px 12px 14px 0;border-right:1px solid rgba(255,255,255,0.14);margin-right:8px;white-space:nowrap}
+  .section-nav .nav-mark .glyph{color:var(--purple-soft)}
+  .section-nav .nav-mark .sub{font-family:'Source Code Pro',monospace;font-size:9.5px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-left:6px}
+  .section-nav a{display:inline-flex;align-items:center;gap:7px;padding:14px 14px;font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.10em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);border:none;border-bottom:2px solid transparent;white-space:nowrap;transition:color 0.15s ease, border-color 0.15s ease, background 0.15s ease}
+  .section-nav a:hover{color:#fff;background:rgba(124,58,237,0.10);border-bottom-color:var(--purple-vivid)}
+  .section-nav a .num{color:var(--purple-vivid);font-weight:800;font-size:11px}
+  html{scroll-behavior:smooth}
+  section[id]{scroll-margin-top:64px}
+
+  /* ===== Hero summary grid (replaces commit-table) ===== */
+  .summary-grid{display:grid;grid-template-columns:1.18fr 1fr;gap:18px;margin-top:24px}
+  .summary-card{background:rgba(255,255,255,0.05);border:1px solid rgba(255,255,255,0.16);border-radius:10px;padding:22px 24px;display:flex;flex-direction:column}
+  .summary-card .sc-label{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:14px}
+  .sc-row{display:flex;justify-content:space-between;align-items:baseline;gap:14px;padding:9px 0;font-size:13px;color:rgba(255,255,255,0.88);line-height:1.4;border-bottom:1px dashed rgba(255,255,255,0.10)}
+  .sc-row .lbl{flex:1}
+  .sc-row .lbl strong{color:#fff;font-weight:700}
+  .sc-row .amt{font-family:'Plus Jakarta Sans',sans-serif;font-weight:800;font-size:15px;color:#fff;white-space:nowrap;letter-spacing:-0.01em}
+  .sc-row.indent{padding:6px 0 6px 14px;border-bottom:none;font-size:12px;color:var(--purple-soft)}
+  .sc-row.indent .amt{font-family:'Source Code Pro',monospace;font-size:10.5px;font-weight:600;color:var(--purple-soft);text-transform:uppercase;letter-spacing:0.06em}
+  .sc-row.total{padding:12px 0 4px;margin-top:6px;border-top:1px solid rgba(255,255,255,0.18);border-bottom:none}
+  .sc-row.total .lbl{font-family:'Source Code Pro',monospace;font-size:10.5px;text-transform:uppercase;letter-spacing:0.10em;color:#fff;font-weight:700}
+  .sc-row.total .amt{font-size:22px;color:#fff}
+  .sc-row.monthly{margin-top:10px;padding-top:12px;border-top:1px dashed rgba(255,255,255,0.18);border-bottom:none}
+  .sc-row.monthly .lbl{color:#fff}
+  .sc-row.monthly .lbl small{display:block;font-size:11px;color:var(--purple-soft);font-weight:400;margin-top:2px;letter-spacing:0}
+  .sc-row.monthly .amt{color:var(--purple-soft);font-size:17px}
+  .summary-card .sc-note{margin-top:auto;padding-top:12px;font-size:11.5px;color:var(--purple-soft);font-style:italic;line-height:1.5}
+
+  /* timeline card */
+  .timeline-card .tl-step{display:grid;grid-template-columns:96px 1fr;gap:12px;padding:9px 0;font-size:12.5px;line-height:1.45;color:rgba(255,255,255,0.92);border-bottom:1px dashed rgba(255,255,255,0.10);align-items:start}
+  .timeline-card .tl-step:last-child{border-bottom:none}
+  .timeline-card .tl-when{font-family:'Source Code Pro',monospace;font-size:10.5px;letter-spacing:0.06em;color:var(--purple-vivid);font-weight:700;text-transform:uppercase;padding-top:1px}
+  .timeline-card .tl-what strong{color:#fff;font-weight:700}
+  .timeline-card .tl-what em{color:var(--purple-soft);font-style:normal}
+
+  /* workflow strip (full-width under summary-grid) */
+  .workflow-strip{margin-top:18px;background:rgba(255,255,255,0.04);border:1px solid rgba(255,255,255,0.14);border-radius:10px;padding:20px 24px}
+  .workflow-strip .ws-label{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:14px}
+  .workflow-strip .ws-row{display:grid;grid-template-columns:1fr 36px 1fr;gap:14px;align-items:stretch}
+  .workflow-strip .ws-side{padding:14px 18px;border-radius:8px;background:rgba(0,0,0,0.20)}
+  .workflow-strip .ws-side.today{border-left:3px solid #fca5a5}
+  .workflow-strip .ws-side.after{border-left:3px solid var(--purple-vivid)}
+  .workflow-strip .ws-tag{font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+  .workflow-strip .ws-side.today .ws-tag{color:#fca5a5}
+  .workflow-strip .ws-side.after .ws-tag{color:var(--purple-soft)}
+  .workflow-strip .ws-text{font-size:12.5px;line-height:1.55;color:rgba(255,255,255,0.92)}
+  .workflow-strip .ws-text code{background:rgba(124,58,237,0.22);color:#fff;font-size:0.95em}
+  .workflow-strip .ws-arrow{display:flex;align-items:center;justify-content:center;color:var(--purple-vivid);font-size:26px;font-weight:800;line-height:1}
+
+  /* ===== Responsive ===== */
+  @media (max-width:900px){
+    .hero{padding:48px 24px 64px}
+    .hero h1{font-size:36px}
+    .meta-grid,.commit-table{grid-template-columns:repeat(2,1fr)}
+    section{padding:48px 24px}
+    section.dark .inner{padding:0 24px}
+    .module .m-head{padding:24px}
+    .module .m-price{position:static;margin-top:14px;font-size:28px;text-align:left}
+    .module.optional .m-price{position:static;margin-top:10px;text-align:left;max-width:none}
+    .module .m-body{padding:24px}
+    .stop-still,.weeks{grid-template-columns:1fr}
+    .add{grid-template-columns:36px 1fr;gap:12px}
+    .check-row{grid-template-columns:48px 1fr;gap:12px}
+    .commit-table .commit-cell{border-right:none;border-bottom:1px solid rgba(255,255,255,0.14)}
+    .workflow-diagram{padding:24px 18px}
+    .wf-skills-grid{grid-template-columns:1fr;gap:8px}
+    .wf-branch{grid-template-columns:1fr;gap:14px}
+    .wf-converge::before{display:none}
+    .wf-drafts ul{grid-template-columns:1fr}
+    .shift-head,.shift-row{grid-template-columns:1fr}
+    .shift-row .lhs{border-right:none;border-bottom:1px solid var(--cream-line)}
+    .pipeline-row{grid-template-columns:1fr;gap:8px}
+    .pl-arrow{transform:rotate(90deg);padding:4px 0}
+    .verify{grid-template-columns:1fr}
+    .canon-cats{grid-template-columns:1fr}
+    .section-nav .nav-inner{padding:0 16px}
+    .section-nav .nav-mark{display:none}
+    .section-nav a{padding:12px 10px;font-size:10.5px}
+    .summary-grid{grid-template-columns:1fr;gap:14px}
+    .workflow-strip .ws-row{grid-template-columns:1fr;gap:10px}
+    .workflow-strip .ws-arrow{transform:rotate(90deg);padding:4px 0;height:26px}
+  }
+  @media print{
+    body{background:#fff}
+    section,section.dark{padding:24px 0;page-break-inside:avoid}
+    .module,.lever,.canon,.augment-box,.trigger,.question,.oos,.workflow-diagram{page-break-inside:avoid}
+  }
+</style>
+</head>
+<body>
+
+<!-- ============ HERO ============ -->
+<div class="hero">
+  <div class="hero-inner">
+    <div class="brand">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="label">Consulting</span>
+    </div>
+    <p class="eyebrow">Phase 1 Implementation Blueprint</p>
+    <h1>Ginsberg Law Offices<br><span class="soft">From 4–5 hours to 1–2 hours per hearing brief</span></h1>
+    <p class="lede">Without sacrificing the citation discipline that makes a brief filing-quality. Two modules and one integrated workflow — brief skill, wiki integration, medical chronology stage — scoped to fit a 2–4 week build window.</p>
+
+    <div class="meta-grid">
+      <div class="meta-block"><div class="label">Prepared for</div><div class="value">Jonathan Ginsberg<br>Ginsberg Law Offices, P.C.</div></div>
+      <div class="meta-block"><div class="label">Prepared by</div><div class="value">Nick Chapleau<br>Dodonai Consulting</div></div>
+      <div class="meta-block"><div class="label">Date</div><div class="value">2026-05-09</div></div>
+      <div class="meta-block"><div class="label">Discovery SOW</div><div class="value">Signed 2026-04-22<br>This is the deliverable</div></div>
+    </div>
+
+    <div class="bar-callout">
+      <blockquote>"I want it to give me a brief that's 85 to 90% complete... that I can finish."<cite>Jonathan Ginsberg, Session 2 (00:34:50)</cite></blockquote>
+      <div class="math">
+        4–5 hrs/case × 12–14 hearings/mo. Cut to 1–2 hrs:
+        <span class="big">36–56 hours / month reclaimed</span>
+      </div>
+    </div>
+
+    <div class="summary-grid">
+      <div class="summary-card">
+        <div class="sc-label">Pricing summary</div>
+        <div class="sc-row"><span class="lbl"><strong>Module 1</strong> — brief skill + workflow integration</span><span class="amt">$2,000</span></div>
+        <div class="sc-row indent"><span class="lbl">incl. Dodonai medical chronology build (Stage 1)</span><span class="amt">included in M1</span></div>
+        <div class="sc-row"><span class="lbl"><strong>Module 2</strong> — wiki integration + ingestion helper</span><span class="amt">$1,000</span></div>
+        <div class="sc-row total"><span class="lbl">One-time build</span><span class="amt">$3,000</span></div>
+        <div class="sc-row monthly"><span class="lbl">Managed service<small>begins at go-live · §5</small></span><span class="amt">$1,000/mo</span></div>
+        <div class="sc-row monthly" style="margin-top:0;padding-top:8px;border-top:1px dashed rgba(255,255,255,0.10)"><span class="lbl">Chronology usage<small>per page of medical record processed</small></span><span class="amt">$0.03/page</span></div>
+        <div class="sc-note">Chronology build is bundled into Module 1; page-processing is billed by usage and replaces your existing Case Frame spend.</div>
+      </div>
+
+      <div class="summary-card timeline-card">
+        <div class="sc-label">Timeline</div>
+        <div class="tl-step"><div class="tl-when">Kickoff</div><div class="tl-what"><strong>2 confirmation questions</strong> — folder + wiki master location · <em>~10 min</em></div></div>
+        <div class="tl-step"><div class="tl-when">Wk 1</div><div class="tl-what"><strong>Module 1's three layers</strong> — exhibit-aware parse, case-state, verification</div></div>
+        <div class="tl-step"><div class="tl-when">Wk 2</div><div class="tl-what"><strong>Wiki + Stage 1 chronology + workflow</strong> — Inbox→Drafts wired end-to-end</div></div>
+        <div class="tl-step"><div class="tl-when">Wk 3 / 4</div><div class="tl-what"><strong>Acceptance test on Nylander</strong> — five hard checks + stopwatch · <em>your ~60 min</em></div></div>
+        <div class="tl-step"><div class="tl-when">Go-live</div><div class="tl-what"><strong>Managed service begins</strong> — ~2 hrs of your time total across the build window</div></div>
+      </div>
+    </div>
+
+    <div class="workflow-strip">
+      <div class="ws-label">Workflow change</div>
+      <div class="ws-row">
+        <div class="ws-side today">
+          <div class="ws-tag">Today · manual end-to-end</div>
+          <div class="ws-text">Staff downloads from Assure → you spin up brief tool → load PDF → type prompt → wait → copy back → edit → file. Each step is a potential dropped ball.</div>
+        </div>
+        <div class="ws-arrow">→</div>
+        <div class="ws-side after">
+          <div class="ws-tag">After Phase 1 · event-driven</div>
+          <div class="ws-text">Staff drops PDF in <code>Inbox/</code> → service generates brief, worksheet, chronology in <code>Drafts/</code> → email lands at <code>ginsberg@gmail.com</code> → you review, edit, move to <code>Filed/</code>.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ============ Section nav (sticky) ============ -->
+<nav class="section-nav" aria-label="Section navigation">
+  <div class="nav-inner">
+    <span class="nav-mark">Phase 1 Blueprint <span class="sub">Ginsberg</span></span>
+    <a href="#findings"><span class="num">§1</span><span>Findings</span></a>
+    <a href="#build"><span class="num">§2</span><span>What we'll build</span></a>
+    <a href="#acceptance"><span class="num">§3</span><span>Acceptance</span></a>
+    <a href="#kickoff"><span class="num">§4</span><span>Build &amp; kickoff</span></a>
+    <a href="#pricing"><span class="num">§5</span><span>Pricing</span></a>
+  </div>
+</nav>
+
+<!-- ============ §1 What we found ============ -->
+<section id="findings">
+  <span class="section-tag">§1</span>
+  <h2>What we <span class="soft">found</span></h2>
+
+  <p>Two issues with the setup today. <strong>The brief skill leaves load-bearing rules to instruction where they need to be deterministic.</strong> And <strong>the workflow around the brief is manual end-to-end</strong> — even when the brief itself lands clean.</p>
+
+  <h3 style="margin-top:42px"><span class="eyebrow" style="display:block;margin-bottom:6px">Issue 1 of 2</span>Brief writing: instruction where determinism is needed</h3>
+  <p>The existing brief skill has the knowledge — your style guide, your regulatory reference, your 14-item Special Issues Checklist, the legal-substance bugs you flagged in Session 1 are all in there. But it enforces a number of load-bearing rules through <em>instructions</em> Claude can decline to follow on a given case.</p>
+
+  <h4>Three categories of error surfaced</h4>
+  <p>The Nylander brief from 4/25 is the most-instrumented evidence we have. At first glance it reads well; under inspection, three categories of error showed up. None are Nylander-specific.</p>
+
+  <div class="failure-list">
+    <div class="fl-item">
+      <div class="num">1</div>
+      <div>
+        <strong>Citation errors</strong> — the cite either doesn't exist where the skill claims, isn't pinpoint enough to be usable, or follows the wrong format entirely:
+        <ul style="margin:8px 0 0;padding-left:18px;font-size:13.5px;line-height:1.55">
+          <li style="margin:5px 0"><em>Unsupported.</em> <code>Ex. 9F</code> cited for hip pain; 9F doesn't document persistent post-surgical hip pain. The actual support is at <code>6F/1</code> and <code>16F/2</code>.</li>
+          <li style="margin:5px 0"><em>Bare-exhibit</em> to multi-page exhibits — not usable when 12F runs 214 pages and 13F runs 287.</li>
+          <li style="margin:5px 0"><em>Wrong format across tools.</em> The medical-summary tool you've been using emits Bates / absolute-PDF citations on the Bethea record instead of <code>(XF/N)</code> — exactly the <em>"the cite shape is wrong, so even correct cites are unusable"</em> problem you flagged in Session 1. Different tool, different claimant, same defect.</li>
+        </ul>
+      </div>
+    </div>
+    <div class="fl-item">
+      <div class="num">2</div>
+      <div>
+        <strong>Factual errors</strong> — the brief takes a position on a fact in the record without grounding it in extracted source. The Nylander instance: the skill agreed with the state agency's PRW finding at Step 4; the agency had actually concluded the opposite (<code>2A/7</code> and <code>4A/7</code>). The Step 4 argument is fundamentally different in each posture. The shape applies anywhere prose is asked to recall what the agency said before agreeing or disagreeing — SGA at Step 1, RFC findings, Step 5 jobs cited, education classification.
+      </div>
+    </div>
+    <div class="fl-item">
+      <div class="num">3</div>
+      <div>
+        <strong>Contextual errors</strong> — a term in the record carries local meaning that drops out on the way to drafting. The Nylander instance: "OCD" in the record was Osteochondritis Dissecans; the skill categorized Mr. Nylander as Obsessive-Compulsive Disorder and built a CPP paragraph around it. Broader than abbreviations: any term where source-page context is what disambiguates the meaning. Medical abbreviations are the highest-leverage instance — OCD, MS, CP, DJD, DDD all have multiple expansions — but they're not the only one.
+      </div>
+    </div>
+  </div>
+
+  <h4>The fix is mechanism, not more instruction</h4>
+  <p>Your 4/27 changelog is the right move under the constraint of pure prose — new "Accuracy Discipline" section, <code>fact-verification-protocol.md</code>, expanded Common Errors list, page-pinpoint format table. The instinct is correct: each of these failure modes is recurring, and they need to be engineered against, not just patched per case.</p>
+  <p>But the medium is the limit. Adding more prose pushes the median case in the right direction; it doesn't make the marginal case deterministic — instructions Claude reads on each case will keep being optional in the cases at the edges. The fix is moving the load-bearing rules off prose entirely, onto a precomputed structured case-state — extracted facts, indexed abbreviations, mechanically-resolved citations — that the brief drafts <em>against</em> rather than <em>recalls</em>. <strong>§2's Module 1 is that case-state, plus a verification pass over the draft before it leaves the skill.</strong></p>
+
+  <h3 style="margin-top:48px"><span class="eyebrow" style="display:block;margin-bottom:6px">Issue 2 of 2</span>Workflow: manual end-to-end</h3>
+  <p>Even when a brief lands clean, the loop around it is manual today — staff downloads from Assure, you spin up the brief tool, load the PDF, type the prompt, wait, copy back, edit, file. Each step is a potential dropped ball; each step is friction that doesn't compound away no matter how good the brief gets.</p>
+  <p><strong>§2 closes that loop too — and we run it for you.</strong> Your staff drops the PDF in one place; the brief, worksheet, and chronology appear in another; you get an email when they're ready. The remaining touch points collapse to: review and edit (yours), file (yours). Everything between those two endpoints runs as a managed service we operate on your behalf.</p>
+</section>
+
+<!-- ============ §2 What we'll build ============ -->
+<section id="build">
+  <span class="section-tag">§2</span>
+  <h2>What we'll <span class="soft">build</span></h2>
+  <p class="section-lede">Two modules and one integrated workflow. Together they replace a manual hour-plus-per-brief loop with an event-driven one. Here's the unified workflow first; the modules describe the components.</p>
+
+  <!-- WORKFLOW DIAGRAM -->
+  <div class="workflow-diagram">
+    <div class="wf-title">End-to-end workflow · two stages, one loop</div>
+    <p class="wf-sub">Stage 1 builds the canonical case-state (including the chronology); Stage 2 drafts the brief and worksheet against it</p>
+
+    <div class="wf-row">
+      <div class="wf-box">
+        <div class="wf-actor">Staff (or you)</div>
+        <div class="wf-label">Downloads Assure PDF</div>
+        <div class="wf-detail">→ drops in <code>Inbox/</code></div>
+      </div>
+    </div>
+
+    <div class="wf-arrow">↓</div>
+
+    <div class="wf-row">
+      <div class="wf-box">
+        <div class="wf-actor">Dodonai's managed service</div>
+        <div class="wf-label">Watches <code>Inbox/</code> on a schedule</div>
+        <div class="wf-detail">Detects new PDF · auto-moves source to <code>Processed/</code> on success</div>
+      </div>
+    </div>
+
+    <div class="wf-arrow">↓</div>
+
+    <div class="wf-skills">
+      <div class="wf-stage-label">Stage 1 · Build the canonical case-state</div>
+      <div class="wf-stage-1-body">
+        <p style="font-size:13px;color:rgba(255,255,255,0.92);text-align:center;margin:0 0 12px;line-height:1.55">Exhibit-aware parse · DDE extraction · abbreviation index · legal-substance computation · medical chronology generation</p>
+        <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+          <span style="display:inline-flex;flex-direction:column;align-items:flex-start;gap:2px;background:rgba(124,58,237,0.18);border:1px solid rgba(124,58,237,0.45);border-radius:6px;padding:8px 14px;font-family:'Source Code Pro',monospace;font-size:11.5px;color:#fff;font-weight:600">
+            <span>→ case_state.json</span>
+            <span style="font-size:9.5px;letter-spacing:0.06em;color:var(--purple-soft);font-weight:500;text-transform:uppercase">Internal · Stage 2 drafts against this</span>
+          </span>
+          <span style="display:inline-flex;flex-direction:column;align-items:flex-start;gap:2px;background:rgba(255,255,255,0.10);border:1px solid rgba(255,255,255,0.18);border-radius:6px;padding:8px 14px;font-family:'Source Code Pro',monospace;font-size:11.5px;color:var(--purple-soft);font-weight:600">
+            <span>→ Chronology.docx</span>
+            <span style="font-size:9.5px;letter-spacing:0.06em;color:rgba(255,255,255,0.55);font-weight:500;text-transform:uppercase">Client-facing · lands in Drafts/</span>
+          </span>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-arrow">↓</div>
+
+    <div class="wf-skills">
+      <div class="wf-stage-label">Stage 2 · Brief & Worksheet draft against the case-state</div>
+      <div class="wf-skills-grid" style="grid-template-columns:repeat(2,1fr)">
+        <div class="wf-skill">
+          <div class="ws-num">Module 1</div>
+          <div class="ws-name">Brief skill</div>
+          <div style="font-size:11px;line-height:1.45;color:rgba(255,255,255,0.78);margin-top:6px;text-align:left;padding:0 6px">reads <code style="background:rgba(124,58,237,0.18);color:#fff;font-size:10.5px;padding:1px 4px;border-radius:3px">case_state.json</code> + chronology <strong style="color:var(--purple-soft);text-transform:uppercase;letter-spacing:0.04em;font-size:10px">findings</strong><br><span style="color:rgba(255,255,255,0.6);font-size:10.5px">Step 5 RFC: MSS quotes, off-task, limitations</span></div>
+          <div class="ws-out">→ Brief.docx</div>
+        </div>
+        <div class="wf-skill">
+          <div class="ws-num">Module 1</div>
+          <div class="ws-name">Worksheet skill</div>
+          <div style="font-size:11px;line-height:1.45;color:rgba(255,255,255,0.78);margin-top:6px;text-align:left;padding:0 6px">reads <code style="background:rgba(124,58,237,0.18);color:#fff;font-size:10.5px;padding:1px 4px;border-radius:3px">case_state.json</code> + embeds chronology <strong style="color:var(--purple-soft);text-transform:uppercase;letter-spacing:0.04em;font-size:10px">narrative</strong><br><span style="color:rgba(255,255,255,0.6);font-size:10.5px">as the medical-summary section</span></div>
+          <div class="ws-out">→ Worksheet.docx</div>
+        </div>
+      </div>
+      <div class="wf-skills-foot">Module 2 wiki articles loaded into each skill based on case profile</div>
+    </div>
+
+    <div class="wf-arrow-labeled"><span class="a">↓</span> Verification pass <span class="a">↓</span></div>
+
+    <div class="wf-branch">
+      <div class="wf-branch-arm success">
+        <div class="wf-arm-label">↓ on success</div>
+        <div class="wf-drafts">
+          <div class="dh">Drafts/</div>
+          <ul>
+            <li>Brief.docx</li>
+            <li>Worksheet.docx</li>
+            <li>Chronology.docx</li>
+            <li>Verification.md</li>
+          </ul>
+        </div>
+        <div class="wf-arrow">↓</div>
+        <div class="wf-email">
+          <div class="dh">Email — Brief ready</div>
+          <p>Pass rate · age-at-AOD · flagged issues · path to <code>Drafts/</code></p>
+        </div>
+      </div>
+      <div class="wf-branch-arm failure">
+        <div class="wf-arm-label">↓ on failure</div>
+        <div class="wf-failed">
+          <div class="dh">Failed/</div>
+          <p>Source PDF + <code>_FAILED_&lt;reason&gt;.md</code> sidecar explaining what went wrong</p>
+        </div>
+        <div class="wf-arrow">↓</div>
+        <div class="wf-email fail">
+          <div class="dh">Email — Brief generation FAILED</div>
+          <p>Sidecar reason in the body · the system fails <em>visibly</em>, not silently</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="wf-converge"></div>
+
+    <div class="wf-you">
+      <div class="wf-actor">You</div>
+      <div class="wf-label">Review · edit (target 1–2 hrs) · move to <code style="background:rgba(255,255,255,0.18);color:#fff">Filed/</code></div>
+    </div>
+  </div>
+
+  <!-- MODULE 1 -->
+  <div class="module">
+    <div class="m-head">
+      <div class="m-tag">Module 1 of 2</div>
+      <h3 class="m-title">Updated brief-writing skill + workflow integration</h3>
+      <p class="m-tagline">An update to your existing <code style="background:rgba(255,255,255,0.15);color:#fff">pre-hearing-brief</code> skill — plus an event-driven invocation wrapper so neither you nor your staff has to launch anything manually.</p>
+      <div class="m-price">$2,000</div>
+    </div>
+    <div class="m-body">
+      <h4 class="heavy">The shift in one line</h4>
+      <p style="font-size:14.5px;line-height:1.6">Today the skill enforces its rules through <em>instruction</em>; the update moves the load-bearing rules to <em>mechanism</em>. A handful of representative shifts to make that concrete:</p>
+
+      <div class="shift">
+        <div class="shift-head">
+          <div class="sh today">Today — rule as instruction</div>
+          <div class="sh after">After update — rule as value or check</div>
+        </div>
+        <div class="shift-row">
+          <div class="lhs"><em>"Always calculate the claimant's age on the AOD"</em><span class="src">style guide</span></div>
+          <div class="rhs"><code>age_at_AOD</code> computed from DOB + onset; the grid analysis <strong>reads the value</strong></div>
+        </div>
+        <div class="shift-row">
+          <div class="lhs"><em>"Cite a specific page within the exhibit, e.g., 12F/57"</em><span class="src">style guide</span></div>
+          <div class="rhs">Every emitted <code>(XF/N)</code> cite is <strong>checked against the extracted page text</strong> before the brief is finalized</div>
+        </div>
+        <div class="shift-row">
+          <div class="lhs"><em>"Be aware: 'OCD' may mean Osteochondritis Dissecans"</em><span class="src">Common Errors</span></div>
+          <div class="rhs">Every abbreviation in the F-series <strong>paired with its source-page spelling-out</strong> before Step 2 categorization</div>
+        </div>
+        <div class="shift-row">
+          <div class="lhs"><em>"Quote the agency's verbatim PRW finding before agreeing or disagreeing"</em><span class="src">your 4/27 changelog</span></div>
+          <div class="rhs"><code>DDE_PRW_finding</code> extracted verbatim at <code>/7</code> of <strong>initial and reconsideration DDEs</strong></div>
+        </div>
+        <div class="shift-row">
+          <div class="lhs"><em>"PRW 5-year lookback pivots on DLI past vs. future"</em><span class="src">Special Issues #2</span></div>
+          <div class="rhs"><code>prw_lookback_window</code> computed with <strong>explicit DLI-pivot</strong>; the brief states the window</div>
+        </div>
+        <div class="shift-foot">The architecture below is the substrate that makes that shift possible — it touches more rules than the table shows. Your existing SKILL.md, style guide, regulatory reference, and 4/27 changelog have substantially more rules than five; they all run on this substrate.</div>
+      </div>
+
+      <h4 class="heavy">Three layers we add</h4>
+
+      <p style="font-size:14.5px;line-height:1.6"><strong style="color:var(--purple-bold);font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase">Layer 1 ·</strong> <strong>Exhibit-aware ingestion.</strong> The Assure PDF is parsed once into structured chunks — exhibit-letter + internal-page, the <code>(XF/N)</code> reference shape end-to-end. Built on top of the <code>extract_targeted.py</code> infrastructure already in your existing skill bundle. Drafting, citation verification, and every downstream check runs against this structure, not raw PDF text.</p>
+
+      <p style="font-size:14.5px;line-height:1.6;margin-top:14px"><strong style="color:var(--purple-bold);font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase">Layer 2 ·</strong> <strong>A precomputed case-state the brief drafts against.</strong> The skill computes load-bearing values upfront and writes them to a <code>case_state.json</code> the drafting steps read. The pipeline:</p>
+
+      <div class="pipeline">
+        <div class="pl-title">Pipeline</div>
+        <div class="pipeline-row">
+          <div class="pl-stage">
+            <div class="pn">Input</div>
+            <div class="pl">Assure PDF</div>
+            <div class="pd">~120 MB · all exhibits</div>
+          </div>
+          <div class="pl-arrow">→</div>
+          <div class="pl-stage center">
+            <div class="pn">Step 0</div>
+            <div class="pl">case_state.json</div>
+            <div class="pd">Categories A · B · C · D</div>
+          </div>
+          <div class="pl-arrow">→</div>
+          <div class="pl-stage">
+            <div class="pn">Steps 1–5</div>
+            <div class="pl">Brief drafted<br>against state</div>
+            <div class="pd">no re-derivation</div>
+          </div>
+        </div>
+        <div class="pipeline-foot">If a value is in <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">case_state.json</code>, the drafting step <strong>reads it</strong>; it doesn't re-derive it. Same pattern as moving citation verification from instruction to mechanical check — produces consistent results because there's nothing for Claude to inconsistently decide.</div>
+      </div>
+
+      <p style="font-size:14px;line-height:1.6;margin-top:14px;color:var(--gray-meta-light)">The four categories of values:</p>
+
+      <div class="cats">
+        <div class="cat">
+          <div class="ch">
+            <span class="cn">Category A</span>
+            <span class="ct">Date and age math</span>
+            <span class="csub">Pure arithmetic on extracted dates. Highest leverage: gets the grid analysis right.</span>
+          </div>
+          <div class="cb">
+            <ul>
+              <li><code>age_at_AOD</code>, <code>age_at_hearing</code> — DOB + onset / DOB + hearing date</li>
+              <li><code>age_category_at_AOD</code>, <code>age_category_at_hearing</code> — lookup against the four SSA grid age categories (&lt;50, 50–54, 55–59, 60+)</li>
+              <li><code>crosses_age_boundary</code> — claimant's category at hearing exceeds category at AOD; triggers bifurcated argument structure</li>
+              <li><code>borderline_at_AOD</code>, <code>borderline_at_hearing</code> — within 6 months of any age boundary; triggers borderline-age argument per POMS HA 01220.042</li>
+              <li><code>obesity_classification</code> — BMI math from documented height/weight, mapped to Class I (30.0–34.9), II (35.0–39.9), III (≥40.0)</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cat">
+          <div class="ch">
+            <span class="cn">Category B</span>
+            <span class="ct">Verbatim agency findings — extracted from the DDE</span>
+          </div>
+          <div class="cb">
+            <div class="principle"><strong>Principle:</strong> when the agency made a finding, the skill extracts the verbatim language before drafting any agree-or-disagree. Hearing-stage cases by definition went through both an initial determination (1A or 2A) and a reconsideration determination (3A or 4A) — that's the prerequisite that gets the case to a hearing — so both DDEs are present in the record. Your 4/27 Nylander changelog already encodes this rule for the PRW finding at <code>/7</code>; the update generalizes it to the other load-bearing fields. If a field isn't populated for a particular case, the skill flags it in the verification report rather than inventing a value.</div>
+            <ul>
+              <li><code>DDE_SGA_finding</code> — verbatim conclusion at <code>/1</code></li>
+              <li><code>DDE_PRW_finding</code> — verbatim conclusion at <code>/7</code> of both DDEs</li>
+              <li><code>DDE_RFC_finding</code> — what RFC the agency assessed (sedentary / light / medium / heavy + non-exertional limitations); determines the 20x.xx grid table</li>
+              <li><code>DDE_jobs_cited_at_step5</code> — DOT codes + titles cited (when denial reached Step 5); feeds the obsolete-jobs check</li>
+              <li><code>claimant_education_level</code> — illiterate / marginal / limited / high school / college, per DDE classification (grid input)</li>
+              <li><code>prw_lookback_window</code> — DLI + hearing date with explicit DLI-pivot</li>
+              <li><code>prw_jobs</code>, <code>prw_within_lookback</code> — for each PRW job: title/employer/dates/DOT/SVP plus boolean against the lookback window. Sources: 21E and 3E</li>
+              <li><code>dli_in_past</code> / <code>dli_in_future</code>, <code>title_of_claim</code>, <code>onset_amended_flag</code>, <code>hearing_modality</code></li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cat">
+          <div class="ch">
+            <span class="cn">Category C</span>
+            <span class="ct">Reference-table lookups</span>
+            <span class="csub">Static reference data the skill can't reliably recall accurately from training. Ships as data files alongside the skill.</span>
+          </div>
+          <div class="cb">
+            <ul>
+              <li><code>SGA_threshold_by_year</code> — annual SGA values 1990–current. Today the skill says <em>"$1,090/mo. in 2015, rising — check current threshold"</em>; Claude doesn't reliably know current values</li>
+              <li><code>applicable_grid_rule</code> — given age category + education + RFC + transferability finding, the rule number (e.g., 201.06, 202.06) is a deterministic lookup against the six tables in your <code>regulatory-quick-reference.md</code>. Today derived in prose</li>
+              <li><code>obsolete_jobs_match</code> — cross-reference DDS-cited jobs against the obsolete list (addresser, nut sorter, lens inserter, preparer, charge-account clerk, telegraph operator)</li>
+              <li><code>transferability_test_required</code> — claimant 55+ limited to sedentary OR 60+ limited to light → POMS DI 25015.017 <em>"very little, if any, vocational adjustment"</em> standard applies</li>
+            </ul>
+          </div>
+        </div>
+
+        <div class="cat">
+          <div class="ch">
+            <span class="cn">Category D</span>
+            <span class="ct">Cross-references against extracted infrastructure</span>
+          </div>
+          <div class="cb">
+            <ul>
+              <li><code>exhibit_size_map</code> — already produced by <code>extract_targeted.py</code> in <code>meta.json</code>. Plumbs into citation verification: any bare-exhibit citation auto-fails unless the exhibit's page count is 1</li>
+              <li><code>abbreviation_map</code> — every medical abbreviation in F-series records paired with its source-page spelling-out. When ambiguous (OCD, MS, CP, DJD, DDD), the disambiguation is the verbatim spelling-out from the record. Closes the OCD failure mode</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <p style="font-size:14.5px;line-height:1.6;margin-top:14px"><strong style="color:var(--purple-bold);font-family:'Source Code Pro',monospace;font-size:11px;letter-spacing:0.14em;text-transform:uppercase">Layer 3 ·</strong> <strong>Mechanical verification before the brief leaves the skill.</strong> Two passes run over the draft:</p>
+
+      <div class="verify">
+        <div class="vbox">
+          <div class="vn">Pass 1</div>
+          <h5>Citation verification</h5>
+          <p>Every <code>(XF/N)</code> cite is checked against the extracted text. Cites that don't resolve to a real page get fixed (Claude re-reads the actual page and revises the assertion) or downgraded to exhibit-level — only acceptable when the exhibit is single-page or the proposition genuinely spans the whole exhibit. <strong>Bare-exhibit cites to multi-page exhibits auto-fail.</strong></p>
+        </div>
+        <div class="vbox">
+          <div class="vn">Pass 2</div>
+          <h5>Special Issues mechanization</h5>
+          <p>The 14-item Special Issues Checklist in your existing SKILL.md is prose Claude is asked to walk. With the case-state values present, most items become deterministic boolean flags in a derived <code>special_issues_triggered</code> struct. Claude's job becomes <em>"draft the right paragraphs for items that fired"</em> — not <em>"decide which items fire."</em></p>
+        </div>
+      </div>
+
+      <div class="si-table">
+        <table>
+          <thead><tr><th>Checklist item</th><th>Computed from</th></tr></thead>
+          <tbody>
+            <tr><td class="item">Amended onset date</td><td class="from"><code>onset_amended_flag</code></td></tr>
+            <tr><td class="item">No SGA-level PRW within 5y of DLI</td><td class="from"><code>prw_jobs</code> ∩ <code>prw_within_lookback</code> ∩ <code>SGA_threshold_by_year</code></td></tr>
+            <tr><td class="item">Borderline age</td><td class="from"><code>borderline_at_AOD</code> ∨ <code>borderline_at_hearing</code></td></tr>
+            <tr><td class="item">Obsolete jobs cited by DDS</td><td class="from"><code>obsolete_jobs_match</code></td></tr>
+            <tr><td class="item">Transferability of skills standard applies</td><td class="from"><code>transferability_test_required</code></td></tr>
+            <tr><td class="item">Grid rule (50+ at onset)</td><td class="from"><code>applicable_grid_rule</code></td></tr>
+            <tr><td class="item">Under-50 / non-exertional case</td><td class="from"><code>age_category_at_AOD == "&lt;50"</code></td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p style="font-size:13.5px;color:var(--gray-meta-light);font-style:italic;margin-top:6px">Items not directly mechanizable (treating-source MSS, FCE, sleep apnea, medication side effects) stay instruction-driven for now and get attention if Phase 2 brings the medical-chronology backend online.</p>
+
+      <h4 class="heavy">Workflow integration</h4>
+      <p>Your staff drops the Assure PDF into a designated <code>Inbox/</code> folder in your firm's cloud storage. Our managed service watches the folder on a polling cadence we agree on at kickoff; when a new PDF appears, the service runs the workflow above — Stage 1 builds the case-state and chronology, Stage 2 runs the brief and worksheet in parallel against that case-state — writes outputs to <code>Drafts/</code>, sends you an email with a one-line summary, and moves the source PDF to <code>Processed/</code> (or to <code>Failed/</code> with a sidecar explaining what went wrong). You and your staff never log into the service or open a separate tool — everything you touch is the cloud folder and your email.</p>
+
+      <div class="folder-contract">
+        <table>
+          <thead><tr><th>Folder</th><th>What's in it</th><th>Who writes</th></tr></thead>
+          <tbody>
+            <tr><td class="fc-folder">Inbox/</td><td>New Assure PDFs from your staff</td><td class="fc-actor">Staff (or you)</td></tr>
+            <tr><td class="fc-folder">Processed/</td><td>Successfully-processed source PDFs</td><td class="fc-actor">Skill (auto)</td></tr>
+            <tr><td class="fc-folder">Drafts/</td><td><code>Brief - &lt;Claimant&gt;.docx</code>, <code>Hearing Worksheet - &lt;Claimant&gt;.docx</code>, <code>Verification Report - &lt;Claimant&gt;.md</code></td><td class="fc-actor">Skill</td></tr>
+            <tr><td class="fc-folder">Failed/</td><td>Inputs that failed; sidecar <code>_FAILED_&lt;reason&gt;.md</code></td><td class="fc-actor">Skill (auto)</td></tr>
+            <tr><td class="fc-folder">Filed/</td><td>Briefs you've reviewed and filed</td><td class="fc-actor">You</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Email arrives at <code>ginsberg@gmail.com</code>. Subject pattern: <code>[Dodonai] Brief ready: &lt;Claimant&gt; hearing &lt;Date&gt;</code> on success, <code>[Dodonai] Brief generation FAILED: &lt;Claimant&gt;</code> on failure. Body includes citation pass rate, age-at-AOD value, any flagged issues, and the path to the Drafts folder.</p>
+
+      <h4 class="heavy">What changes for you day-to-day</h4>
+      <p>You stop spinning up a tool, loading the PDF, and typing prompts. You read your email when the brief lands, open <code>Drafts/</code>, edit, file. You move the file to <code>Filed/</code> when done. That's it.</p>
+
+      <h4 class="heavy">What stays the same</h4>
+      <p>WordPerfect / Word for editing. Your existing brief structure (5-step sequential, Special Issues Checklist, your style guide). The Jackson under-50 strategy. The 15-brief training corpus that grounds your voice. Everything you've already built.</p>
+
+      <div class="stop-still">
+        <div class="ssn-card stop">
+          <h4>What you can stop checking by hand</h4>
+          <ul>
+            <li>Whether every <code>(XF/N)</code> citation resolves to a real page in a real exhibit</li>
+            <li>Whether the grid analysis used age at AOD vs age at hearing</li>
+            <li>Whether the PRW lookback window pivots correctly on DLI</li>
+            <li>Whether the bifurcated-age structure showed up when the case calls for it</li>
+            <li>Whether the agency's actual DDE finding got quoted before you agree or disagree</li>
+            <li>Whether medical abbreviations were spelled out before category assignment</li>
+          </ul>
+        </div>
+        <div class="ssn-card still">
+          <h4>What still needs your eyes</h4>
+          <ul>
+            <li><strong>Style.</strong> The skill drafts in your voice (the 15-brief corpus stays the calibration); voice polish is yours. ~5–10% of paragraphs.</li>
+            <li><strong>Theory of the case.</strong> Treating-physician credibility, a specific medical-vocational rule trigger, the right tone for a particular ALJ — your call. The skill drafts a defensible default; you sharpen it.</li>
+            <li><strong>Anything novel.</strong> A rare condition, an unusual vocational profile, a procedural posture the Special Issues Checklist doesn't cover — you do more editing.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- MODULE 2 -->
+  <div class="module">
+    <div class="m-head">
+      <div class="m-tag">Module 2 of 2</div>
+      <h3 class="m-title">Hearing-prep wiki integration + ingestion helper</h3>
+      <p class="m-tagline">Two things: the wiki becomes load-bearing for the brief skill, and a small helper lets you keep it current without understanding its internals.</p>
+      <div class="m-price">$1,000</div>
+    </div>
+    <div class="m-body">
+      <h4 class="heavy">Wiki integration</h4>
+      <p>The brief skill points to the wiki folder by path. SKILL.md gets a "Reference loading" section that loads articles based on the case profile:</p>
+
+      <div class="wiki-triggers">
+        <table>
+          <thead><tr><th>Case profile</th><th>Wiki articles loaded</th></tr></thead>
+          <tbody>
+            <tr><td class="profile always">Always (every case)</td><td class="articles">five-step-sequential-evaluation, residual-functional-capacity, prehearing-memoranda, alj-perspective-and-advocacy-tips</td></tr>
+            <tr><td class="profile">Claimant 50+</td><td class="articles">grid-rules-medical-vocational-guidelines, transferability-of-skills, obsolete-and-isolated-jobs</td></tr>
+            <tr><td class="profile">Claimant within 6 mo of an age boundary</td><td class="articles">borderline-age</td></tr>
+            <tr><td class="profile">Mental impairments present</td><td class="articles">concentration-persistence-pace, symptom-credibility-ssr-16-3p</td></tr>
+            <tr><td class="profile">Treating-source MSS in record</td><td class="articles">medical-opinions-and-opinion-evidence</td></tr>
+            <tr><td class="profile">Step 5 leans on non-exertional erosion</td><td class="articles">logical-bridge-doctrine</td></tr>
+          </tbody>
+        </table>
+      </div>
+
+      <p>Typically 4–8 articles per case, on top of the always-loaded core. The wiki stays the single source of truth — no duplication into the skill bundle. Each article gets a short YAML frontmatter header (backfilled across the existing 26 in a one-shot pass) declaring its <code>load_when</code> triggers; adding a new article auto-registers with the loader.</p>
+
+      <h4 class="heavy">The ingestion helper</h4>
+      <p>A small standalone skill (<code>wiki-ingest</code>) you invoke conversationally: <em>"ingest this NOSSCR bulletin into the wiki"</em> — drop a URL, PDF, or transcript, and a properly-structured <code>.md</code> draft appears in <code>&lt;wiki-root&gt;/_drafts/</code> for you to review. The helper:</p>
+      <ul>
+        <li>Decides whether the content is a new article or an addition to an existing one</li>
+        <li>Drafts following the convention your existing 26 articles already use (<code># Title</code> H1, <code>*Source basis:* …</code> line, prose body with H2/H3, <code>## Related Articles</code> cross-links)</li>
+        <li>Proposes related-article cross-links and updates the index when you accept</li>
+        <li>Files the source PDF (if applicable) so the source-basis line can pinpoint-cite a stable filename</li>
+      </ul>
+      <p>You move the draft from <code>_drafts/</code> into the live wiki when satisfied. <strong>The move is the publish action.</strong> The skill only reads from the live folder, so a draft article cannot accidentally land in a brief.</p>
+
+      <div class="stop-still">
+        <div class="ssn-card stop">
+          <h4>What changes for you</h4>
+          <ul>
+            <li>The wiki stops being a black box.</li>
+            <li>NOSSCR bulletins, judge decisions, CLE materials, blog posts flow in with one prompt.</li>
+            <li>The brief skill gets <em>smarter</em> every time you add an article — case-profile loader picks up new articles based on their frontmatter triggers. No central manifest to maintain.</li>
+          </ul>
+        </div>
+        <div class="ssn-card still">
+          <h4>What stays the same</h4>
+          <ul>
+            <li>The 26 existing articles.</li>
+            <li>The 9-section structure of your <code>index.md</code>.</li>
+            <li>The Karpathy article shape.</li>
+            <li>You as the editor — accept, edit, or reject every draft. Direct hand-editing is supported; the helper is the expected path, not the only one.</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- DEEPER DIVE: Stage 1 Chronology -->
+  <h3 style="margin-top:48px">A closer look at Stage 1 — the Dodonai medical chronology</h3>
+  <p style="font-size:15px;line-height:1.65">Stage 1 of the workflow above produces the canonical case-state — exhibit-aware extraction, DDE fields, abbreviation index, precomputed legal-substance values — and the <strong>Dodonai medical chronology</strong> that replaces your existing chronology workflow inside Phase 1. Because Stage 1 runs first, the brief skill's Step 5 RFC discussion and the worksheet's medical-summary section both draw from the same chronology. <strong>One canonical narrative grounds both downstream outputs</strong> — no double-extraction, no risk of the brief saying one thing about the medical record and the worksheet saying another.</p>
+
+  <h4 style="margin-top:24px">What the Dodonai chronology produces</h4>
+  <ul style="font-size:14px;line-height:1.65;padding-left:22px">
+    <li style="margin:8px 0"><strong>Section F extraction</strong> runs from the same Assure PDF that triggers the rest of the workflow — you no longer download Section F separately for chronology purposes.</li>
+    <li style="margin:8px 0"><strong>A 2–3 page chronological narrative</strong> in the format your hearing worksheet's medical-summary section expects: <em>"On [date] the claimant was seen by [provider] for [reason]. [summary]. (XF/N)."</em></li>
+    <li style="margin:8px 0"><strong>Functional-limitations focus</strong> encoded as the drafting priority — surfaces medical source statements, off-task evidence, lifting/sitting/standing tolerances, medication side effects, treating-source MSS quotes. Closes the <em>"how do you miss that?"</em> failure mode you flagged at intro <code>46:09</code>.</li>
+    <li style="margin:8px 0"><strong>Verification.</strong> Same mechanical post-generation pass as the brief skill — every <code>(XF/N)</code> cite resolves to a real page; medical source statements aren't silently dropped.</li>
+    <li style="margin:8px 0"><strong>A <code>Medical Chronology - &lt;Claimant&gt;.docx</code></strong> that drops into the same <code>Drafts/</code> folder as the brief and worksheet — same Inbox→Drafts flow, no separate workflow, no separate place to look.</li>
+  </ul>
+
+  <h4 style="margin-top:24px">What it preserves vs. Case Frame</h4>
+  <div class="compare-table">
+    <table>
+      <thead><tr><th>Dimension</th><th class="case-frame">Case Frame today</th><th class="dodonai">Dodonai chronology</th></tr></thead>
+      <tbody>
+        <tr><td class="dim">Output format</td><td class="cf">2–3 page narrative</td><td class="do">Same</td></tr>
+        <tr><td class="dim">Section F focus</td><td class="cf">Yes (full file is "too much")</td><td class="do">Same</td></tr>
+        <tr><td class="dim">Citation format</td><td class="cf">Bates / absolute PDF page</td><td class="do">SSA-native <code>(XF/N)</code></td></tr>
+        <tr><td class="dim">Citation verification</td><td class="cf">None</td><td class="do">Mechanical post-generation pass</td></tr>
+        <tr><td class="dim">Functional-limitations focus</td><td class="cf">General narrative</td><td class="do">Encoded as drafting priority</td></tr>
+        <tr><td class="dim">Invocation</td><td class="cf">Manual: download → upload → click → copy</td><td class="do">Event-driven via Inbox→Drafts</td></tr>
+        <tr><td class="dim">Integration with brief skill</td><td class="cf">None (separate tool)</td><td class="do">Output feeds Step 5 drafting directly</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h4 style="margin-top:24px">How the brief and worksheet use it</h4>
+  <p style="font-size:14px;line-height:1.65">The brief skill's Step 5 RFC discussion reads the chronology's structured findings — functional limitations, treating-source MSS quotes, off-task evidence — and incorporates them into the RFC argument. The worksheet's medical-summary section is the chronology, formatted for the hearing-prep document. Same source, two shapes.</p>
+
+  <p style="font-size:13.5px;color:var(--gray-meta-light);font-style:italic;margin-top:14px">Chronology <strong>build</strong> is part of Module 1's Phase 1 workflow — no separate build line item. <strong>Page-processing</strong> is billed by usage on each case the chronology runs on; see §5 Usage block for the per-page rate.</p>
+</section>
+
+<!-- ============ §3 How we'll know it's done ============ -->
+<section id="acceptance" class="dark">
+  <div class="inner">
+    <span class="section-tag" style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">§3</span>
+    <h2>How we'll <span class="soft">know it's done</span></h2>
+    <p class="section-lede">The skill ships when it produces a brief on Percy Nylander that clears five binary checks — one or two per error category from §1 — plus end-to-end runs through the workflow contract. The headline:</p>
+
+    <div class="canon">
+      <div class="ct">Canonical case</div>
+      <h3>Percy Nylander</h3>
+      <p>All three categories of error from §1 surface in the brief from 4/25:</p>
+      <div class="canon-cats">
+        <div class="canon-cat">
+          <div class="cct">Citation errors</div>
+          <div class="ccb"><code>Ex. 9F</code> cited unsupported for hip pain; bare-exhibit cites to multi-page exhibits (<em>12F</em> runs 214 pages, <em>13F</em> runs 287).</div>
+        </div>
+        <div class="canon-cat">
+          <div class="cct">Factual error</div>
+          <div class="ccb">State-agency PRW finding flipped at Step 4 vs. what <code>2A/7</code> and <code>4A/7</code> actually concluded.</div>
+        </div>
+        <div class="canon-cat">
+          <div class="cct">Contextual error</div>
+          <div class="ccb"><em>"OCD"</em> categorized as Obsessive-Compulsive Disorder; the record means Osteochondritis Dissecans.</div>
+        </div>
+      </div>
+      <p style="margin-top:18px">Mr. Nylander's age profile (58 y 10 mo at AOD, 60 y 9 mo today — crosses the 60 boundary post-AOD) also triggers the bifurcated-age argument structure. The corrected version exists in Drive. <strong>Exercises more of the failure surface than any other case in your sample.</strong></p>
+    </div>
+
+    <h3 style="color:#fff">Five hard checks (all five must pass)</h3>
+    <p style="color:rgba(255,255,255,0.78);font-size:14px;margin-top:4px">Grouped by the three error categories from §1. Each check verifies that the corresponding §2 mechanism actually fires on Nylander.</p>
+
+    <div class="check-group">Citation errors</div>
+    <div class="checks">
+      <div class="check-row"><div class="num">1</div><div style="color:rgba(255,255,255,0.92)"><strong style="color:#fff">Citation pull-through.</strong> 100% of <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">(XF/N)</code> cites resolve to real pages in real exhibits; ≥95% support the proposition they're attached to.<span class="verifies">Verifies §2 Layer 3, Pass 1.</span></div></div>
+      <div class="check-row" style="border-color:rgba(255,255,255,0.14)"><div class="num">2</div><div style="color:rgba(255,255,255,0.92)"><strong style="color:#fff">Citation format.</strong> Every cite is page-pinpoint or to a single-page exhibit. No bare-exhibit cites to multi-page exhibits. No Bates / absolute-page cites.<span class="verifies">Verifies the <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">exhibit_size_map</code> plumb-in from Category D.</span></div></div>
+    </div>
+
+    <div class="check-group">Factual + legal-substance errors</div>
+    <div class="checks">
+      <div class="check-row"><div class="num">3</div><div style="color:rgba(255,255,255,0.92)"><strong style="color:#fff">DDE reconciliation.</strong> Step 1 SGA finding and Step 4 PRW finding match the verbatim DDE conclusions at <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">/1</code> and <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">/7</code> of both the initial and reconsideration DDEs; verbatim quotes appear before agree/disagree.<span class="verifies">Verifies the Category B agency-finding extractions.</span></div></div>
+      <div class="check-row" style="border-color:rgba(255,255,255,0.14)"><div class="num">4</div><div style="color:rgba(255,255,255,0.92)"><strong style="color:#fff">Pre-computed legal substance lands.</strong> Grid analysis at AOD age (with explicit age-at-AOD pattern); PRW lookback DLI-pivot stated explicitly; bifurcated argument structure when the case crosses an age boundary.<span class="verifies">Verifies Category A date/age math + Category C grid lookup feeding into the draft.</span></div></div>
+    </div>
+
+    <div class="check-group">Contextual errors</div>
+    <div class="checks">
+      <div class="check-row"><div class="num">5</div><div style="color:rgba(255,255,255,0.92)"><strong style="color:#fff">Medical-abbreviation audit.</strong> Every abbreviation in Step 2 has a verified expansion from the source record. No OCD-as-Obsessive-Compulsive-Disorder errors.<span class="verifies">Verifies the Category D <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">abbreviation_map</code>.</span></div></div>
+    </div>
+
+    <h3 style="color:#fff">Plus a stopwatch</h3>
+    <p style="color:rgba(255,255,255,0.85)">You run the updated skill on Nylander, then sit down to edit the output to filing-quality. We measure wall-clock time from "open the draft" to "ready to send to the client for review."</p>
+
+    <div class="stopwatch">
+      <table>
+        <tbody>
+          <tr class="target"><td class="label">Target</td><td>≤ 2 hours</td></tr>
+          <tr class="acc"><td class="label">Acceptable miss</td><td>2.0–2.5 hours, if your subjective assessment is <em>"still better than starting from scratch"</em></td></tr>
+          <tr class="fail"><td class="label">Hard fail</td><td>&gt; 2.5 hours, or <em>"I would have been faster writing it from scratch"</em></td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <h3 style="color:#fff">End-to-end integration check</h3>
+    <p style="color:rgba(255,255,255,0.85)">Drop the Nylander Assure PDF in <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">Inbox/</code>. Within one polling cycle: <strong style="color:#fff">Stage 1</strong> produces the case-state and chronology; <strong style="color:#fff">Stage 2</strong> drafts the brief and worksheet against that case-state; the verification report lands alongside in <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">Drafts/</code>; the source has moved to <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">Processed/</code>; an email arrived with the citation pass rate, the age-at-AOD value, and any flagged issues. <strong style="color:#fff">No manual invocation by you.</strong></p>
+
+    <h3 style="color:#fff">Failure-routing check</h3>
+    <p style="color:rgba(255,255,255,0.85)">Drop a deliberately-broken input. It moves to <code style="background:rgba(255,255,255,0.10);color:var(--purple-soft)">Failed/</code> with a sidecar explaining what went wrong; an email arrives with the same explanation. <strong style="color:#fff">The system fails visibly, not silently</strong> — because a brief that doesn't show up two days before a hearing is worse than the manual workflow.</p>
+
+    <div class="chrono-block">
+      <h4>Stage 1 chronology checks</h4>
+      <p class="lede">Because the chronology runs as Stage 1 of the integrated workflow (§2), it gets its own slice of the rubric — three checks specific to its output:</p>
+      <ul>
+        <li><strong>Citation discipline</strong> — same <code>(XF/N)</code> resolution and format checks as the brief's Layer 3 Pass 1, applied to chronology cites.</li>
+        <li><strong>Functional-limitations coverage</strong> — medical source statements, off-task evidence, lifting/sitting/standing tolerances, and treating-source MSS quotes present in the source record surface in the chronology output.</li>
+        <li><strong>Format compatibility</strong> — the chronology shape matches what your hearing worksheet's medical-summary section expects: <em>"On [date] the claimant was seen by [provider] for [reason]. [summary]. (XF/N)."</em></li>
+      </ul>
+      <div class="side-by-side"><strong>Plus a side-by-side validation:</strong> we compare the Stage 1 chronology against whatever you produce on the same case using your current workflow, on the dimensions in your hearing-prep style.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ============ §4 Build window + kickoff ============ -->
+<section id="kickoff">
+  <span class="section-tag">§4</span>
+  <h2>Build window + <span class="soft">kickoff</span></h2>
+  <p class="section-lede"><strong>2–4 weeks</strong> from your written go-ahead. Both modules and the integrated two-stage workflow from §2 ship inside this window.</p>
+
+  <div class="weeks">
+    <div class="week">
+      <div class="wt">Week 1</div>
+      <h4>Module 1's three layers</h4>
+      <p>Reconstruct your existing skill on our side from the 4/24 bundle + 4/27 changelog (no export ask from you). Stand up §2's three layers: exhibit-aware ingestion (Layer 1), the precomputed <code>case_state.json</code> covering Categories A–D (Layer 2), and the citation-verification + Special-Issues mechanization passes (Layer 3).</p>
+      <div class="checkpoint">Mid-week checkpoint with you (~30 min)</div>
+    </div>
+    <div class="week">
+      <div class="wt">Week 2</div>
+      <h4>Wiki + Stage 1 + workflow integration</h4>
+      <p>Module 2 wiki integration — frontmatter <code>load_when</code> triggers backfilled into the 26 articles, case-profile loader wired into SKILL.md, <code>wiki-ingest</code> helper built and tested. Stage 1 chronology generation built and tested against the same case-state pipeline. Workflow integration — managed-service polling configured against your cloud folder, folder contract deployed, email notifications wired.</p>
+    </div>
+    <div class="week">
+      <div class="wt">Week 3 / 4</div>
+      <h4>Acceptance test</h4>
+      <p>The §3 rubric runs against Nylander. Five hard checks programmatic — two citation, two factual + legal-substance, one contextual. Integration + failure-routing checks; the three Stage 1 chronology checks plus side-by-side validation.</p>
+      <div class="checkpoint">Review session with you (~60 min, on the clock)</div>
+    </div>
+  </div>
+
+  <h3>What we'll confirm with you at kickoff</h3>
+  <p>Two questions we deliberately punted to kickoff because the architecture is built substrate-neutrally — neither blocks the build, but both shape what we deploy. Both have a default we'll use unless you point us elsewhere. <strong>Together they take about ten minutes.</strong></p>
+
+  <div class="question">
+    <div class="qh">
+      <div class="qn">Question 1</div>
+      <h4>Where the <code style="background:rgba(255,255,255,0.15);color:#fff">Inbox / Processed / Drafts / Failed / Filed</code> folders live</h4>
+    </div>
+    <div class="qb">
+      <p>The managed service needs a cloud folder it can watch and read/write to. Two viable substrates:</p>
+      <ul>
+        <li><strong>Google Drive folder</strong> (e.g., a <code>Ginsberg-Hearings/</code> folder in your firm's Drive) — most likely given your Google Workspace stack and how staff already handles internal-process docs.</li>
+        <li><strong>OneDrive / My Case attachments folder</strong> — possible if your stack is actually Microsoft, or if My Case is where worked-up exhibits already land.</li>
+      </ul>
+      <div class="default">
+        <strong>Default if you don't pick:</strong> a dedicated Drive folder we set up at kickoff, shared with the service account and your staff. <strong>What kickoff covers:</strong> five minutes walking through one current handoff end-to-end (staff downloads from Assure → ??? → you open the file). Whatever already moves PDFs from staff to you is what <code>Inbox/</code> rides on top of.
+      </div>
+    </div>
+  </div>
+
+  <div class="question">
+    <div class="qh">
+      <div class="qn">Question 2</div>
+      <h4>Where the wiki master copy lives</h4>
+    </div>
+    <div class="qb">
+      <p>The 26 wiki articles exist in our shared Discovery Drive folder because you uploaded them there for us to see. The managed service needs a single master location it can read from. Two options:</p>
+      <ul>
+        <li><strong>A dedicated Drive folder we set up at kickoff</strong> (likely sitting next to the <code>Ginsberg-Hearings/</code> folder from Q1) — cleanest separation between live wiki and any drafts you're working on.</li>
+        <li><strong>The Drive folder you shared with us</strong> — promote it from "shared with Dodonai for Discovery" to the live working master.</li>
+      </ul>
+      <div class="default">
+        <strong>Default if you don't pick:</strong> option 1 — fresh <code>Ginsberg-Wiki/</code> Drive folder, 26 articles copied in, treated as <code>&lt;wiki-root&gt;</code> going forward. Your editing workflow stays exactly as it is today (edit articles directly in Drive's UI, or sync via Drive for Desktop and edit locally in your preferred editor).
+      </div>
+    </div>
+  </div>
+
+  <h3>What we need from you during the build</h3>
+  <div class="commit-time">
+    <table>
+      <thead><tr><th>When</th><th>What</th><th style="text-align:right">Time</th></tr></thead>
+      <tbody>
+        <tr><td class="when">Kickoff</td><td>Answer the two confirmation questions above</td><td class="duration">~10 min</td></tr>
+        <tr><td class="when">Build week 1</td><td>Validate the reconstructed baseline brief skill matches what you have locally</td><td class="duration">~30 min</td></tr>
+        <tr><td class="when">Build week 3</td><td>Sit with the updated skill's Nylander output on the clock and answer the completeness questions</td><td class="duration">~60 min</td></tr>
+        <tr class="total"><td class="when">Total</td><td>Across the full build window</td><td class="duration">~2 hrs</td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- ============ §5 Total + what's not in Phase 1 ============ -->
+<section id="pricing">
+  <span class="section-tag">§5</span>
+  <h2>Total <span class="soft">and what's not in Phase 1</span></h2>
+
+  <h3>Phase 1 pricing</h3>
+  <p style="max-width:780px">Phase 1 is a one-time build plus an ongoing managed service. The build is what stands the system up; the managed service is what keeps it running and gets better over time.</p>
+  <div class="pricing">
+    <table>
+      <thead><tr><th colspan="2" style="text-align:left;font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-bold);padding:14px 18px 6px;border:0;background:transparent;font-weight:700">One-time build</th></tr></thead>
+      <tbody>
+        <tr><td class="label"><strong>Module 1</strong> — Updated brief-writing skill + workflow integration<br><span style="display:block;margin-top:4px;font-size:12.5px;color:var(--gray-meta-light);font-style:italic">Includes the Dodonai medical chronology build (Stage 1) — page-processing billed by usage (see Usage block below).</span></td><td class="amount">$2,000</td></tr>
+        <tr><td class="label"><strong>Module 2</strong> — Hearing-prep wiki integration + ingestion helper</td><td class="amount">$1,000</td></tr>
+        <tr class="total"><td class="label"><strong>Build total</strong></td><td class="amount">$3,000</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pricing">
+    <table>
+      <thead><tr><th colspan="2" style="text-align:left;font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-bold);padding:14px 18px 6px;border:0;background:transparent;font-weight:700">Managed service · begins at go-live</th></tr></thead>
+      <tbody>
+        <tr><td class="label"><strong>Service operation</strong> — infrastructure, compute (brief + worksheet), monitoring, alerting</td><td class="amount" style="font-family:'Source Code Pro',monospace;font-size:13px;font-weight:600;color:var(--purple-bold)">included</td></tr>
+        <tr><td class="label"><strong>Retainer-band iteration</strong> — prompt tuning, wiki additions you queue up, small workflow tweaks, new article triggers</td><td class="amount" style="font-family:'Source Code Pro',monospace;font-size:13px;font-weight:600;color:var(--purple-bold)">included</td></tr>
+        <tr class="total"><td class="label"><strong>Monthly</strong></td><td class="amount">$1,000/mo</td></tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="pricing">
+    <table>
+      <thead><tr><th colspan="2" style="text-align:left;font-family:'Source Code Pro',monospace;font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--purple-bold);padding:14px 18px 6px;border:0;background:transparent;font-weight:700">Usage · billed monthly based on volume</th></tr></thead>
+      <tbody>
+        <tr><td class="label"><strong>Dodonai medical chronology</strong> — per page of medical record processed<br><span style="display:block;margin-top:4px;font-size:12.5px;color:var(--gray-meta-light);font-style:italic">Pages counted from Section F of the Assure PDF on each case the chronology runs on. Replaces your current Case Frame chronology spend. You receive an itemized usage statement each month.</span></td><td class="amount">$0.03<span style="display:block;font-size:11px;font-family:'Source Code Pro',monospace;font-weight:600;color:var(--purple-bold);text-transform:uppercase;letter-spacing:0.06em;margin-top:4px">per page</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h3>What the managed service covers</h3>
+  <ul style="padding-left:22px;margin:8px 0 24px;max-width:880px">
+    <li style="margin:10px 0;font-size:14.5px;line-height:1.65"><strong>The service runs in Dodonai's cloud, not on your machine.</strong> No Claude subscription required on your side, no machine that has to stay on, no software to install or update. Your firm's surface area is the cloud folder, your email, and the wiki master in Drive.</li>
+    <li style="margin:10px 0;font-size:14.5px;line-height:1.65"><strong>Infrastructure, brief + worksheet compute, monitoring, and alerting are bundled in the flat $1,000/mo</strong> — no per-token pass-through on those, no separate cloud bill. The one variable line is chronology page-processing (above), which is billed per page so you only pay for the medical records the service actually parses. You get a predictable monthly fee plus an itemized usage statement.</li>
+    <li style="margin:10px 0;font-size:14.5px;line-height:1.65"><strong>Retainer-band iteration is part of the service</strong>, not separate billable work. Examples that fit inside the retainer: adding a new wiki article trigger when you publish a new article, tuning a prompt because a class of brief drafts slightly off, adjusting the case-profile loader when you hit a profile we hadn't anticipated, expanding the abbreviation map.</li>
+    <li style="margin:10px 0;font-size:14.5px;line-height:1.65"><strong>What's out of scope for the retainer</strong> — new skills (a separate intake automation, a mail-processing agent), new integrations (a fresh tool we haven't touched), or a meaningful change in volume (a second attorney's caseload added to the workflow). Those are scoped separately when and if you want them.</li>
+  </ul>
+
+  <h3>Out of scope for Phase 1</h3>
+  <div class="oos">
+    <h4>Carried forward from the Discovery SOW · reinforced by your <em>"I don't want to get mission creep"</em> concern</h4>
+    <ul>
+      <li><strong>Auto-filing or auto-sending of briefs.</strong> Every brief stays human-reviewed before it leaves your office. Non-negotiable.</li>
+      <li><strong>Staff-job automation</strong> — intake, mail processing, medical-records retrieval. Real opportunities; Phase 2 candidates after Phase 1 is stable on real cases.</li>
+      <li><strong>Marketing / YouTube ideation tooling.</strong> The whole point of Phase 1 is to free up time for video production; we ship that first, then talk about content tooling.</li>
+      <li><strong>Public-facing wiki / avatar monetization.</strong> Deferred indefinitely; revisit only if you decide you want to pursue it.</li>
+      <li><strong>Hearing-audio-to-decision learning loop.</strong> Your Session 1 idea — interesting Phase 2 candidate; needs Phase 1 in production first.</li>
+      <li><strong>Style-learning loop from your post-edit tweaks.</strong> Same shape — Phase 2 candidate after Phase 1 is in your hands.</li>
+    </ul>
+  </div>
+
+  <h3>What Phase 2 looks like if you want it</h3>
+  <p style="max-width:880px">Phase 1's monthly managed service already covers iteration on what we shipped — prompt tuning, wiki additions, small workflow tweaks. Phase 2 is when you want something <em>new</em> built — a separate intake automation, a mail-processing agent, the hearing-audio learning loop, the style-learning loop. We'd scope those individually as they come up, once Phase 1 is in your hands and you've used it on real cases.</p>
+</section>
+
+<footer>
+  <div class="wm">dodon<span class="glyph">·</span>ai consulting</div>
+  <p>Phase 1 Implementation Blueprint v0.2 — Ginsberg Law Offices · 2026-05-09</p>
+</footer>
+
+</body>
+</html>

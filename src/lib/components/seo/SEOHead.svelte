@@ -27,7 +27,9 @@
 			: `${BASE_URL}/`
 	);
 	const fullImage = $derived(image.startsWith('http') ? image : `${BASE_URL}${image}`);
-	const fullTitle = $derived(title ? `${title} | Dodonai` : 'Dodonai');
+	const fullTitle = $derived(
+		title ? (/\|\s*Dodonai\s*$/.test(title) ? title : `${title} | Dodonai`) : 'Dodonai'
+	);
 </script>
 
 <svelte:head>

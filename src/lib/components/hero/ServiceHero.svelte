@@ -4,10 +4,11 @@
 		subheadline,
 		bullets = [],
 		ctaText = 'Start Free Trial',
-		ctaUrl = 'https://app.dodon.ai/signup',
+		ctaUrl = 'https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=service_hero',
 		secondaryCtaText = '',
 		secondaryCtaUrl = '',
 		badges = [],
+		guarantee = '',
 		background = 'bg-[#f4f5fd]',
 		children
 	} = $props();
@@ -46,7 +47,12 @@
 						<ul class="mt-8 space-y-3">
 							{#each bullets as bullet}
 								<li class="flex items-start gap-3 text-[#282876]">
-									<img src="/images/brand/checkmark.svg" alt="" class="mt-0.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+									<img
+										src="/images/brand/checkmark.svg"
+										alt=""
+										class="mt-0.5 h-5 w-5 flex-shrink-0"
+										aria-hidden="true"
+									/>
 									<span class="text-sm font-medium sm:text-base">{bullet}</span>
 								</li>
 							{/each}
@@ -68,18 +74,36 @@
 						{/if}
 					</div>
 
+					{#if guarantee}
+						<p class="mt-4 text-sm text-[#8181ac] max-lg:text-center">
+							{guarantee}
+						</p>
+					{/if}
+
 					{#if badges.length > 0}
 						<div class="mt-10 flex flex-wrap items-center gap-4 max-lg:justify-center sm:gap-5">
 							{#each badges as badge}
 								{#if isCertBadge(badge)}
-									<div class="flex items-center gap-3 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-5 py-2.5">
+									<div
+										class="flex items-center gap-3 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-5 py-2.5"
+									>
 										<img src={badgeIcon(badge)} alt="" class="h-7 w-7" aria-hidden="true" />
 										<span class="text-sm font-semibold tracking-wide text-[#282876]">{badge}</span>
 									</div>
 								{:else}
-									<div class="flex items-center gap-2 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-4 py-2">
-										<span class="flex h-5 w-5 items-center justify-center rounded-full" style="background-color: #49a84729;">
-											<img src="/images/brand/checkmark.svg" alt="" class="h-3 w-3" aria-hidden="true" />
+									<div
+										class="flex items-center gap-2 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-4 py-2"
+									>
+										<span
+											class="flex h-5 w-5 items-center justify-center rounded-full"
+											style="background-color: #49a84729;"
+										>
+											<img
+												src="/images/brand/checkmark.svg"
+												alt=""
+												class="h-3 w-3"
+												aria-hidden="true"
+											/>
 										</span>
 										<span class="text-sm font-medium text-[#282876]">{badge}</span>
 									</div>
@@ -109,7 +133,12 @@
 					<ul class="mt-8 space-y-3">
 						{#each bullets as bullet}
 							<li class="flex items-start gap-3 text-[#282876]">
-								<img src="/images/brand/checkmark.svg" alt="" class="mt-0.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+								<img
+									src="/images/brand/checkmark.svg"
+									alt=""
+									class="mt-0.5 h-5 w-5 flex-shrink-0"
+									aria-hidden="true"
+								/>
 								<span class="text-sm font-medium sm:text-base">{bullet}</span>
 							</li>
 						{/each}
@@ -131,18 +160,36 @@
 					{/if}
 				</div>
 
+				{#if guarantee}
+					<p class="mt-4 text-sm text-[#8181ac] max-lg:text-center">
+						{guarantee}
+					</p>
+				{/if}
+
 				{#if badges.length > 0}
 					<div class="mt-10 flex flex-wrap items-center gap-4 max-lg:justify-center sm:gap-5">
 						{#each badges as badge}
 							{#if isCertBadge(badge)}
-								<div class="flex items-center gap-3 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-5 py-2.5">
+								<div
+									class="flex items-center gap-3 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-5 py-2.5"
+								>
 									<img src={badgeIcon(badge)} alt="" class="h-7 w-7" aria-hidden="true" />
 									<span class="text-sm font-semibold tracking-wide text-[#282876]">{badge}</span>
 								</div>
 							{:else}
-								<div class="flex items-center gap-2 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-4 py-2">
-									<span class="flex h-5 w-5 items-center justify-center rounded-full" style="background-color: #49a84729;">
-										<img src="/images/brand/checkmark.svg" alt="" class="h-3 w-3" aria-hidden="true" />
+								<div
+									class="flex items-center gap-2 rounded-full border border-[#282876]/10 bg-[#f4f5fd] px-4 py-2"
+								>
+									<span
+										class="flex h-5 w-5 items-center justify-center rounded-full"
+										style="background-color: #49a84729;"
+									>
+										<img
+											src="/images/brand/checkmark.svg"
+											alt=""
+											class="h-3 w-3"
+											aria-hidden="true"
+										/>
 									</span>
 									<span class="text-sm font-medium text-[#282876]">{badge}</span>
 								</div>

@@ -1,0 +1,96 @@
+{
+	"seo": {
+		"title": "AI Managed Services Packages & Pricing for Law Firms | Dodonai",
+		"description": "Six fixed-scope AI packages for law firms: Discovery Audit, Firm Wiki, Modern Software Stack, Marketing Suite, Discovery Operations, Managing Partner Dashboard. Discovery starts at a flat fee.",
+		"canonical": "/ai-managed-services/packages/"
+	},
+	"hero": {
+		"headline": "Packages you can actually buy",
+		"subheadline": "Most engagements blend two or three of these. Each one is fixed scope with a defined exit point, so you always know what you're getting and when it's done.",
+		"ctaText": "Book a working call",
+		"ctaUrl": "https://calendly.com/nick-dodonai",
+		"secondaryCtaText": "See how engagements run",
+		"secondaryCtaUrl": "/ai-managed-services/how-it-works/",
+		"guarantee": "The Discovery Audit is satisfaction-guaranteed. If the plan doesn't give you a clear path forward, you're under no obligation to continue."
+	},
+	"intro": {
+		"heading": "Six packaged deliverables",
+		"paragraphs": [
+			"We build the agents that handle the repeatable work inside a firm: letters, briefs, intake, billing descriptions, discovery review, classification, scheduling, dashboards. Every draft starts by retrieving the closest past responses your firm wrote on similar matters, and the output lands in your own document storage as a draft for human review.",
+			"You don't have to buy the whole architecture on day one. Most firms start with the Discovery Audit, build a foundation, then add workflows from the menu as they see the pattern working."
+		]
+	},
+	"packages": [
+		{
+			"name": "AI Discovery Audit",
+			"tag": "Front door",
+			"whatYouGet": "A workflow audit that maps your current work to specific AI agents and sequences them by ROI, plus a software-stack audit that inventories every SaaS line item with a Build / Integrate / Keep recommendation. You leave with a written implementation plan and fixed-fee pricing for the build-out.",
+			"duration": "1–2 weeks"
+		},
+		{
+			"name": "Firm Wiki / LLM Brain",
+			"whatYouGet": "Your institutional knowledge — SOPs, templates, voice, condition libraries, theory-of-case patterns — turned into a queryable AI brain and the substrate every future drafting agent reads from. The end of tribal knowledge stuck in folders.",
+			"duration": "2–4 weeks"
+		},
+		{
+			"name": "Modern AI Software Stack",
+			"whatYouGet": "Replace narrow-use SaaS with custom internal apps on the Dodonai substrate, and bridge in the tools you keep — including systems with no open API, via email-routing and scraping fallbacks. One integrated firm operating system instead of a dozen disconnected logins.",
+			"duration": "6–16 weeks"
+		},
+		{
+			"name": "Marketing Suite",
+			"whatYouGet": "Blog Publisher, Social Repurposer, SEO Topic Scout, Newsletter Drafter, Website Reclamation, and an AI Editor. Typically displaces an outside content-vendor retainer and brings the work in-house.",
+			"duration": "3–4 weeks"
+		},
+		{
+			"name": "Discovery Operations Pack",
+			"whatYouGet": "Substantive issue surfacing, financial-forensics scanning, text-message and email-thread parsing, production-set inventory with cite-back to source page, deficiency-letter drafting, and a deadline parser that writes events to your calendar. Works across practice areas.",
+			"duration": "4–6 weeks"
+		},
+		{
+			"name": "Managing Partner Dashboard",
+			"whatYouGet": "One screen: practice-area revenue, attorney utilization, matter aging, lead-source ROI, pipeline forecast, per-case status chat (\"what's the status on Smith?\"), and an auto-compiled Monday-morning brief.",
+			"duration": "3–4 weeks"
+		}
+	],
+	"alaCarte": {
+		"heading": "Or assemble agents à la carte",
+		"paragraphs": [
+			"Beyond the packages, we ship from a catalog of 30+ production agents across drafting (appeal letters, demand letters, complaints, joint status reports, mediation statements, hearing briefs, estate-document proofreading), classification (carrier-letter intake, deadline parsing, definition-change triggers), firm-brain Q&A, calendaring, accounting close-loop, and intake automation — plus 15+ pattern-library workflows we build on demand in 1 to 4 weeks.",
+			"Not sure where to start? That's exactly what the Discovery Audit is for. {{link:/ai-managed-services/agents/|Browse the full agent catalog}} to see what's possible."
+		]
+	},
+	"pricing": {
+		"heading": "What it costs",
+		"paragraphs": [
+			"Pricing starts at the front door. The AI Discovery Audit is a flat fee, typically $1,500 to $5,000 depending on the size of your firm and the scope of the diagnostic. It's satisfaction-guaranteed: if the plan doesn't leave you with a clear, actionable roadmap, you're under no obligation to continue.",
+			"Build and managed costs scale with the number of automations you turn on. A single workflow is a small fixed fee; a foundation plus a multi-agent department build is a larger one. Rather than quote a number in the dark, we price every build as a fixed fee off your Blueprint — so you approve the exact figure before any work starts, and you only buy the next module when the last one has proven itself."
+		],
+		"note": "No long-term contracts. Builds are paid 50% at kickoff and 50% at go-live. The optional managed retainer is month-to-month, cancel on 30 days' notice."
+	},
+	"deRisk": {
+		"heading": "How we de-risk this for you",
+		"cards": [
+			{
+				"icon": "scales",
+				"title": "You own what we build",
+				"description": "On payment, the workflows, prompts, agents, and integrations we build for you are yours. The skills live in infrastructure your firm controls."
+			},
+			{
+				"icon": "check",
+				"title": "You can walk away with it",
+				"description": "If we ever part ways, you get a complete, source-form copy of everything we built, plus the documentation to run or hand it to anyone else. No lock-in."
+			},
+			{
+				"icon": "shield",
+				"title": "We never train on your data",
+				"description": "Your data and work product are never used to train, tune, or improve anything for any other client — not even in aggregated or anonymized form."
+			},
+			{
+				"icon": "sparkles",
+				"title": "No long-term contract",
+				"description": "Each phase is a discrete commitment with a satisfaction guarantee on Discovery and the first build wave. The managed retainer is month-to-month."
+			}
+		]
+	}
+}

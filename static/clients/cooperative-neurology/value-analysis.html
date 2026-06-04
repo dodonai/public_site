@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<meta name="robots" content="noindex,nofollow">
+<title>Dodonai Value Analysis — Cooperative Neurology PLLC</title>
+<style>
+  :root {
+    --midnight: #282876;
+    --royal: #216fed;
+    --slate: #836ae4;
+    --ghost: #f4f5fd;
+    --ink: #1a1a2e;
+    --muted: #6b7280;
+    --border: #e5e7eb;
+    --accent: #16a34a;
+    --warn: #b45309;
+  }
+  * { box-sizing: border-box; }
+  body {
+    margin: 0;
+    font-family: 'Plus Jakarta Display', system-ui, -apple-system, Segoe UI, Roboto, sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    color: var(--ink);
+    background: var(--ghost);
+  }
+  .page { max-width: 820px; margin: 0 auto; padding: 48px 32px 96px; }
+  header { padding-bottom: 32px; border-bottom: 1px solid var(--border); margin-bottom: 32px; }
+  .brand { color: var(--royal); font-weight: 700; font-size: 14px; letter-spacing: 0.08em; text-transform: uppercase; }
+  h1 { color: var(--midnight); font-size: 34px; line-height: 1.2; margin: 8px 0 4px; }
+  .subtitle { color: var(--muted); font-size: 16px; margin: 0; }
+  h2 { color: var(--midnight); font-size: 24px; margin: 48px 0 16px; }
+  h3 { color: var(--midnight); font-size: 18px; margin: 24px 0 8px; }
+  p { margin: 0 0 12px; }
+  .lede { font-size: 17px; color: var(--ink); }
+  .lede strong { color: var(--midnight); }
+  .card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 28px 32px; margin: 16px 0; box-shadow: 11px 11px 30px #dcddf340; }
+  .card-title { display: flex; align-items: baseline; justify-content: space-between; gap: 12px; margin-bottom: 16px; flex-wrap: wrap; }
+  .card-title h3 { margin: 0; }
+  .pill { display: inline-block; background: var(--ghost); color: var(--slate); font-size: 12px; font-weight: 600; padding: 3px 10px; border-radius: 999px; text-transform: uppercase; letter-spacing: 0.04em; }
+  .pill-royal { background: #e7f0ff; color: var(--royal); }
+  .pill-green { background: #dcfce7; color: var(--accent); }
+  .pill-warn { background: #fef3c7; color: var(--warn); }
+  table { width: 100%; border-collapse: collapse; margin: 12px 0 0; font-size: 15px; }
+  th, td { padding: 12px 10px; text-align: left; border-top: 1px solid var(--border); vertical-align: top; }
+  th { font-weight: 600; color: var(--midnight); border-top: none; border-bottom: 2px solid var(--border); font-size: 13px; text-transform: uppercase; letter-spacing: 0.04em; }
+  td.num { font-variant-numeric: tabular-nums; }
+  td.bold { font-weight: 600; color: var(--midnight); }
+  tr.recommend td { background: #f0f7ff; }
+  tr.recommend td:first-child { border-left: 3px solid var(--royal); }
+  .tier-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 16px; margin-top: 16px; }
+  .tier { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 24px; box-shadow: 11px 11px 30px #dcddf340; position: relative; }
+  .tier.recommended { border: 2px solid var(--royal); }
+  .tier .ribbon { position: absolute; top: -12px; right: 16px; background: var(--royal); color: #fff; font-size: 11px; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; padding: 4px 10px; border-radius: 999px; }
+  .tier-name { font-size: 13px; font-weight: 700; color: var(--slate); text-transform: uppercase; letter-spacing: 0.06em; }
+  .tier-price { font-size: 32px; font-weight: 700; color: var(--midnight); margin: 8px 0 4px; }
+  .tier-price-sub { font-size: 13px; color: var(--muted); margin-bottom: 16px; }
+  .tier-detail { font-size: 14px; color: var(--ink); padding: 8px 0; border-top: 1px solid var(--border); display: flex; justify-content: space-between; }
+  .tier-detail .label { color: var(--muted); }
+  .tier-detail .val { font-weight: 600; color: var(--midnight); font-variant-numeric: tabular-nums; }
+  .callout { background: #fff; border: 1px solid var(--border); border-left: 4px solid var(--royal); border-radius: 8px; padding: 18px 22px; margin: 20px 0; font-size: 15px; color: var(--ink); }
+  .callout strong { color: var(--midnight); }
+  .callout.green { border-left-color: var(--accent); }
+  .callout.warn { border-left-color: var(--warn); }
+  .twocol { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 16px 0; }
+  .path-card { background: #fff; border: 1px solid var(--border); border-radius: 14px; padding: 24px 28px; box-shadow: 11px 11px 30px #dcddf340; }
+  .path-card h4 { margin: 0 0 4px; color: var(--midnight); font-size: 18px; }
+  .path-card .subtle { color: var(--muted); font-size: 14px; margin-bottom: 12px; }
+  ul.checks { list-style: none; padding: 0; margin: 12px 0 0; }
+  ul.checks li { padding: 6px 0 6px 28px; position: relative; font-size: 15px; }
+  ul.checks li::before { content: "✓"; position: absolute; left: 0; top: 6px; color: var(--accent); font-weight: 700; }
+  .stat { background: var(--ghost); border-radius: 10px; padding: 16px 20px; margin: 12px 0; display: grid; grid-template-columns: auto 1fr; gap: 16px; align-items: center; }
+  .stat-num { font-size: 32px; font-weight: 700; color: var(--midnight); font-variant-numeric: tabular-nums; line-height: 1; }
+  .stat-label { font-size: 14px; color: var(--ink); }
+  footer { margin-top: 64px; padding-top: 24px; border-top: 1px solid var(--border); color: var(--muted); font-size: 13px; }
+  footer a { color: var(--royal); text-decoration: none; }
+  @media (max-width: 720px) {
+    .page { padding: 32px 20px 64px; }
+    .tier-grid { grid-template-columns: 1fr; }
+    .twocol { grid-template-columns: 1fr; }
+    table { font-size: 14px; }
+    th, td { padding: 8px 6px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+  <header>
+    <div class="brand">Dodonai · Custom Enterprise Pricing</div>
+    <h1>Value Analysis for Cooperative Neurology, PLLC</h1>
+    <p class="subtitle">Dr. Gillian N. Jones · VA Nexus Case Review · Prepared May 21, 2026</p>
+  </header>
+
+  <p class="lede">
+    Three pricing tiers, all annual, all custom-built for your VA Nexus workflow. The templates are already configured and live in your account.
+    Below is the math: how the subscription pencils out against your $475 net per report and the 40-80 hours per month you'd reclaim.
+  </p>
+
+  <div class="callout green">
+    <strong>The headline.</strong> At your stated volume (~20 cases/month × 5-7K pages each), Dodonai saves you
+    <strong>40-80 hours every month</strong> of records review — 1 to 2 working weeks of your life. Breakeven on the recommended tier
+    is <strong>4 additional cases per month</strong>. Anything beyond breakeven is pure margin.
+  </div>
+
+  <h2>The three tiers</h2>
+
+  <div class="tier-grid">
+    <div class="tier">
+      <div class="tier-name">Tier 1 — Steady</div>
+      <div class="tier-price">$1,400<span style="font-size:16px;color:var(--muted);font-weight:400;">/mo</span></div>
+      <div class="tier-price-sub">$16,800/year · 80,000 pages/mo</div>
+      <div class="tier-detail"><span class="label">Cases/month (5K avg)</span><span class="val">~16</span></div>
+      <div class="tier-detail"><span class="label">Per-page rate</span><span class="val">$0.0175</span></div>
+      <div class="tier-detail"><span class="label">Cost per 5K-page case</span><span class="val">$87.50</span></div>
+      <div class="tier-detail"><span class="label">Hours saved/month</span><span class="val">32-64 hrs</span></div>
+      <div class="tier-detail"><span class="label">Breakeven cases/month</span><span class="val">3.6</span></div>
+    </div>
+
+    <div class="tier recommended">
+      <div class="ribbon">Recommended</div>
+      <div class="tier-name">Tier 2 — Standard</div>
+      <div class="tier-price">$1,600<span style="font-size:16px;color:var(--muted);font-weight:400;">/mo</span></div>
+      <div class="tier-price-sub">$19,200/year · 100,000 pages/mo</div>
+      <div class="tier-detail"><span class="label">Cases/month (5K avg)</span><span class="val">~20</span></div>
+      <div class="tier-detail"><span class="label">Per-page rate</span><span class="val">$0.016</span></div>
+      <div class="tier-detail"><span class="label">Cost per 5K-page case</span><span class="val">$80</span></div>
+      <div class="tier-detail"><span class="label">Hours saved/month</span><span class="val">40-80 hrs</span></div>
+      <div class="tier-detail"><span class="label">Breakeven cases/month</span><span class="val">4.0</span></div>
+    </div>
+
+    <div class="tier">
+      <div class="tier-name">Tier 3 — Heavy</div>
+      <div class="tier-price">$1,800<span style="font-size:16px;color:var(--muted);font-weight:400;">/mo</span></div>
+      <div class="tier-price-sub">$21,600/year · 120,000 pages/mo</div>
+      <div class="tier-detail"><span class="label">Cases/month (5K avg)</span><span class="val">~24</span></div>
+      <div class="tier-detail"><span class="label">Per-page rate</span><span class="val">$0.015</span></div>
+      <div class="tier-detail"><span class="label">Cost per 5K-page case</span><span class="val">$75</span></div>
+      <div class="tier-detail"><span class="label">Hours saved/month</span><span class="val">48-96 hrs</span></div>
+      <div class="tier-detail"><span class="label">Breakeven cases/month</span><span class="val">4.5</span></div>
+    </div>
+  </div>
+
+  <p style="margin-top:20px; color: var(--muted); font-size: 14px;">
+    Pages above your tier's monthly band run at $0.025/page (our Pro Annual rate). Resets monthly. The per-page rate drops as the
+    tier increases — that's the discount for committing to a higher volume band.
+  </p>
+
+  <h2>Your per-case economics</h2>
+
+  <div class="card">
+    <div class="card-title">
+      <h3>What you keep from each report at the recommended tier</h3>
+      <span class="pill pill-royal">Tier 2 · 5K-page case</span>
+    </div>
+    <table>
+      <thead>
+        <tr><th>Line item</th><th style="text-align:right;">Amount</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Your net revenue per report</td><td class="num" style="text-align:right;">$475.00</td></tr>
+        <tr><td>Dodonai cost per case (5,000 pages × $0.016)</td><td class="num" style="text-align:right;">−$80.00</td></tr>
+        <tr style="border-top: 2px solid var(--border);"><td class="bold">What you keep per case</td><td class="num bold" style="text-align:right; color: var(--accent);">$395.00</td></tr>
+        <tr><td>Records-review hours saved per case</td><td class="num" style="text-align:right;">2-4 hrs</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <h2>Breakeven analysis</h2>
+
+  <p>
+    The subscription cost is what you'd recover by taking on a few additional cases — or by reclaiming the equivalent time and not adding cases at all.
+    Both paths work. Here's the math.
+  </p>
+
+  <div class="card">
+    <div class="card-title">
+      <h3>How many additional cases per month to fully cover the subscription</h3>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Tier</th>
+          <th style="text-align:right;">Subscription</th>
+          <th style="text-align:right;">Per-case cost</th>
+          <th style="text-align:right;">Net per case</th>
+          <th style="text-align:right;">Breakeven cases</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Tier 1 — Steady</strong></td>
+          <td class="num" style="text-align:right;">$1,400/mo</td>
+          <td class="num" style="text-align:right;">$87.50</td>
+          <td class="num" style="text-align:right;">$387.50</td>
+          <td class="num bold" style="text-align:right;">3.6 cases</td>
+        </tr>
+        <tr class="recommend">
+          <td><strong>Tier 2 — Standard ⭐</strong></td>
+          <td class="num bold" style="text-align:right;">$1,600/mo</td>
+          <td class="num" style="text-align:right;">$80.00</td>
+          <td class="num bold" style="text-align:right;">$395.00</td>
+          <td class="num bold" style="text-align:right;">4.0 cases</td>
+        </tr>
+        <tr>
+          <td><strong>Tier 3 — Heavy</strong></td>
+          <td class="num" style="text-align:right;">$1,800/mo</td>
+          <td class="num" style="text-align:right;">$75.00</td>
+          <td class="num" style="text-align:right;">$400.00</td>
+          <td class="num bold" style="text-align:right;">4.5 cases</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="stat">
+    <div class="stat-num">4</div>
+    <div class="stat-label">additional cases per month at the recommended tier and you're net-zero on the subscription. Cases 5+ are pure margin.</div>
+  </div>
+
+  <h2>Can you actually fit 4 more cases?</h2>
+
+  <p>
+    The hours you reclaim is the constraint. Your per-case time isn't just records review — it's review plus report writing plus admin. Across a
+    realistic range of case complexity, here's how many cases the reclaimed time can absorb:
+  </p>
+
+  <div class="card">
+    <div class="card-title">
+      <h3>Cases you can take on with reclaimed time</h3>
+      <span class="pill">Sensitivity analysis</span>
+    </div>
+    <table>
+      <thead>
+        <tr>
+          <th>Your total hours per case</th>
+          <th style="text-align:right;">Hours saved by Dodonai</th>
+          <th style="text-align:right;">New hours per case</th>
+          <th style="text-align:right;">Cases fitting in 40 hrs</th>
+          <th style="text-align:right;">Cases fitting in 80 hrs</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>10 hrs / case (light)</td>
+          <td class="num" style="text-align:right;">3 hrs</td>
+          <td class="num" style="text-align:right;">7 hrs</td>
+          <td class="num bold" style="text-align:right;">5.7</td>
+          <td class="num bold" style="text-align:right;">11.4</td>
+        </tr>
+        <tr class="recommend">
+          <td>12 hrs / case (typical)</td>
+          <td class="num" style="text-align:right;">3 hrs</td>
+          <td class="num" style="text-align:right;">9 hrs</td>
+          <td class="num bold" style="text-align:right;">4.4</td>
+          <td class="num bold" style="text-align:right;">8.9</td>
+        </tr>
+        <tr>
+          <td>14 hrs / case (complex)</td>
+          <td class="num" style="text-align:right;">3 hrs</td>
+          <td class="num" style="text-align:right;">11 hrs</td>
+          <td class="num bold" style="text-align:right;">3.6</td>
+          <td class="num bold" style="text-align:right;">7.3</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 16px; color: var(--muted); font-size: 14px;">
+      Across the realistic range, you have capacity for <strong>4-9 additional cases per month</strong> — comfortably above the
+      breakeven point of 3.6-4.5 cases on any tier. Even in the most conservative case (14 hrs/case, only 40 hrs reclaimed), you still clear the recommended tier's breakeven.
+    </p>
+  </div>
+
+  <h2>Two ways to use the reclaimed time</h2>
+
+  <p>Both paths work. Pick what matters to you right now.</p>
+
+  <div class="twocol">
+    <div class="path-card">
+      <span class="pill">Path A</span>
+      <h4>Reclaim your time</h4>
+      <p class="subtle">Keep the same caseload. Get the hours back.</p>
+      <table>
+        <tbody>
+          <tr><td>Cases per month</td><td class="num bold" style="text-align:right;">20 (unchanged)</td></tr>
+          <tr><td>Gross revenue</td><td class="num" style="text-align:right;">$9,500</td></tr>
+          <tr><td>Dodonai cost</td><td class="num" style="text-align:right;">−$1,600</td></tr>
+          <tr><td class="bold">Net income</td><td class="num bold" style="text-align:right;">$7,900</td></tr>
+          <tr><td>Hours of your life back</td><td class="num bold" style="text-align:right; color: var(--accent);">40-80 hrs/mo</td></tr>
+        </tbody>
+      </table>
+      <div class="callout" style="margin-top: 16px; padding: 12px 16px; font-size: 14px;">
+        Effective cost: <strong>$20-40/hour to buy back your own time</strong> — about half what you'd pay a paralegal.
+        Sheep farm, family, weekends. Your call.
+      </div>
+    </div>
+
+    <div class="path-card">
+      <span class="pill pill-green">Path B</span>
+      <h4>Grow the practice</h4>
+      <p class="subtle">Same hours worked. More cases delivered.</p>
+      <table>
+        <tbody>
+          <tr><td>Cases per month</td><td class="num bold" style="text-align:right;">24 (+4)</td></tr>
+          <tr><td>Gross revenue</td><td class="num" style="text-align:right;">$11,400</td></tr>
+          <tr><td>Dodonai cost</td><td class="num" style="text-align:right;">−$1,600</td></tr>
+          <tr><td class="bold">Net income</td><td class="num bold" style="text-align:right;">$9,800</td></tr>
+          <tr><td>Net income gain</td><td class="num bold" style="text-align:right; color: var(--accent);">+$300/mo · +$3,600/yr</td></tr>
+          <tr><td>Hours still recovered</td><td class="num" style="text-align:right;">24-64 hrs/mo</td></tr>
+        </tbody>
+      </table>
+      <div class="callout green" style="margin-top: 16px; padding: 12px 16px; font-size: 14px;">
+        Breakeven on 4 added cases AND still get 24-64 hrs/mo back. Best of both worlds.
+      </div>
+    </div>
+  </div>
+
+  <div class="card" style="background: linear-gradient(135deg, #f0f7ff 0%, #faf5ff 100%); border: 1px solid var(--royal);">
+    <div class="card-title">
+      <h3>If you go all-in on growth (Tier 3)</h3>
+      <span class="pill pill-royal">Upside ceiling</span>
+    </div>
+    <table>
+      <tbody>
+        <tr><td>Cases per month</td><td class="num bold" style="text-align:right;">28 (+8)</td></tr>
+        <tr><td>Gross revenue</td><td class="num" style="text-align:right;">$13,300</td></tr>
+        <tr><td>Dodonai cost (Tier 3)</td><td class="num" style="text-align:right;">−$1,800</td></tr>
+        <tr><td class="bold">Net income</td><td class="num bold" style="text-align:right;">$11,500</td></tr>
+        <tr><td class="bold" style="color: var(--accent);">Net income gain vs today</td><td class="num bold" style="text-align:right; color: var(--accent); font-size: 18px;">+$2,000/mo · +$24,000/year</td></tr>
+      </tbody>
+    </table>
+    <p style="margin-top: 12px; color: var(--ink); font-size: 14px;">
+      Worth noting: this is the upside ceiling, not the recommendation. Tier 2 is the right starting tier given your stated baseline.
+      Tier 3 is the option to upgrade into once you've validated the workflow and grown demand to match.
+    </p>
+  </div>
+
+  <h2>What's included on every tier</h2>
+
+  <div class="card">
+    <ul class="checks">
+      <li><strong>Your custom VA Nexus templates</strong> — already built and live in your account. Six chronology templates routed to the right document types, the combined DD214 + VA Codesheet structured extraction template, and the per-condition executive summary.</li>
+      <li><strong>Unlimited matters and cases</strong> within your monthly page allowance.</li>
+      <li><strong>Every Dodonai feature</strong> — medical chronology, executive summaries, structured data extraction, OCR including handwritten military records, document detection, deduplication, source-linked citations.</li>
+      <li><strong>HIPAA BAA + SOC 2 + zero retention for AI training.</strong></li>
+      <li><strong>Email and Slack support</strong> with 1-business-day response.</li>
+      <li><strong>Quarterly template refinement</strong> check-in with our team — your templates evolve with your practice.</li>
+    </ul>
+  </div>
+
+  <h2>Competitive context</h2>
+
+  <div class="callout">
+    At <strong>$0.10/page</strong> (InPractice, your alternative on Friday), your volume comes out to
+    <strong>$8,000-14,000 per month</strong>. Dodonai's heaviest tier is <strong>5-8× cheaper</strong> for the same medical chronology + extraction workflow.
+  </div>
+
+  <footer>
+    <p>
+      Cooperative Neurology, PLLC — Dr. Gillian N. Jones, Neurologist<br>
+      Prepared by Nick Chapleau, Dodonai · nick@dodon.ai · <a href="https://dodon.ai">dodon.ai</a><br>
+      All figures based on Dr. Jones's stated economics on the 2026-05-19 call: ~20 cases/month, $475 net per report, 2-4 hrs saved per case.
+    </p>
+  </footer>
+</div>
+</body>
+</html>

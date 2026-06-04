@@ -1,4 +1,5 @@
 <script>
+	import { linkify } from '$lib/utils/linkify.js';
 	let { steps = [], background = 'bg-[#f4f5fd]' } = $props();
 </script>
 
@@ -27,7 +28,7 @@
 					</div>
 
 					<h3 class="mt-6 text-lg font-bold text-[#282876]">{step.title}</h3>
-					<p class="mt-3 text-sm leading-relaxed text-[#8181ac]">{step.description}</p>
+					<p class="mt-3 text-sm leading-relaxed text-[#8181ac]">{@html linkify(step.description)}</p>
 				</div>
 			{/each}
 		</div>
