@@ -5,7 +5,7 @@
 	import BlobBackground from '$lib/components/layout/BlobBackground.svelte';
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
-	import AgentCard from '$lib/components/ai-services/AgentCard.svelte';
+	import AgentCard from '$lib/components/ai-managed-services/AgentCard.svelte';
 	import {
 		aiServicesPracticeAreas,
 		aiServicesFunctions
@@ -36,13 +36,13 @@
 
 	const title = 'AI Agents for Law Firms: Browse the Catalog | Dodonai';
 	const description =
-		'Browse every AI agent we build for law firms. Filter by practice area or function. Intake, deadlines, client comms, operations, casework, and drafting.';
-	const canonical = '/ai-services/agents/';
+		'Browse the AI agents we build for law firms and pick the ones your firm needs. Filter by practice area or function. Intake, deadlines, client comms, operations, casework, and drafting.';
+	const canonical = '/ai-managed-services/agents/';
 
 	const breadcrumbs = [
 		{ name: 'Home', href: '/' },
-		{ name: 'AI Services', href: '/ai-services/' },
-		{ name: 'Browse All Agents' }
+		{ name: 'AI Managed Services', href: '/ai-managed-services/' },
+		{ name: 'Agent Catalog' }
 	];
 
 	const jsonLd = $derived([
@@ -71,7 +71,7 @@
 				'@type': 'ListItem',
 				position: i + 1,
 				name: a.title,
-				url: `https://www.dodon.ai/ai-services/agents/${a.slug}/`
+				url: `https://www.dodon.ai/ai-managed-services/agents/${a.slug}/`
 			}))
 		}
 	]);
@@ -92,13 +92,12 @@
 	</section>
 
 	<ServiceHero
-		headline="Every agent we build for law firms"
-		subheadline="Each one is built around your firm's specific matter mix, your case acceptance criteria, and your team's review habits. Filter by practice area or function to find what fits your work."
+		headline="Pick the agents your firm needs"
+		subheadline="This is the full catalog, but no firm runs all of it. Most start with the two or three workflows that hurt most every week, then add from here. Each agent is built around your matter mix, your case acceptance criteria, and your team's review habits. Filter by practice area or function to find your starting set."
 		ctaText="Book an intro call"
 		ctaUrl="https://calendly.com/nick-dodonai"
 		secondaryCtaText="How It Works"
-		secondaryCtaUrl="/ai-services/how-it-works/"
-		guarantee="Blueprint refunded if we don't leave you with a clear path forward."
+		secondaryCtaUrl="/ai-managed-services/how-it-works/"
 		background="bg-transparent"
 	>
 		{#if HeroAnimation}

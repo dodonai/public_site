@@ -16,7 +16,7 @@
 
 	const breadcrumbs = [
 		{ name: 'Home', href: '/' },
-		{ name: 'AI Services', href: '/ai-services/' },
+		{ name: 'AI Managed Services', href: '/ai-managed-services/' },
 		{ name: 'Our Agents' }
 	];
 
@@ -85,7 +85,6 @@
 		ctaUrl={data.hero.ctaUrl}
 		secondaryCtaText={data.hero.secondaryCtaText}
 		secondaryCtaUrl={data.hero.secondaryCtaUrl}
-		guarantee={data.hero.guarantee}
 		background="bg-transparent"
 	>
 		{#if HeroAnimation}

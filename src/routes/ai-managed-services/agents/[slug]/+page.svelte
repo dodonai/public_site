@@ -34,7 +34,7 @@
 		agent.practiceAreas
 			.map((slug) => {
 				if (slug === 'all') {
-					return { name: 'All Practice Areas', href: '/ai-services/agents/' };
+					return { name: 'All Practice Areas', href: '/ai-managed-services/agents/' };
 				}
 				const area = practiceAreaMap[slug];
 				return area ? { name: area.name, href: area.href } : null;
@@ -44,8 +44,8 @@
 
 	const breadcrumbs = $derived([
 		{ name: 'Home', href: '/' },
-		{ name: 'AI Services', href: '/ai-services/' },
-		{ name: 'Browse All Agents', href: '/ai-services/agents/' },
+		{ name: 'AI Managed Services', href: '/ai-managed-services/' },
+		{ name: 'Agent Catalog', href: '/ai-managed-services/agents/' },
 		{ name: agent.title }
 	]);
 
@@ -116,7 +116,6 @@
 		secondaryCtaText={agent.hero.secondaryCtaText}
 		secondaryCtaUrl={agent.hero.secondaryCtaUrl}
 		badges={agent.hero.badges}
-		guarantee={agent.hero.guarantee}
 		background="bg-transparent"
 	>
 		{#if HeroAnimation && agent.workflow}

@@ -10,6 +10,7 @@
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import RelatedServices from '$lib/components/features/RelatedServices.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import { stripLinks } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/ai-ocr.json';
 
 	/** Lazy-load the hero animation so its CSS doesn't block first paint */
@@ -45,7 +46,7 @@
 				name: item.question,
 				acceptedAnswer: {
 					'@type': 'Answer',
-					text: item.answer
+					text: stripLinks(item.answer)
 				}
 			}))
 		},
@@ -65,7 +66,7 @@
 				'@type': 'HowToStep',
 				position: i + 1,
 				name: s.title,
-				text: s.description
+				text: stripLinks(s.description)
 			}))
 		}
 	]}

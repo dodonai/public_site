@@ -2,7 +2,7 @@
 	import AnimationStage from '$lib/components/hero/AnimationStage.svelte';
 	import PhaseWrapper from '$lib/components/hero/PhaseWrapper.svelte';
 
-	const paralegalSteps = [
+	const checklistSteps = [
 		'Read the document',
 		'Classify the matter',
 		'Compute the deadline',
@@ -24,13 +24,13 @@
 
 <AnimationStage durations={[4200, 5400, 5600]} height={540}>
 	{#snippet children(step)}
-		<!-- Phase 0: Paralegal Test -->
+		<!-- Phase 0: Checklist Test -->
 		{#if step === 0}
-			<PhaseWrapper caption="If a paralegal can follow the steps, we can build the agent.">
+			<PhaseWrapper caption="If the work fits a checklist, we can build the agent.">
 				<div class="scene">
 					<div class="test-card">
 						<div class="card-header">
-							<span class="card-title">The Paralegal Test</span>
+							<span class="card-title">The Checklist Test</span>
 							<span class="card-tag">Step 1</span>
 						</div>
 						<div class="request-pill">
@@ -43,7 +43,7 @@
 							</div>
 						</div>
 						<div class="step-list">
-							{#each paralegalSteps as step_text, i}
+							{#each checklistSteps as step_text, i}
 								<div class="step-row" style="animation-delay: {250 + i * 340}ms">
 									<span class="step-check" style="animation-delay: {520 + i * 340}ms">
 										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
@@ -54,7 +54,7 @@
 						</div>
 						<div class="verdict" style="animation-delay: 1900ms">
 							<span class="verdict-dot"></span>
-							<span class="verdict-text">Can a paralegal do it? Yes — it's an agent.</span>
+							<span class="verdict-text">Fits a checklist? Yes — it's an agent.</span>
 						</div>
 					</div>
 				</div>
@@ -217,7 +217,7 @@
 	}
 
 	/* =============================
-	   Phase 0: Paralegal Test
+	   Phase 0: Checklist Test
 	   ============================= */
 	.request-pill {
 		display: flex;

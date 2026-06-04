@@ -66,7 +66,7 @@
 				'@type': 'HowToStep',
 				position: i + 1,
 				name: s.title,
-				text: s.description
+				text: stripLinks(s.description)
 			}))
 		}
 	]}
@@ -113,7 +113,7 @@
 				</h2>
 				{#if data.educationalContent?.[0]?.paragraphs}
 					{#each data.educationalContent[0].paragraphs as paragraph}
-						<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">{paragraph}</p>
+						<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">{@html linkify(paragraph)}</p>
 					{/each}
 				{/if}
 			</div>

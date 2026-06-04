@@ -1,23 +1,22 @@
 {
   "seo": {
-    "title": "AI Services for Legal Teams | Custom Agents by Dodonai",
-    "description": "AI services for law firms. Dodonai designs, builds, and runs custom AI agents tuned to your workflows. Blueprint in 2-3 weeks. SOC 2 and HIPAA.",
-    "canonical": "/ai-services/"
+    "title": "AI Managed Services for Legal Teams | Custom Agents by Dodonai",
+    "description": "AI managed services for law firms. Dodonai designs, builds, and runs custom AI agents tuned to your workflows. Blueprint in 2-3 weeks. SOC 2 and HIPAA.",
+    "canonical": "/ai-managed-services/"
   },
   "hero": {
-    "headline": "AI Services for Legal Teams",
+    "headline": "AI Managed Services for Legal Teams",
     "subheadline": "You know your firm needs AI. You don't know where to start. Dodonai designs custom AI agents around the workflows your team already uses, with SOC 2 and HIPAA guardrails built in. Launch in weeks.",
     "bullets": [
-      "Blueprint in 2-3 weeks. Build in 4-8 weeks. Managed ongoing.",
-      "Dozens of custom agents running inside our own company every day.",
-      "Drafts only. Nothing sends, files, or commits without attorney review."
+      "Win back the hours lost to repetitive work",
+      "Custom agents live in weeks, not quarters",
+      "Built around the tools and workflows you already use"
     ],
     "ctaText": "Book an intro call",
     "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "Browse the Agent Catalog",
-    "secondaryCtaUrl": "/ai-services/agents/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"],
-    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+    "secondaryCtaUrl": "/ai-managed-services/agents/",
+    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
   },
   "howItWorks": [
     {
@@ -58,6 +57,14 @@
       }
     ]
   },
+  "proof": {
+    "stats": [
+      { "value": "250+", "label": "firms on the Dodonai platform" },
+      { "value": "50+", "label": "AI agents shipped into production" },
+      { "value": "30+ hrs/wk", "label": "reclaimed at a typical firm" },
+      { "value": "$200k+/yr", "label": "in recovered attorney capacity" }
+    ]
+  },
   "faq": [
     {
       "question": "How long does a typical engagement take?",
@@ -73,11 +80,11 @@
     },
     {
       "question": "How do you handle our data?",
-      "answer": "Agents run inside infrastructure you control. Our LLM partners operate under zero data retention, so nothing is stored after processing. No client data is used to train models. SOC 2 and HIPAA controls apply to every engagement, and we'll sign a BAA where appropriate. More detail on the {{link:/ai-services/safety/|safety page}}."
+      "answer": "Agents run inside infrastructure you control. Our LLM partners operate under zero data retention, so nothing is stored after processing. No client data is used to train models. SOC 2 and HIPAA controls apply to every engagement, and we'll sign a BAA where appropriate. More detail on the {{link:/ai-managed-services/safety/|safety page}}."
     },
     {
       "question": "How does this relate to the Dodonai app?",
-      "answer": "The {{link:/|Dodonai app}} is a great starting point for firms who want document AI right away, things like deposition summaries, medical chronologies, and extract-and-draft agents. AI Services is for teams who want custom workflows that go beyond a single tool. Many firms use both, and we often use the app as a foundation inside a services engagement."
+      "answer": "The {{link:/|Dodonai app}} is a great starting point for firms who want document AI right away, things like deposition summaries, medical chronologies, and extract-and-draft agents. AI Managed Services is for teams who want custom workflows that go beyond a single tool. Many firms use both, and we often use the app as a foundation inside a services engagement."
     },
     {
       "question": "Do we need a Claude Pro or Max subscription?",

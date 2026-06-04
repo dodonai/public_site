@@ -1,0 +1,53 @@
+{
+	"slug": "family-law-boutique",
+	"seo": {
+		"title": "Family-Law Firm AI Engagement: 12+ Hours a Week Reclaimed | Dodonai",
+		"description": "How a boutique family-law practice used six custom AI agents to reclaim 12+ hours a week and bring its marketing in-house. A representative Dodonai engagement.",
+		"canonical": "/ai-managed-services/results/family-law-boutique/"
+	},
+	"descriptor": "Boutique family-law practice — sole attorney + part-time paralegal",
+	"practiceArea": "Family Law",
+	"practiceAreaSlug": "family-law",
+	"headline": "A boutique family-law practice reclaimed 12+ hours a week and brought its marketing in-house",
+	"summary": "Six agents covering the production work around collaborative sessions, intake, billing, and content — so the attorney's time goes to the people in the room.",
+	"statStrip": [
+		{ "value": "~12+ hrs/wk", "label": "reclaimed across attorney + paralegal" },
+		{ "value": "6 agents", "label": "shipped in one build cycle" },
+		{ "value": "~7 weeks", "label": "discovery to live" }
+	],
+	"problem": {
+		"heading": "The starting state",
+		"paragraphs": [
+			"A sole attorney with a part-time paralegal, running a mix of high-net-worth divorce, collaborative-process, and litigation matters on a practice-management, email, and document-storage stack. The legal judgment was sharp; the production work around it was eating the week.",
+			"Six recurring workflows accounted for roughly 15 to 20 hours a week: multi-party scheduling for four-way sessions and expert depositions, discovery review and deficiency letters, welcome letters and post-engagement scheduling, billing descriptions reconstructed from timers and calendars, an outside marketing vendor on retainer, and a 'firm wiki' that lived in unsearchable folders."
+		]
+	},
+	"built": {
+		"heading": "What we built",
+		"intro": "A six-agent build, scoped from a two-week discovery, each one tuned to the firm's voice and matter state. Names below are the agents shipped into this engagement.",
+		"agents": [
+			{ "name": "Firm Wiki / LLM Brain", "slug": null },
+			{ "name": "Marketing Suite", "slug": null },
+			{ "name": "Discovery Augmentation", "slug": null },
+			{ "name": "Calendar Coordinator", "slug": null },
+			{ "name": "Billing-Description Drafter", "slug": null },
+			{ "name": "Welcome-Letter Drafter", "slug": null }
+		]
+	},
+	"results": {
+		"heading": "What changed",
+		"items": [
+			"Roughly 12+ hours a week reclaimed across the attorney and paralegal.",
+			"The outside content-vendor retainer was eliminated by week 3 — blog, social, and newsletter now produced in-house by the Marketing Suite.",
+			"Multi-party scheduling went from long email chains to one-click links, with no public booking page exposing the calendar.",
+			"Billing descriptions are drafted from the timer, calendar, and call logs for one-click attorney approval.",
+			"The Calendar Coordinator ran in shadow mode for three days, then went live with drafting authority — nothing books without firm review.",
+			"Tribal knowledge stuck in folders became a queryable AI brain that every other drafting agent reads from."
+		]
+	},
+	"engagementArc": {
+		"discovery": "2 weeks",
+		"build": "6–7 weeks · 6 agents",
+		"retainer": "Optional, month-to-month"
+	}
+}

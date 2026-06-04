@@ -94,7 +94,7 @@
 		</a>
 
 		<!-- Desktop Navigation -->
-		<nav class="relative hidden items-center gap-16 lg:flex">
+		<nav class="relative hidden items-center gap-20 lg:flex">
 			<!-- Services Dropdown -->
 			<div class="relative">
 				<button
@@ -159,6 +159,26 @@
 									</div>
 								</a>
 							{/each}
+						</div>
+						<div class="mt-3 border-t border-gray-100 pt-3">
+							<a
+								href="/pricing/"
+								class="flex items-center justify-between rounded-lg bg-[#216fed14] px-4 py-3 text-sm font-semibold transition-colors hover:bg-[#216fed24]"
+								style="color: var(--royal-blue);"
+								onclick={() => (activeDropdown = null)}
+								role="menuitem"
+							>
+								<span>See pricing &amp; plans</span>
+								<svg
+									class="h-4 w-4"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+								</svg>
+							</a>
 						</div>
 					</div>
 				{/if}
@@ -252,23 +272,18 @@
 				{/if}
 			</div>
 
-			<!-- AI Services Mega Dropdown -->
+			<!-- AI Managed Services Mega Dropdown -->
 			<div class="static">
-				<button
+				<a
+					href="/ai-managed-services/"
 					class="flex items-center gap-1 text-base font-medium transition-colors"
 					style="color: var(--midnight-blue);"
 					aria-haspopup="true"
 					aria-expanded={activeDropdown === 'ai-services'}
 					onmouseenter={() => (activeDropdown = 'ai-services')}
-					onmouseleave={() => {}}
 					onfocus={() => (activeDropdown = 'ai-services')}
-					onclick={() => (activeDropdown = activeDropdown === 'ai-services' ? null : 'ai-services')}
-					onblur={() =>
-						setTimeout(() => {
-							if (activeDropdown === 'ai-services') activeDropdown = null;
-						}, 200)}
 				>
-					AI Services
+					AI Managed Services
 					<svg
 						class="h-4 w-4 transition-transform {activeDropdown === 'ai-services'
 							? 'rotate-180'
@@ -280,7 +295,7 @@
 					>
 						<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
 					</svg>
-				</button>
+				</a>
 
 				{#if activeDropdown === 'ai-services'}
 					<div
@@ -318,20 +333,6 @@
 					</div>
 				{/if}
 			</div>
-			<a
-				href="/pricing/"
-				class="nav-link text-base font-medium transition-colors"
-				style="color: var(--midnight-blue);"
-			>
-				Pricing
-			</a>
-			<a
-				href="/blog/"
-				class="nav-link text-base font-medium transition-colors"
-				style="color: var(--midnight-blue);"
-			>
-				Blog
-			</a>
 		</nav>
 
 		<!-- Desktop CTA Buttons -->
@@ -428,6 +429,23 @@
 									</div>
 								</a>
 							{/each}
+							<a
+								href="/pricing/"
+								class="mt-1 flex items-center justify-between rounded-lg bg-[#216fed14] p-2 text-sm font-semibold transition-colors hover:bg-[#216fed24]"
+								style="color: var(--royal-blue);"
+								onclick={closeMobileMenu}
+							>
+								<span>See pricing &amp; plans</span>
+								<svg
+									class="h-4 w-4"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="2"
+								>
+									<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
+								</svg>
+							</a>
 						</div>
 					{/if}
 				</div>
@@ -499,7 +517,7 @@
 					{/if}
 				</div>
 
-				<!-- AI Services Section -->
+				<!-- AI Managed Services Section -->
 				<div class="border-b border-gray-100 pb-2">
 					<button
 						class="flex w-full items-center justify-between py-3 text-base font-medium"
@@ -508,7 +526,7 @@
 						onclick={() =>
 							(mobileActiveSection = mobileActiveSection === 'ai-services' ? null : 'ai-services')}
 					>
-						AI Services
+						AI Managed Services
 						<svg
 							class="h-4 w-4 transition-transform {mobileActiveSection === 'ai-services'
 								? 'rotate-180'
@@ -547,23 +565,6 @@
 						</div>
 					{/if}
 				</div>
-
-				<a
-					href="/pricing/"
-					class="block border-b border-gray-100 py-3 text-base font-medium"
-					style="color: var(--midnight-blue);"
-					onclick={closeMobileMenu}
-				>
-					Pricing
-				</a>
-				<a
-					href="/blog/"
-					class="block border-b border-gray-100 py-3 text-base font-medium"
-					style="color: var(--midnight-blue);"
-					onclick={closeMobileMenu}
-				>
-					Blog
-				</a>
 
 				<div class="mt-4 flex flex-col gap-3">
 					<a

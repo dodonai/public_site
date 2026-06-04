@@ -135,7 +135,7 @@
 				</div>
 			</div>
 
-			<!-- Footer grid: Platform / AI Services / Resources / Legal -->
+			<!-- Footer grid: Platform / AI Managed Services / Resources / Legal -->
 			<div
 				class="grid w-[70%] max-w-[850px] grid-cols-[1.4fr_1.2fr_1fr_0.9fr] gap-x-4 gap-y-[37px] max-lg:w-full max-lg:gap-x-0 max-md:grid-cols-[1fr_1fr] max-sm:flex max-sm:flex-col max-sm:flex-wrap"
 			>
@@ -154,10 +154,10 @@
 					{/each}
 				</div>
 
-				<!-- AI Services -->
+				<!-- AI Managed Services -->
 				<div class="flex flex-col items-start justify-start">
 					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">AI Services</h2>
+						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">AI Managed Services</h2>
 					</div>
 					{#each aiServicesOverview as link}
 						<a

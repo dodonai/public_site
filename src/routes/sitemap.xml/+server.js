@@ -11,11 +11,12 @@ const staticPages = [
 	{ path: '/ai-pdf-ocr', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/dodonai-extract-and-draft-agents', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/electronic-discovery-software', lastmod: '2026-02-18', priority: '0.9' },
-	{ path: '/ai-services', lastmod: '2026-04-16', priority: '0.9' },
-	{ path: '/ai-services/how-it-works', lastmod: '2026-04-16', priority: '0.8' },
-	{ path: '/ai-services/safety', lastmod: '2026-04-16', priority: '0.8' },
-	{ path: '/ai-services/our-agents', lastmod: '2026-04-16', priority: '0.8' },
-	{ path: '/ai-services/agents', lastmod: '2026-04-16', priority: '0.8' },
+	{ path: '/ai-managed-services', lastmod: '2026-06-04', priority: '0.9' },
+	{ path: '/ai-managed-services/how-it-works', lastmod: '2026-04-16', priority: '0.8' },
+	{ path: '/ai-managed-services/results', lastmod: '2026-06-04', priority: '0.8' },
+	{ path: '/ai-managed-services/safety', lastmod: '2026-04-16', priority: '0.8' },
+	{ path: '/ai-managed-services/our-agents', lastmod: '2026-04-16', priority: '0.8' },
+	{ path: '/ai-managed-services/agents', lastmod: '2026-04-16', priority: '0.8' },
 	{ path: '/terms-and-conditions', lastmod: '2026-01-01', priority: '0.3' },
 	{ path: '/privacy-policy', lastmod: '2026-01-01', priority: '0.3' }
 ];
@@ -63,7 +64,23 @@ export async function GET() {
 	const agentPages = Object.keys(agentModules)
 		.map((filePath) => {
 			const match = filePath.match(/\/agents\/(.+)\.json$/);
-			return match ? { path: `/ai-services/agents/${match[1]}`, lastmod: '2026-04-16', priority: '0.7' } : null;
+			return match ? { path: `/ai-managed-services/agents/${match[1]}`, lastmod: '2026-04-16', priority: '0.7' } : null;
+		})
+		.filter(Boolean);
+
+	// Auto-discover ai-services case-study (results) pages
+	let caseStudyModules;
+	try {
+		caseStudyModules = import.meta.glob('/src/lib/data/services/ai-services/case-studies/*.json', {
+			eager: true
+		});
+	} catch {
+		caseStudyModules = {};
+	}
+	const caseStudyPages = Object.keys(caseStudyModules)
+		.map((filePath) => {
+			const match = filePath.match(/\/case-studies\/(.+)\.json$/);
+			return match ? { path: `/ai-managed-services/results/${match[1]}`, lastmod: '2026-06-04', priority: '0.7' } : null;
 		})
 		.filter(Boolean);
 
@@ -76,7 +93,13 @@ export async function GET() {
 		priority: '0.7'
 	}));
 
-	const allStaticPages = [...staticPages, ...hubPages, ...agentPages, ...aiServicesTaxonomy];
+	const allStaticPages = [
+		...staticPages,
+		...hubPages,
+		...agentPages,
+		...caseStudyPages,
+		...aiServicesTaxonomy
+	];
 
 	// Ensure all URLs have trailing slashes to match SvelteKit's trailingSlash: 'always' config
 	const trail = (path) => (path && !path.endsWith('/') ? `${path}/` : path || '/');

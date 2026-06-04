@@ -1,0 +1,706 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Dodonai — Scoggin Intraday Intelligence POC</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['-apple-system', 'BlinkMacSystemFont', '"Helvetica Neue"', 'Arial', 'sans-serif'] },
+        colors: {
+          dodonai: {
+            50:  '#faf8fc', 100: '#f2eff7', 200: '#e4dff0', 300: '#d8cfe8',
+            400: '#8a7bb8', 500: '#6d5fa6', 600: '#5a4e82', 700: '#3f3461',
+            800: '#332954', 900: '#2d2740'
+          }
+        }
+      }
+    }
+  };
+</script>
+<style>
+  html, body { height: 100%; }
+  body { background: #f5f3f9; }
+  .nav-link.active { background: #3f3461; color: white; }
+  .nav-link.active .icon { color: white; }
+  .tab.active { color: #3f3461; border-bottom-color: #6d5fa6; }
+  .toast { animation: toastIn 0.2s ease-out, toastOut 0.3s ease-in 2.7s forwards; }
+  @keyframes toastIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes toastOut { to { opacity: 0; transform: translateY(8px); } }
+  .pulse-dot { animation: pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse { 0%,100% { opacity: 1; } 50% { opacity: 0.35; } }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: #d8cfe8; border-radius: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+</style>
+</head>
+<body class="font-sans text-slate-800">
+
+<div class="flex h-screen overflow-hidden">
+
+  <!-- Sidebar -->
+  <aside class="w-60 bg-dodonai-900 text-dodonai-100 flex flex-col flex-shrink-0">
+    <div class="px-5 pt-5 pb-4 border-b border-dodonai-700">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-md bg-gradient-to-br from-dodonai-400 to-dodonai-500 flex items-center justify-center text-white font-bold text-lg">D</div>
+        <div>
+          <div class="text-white font-semibold tracking-tight leading-tight">Dodonai</div>
+          <div class="text-xs text-dodonai-300 leading-tight">Intraday Intelligence</div>
+        </div>
+      </div>
+    </div>
+    <nav class="flex-1 px-3 py-3 space-y-0.5 text-sm overflow-y-auto" id="sidebar-nav">
+      <a href="#/dashboard"  class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="layout-dashboard" class="icon w-4 h-4 text-dodonai-300"></i> Command Center</a>
+      <div class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">The 8 topics you raised</div>
+      <a href="#/alerts"     class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><span class="text-[10px] text-dodonai-400 w-3">1</span><i data-lucide="rss" class="icon w-4 h-4 text-dodonai-300"></i> News &amp; Social <span class="ml-auto text-xs bg-rose-500 text-white rounded-full px-1.5 py-0.5 font-medium">4</span></a>
+      <a href="#/signals"    class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><span class="text-[10px] text-dodonai-400 w-3">2</span><i data-lucide="activity" class="icon w-4 h-4 text-dodonai-300"></i> Signal Map</a>
+      <a href="#/flow"       class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><span class="text-[10px] text-dodonai-400 w-3">3</span><i data-lucide="radar" class="icon w-4 h-4 text-dodonai-300"></i> Trade Detection</a>
+      <a href="#/desk"       class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><span class="text-[10px] text-dodonai-400 w-3">4</span><i data-lucide="target" class="icon w-4 h-4 text-dodonai-300"></i> Intraday Desk</a>
+      <a href="#/hedging"    class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><span class="text-[10px] text-dodonai-400 w-3">5</span><i data-lucide="shield-alert" class="icon w-4 h-4 text-dodonai-300"></i> Hedging <span class="ml-auto text-xs bg-amber-500 text-white rounded-full px-1.5 py-0.5 font-medium">2</span></a>
+      <a href="#/research"   class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><span class="text-[10px] text-dodonai-400 w-3">6</span><i data-lucide="brain" class="icon w-4 h-4 text-dodonai-300"></i> Research</a>
+      <a href="#/regulatory" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><span class="text-[10px] text-dodonai-400 w-3">7</span><i data-lucide="scale" class="icon w-4 h-4 text-dodonai-300"></i> Regulatory</a>
+      <a href="#/quant"      class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><span class="text-[10px] text-dodonai-400 w-3">8</span><i data-lucide="sigma" class="icon w-4 h-4 text-dodonai-300"></i> Quant Overlay</a>
+      <div class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">Foundation</div>
+      <a href="#/book"       class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="layers" class="icon w-4 h-4 text-dodonai-300"></i> The Book</a>
+    </nav>
+    <div class="px-3 pb-4 pt-2 border-t border-dodonai-700">
+      <div class="bg-dodonai-700 rounded-lg p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="building-2" class="w-4 h-4 text-dodonai-300"></i>
+          <span class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Workspace</span>
+        </div>
+        <div class="text-white font-medium text-sm leading-tight">Scoggin Capital</div>
+        <div class="text-xs text-dodonai-300 mt-0.5">Trading portfolio · Demo v0.2</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+    <header class="h-14 bg-white border-b border-slate-200 flex items-center px-6 gap-4 flex-shrink-0">
+      <div id="breadcrumb" class="text-sm text-slate-500 flex items-center gap-1.5"></div>
+      <div class="flex-1 max-w-md mx-auto">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input type="text" placeholder="Ask your research: &ldquo;what's our WULF hosting thesis?&rdquo;" onfocus="location.hash='#/research'" class="w-full bg-slate-50 border border-slate-200 rounded-md pl-9 pr-3 py-1.5 text-sm focus:bg-white focus:border-dodonai-400 focus:outline-none focus:ring-2 focus:ring-dodonai-200" />
+        </div>
+      </div>
+      <div class="flex items-center gap-1.5 text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2.5 py-1">
+        <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 pulse-dot"></span> Market open
+      </div>
+      <button class="text-slate-400 hover:text-dodonai-700 relative">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-semibold">9</span>
+      </button>
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-sky-300 to-indigo-400 text-white flex items-center justify-center font-semibold text-sm">PP</div>
+        <div class="text-sm leading-tight">
+          <div class="font-medium text-slate-800">Pete Pasetsky</div>
+          <div class="text-xs text-slate-500">Portfolio</div>
+        </div>
+      </div>
+    </header>
+    <main id="view" class="flex-1 overflow-y-auto"></main>
+  </div>
+</div>
+
+<div id="toasts" class="fixed bottom-6 right-6 z-50 space-y-2"></div>
+
+<script>
+// ============================================================================
+// Sample data — ILLUSTRATIVE / SIMULATED. Real tickers used for realism;
+// positions, P&L, signals, flow and events are demo scenarios — NOT Scoggin's
+// actual book. Built to sketch what Dodonai could build against Pete's 6/2 list.
+// ============================================================================
+
+// The 8 topics from Pete's email -> the module that addresses each.
+const coverage = [
+  { n: 1, topic: 'Real-time news + social, correlated to events, with alerts', module: 'News & Social',   href: '#/alerts',     icon: 'rss' },
+  { n: 2, topic: 'Signal mapping — reversion, volatility, momentum',           module: 'Signal Map',      href: '#/signals',    icon: 'activity' },
+  { n: 3, topic: 'Trade detection',                                            module: 'Trade Detection', href: '#/flow',       icon: 'radar' },
+  { n: 4, topic: 'Intraday strategy',                                          module: 'Intraday Desk',   href: '#/desk',       icon: 'target' },
+  { n: 5, topic: 'Hedging strategy',                                           module: 'Hedging',         href: '#/hedging',    icon: 'shield-alert' },
+  { n: 6, topic: 'Research history & tracking',                                module: 'Research',        href: '#/research',   icon: 'brain' },
+  { n: 7, topic: 'Regulatory support',                                         module: 'Regulatory',      href: '#/regulatory', icon: 'scale' },
+  { n: 8, topic: 'Quant overlay',                                              module: 'Quant Overlay',   href: '#/quant',      icon: 'sigma' }
+];
+
+const positions = [
+  { ticker: 'WULF', name: 'TeraWulf',          side: 'Long', sleeve: 'Crypto-miner → AI/HPC', thesis: 'Power-cost arbitrage; bitcoin miner monetizing low-cost power into AI/HPC hosting at Lake Mariner.', weight: 9.4, exposure: 23.6, pnlPct: +2.1, catalyst: 'Hosting lease signings', window: 'Q2–Q3 2026', lastNote: '2026-05-29' },
+  { ticker: 'CORZ', name: 'Core Scientific',   side: 'Long', sleeve: 'Post-reorg special sit', thesis: 'Post-bankruptcy equity stub; AI datacenter conversion underpinned by CoreWeave hosting take-or-pay.', weight: 8.1, exposure: 20.3, pnlPct: +0.4, catalyst: 'CoreWeave contract expansion', window: 'Q2 2026', lastNote: '2026-05-12' },
+  { ticker: 'TLN',  name: 'Talen Energy',      side: 'Long', sleeve: 'Restructured power co', thesis: 'Emerged-from-bankruptcy power co; co-location PPA optionality with a hyperscaler at Susquehanna.', weight: 6.7, exposure: 16.8, pnlPct: -0.8, catalyst: 'FERC co-location ruling', window: 'This week', lastNote: '2026-05-21' },
+  { ticker: 'IREN', name: 'IREN Ltd',          side: 'Long', sleeve: 'Crypto-miner → AI compute', thesis: 'Mining cash flow funding AI-cloud GPU buildout; cleanest balance sheet in the basket.', weight: 5.7, exposure: 14.2, pnlPct: +3.4, catalyst: 'Q3 results (today, AMC)', window: 'Tonight', lastNote: '2026-05-30' },
+  { ticker: 'VST',  name: 'Vistra',            side: 'Long', sleeve: 'Power demand / nuclear', thesis: 'Merchant power + nuclear fleet levered to data-center demand; cash-return story.', weight: 4.2, exposure: 10.5, pnlPct: +1.2, catalyst: 'Analyst re-rating', window: 'Ongoing', lastNote: '2026-04-28' },
+  { ticker: 'LUMN', name: 'Lumen Technologies', side: 'Long', sleeve: 'Distressed turnaround', thesis: 'Credit-heavy turnaround; AI-fabric connectivity backlog as the equity catalyst. Single-name event risk on the credit.', weight: 3.9, exposure: 9.7, pnlPct: -2.6, catalyst: 'Moody’s review', window: 'Pending', lastNote: '2026-05-26' },
+  { ticker: 'XME',  name: 'SPDR Metals & Mining ETF', side: 'Short · hedge', sleeve: 'Basket / beta hedge', thesis: 'Beta + cyclical hedge against the long power/miner sleeve.', weight: -3.5, exposure: -8.8, pnlPct: +0.6, catalyst: '—', window: '—', lastNote: '2026-05-15' }
+];
+
+const watchlist = [
+  { ticker: 'MARA', name: 'Mara Holdings',        sleeve: 'Crypto-miner' },
+  { ticker: 'CIFR', name: 'Cipher Mining',        sleeve: 'Crypto-miner → HPC' },
+  { ticker: 'CEG',  name: 'Constellation Energy', sleeve: 'Nuclear / power' },
+  { ticker: 'NBIS', name: 'Nebius Group',         sleeve: 'AI cloud' }
+];
+
+// Bullet 1 — News & social alerts, event-correlated
+const alerts = [
+  { id: 'a1', time: '09:14', sev: 'high', src: 'Filing',  ticker: 'WULF', headline: 'TeraWulf 8-K: 200 MW AI-hosting lease expansion signed at Lake Mariner', corr: 'Held-name catalyst (hosting pivot)', senti: 'Bullish', move: '+6.2%', why: 'Confirms the swing factor in your 5/29 note. Cross-fires a momentum signal (see Signal Map) and a trade-detection options sweep.', action: 'Confirms thesis · size up?', noteRef: 'WULF — Hosting pivot (5/29)' },
+  { id: 'a2', time: '09:06', sev: 'high', src: 'Social',  ticker: 'IREN', headline: 'Sharp X/StockTwits velocity spike on IREN — "AI-cloud rev beat" chatter pre-print', corr: 'Earnings tonight (AMC)', senti: 'Bullish', move: '+3.4%', why: 'Social velocity +480% vs 30-day baseline, 8h before the print. Treat as positioning, not signal — flagged for the hedging desk.', action: 'Open hedging signal', noteRef: 'IREN — Q3 preview (5/30)' },
+  { id: 'a3', time: '09:02', sev: 'high', src: 'News',    ticker: 'CORZ', headline: 'Bloomberg: CoreWeave nearing expanded multi-year hosting deal with Core Scientific', corr: 'Counterparty concentration event', senti: 'Mixed', move: '+4.1%', why: 'Cuts both ways — bullish on cash flow, raises single-customer dependency (your core CORZ risk). Re-read the take-or-pay note.', action: 'Re-read CORZ risk note', noteRef: 'CORZ — CoreWeave dependency (5/12)' },
+  { id: 'a4', time: '08:47', sev: 'med',  src: 'Filing',  ticker: 'TLN',  headline: 'FERC docket update: co-location PPA decision calendared this week', corr: 'Regulatory event window', senti: 'Bullish', move: '+1.3%', why: 'Defines the event window on the TLN optionality thesis. Routed to Regulatory + Hedging to pre-stage a stop.', action: 'Set event reminder', noteRef: 'TLN — Co-location optionality (5/21)' },
+  { id: 'a5', time: '07:58', sev: 'med',  src: 'Rating',  ticker: 'LUMN', headline: 'Moody’s places Lumen on review — direction uncertain', corr: 'Credit event risk', senti: 'Bearish', move: '-2.6%', why: 'Equity stub is downstream of the credit. SSR may trigger if it breaks -10% (see Regulatory).', action: 'Review credit exposure', noteRef: 'LUMN — Credit/equity stub (5/26)' },
+  { id: 'a6', time: '07:41', sev: 'low',  src: 'Social',  ticker: 'MARA', headline: 'Reddit/X momentum on MARA — basket read-through to held miners', corr: 'Basket sentiment (not held)', senti: 'Bullish', move: '+2.2%', why: 'Watchlist name; logged as a basket sentiment read-through for WULF/CORZ/IREN — no direct exposure.', action: 'Acknowledge', noteRef: 'Miner basket framing (5/18)' }
+];
+
+// Bullet 2 — Signal mapping (reversion / volatility / momentum)
+const signals = [
+  { ticker: 'WULF', mom: ['Strong up','pos'],  vol: ['Elevated','warn'],  rev: ['Stretched rich','neg'],  composite: ['Trend — ride with a trailing stop','pos'] },
+  { ticker: 'CORZ', mom: ['Up','pos'],         vol: ['Elevated','warn'],  rev: ['Neutral','flat'],        composite: ['Constructive — event-driven','pos'] },
+  { ticker: 'TLN',  mom: ['Neutral','flat'],   vol: ['Compressed','cool'],rev: ['Neutral','flat'],        composite: ['Coiled into the FERC event','flat'] },
+  { ticker: 'IREN', mom: ['Strong up','pos'],  vol: ['Elevated','warn'],  rev: ['Stretched rich','neg'],  composite: ['Overbought into earnings — fade/hedge','neg'] },
+  { ticker: 'VST',  mom: ['Up','pos'],         vol: ['Normal','flat'],    rev: ['Neutral','flat'],        composite: ['Healthy uptrend','pos'] },
+  { ticker: 'LUMN', mom: ['Down','neg'],       vol: ['Elevated','warn'],  rev: ['Stretched cheap','pos'], composite: ['Falling knife — reversion is a trap pre-credit','neg'] },
+  { ticker: 'CEG',  mom: ['Up','pos'],         vol: ['Normal','flat'],    rev: ['Neutral','flat'],        composite: ['Pair comp for TLN/VST','flat'] },
+  { ticker: 'NBIS', mom: ['Strong up','pos'],  vol: ['Elevated','warn'],  rev: ['Stretched rich','neg'],  composite: ['AI-cloud read-through','pos'] }
+];
+
+// Bullet 3 — Trade detection (unusual flow)
+const flow = [
+  { time: '09:13', ticker: 'WULF', type: 'Options sweep',   detail: 'Jun 20 $X calls — 11 prints swept the ask', size: '$2.4M premium', vsAdv: '6.1× avg', infer: 'Bullish', why: 'Hit the tape ~30s after the lease 8-K — aggressive call buying into the catalyst.' },
+  { time: '09:08', ticker: 'IREN', type: 'Block print',     detail: 'Single block crossed above VWAP', size: '420k shares', vsAdv: '0.9× avg', infer: 'Neutral', why: 'Pre-earnings positioning; size is notable on a 5.7% held long.' },
+  { time: '08:55', ticker: 'CORZ', type: 'Unusual volume',  detail: 'Pre-market volume already 3× full-day median', size: '3.1× ADV', vsAdv: '3.1× avg', infer: 'Bullish', why: 'Volume surge tracks the CoreWeave headline — confirms the move is real, not a quote pop.' },
+  { time: '08:40', ticker: 'LUMN', type: 'Dark pool',       detail: 'Persistent dark-pool selling, declining prints', size: '1.8M shares', vsAdv: '2.2× avg', infer: 'Bearish', why: 'Distribution ahead of the Moody’s review — supports trimming, not buying the dip.' },
+  { time: '08:31', ticker: 'TLN',  type: 'Options sweep',   detail: 'Weekly straddle bought — both sides', size: '$1.1M premium', vsAdv: '4.0× avg', infer: 'Vol bid', why: 'Someone is buying the FERC binary. Vol is getting bid — informs the hedge structure.' }
+];
+
+// Bullet 4 — Intraday strategy (plays)
+const plays = [
+  { ticker: 'WULF', setup: 'Catalyst momentum continuation', basis: '8-K + options sweep + momentum signal', trigger: 'Hold above opening-range high', target: '+8–10%', stop: 'Opening-range low', horizon: 'Intraday → multi-day', conviction: 'High' },
+  { ticker: 'IREN', setup: 'Pre-earnings de-risk / collar',  basis: 'Overbought reversion + binary tonight',     trigger: 'Into the close', target: 'Cap downside', stop: 'n/a (hedge)', horizon: 'Hold through print hedged', conviction: 'High' },
+  { ticker: 'TLN',  setup: 'Event straddle into FERC',       basis: 'Compressed vol + straddle flow detected',    trigger: 'Pre-ruling', target: 'Vol expansion', stop: 'Time stop at ruling', horizon: 'Event', conviction: 'Medium' },
+  { ticker: 'LUMN', setup: 'Avoid reversion trap / trim',    basis: 'Down momentum + dark-pool distribution',     trigger: 'Any bounce into VWAP', target: 'Reduce to <4%', stop: 'Credit headline', horizon: 'Intraday', conviction: 'Medium' }
+];
+
+// Bullet 6 — Research history & tracking
+const notes = [
+  { id: 'n1', title: 'WULF — Hosting pivot: power cost vs hosting margin', author: 'Pete', date: '2026-05-29', tags: ['WULF','thesis','power'], snippet: 'Lake Mariner all-in power ~3.2¢/kWh. Hosting GM clears miner economics once utilization holds >70%. Swing factor is lease-ramp cadence — each signed block is a discrete catalyst. Bear: ramp slippage + counterparty concentration.' },
+  { id: 'n2', title: 'CORZ — CoreWeave dependency & reorg equity stub', author: 'Pete', date: '2026-05-12', tags: ['CORZ','event','credit'], snippet: 'Post-reorg fully-diluted share count. CoreWeave take-or-pay underpins revenue but is the whole risk: single-customer concentration. An expansion is bullish on cash flow yet raises dependency — size accordingly, hedge the tail.' },
+  { id: 'n3', title: 'Crypto-miner → AI compute basket: framing & pair structure', author: 'Pete', date: '2026-05-18', tags: ['WULF','CORZ','IREN','basket'], snippet: 'Treat WULF/CORZ/IREN as a power-arbitrage basket, not crypto beta. Express idiosyncratic conviction long, hedge sector beta with XME / miner short. Rank by balance-sheet quality: IREN cleanest, CORZ most single-customer levered.' },
+  { id: 'n4', title: 'TLN — co-location PPA optionality', author: 'Pete', date: '2026-05-21', tags: ['TLN','event','power'], snippet: 'The trade is the FERC co-location decision, not the run-rate. Binary regulatory window. If it clears, the hyperscaler PPA re-rates the merchant fleet. Time-box; do not marry the position through the ruling.' },
+  { id: 'n5', title: 'LUMN — credit/equity stub & event risk', author: 'Pete', date: '2026-05-26', tags: ['LUMN','distressed','credit'], snippet: 'Equity is a call option on the connectivity backlog clearing the leverage. Downside is a credit event, not a multiple. Keep gross small (<4%); the right hedge is credit-shaped, not equity-shaped.' },
+  { id: 'n6', title: 'Hedging playbook — single-name event risk', author: 'Pete', date: '2026-04-30', tags: ['hedging','process'], snippet: 'Standard responses by event type: earnings → collar or trim; 8-K catalyst → size decision, not hedge; ratings/credit → pair or CDS proxy; regulatory → define stop + isolate idiosyncratic with a sector pair.' }
+];
+
+const theses = [
+  { ticker: 'WULF', thesis: 'Hosting pivot re-rates the multiple', opened: '2026-03-04', conviction: 'High',   status: 'Playing out',  pnl: '+38%', notes: 2 },
+  { ticker: 'CORZ', thesis: 'Reorg stub + CoreWeave cash flow',     opened: '2026-02-18', conviction: 'Medium', status: 'Playing out',  pnl: '+12%', notes: 2 },
+  { ticker: 'TLN',  thesis: 'FERC co-location optionality',         opened: '2026-04-30', conviction: 'Medium', status: 'Watching',     pnl: '+4%',  notes: 1 },
+  { ticker: 'IREN', thesis: 'Cleanest balance sheet in the basket', opened: '2026-03-22', conviction: 'High',   status: 'Playing out',  pnl: '+27%', notes: 1 },
+  { ticker: 'LUMN', thesis: 'Connectivity backlog clears leverage', opened: '2026-05-01', conviction: 'Low',    status: 'Watching',     pnl: '-9%',  notes: 1 },
+  { ticker: 'CLSK', thesis: 'Miner with weakest power economics',   opened: '2026-01-15', conviction: 'Medium', status: 'Invalidated',  pnl: 'exited -3%', notes: 0 }
+];
+
+const recallAnswers = {
+  q1: { q: 'What is our WULF hosting-pivot thesis and the bear case?', summary: 'WULF is a <strong>power-cost arbitrage</strong>, not a crypto-beta trade: Lake Mariner power runs ~3.2¢/kWh, and hosting gross margin beats mining economics once utilization holds above ~70%. The <strong>swing factor is lease-ramp cadence</strong> — each signed hosting block is a discrete catalyst. The <strong>bear case</strong> is ramp slippage plus counterparty concentration on a single hyperscaler. Today’s 200 MW lease-expansion 8-K is a direct hit on thesis bullet #1.', sources: ['n1','n3'] },
+  q2: { q: 'Where are we most exposed to single-customer / concentration risk?', summary: 'Two names. <strong>CORZ</strong> is sharpest: the CoreWeave take-or-pay underpins revenue and <em>is</em> the whole risk — a single-customer dependency, so today’s expansion cuts both ways. <strong>WULF</strong>’s bear case also hinges on counterparty concentration on one hyperscaler. The basket note prescribes expressing conviction idiosyncratically long and hedging sector beta with the XME short.', sources: ['n2','n1','n3'] },
+  q3: { q: 'What’s our standard hedge response to an earnings event?', summary: 'Per the hedging playbook: for an <strong>earnings</strong> event the standard response is a <strong>collar or trim</strong> into the print — distinct from an 8-K catalyst (sizing decision, not a hedge), a ratings/credit event (pair or CDS proxy), and a regulatory event (define a stop + isolate idiosyncratic with a sector pair). IREN reports tonight on a 5.7% gross long — maps directly to collar-or-trim.', sources: ['n6'] }
+};
+
+// Bullet 5 — Hedging
+const events = [
+  { type: 'Earnings',   ticker: 'IREN', when: 'Today, after close', trigger: 'Q3 results — binary in <8h', exposureTxt: '$14.2M long (5.7% gross)', signal: 'Unhedged binary inside the window; overbought on the signal map.', hedge: 'Buy 1-week 10% OTM puts to cap downside, or trim 20% into the print.', tone: 'risk' },
+  { type: '8-K',        ticker: 'WULF', when: '09:14 today',        trigger: 'Material lease-expansion 8-K filed', exposureTxt: '$23.6M long (9.4% gross)', signal: 'Catalyst confirmed — thesis intact, no hedge needed.', hedge: 'No hedge. Decision is sizing: thesis bullet #1 just printed.', tone: 'bull' },
+  { type: '13D/G',      ticker: 'CORZ', when: 'Filed 05:30 ET',     trigger: 'New 13D — activist 5.1% stake disclosed', exposureTxt: '$20.3M long (8.1% gross)', signal: 'Positioning shift; crowding rising on a held name.', hedge: 'Hold; watch for forced-buyer dynamics. Tighten the trailing stop.', tone: 'watch' },
+  { type: 'Ratings',    ticker: 'LUMN', when: '07:58 today',        trigger: 'Moody’s review — uncertain direction', exposureTxt: '$9.7M long (3.9% gross)', signal: 'Credit event risk could drag the equity stub; dark-pool distribution detected.', hedge: 'Cap at 4% gross; pair against the XME short or add a CDS-proxy hedge.', tone: 'risk' },
+  { type: 'Regulatory', ticker: 'TLN',  when: 'This week',          trigger: 'FERC co-location PPA ruling calendared', exposureTxt: '$16.8M long (6.7% gross)', signal: 'Event window opening; straddle flow shows vol getting bid.', hedge: 'Pre-define a stop; consider a VST/CEG pair to isolate idiosyncratic upside.', tone: 'watch' }
+];
+
+// Bullet 7 — Regulatory
+const restricted = [
+  { ticker: 'PRVT', reason: 'MNPI — expert-network call pending review', until: 'Cleared by compliance' },
+  { ticker: 'DEALco', reason: 'On the wall — advised on financing', until: 'Until announcement' }
+];
+const regFlags = [
+  { ticker: 'LUMN', flag: 'SSR watch',          detail: 'Down -2.6%; Reg SHO short-sale restriction triggers at -10% from prior close.', tone: 'risk' },
+  { ticker: 'CORZ', flag: '13D crossing',       detail: 'Aggregate position + today’s adds approaching the 5% beneficial-ownership threshold — Schedule 13D/G filing obligation.', tone: 'watch' },
+  { ticker: 'WULF', flag: 'Insider window',     detail: 'Issuer in open trading window; no enhanced surveillance constraints.', tone: 'ok' },
+  { ticker: 'TLN',  flag: 'Position limit',     detail: 'Single-name gross 6.7% — within the 10% mandate cap; headroom 3.3%.', tone: 'ok' }
+];
+const filings = [
+  { date: '2026-06-02', type: '8-K',    ticker: 'WULF', filer: 'TeraWulf Inc.',        detail: '200 MW AI-hosting lease expansion at Lake Mariner', read: 'Thesis catalyst', tone: 'bull' },
+  { date: '2026-06-02', type: '13D',    ticker: 'CORZ', filer: 'Activist fund',        detail: 'New 5.1% stake disclosed', read: 'Crowding rising', tone: 'watch' },
+  { date: '2026-06-01', type: 'Form 4', ticker: 'IREN', filer: 'IREN CEO',             detail: 'Insider open-market buy ~$1.4M', read: 'Mild positive pre-print', tone: 'bull' },
+  { date: '2026-05-29', type: '8-K',    ticker: 'LUMN', filer: 'Lumen Technologies',   detail: 'Credit-agreement amendment + new contract', read: 'Two-sided', tone: 'risk' }
+];
+
+// Bullet 8 — Quant overlay (factor loadings, -3..+3)
+const factors = [
+  { ticker: 'WULF', score: 78, momentum: +3, value: -1, size: -2, vol: +3, crowding: +2 },
+  { ticker: 'CORZ', score: 64, momentum: +2, value: -1, size: -2, vol: +2, crowding: +1 },
+  { ticker: 'TLN',  score: 58, momentum: +1, value:  0, size: +1, vol: -1, crowding:  0 },
+  { ticker: 'IREN', score: 71, momentum: +3, value: -1, size: -1, vol: +3, crowding: +2 },
+  { ticker: 'VST',  score: 66, momentum: +2, value: +1, size: +2, vol:  0, crowding: +1 },
+  { ticker: 'LUMN', score: 31, momentum: -2, value: +2, size:  0, vol: +2, crowding: -1 }
+];
+
+// ============================================================================
+// Router
+// ============================================================================
+function parseRoute() {
+  const hash = location.hash || '#/dashboard';
+  const parts = hash.replace(/^#\//, '').split('/');
+  return { view: parts[0], slug: parts[1] || null };
+}
+function setActiveNav() {
+  const route = parseRoute();
+  document.querySelectorAll('.nav-link').forEach(a => {
+    const href = a.getAttribute('href').replace(/^#\//, '').split('/')[0];
+    a.classList.toggle('active', href === route.view);
+  });
+}
+function setBreadcrumb(items) {
+  document.getElementById('breadcrumb').innerHTML = items.map((it, i) => {
+    const sep = i > 0 ? '<i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>' : '';
+    const cls = i === items.length - 1 ? 'text-slate-700 font-medium' : 'text-slate-500';
+    return sep + '<span class="' + cls + '">' + it + '</span>';
+  }).join('');
+}
+function render() {
+  setActiveNav();
+  const route = parseRoute();
+  const view = document.getElementById('view');
+  let html = '';
+  switch (route.view) {
+    case 'dashboard':  html = renderDashboard();  break;
+    case 'alerts':     html = renderAlerts();     break;
+    case 'signals':    html = renderSignals();    break;
+    case 'flow':       html = renderFlow();       break;
+    case 'desk':       html = renderDesk();       break;
+    case 'hedging':    html = renderHedging();    break;
+    case 'research':   html = renderResearch();   break;
+    case 'regulatory': html = renderRegulatory(); break;
+    case 'quant':      html = renderQuant();      break;
+    case 'book':       html = renderBook();       break;
+    case 'name':       html = renderName(route.slug || 'WULF'); break;
+    default:           html = renderDashboard();
+  }
+  view.innerHTML = html;
+  view.scrollTop = 0;
+  lucide.createIcons();
+  attachHandlers();
+}
+window.addEventListener('hashchange', render);
+window.addEventListener('DOMContentLoaded', () => { if (!location.hash) location.hash = '#/dashboard'; render(); });
+
+// ============================================================================
+// Helpers
+// ============================================================================
+function sevPill(s) { return { high: 'bg-rose-100 text-rose-800 border-rose-200', med: 'bg-amber-100 text-amber-800 border-amber-200', low: 'bg-slate-100 text-slate-600 border-slate-200' }[s] || 'bg-slate-100 text-slate-600 border-slate-200'; }
+function sevLabel(s) { return { high: 'High', med: 'Medium', low: 'Low' }[s] || s; }
+function toneBox(t) { return { bull: 'border-emerald-200 bg-emerald-50', risk: 'border-rose-200 bg-rose-50', watch: 'border-amber-200 bg-amber-50', ok: 'border-emerald-200 bg-emerald-50' }[t] || 'border-slate-200 bg-white'; }
+function tonePill(t) { return { bull: 'bg-emerald-100 text-emerald-800 border-emerald-200', risk: 'bg-rose-100 text-rose-800 border-rose-200', watch: 'bg-amber-100 text-amber-800 border-amber-200', ok: 'bg-emerald-100 text-emerald-800 border-emerald-200' }[t] || 'bg-slate-100 text-slate-700 border-slate-200'; }
+function stateChip(label, kind) {
+  const cls = { pos: 'bg-emerald-100 text-emerald-800', neg: 'bg-rose-100 text-rose-800', warn: 'bg-amber-100 text-amber-800', cool: 'bg-sky-100 text-sky-800', flat: 'bg-slate-100 text-slate-600' }[kind] || 'bg-slate-100 text-slate-600';
+  return '<span class="inline-block text-xs px-2 py-0.5 rounded ' + cls + '">' + label + '</span>';
+}
+function srcPill(s) { return { News: 'bg-sky-100 text-sky-700', Social: 'bg-violet-100 text-violet-700', Filing: 'bg-dodonai-100 text-dodonai-700', Rating: 'bg-amber-100 text-amber-700' }[s] || 'bg-slate-100 text-slate-600'; }
+function moveCls(m) { return m.trim().startsWith('-') ? 'text-rose-600' : 'text-emerald-600'; }
+function pnlCls(v) { return (typeof v === 'number' ? v < 0 : String(v).indexOf('-') !== -1) ? 'text-rose-600' : 'text-emerald-600'; }
+function inferPill(i) { return { Bullish: 'bg-emerald-100 text-emerald-800', Bearish: 'bg-rose-100 text-rose-800', Neutral: 'bg-slate-100 text-slate-600', 'Vol bid': 'bg-amber-100 text-amber-800' }[i] || 'bg-slate-100 text-slate-600'; }
+function posByTicker(t) { return positions.find(p => p.ticker === t) || watchlist.find(p => p.ticker === t); }
+function nameOf(t) { const p = posByTicker(t); return p ? p.name : t; }
+function factorCell(v) {
+  const tone = v > 0 ? 'text-emerald-700' : v < 0 ? 'text-rose-700' : 'text-slate-400';
+  return '<span class="font-mono ' + tone + '">' + (v > 0 ? '+' : '') + v + '</span>';
+}
+
+function toast(msg, sub) {
+  const el = document.createElement('div');
+  el.className = 'toast bg-dodonai-900 text-white rounded-lg shadow-2xl px-4 py-3 flex items-start gap-3 min-w-[280px] max-w-md';
+  el.innerHTML =
+    '<div class="w-8 h-8 rounded-full bg-emerald-500/20 text-emerald-300 flex items-center justify-center flex-shrink-0">' +
+      '<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"/></svg>' +
+    '</div>' +
+    '<div class="text-sm leading-tight"><div class="font-medium">' + msg + '</div>' + (sub ? '<div class="text-dodonai-300 text-xs mt-0.5">' + sub + '</div>' : '') + '</div>';
+  document.getElementById('toasts').appendChild(el);
+  setTimeout(() => el.remove(), 3200);
+}
+
+function attachHandlers() {
+  document.querySelectorAll('[data-tab]').forEach(t => {
+    t.addEventListener('click', () => {
+      const group = t.dataset.tabGroup, target = t.dataset.tab;
+      document.querySelectorAll('[data-tab][data-tab-group="' + group + '"]').forEach(tt => tt.classList.toggle('active', tt === t));
+      document.querySelectorAll('[data-tab-panel][data-tab-group="' + group + '"]').forEach(p => p.classList.toggle('hidden', p.dataset.tabPanel !== target));
+    });
+  });
+  document.querySelectorAll('[data-toast]').forEach(b => b.addEventListener('click', e => { e.preventDefault(); toast(b.dataset.toast, b.dataset.toastSub || ''); }));
+  document.querySelectorAll('[data-recall]').forEach(chip => {
+    chip.addEventListener('click', () => {
+      const a = recallAnswers[chip.dataset.recall];
+      if (!a) return;
+      document.querySelectorAll('[data-recall]').forEach(c => c.classList.remove('ring-2','ring-dodonai-500','bg-dodonai-50','border-dodonai-400'));
+      chip.classList.add('ring-2','ring-dodonai-500','bg-dodonai-50','border-dodonai-400');
+      const box = document.getElementById('recall-result');
+      if (box) { box.innerHTML = recallResultHtml(a); lucide.createIcons(); attachHandlers(); }
+      const qi = document.getElementById('recall-input'); if (qi) qi.value = a.q;
+    });
+  });
+}
+
+// ============================================================================
+// View: Command Center
+// ============================================================================
+function renderDashboard() {
+  setBreadcrumb(['Command Center']);
+  const statCards = [
+    { label: 'Open alerts',       value: '4',   hint: '3 high · 2 from social',     icon: 'rss',          tone: 'rose'    },
+    { label: 'Active signals',    value: '8',   hint: 'mom/vol/reversion mapped',    icon: 'activity',     tone: 'dodonai' },
+    { label: 'Trade-detect hits', value: '5',   hint: 'sweeps · blocks · dark pool', icon: 'radar',        tone: 'sky'     },
+    { label: 'Hedging signals',   value: '2',   hint: 'IREN earnings · LUMN credit', icon: 'shield-alert', tone: 'amber'   }
+  ];
+  const statHtml = statCards.map(c => {
+    const toneBg = { dodonai: 'bg-dodonai-100 text-dodonai-700', rose: 'bg-rose-100 text-rose-700', amber: 'bg-amber-100 text-amber-700', sky: 'bg-sky-100 text-sky-700' }[c.tone];
+    return '<div class="bg-white rounded-lg border border-slate-200 p-4"><div class="flex items-start justify-between"><div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">' + c.label + '</div><div class="text-2xl font-semibold text-slate-800 mt-1">' + c.value + '</div><div class="text-xs text-slate-500 mt-0.5">' + c.hint + '</div></div><div class="' + toneBg + ' w-10 h-10 rounded-md flex items-center justify-center"><i data-lucide="' + c.icon + '" class="w-5 h-5"></i></div></div></div>';
+  }).join('');
+
+  const feed = alerts.slice(0, 4).map(a =>
+    '<a href="' + (a.src === 'Social' ? '#/alerts' : '#/alerts') + '" class="block px-4 py-3 hover:bg-dodonai-50 border-b border-slate-100 last:border-0">' +
+      '<div class="flex items-start gap-3"><div class="text-xs font-mono text-slate-400 w-10 flex-shrink-0 pt-0.5">' + a.time + '</div><div class="flex-1 min-w-0">' +
+        '<div class="flex items-center gap-2 mb-0.5"><span class="font-mono text-xs font-semibold bg-dodonai-100 text-dodonai-800 rounded px-1.5 py-0.5">' + a.ticker + '</span>' +
+        '<span class="text-[10px] px-1.5 py-0.5 rounded ' + srcPill(a.src) + '">' + a.src + '</span>' +
+        '<span class="text-xs font-medium ' + moveCls(a.move) + '">' + a.move + '</span></div>' +
+        '<div class="text-sm text-slate-800 leading-snug">' + a.headline + '</div></div></div></a>'
+  ).join('');
+
+  const covCards = coverage.map(c =>
+    '<a href="' + c.href + '" class="block border border-slate-200 rounded-lg p-3 hover:border-dodonai-400 hover:bg-dodonai-50 transition-colors">' +
+      '<div class="flex items-center gap-2 mb-1"><span class="w-5 h-5 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center flex-shrink-0">' + c.n + '</span>' +
+      '<i data-lucide="' + c.icon + '" class="w-3.5 h-3.5 text-dodonai-500"></i>' +
+      '<span class="text-sm font-medium text-slate-800">' + c.module + '</span>' +
+      '<i data-lucide="arrow-up-right" class="w-3.5 h-3.5 text-slate-300 ml-auto"></i></div>' +
+      '<div class="text-xs text-slate-500 leading-snug">' + c.topic + '</div></a>'
+  ).join('');
+
+  const gross = positions.reduce((s, p) => s + Math.abs(p.exposure), 0).toFixed(1);
+  const net = positions.reduce((s, p) => s + p.exposure, 0).toFixed(1);
+
+  return '' +
+    '<div class="p-6 space-y-5">' +
+      '<div class="flex items-start justify-between"><div>' +
+        '<h1 class="text-xl font-semibold text-slate-800">Good morning, Pete.</h1>' +
+        '<p class="text-sm text-slate-500 mt-0.5">Tuesday, June 2 · 9:18 AM ET. This demo sketches all eight items from your note against a simulated event-driven book — one module each. Click any topic below.</p>' +
+      '</div><button class="text-sm bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-md px-3 py-1.5 flex items-center gap-1.5" data-toast="Morning brief sent" data-toast-sub="Ranked, deduped, one per held name"><i data-lucide="send" class="w-4 h-4"></i> Send my brief</button></div>' +
+
+      '<div class="bg-white border border-slate-200 rounded-lg p-4">' +
+        '<div class="flex items-center gap-2 mb-3"><i data-lucide="list-checks" class="w-4 h-4 text-dodonai-600"></i><h2 class="font-semibold text-slate-800">Your 8 topics → what we&rsquo;d build</h2><span class="text-xs text-slate-400 ml-2">straight from your 6/2 email</span></div>' +
+        '<div class="grid grid-cols-4 gap-3">' + covCards + '</div>' +
+      '</div>' +
+
+      '<div class="grid grid-cols-4 gap-3">' + statHtml + '</div>' +
+
+      '<div class="grid grid-cols-3 gap-5">' +
+        '<div class="col-span-2 bg-white rounded-lg border border-slate-200">' +
+          '<div class="px-4 py-3 border-b border-slate-200 flex items-center justify-between"><div class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-rose-500 pulse-dot"></span><h2 class="font-semibold text-slate-800">Live alert feed</h2></div><a href="#/alerts" class="text-xs text-dodonai-600 hover:text-dodonai-800">Open feed →</a></div>' + feed +
+        '</div>' +
+        '<div class="space-y-5">' +
+          '<div class="bg-white rounded-lg border border-slate-200 p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Exposure snapshot</div>' +
+            '<div class="space-y-1.5 text-sm"><div class="flex justify-between"><span class="text-slate-500">Gross</span><span class="font-semibold text-slate-800">$' + gross + 'M</span></div><div class="flex justify-between"><span class="text-slate-500">Net</span><span class="font-semibold text-slate-800">$' + net + 'M</span></div><div class="flex justify-between"><span class="text-slate-500">Names</span><span class="font-semibold text-slate-800">' + positions.length + ' held · ' + watchlist.length + ' watch</span></div></div>' +
+            '<a href="#/book" class="block text-center text-xs text-dodonai-600 hover:text-dodonai-800 mt-3">Open the book →</a></div>' +
+          '<div class="bg-amber-50 border border-amber-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-amber-800 font-semibold mb-1">Today’s binary</div><div class="text-sm text-slate-700">IREN reports after the close on a 5.7% long. Overbought on the signal map — the desk has a collar/trim queued.</div><a href="#/hedging" class="block text-xs text-dodonai-600 hover:text-dodonai-800 mt-2">Open hedging →</a></div>' +
+        '</div>' +
+      '</div>' +
+
+      '<div class="bg-gradient-to-br from-dodonai-700 to-dodonai-900 text-white rounded-lg p-5"><div class="flex items-start gap-4">' +
+        '<div class="w-10 h-10 rounded-md bg-white/10 flex items-center justify-center flex-shrink-0"><i data-lucide="route" class="w-5 h-5"></i></div>' +
+        '<div class="flex-1"><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">The build path we’d scope today</div>' +
+          '<div class="text-lg font-semibold mt-0.5">Workflow audit → blueprint → phased build</div>' +
+          '<p class="text-sm text-dodonai-200 mt-1 max-w-2xl">This is a v1 sketch, not a product. The next step is a paid workflow audit to map your real intraday stack — data/news vendors, social feeds, OMS/EMS, options-flow source, research tooling — then a blueprint that ranks your 8 topics by build-effort vs. edge, then a phased build starting with whichever earns its keep first.</p></div>' +
+        '<button class="text-sm bg-white/10 hover:bg-white/20 rounded-md px-3 py-2 flex items-center gap-1.5 self-center whitespace-nowrap" data-toast="Audit scope drafted" data-toast-sub="Sent to Outbox for Nick"><i data-lucide="clipboard-list" class="w-4 h-4"></i> Scope the audit</button>' +
+      '</div></div>' +
+    '</div>';
+}
+
+// ============================================================================
+// Bullet 1 — News & Social
+// ============================================================================
+function renderAlerts() {
+  setBreadcrumb(['News & Social → Alerts']);
+  const cards = alerts.map(a => {
+    const p = posByTicker(a.ticker) || {};
+    const held = positions.some(x => x.ticker === a.ticker);
+    return '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="flex items-start gap-3">' +
+      '<div class="flex flex-col items-center w-12 flex-shrink-0"><span class="font-mono text-sm font-semibold text-slate-800">' + a.ticker + '</span><span class="text-xs font-medium ' + moveCls(a.move) + '">' + a.move + '</span></div>' +
+      '<div class="flex-1 min-w-0"><div class="flex items-center gap-2 mb-1 flex-wrap">' +
+        '<span class="text-[10px] px-1.5 py-0.5 rounded ' + srcPill(a.src) + '">' + a.src + '</span>' +
+        '<span class="inline-block text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-full border ' + sevPill(a.sev) + '">' + sevLabel(a.sev) + ' relevance</span>' +
+        '<span class="text-[10px] px-1.5 py-0.5 rounded bg-slate-100 text-slate-600">correlated: ' + a.corr + '</span>' +
+        '<span class="text-[10px] px-1.5 py-0.5 rounded ' + inferPill(a.senti) + '">' + a.senti + '</span>' +
+        '<span class="text-xs text-slate-400 font-mono ml-auto">' + a.time + ' ET</span></div>' +
+        '<div class="text-sm font-medium text-slate-800 leading-snug">' + a.headline + '</div>' +
+        '<div class="mt-2 bg-dodonai-50 border border-dodonai-200 rounded-md px-3 py-2 text-sm text-dodonai-900 flex items-start gap-2"><i data-lucide="link-2" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div><span class="font-medium">Why it matters' + (held ? ' to the book' : '') + ':</span> ' + a.why + '</div></div>' +
+        '<div class="flex items-center gap-2 mt-3 flex-wrap">' +
+          '<a href="#/research" class="text-xs bg-white border border-slate-300 hover:bg-slate-50 rounded-md px-2.5 py-1.5 flex items-center gap-1.5"><i data-lucide="brain" class="w-3.5 h-3.5 text-dodonai-500"></i> ' + a.noteRef + '</a>' +
+          (held ? '<a href="#/name/' + a.ticker + '" class="text-xs bg-white border border-slate-300 hover:bg-slate-50 rounded-md px-2.5 py-1.5 flex items-center gap-1.5"><i data-lucide="layers" class="w-3.5 h-3.5 text-dodonai-500"></i> Position</a>' : '<span class="text-xs text-slate-400 px-2.5 py-1.5">Watchlist — not held</span>') +
+          '<button class="text-xs bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-md px-2.5 py-1.5 font-medium ml-auto" data-toast="Logged to ' + a.ticker + ' timeline" data-toast-sub="' + a.action + '">' + a.action + '</button>' +
+        '</div></div></div></div>';
+  }).join('');
+
+  return '<div class="p-6 space-y-4">' +
+    '<div class="flex items-start justify-between"><div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">1</span><h1 class="text-xl font-semibold text-slate-800">News &amp; Social → Alerts</h1></div><p class="text-sm text-slate-500 mt-1">Streaming news, filings, and social feeds — correlated to events and matched against your book. Ranked by relevance, deduped, tagged by source and sentiment.</p></div>' +
+      '<div class="flex items-center gap-2"><select class="text-sm border border-slate-300 rounded-md px-3 py-1.5"><option>All sources</option><option>News</option><option>Social</option><option>Filings</option><option>Ratings</option></select><select class="text-sm border border-slate-300 rounded-md px-3 py-1.5"><option>All relevance</option><option>High only</option></select></div></div>' +
+    '<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 flex items-start gap-3"><i data-lucide="sparkles" class="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5"></i><div class="text-sm text-emerald-900"><strong>News + social, correlated to events.</strong> The watcher reads streaming news, filings, and social velocity, ties each item to the event it implies and the position it touches, scores relevance, and pushes only what matters. Social is treated as <em>positioning</em>, not signal — flagged, not traded.</div></div>' +
+    '<div class="space-y-3">' + cards + '</div></div>';
+}
+
+// ============================================================================
+// Bullet 2 — Signal Map
+// ============================================================================
+function renderSignals() {
+  setBreadcrumb(['Signal Map']);
+  const rows = signals.map(s => {
+    const held = positions.some(x => x.ticker === s.ticker);
+    return '<tr class="hover:bg-dodonai-50 cursor-pointer" onclick="location.hash=\'' + (held ? '#/name/' + s.ticker : '#/signals') + '\'">' +
+      '<td class="py-3 px-4"><span class="font-mono font-semibold text-slate-800">' + s.ticker + '</span> <span class="text-xs text-slate-400">' + (held ? '' : 'watch') + '</span><div class="text-xs text-slate-500">' + nameOf(s.ticker) + '</div></td>' +
+      '<td class="py-3 px-4">' + stateChip(s.mom[0], s.mom[1]) + '</td>' +
+      '<td class="py-3 px-4">' + stateChip(s.vol[0], s.vol[1]) + '</td>' +
+      '<td class="py-3 px-4">' + stateChip(s.rev[0], s.rev[1]) + '</td>' +
+      '<td class="py-3 px-4 text-sm text-slate-700">' + s.composite[0] + '</td></tr>';
+  }).join('');
+  return '<div class="p-6 space-y-4">' +
+    '<div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">2</span><h1 class="text-xl font-semibold text-slate-800">Signal Map</h1></div><p class="text-sm text-slate-500 mt-1">Mean-reversion, volatility, and momentum mapped across held + watch names, rolled into one composite read per name. Updates intraday; cross-references news, flow, and the quant overlay.</p></div>' +
+    '<div class="grid grid-cols-3 gap-3">' +
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Momentum</div><div class="text-sm text-slate-700">3 names strong-up; LUMN rolling over.</div></div>' +
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Volatility</div><div class="text-sm text-slate-700">Elevated across the miner sleeve; TLN compressed into FERC.</div></div>' +
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Reversion</div><div class="text-sm text-slate-700">WULF/IREN/NBIS stretched rich; LUMN cheap but a trap.</div></div>' +
+    '</div>' +
+    '<div class="bg-white border border-slate-200 rounded-lg overflow-hidden"><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr><th class="py-2.5 px-4 text-left">Name</th><th class="py-2.5 px-4 text-left">Momentum</th><th class="py-2.5 px-4 text-left">Volatility</th><th class="py-2.5 px-4 text-left">Reversion</th><th class="py-2.5 px-4 text-left">Composite read</th></tr></thead><tbody class="divide-y divide-slate-100">' + rows + '</tbody></table></div>' +
+    '<div class="bg-dodonai-50 border border-dodonai-200 rounded-lg p-4 text-sm text-dodonai-900 flex items-start gap-3"><i data-lucide="info" class="w-5 h-5 flex-shrink-0 mt-0.5"></i><div><span class="font-medium">Signals feed the desk.</span> Each composite read becomes an input to the Intraday Desk and the hedging logic — e.g., "IREN overbought into a binary" is what queues the collar.</div></div></div>';
+}
+
+// ============================================================================
+// Bullet 3 — Trade Detection
+// ============================================================================
+function renderFlow() {
+  setBreadcrumb(['Trade Detection']);
+  const cards = flow.map(f => {
+    const held = positions.some(x => x.ticker === f.ticker);
+    return '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="flex items-start gap-3">' +
+      '<div class="text-xs font-mono text-slate-400 w-10 flex-shrink-0 pt-0.5">' + f.time + '</div>' +
+      '<div class="flex-1 min-w-0"><div class="flex items-center gap-2 mb-1 flex-wrap"><span class="font-mono text-sm font-semibold text-slate-800">' + f.ticker + '</span>' +
+        '<span class="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">' + f.type + '</span>' +
+        '<span class="text-xs px-2 py-0.5 rounded ' + inferPill(f.infer) + '">' + f.infer + '</span>' +
+        '<span class="text-xs text-slate-500">' + f.size + ' · ' + f.vsAdv + '</span>' +
+        (held ? '' : '<span class="text-[10px] text-slate-400">watchlist</span>') +
+        '<span class="text-xs text-slate-400 ml-auto">' + nameOf(f.ticker) + '</span></div>' +
+        '<div class="text-sm text-slate-800">' + f.detail + '</div>' +
+        '<div class="text-xs text-slate-500 mt-1">' + f.why + '</div></div></div></div>';
+  }).join('');
+  return '<div class="p-6 space-y-4">' +
+    '<div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">3</span><h1 class="text-xl font-semibold text-slate-800">Trade Detection</h1></div><p class="text-sm text-slate-500 mt-1">Unusual options sweeps, block prints, dark-pool activity, and volume-vs-ADV spikes on held + watch names — surfaced with an inferred direction and a one-line read.</p></div>' +
+    '<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 flex items-start gap-3"><i data-lucide="sparkles" class="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5"></i><div class="text-sm text-emerald-900"><strong>Flow confirms — or contradicts — the narrative.</strong> The WULF call sweep hit ~30s after the 8-K (catalyst + smart-money agree); the LUMN dark-pool selling contradicts any "buy the dip" instinct. Detection is only as good as your data feed — scoping that is part of the audit.</div></div>' +
+    '<div class="space-y-3">' + cards + '</div></div>';
+}
+
+// ============================================================================
+// Bullet 4 — Intraday Desk
+// ============================================================================
+function renderDesk() {
+  setBreadcrumb(['Intraday Desk']);
+  const convPill = c => ({ High: 'bg-emerald-100 text-emerald-800', Medium: 'bg-amber-100 text-amber-800', Low: 'bg-slate-100 text-slate-600' }[c] || 'bg-slate-100 text-slate-600');
+  const cards = plays.map(p => {
+    const held = positions.some(x => x.ticker === p.ticker);
+    return '<div class="bg-white border border-slate-200 rounded-lg p-4">' +
+      '<div class="flex items-start justify-between gap-2"><div class="flex items-center gap-2"><span class="font-mono text-sm font-semibold text-slate-800">' + p.ticker + '</span><span class="text-sm text-slate-700">' + p.setup + '</span></div><span class="text-xs px-2 py-0.5 rounded ' + convPill(p.conviction) + '">' + p.conviction + ' conviction</span></div>' +
+      '<div class="text-xs text-slate-500 mt-1 flex items-center gap-1.5"><i data-lucide="git-merge" class="w-3.5 h-3.5"></i> Built from: ' + p.basis + '</div>' +
+      '<div class="grid grid-cols-4 gap-2 mt-3 text-sm">' +
+        '<div><div class="text-xs text-slate-500">Trigger</div><div class="text-slate-800">' + p.trigger + '</div></div>' +
+        '<div><div class="text-xs text-slate-500">Target</div><div class="text-slate-800">' + p.target + '</div></div>' +
+        '<div><div class="text-xs text-slate-500">Stop</div><div class="text-slate-800">' + p.stop + '</div></div>' +
+        '<div><div class="text-xs text-slate-500">Horizon</div><div class="text-slate-800">' + p.horizon + '</div></div></div>' +
+      '<div class="flex gap-2 mt-3"><button class="text-xs bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-md px-2.5 py-1.5 font-medium" data-toast="Play added to blotter" data-toast-sub="' + p.ticker + ' — ' + p.setup + '">Add to blotter</button>' + (held ? '<a href="#/name/' + p.ticker + '" class="text-xs bg-white border border-slate-300 hover:bg-slate-50 rounded-md px-2.5 py-1.5">Open position</a>' : '') + '</div></div>';
+  }).join('');
+  return '<div class="p-6 space-y-4">' +
+    '<div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">4</span><h1 class="text-xl font-semibold text-slate-800">Intraday Desk</h1></div><p class="text-sm text-slate-500 mt-1">Where signals, news, and detected flow turn into actionable intraday plays — each with a trigger, target, stop, and the exact inputs it was built from. Discretionary calls stay yours; the desk keeps them disciplined.</p></div>' +
+    '<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 flex items-start gap-3"><i data-lucide="sparkles" class="w-5 h-5 text-emerald-700 flex-shrink-0 mt-0.5"></i><div class="text-sm text-emerald-900"><strong>Strategy = the other seven modules, composed.</strong> A play only appears when multiple inputs line up — e.g., WULF fires because a catalyst (news), a sweep (flow), and a momentum signal all agree. Every play shows its basis so nothing is a black box.</div></div>' +
+    '<div class="grid grid-cols-2 gap-3">' + cards + '</div></div>';
+}
+
+// ============================================================================
+// Bullet 5 — Hedging
+// ============================================================================
+function renderHedging() {
+  setBreadcrumb(['Hedging']);
+  const cards = events.map(e => {
+    const p = posByTicker(e.ticker) || {};
+    return '<div class="border rounded-lg p-4 ' + toneBox(e.tone) + '">' +
+      '<div class="flex items-start justify-between gap-3"><div class="flex items-center gap-2"><span class="font-mono text-sm font-semibold text-slate-800">' + e.ticker + '</span><span class="text-xs text-slate-500">' + p.name + '</span><span class="inline-block text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-full border ' + tonePill(e.tone) + '">' + (e.tone === 'bull' ? 'Thesis catalyst' : e.tone === 'risk' ? 'Hedge now' : 'Watch') + '</span></div><span class="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium whitespace-nowrap">' + e.type + '</span></div>' +
+      '<div class="grid grid-cols-2 gap-3 mt-3 text-sm"><div><div class="text-xs text-slate-500">Trigger</div><div class="text-slate-800">' + e.trigger + '</div></div><div><div class="text-xs text-slate-500">When</div><div class="text-slate-800">' + e.when + '</div></div><div><div class="text-xs text-slate-500">Exposure</div><div class="text-slate-800">' + e.exposureTxt + '</div></div><div><div class="text-xs text-slate-500">Read</div><div class="text-slate-800">' + e.signal + '</div></div></div>' +
+      '<div class="mt-3 bg-white/70 border border-slate-200 rounded-md px-3 py-2 text-sm flex items-start gap-2"><i data-lucide="shield" class="w-4 h-4 text-dodonai-600 flex-shrink-0 mt-0.5"></i><div><span class="font-medium text-slate-800">Suggested response:</span> <span class="text-slate-700">' + e.hedge + '</span></div></div>' +
+      '<div class="flex gap-2 mt-3"><button class="text-xs bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-md px-2.5 py-1.5 font-medium" data-toast="Hedge signal fired for ' + e.ticker + '" data-toast-sub="Structured signal logged">Fire structured signal</button><a href="#/name/' + e.ticker + '" class="text-xs bg-white border border-slate-300 hover:bg-slate-50 rounded-md px-2.5 py-1.5">Open position</a></div></div>';
+  }).join('');
+  const longGross = positions.filter(p => p.exposure > 0).reduce((s, p) => s + p.exposure, 0);
+  return '<div class="p-6 space-y-4">' +
+    '<div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">5</span><h1 class="text-xl font-semibold text-slate-800">Hedging</h1></div><p class="text-sm text-slate-500 mt-1">Two layers: portfolio-level beta/sector hedges, and event-driven single-name hedges that fire off the filings, earnings, and ratings monitor — each applying your playbook by event type.</p></div>' +
+    '<div class="grid grid-cols-3 gap-3"><div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Long gross</div><div class="text-xl font-semibold text-slate-800 mt-1">$' + longGross.toFixed(1) + 'M</div></div>' +
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Portfolio hedge on</div><div class="text-xl font-semibold text-slate-800 mt-1">XME short</div><div class="text-xs text-slate-500">covers ~37% of miner beta</div></div>' +
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Single-name signals</div><div class="text-xl font-semibold text-slate-800 mt-1">2 firing</div><div class="text-xs text-slate-500">IREN earnings · LUMN credit</div></div></div>' +
+    '<div class="grid grid-cols-2 gap-3">' + cards + '</div></div>';
+}
+
+// ============================================================================
+// Bullet 6 — Research
+// ============================================================================
+function recallResultHtml(a) {
+  const srcCards = a.sources.map(id => {
+    const n = notes.find(x => x.id === id);
+    return '<a href="#/research" class="block bg-white border border-slate-200 rounded-lg p-3 hover:border-dodonai-400"><div class="flex items-center justify-between mb-1"><div class="text-sm font-medium text-slate-800">' + n.title + '</div><div class="text-xs text-slate-400 whitespace-nowrap ml-2">' + n.date + '</div></div><div class="text-xs text-slate-600 leading-snug">' + n.snippet + '</div><div class="mt-1.5 flex gap-1 flex-wrap">' + n.tags.map(t => '<span class="text-[10px] bg-slate-100 text-slate-600 rounded px-1.5 py-0.5">' + t + '</span>').join('') + '</div></a>';
+  }).join('');
+  return '<div class="bg-dodonai-50 border border-dodonai-200 rounded-lg p-4"><div class="flex items-center gap-2 mb-2"><i data-lucide="sparkles" class="w-4 h-4 text-dodonai-600"></i><span class="text-xs uppercase tracking-wider text-dodonai-600 font-semibold">Recall summary — synthesized from your notes</span></div><div class="text-sm text-slate-800 leading-relaxed">' + a.summary + '</div></div><div class="mt-3"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Source notes (' + a.sources.length + ')</div><div class="space-y-2">' + srcCards + '</div></div>';
+}
+function renderResearch() {
+  setBreadcrumb(['Research']);
+  const chips = Object.entries(recallAnswers).map(([k, a]) => '<button data-recall="' + k + '" class="text-left text-sm border border-slate-200 rounded-md px-3 py-2 hover:border-dodonai-400 transition-colors">' + a.q + '</button>').join('');
+  const stPill = s => ({ 'Playing out': 'bg-emerald-100 text-emerald-800', 'Watching': 'bg-amber-100 text-amber-800', 'Invalidated': 'bg-slate-200 text-slate-600', 'Realized': 'bg-sky-100 text-sky-800' }[s] || 'bg-slate-100 text-slate-600');
+  const trackRows = theses.map(t =>
+    '<tr class="hover:bg-dodonai-50"><td class="py-2.5 px-3"><span class="font-mono font-semibold text-slate-800">' + t.ticker + '</span></td><td class="py-2.5 px-3 text-sm text-slate-700">' + t.thesis + '</td><td class="py-2.5 px-3 text-xs text-slate-500 font-mono">' + t.opened + '</td><td class="py-2.5 px-3 text-xs text-slate-600">' + t.conviction + '</td><td class="py-2.5 px-3"><span class="text-xs px-2 py-0.5 rounded ' + stPill(t.status) + '">' + t.status + '</span></td><td class="py-2.5 px-3 text-sm text-right font-mono ' + pnlCls(t.pnl) + '">' + t.pnl + '</td></tr>'
+  ).join('');
+
+  return '<div class="p-6 space-y-4">' +
+    '<div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">6</span><h1 class="text-xl font-semibold text-slate-800">Research</h1></div><p class="text-sm text-slate-500 mt-1">Your notes, indexed for instant recall — plus a thesis tracker that remembers what you said, when, and how it played out.</p></div>' +
+    '<div class="bg-white border border-slate-200 rounded-lg overflow-hidden"><div class="flex border-b border-slate-200 text-sm px-2"><button class="tab active px-4 py-2.5 border-b-2 border-transparent" data-tab-group="research" data-tab="recall">Recall</button><button class="tab px-4 py-2.5 border-b-2 border-transparent text-slate-500 hover:text-slate-800" data-tab-group="research" data-tab="track">History & tracking</button></div></div>' +
+
+    '<div data-tab-panel="recall" data-tab-group="research"><div class="grid grid-cols-3 gap-5"><div class="col-span-2 space-y-4">' +
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="relative"><i data-lucide="brain" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-dodonai-500"></i><input id="recall-input" type="text" value="What is our WULF hosting-pivot thesis and the bear case?" class="w-full bg-slate-50 border border-slate-200 rounded-md pl-9 pr-24 py-2.5 text-sm focus:bg-white focus:border-dodonai-400 focus:outline-none focus:ring-2 focus:ring-dodonai-200" /><button data-recall="q1" class="absolute right-2 top-1/2 -translate-y-1/2 text-xs bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-md px-3 py-1.5 font-medium">Recall</button></div><div class="mt-3"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Try one of these</div><div class="grid grid-cols-1 gap-2">' + chips + '</div></div></div>' +
+      '<div id="recall-result">' + recallResultHtml(recallAnswers.q1) + '</div></div>' +
+      '<div class="space-y-4"><div class="bg-amber-50 border border-amber-200 rounded-lg p-4"><div class="flex items-center gap-2 mb-1"><i data-lucide="trending-up" class="w-4 h-4 text-amber-700"></i><span class="text-xs uppercase tracking-wider text-amber-800 font-semibold">Surfaced because WULF is moving</span></div><div class="text-sm text-slate-700">WULF +2.1% on the lease 8-K. Your last notes:</div><div class="mt-2 space-y-1.5">' + notes.filter(n => n.tags.includes('WULF')).map(n => '<a href="#/research" class="block text-sm text-dodonai-700 hover:underline">• ' + n.title + ' <span class="text-xs text-slate-400">' + n.date + '</span></a>').join('') + '</div></div>' +
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Corpus</div><div class="space-y-1.5 text-sm"><div class="flex justify-between"><span class="text-slate-500">Notes indexed</span><span class="font-semibold text-slate-800">312</span></div><div class="flex justify-between"><span class="text-slate-500">Sources</span><span class="font-semibold text-slate-800">Email · Drive · PDFs</span></div><div class="flex justify-between"><span class="text-slate-500">Avg recall</span><span class="font-semibold text-slate-800">&lt; 1s</span></div></div></div>' +
+      '<div class="bg-dodonai-50 border border-dodonai-200 rounded-lg p-4 text-sm text-dodonai-900"><div class="font-semibold mb-1">Seeded from your sample note</div>Drop in one real note on the call and this index rebuilds context for any name in seconds.</div></div></div></div>' +
+
+    '<div data-tab-panel="track" data-tab-group="research" class="hidden"><div class="bg-white border border-slate-200 rounded-lg overflow-hidden"><div class="px-4 py-3 border-b border-slate-200 flex items-center justify-between"><h3 class="font-semibold text-slate-800 text-sm">Thesis tracker</h3><span class="text-xs text-slate-500">Every call logged with conviction, status, and outcome — including the ones that didn’t work.</span></div><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr><th class="py-2 px-3 text-left">Name</th><th class="py-2 px-3 text-left">Thesis</th><th class="py-2 px-3 text-left">Opened</th><th class="py-2 px-3 text-left">Conviction</th><th class="py-2 px-3 text-left">Status</th><th class="py-2 px-3 text-right">P&amp;L</th></tr></thead><tbody class="divide-y divide-slate-100">' + trackRows + '</tbody></table></div>' +
+    '<div class="bg-dodonai-50 border border-dodonai-200 rounded-lg p-4 text-sm text-dodonai-900 mt-3 flex items-start gap-3"><i data-lucide="info" class="w-5 h-5 flex-shrink-0 mt-0.5"></i><div><span class="font-medium">Tracking closes the loop.</span> Keeping invalidated theses (e.g., CLSK) visible is the point — it’s how the process gets sharper and how the quant overlay learns which signals actually preceded your winners.</div></div></div></div>';
+}
+
+// ============================================================================
+// Bullet 7 — Regulatory
+// ============================================================================
+function renderRegulatory() {
+  setBreadcrumb(['Regulatory']);
+  const restrictedRows = restricted.map(r => '<tr class="hover:bg-slate-50"><td class="py-2.5 px-3"><span class="font-mono font-semibold text-slate-800">' + r.ticker + '</span></td><td class="py-2.5 px-3 text-sm text-slate-700">' + r.reason + '</td><td class="py-2.5 px-3 text-xs text-slate-500">' + r.until + '</td></tr>').join('');
+  const flagCards = regFlags.map(f => '<div class="border rounded-lg p-3 ' + toneBox(f.tone) + '"><div class="flex items-center gap-2 mb-1"><span class="font-mono text-sm font-semibold text-slate-800">' + f.ticker + '</span><span class="inline-block text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-full border ' + tonePill(f.tone) + '">' + f.flag + '</span></div><div class="text-sm text-slate-700">' + f.detail + '</div></div>').join('');
+  const filingRows = filings.map(f => '<tr class="hover:bg-dodonai-50"><td class="py-2.5 px-3 text-xs text-slate-500 font-mono whitespace-nowrap">' + f.date + '</td><td class="py-2.5 px-3"><span class="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-700 font-medium">' + f.type + '</span></td><td class="py-2.5 px-3"><span class="font-mono text-xs font-semibold text-dodonai-700">' + f.ticker + '</span></td><td class="py-2.5 px-3 text-xs text-slate-500">' + f.filer + '</td><td class="py-2.5 px-3 text-sm text-slate-800">' + f.detail + '</td><td class="py-2.5 px-3"><span class="inline-block text-xs px-2 py-0.5 rounded-full border ' + tonePill(f.tone) + '">' + f.read + '</span></td></tr>').join('');
+  return '<div class="p-6 space-y-4">' +
+    '<div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">7</span><h1 class="text-xl font-semibold text-slate-800">Regulatory Support</h1></div><p class="text-sm text-slate-500 mt-1">Restricted/wall list, beneficial-ownership thresholds, short-sale restrictions, position-limit checks, and a filings monitor — automated surveillance so nothing slips.</p></div>' +
+    '<div class="bg-amber-50 border border-amber-200 rounded-lg p-3 flex items-start gap-3"><i data-lucide="alert-triangle" class="w-5 h-5 text-amber-700 flex-shrink-0 mt-0.5"></i><div class="text-sm text-amber-900"><strong>This is workflow support, not legal/compliance advice.</strong> The system flags thresholds and surfaces filings; a human (or your compliance team) makes the call. We’d scope exactly which checks are useful in the audit.</div></div>' +
+    '<div class="grid grid-cols-2 gap-4">' +
+      '<div class="bg-white border border-slate-200 rounded-lg overflow-hidden"><div class="px-4 py-3 border-b border-slate-200"><h3 class="font-semibold text-slate-800 text-sm">Restricted / wall list</h3></div><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr><th class="py-2 px-3 text-left">Name</th><th class="py-2 px-3 text-left">Reason</th><th class="py-2 px-3 text-left">Until</th></tr></thead><tbody class="divide-y divide-slate-100">' + restrictedRows + '</tbody></table></div>' +
+      '<div class="space-y-2"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Live reg flags</div>' + flagCards + '</div>' +
+    '</div>' +
+    '<div class="bg-white border border-slate-200 rounded-lg overflow-hidden"><div class="px-4 py-3 border-b border-slate-200"><h3 class="font-semibold text-slate-800 text-sm">Filings monitor — held & thesis names</h3></div><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr><th class="py-2 px-3 text-left">Filed</th><th class="py-2 px-3 text-left">Type</th><th class="py-2 px-3 text-left">Name</th><th class="py-2 px-3 text-left">Filer</th><th class="py-2 px-3 text-left">Detail</th><th class="py-2 px-3 text-left">Read</th></tr></thead><tbody class="divide-y divide-slate-100">' + filingRows + '</tbody></table></div></div>';
+}
+
+// ============================================================================
+// Bullet 8 — Quant Overlay
+// ============================================================================
+function renderQuant() {
+  setBreadcrumb(['Quant Overlay']);
+  const rows = factors.map(f => {
+    const held = positions.some(x => x.ticker === f.ticker);
+    const scoreCls = f.score >= 65 ? 'text-emerald-700' : f.score >= 45 ? 'text-amber-700' : 'text-rose-700';
+    return '<tr class="hover:bg-dodonai-50 cursor-pointer" onclick="location.hash=\'' + (held ? '#/name/' + f.ticker : '#/quant') + '\'">' +
+      '<td class="py-2.5 px-3"><span class="font-mono font-semibold text-slate-800">' + f.ticker + '</span><div class="text-xs text-slate-500">' + nameOf(f.ticker) + '</div></td>' +
+      '<td class="py-2.5 px-3 text-right"><span class="font-mono font-semibold ' + scoreCls + '">' + f.score + '</span></td>' +
+      '<td class="py-2.5 px-3 text-center">' + factorCell(f.momentum) + '</td><td class="py-2.5 px-3 text-center">' + factorCell(f.value) + '</td><td class="py-2.5 px-3 text-center">' + factorCell(f.size) + '</td><td class="py-2.5 px-3 text-center">' + factorCell(f.vol) + '</td><td class="py-2.5 px-3 text-center">' + factorCell(f.crowding) + '</td></tr>';
+  }).join('');
+  // portfolio net factor tilt (exposure-weighted, longs)
+  const longs = positions.filter(p => p.exposure > 0);
+  const fk = ['momentum','value','size','vol','crowding'];
+  const lbl = { momentum: 'Momentum', value: 'Value', size: 'Size', vol: 'Volatility', crowding: 'Crowding' };
+  const tilt = {};
+  let w = 0;
+  longs.forEach(p => { const f = factors.find(x => x.ticker === p.ticker); if (f) { w += p.exposure; fk.forEach(k => tilt[k] = (tilt[k] || 0) + f[k] * p.exposure); } });
+  const tiltBars = fk.map(k => {
+    const v = w ? (tilt[k] / w) : 0;
+    const pct = Math.min(Math.abs(v) / 3 * 50, 50);
+    const pos = v >= 0;
+    return '<div class="flex items-center gap-2 text-sm"><div class="w-20 text-xs text-slate-500 text-right">' + lbl[k] + '</div>' +
+      '<div class="flex-1 h-5 bg-slate-100 rounded relative overflow-hidden"><div class="absolute top-0 bottom-0 left-1/2 w-px bg-slate-300"></div>' +
+      '<div class="absolute top-0.5 bottom-0.5 ' + (pos ? 'bg-emerald-400 left-1/2' : 'bg-rose-400 right-1/2') + ' rounded" style="width:' + pct + '%"></div></div>' +
+      '<div class="w-10 text-xs font-mono ' + (pos ? 'text-emerald-700' : 'text-rose-700') + '">' + (pos ? '+' : '') + v.toFixed(1) + '</div></div>';
+  }).join('');
+
+  return '<div class="p-6 space-y-4">' +
+    '<div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">8</span><h1 class="text-xl font-semibold text-slate-800">Quant Overlay</h1></div><p class="text-sm text-slate-500 mt-1">A factor + model layer on top of the discretionary book: a model score per name and the factor tilts you’re running — so you see the <em>unintended</em> bets, not just the ones you picked.</p></div>' +
+    '<div class="grid grid-cols-3 gap-4">' +
+      '<div class="col-span-2 bg-white border border-slate-200 rounded-lg overflow-hidden"><div class="px-4 py-3 border-b border-slate-200"><h3 class="font-semibold text-slate-800 text-sm">Per-name model score + factor loadings</h3><div class="text-xs text-slate-500">loadings −3 (short factor) … +3 (long factor)</div></div><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr><th class="py-2 px-3 text-left">Name</th><th class="py-2 px-3 text-right">Score</th><th class="py-2 px-3 text-center">Mom</th><th class="py-2 px-3 text-center">Val</th><th class="py-2 px-3 text-center">Size</th><th class="py-2 px-3 text-center">Vol</th><th class="py-2 px-3 text-center">Crowd</th></tr></thead><tbody class="divide-y divide-slate-100">' + rows + '</tbody></table></div>' +
+      '<div class="space-y-4"><div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-3">Portfolio net factor tilt</div><div class="space-y-2">' + tiltBars + '</div></div>' +
+      '<div class="bg-rose-50 border border-rose-200 rounded-lg p-4 text-sm text-rose-900"><div class="font-semibold mb-1 flex items-center gap-1.5"><i data-lucide="alert-triangle" class="w-4 h-4"></i> Unintended bet flagged</div>The book is heavily long <strong>momentum + volatility + crowding</strong> — you’re picking idiosyncratic stories but running a factor-momentum bet. A momentum unwind hits the whole sleeve at once; the XME short only partly covers it.</div></div></div>' +
+    '<div class="bg-dodonai-50 border border-dodonai-200 rounded-lg p-4 text-sm text-dodonai-900 flex items-start gap-3"><i data-lucide="info" class="w-5 h-5 flex-shrink-0 mt-0.5"></i><div><span class="font-medium">Overlay, not replacement.</span> The point isn’t to systematize your discretion — it’s to show the factor exposure hiding inside it, and to backtest which of your signals actually preceded the winners in the thesis tracker.</div></div></div>';
+}
+
+// ============================================================================
+// Foundation — The Book
+// ============================================================================
+function renderBook() {
+  setBreadcrumb(['The Book']);
+  const gross = positions.reduce((s, p) => s + Math.abs(p.exposure), 0).toFixed(1);
+  const net = positions.reduce((s, p) => s + p.exposure, 0).toFixed(1);
+  const longCount = positions.filter(p => p.exposure > 0).length;
+  const shortCount = positions.filter(p => p.exposure < 0).length;
+  const rows = positions.map(p => {
+    const alertN = alerts.filter(a => a.ticker === p.ticker).length;
+    const sideCls = (p.side.indexOf('Short') !== -1 || p.side.indexOf('hedge') !== -1) ? 'bg-slate-100 text-slate-600' : 'bg-emerald-50 text-emerald-700';
+    return '<tr class="hover:bg-dodonai-50 cursor-pointer" onclick="location.hash=\'#/name/' + p.ticker + '\'"><td class="py-3 px-4"><div class="font-mono font-semibold text-slate-800">' + p.ticker + '</div><div class="text-xs text-slate-500">' + p.name + '</div></td><td class="py-3 px-4"><span class="text-xs px-2 py-0.5 rounded ' + sideCls + '">' + p.side + '</span></td><td class="py-3 px-4 text-sm text-slate-700">' + p.sleeve + '</td><td class="py-3 px-4 text-sm text-right font-mono text-slate-800">' + p.weight + '%</td><td class="py-3 px-4 text-sm text-right font-mono text-slate-700">$' + Math.abs(p.exposure) + 'M</td><td class="py-3 px-4 text-sm text-right font-mono ' + pnlCls(p.pnlPct) + '">' + (p.pnlPct >= 0 ? '+' : '') + p.pnlPct + '%</td><td class="py-3 px-4 text-sm text-slate-700">' + p.catalyst + '</td><td class="py-3 px-4 text-center">' + (alertN ? '<span class="inline-block text-xs bg-rose-100 text-rose-700 rounded-full px-1.5 py-0.5 font-medium">' + alertN + '</span>' : '<span class="text-xs text-slate-300">—</span>') + '</td></tr>';
+  }).join('');
+  const longs = positions.filter(p => p.exposure > 0).sort((a, b) => b.exposure - a.exposure);
+  const longGross = longs.reduce((s, p) => s + p.exposure, 0);
+  const palette = ['bg-dodonai-700','bg-dodonai-500','bg-dodonai-400','bg-sky-400','bg-emerald-400','bg-amber-400'];
+  const bar = longs.map((p, i) => '<div class="' + palette[i % palette.length] + '" style="width:' + (p.exposure / longGross * 100).toFixed(1) + '%" title="' + p.ticker + '"></div>').join('');
+  const legend = longs.map((p, i) => '<div class="flex items-center gap-1.5 text-xs"><span class="w-2.5 h-2.5 rounded-sm ' + palette[i % palette.length] + '"></span><span class="font-mono font-medium text-slate-700">' + p.ticker + '</span><span class="text-slate-400">' + (p.exposure / longGross * 100).toFixed(0) + '%</span></div>').join('');
+  return '<div class="p-6 space-y-4">' +
+    '<div class="flex items-start justify-between"><div><h1 class="text-xl font-semibold text-slate-800">The Book</h1><p class="text-sm text-slate-500 mt-0.5">The single source of truth every module reads from. Alerts, signals, flow, hedging, and the quant overlay all key off these positions.</p></div><button class="text-sm border border-slate-300 hover:bg-slate-50 rounded-md px-3 py-1.5 flex items-center gap-1.5" data-toast="Synced from OMS" data-toast-sub="Demo — would connect to your live OMS/EMS"><i data-lucide="refresh-cw" class="w-4 h-4"></i> Sync positions</button></div>' +
+    '<div class="grid grid-cols-4 gap-3"><div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Gross</div><div class="text-2xl font-semibold text-slate-800 mt-1">$' + gross + 'M</div></div><div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Net</div><div class="text-2xl font-semibold text-slate-800 mt-1">$' + net + 'M</div></div><div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Longs</div><div class="text-2xl font-semibold text-slate-800 mt-1">' + longCount + '</div></div><div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Hedges / shorts</div><div class="text-2xl font-semibold text-slate-800 mt-1">' + shortCount + '</div></div></div>' +
+    '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="flex items-center justify-between mb-2"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Long concentration</div><span class="text-xs text-amber-700 bg-amber-50 border border-amber-200 rounded px-2 py-0.5">Top 2 names = ' + ((longs[0].exposure + longs[1].exposure) / longGross * 100).toFixed(0) + '% of longs</span></div><div class="flex h-4 rounded overflow-hidden gap-px">' + bar + '</div><div class="flex flex-wrap gap-x-4 gap-y-1 mt-2">' + legend + '</div></div>' +
+    '<div class="bg-white border border-slate-200 rounded-lg overflow-hidden"><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr><th class="py-2.5 px-4 text-left">Name</th><th class="py-2.5 px-4 text-left">Side</th><th class="py-2.5 px-4 text-left">Sleeve</th><th class="py-2.5 px-4 text-right">Weight</th><th class="py-2.5 px-4 text-right">Exposure</th><th class="py-2.5 px-4 text-right">Day</th><th class="py-2.5 px-4 text-left">Next catalyst</th><th class="py-2.5 px-4 text-center">Alerts</th></tr></thead><tbody class="divide-y divide-slate-100">' + rows + '</tbody></table></div></div>';
+}
+
+// ============================================================================
+// Position detail (Name Canvas)
+// ============================================================================
+function renderName(ticker) {
+  const p = positions.find(x => x.ticker === ticker) || positions[0];
+  setBreadcrumb(['The Book', p.ticker]);
+  const myAlerts = alerts.filter(a => a.ticker === p.ticker);
+  const myNotes = notes.filter(n => n.tags.includes(p.ticker));
+  const myEvents = events.filter(e => e.ticker === p.ticker);
+  const sig = signals.find(s => s.ticker === p.ticker);
+  const fac = factors.find(f => f.ticker === p.ticker);
+  const sideCls = (p.side.indexOf('Short') !== -1 || p.side.indexOf('hedge') !== -1) ? 'bg-slate-100 text-slate-600' : 'bg-emerald-50 text-emerald-700';
+
+  const overviewTab = '<div class="grid grid-cols-3 gap-4"><div class="col-span-2 space-y-4">' +
+    '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Thesis</div><p class="text-sm text-slate-700 leading-relaxed">' + p.thesis + '</p></div>' +
+    '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">At a glance</div><div class="grid grid-cols-2 gap-3 text-sm"><div><div class="text-xs text-slate-500">Side</div><div class="text-slate-800">' + p.side + '</div></div><div><div class="text-xs text-slate-500">Sleeve</div><div class="text-slate-800">' + p.sleeve + '</div></div><div><div class="text-xs text-slate-500">Weight (gross)</div><div class="text-slate-800 font-mono">' + Math.abs(p.weight) + '%</div></div><div><div class="text-xs text-slate-500">Exposure</div><div class="text-slate-800 font-mono">$' + Math.abs(p.exposure) + 'M</div></div><div><div class="text-xs text-slate-500">Next catalyst</div><div class="text-slate-800">' + p.catalyst + '</div></div><div><div class="text-xs text-slate-500">Window</div><div class="text-slate-800">' + p.window + '</div></div></div></div></div>' +
+    '<div class="space-y-4"><div class="bg-gradient-to-br from-dodonai-700 to-dodonai-900 text-white border border-dodonai-700 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold mb-1">Day P&amp;L</div><div class="text-2xl font-semibold ' + (p.pnlPct < 0 ? 'text-rose-300' : 'text-emerald-300') + '">' + (p.pnlPct >= 0 ? '+' : '') + p.pnlPct + '%</div><div class="text-xs text-dodonai-200 mt-1">' + myAlerts.length + ' alert(s) · ' + myEvents.length + ' event signal(s)' + (fac ? ' · quant ' + fac.score : '') + '</div></div>' +
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Quick actions</div><div class="space-y-2"><button class="w-full text-left text-sm border border-slate-200 rounded-md px-3 py-2 hover:border-dodonai-400 flex items-center gap-2" data-toast="Recall opened for ' + p.ticker + '"><i data-lucide="brain" class="w-4 h-4 text-dodonai-500"></i> Recall my notes</button><button class="w-full text-left text-sm border border-slate-200 rounded-md px-3 py-2 hover:border-dodonai-400 flex items-center gap-2" data-toast="Hedge signal drafted for ' + p.ticker + '"><i data-lucide="shield" class="w-4 h-4 text-dodonai-500"></i> Draft a hedge signal</button><button class="w-full text-left text-sm border border-slate-200 rounded-md px-3 py-2 hover:border-dodonai-400 flex items-center gap-2" data-toast="Alert rules updated"><i data-lucide="bell-plus" class="w-4 h-4 text-dodonai-500"></i> Tune alert sensitivity</button></div></div></div></div>';
+
+  const signalsTab = sig ? '<div class="grid grid-cols-3 gap-4"><div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Momentum</div>' + stateChip(sig.mom[0], sig.mom[1]) + '</div><div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Volatility</div>' + stateChip(sig.vol[0], sig.vol[1]) + '</div><div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Reversion</div>' + stateChip(sig.rev[0], sig.rev[1]) + '</div><div class="col-span-3 bg-dodonai-50 border border-dodonai-200 rounded-lg p-4 text-sm text-dodonai-900"><span class="font-medium">Composite:</span> ' + sig.composite[0] + '</div></div>' : '<div class="text-sm text-slate-500 italic p-4">No signal mapped.</div>';
+
+  const alertsTab = myAlerts.length ? '<div class="space-y-2">' + myAlerts.map(a => '<div class="bg-white border border-slate-200 rounded-lg p-3"><div class="flex items-center gap-2 mb-1"><span class="text-[10px] px-1.5 py-0.5 rounded ' + srcPill(a.src) + '">' + a.src + '</span><span class="inline-block text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded-full border ' + sevPill(a.sev) + '">' + sevLabel(a.sev) + '</span><span class="text-xs ' + moveCls(a.move) + ' font-medium">' + a.move + '</span><span class="text-xs text-slate-400 ml-auto font-mono">' + a.time + ' ET</span></div><div class="text-sm text-slate-800">' + a.headline + '</div><div class="text-xs text-slate-500 mt-1">' + a.why + '</div></div>').join('') + '</div>' : '<div class="text-sm text-slate-500 italic p-4">No open alerts.</div>';
+  const notesTab = myNotes.length ? '<div class="space-y-2">' + myNotes.map(n => '<div class="bg-white border border-slate-200 rounded-lg p-3"><div class="flex items-center justify-between"><div class="text-sm font-medium text-slate-800">' + n.title + '</div><div class="text-xs text-slate-400">' + n.date + '</div></div><div class="text-xs text-slate-600 mt-1 leading-snug">' + n.snippet + '</div></div>').join('') + '</div>' : '<div class="text-sm text-slate-500 italic p-4">No indexed notes tagged to this name.</div>';
+  const eventsTab = myEvents.length ? '<div class="space-y-2">' + myEvents.map(e => '<div class="border rounded-lg p-3 ' + toneBox(e.tone) + '"><div class="flex items-center gap-2 mb-1"><span class="text-xs px-2 py-0.5 rounded bg-white border border-slate-200 text-slate-700 font-medium">' + e.type + '</span><span class="text-xs text-slate-500">' + e.when + '</span></div><div class="text-sm text-slate-800">' + e.trigger + '</div><div class="text-xs text-slate-600 mt-1"><span class="font-medium">Response:</span> ' + e.hedge + '</div></div>').join('') + '</div>' : '<div class="text-sm text-slate-500 italic p-4">No event signals firing.</div>';
+
+  return '<div class="p-6 space-y-4"><div class="bg-white border border-slate-200 rounded-lg p-5"><div class="flex items-start justify-between gap-4"><div><div class="flex items-center gap-2 mb-1"><h1 class="text-xl font-semibold text-slate-800 font-mono">' + p.ticker + '</h1><span class="text-sm text-slate-500">' + p.name + '</span><span class="text-xs px-2 py-0.5 rounded ' + sideCls + '">' + p.side + '</span></div><div class="text-sm text-slate-500">' + p.sleeve + ' · ' + Math.abs(p.weight) + '% gross · next: ' + p.catalyst + ' (' + p.window + ')</div></div><div class="text-right"><div class="text-xs text-slate-500">Day</div><div class="text-lg font-semibold ' + pnlCls(p.pnlPct) + ' font-mono">' + (p.pnlPct >= 0 ? '+' : '') + p.pnlPct + '%</div></div></div>' +
+    '<div class="flex border-b border-slate-200 mt-5 -mb-px text-sm"><button class="tab active px-4 py-2.5 border-b-2 border-transparent" data-tab-group="name" data-tab="overview">Thesis &amp; Exposure</button><button class="tab px-4 py-2.5 border-b-2 border-transparent text-slate-500 hover:text-slate-800" data-tab-group="name" data-tab="signals">Signals</button><button class="tab px-4 py-2.5 border-b-2 border-transparent text-slate-500 hover:text-slate-800" data-tab-group="name" data-tab="alerts">Alerts <span class="text-xs ml-1 bg-slate-100 px-1.5 rounded">' + myAlerts.length + '</span></button><button class="tab px-4 py-2.5 border-b-2 border-transparent text-slate-500 hover:text-slate-800" data-tab-group="name" data-tab="notes">Research <span class="text-xs ml-1 bg-slate-100 px-1.5 rounded">' + myNotes.length + '</span></button><button class="tab px-4 py-2.5 border-b-2 border-transparent text-slate-500 hover:text-slate-800" data-tab-group="name" data-tab="events">Events <span class="text-xs ml-1 bg-slate-100 px-1.5 rounded">' + myEvents.length + '</span></button></div></div>' +
+    '<div data-tab-panel="overview" data-tab-group="name">' + overviewTab + '</div>' +
+    '<div data-tab-panel="signals" data-tab-group="name" class="hidden">' + signalsTab + '</div>' +
+    '<div data-tab-panel="alerts" data-tab-group="name" class="hidden">' + alertsTab + '</div>' +
+    '<div data-tab-panel="notes" data-tab-group="name" class="hidden">' + notesTab + '</div>' +
+    '<div data-tab-panel="events" data-tab-group="name" class="hidden">' + eventsTab + '</div></div>';
+}
+</script>
+</body>
+</html>

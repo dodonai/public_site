@@ -30,6 +30,15 @@
 	}
 
 	onMount(() => {
+		const prefersReducedMotion =
+			typeof window !== 'undefined' &&
+			window.matchMedia &&
+			window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (prefersReducedMotion) {
+			// Show the final, settled frame and don't loop.
+			step = durations.length - 1;
+			return;
+		}
 		startAnimation();
 		return () => clearAnimation();
 	});

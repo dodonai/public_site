@@ -8,6 +8,7 @@
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import faqItems from '$lib/data/faq/general.json';
 	import LazyLoad from '$lib/components/layout/LazyLoad.svelte';
+	import { stripLinks } from '$lib/utils/linkify.js';
 </script>
 
 <SEOHead
@@ -73,7 +74,7 @@
 				name: item.question,
 				acceptedAnswer: {
 					'@type': 'Answer',
-					text: item.answer
+					text: stripLinks(item.answer)
 				}
 			}))
 		}

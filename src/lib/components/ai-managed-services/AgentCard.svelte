@@ -10,7 +10,7 @@
 </script>
 
 <a
-	href="/ai-services/agents/{agent.slug}/"
+	href="/ai-managed-services/agents/{agent.slug}/"
 	class="group flex h-full flex-col rounded-2xl border border-[#dcddf340] bg-white p-6 shadow-brand-card transition-shadow hover:shadow-lg"
 >
 	<div class="flex items-start justify-between gap-3">
