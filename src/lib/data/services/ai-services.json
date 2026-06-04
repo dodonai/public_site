@@ -1,12 +1,12 @@
 {
 	"seo": {
-		"title": "AI Managed Services for Legal Teams | Custom AI Agents for Law Firms",
-		"description": "AI managed services for law firms. Dodonai designs, builds, and runs custom AI agents tuned to your workflows. Blueprint in 2-3 weeks. SOC 2 and HIPAA.",
+		"title": "AI Managed Services for Legal Teams | AI Workflow Automation",
+		"description": "AI managed services and workflow automation consulting for law firms. Dodonai designs, builds, and runs custom AI agents around your workflows. Blueprint in 1-2 weeks. SOC 2 + HIPAA.",
 		"canonical": "/ai-managed-services/"
 	},
 	"hero": {
 		"headline": "AI Managed Services for Legal Teams",
-		"subheadline": "You know your firm needs AI. You don't know where to start. Dodonai designs custom AI agents around the workflows your team already uses, with SOC 2 and HIPAA guardrails built in. Launch in weeks.",
+		"subheadline": "You know your firm needs AI. You don't know where to start. Dodonai is the AI workflow automation and consulting partner for law firms — we design, build, and run custom agents around the workflows your team already uses, with SOC 2 and HIPAA guardrails built in. Launch in weeks.",
 		"bullets": [
 			"Win back the hours lost to repetitive work",
 			"Custom agents live in weeks, not quarters",
@@ -52,8 +52,8 @@
 			},
 			{
 				"icon": "check",
-				"title": "We run this on ourselves",
-				"description": "We operate dozens of agents inside our own company every day. You get a playbook that already runs in production."
+				"title": "We optimize your AI spend",
+				"description": "New models ship constantly, and so does the cheapest way to run any given task well. We continuously re-architect your agents onto the best price-to-performance option as the frontier moves — because law-firm margins are paramount, and we treat your model spend like our own."
 			}
 		]
 	},
@@ -61,9 +61,12 @@
 		"stats": [
 			{ "value": "250+", "label": "firms on the Dodonai platform" },
 			{ "value": "50+", "label": "AI agents shipped into production" },
-			{ "value": "30+ hrs/wk", "label": "reclaimed at a typical firm" },
-			{ "value": "$200k+/yr", "label": "in recovered attorney capacity" }
-		]
+			{ "value": "8+ hrs/wk", "label": "reclaimed per attorney" },
+			{ "value": "$100k+/yr", "label": "in recovered capacity per attorney" },
+			{ "value": "10+ tools", "label": "consolidated into one system" },
+			{ "value": "~30%", "label": "lower software spend" }
+		],
+		"caption": "Average results across Dodonai engagements. Your numbers depend on firm size, practice area, and which agents you turn on."
 	},
 	"positioning": {
 		"heading": "The missing middle for small-firm AI",
@@ -87,7 +90,7 @@
 	"faq": [
 		{
 			"question": "How long does a typical engagement take?",
-			"answer": "A Blueprint takes 2 to 3 weeks. A Build cycle usually runs 4 to 8 weeks depending on how many agents are in scope and how many integrations we need to wire up. Managed support is ongoing on a monthly cadence."
+			"answer": "A Blueprint takes 1 to 2 weeks. A Build can run anywhere from a week to several months depending on scope — a single agent is fast, while rewiring a whole firm is a bigger lift. Managed support is ongoing on a monthly cadence."
 		},
 		{
 			"question": "Who owns the agents you build?",
@@ -115,7 +118,7 @@
 		},
 		{
 			"question": "How do we get started?",
-			"answer": "Email hello@dodon.ai or book an intro call. We want to understand your workflows and your goals before we talk scope or timing."
+			"answer": "Email hello@dodon.ai or {{link:https://calendly.com/nick-dodonai|book an intro call}}. We want to understand your workflows and your goals before we talk scope or timing."
 		}
 	]
 }
