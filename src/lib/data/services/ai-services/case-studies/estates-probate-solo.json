@@ -2,14 +2,14 @@
 	"slug": "estates-probate-solo",
 	"seo": {
 		"title": "Solo Estates Practice AI Engagement: Faster, Cleaner Drafting | Dodonai",
-		"description": "How a solo trusts-and-estates attorney used four custom AI agents to cut document turnaround and catch proofreading errors before signing. A representative Dodonai engagement.",
+		"description": "How a solo trusts-and-estates attorney used four AI agents for estate document drafting, cutting turnaround and catching errors before signing.",
 		"canonical": "/ai-managed-services/results/estates-probate-solo/"
 	},
 	"descriptor": "Solo trusts-and-estates / transactional practice",
 	"practiceArea": "Estates & Probate",
 	"practiceAreaSlug": "estates-probate",
 	"headline": "A solo estates practice cut document turnaround and stopped letting errors slip through",
-	"summary": "A small, focused build proving that single-attorney shops get leverage too — drafting and proofreading without a paralegal.",
+	"summary": "A small, focused build proving single-attorney shops get real help too: drafting and proofreading without a paralegal.",
 	"statStrip": [
 		{ "value": "4 agents", "label": "wiki, intake, drafting, proofreading" },
 		{ "value": "~6 weeks", "label": "discovery to live" },
@@ -24,7 +24,7 @@
 	},
 	"built": {
 		"heading": "What we built",
-		"intro": "Four agents, scoped from a short discovery, built for a single-attorney workflow with no paralegal in the loop.",
+		"intro": "Four agents, scoped from a short discovery, built for a single-attorney workflow with no paralegal in the loop. The drafting and proofreading pair builds on our {{link:/dodonai-extract-and-draft-agents/|extract and draft agents}}.",
 		"agents": [
 			{ "name": "Firm Wiki / LLM Brain", "slug": null },
 			{ "name": "Intake Triage", "slug": "intake-triage" },
@@ -36,15 +36,15 @@
 		"heading": "What changed",
 		"items": [
 			"Deeds, trusts, and POAs draft from the firm's own templates and prior matters, not a generic form.",
-			"The proofreader flags inconsistencies — names, dates, defined terms, cross-references — before anything reaches a signing.",
+			"The proofreader flags inconsistencies (names, dates, defined terms, cross-references) before anything reaches a signing.",
 			"New matters are scored at intake and a first response is drafted automatically.",
 			"The firm wiki holds the clause library, so the attorney's judgment is encoded instead of re-typed.",
-			"Faster turnaround with fewer proofreading misses — and the attorney still reviews and signs every document."
+			"Faster turnaround with fewer proofreading misses, and the attorney still reviews and signs every document."
 		]
 	},
 	"engagementArc": {
-		"discovery": "1–2 weeks",
-		"build": "~6 weeks · 4 agents",
+		"discovery": "1 to 2 weeks",
+		"build": "~6 weeks, 4 agents",
 		"retainer": "Optional, month-to-month"
 	}
 }
