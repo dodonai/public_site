@@ -97,19 +97,14 @@
 		<nav class="relative hidden items-center gap-20 lg:flex">
 			<!-- Services Dropdown -->
 			<div class="relative">
-				<button
+				<a
+					href="/"
 					class="flex items-center gap-1 text-base font-medium transition-colors"
 					style="color: var(--midnight-blue);"
 					aria-haspopup="true"
 					aria-expanded={activeDropdown === 'services'}
 					onmouseenter={() => (activeDropdown = 'services')}
-					onmouseleave={() => {}}
 					onfocus={() => (activeDropdown = 'services')}
-					onclick={() => (activeDropdown = activeDropdown === 'services' ? null : 'services')}
-					onblur={() =>
-						setTimeout(() => {
-							if (activeDropdown === 'services') activeDropdown = null;
-						}, 200)}
 				>
 					Platform
 					<svg
@@ -121,7 +116,7 @@
 					>
 						<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
 					</svg>
-				</button>
+				</a>
 
 				{#if activeDropdown === 'services'}
 					<div

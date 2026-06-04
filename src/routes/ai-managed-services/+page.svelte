@@ -12,6 +12,7 @@
 	import { stripLinks, linkify } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/ai-services.json';
 	import packages from '$lib/data/services/ai-services/packages.json';
+	import { aiServicesPracticeAreas, aiServicesFunctions } from '$lib/data/navigation.js';
 
 	let HeroAnimation = $state(null);
 	onMount(async () => {
@@ -102,6 +103,39 @@
 		<section class="bg-transparent pb-12 pt-2 sm:pb-16">
 			<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
 				<StatStrip stats={data.proof.stats} columns={4} />
+			</div>
+		</section>
+	{/if}
+
+	<!-- Positioning: the missing middle -->
+	{#if data.positioning}
+		<section class="bg-transparent pb-20 sm:pb-28">
+			<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+				<div class="mx-auto max-w-3xl text-center">
+					<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
+						{data.positioning.heading}
+					</h2>
+					<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
+						{data.positioning.intro}
+					</p>
+				</div>
+
+				<div class="mt-16 grid gap-6 md:grid-cols-3">
+					{#each data.positioning.cards as card}
+						<div
+							class="flex h-full flex-col rounded-2xl border border-[#dcddf340] bg-white p-8 shadow-brand-card"
+						>
+							<h3 class="text-lg font-bold text-[#282876]">{card.title}</h3>
+							<p class="mt-3 text-sm leading-relaxed text-[#8181ac]">{card.description}</p>
+						</div>
+					{/each}
+				</div>
+
+				{#if data.positioning.closer}
+					<p class="mx-auto mt-10 max-w-3xl text-center text-base leading-7 text-[#8181ac]">
+						{data.positioning.closer}
+					</p>
+				{/if}
 			</div>
 		</section>
 	{/if}
@@ -197,6 +231,51 @@
 			background="bg-transparent"
 		/>
 	{/if}
+
+	<!-- Browse by practice area / function -->
+	<section class="bg-transparent pb-20 sm:pb-28">
+		<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+			<div class="mx-auto max-w-3xl text-center">
+				<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
+					Find what fits your firm
+				</h2>
+				<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
+					Start from your practice area, or from the kind of work you want to take off your team's
+					plate.
+				</p>
+			</div>
+
+			<div class="mt-12">
+				<h3 class="text-sm font-semibold uppercase tracking-wider text-[#8181ac]">
+					By practice area
+				</h3>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each aiServicesPracticeAreas as area}
+						<a
+							href={area.href}
+							class="rounded-full border border-[#836ae4]/30 bg-[#836ae41a] px-4 py-2 text-sm font-medium text-[#836ae4] transition-colors hover:bg-[#836ae433]"
+						>
+							{area.name}
+						</a>
+					{/each}
+				</div>
+			</div>
+
+			<div class="mt-10">
+				<h3 class="text-sm font-semibold uppercase tracking-wider text-[#8181ac]">By function</h3>
+				<div class="mt-4 flex flex-wrap gap-3">
+					{#each aiServicesFunctions as fn}
+						<a
+							href={fn.href}
+							class="rounded-full border border-[#216fed]/30 bg-[#216fed1a] px-4 py-2 text-sm font-medium text-[#216fed] transition-colors hover:bg-[#216fed26]"
+						>
+							{fn.name}
+						</a>
+					{/each}
+				</div>
+			</div>
+		</div>
+	</section>
 
 	<!-- Destinations: results, catalog, our agents -->
 	<section class="bg-transparent py-20 sm:py-28">
@@ -343,18 +422,29 @@
 					/>
 				</div>
 				<div class="max-w-xl">
-					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">Legal experts + AI</p>
+					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">
+						Legal experts + AI
+					</p>
 					<h2 class="mt-4 text-2xl font-extrabold leading-snug text-[#282876] sm:text-3xl">
 						The attorney stays in every loop. The AI handles the volume.
 					</h2>
 					<p class="mt-5 text-base leading-7 text-[#8181ac]">
-						Every agent we build creates drafts, surfaces signals, and flags deadlines — it never decides, sends, or files on its own. Your team reviews and approves every action. That's not a limitation; it's the architecture. AI handles what scales. Humans handle what matters.
+						Every agent we build creates drafts, surfaces signals, and flags deadlines — it never
+						decides, sends, or files on its own. Your team reviews and approves every action. That's
+						not a limitation; it's the architecture. AI handles what scales. Humans handle what
+						matters.
 					</p>
 					<div class="mt-6 flex flex-wrap gap-4">
-						<a href="/ai-managed-services/safety/" class="text-sm font-semibold text-[#216fed] hover:underline">
+						<a
+							href="/ai-managed-services/safety/"
+							class="text-sm font-semibold text-[#216fed] hover:underline"
+						>
 							How we keep attorneys in control →
 						</a>
-						<a href="/ai-managed-services/our-agents/" class="text-sm font-semibold text-[#836ae4] hover:underline">
+						<a
+							href="/ai-managed-services/our-agents/"
+							class="text-sm font-semibold text-[#836ae4] hover:underline"
+						>
 							See our own agent stack →
 						</a>
 					</div>

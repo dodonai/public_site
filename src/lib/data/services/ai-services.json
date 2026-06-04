@@ -65,6 +65,25 @@
       { "value": "$200k+/yr", "label": "in recovered attorney capacity" }
     ]
   },
+  "positioning": {
+    "heading": "The missing middle for small-firm AI",
+    "intro": "Most AI help for smaller firms comes in three flavors: a course that teaches your team to prompt and leaves the building to you, another subscription app you have to learn and run yourself, or an embedded consultant priced for AmLaw 100 budgets. We're the part in between — we build the agents around how your firm already works and hand them over, scoped to a solo or small-firm budget.",
+    "cards": [
+      {
+        "title": "Not another course",
+        "description": "Training programs teach your team to prompt better, then leave the implementation to you. We do the building. You get working agents wired into your stack — not a reading list."
+      },
+      {
+        "title": "Not a generic app",
+        "description": "Off-the-shelf legal AI makes you bend your practice to its workflow. We build around your templates, your matter states, and the tools you already use — and everything lives in your account."
+      },
+      {
+        "title": "Not big-firm consulting",
+        "description": "The embedded AI consultants serving law firms are built for 500-lawyer shops at $200k-plus engagements. Our builds start in the low four figures, sized for solo and small firms."
+      }
+    ],
+    "closer": "And it's an architecture we run on ourselves every day — so the playbook your firm gets is one that's already in production, not a pitch deck."
+  },
   "faq": [
     {
       "question": "How long does a typical engagement take?",

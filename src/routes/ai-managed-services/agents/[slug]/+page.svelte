@@ -7,11 +7,13 @@
 	import ContentSection from '$lib/components/content/ContentSection.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
+	import AgentCard from '$lib/components/ai-managed-services/AgentCard.svelte';
 	import { stripLinks } from '$lib/utils/linkify.js';
 	import { aiServicesPracticeAreas, aiServicesFunctions } from '$lib/data/navigation.js';
 
 	let { data } = $props();
 	const agent = $derived(data.agent);
+	const related = $derived(data.related ?? []);
 
 	let HeroAnimation = $state(null);
 	onMount(async () => {
@@ -19,12 +21,8 @@
 		HeroAnimation = mod.default;
 	});
 
-	const practiceAreaMap = Object.fromEntries(
-		aiServicesPracticeAreas.map((a) => [a.slug, a])
-	);
-	const functionMap = Object.fromEntries(
-		aiServicesFunctions.map((f) => [f.slug, f])
-	);
+	const practiceAreaMap = Object.fromEntries(aiServicesPracticeAreas.map((a) => [a.slug, a]));
+	const functionMap = Object.fromEntries(aiServicesFunctions.map((f) => [f.slug, f]));
 
 	const functionInfo = $derived(functionMap[agent.function]);
 
@@ -153,7 +151,12 @@
 					<ul class="mt-8 space-y-3">
 						{#each agent.whatItDoes.bullets as bullet}
 							<li class="flex items-start gap-3">
-								<img src="/images/brand/checkmark.svg" alt="" class="mt-1 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+								<img
+									src="/images/brand/checkmark.svg"
+									alt=""
+									class="mt-1 h-5 w-5 flex-shrink-0"
+									aria-hidden="true"
+								/>
 								<span class="text-base leading-7 text-[#8181ac] sm:text-lg">{bullet}</span>
 							</li>
 						{/each}
@@ -176,7 +179,8 @@
 						<ul class="mt-4 space-y-3">
 							{#each agent.inputsOutputs.inputs as item}
 								<li class="flex items-start gap-3 text-[#282876]">
-									<span class="mt-2 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#836ae4]"></span>
+									<span class="mt-2 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#836ae4]"
+									></span>
 									<span class="text-base">{item}</span>
 								</li>
 							{/each}
@@ -187,7 +191,8 @@
 						<ul class="mt-4 space-y-3">
 							{#each agent.inputsOutputs.outputs as item}
 								<li class="flex items-start gap-3 text-[#282876]">
-									<span class="mt-2 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#216fed]"></span>
+									<span class="mt-2 block h-1.5 w-1.5 flex-shrink-0 rounded-full bg-[#216fed]"
+									></span>
 									<span class="text-base">{item}</span>
 								</li>
 							{/each}
@@ -207,7 +212,9 @@
 				</h2>
 				<ul class="mt-8 flex flex-wrap gap-3">
 					{#each agent.integrations as integration}
-						<li class="rounded-full border border-[#282876]/10 bg-white px-4 py-2 text-sm font-medium text-[#282876]">
+						<li
+							class="rounded-full border border-[#282876]/10 bg-white px-4 py-2 text-sm font-medium text-[#282876]"
+						>
 							{integration}
 						</li>
 					{/each}
@@ -224,15 +231,28 @@
 					Built from these legal skills
 				</h2>
 				<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
-					Each skill is a battle-tested template that codifies how your team already handles this kind of work. The agent orchestrates them into an end-to-end output.
+					Each skill is a battle-tested template that codifies how your team already handles this
+					kind of work. The agent orchestrates them into an end-to-end output.
 				</p>
 				<ul class="mt-8 space-y-2">
 					{#each agent.caseSkills as skill}
 						<li class="flex items-start gap-3 text-[#282876]">
-							<svg class="mt-1 h-5 w-5 flex-shrink-0 text-[#836ae4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.8">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253" />
+							<svg
+								class="mt-1 h-5 w-5 flex-shrink-0 text-[#836ae4]"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="1.8"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
+								/>
 							</svg>
-							<code class="rounded bg-[#f4f5fd] px-2 py-0.5 font-mono text-sm text-[#282876]">{skill}</code>
+							<code class="rounded bg-[#f4f5fd] px-2 py-0.5 font-mono text-sm text-[#282876]"
+								>{skill}</code
+							>
 						</li>
 					{/each}
 				</ul>
@@ -247,7 +267,8 @@
 				Practice-area fit
 			</h2>
 			<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
-				Every engagement tunes the agent to your firm's specific matter mix. The areas below are where we've seen this agent fit most naturally.
+				Every engagement tunes the agent to your firm's specific matter mix. The areas below are
+				where we've seen this agent fit most naturally.
 			</p>
 			<div class="mt-8 flex flex-wrap gap-3">
 				{#each practiceAreaBadges as badge}
@@ -287,6 +308,32 @@
 	<!-- FAQ -->
 	{#if agent.faq && agent.faq.length > 0}
 		<FAQAccordion items={agent.faq} background="bg-transparent" />
+	{/if}
+
+	<!-- Related agents (same function) -->
+	{#if related.length > 0}
+		<section class="bg-transparent py-20 sm:py-28">
+			<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
+				<div class="mx-auto max-w-3xl text-center">
+					<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
+						Related agents
+					</h2>
+					{#if functionInfo}
+						<p class="mt-4 text-base leading-7 text-[#8181ac]">
+							More agents in <a
+								href={functionInfo.href}
+								class="font-medium text-[#216fed] hover:underline">{functionInfo.name}</a
+							>.
+						</p>
+					{/if}
+				</div>
+				<div class="mt-12 grid gap-6 md:grid-cols-2 lg:grid-cols-3">
+					{#each related as relatedAgent}
+						<AgentCard agent={relatedAgent} />
+					{/each}
+				</div>
+			</div>
+		</section>
 	{/if}
 </BlobBackground>
 
