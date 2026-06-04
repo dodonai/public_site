@@ -36,7 +36,7 @@
 
 	const title = 'AI Agents for Law Firms: Browse the Catalog | Dodonai';
 	const description =
-		'Browse the AI agents we build for law firms and pick the ones your firm needs. Filter by practice area or function. Intake, deadlines, client comms, operations, casework, and drafting.';
+		'Browse the AI agents we build for law firms. Filter by practice area or function: intake, deadlines, client comms, ops, casework, drafting.';
 	const canonical = '/ai-managed-services/agents/';
 
 	const breadcrumbs = [
