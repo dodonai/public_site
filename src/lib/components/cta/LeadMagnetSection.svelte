@@ -4,6 +4,10 @@
 	// Soft gate only — /downloads/going-ai-native.pdf is publicly accessible on GCS.
 	// If user declined cookies, HS won't capture the lead but the download still works.
 
+	// HIDDEN until the book is finished. Flip to true to re-enable the lead magnet
+	// everywhere it's mounted (ai-services landing, /for/[slug], our-agents).
+	const ENABLED = false;
+
 	let { background = 'bg-[#f4f5fd]' } = $props();
 
 	let email = $state('');
@@ -16,6 +20,7 @@
 	}
 </script>
 
+{#if ENABLED}
 <section class="{background} py-20 sm:py-28">
 	<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 		<div class="flex flex-col items-center gap-12 lg:flex-row lg:items-center lg:gap-16">
@@ -150,3 +155,4 @@
 		</div>
 	</div>
 </section>
+{/if}
