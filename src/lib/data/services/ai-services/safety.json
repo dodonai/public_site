@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "AI Safety for Law Firms: The Embarrassment Prevention Layer | Dodonai",
-    "description": "Every Dodonai agent runs inside a 4-principle safety architecture: drafts not sends, full audit trail, uncertain items route to review, and access controls scoped to the work.",
+    "description": "AI safety for law firms, built into every Dodonai agent: AI drafts but never sends, every action is logged, and uncertain items route to a human.",
     "canonical": "/ai-managed-services/safety/"
   },
   "hero": {
@@ -56,7 +56,7 @@
       {
         "icon": "shield",
         "title": "AI drafts, you decide",
-        "description": "No agent sends an email, files a document, contacts a client, or takes any action that reaches a person outside the firm. When an agent identifies a stale matter, it drafts a follow-up and saves it to drafts. You read, edit, send. When a deadline monitor computes a response date, it proposes a calendar event. You confirm. This is permanent architecture, not a transitional measure."
+        "description": "No agent sends an email, files a document, contacts a client, or takes any action that reaches a person outside the firm. The same gate applies to our {{link:/dodonai-extract-and-draft-agents/|extract and draft agents}}: they produce work product, you approve it. When an agent identifies a stale matter, it drafts a follow-up and saves it to drafts. You read, edit, send. When a deadline monitor computes a response date, it proposes a calendar event. You confirm. This is permanent architecture, not a transitional measure."
       },
       {
         "icon": "clipboard",
@@ -93,7 +93,7 @@
   "faq": [
     {
       "question": "Does this work with our existing client confidentiality posture?",
-      "answer": "Yes. Agents run inside infrastructure your firm controls. Our LLM partners operate under zero data retention, so client data isn't stored after processing or used to train models. We sign a BAA where the work touches PHI. SOC 2 controls apply to every engagement."
+      "answer": "Yes. Agents run inside infrastructure your firm controls. Where needed, we route work to LLM partners under zero data retention, so client data isn't stored after processing or used to train models. We sign a BAA where the work touches PHI. SOC 2 controls apply to every engagement. For more on how we handle confidentiality, see {{link:/ai-managed-services/how-it-works/|how it works}}."
     },
     {
       "question": "How is the audit trail surfaced if we ever need it?",
