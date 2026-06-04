@@ -1,0 +1,583 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Phase 1 Build Plan — Loke Moore Law × Dodonai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root {
+  --midnight:        #1A1A45;
+  --midnight-deep:   #14143A;
+  --midnight-soft:   #252556;
+  --purple-soft:     #B5A8E6;
+  --purple-mid:      #8B7AB8;
+  --purple-bold:     #6B46C1;
+  --purple-vivid:    #7C3AED;
+  --cream:           #F4F1E8;
+  --cream-deep:      #EBE6D7;
+  --cream-line:      #D8D3C2;
+  --gray-meta:       #9B9BB8;
+  --gray-meta-light: #6B6B85;
+  --ok:              #2F855A;
+  --warn:            #C05621;
+}
+
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--cream); }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt;
+  line-height: 1.6;
+  color: var(--midnight);
+  font-weight: 400;
+}
+
+/* ============ Cover ============ */
+.cover {
+  background: var(--midnight);
+  color: #fff;
+  padding: 72px 64px 56px;
+  position: relative;
+  overflow: hidden;
+}
+.cover::before {
+  content: "";
+  position: absolute;
+  right: -80px; top: -80px;
+  width: 360px; height: 360px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--purple-vivid) 0%, transparent 70%);
+  opacity: 0.25;
+}
+.cover-logos {
+  display: flex; align-items: center; gap: 18px;
+  margin-bottom: 36px;
+  position: relative; z-index: 1;
+}
+.cover-logos .dodonai-wordmark {
+  font-weight: 800; font-size: 26pt; letter-spacing: -0.01em; line-height: 1;
+}
+.cover-logos .dodonai-wordmark .glyph { color: var(--purple-soft); }
+.cover-logos .vrule { width: 1px; height: 26px; background: rgba(255,255,255,0.3); }
+.cover-logos .client-name {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11pt; color: var(--purple-soft);
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+}
+.cover-eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10pt; color: var(--purple-soft);
+  letter-spacing: 0.18em; text-transform: uppercase; font-weight: 600;
+  margin-bottom: 20px;
+  position: relative; z-index: 1;
+}
+.cover-headline {
+  font-weight: 800; font-size: 44pt; line-height: 1.0;
+  letter-spacing: -0.02em; margin: 0 0 18px 0; max-width: 9in;
+  color: #fff;
+  position: relative; z-index: 1;
+}
+.cover-headline .soft { color: var(--purple-soft); font-weight: 700; }
+.cover-subhead {
+  font-size: 15pt; line-height: 1.4; color: var(--purple-soft);
+  max-width: 7.5in; margin: 0 0 36px 0; font-weight: 400;
+  position: relative; z-index: 1;
+}
+.cover-meta {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 28px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding-top: 22px;
+  position: relative; z-index: 1;
+}
+.cover-meta .label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt; color: var(--purple-soft);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  margin-bottom: 6px; font-weight: 600;
+}
+.cover-meta .value { font-size: 12pt; color: #fff; font-weight: 600; line-height: 1.3; }
+
+/* ============ Body ============ */
+.body-wrap { max-width: 960px; margin: 0 auto; padding: 56px 64px 72px; }
+
+.eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5pt; color: var(--purple-bold);
+  letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+  margin: 2.2em 0 0.4em 0;
+}
+h1 {
+  font-weight: 800; font-size: 28pt; line-height: 1.05;
+  letter-spacing: -0.02em; color: var(--midnight);
+  margin: 0.6em 0 0.4em 0;
+}
+h1 .soft { color: var(--purple-bold); font-weight: 800; }
+h2 {
+  font-weight: 700; font-size: 20pt; line-height: 1.15;
+  letter-spacing: -0.01em; color: var(--midnight);
+  margin: 2em 0 0.5em 0;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--purple-bold);
+}
+h3 {
+  font-weight: 700; font-size: 13pt; color: var(--midnight);
+  margin: 1.6em 0 0.3em 0;
+}
+p { margin: 0.6em 0; color: var(--midnight); }
+strong { color: var(--midnight-deep); font-weight: 700; }
+em { color: var(--purple-bold); font-style: italic; }
+a { color: var(--purple-bold); text-decoration: none; border-bottom: 1px solid var(--purple-soft); }
+ul, ol { margin: 0.6em 0; padding-left: 1.4em; }
+li { margin: 0.35em 0; }
+li::marker { color: var(--purple-vivid); }
+hr { border: none; border-top: 1px solid var(--cream-line); margin: 2em 0; }
+code {
+  background: var(--cream-deep);
+  padding: 1px 6px; border-radius: 3px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5pt; color: var(--purple-bold);
+}
+
+/* ============ Tables ============ */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1.2em 0;
+  font-size: 10.5pt;
+}
+th, td {
+  padding: 11px 13px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--cream-line);
+}
+th {
+  background: var(--midnight);
+  color: #fff;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  font-size: 9pt;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+tbody tr:nth-child(even) td { background: rgba(107,70,193,0.05); }
+tbody tr:last-child td { border-bottom: 2px solid var(--midnight); }
+
+/* ============ Component blocks ============ */
+.pillar-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin: 1.6em 0;
+}
+.pillar {
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-top: 4px solid var(--purple-vivid);
+  border-radius: 8px;
+  padding: 22px 22px 24px;
+}
+.pillar .pillar-num {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 8px;
+}
+.pillar h3 { font-size: 14pt; margin: 0 0 8px 0; line-height: 1.2; }
+.pillar p { font-size: 10.5pt; margin: 0; color: var(--midnight); }
+
+.callout {
+  background: var(--cream-deep);
+  border-left: 4px solid var(--purple-vivid);
+  border-radius: 4px;
+  padding: 18px 22px;
+  margin: 1.4em 0;
+}
+.callout .callout-label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.14em; text-transform: uppercase;
+  font-weight: 700; margin-bottom: 6px;
+}
+.callout p:first-of-type { margin-top: 0; }
+.callout p:last-of-type { margin-bottom: 0; }
+
+.diagram-frame {
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 8px;
+  padding: 20px 16px;
+  margin: 1.4em 0;
+  text-align: center;
+}
+.diagram-frame .diagram-caption {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt; color: var(--gray-meta-light);
+  letter-spacing: 0.10em; text-transform: uppercase;
+  font-weight: 600; margin-top: 14px;
+}
+
+.mermaid {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 0;
+}
+.mermaid svg {
+  max-width: 520px !important;
+  width: 100% !important;
+  height: auto !important;
+}
+
+.q-list { counter-reset: qcount; padding: 0; list-style: none; margin: 1em 0; }
+.q-list li {
+  counter-increment: qcount;
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-left: 4px solid var(--purple-bold);
+  border-radius: 4px;
+  padding: 16px 22px 16px 56px;
+  margin: 10px 0;
+  position: relative;
+  font-size: 10.5pt;
+}
+.q-list li::before {
+  content: counter(qcount, decimal-leading-zero);
+  position: absolute;
+  left: 18px; top: 16px;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  font-size: 11pt;
+  color: var(--purple-vivid);
+  letter-spacing: 0.04em;
+}
+.q-list li strong { color: var(--midnight-deep); display: inline; }
+
+.week-timeline {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 14px;
+  margin: 1.4em 0;
+}
+.week-card {
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 8px;
+  padding: 18px;
+  position: relative;
+}
+.week-card .week-num {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--purple-bold);
+  letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+}
+.week-card .week-dates {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt; color: var(--gray-meta-light);
+  margin-bottom: 10px;
+}
+.week-card .week-body { font-size: 10pt; line-height: 1.5; }
+.week-card .week-body strong { display: block; margin-top: 6px; color: var(--midnight-deep); }
+
+.footer-bar {
+  background: var(--midnight);
+  color: var(--purple-soft);
+  padding: 24px 64px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+@media (max-width: 800px) {
+  .cover { padding: 48px 28px 36px; }
+  .cover-headline { font-size: 30pt; }
+  .cover-meta { grid-template-columns: repeat(2, 1fr); }
+  .body-wrap { padding: 36px 24px 48px; }
+  .pillar-grid { grid-template-columns: 1fr; }
+  .week-timeline { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-logos">
+    <span class="dodonai-wordmark">DODON<span class="glyph">.</span>AI</span>
+    <span class="vrule"></span>
+    <span class="client-name">Loke Moore Law, PLLC</span>
+  </div>
+  <div class="cover-eyebrow">Phase 1 Build Plan · Kickoff 2026-05-20</div>
+  <h1 class="cover-headline">Medicaid Analysis<br/>&amp; Strategy, <span class="soft">automated.</span></h1>
+  <p class="cover-subhead">Custom intake form → schema-validated data → auto-populated worksheet + voice-editable strategy letter. Four weeks. One representative case as the acceptance test.</p>
+  <div class="cover-meta">
+    <div><div class="label">Prepared for</div><div class="value">Lynnelle Loke Moore</div></div>
+    <div><div class="label">Target go-live</div><div class="value">2026-06-17</div></div>
+    <div><div class="label">Cadence</div><div class="value">Weekly Wed · 10:30 CT</div></div>
+    <div><div class="label">Engagement</div><div class="value">$4,000 · learn-alongside</div></div>
+  </div>
+</div>
+
+<div class="body-wrap">
+
+<p class="eyebrow">— What we're building</p>
+<h2>Three pieces that replace the manual Phase 1 workflow</h2>
+<p>Today, the path from Decision Vault intake to a Phase 1 deliverable is hand-keyed. We're replacing the keying with three connected components, all driven by the v1.4 schema you already wrote.</p>
+
+<div class="pillar-grid">
+  <div class="pillar">
+    <div class="pillar-num">01 · Intake</div>
+    <h3>Custom intake form</h3>
+    <p>Replaces Decision Vault for the Medicaid pathway only. 11 sections, branching on married/single and care-setting goal. Lives on <code>lokemoorelaw.com</code>.</p>
+  </div>
+  <div class="pillar">
+    <div class="pillar-num">02 · Worksheet</div>
+    <h3>Worksheet generator</h3>
+    <p>Auto-populates a copy of your multi-sheet <code>.xlsx</code> template — Copay couple, Copay individual, Spend Down, SPRA, Burn Rate. Same formulas, hand-editable after.</p>
+  </div>
+  <div class="pillar">
+    <div class="pillar-num">03 · Letter</div>
+    <h3>Strategy letter drafter</h3>
+    <p>Produces a <code>.docx</code> first draft with conditional sections turned on/off by calculated flags. Bones are right; your voice-editing lives in "Our Recommendations."</p>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-label">Architecture commitment</div>
+  <p><strong>OneDrive is the system of record.</strong> Microsoft 365 stays your data home. Model-swappable, not Anthropic-locked.</p>
+</div>
+
+<p class="eyebrow">— End-to-end pipeline</p>
+<h2>The flow you'll see at go-live</h2>
+<p>The <strong>worksheet is the canonical numerical artifact</strong> — it carries the formulas, the line-item asset detail, and the values the letter quotes. The letter is generated <em>after</em> the worksheet, consuming both the engine's conditional flags (which sections to include) and the worksheet's computed values (the numbers it cites in the recommendations).</p>
+
+<div class="diagram-frame">
+  <div class="mermaid">
+flowchart TB
+  A["Client / family member"]:::actor
+  B["Custom intake form<br/>lokemoorelaw.com<br/><i>schema v1.4 · 11 sections</i>"]:::intake
+  C["Validation + calculation engine<br/><i>SS gross/net resolution · RMD flag<br/>income cap · SPRA · MMMNA · QIT · MERP</i>"]:::engine
+  D["Worksheet generator<br/><i>openpyxl into your .xlsx template</i>"]:::gen
+  F["Copay + Spend-Down<br/>.xlsx<br/><b>canonical math</b>"]:::canon
+  E["Strategy letter drafter<br/><i>docx merge + section inclusion<br/>+ quotes worksheet values</i>"]:::gen
+  G["Strategy letter draft<br/>.docx"]:::out
+  H["Attorney review<br/><i>your judgment, your voice</i>"]:::review
+  I["Client delivery<br/><b>Phase 1 complete</b>"]:::done
+
+  A --> B
+  B -->|JSON| C
+  C --> D
+  D --> F
+  C -. "conditional flags<br/>(QIT, MERP, SPRA expand,<br/>missing docs)" .-> E
+  F -- "computed values<br/>(spend-down, copay, SPRA)" --> E
+  E --> G
+  F --> H
+  G --> H
+  H --> I
+
+  classDef actor fill:#EBE6D7,stroke:#6B46C1,stroke-width:2px,color:#1A1A45
+  classDef intake fill:#7C3AED,stroke:#1A1A45,stroke-width:2px,color:#fff
+  classDef engine fill:#1A1A45,stroke:#7C3AED,stroke-width:2px,color:#fff
+  classDef gen fill:#6B46C1,stroke:#1A1A45,stroke-width:2px,color:#fff
+  classDef canon fill:#F4F1E8,stroke:#7C3AED,stroke-width:3px,color:#1A1A45
+  classDef out fill:#F4F1E8,stroke:#6B46C1,stroke-width:2px,color:#1A1A45
+  classDef review fill:#B5A8E6,stroke:#1A1A45,stroke-width:2px,color:#1A1A45
+  classDef done fill:#14143A,stroke:#7C3AED,stroke-width:3px,color:#fff
+  </div>
+  <div class="diagram-caption">Figure 1 · End-to-end Phase 1 pipeline — worksheet is the canonical math; letter draws from it</div>
+</div>
+
+<p class="eyebrow">— Data architecture</p>
+<h2>One schema in. Worksheet first, then letter.</h2>
+<p>Your <code>Claude Schema data needed for MDCD Anal plus Strat.docx</code> (v1.4) is the spine. One input set feeds the engine; the engine populates the worksheet; the letter consumes both the engine's flags (which sections to include) and the worksheet's computed values (the numbers it quotes).</p>
+
+<div class="diagram-frame">
+  <div class="mermaid">
+flowchart TB
+  S["<b>1 · Schema v1.4</b><br/>11 sections · branching rules<br/><i>raw inputs from intake form</i>"]:::sbox
+  C["<b>2 · Calculation engine</b><br/>ss_resolved · total_countable_income<br/>qit_needed · spra_expansion_available<br/>merp_risk_flag · missing_estate_docs[]"]:::cbox
+  W["<b>3 · Worksheet .xlsx — canonical math</b><br/>Copay · Spend Down · SPRA · Burn Rate"]:::wbox
+  L["<b>4 · Strategy letter .docx</b><br/>boilerplate sections + conditional includes<br/>+ Our Recommendations (quotes worksheet values)"]:::lbox
+
+  S --> C
+  C --> W
+  W -- "computed values<br/>(quoted in letter)" --> L
+  C -. "conditional flags<br/>(QIT · MERP · SPRA expand · missing docs)" .-> L
+
+  classDef sbox fill:#F4F1E8,stroke:#6B46C1,stroke-width:2px,color:#1A1A45
+  classDef cbox fill:#1A1A45,stroke:#7C3AED,stroke-width:2px,color:#fff
+  classDef wbox fill:#EBE6D7,stroke:#7C3AED,stroke-width:3px,color:#1A1A45
+  classDef lbox fill:#EBE6D7,stroke:#6B46C1,stroke-width:2px,color:#1A1A45
+  </div>
+  <div class="diagram-caption">Figure 2 · Schema → engine → worksheet → letter (worksheet feeds letter; engine flags drive section inclusion). Detail table follows.</div>
+</div>
+
+<h3>Which input drives what</h3>
+<table>
+  <thead><tr><th>Schema input</th><th>Worksheet (canonical math)</th><th>Letter (consumes worksheet + flags)</th></tr></thead>
+  <tbody>
+    <tr><td>Marital status</td><td>Copay couple vs. individual tab</td><td>Spousal impoverishment section in/out</td></tr>
+    <tr><td>Income (SS, pension, VA, RMD)</td><td>Income calculation block</td><td>Income cap discussion + QIT trigger; quotes total countable income</td></tr>
+    <tr><td>Assets (countable vs. exempt)</td><td>Spend Down tab line items</td><td>MERP discussion; quotes spend-down amount</td></tr>
+    <tr><td>Spouse income / assets</td><td>SPRA tab + Copay couple tab</td><td>MMMNA test + SPRA expansion; quotes SPRA value</td></tr>
+    <tr><td>Care setting goal (NH / SPW / CAS)</td><td>Burn Rate assumptions</td><td>Program sections emphasized</td></tr>
+    <tr><td>Estate planning doc gaps</td><td>—</td><td>"Our Recommendations" bullets</td></tr>
+    <tr><td>Applicant has capacity</td><td>—</td><td>Capacity warning section</td></tr>
+    <tr><td>Gifts / transfers notes</td><td>Flag for attorney review</td><td>Generic gifting-rules section</td></tr>
+  </tbody>
+</table>
+
+<p class="eyebrow">— Decisions for today</p>
+<h2>Four schema gaps to resolve at kickoff</h2>
+<p>These need a call before code is written. Each one is small in isolation; together they shape the form and the worksheet layout.</p>
+
+<ol class="q-list">
+  <li><strong>Multiple accounts per asset class.</strong> Your anonymized example has 5 Security Service FCU accounts and a USAA savings as separate lines. Schema collapses to one <code>checking_savings_balance</code>. Itemized = more defensible to HHSC. Roll-up = faster. <em>Itemized sub-tables or roll-up totals?</em></li>
+  <li><strong>4-date balance series.</strong> Spend Down tab tracks balances on Prior-mo / Snapshot / +1 mo / +2 mo. Schema only captures one snapshot. <em>HHSC requirement or internal-only?</em></li>
+  <li><strong>Multiple pensions per spouse.</strong> Anonymized case shows OPM Pension + DFAS military pension as separate lines. Schema has one <code>applicant_pension_gross</code>. <em>Extend to a repeating pension table?</em></li>
+  <li><strong>NH cost basis on Burn Rate tab.</strong> Template bakes in $5,232 / $6,935 / $7,750 for SA semi-private / private / your-office-recent-private. <em>Form field, or always default to one?</em></li>
+</ol>
+
+<h3>One architecture question</h3>
+<ol class="q-list" start="5">
+  <li><strong>Worksheet or engine as source of truth?</strong> The letter quotes values that also appear on the worksheet. Two options: <strong>(a)</strong> engine computes once in code, writes to both — consistent by construction, but a hand-edited worksheet formula won't flow to the letter; <strong>(b)</strong> engine writes worksheet, letter drafter reads values back from the xlsx — worksheet stays canonical even after manual edits, slightly more brittle implementation. <em>Recommend (a) for build simplicity, with the agreement that post-generation worksheet edits trigger a letter re-draft rather than hand-syncing.</em></li>
+</ol>
+
+<h3>Two workflow questions</h3>
+<ol class="q-list" start="6">
+  <li><strong>Where do financial numbers come from today?</strong> Decision Vault carries demographics but no financials. Are you keying them in by hand from client statements? Drives whether the new form is filled by the client, by Angie, or by both.</li>
+  <li><strong>Skill-share path for <code>/phase1-deliverables</code>.</strong> Recommend a GitHub repo we set up — becomes the working repo for the engagement. 60-second walkthrough at kickoff.</li>
+</ol>
+
+<p class="eyebrow">— Timeline</p>
+<h2>Four weeks, one representative case as the acceptance test</h2>
+
+<div class="week-timeline">
+  <div class="week-card">
+    <div class="week-num">Week 1</div>
+    <div class="week-dates">May 20 — 26</div>
+    <div class="week-body">
+      <strong>Kickoff Wed 5/20.</strong>
+      Resolve the 4 schema gaps.
+      Discovery memo drafted.
+      GitHub repo set up; existing skill pushed.
+      Website migration scoping.
+    </div>
+  </div>
+  <div class="week-card">
+    <div class="week-num">Week 2</div>
+    <div class="week-dates">May 27 — Jun 2</div>
+    <div class="week-body">
+      <strong>Build kickoff.</strong>
+      Intake form built (schema v1.4).
+      Worksheet generator scaffolded.
+      Website migration in progress.
+    </div>
+  </div>
+  <div class="week-card">
+    <div class="week-num">Week 3</div>
+    <div class="week-dates">Jun 3 — 9</div>
+    <div class="week-body">
+      <strong>Letter drafter.</strong>
+      docx merge + inclusion logic.
+      End-to-end test on representative case.
+      Website cutover.
+    </div>
+  </div>
+  <div class="week-card">
+    <div class="week-num">Week 4</div>
+    <div class="week-dates">Jun 10 — 16</div>
+    <div class="week-body">
+      <strong>Go-live.</strong>
+      Refinements against acceptance.
+      Training with you + Angie.
+      Runbook delivered.
+    </div>
+  </div>
+</div>
+
+<div class="callout">
+  <div class="callout-label">Acceptance criteria (from SOW)</div>
+  <p>1. Worksheet auto-populates and <strong>matches your hand-built worksheet</strong> on the same case.<br/>
+  2. Letter draft requires <strong>voice-editing, not re-drafting</strong>.<br/>
+  3. Website cut over; intake form live; you've edited one page via chat-with-Claude.</p>
+</div>
+
+<p class="eyebrow">— Phase 2 placeholder</p>
+<h2>What's deferred — and what I'll need from you to scope it</h2>
+<p>The full HHSC application package — H1200 form, supporting docs, bates numbering, sectioned TOC, &lt;100-page fax chunking — is described in the SOW and <strong>priced in a follow-up SOW after Phase 1 is in your hands and proven on a real case</strong>. To scope Phase 2, I'll need:</p>
+<ul>
+  <li>The H1200 PDF</li>
+  <li>Your Medicaid Application Document Checklist</li>
+  <li>A sample Theory of Eligibility cover letter</li>
+</ul>
+<p>None of these were in the shared Drive folder yet — no rush, send when you have them.</p>
+
+<p class="eyebrow">— Today's asks</p>
+<h2>What I need from you to leave kickoff with momentum</h2>
+<ul>
+  <li><strong>Decisions on the 4 schema gaps</strong> above</li>
+  <li><strong>The representative case</strong> for the acceptance test — one Phase 1 matter you've worked end-to-end. The anonymized financial sheet you shared is a strong candidate.</li>
+  <li><strong>Access:</strong> OneDrive read on client folders · WordPress admin (or Bean Local creds) · domain registrar for DNS cutover</li>
+  <li><strong>Skill-share path</strong> — agree on GitHub repo; I'll set it up after the call</li>
+</ul>
+
+<h2>What you'll have by go-live</h2>
+<ul>
+  <li>Custom intake form live on <code>lokemoorelaw.com</code></li>
+  <li>Worksheet generator, runnable from one command per matter</li>
+  <li>Letter drafter, runnable from the same command</li>
+  <li>Firm website migrated off Bean Local, editable via chat-with-Claude</li>
+  <li>Runbook so you and Angie operate everything without me</li>
+  <li>The working GitHub repo, yours to keep</li>
+  <li>Optional retainer ready to activate when you want ($200–$500/mo, your call)</li>
+</ul>
+
+</div>
+
+<div class="footer-bar">
+  Phase 1 Plan · Dodonai Consulting × Loke Moore Law, PLLC · 2026-05-20
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>
+  mermaid.initialize({
+    startOnLoad: true,
+    theme: 'base',
+    themeVariables: {
+      fontFamily: 'Plus Jakarta Sans, sans-serif',
+      fontSize: '12px',
+      primaryColor: '#7C3AED',
+      primaryTextColor: '#1A1A45',
+      primaryBorderColor: '#6B46C1',
+      lineColor: '#6B46C1',
+      secondaryColor: '#EBE6D7',
+      tertiaryColor: '#F4F1E8',
+      background: '#FFFFFF',
+      mainBkg: '#7C3AED',
+      secondBkg: '#EBE6D7',
+      clusterBkg: '#F4F1E8',
+      clusterBorder: '#6B46C1',
+      edgeLabelBackground: '#F4F1E8'
+    },
+    flowchart: {
+      curve: 'basis',
+      padding: 10,
+      nodeSpacing: 24,
+      rankSpacing: 40,
+      htmlLabels: true,
+      useMaxWidth: true
+    }
+  });
+</script>
+
+</body>
+</html>

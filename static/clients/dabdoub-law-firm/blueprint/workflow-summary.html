@@ -1,0 +1,1325 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Workflow Summary · Dabdoub Law Firm</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap');
+
+:root {
+  --midnight:        #1A1A45;
+  --midnight-deep:   #14143A;
+  --midnight-soft:   #252556;
+  --purple-soft:     #B5A8E6;
+  --purple-mid:      #8B7AB8;
+  --purple-bold:     #6B46C1;
+  --purple-vivid:    #7C3AED;
+  --purple-glow:     rgba(124, 58, 237, 0.35);
+  --cream:           #F4F1E8;
+  --cream-deep:      #EBE6D7;
+  --cream-line:      #D8D3C2;
+  --gray-meta:       #9B9BB8;
+  --gray-meta-light: #6B6B85;
+  --accent-amber:    #E8A63C;
+  --accent-mint:     #6CC4A1;
+  --accent-coral:    #E66C5C;
+}
+
+* { box-sizing: border-box; }
+
+html, body {
+  background: var(--cream);
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--midnight);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+}
+
+.container {
+  max-width: 1240px;
+  margin: 0 auto;
+  padding: 5vh 6vw 12vh;
+}
+
+/* ========== HEADER ========== */
+.hero {
+  position: relative;
+  background:
+    radial-gradient(ellipse at 15% 10%, rgba(107, 70, 193, 0.32) 0%, transparent 55%),
+    radial-gradient(ellipse at 85% 90%, rgba(124, 58, 237, 0.22) 0%, transparent 55%),
+    linear-gradient(135deg, var(--midnight-deep) 0%, var(--midnight) 50%, var(--midnight-soft) 100%);
+  color: #fff;
+  border-radius: 18px;
+  padding: 48px 56px;
+  margin-bottom: 44px;
+  overflow: hidden;
+}
+.hero::before {
+  content: "";
+  position: absolute;
+  width: 320px; height: 320px;
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--purple-vivid) 0%, transparent 70%);
+  filter: blur(80px);
+  opacity: 0.45;
+  top: -80px; right: -60px;
+  pointer-events: none;
+}
+.hero > * { position: relative; z-index: 1; }
+
+.hero-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  background: rgba(124, 58, 237, 0.18);
+  border: 1px solid rgba(181, 168, 230, 0.35);
+  border-radius: 999px;
+  padding: 6px 14px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.hero-tag .dot {
+  width: 7px; height: 7px; border-radius: 50%;
+  background: var(--accent-mint);
+  box-shadow: 0 0 10px var(--accent-mint);
+}
+
+.hero h1 {
+  font-size: 32pt;
+  font-weight: 800;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+  margin: 0 0 14px;
+}
+.hero h1 .accent {
+  background: linear-gradient(120deg, var(--purple-soft) 0%, #fff 50%, var(--purple-soft) 100%);
+  -webkit-background-clip: text;
+  background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+.hero .subtitle {
+  font-size: 12pt;
+  color: var(--purple-soft);
+  font-weight: 500;
+  margin: 0 0 28px;
+  max-width: 60ch;
+}
+
+.hero-meta {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 28px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: rgba(255,255,255,0.7);
+}
+.hero-meta strong {
+  display: block;
+  font-size: 7.5pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--purple-soft);
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+/* ========== LEGEND ========== */
+.legend {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+  margin-bottom: 40px;
+}
+.legend-card {
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 12px;
+  padding: 18px 20px;
+}
+.legend-card h3 {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--gray-meta-light);
+  margin: 0 0 12px;
+  font-weight: 600;
+}
+.legend-card ul {
+  list-style: none;
+  margin: 0; padding: 0;
+  font-size: 9.5pt;
+  line-height: 1.7;
+}
+.legend-card ul li {
+  display: flex;
+  gap: 10px;
+  align-items: baseline;
+}
+.legend-card code {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 600;
+  font-size: 8.5pt;
+  background: var(--cream);
+  padding: 2px 7px;
+  border-radius: 4px;
+  min-width: 44px;
+  text-align: center;
+  color: var(--midnight);
+}
+
+/* ========== COUNTS ========== */
+.counts {
+  margin-bottom: 56px;
+}
+.counts h2 {
+  font-size: 13pt;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  margin: 0 0 18px;
+  text-transform: uppercase;
+  color: var(--midnight);
+  display: flex;
+  align-items: center;
+  gap: 14px;
+}
+.counts h2::before {
+  content: "";
+  display: inline-block;
+  width: 28px;
+  height: 3px;
+  background: var(--purple-bold);
+  border-radius: 2px;
+}
+.counts-table {
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 12px;
+  overflow: hidden;
+  width: 100%;
+  border-collapse: collapse;
+}
+.counts-table th, .counts-table td {
+  padding: 11px 18px;
+  text-align: right;
+  font-size: 10pt;
+  border-bottom: 1px solid var(--cream-line);
+}
+.counts-table th:first-child, .counts-table td:first-child {
+  text-align: left;
+  font-weight: 500;
+}
+.counts-table thead th {
+  background: var(--cream-deep);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-meta-light);
+  font-weight: 600;
+}
+.counts-table tbody tr:last-child td {
+  border-bottom: none;
+  background: var(--cream);
+  font-weight: 700;
+}
+.counts-table .n-built  { color: var(--accent-mint); font-weight: 600; }
+.counts-table .n-partial{ color: var(--accent-amber); font-weight: 600; }
+.counts-table .n-gap    { color: var(--accent-coral); font-weight: 600; }
+.counts-table .n-poc    { color: var(--purple-bold); font-weight: 600; }
+
+/* ========== DEPARTMENT SECTIONS ========== */
+.dept {
+  margin-bottom: 48px;
+}
+.dept-header {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin-bottom: 16px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid var(--midnight);
+}
+.dept-header h2 {
+  font-size: 16pt;
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin: 0;
+  color: var(--midnight);
+}
+.dept-count {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-bold);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+.dept-note {
+  font-size: 9.5pt;
+  color: var(--gray-meta-light);
+  margin: 0 0 14px;
+  font-style: italic;
+}
+
+.wf-table {
+  width: 100%;
+  border-collapse: collapse;
+  background: #fff;
+  border: 1px solid var(--cream-line);
+  border-radius: 10px;
+  overflow: hidden;
+  table-layout: fixed;
+}
+.wf-table thead th {
+  background: var(--cream-deep);
+  padding: 9px 12px;
+  text-align: left;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 7.5pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-meta-light);
+  font-weight: 600;
+  border-bottom: 1px solid var(--cream-line);
+}
+.wf-table tbody td {
+  padding: 8px 12px;
+  font-size: 9.5pt;
+  border-bottom: 1px solid var(--cream-line);
+  vertical-align: top;
+  word-wrap: break-word;
+}
+.wf-table tbody tr:last-child td { border-bottom: none; }
+.wf-table tbody tr:hover { background: rgba(124, 58, 237, 0.04); }
+
+.wf-table col.col-id     { width: 64px; }
+.wf-table col.col-wf     { width: auto; }
+.wf-table col.col-phase  { width: 88px; }
+.wf-table col.col-layer  { width: 96px; }
+.wf-table col.col-status { width: 96px; }
+.wf-table col.col-effort { width: 64px; }
+
+.id-cell {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  font-size: 9pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.04em;
+}
+
+.pill {
+  display: inline-block;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 7.5pt;
+  font-weight: 600;
+  letter-spacing: 0.08em;
+  padding: 2px 9px;
+  border-radius: 999px;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+.pill-layer  { background: rgba(26, 26, 69, 0.06); color: var(--midnight); border: 1px solid rgba(26, 26, 69, 0.12); }
+.pill-built  { background: rgba(108, 196, 161, 0.18); color: #1a7a55; border: 1px solid rgba(108, 196, 161, 0.5); }
+.pill-partial{ background: rgba(232, 166, 60, 0.18); color: #8a5d12; border: 1px solid rgba(232, 166, 60, 0.5); }
+.pill-gap    { background: rgba(230, 108, 92, 0.15); color: #a8392a; border: 1px solid rgba(230, 108, 92, 0.45); }
+.pill-poc    { background: rgba(124, 58, 237, 0.16); color: var(--purple-bold); border: 1px solid rgba(124, 58, 237, 0.4); }
+.pill-open   { background: rgba(155, 155, 184, 0.18); color: var(--gray-meta-light); border: 1px solid rgba(155, 155, 184, 0.4); }
+.pill-effort { background: var(--cream); color: var(--midnight); border: 1px solid var(--cream-line); font-weight: 700; }
+.pill-dim    { color: var(--gray-meta); }
+.pill-phase  { background: rgba(124, 58, 237, 0.10); color: var(--purple-bold); border: 1px solid rgba(124, 58, 237, 0.32); font-weight: 700; }
+.pill-phase.t-1a       { background: rgba(181, 168, 230, 0.30); color: var(--midnight-deep); border-color: var(--purple-mid); }
+.pill-phase.t-1b       { background: rgba(139, 122, 184, 0.25); color: #fff; border-color: var(--purple-bold); background: var(--purple-bold); }
+.pill-phase.t-p2       { background: var(--purple-vivid); color: #fff; border-color: var(--purple-vivid); }
+.pill-phase.t-p3       { background: #c47adf; color: #fff; border-color: #c47adf; }
+.pill-phase.t-p4       { background: var(--accent-coral); color: #fff; border-color: var(--accent-coral); }
+.pill-phase.t-p5       { background: var(--midnight-soft); color: #fff; border-color: var(--midnight-soft); }
+.pill-phase.t-retainer { background: #5fb595; color: #fff; border-color: #5fb595; }
+.pill-phase.t-ondemand { background: rgba(108, 196, 161, 0.18); color: #1a7a55; border-color: rgba(108, 196, 161, 0.55); }
+.pill-phase.t-none     { background: transparent; color: var(--gray-meta); border-color: var(--cream-line); }
+
+/* ========== IMPLEMENTATION CALENDAR (Gantt) ========== */
+.gantt {
+  background: linear-gradient(135deg, #fff 0%, var(--cream) 100%);
+  border: 1px solid var(--cream-line);
+  border-radius: 12px;
+  padding: 22px 24px 20px;
+  margin: 0 0 22px;
+  overflow-x: auto;
+}
+.gantt-grid {
+  position: relative;
+  min-width: 720px;
+}
+.gantt-rows {
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+}
+.gantt-row {
+  display: flex;
+  align-items: stretch;
+}
+.gantt-row .gantt-label {
+  width: 220px;
+  flex-shrink: 0;
+  font-size: 9.5pt;
+  font-weight: 600;
+  color: var(--midnight);
+  padding: 0 14px 0 0;
+  display: flex;
+  align-items: center;
+  height: 30px;
+}
+.gantt-track {
+  flex: 1;
+  position: relative;
+  height: 30px;
+  background: linear-gradient(90deg, var(--cream-deep) 0%, #fff 100%);
+  border-radius: 6px;
+  border: 1px solid rgba(155, 155, 184, 0.18);
+}
+.gantt-row-axis .gantt-track {
+  background: transparent;
+  border: none;
+  border-bottom: 1px dashed var(--cream-line);
+  border-radius: 0;
+  height: 26px;
+}
+.gantt-axis-track span {
+  position: absolute;
+  top: 4px;
+  transform: translateX(-50%);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-meta-light);
+}
+.gantt-bar {
+  position: absolute;
+  top: 3px;
+  bottom: 3px;
+  border-radius: 5px;
+  display: flex;
+  align-items: center;
+  padding: 0 12px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  font-weight: 700;
+  color: #fff;
+  letter-spacing: 0.04em;
+  box-shadow: 0 2px 8px rgba(26, 26, 69, 0.18);
+  white-space: nowrap;
+  overflow: hidden;
+}
+.bar-kickoff   { background: linear-gradient(135deg, var(--cream-deep) 0%, var(--purple-soft) 100%); color: var(--midnight-deep); }
+.bar-1a        { background: linear-gradient(135deg, var(--purple-soft) 0%, var(--purple-mid) 100%); color: var(--midnight-deep); }
+.bar-1b        { background: linear-gradient(135deg, var(--purple-mid) 0%, var(--purple-bold) 100%); }
+.bar-2         { background: linear-gradient(135deg, var(--purple-bold) 0%, var(--purple-vivid) 100%); }
+.bar-3         { background: linear-gradient(135deg, var(--purple-vivid) 0%, #c47adf 100%); }
+.bar-4         { background: linear-gradient(135deg, var(--accent-amber) 0%, var(--accent-coral) 100%); }
+.bar-5         { background: linear-gradient(135deg, var(--accent-coral) 0%, var(--midnight-soft) 100%); }
+.bar-retainer  {
+  background: repeating-linear-gradient(45deg, var(--accent-mint) 0, var(--accent-mint) 10px, #5fb595 10px, #5fb595 20px);
+  color: #fff;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.25);
+}
+
+.gantt-today-overlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 220px;
+  right: 0;
+  pointer-events: none;
+  z-index: 5;
+}
+.gantt-today-line {
+  position: absolute;
+  top: 2px;
+  bottom: 0;
+  width: 0;
+  border-left: 2px dashed var(--accent-coral);
+}
+.gantt-today-line::before {
+  content: 'TODAY';
+  position: absolute;
+  top: 0;
+  left: 5px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 7.5pt;
+  font-weight: 700;
+  letter-spacing: 0.14em;
+  color: var(--accent-coral);
+  background: #fff;
+  padding: 2px 6px;
+  border: 1px solid rgba(230, 108, 92, 0.4);
+  border-radius: 4px;
+  white-space: nowrap;
+}
+
+@media (max-width: 760px) {
+  .gantt { padding: 14px; }
+  .gantt-row .gantt-label { width: 140px; font-size: 8.5pt; padding-right: 10px; }
+  .gantt-today-overlay { left: 140px; }
+  .gantt-bar { font-size: 8pt; padding: 0 8px; }
+}
+
+/* ========== WORKFLOWS BY PHASE ========== */
+.phase-block {
+  margin-bottom: 28px;
+  border: 1px solid var(--cream-line);
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+}
+.phase-block-header {
+  display: flex;
+  align-items: center;
+  gap: 14px;
+  padding: 14px 20px;
+  border-bottom: 1px solid var(--cream-line);
+}
+.phase-tag {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt;
+  font-weight: 700;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  color: #fff;
+  padding: 5px 11px;
+  border-radius: 5px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+.phase-tag.t-kickoff { background: var(--purple-mid); color: var(--midnight-deep); }
+.phase-tag.t-1a      { background: var(--purple-mid); }
+.phase-tag.t-1b      { background: var(--purple-bold); }
+.phase-tag.t-2       { background: var(--purple-vivid); }
+.phase-tag.t-3       { background: #c47adf; }
+.phase-tag.t-4       { background: var(--accent-coral); }
+.phase-tag.t-5       { background: var(--midnight-soft); }
+.phase-tag.t-retainer{ background: #5fb595; }
+.phase-block-title {
+  font-size: 12pt;
+  font-weight: 700;
+  color: var(--midnight);
+  letter-spacing: -0.01em;
+}
+.phase-block-body {
+  padding: 16px 20px 18px;
+}
+.phase-block-note {
+  font-size: 9.5pt;
+  color: var(--gray-meta-light);
+  font-style: italic;
+  margin: 0 0 12px;
+}
+.cluster {
+  margin-bottom: 14px;
+}
+.cluster:last-child { margin-bottom: 0; }
+.cluster-h4 {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  color: var(--gray-meta-light);
+  margin: 0 0 8px;
+  font-weight: 600;
+}
+.wf-list {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  font-size: 10pt;
+  line-height: 1.55;
+}
+.wf-list li {
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  padding: 4px 0;
+  border-bottom: 1px solid var(--cream);
+}
+.wf-list li:last-child { border-bottom: none; }
+.wf-list .id {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  font-size: 8.5pt;
+  color: var(--purple-bold);
+  background: rgba(124, 58, 237, 0.08);
+  padding: 2px 8px;
+  border-radius: 4px;
+  letter-spacing: 0.04em;
+  flex-shrink: 0;
+  min-width: 56px;
+  text-align: center;
+}
+.wf-list .id.id-substrate {
+  color: var(--midnight);
+  background: rgba(26, 26, 69, 0.08);
+  min-width: auto;
+  padding: 2px 10px;
+}
+.wf-inline {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  font-weight: 600;
+  color: var(--purple-bold);
+  letter-spacing: 0.04em;
+  word-spacing: 4px;
+  line-height: 1.7;
+}
+
+footer {
+  margin-top: 64px;
+  padding-top: 24px;
+  border-top: 1px solid var(--cream-line);
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8pt;
+  color: var(--gray-meta-light);
+  letter-spacing: 0.04em;
+  text-align: center;
+}
+
+@media print {
+  body { font-size: 9pt; }
+  .container { padding: 0.4in; max-width: none; }
+  .hero { border-radius: 8px; padding: 28px; }
+  .wf-table tbody tr:hover { background: transparent; }
+  .dept { page-break-inside: avoid; }
+}
+</style>
+</head>
+<body>
+<div class="container">
+
+  <header class="hero">
+    <div class="hero-tag"><span class="dot"></span>Internal · Working Document</div>
+    <h1>Workflow <span class="accent">Summary</span></h1>
+    <p class="subtitle">Every workflow enumerated in the Dabdoub Law Firm automation blueprint, grouped by department.</p>
+    <div class="hero-meta">
+      <div><strong>Client</strong>Dabdoub Law Firm</div>
+      <div><strong>Source</strong>automation-blueprint.md (2026-05-05)</div>
+      <div><strong>Total Workflows</strong>155</div>
+      <div><strong>Status</strong>Strawman · refines during Discovery</div>
+    </div>
+  </header>
+
+  <section class="legend">
+    <div class="legend-card">
+      <h3>Layer</h3>
+      <ul>
+        <li><code>HS</code><span>HubSpot config</span></li>
+        <li><code>GEN</code><span>AI doc generation</span></li>
+        <li><code>ING</code><span>AI doc ingest</span></li>
+        <li><code>CHAT</code><span>AI chat / Q&amp;A</span></li>
+        <li><code>HYB</code><span>Hybrid (HS + AI)</span></li>
+        <li><code>EXT</code><span>External integration</span></li>
+      </ul>
+    </div>
+    <div class="legend-card">
+      <h3>Status</h3>
+      <ul>
+        <li><code>BUILT</code><span>Shipped in Phase 1</span></li>
+        <li><code>PARTIAL</code><span>Infra exists, content/edge gaps</span></li>
+        <li><code>GAP</code><span>Not built</span></li>
+        <li><code>POC</code><span>Proof-of-concept</span></li>
+        <li><code>OPEN</code><span>Pending firm decision</span></li>
+      </ul>
+    </div>
+    <div class="legend-card">
+      <h3>Effort</h3>
+      <ul>
+        <li><code>XS</code><span>≤ 1 day</span></li>
+        <li><code>S</code><span>1–3 days</span></li>
+        <li><code>M</code><span>3–7 days</span></li>
+        <li><code>L</code><span>1–2 weeks</span></li>
+        <li><code>XL</code><span>&gt; 2 weeks</span></li>
+      </ul>
+    </div>
+  </section>
+
+  <section class="counts">
+    <h2>Status Counts</h2>
+    <table class="counts-table">
+      <thead>
+        <tr><th>Department</th><th>Total</th><th>Built</th><th>Partial</th><th>Gap</th><th>POC</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Foundational</td><td>1</td><td class="n-built">0</td><td class="n-partial">0</td><td class="n-gap">1</td><td class="n-poc">0</td></tr>
+        <tr><td>Intake / Pre-Case</td><td>20</td><td class="n-built">7</td><td class="n-partial">3</td><td class="n-gap">10</td><td class="n-poc">0</td></tr>
+        <tr><td>Appeals</td><td>37</td><td class="n-built">5</td><td class="n-partial">5</td><td class="n-gap">27</td><td class="n-poc">0</td></tr>
+        <tr><td>On Claims</td><td>48</td><td class="n-built">5</td><td class="n-partial">2</td><td class="n-gap">41</td><td class="n-poc">0</td></tr>
+        <tr><td>Litigation</td><td>22</td><td class="n-built">1</td><td class="n-partial">1</td><td class="n-gap">20</td><td class="n-poc">0</td></tr>
+        <tr><td>Accounting / Disbursements</td><td>11</td><td class="n-built">5</td><td class="n-partial">1</td><td class="n-gap">5</td><td class="n-poc">0</td></tr>
+        <tr><td>Cross-cutting / Firm Intelligence</td><td>9</td><td class="n-built">0</td><td class="n-partial">1</td><td class="n-gap">7</td><td class="n-poc">1</td></tr>
+        <tr><td>Marketing / Reporting</td><td>7</td><td class="n-built">0</td><td class="n-partial">2</td><td class="n-gap">5</td><td class="n-poc">0</td></tr>
+        <tr><td>Total</td><td>155</td><td class="n-built">23</td><td class="n-partial">15</td><td class="n-gap">116</td><td class="n-poc">1</td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== IMPLEMENTATION CALENDAR ========== -->
+  <section class="dept" id="implementation-calendar">
+    <div class="dept-header"><h2>Implementation Calendar</h2><span class="dept-count">mapped to proposal v2</span></div>
+    <p class="dept-note">Mapped to the sent proposal (<code style="font-family:'Source Code Pro', monospace; font-size:9pt;">proposals/2026-05-14_proposal-v2.md</code>). Kickoff anchored to the week of Jun 1, 2026. Retainer begins post-implementation (after Phase 5 go-live). Targeting Thanksgiving 2026 for Phases 1–4; Phase 5 lands in late December.</p>
+
+    <div class="gantt">
+      <div class="gantt-grid">
+        <div class="gantt-rows">
+          <div class="gantt-row gantt-row-axis">
+            <div class="gantt-label"></div>
+            <div class="gantt-track gantt-axis-track">
+              <span style="left:0%">May</span>
+              <span style="left:7.9%">Jun</span>
+              <span style="left:19.2%">Jul</span>
+              <span style="left:30.9%">Aug</span>
+              <span style="left:42.6%">Sep</span>
+              <span style="left:54.0%">Oct</span>
+              <span style="left:65.7%">Nov</span>
+              <span style="left:77.0%">Dec</span>
+              <span style="left:88.7%">Jan</span>
+            </div>
+          </div>
+
+          <div class="gantt-row">
+            <div class="gantt-label">Kickoff</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-kickoff" style="left:5.3%; width:2.6%;"></div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Wave 1A · Foundation + Appeals</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-1a" style="left:7.9%; width:15.8%;">6 wks</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Wave 1B · Appeals + Ingest</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-1b" style="left:23.8%; width:13.2%;">5 wks</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Phase 2 · On Claims</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-2" style="left:37.0%; width:13.2%;">5 wks</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Phase 3 · Litigation</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-3" style="left:50.2%; width:18.5%;">7 wks</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Phase 4 · Accounting</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-4" style="left:68.7%; width:5.3%;">2 wks</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Phase 5 · Firm Intel + Intake</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-5" style="left:74.0%; width:13.2%;">5 wks</div>
+            </div>
+          </div>
+          <div class="gantt-row">
+            <div class="gantt-label">Retainer</div>
+            <div class="gantt-track">
+              <div class="gantt-bar bar-retainer" style="left:87.2%; width:12.8%;">→ ongoing</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="gantt-today-overlay">
+          <div class="gantt-today-line" style="left:2.6%;"></div>
+        </div>
+      </div>
+    </div>
+
+    <table class="wf-table">
+      <colgroup><col style="width:22%"><col style="width:14%"><col style="width:14%"><col></colgroup>
+      <thead><tr><th>Phase</th><th>Window</th><th>Duration</th><th>Workflows in scope</th></tr></thead>
+      <tbody>
+        <tr>
+          <td><strong>Kickoff</strong></td>
+          <td>May 25 – Jun 1</td>
+          <td>1 day on-site + ~1 wk async</td>
+          <td>Substrate decisions: SharePoint canonical folder template, inbound-letter classification taxonomy, past-rebuttal corpus location, evaluation question pattern, attorney handoff signaling, Dodonai-Graph tenant consent</td>
+        </tr>
+        <tr>
+          <td><strong>Wave 1A</strong> · Foundation + First-Draft Appeals</td>
+          <td>Jun 1 – Jul 12</td>
+          <td>6 wks</td>
+          <td>F-01 Microsoft Graph foundation, past-response retrieval index, claim-file summarizer, A-16 first-draft appeal, A-23 medical-review rebuttal</td>
+        </tr>
+        <tr>
+          <td><strong>Wave 1B</strong> · Appeals Completion + Ingest Substrate</td>
+          <td>Jul 13 – Aug 16</td>
+          <td>5 wks</td>
+          <td>F-02 SharePoint folder watch + insurer-letter classifier, A-13 IME/FCE cover letter, A-02/A-18 calendaring, 7 lifecycle letters (A-04, A-05, A-06, A-19, A-20, A-24, A-27), 19 cleanup items</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 2</strong> · On Claims</td>
+          <td>Aug 17 – Sep 20</td>
+          <td>5 wks</td>
+          <td>24-day past-benefit ladder (O-04 → O-13), def-change ingest, OP workflows, buyout drafting + termination, 30 line items</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 3</strong> · Litigation</td>
+          <td>Sep 21 – Nov 8</td>
+          <td>7 wks</td>
+          <td>L-04 complaint, L-09 JSR/PSO, L-14 mediation statement, L-15 demand, L-22 dismissal, Friday report</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 4</strong> · Accounting</td>
+          <td>Nov 9 – Nov 22</td>
+          <td>~2 wks</td>
+          <td>C-06 disbursement statement, C-07 DocuSign, C-08 QuickBooks recording, late-payment escalation</td>
+        </tr>
+        <tr>
+          <td><strong>Phase 5</strong> · Firm Intel + Intake + Marketing</td>
+          <td>Nov 23 – Dec 27</td>
+          <td>5 wks</td>
+          <td>X-03/X-04/X-09 chat productionization, 8 intake items, 4 marketing dashboards</td>
+        </tr>
+        <tr>
+          <td><strong>Retainer</strong></td>
+          <td>Dec 28, 2026 → ongoing</td>
+          <td>indefinite</td>
+          <td>Monitoring + maintenance of deployed agents, monthly review call + 2 hrs/mo tuning, per-carrier expansion, new-model briefings, on-demand new templates / rule sets / SOP coverage</td>
+        </tr>
+      </tbody>
+    </table>
+
+  </section>
+
+  <!-- ========== WORKFLOWS BY PHASE ========== -->
+  <section class="dept" id="phase-workflows">
+    <div class="dept-header"><h2>Workflows by Phase</h2><span class="dept-count">per-phase breakdown</span></div>
+    <p class="dept-note">Every workflow ID assigned to a phase, grouped by cluster. Items deferred to retainer (Phase 3 + Phase 5 leftovers + Dialpad-gated intake) listed at the bottom.</p>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-kickoff">Kickoff</span>
+        <span class="phase-block-title">Substrate decisions only</span>
+      </div>
+      <div class="phase-block-body">
+        <p class="phase-block-note">Not workflow building. Outputs: SharePoint canonical folder template, inbound-letter classification taxonomy, past-rebuttal corpus location, evaluation question pattern, attorney handoff signaling, Dodonai-Graph tenant admin consent.</p>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-1a">Wave 1A</span>
+        <span class="phase-block-title">Foundation + First-Draft Appeals</span>
+      </div>
+      <div class="phase-block-body">
+        <p class="phase-block-note">Advertised flow: inbound denial → claim-file summarizer → retrieval index → A-16 draft → SharePoint <code style="font-family:'Source Code Pro', monospace; font-size:9pt;">.docx</code> → attorney review.</p>
+        <div class="cluster">
+          <h4 class="cluster-h4">Substrate</h4>
+          <ul class="wf-list">
+            <li><span class="id id-substrate">F-01</span> Microsoft Graph foundation (Outlook + SharePoint + Word .docx)</li>
+            <li><span class="id id-substrate">Retrieval</span> Past-response retrieval index over historical DLF appeal letters + rebuttals</li>
+            <li><span class="id id-substrate">Summarizer</span> Claim-file summarizer tuned to DLF claim-file structure</li>
+            <li><span class="id id-substrate">Webhook</span> HubSpot ↔ Dodonai webhook + custom code action pattern</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Workflow IDs</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-16</span> AI-drafted first-pass appeal letters (carrier + condition aware)</li>
+            <li><span class="id">A-23</span> Medical-review rebuttal drafting (grounded in firm's past response letters)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-1b">Wave 1B</span>
+        <span class="phase-block-title">Appeals Completion + Ingest Substrate</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Substrate</h4>
+          <ul class="wf-list">
+            <li><span class="id id-substrate">F-02</span> SharePoint folder watch + insurer-letter classifier (10-category taxonomy)</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Calendaring &amp; cover letter</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-02</span> Appeal deadline → 14d/7d/0d Outlook reminders (atty + Eddie + assistant)</li>
+            <li><span class="id">A-13</span> IME/FCE cover letter + MR packet (T-7 from evaluation)</li>
+            <li><span class="id">A-18</span> Appeal submitted → 45d + 90d Outlook events</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">7 lifecycle letters</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-04</span> Claim File request letter</li>
+            <li><span class="id">A-05</span> Policy &amp; Plan Docs request letter</li>
+            <li><span class="id">A-06</span> Treating Doctor info form email to client</li>
+            <li><span class="id">A-19</span> Acknowledgement chase letter (submission + 7d)</li>
+            <li><span class="id">A-20</span> Copy of appeal letter to client</li>
+            <li><span class="id">A-24</span> 45-day blown letter</li>
+            <li><span class="id">A-27</span> "Next steps" email to client after approval</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Mid-appeal cleanup (15)</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-01</span> Denial letter ingest → extract appeal deadline + facts</li>
+            <li><span class="id">A-07</span> HW call setup email (2 variants: spoke vs voicemail)</li>
+            <li><span class="id">A-08</span> 2-week follow-up on CF / Policy requests (finish PARTIAL)</li>
+            <li><span class="id">A-09</span> HW outline email auto-draft (finish PARTIAL)</li>
+            <li><span class="id">A-10</span> Homework tracking (weekly/biweekly client follow-ups)</li>
+            <li><span class="id">A-11</span> IME / FCE / CPET 3-way scheduling</li>
+            <li><span class="id">A-12</span> Evaluation date confirmed → 1w/2w/1d reminders</li>
+            <li><span class="id">A-14</span> IME / Peer Review report tracking (1-wk provider follow-ups)</li>
+            <li><span class="id">A-17</span> Appeal submission packet bundling</li>
+            <li><span class="id">A-21</span> SSDI attorney evidence forward (2 variants)</li>
+            <li><span class="id">A-22</span> Medical review classify → calendar → notify attorney</li>
+            <li><span class="id">A-25</span> Extension granted → calendar new deadline</li>
+            <li><span class="id">A-28</span> Approval → email Julieth (marketing routing only)</li>
+            <li><span class="id">A-31</span> Denial → Termination route letter drafts (finish PARTIAL)</li>
+            <li><span class="id">A-32</span> Denial → Second appeal route restart (finish PARTIAL)</li>
+            <li><span class="id">A-33</span> LTD/STD dual approval branching</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Initial-claim sub-flow (4)</h4>
+          <ul class="wf-list">
+            <li><span class="id">A-34</span> Notice of Intent letter</li>
+            <li><span class="id">A-35</span> Claim form follow-up cadence (1w + 2w)</li>
+            <li><span class="id">A-36</span> Initial claim submission packet</li>
+            <li><span class="id">A-37</span> 45d + 105d decision deadlines (finish PARTIAL)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-2">Phase 2</span>
+        <span class="phase-block-title">On Claims</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Cluster A — 24-day past-benefit ladder + intro + max-benefit watch (16)</h4>
+          <div class="wf-inline">O-02 · O-04 · O-05 · O-06 · O-07 · O-08 · O-09 · O-10 · O-11 · O-12 · O-13 · O-15 · O-16 · O-17 · O-29 · O-30</div>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Cluster B — Active claim &amp; Definition Change (11)</h4>
+          <div class="wf-inline">O-18 · O-19 · O-20 · O-21 · O-22 · O-23 · O-24 · O-25 · O-26 · O-27 · O-28</div>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Cluster C — Overpayment workflows (9)</h4>
+          <div class="wf-inline">O-31 · O-32 · O-33 · O-34 · O-35 · O-36 · O-37 · O-38 · O-39</div>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Cluster D — Buyout + termination (9)</h4>
+          <div class="wf-inline">O-40 · O-41 · O-42 · O-43 · O-44 · O-45 · O-46 · O-47 · O-48</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-3">Phase 3</span>
+        <span class="phase-block-title">Litigation</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Substrate</h4>
+          <ul class="wf-list">
+            <li><span class="id id-substrate">Retrieval</span> Past-complaint retrieval index (jurisdiction + claim-type scoped)</li>
+            <li><span class="id id-substrate">Corpora</span> Past JSR / mediation statement / demand corpora</li>
+            <li><span class="id id-substrate">Templates</span> Court-jurisdiction-aware template engine (FL Southern District primary)</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">High-frequency drafts (10)</h4>
+          <ul class="wf-list">
+            <li><span class="id">L-02</span> Calendar deadline to file suit + 1w/2w reminders</li>
+            <li><span class="id">L-03</span> Paralegal request CF + policy + HR contact letter</li>
+            <li><span class="id">L-06</span> Filing tracking + service tracking</li>
+            <li><span class="id">L-07</span> Initial disclosures email to client</li>
+            <li><span class="id">L-08</span> OC answer deadline + extension tracking</li>
+            <li><span class="id">L-09</span> JSR / PSO drafting from case facts</li>
+            <li><span class="id">L-10</span> Joint scheduling conference / meet-and-confer coordination</li>
+            <li><span class="id">L-11</span> Scheduling order received → calendar all deadlines</li>
+            <li><span class="id">L-12</span> Mediation scheduling — multi-party coordination</li>
+            <li><span class="id">L-13</span> Mediation calendar — 1w/2w + statement + cancel-fee + report</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">High-effort drafts (9)</h4>
+          <ul class="wf-list">
+            <li><span class="id">L-04</span> Complaint draft from claim file + denial + facts + past complaints</li>
+            <li><span class="id">L-05</span> Civil cover sheet + summons auto-prep</li>
+            <li><span class="id">L-14</span> Mediation statement auto-draft</li>
+            <li><span class="id">L-15</span> Settlement demand letter</li>
+            <li><span class="id">L-16</span> Notice of settlement + accounting notification</li>
+            <li><span class="id">L-17</span> Settlement release — DocuSign integration</li>
+            <li><span class="id">L-20</span> Friday accounting status report (cron Fri 11am)</li>
+            <li><span class="id">L-21</span> Approval-during-litigation handoff (finish PARTIAL)</li>
+            <li><span class="id">L-22</span> Notice of resolution + joint stip of dismissal</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-4">Phase 4</span>
+        <span class="phase-block-title">Accounting</span>
+      </div>
+      <div class="phase-block-body">
+        <ul class="wf-list">
+          <li><span class="id">C-06</span> Disbursement statement auto-generate (fee % + cost reimbursement + net to client)</li>
+          <li><span class="id">C-07</span> Disbursement statement DocuSign send</li>
+          <li><span class="id">C-08</span> QuickBooks recording of disbursement</li>
+          <li><span class="id">C-09</span> Cancelled check exception workflow</li>
+          <li><span class="id">C-10</span> Late payment escalation (finish PARTIAL)</li>
+          <li><span class="id">C-11</span> Approval-during-lit past-due fees on Friday report (feeds L-20)</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-5">Phase 5</span>
+        <span class="phase-block-title">Firm Intel + Intake + Marketing</span>
+      </div>
+      <div class="phase-block-body">
+        <div class="cluster">
+          <h4 class="cluster-h4">Firm Intelligence (4)</h4>
+          <ul class="wf-list">
+            <li><span class="id">X-03</span> Per-case state chat over case file + HubSpot state</li>
+            <li><span class="id">X-04</span> Wiki Q&amp;A productionization (carrier + condition + ERISA grounded)</li>
+            <li><span class="id">X-08</span> Per-case high-priority date dashboard</li>
+            <li><span class="id">X-09</span> Paralegal task surface — chat-as-task-list + chat-as-drafter</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Intake / Pre-Case (8)</h4>
+          <ul class="wf-list">
+            <li><span class="id">I-04</span> 3rd-party referral lead capture + attribution</li>
+            <li><span class="id">I-09</span> Auto-draft rejection letter on case decline</li>
+            <li><span class="id">I-12</span> SMS reminder cadence (lead) while FA pending</li>
+            <li><span class="id">I-13</span> Email reminder cadence (lead) while FA pending</li>
+            <li><span class="id">I-15</span> SharePoint case folder auto-create on Closed Won</li>
+            <li><span class="id">I-18</span> "New Case" intro email auto-draft on Closed Won</li>
+            <li><span class="id">I-19</span> Referral OUT — referral letter + tracking</li>
+            <li><span class="id">I-20</span> Lead source attribution (finish PARTIAL)</li>
+          </ul>
+        </div>
+        <div class="cluster">
+          <h4 class="cluster-h4">Marketing / Reporting (4)</h4>
+          <ul class="wf-list">
+            <li><span class="id">M-01</span> Lead-source attribution dashboard (finish PARTIAL)</li>
+            <li><span class="id">M-04</span> Fee Agreement close rate report</li>
+            <li><span class="id">M-05</span> Attorney productivity report</li>
+            <li><span class="id">M-06</span> Approval/denial routing to Julieth</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="phase-block">
+      <div class="phase-block-header">
+        <span class="phase-tag t-retainer">Retainer</span>
+        <span class="phase-block-title">Ongoing support — not a fixed build list</span>
+      </div>
+      <div class="phase-block-body">
+        <p class="phase-block-note">Begins Dec 28, 2026 (post-Phase 5 go-live). 30-day off-ramp.</p>
+        <div class="cluster">
+          <h4 class="cluster-h4">Included monthly</h4>
+          <ul class="wf-list">
+            <li><span class="id id-substrate">Monitor</span> Monitoring + maintenance of all deployed agents</li>
+            <li><span class="id id-substrate">Review</span> Monthly 30-min review call</li>
+            <li><span class="id id-substrate">Tuning</span> Up to 2 hrs/month iteration + tuning</li>
+            <li><span class="id id-substrate">Carriers</span> Per-carrier expansion (Cigna, Hartford, Unum, MetLife, Aetna…) — each extends the previous pattern</li>
+            <li><span class="id id-substrate">Models</span> New-model briefings when major capability ships</li>
+            <li><span class="id id-substrate">Insights</span> Cross-client insights (within no-cross-pollination rules)</li>
+            <li><span class="id id-substrate">Cost-opt</span> Architecture cost optimization (prompt efficiency, caching, model selection)</li>
+            <li><span class="id id-substrate">Roundup</span> Monthly client roundup call</li>
+            <li><span class="id id-substrate">Training</span> Quarterly training refresh per active workflow</li>
+          </ul>
+        </div>
+        <p class="phase-block-note" style="margin-top:14px;"><strong>On-demand additions</strong> (as Eddie / Nadia / Bryn prioritize): new letter templates, new carrier rule sets, new SOP coverage, marketing tail items (M-02 ROI report, M-07 Twilio attribution post-Dialpad), Phase 3 / Phase 5 unscoped items.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ========== FOUNDATIONAL ========== -->
+  <section class="dept">
+    <div class="dept-header"><h2>Foundational Integrations</h2><span class="dept-count">1 workflow</span></div>
+    <p class="dept-note">Prerequisite infrastructure that unlocks multiple workflow categories. Build once, reuse everywhere.</p>
+    <table class="wf-table">
+      <colgroup><col class="col-id"><col class="col-wf"><col class="col-phase"><col class="col-layer"><col class="col-status"><col class="col-effort"></colgroup>
+      <thead><tr><th>ID</th><th>Workflow</th><th>Phase</th><th>Layer</th><th>Status</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td class="id-cell">F-01</td><td>Microsoft Graph integration (Outlook calendar + SharePoint folders/files + Word doc writes)</td><td><span class="pill pill-phase t-1a">Wave 1A</span></td><td><span class="pill pill-layer">EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== INTAKE ========== -->
+  <section class="dept">
+    <div class="dept-header"><h2>Intake / Pre-Case Pipeline</h2><span class="dept-count">20 workflows</span></div>
+    <table class="wf-table">
+      <colgroup><col class="col-id"><col class="col-wf"><col class="col-phase"><col class="col-layer"><col class="col-status"><col class="col-effort"></colgroup>
+      <thead><tr><th>ID</th><th>Workflow</th><th>Phase</th><th>Layer</th><th>Status</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td class="id-cell">I-01</td><td>Lead capture (web form) → Contact + Deal</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">I-02</td><td>Lead capture (intake call) → Contact + Deal</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">I-03</td><td>Lead capture (email) → Contact + Deal</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">I-04</td><td>Lead capture (3rd-party referral) → Contact + Deal + referrer attribution</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">HYB</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">I-05</td><td>Intake call recording → transcript → form auto-fill (deferred — Dialpad firm-side)</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">HYB</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">I-06</td><td>Stage notification: Intake Qualified → attorney</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">I-07</td><td>Stage notification: Attorney Qualified → CS + Eddie</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">I-08</td><td>Attorney call recording → notes → case value estimate (deferred — Dialpad firm-side)</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">HYB</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">I-09</td><td>Auto-draft rejection letter on case decline</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">I-10</td><td>Auto-draft Fee Agreement from contingency fee data</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">GEN+EXT</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">I-11</td><td>DocuSign FA send</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">EXT</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">I-12</td><td>SMS reminder cadence (lead) while FA pending</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">I-13</td><td>Email reminder cadence (lead) while FA pending</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">I-14</td><td>Closed Won → Service auto-create in Case Pipeline</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">I-15</td><td>Closed Won → SharePoint case folder auto-create</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">I-16</td><td>Closed Won → assign initial tasks by case_status_at_intake</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">I-17</td><td>Closed Won → notify attorney + team</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">I-18</td><td>Closed Won → "New Case" intro email auto-draft</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">I-19</td><td>Referral OUT — referral letter + tracking</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">I-20</td><td>Lead source attribution (Twilio + UTM + channel)</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== APPEALS ========== -->
+  <section class="dept">
+    <div class="dept-header"><h2>Appeals Department</h2><span class="dept-count">37 workflows</span></div>
+    <table class="wf-table">
+      <colgroup><col class="col-id"><col class="col-wf"><col class="col-phase"><col class="col-layer"><col class="col-status"><col class="col-effort"></colgroup>
+      <thead><tr><th>ID</th><th>Workflow</th><th>Phase</th><th>Layer</th><th>Status</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td class="id-cell">A-01</td><td>Denial letter ingest → extract appeal deadline + facts</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">ING</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">A-02</td><td>Appeal deadline → 14d/7d/0d reminders on attorney + Eddie + assistant Outlook calendars</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">HS+EXT</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">A-03</td><td>SharePoint folder organization from template</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-04</td><td>Auto-draft Claim File request letter</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-05</td><td>Auto-draft Policy &amp; Plan Docs request letter</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-06</td><td>Auto-draft Treating Doctor info form email to client</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-07</td><td>Auto-draft HW call setup email (2 variants: spoke vs voicemail)</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">A-08</td><td>2-week follow-up on CF / Policy requests</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-09</td><td>HW call complete → auto-draft HW outline email to client</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">A-10</td><td>Homework tracking — weekly/biweekly client follow-up per HW item</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">A-11</td><td>IME/FCE/CPET 3-way scheduling (vendor + client + firm)</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">A-12</td><td>Evaluation date confirmed → 1w/2w + 1-day reminders</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">HS+EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">A-13</td><td>1-week-before-evaluation → cover letter + MR packet auto-prep</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">A-14</td><td>IME/Peer Review report tracking (1-week follow-ups with provider)</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">A-15</td><td>Homework Complete → notify attorney to write appeal</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">A-16</td><td>AI-assisted appeal letter drafting (carrier + condition aware)</td><td><span class="pill pill-phase t-1a">Wave 1A</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-poc">POC</span></td><td><span class="pill pill-effort">L</span></td></tr>
+        <tr><td class="id-cell">A-17</td><td>Appeal submission packet bundling (letter + evidence + RFI + DOP + Auth)</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">A-18</td><td>Appeal submitted → record date → calendar 45d + 90d on attorney + assistant Outlook</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">HS+EXT</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-19</td><td>Appeal submitted → 1-week acknowledgement letter chase</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-20</td><td>Appeal submitted → email copy to client</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-21</td><td>SSDI attorney evidence forward (2 variants: known vs unknown)</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">A-22</td><td>Medical review received → classify → calendar response deadline → notify attorney</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">ING+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">A-23</td><td>Medical review response — auto-draft rebuttal letter framework</td><td><span class="pill pill-phase t-1a">Wave 1A</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">L</span></td></tr>
+        <tr><td class="id-cell">A-24</td><td>45-day decision approaching / blown → auto-draft 45-day letter</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-25</td><td>Extension granted (us or carrier) → calendar new deadline</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-26</td><td>Approval letter received → set appeal_approval_date → fire approval workflow</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">A-27</td><td>Approval → auto-draft "next steps" email to client</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-28</td><td>Approval → email Julieth with denial + appeal letters for marketing</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-29</td><td>Denial letter received → set appeal_denial_date + denial___next_steps</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">A-30</td><td>Denial → Litigation route → notify litigation team</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">A-31</td><td>Denial → Termination route → auto-draft termination letters</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-32</td><td>Denial → Second appeal route → restart appeal pipeline</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-33</td><td>LTD/STD dual approval branching</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">A-34</td><td>Initial claim — auto-draft Notice of Intent letter</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-35</td><td>Initial claim — claim form follow-up cadence (1w + 2w)</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">A-36</td><td>Initial claim submission packet (cover + claim forms + MRs)</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">A-37</td><td>Initial claim — 45d + 105d decision deadlines calendared</td><td><span class="pill pill-phase t-1b">Wave 1B</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== ON CLAIMS ========== -->
+  <section class="dept">
+    <div class="dept-header"><h2>On Claims Department</h2><span class="dept-count">48 workflows</span></div>
+    <table class="wf-table">
+      <colgroup><col class="col-id"><col class="col-wf"><col class="col-phase"><col class="col-layer"><col class="col-status"><col class="col-effort"></colgroup>
+      <thead><tr><th>ID</th><th>Workflow</th><th>Phase</th><th>Layer</th><th>Status</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td class="id-cell">O-01</td><td>Approval handoff Appeals → On Claims</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">O-02</td><td>On Claim intro email auto-draft to client</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-03</td><td>Add to On Claims list (all required columns)</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-04</td><td>Day 1 — past benefit check follow-up call task + DOP/Auth resend</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-05</td><td>Day 2 — On Claims Initial Letter auto-send</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-06</td><td>Day 3-6 — call/email follow-up tasks</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-07</td><td>Day 7 — DLF→INS 1st Follow Up letter</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-08</td><td>Day 8-10 — call/email follow-up tasks</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-09</td><td>Day 11 — DLF→INS 2nd Follow Up letter (escalation)</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-10</td><td>Day 12-13 — call/email follow-up tasks</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-11</td><td>Day 14 — DLF→INS 3rd Follow Up letter</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-12</td><td>Day 17 — DLF→INS 4th &amp; Final letter (threatens complaint in 7d)</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-13</td><td>Day 24 — email atty + Morgan; trigger complaint draft</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-14</td><td>First payment received → record disbursement</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">O-15</td><td>First payment NOT received on expected date → reminders to OC + accounting</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-16</td><td>First payment NOT received +7d → escalate to attorney</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-17</td><td>Insurer pays client directly — alternate flow</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HYB</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">O-18</td><td>Active claim — incoming insurer info request → save + 30d deadline</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">ING+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">O-19</td><td>Active claim — auto-draft email to client with request + prior approved forms</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-20</td><td>Active claim — 2-week follow-up if no client response</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-21</td><td>Active claim — No-Contact letter auto-draft after 2w no response</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-22</td><td>Active claim — incoming forms received → review + auto-draft response cover letter</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">ING+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">O-23</td><td>Definition Change auto-fire at 20/24/30/48 months from policy</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-24</td><td>Definition Change letter received → calendar deadlines</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">ING+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">O-25</td><td>Definition Change — auto-draft Change of Definition email to client</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-26</td><td>Definition Change — extension request auto-draft if forms not in 1w before deadline</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-27</td><td>Definition Change — submission cover letter auto-draft</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-28</td><td>Definition Change — confirmation chase if no carrier response 2w</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-29</td><td>Max benefit date — 1-year-out highlight</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-30</td><td>Max benefit reached → notify accounting + auto-draft termination letters</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-31</td><td>SSDI approved — auto-draft overpayment warning email</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-32</td><td>NOA received → forward to insurer + await OP calculation</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-33</td><td>OP letter received → verify calculations + add to OP list</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">ING+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">O-34</td><td>OP — auto-draft template email to client</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-35</td><td>OP — schedule client call (repayment vs lump sum discussion)</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-36</td><td>OP lump sum interest → auto-draft buyout inquiry letter</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-37</td><td>OP repayment plan tracking</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-38</td><td>Monthly OP list — auto-generate 3rd of month → email accounting + cc Morgan</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-39</td><td>OP satisfied → auto-draft Satisfaction Letter + remove from OP list</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-40</td><td>Termination/denial received while On Claim → notify atty + schedule client call</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">ING+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-41</td><td>Termination → email accounting + email appeals for handoff</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN+HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-42</td><td>Buyout offer inbound — letter received → save + send copy to client + cc OC manager + atty</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">ING+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">O-43</td><td>Buyout offer — schedule attorney-client call if interested</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-44</td><td>Buyout — notify accounting "negotiating lump sum"</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">O-45</td><td>Buyout outbound candidate identification (any-occ + SSDI approved)</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-46</td><td>Buyout outbound — attorney-initiated negotiation letter to insurer</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">O-47</td><td>Buyout settled → notify accounting + release tracking + check follow-up</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">O-48</td><td>Buyout — final termination letters to client + insurer + close file</td><td><span class="pill pill-phase t-p2">Phase 2</span></td><td><span class="pill pill-layer">GEN+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== LITIGATION ========== -->
+  <section class="dept">
+    <div class="dept-header"><h2>Litigation</h2><span class="dept-count">22 workflows</span></div>
+    <table class="wf-table">
+      <colgroup><col class="col-id"><col class="col-wf"><col class="col-phase"><col class="col-layer"><col class="col-status"><col class="col-effort"></colgroup>
+      <thead><tr><th>ID</th><th>Workflow</th><th>Phase</th><th>Layer</th><th>Status</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td class="id-cell">L-01</td><td>Deem Denied → Litigation route</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">L-02</td><td>Attorney advises lit decision → calendar deadline to file suit</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">HS+EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">L-03</td><td>Paralegal request CF + policy + HR contact (auto-draft)</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">L-04</td><td>AI-assisted complaint draft from claim file + denial + facts</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XL</span></td></tr>
+        <tr><td class="id-cell">L-05</td><td>Civil cover sheet + summons auto-prep</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">L-06</td><td>Filing tracking + service tracking</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">L-07</td><td>Initial disclosures email to client — auto-draft</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">L-08</td><td>OC answer deadline calendaring + extension tracking</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">L-09</td><td>JSR / PSO drafting from case facts</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">L</span></td></tr>
+        <tr><td class="id-cell">L-10</td><td>Joint scheduling conference / meet-and-confer email coordination</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">L-11</td><td>Scheduling order received → calendar all deadlines (disco 30/75d, MSJ, etc.) with 1w/2w reminders</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">ING+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">L-12</td><td>Mediation scheduling — multi-party coordination</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">L-13</td><td>Mediation calendar — 1w/2w + statement + cancel-fee + report deadline</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">HS+EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">L-14</td><td>Mediation statement auto-draft from case file</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">L</span></td></tr>
+        <tr><td class="id-cell">L-15</td><td>Settlement demand letter auto-draft</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">L-16</td><td>Settlement reached → notify accounting + draft notice of settlement</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">GEN+HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">L-17</td><td>Settlement release — receive from OC, review, send to client for signature</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">L-18</td><td>Discovery propounding decision support</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">CHAT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">L-19</td><td>MSJ briefing assistance</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XL</span></td></tr>
+        <tr><td class="id-cell">L-20</td><td>Friday 12pm accounting status report — auto-generated</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">L-21</td><td>Approval during litigation → on-claims handoff</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">L-22</td><td>Notice of resolution + joint stip of dismissal on check receipt</td><td><span class="pill pill-phase t-p3">Phase 3</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== ACCOUNTING ========== -->
+  <section class="dept">
+    <div class="dept-header"><h2>Accounting / Disbursements</h2><span class="dept-count">11 workflows</span></div>
+    <table class="wf-table">
+      <colgroup><col class="col-id"><col class="col-wf"><col class="col-phase"><col class="col-layer"><col class="col-status"><col class="col-effort"></colgroup>
+      <thead><tr><th>ID</th><th>Workflow</th><th>Phase</th><th>Layer</th><th>Status</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td class="id-cell">C-01</td><td>Cost intake (IME / FCE / MR vendor invoices)</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">C-02</td><td>Cost association to service</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">C-03</td><td>Disbursement create on expected payment date</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">C-04</td><td>Disbursement received</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">C-05</td><td>Disbursement processed</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-built">BUILT</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">C-06</td><td>Disbursement statement auto-generate (fee % + cost reimbursement + net to client)</td><td><span class="pill pill-phase t-p4">Phase 4</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">C-07</td><td>Disbursement statement to client for signature</td><td><span class="pill pill-phase t-p4">Phase 4</span></td><td><span class="pill pill-layer">EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">C-08</td><td>QuickBooks recording of disbursement</td><td><span class="pill pill-phase t-p4">Phase 4</span></td><td><span class="pill pill-layer">EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">C-09</td><td>Cancelled check exception workflow</td><td><span class="pill pill-phase t-p4">Phase 4</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">C-10</td><td>Late payment escalation</td><td><span class="pill pill-phase t-p4">Phase 4</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">C-11</td><td>Approval-during-lit — past-due fees + atty fees on Friday report</td><td><span class="pill pill-phase t-p4">Phase 4</span></td><td><span class="pill pill-layer">HS+GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== CROSS-CUTTING ========== -->
+  <section class="dept">
+    <div class="dept-header"><h2>Cross-cutting / Firm Intelligence</h2><span class="dept-count">9 workflows</span></div>
+    <table class="wf-table">
+      <colgroup><col class="col-id"><col class="col-wf"><col class="col-phase"><col class="col-layer"><col class="col-status"><col class="col-effort"></colgroup>
+      <thead><tr><th>ID</th><th>Workflow</th><th>Phase</th><th>Layer</th><th>Status</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td class="id-cell">X-01</td><td>Q&amp;A queue between assistants ↔ attorneys with urgency tiers</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">X-02</td><td>Custom checklists per case service (received-draft, attorney-review, received-final)</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">X-03</td><td>Per-case state lookup (chat over case file + HubSpot state)</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">CHAT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">L</span></td></tr>
+        <tr><td class="id-cell">X-04</td><td>Wiki-grounded firm Q&amp;A (carrier-playbook, condition-playbook, ERISA)</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">CHAT</span></td><td><span class="pill pill-poc">POC</span></td><td><span class="pill pill-effort">L</span></td></tr>
+        <tr><td class="id-cell">X-05</td><td>Treating team auto-form-fill (doctor name/specialty/address/phone/fax/email merged into request letter)</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">GEN</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">X-06</td><td>Medical records gap detection ("have Jan-Feb, missing Mar+")</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">ING</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">X-07</td><td>HubSpot notes admissibility — legal review</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer pill-dim">—</span></td><td><span class="pill pill-open">OPEN</span></td><td><span class="pill pill-effort pill-dim">—</span></td></tr>
+        <tr><td class="id-cell">X-08</td><td>Per-case high-priority date dashboard with notifications</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">X-09</td><td>Paralegal task surface in chat — "what are my tasks today" + chat-driven letter drafting</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">CHAT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <!-- ========== MARKETING ========== -->
+  <section class="dept">
+    <div class="dept-header"><h2>Marketing / Reporting</h2><span class="dept-count">7 workflows</span></div>
+    <p class="dept-note">Out of immediate Build scope but documented for retainer / future work.</p>
+    <table class="wf-table">
+      <colgroup><col class="col-id"><col class="col-wf"><col class="col-phase"><col class="col-layer"><col class="col-status"><col class="col-effort"></colgroup>
+      <thead><tr><th>ID</th><th>Workflow</th><th>Phase</th><th>Layer</th><th>Status</th><th>Effort</th></tr></thead>
+      <tbody>
+        <tr><td class="id-cell">M-01</td><td>Lead-source attribution dashboard</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">M-02</td><td>ROI report (cases by lead source × collected revenue)</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+        <tr><td class="id-cell">M-03</td><td>Pipeline-by-status dashboard</td><td><span class="pill pill-phase t-none">—</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-partial">PARTIAL</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">M-04</td><td>Fee Agreement close rate report</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">M-05</td><td>Attorney productivity report</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">S</span></td></tr>
+        <tr><td class="id-cell">M-06</td><td>Approval/denial letters → Julieth (routing only)</td><td><span class="pill pill-phase t-p5">Phase 5</span></td><td><span class="pill pill-layer">HS</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">XS</span></td></tr>
+        <tr><td class="id-cell">M-07</td><td>Phone number attribution / call recording (Twilio)</td><td><span class="pill pill-phase t-ondemand">On-demand</span></td><td><span class="pill pill-layer">EXT</span></td><td><span class="pill pill-gap">GAP</span></td><td><span class="pill pill-effort">M</span></td></tr>
+      </tbody>
+    </table>
+  </section>
+
+  <footer>
+    Dodonai · Internal working document · derived from <code style="font-family:'Source Code Pro', monospace;">automation-blueprint.md</code>
+  </footer>
+</div>
+</body>
+</html>

@@ -4,7 +4,7 @@
 		sectionDescription = '',
 		sectionQuote = null,
 		items = [],
-		ctaUrl = 'https://app.dodon.ai/signup',
+		ctaUrl = 'https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=example_summaries',
 		background = 'bg-white'
 	} = $props();
 </script>

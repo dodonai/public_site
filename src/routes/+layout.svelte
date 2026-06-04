@@ -3,6 +3,7 @@
 	import { afterNavigate } from '$app/navigation';
 	import { browser } from '$app/environment';
 	import { page } from '$app/stores';
+	import { onMount } from 'svelte';
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
@@ -11,7 +12,14 @@
 	let { children } = $props();
 
 	// Capture ad params (gclid + UTMs) from landing page URL into sessionStorage
-	const AD_PARAMS = ['gclid', 'utm_source', 'utm_medium', 'utm_campaign', 'utm_term', 'utm_content'];
+	const AD_PARAMS = [
+		'gclid',
+		'utm_source',
+		'utm_medium',
+		'utm_campaign',
+		'utm_term',
+		'utm_content'
+	];
 	if (browser) {
 		const urlParams = new URLSearchParams(window.location.search);
 		for (const p of AD_PARAMS) {
@@ -28,14 +36,24 @@
 		}
 		if (Object.keys(params).length === 0) return;
 
+		// Overwrite hardcoded baseline UTMs (utm_source=website&utm_medium=cta) with
+		// captured paid params — last-touch wins so paid attribution survives a click
+		// on a generic CTA whose href ships with the baseline.
 		document.querySelectorAll('a[href*="app.dodon.ai"]').forEach((link) => {
 			const url = new URL(link.href);
 			for (const [k, v] of Object.entries(params)) {
-				if (!url.searchParams.has(k)) url.searchParams.set(k, v);
+				url.searchParams.set(k, v);
 			}
 			link.href = url.toString();
 		});
 	}
+
+	// First paint: decorate links before any internal nav happens, so a user who
+	// lands with paid UTMs and clicks the promo banner/header CTA on the same page
+	// still gets attribution forwarded.
+	onMount(() => {
+		decorateAppLinks();
+	});
 
 	afterNavigate(({ from, to }) => {
 		// Skip initial page load — GA4 config in app.html handles that
@@ -64,14 +82,17 @@
 	{@html `<script type="application/ld+json">${JSON.stringify(websiteSchema)}</script>`}
 </svelte:head>
 
-<a href="#main-content" class="sr-only focus:not-sr-only focus:absolute focus:z-[200] focus:bg-white focus:px-4 focus:py-2 focus:text-[#282876]">
+<a
+	href="#main-content"
+	class="sr-only focus:not-sr-only focus:absolute focus:z-[200] focus:bg-white focus:px-4 focus:py-2 focus:text-[#282876]"
+>
 	Skip to main content
 </a>
 
 <div class="sticky top-0 z-[100]">
-	{#if !$page.url.pathname.startsWith('/ai-services')}
+	{#if !$page.url.pathname.startsWith('/ai-managed-services')}
 		<a
-			href="https://app.dodon.ai/signup"
+			href="https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=promo_banner"
 			target="_blank"
 			rel="noopener noreferrer"
 			class="promo-banner block py-1.5 text-center text-sm font-medium text-[#282876] transition-colors hover:text-[#282876bf]"

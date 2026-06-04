@@ -1,0 +1,49 @@
+{
+	"slug": "ssd-disability-practice",
+	"seo": {
+		"title": "Social Security Disability Firm AI Engagement: Hearing-Ready | Dodonai",
+		"description": "How a Social Security Disability plaintiff practice used custom AI agents and a firm knowledge base to walk into every hearing fully prepped. A representative Dodonai engagement.",
+		"canonical": "/ai-managed-services/results/ssd-disability-practice/"
+	},
+	"descriptor": "Social Security Disability plaintiff practice — high claim volume, hearing-driven",
+	"practiceArea": "Social Security Disability",
+	"headline": "A Social Security Disability practice walked into every hearing fully prepped",
+	"summary": "A focused build pairing a firm knowledge base with a hearing-prep agent, so prep that took hours happens before the file even hits the attorney's desk.",
+	"statStrip": [
+		{ "value": "Hearing-ready", "label": "prep memo before the file lands" },
+		{ "value": "Firm Wiki", "label": "winning theories made queryable" },
+		{ "value": "~5 weeks", "label": "two-workflow build" }
+	],
+	"problem": {
+		"heading": "The starting state",
+		"paragraphs": [
+			"A plaintiff-side Social Security Disability practice running a high volume of claims, every one heading toward a hearing. Preparing for each one meant pulling the full claimant file, the medical history, the vocational factors, and any prior decisions, then assembling it into something the attorney could walk in with — hours of work per hearing.",
+			"The firm's hard-won knowledge of what wins — the grid rules, the listing arguments, the medical patterns that move an ALJ — lived in the senior attorneys' heads and a folder of past briefs."
+		]
+	},
+	"built": {
+		"heading": "What we built",
+		"intro": "A two-workflow build, scoped from discovery: a firm knowledge base and the hearing-prep agent that reads from it.",
+		"agents": [
+			{ "name": "Firm Wiki / LLM Brain", "slug": null },
+			{ "name": "Hearing-Prep Brief", "slug": "meeting-prep-brief" },
+			{ "name": "Intake Triage", "slug": "intake-triage" },
+			{ "name": "Client Communications", "slug": "client-communications" }
+		]
+	},
+	"results": {
+		"heading": "What changed",
+		"items": [
+			"The hearing-prep agent assembles the claimant file, medical chronology, vocational factors, and prior rulings into a prep memo before the hearing — the attorney reviews instead of building from scratch.",
+			"The firm wiki holds the firm's winning theories, grid rules, and listing arguments, queryable instead of tribal.",
+			"New claimants are scored at intake and a first response is drafted in minutes.",
+			"Client status updates are drafted from case activity, so claimants aren't left wondering where things stand.",
+			"Every memo and message is an attorney-reviewed draft — the agent prepares, the attorney decides and appears."
+		]
+	},
+	"engagementArc": {
+		"discovery": "1–2 weeks",
+		"build": "~5 weeks · 2 workflows",
+		"retainer": "Optional, month-to-month"
+	}
+}

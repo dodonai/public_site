@@ -13,15 +13,19 @@ export function GET() {
 		: `User-agent: *
 Allow: /
 Disallow: /api/
+Disallow: /clients/
 
 User-agent: GPTBot
 Allow: /
+Disallow: /clients/
 
 User-agent: Google-Extended
 Allow: /
+Disallow: /clients/
 
 User-agent: anthropic-ai
 Allow: /
+Disallow: /clients/
 
 Sitemap: https://www.dodon.ai/sitemap.xml
 `;
