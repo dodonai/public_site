@@ -249,12 +249,12 @@
 			<h2
 				class="mx-auto mt-3 max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
 			>
-				Custom AI agents built around your firm's workflows
+				Custom AI workflow automation built around your firm
 			</h2>
 			<p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
-				Our AI Managed Services team designs, builds, and runs custom agents tuned to how your firm
-				actually works — intake, drafting, deadlines, billing, and more. Blueprint in weeks, with an
-				attorney in the loop on every output.
+				Our AI Managed Services and consulting team designs, builds, and runs custom agents tuned to
+				how your firm actually works — intake, drafting, deadlines, billing, and more. Blueprint in
+				weeks, with an attorney in the loop on every output.
 			</p>
 			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
 				<a

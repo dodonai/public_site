@@ -102,7 +102,10 @@
 	{#if data.proof?.stats}
 		<section class="bg-transparent pb-12 pt-2 sm:pb-16">
 			<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-				<StatStrip stats={data.proof.stats} columns={4} />
+				<StatStrip stats={data.proof.stats} columns={3} />
+				{#if data.proof.caption}
+					<p class="mt-4 text-center text-xs text-[#8181ac]">{data.proof.caption}</p>
+				{/if}
 			</div>
 		</section>
 	{/if}

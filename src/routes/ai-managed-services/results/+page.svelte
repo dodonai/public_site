@@ -26,9 +26,13 @@
 	const portfolioStats = [
 		{ value: '250+', label: 'firms on the Dodonai platform' },
 		{ value: '50+', label: 'AI agents shipped into production' },
-		{ value: '30+ hrs/wk', label: 'reclaimed at a typical firm' },
-		{ value: '$200k+/yr', label: 'in recovered attorney capacity' }
+		{ value: '8+ hrs/wk', label: 'reclaimed per attorney' },
+		{ value: '$100k+/yr', label: 'in recovered capacity per attorney' },
+		{ value: '10+ tools', label: 'consolidated into one system' },
+		{ value: '~30%', label: 'lower software spend' }
 	];
+	const portfolioStatsCaption =
+		'Average results across Dodonai engagements. Your numbers depend on firm size, practice area, and which agents you turn on.';
 
 	const testimonials = [
 		{
@@ -93,7 +97,8 @@
 	<!-- Portfolio proof -->
 	<section class="bg-transparent pb-4">
 		<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
-			<StatStrip stats={portfolioStats} columns={4} />
+			<StatStrip stats={portfolioStats} columns={3} />
+			<p class="mt-4 text-center text-xs text-[#8181ac]">{portfolioStatsCaption}</p>
 		</div>
 	</section>
 
