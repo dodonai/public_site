@@ -1,0 +1,501 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Dodonai Demo Walkthrough — for James</title>
+<script src="https://cdn.jsdelivr.net/npm/mermaid@10/dist/mermaid.min.js"></script>
+<script>window.addEventListener('load',()=>{try{mermaid.initialize({startOnLoad:true,theme:'neutral'});}catch(e){}});</script>
+<style>
+:root{--bg:#0b1020;--panel:#fff;--ink:#1e2433;--mut:#64748b;--line:#e6e8ef;--accent:#6366f1;}
+*{box-sizing:border-box}
+body{margin:0;font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;color:var(--ink);background:#f4f5fb;line-height:1.55}
+a{color:var(--accent);text-decoration:none}
+.layout{display:grid;grid-template-columns:268px 1fr;min-height:100vh}
+nav.side{position:sticky;top:0;align-self:start;height:100vh;overflow:auto;background:#0b1020;color:#cbd5e1;padding:22px 16px}
+nav.side .brand{font-weight:800;font-size:18px;color:#fff;letter-spacing:.3px;margin-bottom:2px}
+nav.side .brand span{color:#818cf8}
+nav.side .sub{font-size:12px;color:#7c8aa5;margin-bottom:18px}
+nav.side a{display:block;color:#cbd5e1;padding:7px 10px;border-radius:8px;font-size:13.5px;margin:1px 0}
+nav.side a:hover{background:#1e2740;color:#fff}
+nav.side .nlabel{font-size:11px;text-transform:uppercase;letter-spacing:.08em;color:#5f6e8c;margin:16px 6px 4px}
+main{padding:0 0 80px}
+.hero{background:linear-gradient(120deg,#4f46e5,#0ea5e9);color:#fff;padding:46px 48px 38px}
+.hero h1{margin:0 0 6px;font-size:34px;letter-spacing:-.5px}
+.hero p{margin:0;max-width:760px;opacity:.95;font-size:16px}
+.wrap{max-width:1000px;margin:0 auto;padding:0 48px}
+section{padding:34px 0;border-bottom:1px solid var(--line)}
+section h2{font-size:26px;margin:0 0 4px;letter-spacing:-.3px}
+h3.sub{font-size:16px;color:var(--mut);text-transform:uppercase;letter-spacing:.06em;margin:26px 0 12px}
+.login{display:flex;gap:14px;flex-wrap:wrap;margin-top:20px}
+.login .lc{background:rgba(255,255,255,.14);backdrop-filter:blur(4px);border:1px solid rgba(255,255,255,.25);border-radius:12px;padding:12px 16px;color:#fff}
+.login .lc b{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.08em;opacity:.8}
+.login .lc span{font-size:16px;font-weight:600;font-family:ui-monospace,Menlo,monospace}
+.cards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin-top:8px}
+.pcard{display:block;background:#fff;border:1px solid var(--line);border-left:5px solid var(--accent);border-radius:14px;padding:18px 18px 16px;box-shadow:0 1px 2px rgba(16,24,40,.04);transition:.15s}
+.pcard:hover{transform:translateY(-2px);box-shadow:0 10px 26px rgba(16,24,40,.10)}
+.pcard-ic{font-size:26px}.pcard-n{font-size:12px;color:var(--mut);margin-top:6px;font-weight:700;letter-spacing:.04em}
+.pcard-t{font-weight:700;font-size:16px;margin:2px 0 6px}.pcard-m{font-size:12px;color:var(--mut)}
+.flow{width:100%;height:auto;margin:6px 0}
+.fn-t{fill:#fff;font-weight:700;font-size:14px}.fn-s{fill:#e6ebff;font-size:10.5px}
+.persona{scroll-margin-top:14px}
+.p-head{display:flex;gap:16px;align-items:flex-start;margin-bottom:6px}
+.p-icon{font-size:34px;background:color-mix(in srgb,var(--accent) 14%,#fff);border:1px solid color-mix(in srgb,var(--accent) 30%,#fff);width:60px;height:60px;border-radius:14px;display:flex;align-items:center;justify-content:center}
+.p-kicker{color:var(--accent);font-weight:700;font-size:12.5px;text-transform:uppercase;letter-spacing:.05em}
+.p-meta{margin-top:8px;display:flex;gap:8px;flex-wrap:wrap}
+.pill{background:#eef1f8;border:1px solid var(--line);border-radius:999px;padding:3px 12px;font-size:12px;color:#475069;font-weight:600}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-top:8px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:16px 18px}
+.card h3{margin:0 0 10px;font-size:15px}
+ul.ticks{list-style:none;padding:0;margin:0}ul.ticks li{padding:4px 0 4px 26px;position:relative}
+ul.ticks li:before{content:"✔";position:absolute;left:0;color:var(--accent);font-weight:800}
+ol.steps{margin:0;padding-left:20px}ol.steps li{margin:6px 0}
+.says{display:grid;gap:8px}
+.say{background:#fff;border:1px solid var(--line);border-left:4px solid var(--accent);border-radius:10px;padding:10px 14px;font-size:14.5px}
+.mock{background:#fff;border:1px solid var(--line);border-radius:14px;overflow:hidden;box-shadow:0 6px 22px rgba(16,24,40,.06);margin:6px 0 4px}
+.mock-bar{background:#f1f3f9;border-bottom:1px solid var(--line);padding:9px 14px;display:flex;align-items:center;gap:7px}
+.dot{width:11px;height:11px;border-radius:50%}.dot.r{background:#ff5f57}.dot.y{background:#febc2e}.dot.g{background:#28c840}
+.mock-title{margin-left:8px;font-size:12.5px;color:#5b6478;font-weight:600}
+.mock-cap{padding:10px 16px;font-size:12.5px;color:var(--mut);background:#fafbfe;border-top:1px solid var(--line)}
+table.chrono{width:100%;border-collapse:collapse;font-size:13px}
+table.chrono th{text-align:left;background:#fbfcff;color:#5b6478;font-size:11px;letter-spacing:.05em;padding:9px 12px;border-bottom:2px solid var(--line)}
+table.chrono td{padding:11px 12px;border-bottom:1px solid #f0f2f7;vertical-align:top}
+.c-date{white-space:nowrap;font-weight:700;color:#334}
+.dt-badge{display:inline-block;background:color-mix(in srgb,var(--accent) 12%,#fff);color:color-mix(in srgb,var(--accent) 70%,#222);border:1px solid color-mix(in srgb,var(--accent) 30%,#fff);font-size:10.5px;font-weight:700;border-radius:6px;padding:1px 7px;text-transform:uppercase;letter-spacing:.03em}
+.prov{margin-top:4px;color:#475069;font-size:12.5px}
+.ev-head{font-weight:700;margin-bottom:2px}.ev-body{color:#475069}
+.pageref{display:inline-block;background:#eef1f8;border:1px solid var(--line);border-radius:6px;padding:2px 8px;font-size:11.5px;color:var(--accent);font-weight:600;white-space:nowrap}
+table.xd{width:100%;border-collapse:collapse;font-size:13.5px}
+table.xd td{padding:10px 14px;border-bottom:1px solid #f0f2f7}
+.xd-f{font-weight:700;width:34%;color:#334;background:#fbfcff}
+.xd-v{color:#94a3b8;font-style:italic}.xd-v.crit{color:#b4530a;font-weight:600;font-style:normal;background:#fff7ed}
+.exec{background:#fff;border:1px solid var(--line);border-radius:14px;margin-top:14px;overflow:hidden}
+.exec-h{background:#fbfcff;border-bottom:1px solid var(--line);padding:11px 16px;font-weight:700;font-size:14px}
+.exec-body{padding:6px 20px 14px}
+.exec-body h4{font-size:15px;margin:14px 0 4px}.exec-body h5{font-size:13.5px;color:#334;margin:12px 0 2px;text-transform:uppercase;letter-spacing:.04em}
+.exec-body p{margin:6px 0;font-size:13.5px;color:#3a4256}
+.depo .depo-block{border-bottom:1px solid #f0f2f7;padding:12px 18px}
+.depo-h{font-weight:700;margin-bottom:4px;color:#334}
+.depo p{font-size:13.5px;color:#3a4256;margin:5px 0}
+.cite{background:#fff7ed;border:1px solid #fed7aa;color:#b4530a;border-radius:5px;padding:0 5px;font-size:.92em;font-weight:600}
+table.matrix{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1px solid var(--line);border-radius:12px;overflow:hidden}
+table.matrix th{background:#0b1020;color:#fff;padding:10px;font-size:12px}
+table.matrix th:first-child{text-align:left}
+table.matrix td{padding:9px 10px;border-bottom:1px solid #f0f2f7;text-align:center}
+table.matrix td.fname{text-align:left;font-weight:600;color:#334}
+.chk{color:#10b981;font-weight:800}.no{color:#cbd5e1}
+.callout{background:#eef2ff;border:1px solid #c7d2fe;border-radius:12px;padding:14px 18px;margin:14px 0;font-size:14px}
+.callout.warn{background:#fff7ed;border-color:#fed7aa}
+.timeline{position:relative;margin:10px 0 0;padding-left:28px}
+.timeline:before{content:"";position:absolute;left:9px;top:4px;bottom:4px;width:2px;background:var(--line)}
+.tl{position:relative;margin:0 0 14px;background:#fff;border:1px solid var(--line);border-radius:12px;padding:12px 16px}
+.tl:before{content:"";position:absolute;left:-23px;top:16px;width:12px;height:12px;border-radius:50%;background:var(--accent);border:3px solid #fff;box-shadow:0 0 0 2px var(--accent)}
+.tl b{display:block}.tl .t{color:var(--mut);font-size:12px;font-weight:700;text-transform:uppercase;letter-spacing:.05em}
+.faq dt{font-weight:700;margin-top:14px}.faq dd{margin:4px 0 0;color:#3a4256}
+.kvs{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+.kv{background:#fff;border:1px solid var(--line);border-radius:10px;padding:10px 14px;font-size:13px}
+.kv b{color:var(--mut);font-size:11px;text-transform:uppercase;letter-spacing:.05em;display:block}
+.mermaid{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px;margin:8px 0}
+@media(max-width:880px){.layout{grid-template-columns:1fr}nav.side{position:static;height:auto}.wrap,.hero{padding-left:20px;padding-right:20px}.grid2,.cards,.kvs{grid-template-columns:1fr}}
+</style></head><body>
+<div class="layout">
+<nav class="side">
+  <div class="brand">Dodon<span>ai</span> · Demo Guide</div>
+  <div class="sub">Walkthrough for James</div>
+  <div class="nlabel">Start here</div>
+  <a href="#welcome">👋 Welcome</a><a href="#login">🔑 Login &amp; access</a><a href="#pipeline">🧭 How it works</a>
+  <a href="#matters">🗂️ The 4 matters</a><a href="#flow">⏱️ Suggested demo flow</a>
+  <div class="nlabel">Feature walkthroughs</div><a href="#pi-chronology">⚖️ PI Medical Chronology</a><a href="#merit-review">🔬 Multi-Template Merit Review</a><a href="#deposition">🎙️ Deposition Summaries</a><a href="#wc-chronology">🦴 Workers-Comp Verbatim Chronology</a>
+  <div class="nlabel">Reference</div>
+  <a href="#matrix">✅ Feature matrix</a><a href="#decision">🌳 Which primitive?</a>
+  <a href="#faq">💬 FAQ &amp; objections</a><a href="#admin">🛠️ Admin &amp; troubleshooting</a><a href="#ids">📎 Resource IDs</a>
+</nav>
+<main>
+ <div class="hero">
+   <h1>Dodonai Demo Walkthrough</h1>
+   <p>One shared account, pre-loaded to show every feature we demo — chronologies, multi-template merit reviews, depositions, and workers-comp output. All data is synthetic (no PHI). This guide gives you the click-path, the talking points, and what each screen looks like.</p>
+   <div class="login">
+     <div class="lc"><b>URL</b><span>https://frontend-rfl3hxfesq-uc.a.run.app</span></div>
+     <div class="lc"><b>Email</b><span>demo@dodon.ai</span></div>
+     <div class="lc"><b>Password</b><span>DodonaiDemo2026!</span></div>
+   </div>
+ </div>
+ <div class="wrap">
+  <section id="welcome">
+    <h2>👋 Welcome</h2>
+    <p>This account exists so you never have to juggle local / stage / prod logins mid-demo. It lives on <b>stage</b> and is seeded with four ready-to-show matters, each mapped to a customer persona. Pick the matter that matches the prospect in front of you, follow its click-path, and use the talking points.</p>
+    <div class="callout">💡 <b>Golden rule:</b> show the <b>source PDF first</b> (the mess), <b>then</b> the summary (the order). The contrast is the whole pitch.</div>
+  </section>
+
+  <section id="login">
+    <h2>🔑 Login &amp; access</h2>
+    <div class="kvs">
+      <div class="kv"><b>App URL</b>https://frontend-rfl3hxfesq-uc.a.run.app</div>
+      <div class="kv"><b>Login</b>demo@dodon.ai / DodonaiDemo2026!</div>
+      <div class="kv"><b>Environment</b>Stage · plan enterprise_700 (no usage limits for demos)</div>
+      <div class="kv"><b>Data</b>100% synthetic — safe to screen-share</div>
+    </div>
+  </section>
+
+  <section id="pipeline">
+    <h2>🧭 How it works (in one picture)</h2>
+    <p>Every matter runs the same pipeline. Knowing it lets you answer “how does it do that?” with confidence.</p>
+    
+<svg viewBox="0 0 980 150" class="flow" role="img" aria-label="Processing pipeline">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1"><stop offset="0" stop-color="#6366f1"/><stop offset="1" stop-color="#0ea5e9"/></linearGradient>
+    <marker id="arr" markerWidth="10" markerHeight="10" refX="7" refY="3" orient="auto"><path d="M0,0 L7,3 L0,6 Z" fill="#94a3b8"/></marker>
+  </defs>
+  <rect x="10" y="40" rx="12" width="140" height="64" fill="url(#g)" opacity="0.55"/><text x="80.0" y="70" text-anchor="middle" class="fn-t">Upload</text><text x="80.0" y="90" text-anchor="middle" class="fn-s">PDF / DOCX / scans</text><line x1="150" y1="72" x2="178" y2="72" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/><rect x="178" y="40" rx="12" width="140" height="64" fill="url(#g)" opacity="0.62"/><text x="248.0" y="70" text-anchor="middle" class="fn-t">OCR</text><text x="248.0" y="90" text-anchor="middle" class="fn-s">text + page map</text><line x1="318" y1="72" x2="346" y2="72" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/><rect x="346" y="40" rx="12" width="140" height="64" fill="url(#g)" opacity="0.69"/><text x="416.0" y="70" text-anchor="middle" class="fn-t">Detection</text><text x="416.0" y="90" text-anchor="middle" class="fn-s">split & classify</text><line x1="486" y1="72" x2="514" y2="72" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/><rect x="514" y="40" rx="12" width="140" height="64" fill="url(#g)" opacity="0.76"/><text x="584.0" y="70" text-anchor="middle" class="fn-t">Rule set</text><text x="584.0" y="90" text-anchor="middle" class="fn-s">sort · filter · dedup · combine</text><line x1="654" y1="72" x2="682" y2="72" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/><rect x="682" y="40" rx="12" width="140" height="64" fill="url(#g)" opacity="0.83"/><text x="752.0" y="70" text-anchor="middle" class="fn-t">Summarize</text><text x="752.0" y="90" text-anchor="middle" class="fn-s">per-type templates</text><line x1="822" y1="72" x2="850" y2="72" stroke="#94a3b8" stroke-width="2" marker-end="url(#arr)"/><rect x="850" y="40" rx="12" width="140" height="64" fill="url(#g)" opacity="0.90"/><text x="920.0" y="70" text-anchor="middle" class="fn-t">Deliverable</text><text x="920.0" y="90" text-anchor="middle" class="fn-s">chronology · exec · export</text>
+</svg>
+    <div class="callout">Upload → <b>OCR</b> reads every page → <b>Detection</b> splits the bundle into individual records and classifies each → the <b>Rule set</b> sorts, de-dupes, filters and combines → <b>Summarization</b> applies the right template per record type → out comes a <b>chronology + executive summary</b> with clickable citations.</div>
+  </section>
+
+  <section id="matters">
+    <h2>🗂️ The four demo matters</h2>
+    <p>Each card jumps to its full walkthrough.</p>
+    <div class="cards"><a class="pcard" href="#pi-chronology" style="--accent:#6366f1">
+   <div class="pcard-ic">⚖️</div>
+   <div class="pcard-n">Persona 1</div>
+   <div class="pcard-t">PI Medical Chronology + Executive Summary</div>
+   <div class="pcard-m">Matter 9956</div></a><a class="pcard" href="#merit-review" style="--accent:#0ea5e9">
+   <div class="pcard-ic">🔬</div>
+   <div class="pcard-n">Persona 2</div>
+   <div class="pcard-t">Multi-Template Merit Review + XD Extraction</div>
+   <div class="pcard-m">Matter 9957</div></a><a class="pcard" href="#deposition" style="--accent:#f59e0b">
+   <div class="pcard-ic">🎙️</div>
+   <div class="pcard-n">Persona 3</div>
+   <div class="pcard-t">Deposition Summaries — Page-Line &amp; Narrative</div>
+   <div class="pcard-m">Matter 9958</div></a><a class="pcard" href="#wc-chronology" style="--accent:#10b981">
+   <div class="pcard-ic">🦴</div>
+   <div class="pcard-n">Persona 4</div>
+   <div class="pcard-t">Workers-Comp Verbatim Chronology + Cover Sheet</div>
+   <div class="pcard-m">Matter 9959</div></a></div>
+  </section>
+
+  <section id="flow">
+    <h2>⏱️ Suggested demo flow (~15 min)</h2>
+    <div class="timeline">
+      <div class="tl"><span class="t">0–2 min · Frame</span><b>Open the PI source PDF.</b> “Here’s what your team gets today — 12 pages of unsorted records.”</div>
+      <div class="tl"><span class="t">2–6 min · Wow</span><b>Open the PI chronology + exec summary.</b> Click a citation to jump to source. This is the core “aha”.</div>
+      <div class="tl"><span class="t">6–9 min · Depth</span><b>Merit Review.</b> Show per-specialty templates + the XD extraction table. “It adapts detail to record type.”</div>
+      <div class="tl"><span class="t">9–12 min · Breadth</span><b>Deposition.</b> Page-Line + Narrative from one transcript. “Different work product, same engine.”</div>
+      <div class="tl"><span class="t">12–15 min · Fit</span><b>WC chronology.</b> Verbatim cover sheet. Pivot to the prospect’s own workflow.</div>
+    </div>
+  </section>
+
+  <section id="pi-chronology" class="persona" style="--accent:#6366f1">
+      <div class="p-head"><div class="p-icon">⚖️</div>
+        <div><div class="p-kicker">Persona 1 · Plaintiff PI attorneys, legal nurse consultants</div>
+        <h2>PI Medical Chronology + Executive Summary</h2>
+        <div class="p-meta"><span class="pill">Matter 9956</span><span class="pill">Rule set 23 · PI Plaintiff — Medical Chronology</span></div></div></div>
+      <div class="grid2">
+        <div class="card"><h3>What it proves</h3><ul class="ticks"><li>Index-based chronology from a messy mixed-record bundle</li><li>Per-document-type field extraction</li><li>De-duplication of repeat records</li><li>Filtering out billing / fax-cover noise</li><li>Hyperlinked source-page citations</li><li>Auto-generated executive narrative</li></ul></div>
+        <div class="card"><h3>Click-path</h3><ol class="steps"><li>Open matter <b>Demo — PI Medical Chronology (Avery)</b></li><li>Open the source PDF (12 pages, mixed records) — show the raw mess</li><li>Open the <b>Summary</b> → the chronology table renders 10 ordered records</li><li>Click a <b>PDF REF</b> cell → jumps to the exact source page</li><li>Scroll to the <b>Executive Summary</b> at the top</li><li>Point out the two records that were <b>de-duplicated</b> and the billing/fax pages <b>filtered out</b></li></ol></div>
+      </div>
+      <h3 class="sub">What it looks like</h3>
+      <div class="mock">
+      <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="mock-title">Chronology — matter rendering</span></div>
+      <table class="chrono">
+        <thead><tr><th>DATE</th><th>FACILITY / PROVIDER</th><th>MEDICAL EVENTS</th><th>PDF REF</th></tr></thead>
+        <tbody><tr>
+          <td class="c-date">08/12/2025</td>
+          <td class="c-prov"><span class="dt-badge">Emergency Department Record</span><div class="prov">Dr. Samuel Reyes, MD (Emergency Medicine)</div></td>
+          <td class="c-ev"><div class="ev-head">Emergency Department Visit</div><div class="ev-body">Jordan A. Avery is a 40-year-old restrained driver who presents to the Emergency Department after a rear-end motor vehicle collision that occurred at approximately 19:50 on 08/12/2025. Patient reports they were stopped at a red light when t</div></td>
+          <td class="c-ref"><span class="pageref">pi-merged-records.pdf, p.1</span></td>
+        </tr><tr>
+          <td class="c-date">08/26/2025</td>
+          <td class="c-prov"><span class="dt-badge">Office Visit</span><div class="prov">Dr. Maya Ellison, MD (Orthopaedic Spine Surgery)</div></td>
+          <td class="c-ev"><div class="ev-head">ORTHOPAEDIC CONSULTATION - INITIAL OFFICE VISIT</div><div class="ev-body">Jordan A. Avery presents one week status post a rear-end MVC. Since the ED visit, the patient reports persistent axial low back pain now radiating down the right leg to the level of the calf, rated 7/10. Pain is worse with sitting and bendi</div></td>
+          <td class="c-ref"><span class="pageref">pi-merged-records.pdf, p.4</span></td>
+        </tr><tr>
+          <td class="c-date">09/03/2025</td>
+          <td class="c-prov"><span class="dt-badge">Diagnostic Imaging Report</span><div class="prov">Dr. Priya Nandakumar, MD</div></td>
+          <td class="c-ev"><div class="ev-head">MRI Lumbar Spine Without Contrast</div><div class="ev-body">Right lower extremity radiculopathy following motor vehicle collision on 08/12/2025. Evaluate for disc herniation and nerve root impingement.</div></td>
+          <td class="c-ref"><span class="pageref">pi-merged-records.pdf, p.6</span></td>
+        </tr><tr>
+          <td class="c-date">10/01/2025</td>
+          <td class="c-prov"><span class="dt-badge">Office Visit</span><div class="prov">Dr. Maya Ellison, MD</div></td>
+          <td class="c-ev"><div class="ev-head">Orthopaedic Follow-Up - Office Visit</div><div class="ev-body">Patient returns to review MRI results. Reports continued right-sided low back and leg pain, now rated 6/10, with persistent tingling in the right foot. Completed a short oral steroid course with transient improvement. Has not yet started ph</div></td>
+          <td class="c-ref"><span class="pageref">pi-merged-records.pdf, p.7</span></td>
+        </tr><tr>
+          <td class="c-date">10/15/2025</td>
+          <td class="c-prov"><span class="dt-badge">Physical Therapy Note</span><div class="prov">Daniel Okafor, PT, DPT</div></td>
+          <td class="c-ev"><div class="ev-head">Physical Therapy - Initial Evaluation</div><div class="ev-body">Patient reports low back pain rated 6/10 at worst, with radiating right leg pain and intermittent foot tingling. Difficulty with prolonged sitting, bending, and lifting. Goals: reduce pain, return to full work duties and recreational runnin</div></td>
+          <td class="c-ref"><span class="pageref">pi-merged-records.pdf, p.8</span></td>
+        </tr><tr>
+          <td class="c-date">11/05/2025</td>
+          <td class="c-prov"><span class="dt-badge">Physical Therapy Note</span><div class="prov">Daniel Okafor, PT, DPT</div></td>
+          <td class="c-ev"><div class="ev-head">PHYSICAL THERAPY - PROGRESS NOTE (Re-evaluation)</div><div class="ev-body">Patient reports gradual improvement after 6 sessions. Low back pain now 3/10. Right leg pain markedly reduced, occurring only with prolonged sitting. Foot tingling now rare. Compliant with home exercise program.</div></td>
+          <td class="c-ref"><span class="pageref">pi-merged-records.pdf, p.9</span></td>
+        </tr><tr>
+          <td class="c-date">12/10/2025</td>
+          <td class="c-prov"><span class="dt-badge">Operative Report</span><div class="prov">Dr. Maya Ellison, MD</div></td>
+          <td class="c-ev"><div class="ev-head">Operative Report - Right L5-S1 Microdiscectomy</div><div class="ev-body">The patient is a 40-year-old with persistent right S1 radiculopathy from a post-traumatic L5-S1 disc herniation (MVC 08/12/2025) confirmed on MRI, with residual radicular deficit despite conservative management including physical therapy. A</div></td>
+          <td class="c-ref"><span class="pageref">pi-merged-records.pdf, p.10</span></td>
+        </tr><tr>
+          <td class="c-date">01/14/2026</td>
+          <td class="c-prov"><span class="dt-badge">Lab Report</span><div class="prov">Dr. Olivia Tran, MD</div></td>
+          <td class="c-ev"><div class="ev-head">Laboratory Report - CBC &amp; Comprehensive Metabolic Panel</div><div class="ev-body">Routine post-operative labs, one week status post L5-S1 microdiscectomy.</div></td>
+          <td class="c-ref"><span class="pageref">pi-merged-records.pdf, p.11</span></td>
+        </tr></tbody>
+      </table></div>
+      <div class="exec"><div class="exec-h">📄 Executive summary (generated)</div>
+          <div class="exec-body"><p><strong>Patient Overview</strong></p>
+<p>Jordan A. Avery, a 40-year-old patient, was treated for injuries sustained in an August 12, 2025 rear-end motor vehicle collision, including acute cervical and lumbar strain, evolving right L5-S1 disc herniation with S1 radiculopathy, and associated low back and leg pain <span class="cite">(pi-merged-records, p. 1; p. 6; p. 7)</span>. The records span from the initial Emergency Department visit on 08/12/2025 through post-operative laboratory evaluation one week after an L5-S1 microdiscectomy, with the latest documented service on that post-operative lab date <span class="cite">(pi-merged-records, pp. 1, 10-11)</span>. Principal treating specialties include emergency medicine, orthopaedic spine surgery, diagnostic radiology (MRI), physical therapy, and perioperative medical care <span class="cite">(pi-merged-records, pp. 1, 4, 6-11)</span>.</p>
+<p><strong>Mechanism of Injury</strong></p>
+<p>On August 12, 2025, Jordan A. Avery was the restrained driver of a vehicle stopped at a red light when struck from behind by another vehicle at a moderate speed; airbags did not deploy, and the patient remained conscious and ambulatory at the scene <span class="cite">(pi-merged-records, p. 1)</span>. Immediately after impact, the patient developed sharp low back pain radiating into the right buttock, rated 8/10, and posterior neck stiffness, rated 4/10, without numbness, tingling, or bowel/bladder dysfunction <span class="cite">(pi-merged-records, p. 1)</span>. In the emergency department that evening, examination revealed cervical paraspinal tenderness, lumbar tenderness over L4-S1 with decreased flexion, and a right straight-leg raise positive at 45 degrees; imaging showed no fracture, and initial diagnoses were acute</p></div>
+          <div class="mock-cap">Excerpt of matter 9956's real generated executive summary.</div></div>
+      <h3 class="sub">Talking points</h3>
+      <div class="says"><div class="say">🗣️ “This started as a 12-page jumble of ER notes, imaging, therapy and billing. The tool split it into 10 clean, dated records.”</div><div class="say">🗣️ “Every line links back to its source page — no more flipping through the PDF to verify.”</div><div class="say">🗣️ “The executive summary up top is generated from the records, not templated boilerplate — mechanism of injury, treatment course, current status.”</div></div>
+    </section><section id="merit-review" class="persona" style="--accent:#0ea5e9">
+      <div class="p-head"><div class="p-icon">🔬</div>
+        <div><div class="p-kicker">Persona 2 · Med-mal defense &amp; plaintiff firms, expert reviewers</div>
+        <h2>Multi-Template Merit Review + XD Extraction</h2>
+        <div class="p-meta"><span class="pill">Matter 9957</span><span class="pill">Rule set 24 · Med-Mal Merit Review Chronology</span></div></div></div>
+      <div class="grid2">
+        <div class="card"><h3>What it proves</h3><ul class="ticks"><li>Routing each doc type to its OWN specialty template (5 templates)</li><li>Surgical / clinical / imaging / labs / nursing extraction depth</li><li>Cross-document XD extraction into a data table</li><li>Per-specialty narrative + executive summary</li></ul></div>
+        <div class="card"><h3>Click-path</h3><ol class="steps"><li>Open matter <b>Demo — Med-Mal Merit Review (Quinn)</b></li><li>Open the Summary → 11 records, each formatted by its specialty template</li><li>Show an <b>operative report</b> entry vs a <b>nursing note</b> entry — different fields</li><li>Open the <b>XD extraction</b> → the Surgical Merit Facts table</li><li>Highlight the <b>Complications</b> row — pulled across operative + anesthesia records</li></ol></div>
+      </div>
+      <h3 class="sub">What it looks like</h3>
+      <div class="mock">
+      <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="mock-title">Chronology — matter rendering</span></div>
+      <table class="chrono">
+        <thead><tr><th>DATE</th><th>FACILITY / PROVIDER</th><th>MEDICAL EVENTS</th><th>PDF REF</th></tr></thead>
+        <tbody><tr>
+          <td class="c-date">03/02/2026</td>
+          <td class="c-prov"><span class="dt-badge">Consultation Note</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Consultation Note</div><div class="ev-body">The patient reports a 6-month history of a progressively enlarging, intermittently painful periumbilical bulge. Over the past two weeks the bulge has become persistently tender and less reducible, with associated bloating, early satiety, an</div></td>
+          <td class="c-ref"><span class="pageref">merit-merged-records.p, p.1</span></td>
+        </tr><tr>
+          <td class="c-date">03/04/2026</td>
+          <td class="c-prov"><span class="dt-badge">Anesthesia Record</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Anesthesia Record</div><div class="ev-body">Hemodynamically stable throughout procedure with MAP 70-92 mmHg. Estimated blood loss 150 mL; 1800 mL crystalloid administered; urine output 320 mL. Anesthesia from 07:45 to 10:58 with surgery from 08:05 to 10:40 (total anesthesia time 3 h </div></td>
+          <td class="c-ref"><span class="pageref">merit-merged-records.p, p.2</span></td>
+        </tr><tr>
+          <td class="c-date">03/05/2026</td>
+          <td class="c-prov"><span class="dt-badge">Nursing Note</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Nursing Note</div><div class="ev-body">Alert and oriented x3, drowsy but arousable. Midline abdominal dressing clean, dry, and intact. Jackson-Pratt drain to bulb suction draining serosanguineous fluid, 35 mL this shift. Abdomen soft, mildly distended, tender at incision. Bowel </div></td>
+          <td class="c-ref"><span class="pageref">merit-merged-records.p, p.3</span></td>
+        </tr><tr>
+          <td class="c-date">03/05/2026</td>
+          <td class="c-prov"><span class="dt-badge">Nursing Note</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Nursing Note</div><div class="ev-body">Surgical team notified at 22:00 of fever, tachycardia, increasing pain, and change in incision/drain character; verbal orders received for STAT CBC with differential, blood cultures x2, BMP, and CT abdomen/pelvis with contrast to evaluate f</div></td>
+          <td class="c-ref"><span class="pageref">merit-merged-records.p, p.4</span></td>
+        </tr><tr>
+          <td class="c-date">03/06/2026</td>
+          <td class="c-prov"><span class="dt-badge">Nursing Note</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Nursing Note</div><div class="ev-body">Patient remains febrile (T 38.7 C) with HR 110 and BP 108/68, trending toward hemodynamic instability. Increasingly fatigued, reports worsening diffuse abdominal pain 8/10. CT abdomen/pelvis concerning for an intra-abdominal collection and </div></td>
+          <td class="c-ref"><span class="pageref">merit-merged-records.p, p.5</span></td>
+        </tr><tr>
+          <td class="c-date">03/07/2026</td>
+          <td class="c-prov"><span class="dt-badge">Diagnostic Imaging Report</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Diagnostic Imaging Report</div><div class="ev-body">Anterior abdominal wall: Post-surgical changes of the anterior abdominal wall with expected mesh repair material.  
+Deep midline surgical bed: There is a 6.3 x 4.8 x 5.1 cm rim-enhancing fluid collection containing locules of gas in the dee</div></td>
+          <td class="c-ref"><span class="pageref">merit-merged-records.p, p.6</span></td>
+        </tr><tr>
+          <td class="c-date">03/08/2026</td>
+          <td class="c-prov"><span class="dt-badge">Lab Report</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Lab Report</div><div class="ev-body">WBC (03/13 POD1): 12.4 x10^3/uL (ref 4.0-11.0 x10^3/uL) [H]
+WBC (03/14 POD2): 16.8 x10^3/uL (ref 4.0-11.0 x10^3/uL) [H]
+WBC (03/15 POD3): 21.3 x10^3/uL (ref 4.0-11.0 x10^3/uL) [H]
+Neutrophils: 88 % (ref 40-70 %) [H]
+Bands: 11 % (ref 0-5 %) </div></td>
+          <td class="c-ref"><span class="pageref">merit-merged-records.p, p.7</span></td>
+        </tr><tr>
+          <td class="c-date">03/09/2026</td>
+          <td class="c-prov"><span class="dt-badge">Discharge Summary</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Discharge Summary</div><div class="ev-body">The patient underwent open ventral hernia repair with mesh on 03/12/2025. The initial post-operative course on POD 0-1 was unremarkable. Beginning POD 2 the patient developed fever, tachycardia, increasing abdominal pain, and a rising WBC (</div></td>
+          <td class="c-ref"><span class="pageref">merit-merged-records.p, p.8</span></td>
+        </tr><tr>
+          <td class="c-date">03/12/2026</td>
+          <td class="c-prov"><span class="dt-badge">Operative Report</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Operative Report</div><div class="ev-body">Specimens: none. Implants: SYSTEM, ARTHROSCOPIC REGENTEN ANCHORS 3, SMITH &amp; NEPHEW ENDOSCOPY, Lot 21817 85, Right, 1, Implanted; ANCHORS, TENDON REGENTEN 8, SMITH &amp; NEPHEW ENDOSCOPY, Lot 51130 334, Right, 1, Implanted; IMPLANT, ARTHROSCOPIC</div></td>
+          <td class="c-ref"><span class="pageref">operative-report-redac, p.1</span></td>
+        </tr></tbody>
+      </table></div><div class="mock">
+      <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="mock-title">XD extraction — Surgical Merit Facts (cross-document)</span></div>
+      <table class="xd"><tbody><tr><td class="xd-f">Pre-op diagnosis</td><td class="xd-v ">…extracted value…</td></tr><tr><td class="xd-f">Procedure name</td><td class="xd-v ">…extracted value…</td></tr><tr><td class="xd-f">Surgeon</td><td class="xd-v ">…extracted value…</td></tr><tr><td class="xd-f">Anesthesia type</td><td class="xd-v ">…extracted value…</td></tr><tr><td class="xd-f">Estimated blood loss</td><td class="xd-v ">…extracted value…</td></tr><tr><td class="xd-f">Complications</td><td class="xd-v crit">⟵ extracted across operative + anesthesia records</td></tr><tr><td class="xd-f">Post-op diagnosis</td><td class="xd-v ">…extracted value…</td></tr></tbody></table>
+      <div class="mock-cap">Structured fields pulled across <em>all</em> operative and anesthesia records into one table — export to CSV / fill a DOCX.</div></div>
+      <div class="exec"><div class="exec-h">📄 Executive summary (generated)</div>
+          <div class="exec-body"><p><strong>Patient &amp; Case Overview</strong></p>
+<p>The patient is an adult with a history of type 2 diabetes mellitus and hypertension; the records provided do not state the patients name or date of birth. <span class="cite">(merit-merged-records, p. 8)</span> The patient received care at a surgical facility for evaluation and subsequent open ventral hernia repair with mesh due to an incarcerated ventral/periumbilical hernia causing recurrent right lower quadrant pain and intermittent obstructive symptoms. <span class="cite">(merit-merged-records, p. 1; merit-merged-records, p. 8)</span> Preexisting type 2 diabetes mellitus and hypertension were clinically relevant to the peri-operative and post-operative course, including the development of a retained foreign body with secondary intra-abdominal abscess and post-operative sepsis following the hernia repair. <span class="cite">(merit-merged-records, p. 5; merit-merged-records, p. 6; merit-merged-records, p. 8)</span></p>
+<p><strong>Index Event Under Review</strong></p>
+<p>The index event under review is an open ventral hernia repair with mesh performed on 03/12/2025 for an incarcerated periumbilical/ventral hernia with early obstructive features. <span class="cite">(merit-merged-records, pp. 1, 8)</span> The procedure was carried out under general anesthesia from 07:45 to 10:58, with surgery from 08:05 to 10:40, by a general surgery team (attending identified as Dr. Whitfield in subsequent imaging communication) with anesthesia managed by Dr. Priya Nadkarni, MD, and CRNA Thomas Beale. <span class="cite">(merit-merged-records, pp. 2, 6, 8)</span> The intended outcome was definitive surgical repair of the incarcerated ventral hernia to prevent progression to strangulation, relieve obstructive symptoms</p></div>
+          <div class="mock-cap">Excerpt of matter 9957's real generated executive summary.</div></div>
+      <h3 class="sub">Talking points</h3>
+      <div class="says"><div class="say">🗣️ “A merit review needs different detail per record type. An op report isn’t summarized like a lab.”</div><div class="say">🗣️ “Here we route 10 document types to 5 specialty templates automatically.”</div><div class="say">🗣️ “The XD table pulls the merit-critical facts — procedure, EBL, complications — across every relevant record into one grid you can export.”</div></div>
+    </section><section id="deposition" class="persona" style="--accent:#f59e0b">
+      <div class="p-head"><div class="p-icon">🎙️</div>
+        <div><div class="p-kicker">Persona 3 · Litigators, court-reporting agencies, trial-prep teams</div>
+        <h2>Deposition Summaries — Page-Line &amp; Narrative</h2>
+        <div class="p-meta"><span class="pill">Matter 9958</span><span class="pill">Rule set — (no rule set required)</span></div></div></div>
+      <div class="grid2">
+        <div class="card"><h3>What it proves</h3><ul class="ticks"><li>Page-Line summary with page:line citations</li><li>Narrative summary of the same transcript</li><li>Surfaced admissions and an inconsistency</li><li>No rule set / no template needed</li></ul></div>
+        <div class="card"><h3>Click-path</h3><ol class="steps"><li>Open matter <b>Demo — Deposition Summaries (Ellison)</b></li><li>Open the <b>Page-Line</b> summary — topics with page:line references</li><li>Open the <b>Narrative</b> summary — prose digest of the same testimony</li><li>Point out the seeded <b>admission</b> and the <b>causation inconsistency</b></li></ol></div>
+      </div>
+      <h3 class="sub">What it looks like</h3>
+      <div class="mock">
+      <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+      <span class="mock-title">Deposition — Page-Line summary</span></div>
+      <div class="depo"><div class="depo-block"><div class="depo-h">Executive Summary</div><h5>Witness Background</h5>
+<ul>
+<li><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong></li>
+<li><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong></li>
+</ul>
+<h5>Circumstances of Injury and Initial Presentation</h5>
+<ul>
+<li><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong><strong>\1</strong></li>
+</ul></div><div class="depo-block"><div class="depo-h">1</div></div><div class="depo-block"><div class="depo-h">2</div></div><div class="depo-block"><div class="depo-h">3</div></div></div></div>
+      
+      <h3 class="sub">Talking points</h3>
+      <div class="says"><div class="say">🗣️ “Same 30-page deposition, two deliverables: a page-line digest for the record and a narrative for the file.”</div><div class="say">🗣️ “Each point cites the page and line — defensible and fast to verify.”</div><div class="say">🗣️ “No setup — depositions summarize straight from the transcript.”</div></div>
+    </section><section id="wc-chronology" class="persona" style="--accent:#10b981">
+      <div class="p-head"><div class="p-icon">🦴</div>
+        <div><div class="p-kicker">Persona 4 · Workers-comp carriers &amp; defense, occupational-med reviewers</div>
+        <h2>Workers-Comp Verbatim Chronology + Cover Sheet</h2>
+        <div class="p-meta"><span class="pill">Matter 9959</span><span class="pill">Rule set 25 · Medzinity — Verbatim MR Chronology</span></div></div></div>
+      <div class="grid2">
+        <div class="card"><h3>What it proves</h3><ul class="ticks"><li>Verbatim per-visit-type templates (7 visit types)</li><li>Two-section executive cover sheet (Injury Report + Patient History)</li><li>4-column index with PDF / Bates-style page references</li><li>Same-provider/same-date combination</li></ul></div>
+        <div class="card"><h3>Click-path</h3><ol class="steps"><li>Open matter <b>Demo — WC Verbatim Chronology (Doe)</b></li><li>Show the <b>cover sheet</b> — Injury Report + Patient History tables</li><li>Open the chronology — 13 records, verbatim per visit type</li><li>Show <b>work status / restrictions</b> captured on each visit</li><li>Point to the <b>PDF REF</b> column (Bates-style page anchors)</li></ol></div>
+      </div>
+      <h3 class="sub">What it looks like</h3>
+      <div class="mock">
+      <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="mock-title">Chronology — matter rendering</span></div>
+      <table class="chrono">
+        <thead><tr><th>DATE</th><th>FACILITY / PROVIDER</th><th>MEDICAL EVENTS</th><th>PDF REF</th></tr></thead>
+        <tbody><tr>
+          <td class="c-date">01/06/2025</td>
+          <td class="c-prov"><span class="dt-badge">Occupational Health Visit</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Workers&#x27; compensation initial visit:</div><div class="ev-body">Alert and oriented to person, place, and time (x3), in no acute distress but visibly guarded. Skin warm and dry, no ecchymosis. Mesomorphic build. Mood appropriate. Lumbar paraspinal tenderness bilaterally, right greater than left, with pal</div></td>
+          <td class="c-ref"><span class="pageref">wc-merged-records-john, p.1</span></td>
+        </tr><tr>
+          <td class="c-date">01/20/2025</td>
+          <td class="c-prov"><span class="dt-badge">Orthopedic Visit</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Office visit:</div><div class="ev-body">Reviewed.
+The patient is a 50-year-old male referred by AntartiCare Occupational Health following a work injury of 01/06/2025 sustained while shoveling snow for approximately 9-1/2 hours. He reports persistent low back pain radiating into t</div></td>
+          <td class="c-ref"><span class="pageref">wc-merged-records-john, p.3</span></td>
+        </tr><tr>
+          <td class="c-date">02/10/2025</td>
+          <td class="c-prov"><span class="dt-badge">Physical Therapy Note</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Physical therapy evaluation:</div><div class="ev-body">The patient will be seen 3 times per week for 4 weeks, for a total of 12 visits. Treatment will include therapeutic exercises, HEP (Home Exercise Program)/patient education/self-care management, manual therapy, e-stim (Electrical Stimulatio</div></td>
+          <td class="c-ref"><span class="pageref">wc-merged-records-john, p.5</span></td>
+        </tr><tr>
+          <td class="c-date">02/24/2025</td>
+          <td class="c-prov"><span class="dt-badge">Diagnostic Imaging Report</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Diagnostic Imaging Report</div><div class="ev-body">There is a broad-based disc bulge at L3-L4.  
+There is a large far-left lateral disc herniation in and beyond the foramen at L4-L5 contacting the exiting left L4 nerve root.  
+There is disc-osteophyte formation at L5-S1 with a right paracen</div></td>
+          <td class="c-ref"><span class="pageref">wc-merged-records-john, p.6</span></td>
+        </tr><tr>
+          <td class="c-date">03/10/2025</td>
+          <td class="c-prov"><span class="dt-badge">Orthopedic Visit</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Follow up visit:</div><div class="ev-body">Reviewed.
+The patient returns for follow-up of his work-related lumbar injury of 01/06/2025. The MRI of 01/24/2025 has now been reviewed and demonstrates a far-left lateral L4-L5 disc herniation and an L5-S1 disc-osteophyte complex. He cont</div></td>
+          <td class="c-ref"><span class="pageref">wc-merged-records-john, p.7</span></td>
+        </tr><tr>
+          <td class="c-date">03/24/2025</td>
+          <td class="c-prov"><span class="dt-badge">Pain Management Visit</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Progress note:</div><div class="ev-body">The patient is a 50-year-old male who presents for pain-management consultation following a work-related injury on 01/06/2025 sustained while shoveling snow for approximately 9-1/2 hours. He describes low back pain that is throbbing and ach</div></td>
+          <td class="c-ref"><span class="pageref">wc-merged-records-john, p.8</span></td>
+        </tr><tr>
+          <td class="c-date">04/14/2025</td>
+          <td class="c-prov"><span class="dt-badge">Procedure Note</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Procedure note:</div><div class="ev-body">After informed consent and time-out, the patient was placed prone on the fluoroscopy table, and the lumbosacral region was prepped and draped in sterile fashion. Under intermittent fluoroscopic guidance, bilateral L5-S1 neural foramina were</div></td>
+          <td class="c-ref"><span class="pageref">wc-merged-records-john, p.9</span></td>
+        </tr><tr>
+          <td class="c-date">05/05/2025</td>
+          <td class="c-prov"><span class="dt-badge">Physical Therapy Note</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Physical therapy visit:</div><div class="ev-body">The patient reports his right leg pain has improved since his epidural steroid injection on 03/12/2025, now rated 3/10 from a prior 7/10. He notes improved tolerance for sitting and standing but continues to have difficulty with heavy lifti</div></td>
+          <td class="c-ref"><span class="pageref">wc-merged-records-john, p.11</span></td>
+        </tr><tr>
+          <td class="c-date">05/19/2025</td>
+          <td class="c-prov"><span class="dt-badge">Second Opinion Consultation</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Office visit:</div><div class="ev-body">01/06/2025, the patient was shoveling for 9-1/2 hours after a snowstorm at work when he experienced acute onset of low back pain radiating into the right calf. He was evaluated at occupational health, placed out of work, and referred to ort</div></td>
+          <td class="c-ref"><span class="pageref">wc-merged-records-john, p.12</span></td>
+        </tr><tr>
+          <td class="c-date">06/02/2025</td>
+          <td class="c-prov"><span class="dt-badge">Diagnostic Imaging Report</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Diagnostic Imaging Report</div><div class="ev-body"></div></td>
+          <td class="c-ref"><span class="pageref">↗ p.10</span></td>
+        </tr><tr>
+          <td class="c-date">06/16/2025</td>
+          <td class="c-prov"><span class="dt-badge">Diagnostic Imaging Report</span><div class="prov"></div></td>
+          <td class="c-ev"><div class="ev-head">Diagnostic Imaging Report</div><div class="ev-body"></div></td>
+          <td class="c-ref"><span class="pageref">↗ p.11</span></td>
+        </tr></tbody>
+      </table></div>
+      <div class="exec"><div class="exec-h">📄 Executive summary (generated)</div>
+          <div class="exec-body"><p><strong>Injury Report</strong></p>
+<p>| Item | Details |</p>
+<p>|---|---|</p>
+<p>| Prior injury details | None as of available medical records. |</p>
+<p>| Date of injury | 01/06/2025 |</p>
+<p>| Description of injury | The patient is a 50-year-old male dock worker who presents the same day as a work injury sustained on 01/06/2025. He reports the sudden onset of low back pain with radiation into the right calf after repetitive heavy snow-shoveling at work. On 01/06/2025 I was shoveling heavy wet snow off the loading dock for about 9-1/2 hours during the storm. While lifting a full shovel I felt a sharp pop in my lower back that shot down into my right calf. I had to stop and could barely straighten up. |</p>
+<p>| Injuries/diagnoses | Lumbar strain/sprain, work-related&lt;brRight lower extremity radiculopathy, lumbar region&lt;brLumbar muscle spasm&lt;brLow back pain&lt;brLumbar radiculopathy, right&lt;brLumbar degenerative disc disease&lt;brMRI-confirmed multilevel pathology correlating with his bilateral radicular symptoms&lt;brLumbar radiculopathy, bilateral&lt;brL4-L5 disc herniation&lt;brL5-S1 disc-osteophyte complex&lt;brChronic low back pain&lt;brLumbar radiculopathy status post bilateral L5-S1 transforaminal epidural steroid injection with fluoroscopy |</p>
+<p>| Treatments rendered | Out of work. Lortab 5/325 mg, 1 tablet every 6 hours as needed for pain. Flexeril 10 mg at bedtime. Physical Therapy (PT) referral. Orthopedic (Orthopedic) referral. MRI (Magnetic Resonance Imaging) of the lumbar spine without contrast ordered. Continue physical therapy. Continue current medications. Referral to pain management for consideration of epidural steroid injection if MRI</p></div>
+          <div class="mock-cap">Excerpt of matter 9959's real generated executive summary.</div></div>
+      <h3 class="sub">Talking points</h3>
+      <div class="says"><div class="say">🗣️ “WC reviewers want verbatim detail — work status, restrictions, causation language — not a paraphrase.”</div><div class="say">🗣️ “The cover sheet front-loads the injury report and patient history the adjuster needs first.”</div><div class="say">🗣️ “Every visit type — occupational health, ortho, pain management, PT, imaging, procedures, second opinions — has its own verbatim format.”</div></div>
+    </section>
+
+  <section id="matrix">
+    <h2>✅ Feature matrix</h2>
+    <p>Which matter demonstrates which capability — pick the shortest path to what the prospect cares about.</p>
+    <table class="matrix"><thead><tr><th>Feature</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th></tr></thead><tbody><tr><td class='fname'>Document upload &amp; OCR</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Auto document-type detection</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Index-based chronology</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Per-doc-type templates</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Multi-template routing</td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>De-duplication</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Filtering (drop noise)</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Same-date/provider combination</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Hyperlinked citations</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Executive summary / cover sheet</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>XD cross-document extraction</td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Deposition Page-Line</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Deposition Narrative</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Verbatim work-status capture</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>PDF / Bates page references</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr></tbody></table>
+  </section>
+
+  <section id="decision">
+    <h2>🌳 Which primitive for which customer?</h2>
+    <p>Use this to steer the conversation toward the right setup.</p>
+    <div class="mermaid">
+flowchart TD
+  A[What does the customer produce?] --> B{Medical records?}
+  B -- Yes --> C{Need different detail per record type?}
+  C -- No --> D[Index chronology + 1 template<br/>+ executive summary<br/><b>Persona 1</b>]
+  C -- Yes --> E[Multi-template rule set<br/>+ XD extraction<br/><b>Persona 2</b>]
+  B -- Verbatim / WC --> F[Verbatim per-visit templates<br/>+ cover sheet<br/><b>Persona 4</b>]
+  A --> G{Depositions / transcripts?}
+  G -- Yes --> H[Page-Line + Narrative<br/>no rule set needed<br/><b>Persona 3</b>]
+    </div>
+  </section>
+
+  <section id="faq">
+    <h2>💬 FAQ &amp; objection handling</h2>
+    <dl class="faq">
+      <dt>“Is it just summarizing with ChatGPT?”</dt><dd>No — it detects and splits records, classifies each by type, de-dupes, filters, and applies a structured template per record type, with every line citing its source page. The chronology is auditable, not a black-box paragraph.</dd>
+      <dt>“How do I trust the output?”</dt><dd>Every entry links to the exact source page (the PDF REF column). Reviewers verify in one click instead of re-reading the file.</dd>
+      <dt>“Our records are messy / mixed types.”</dt><dd>That’s the point — the PI matter starts as a 12-page jumble of ER, imaging, therapy and billing and comes out as 10 clean dated records with the noise filtered.</dd>
+      <dt>“Can it match our format?”</dt><dd>Yes — templates are configurable per document type (see the Merit Review and WC matters, which use 5 and 7 templates respectively).</dd>
+      <dt>“What about depositions?”</dt><dd>No setup needed — upload the transcript and get both a Page-Line digest and a narrative.</dd>
+      <dt>“Is our client data safe in this demo?”</dt><dd>This account is 100% synthetic. For real evaluations we set up a private account.</dd>
+    </dl>
+  </section>
+
+  <section id="admin">
+    <h2>🛠️ Admin &amp; troubleshooting</h2>
+    <ul>
+      <li><b>“Usage exceeds the limit” banner?</b> The account is on <code>enterprise_700</code> with usage reset and a 2030 period end — it shouldn’t appear. If it does, an admin can reset <code>monthly_tokens</code> to 0 (that field is <em>usage consumed</em>, not a budget).</li>
+      <li><b>A summary looks empty?</b> Re-open it — summaries render from a stored file; give Cloud Run a few seconds on first open.</li>
+      <li><b>Want to reset the data?</b> Everything is reproducible from <code>docs/demo-account/</code> via <code>scripts/seed_demo.py</code> (idempotent).</li>
+      <li><b>Audio transcription &amp; lab-results timeline</b> are not wired into this account yet (a lab-panel PDF is pre-loaded in the WC matter for a future timeline add-on).</li>
+    </ul>
+  </section>
+
+  <section id="ids">
+    <h2>📎 Resource IDs (for admins)</h2>
+    <div class="kvs">
+      <div class="kv"><b>User</b>demo@dodon.ai · id 942 · stage</div>
+      <div class="kv"><b>P1 · PI Chronology</b>matter 9956 · rule set 23</div>
+      <div class="kv"><b>P2 · Merit Review</b>matter 9957 · rule set 24 · XD template 17</div>
+      <div class="kv"><b>P3 · Deposition</b>matter 9958 · no rule set</div>
+      <div class="kv"><b>P4 · WC Chronology</b>matter 9959 · rule set 25</div>
+      <div class="kv"><b>Rebuild</b>docs/demo-account/scripts/seed_demo.py</div>
+    </div>
+  </section>
+ </div>
+</main>
+</div>
+</body></html>
