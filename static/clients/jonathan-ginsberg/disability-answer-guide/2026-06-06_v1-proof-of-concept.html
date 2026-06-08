@@ -8,7 +8,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-<!-- Same client-side PDF engine as the Sorelle VA-DBQ build (pdf-lib). -->
+<!-- Client-side PDF fill engine (pdf-lib). -->
 <script src="pdf-lib.min.js"></script>
 <!-- Official SSA-3373-BK, preprocessed (fix_dbq.py) + base64. Sets window.PDF_DATA.fr -->
 <script src="pdf-data.js"></script>
@@ -83,6 +83,28 @@ body {
 .form-tab:hover { color: var(--purple-bold); }
 .form-tab.active { color: var(--midnight-deep); border-bottom-color: var(--purple-vivid); }
 .form-tab.active .ft-code { color: var(--purple-bold); }
+.ft-status {
+  font-family: 'Source Code Pro', monospace; font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px;
+  margin-top: 3px;
+}
+.ft-status.live { background: rgba(47,133,90,0.14); color: var(--ok); }
+.ft-status.preview { background: rgba(107,107,133,0.14); color: var(--gray-meta-light); }
+
+/* ============ Preview / instructions bar ============ */
+.preview-bar { background: #fff; border-bottom: 1px solid var(--cream-line); }
+.preview-bar-inner {
+  max-width: 1240px; margin: 0 auto; padding: 16px 40px;
+  display: flex; gap: 14px; align-items: flex-start;
+  font-size: 10pt; line-height: 1.55; color: var(--midnight-deep);
+}
+.preview-bar .pb-badge {
+  flex: none; font-family: 'Source Code Pro', monospace; font-size: 8pt; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: var(--purple-vivid);
+  padding: 4px 10px; border-radius: 14px; margin-top: 1px;
+}
+.preview-bar .pb-text strong { color: var(--midnight-deep); }
+.preview-bar .pb-text em { font-style: normal; font-weight: 600; color: var(--purple-bold); }
 
 /* ============ Layout ============ */
 .layout {
@@ -140,7 +162,7 @@ body {
 .checklist label { display: flex; align-items: center; gap: 9px; font-size: 10pt; font-weight: 500; color: var(--midnight); cursor: pointer; }
 .checklist input { width: 16px; height: 16px; accent-color: var(--purple-vivid); }
 
-/* ============ Inline credibility note (Lynnelle attorney-note pattern) ============ */
+/* ============ Inline credibility note ============ */
 .cred-note {
   margin-top: 8px; display: none;
   background: rgba(192, 86, 33, 0.08); border-left: 3px solid var(--warn);
@@ -150,7 +172,7 @@ body {
 .cred-note .cn-head { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 8pt; font-family: 'Source Code Pro', monospace; display: block; margin-bottom: 3px; }
 .cred-note.good { background: rgba(47, 133, 90, 0.08); border-left-color: var(--ok); color: #1f5c3d; }
 
-/* ============ AI-suggested answer (Sorelle attachNarratives pattern) ============ */
+/* ============ AI-suggested answer ============ */
 .ai-suggest { margin-top: 10px; }
 .btn-ai {
   display: inline-flex; align-items: center; gap: 7px;
@@ -301,13 +323,25 @@ body {
   <div class="form-tabs-inner" id="formTabs">
     <button class="form-tab active" data-form="fr">
       <span class="ft-code">SSA-3373</span>Function Report — Adult
+      <span class="ft-status live">Fully working</span>
     </button>
     <button class="form-tab" data-form="adr">
       <span class="ft-code">SSA-3368</span>Adult Disability Report
+      <span class="ft-status preview">Preview</span>
     </button>
     <button class="form-tab" data-form="wh">
       <span class="ft-code">SSA-3369</span>Work History Report
+      <span class="ft-status preview">Preview</span>
     </button>
+  </div>
+</div>
+
+<div class="preview-bar">
+  <div class="preview-bar-inner">
+    <span class="pb-badge">Start here</span>
+    <div class="pb-text">
+      This is an early working preview. The <strong>Function Report</strong> is the fully built example — click <em>Load sample answers</em>, watch the <strong>Credibility check</strong> on the right react as the answers change, then <em>Generate filled SSA PDF</em> to download the real, completed SSA-3373. The other two tabs show the same form-and-flag experience as previews; the suggested-answer text is an illustrative example of what the finished tool will write.
+    </div>
   </div>
 </div>
 
@@ -335,7 +369,7 @@ body {
               <div class="ai-suggest">
                 <button type="button" class="btn-ai" data-ai="fr_conditions">✦ Suggest a clearer way to say this</button>
                 <div class="ai-output" data-ai-out="fr_conditions">
-                  <div class="ai-label">✦ AI-suggested draft · review and edit in your own words</div>
+                  <div class="ai-label">✦ AI-suggested draft · example · edit in your own words</div>
                   <div class="ai-text"></div>
                   <div class="ai-actions">
                     <button type="button" class="btn-mini btn-accept" data-ai-accept="fr_conditions">Use this</button>
@@ -416,7 +450,7 @@ body {
               <div class="ai-suggest">
                 <button type="button" class="btn-ai" data-ai="fr_typical_day">✦ Help me describe this credibly</button>
                 <div class="ai-output" data-ai-out="fr_typical_day">
-                  <div class="ai-label">✦ AI-suggested draft · review and edit in your own words</div>
+                  <div class="ai-label">✦ AI-suggested draft · example · edit in your own words</div>
                   <div class="ai-text"></div>
                   <div class="ai-actions">
                     <button type="button" class="btn-mini btn-accept" data-ai-accept="fr_typical_day">Use this</button>
@@ -549,7 +583,7 @@ body {
       </div>
 
       <div class="form-footer">
-        <div class="footer-meta">Same fill engine as the Sorelle VA-DBQ build</div>
+        <div class="footer-meta" id="footerMeta">Downloads the real, completed SSA-3373</div>
         <div>
           <button type="button" class="btn btn-secondary" id="loadSampleBtn">Load sample answers</button>
           <button type="button" class="btn btn-primary" id="generateBtn">Generate filled SSA PDF →</button>
@@ -557,17 +591,14 @@ body {
       </div>
 
       <div class="output-panel" id="outputPanel">
-        <h3>Auto-filled SSA form</h3>
-        <div class="output-sub">fillPdf() · field-map injection · client-side</div>
+        <h3>Your filled Social Security form</h3>
+        <div class="output-sub">your answers, written into the official SSA form</div>
         <div class="pdf-status" id="pdfStatus">Generating…</div>
-        <h3 style="margin-top:22px;font-size:11pt;">Structured payload + credibility snapshot</h3>
-        <div class="output-sub">what the engine computed from your answers</div>
-        <pre id="payloadOut"></pre>
       </div>
     </form>
   </main>
 
-  <!-- ============ Live credibility rail (Lynnelle buildSnapshot, rendered live) ============ -->
+  <!-- ============ Live credibility rail ============ -->
   <aside class="cred-rail">
     <div class="cred-card">
       <h3>Credibility check</h3>
@@ -589,9 +620,10 @@ body {
 <script>
 /* ============================================================================
    Disability Answer Guide — v1 proof of concept
-   Engine = two systems we've already shipped, recombined:
-     · buildSnapshot()  — live credibility flags        (Lynnelle Loke Moore)
-     · fillPdf()/FIELD_MAPS + attachNarratives() — PDF auto-fill + AI answers (Sorelle)
+   Engine:
+     · buildSnapshot()       — live credibility flags from the form state
+     · suggestAnswer()       — AI-suggested answer drafts
+     · FIELD_MAPS + fillPdf() — fills the official SSA PDF, client-side
    ========================================================================== */
 
 /* -------- UPL accept-gate -------- */
@@ -608,8 +640,21 @@ document.getElementById('formTabs').addEventListener('click', (e) => {
   document.querySelectorAll('.form-tab').forEach(t => t.classList.toggle('active', t === tab));
   document.querySelectorAll('.form-panel').forEach(p => p.classList.toggle('active', p.dataset.form === form));
   ACTIVE_FORM = form;
+  updateFormChrome();
   refresh();
 });
+
+/* Footer hint + button label reflect whether the active tab is fully wired. */
+const FORM_NUM = { fr: '3373', adr: '3368', wh: '3369' };
+function updateFormChrome() {
+  const wired = !!(window.PDF_DATA && window.PDF_DATA[ACTIVE_FORM]);
+  document.getElementById('footerMeta').textContent = wired
+    ? `Downloads the real, completed SSA-${FORM_NUM[ACTIVE_FORM]}`
+    : 'Preview tab — the Function Report is the fully working example';
+  document.getElementById('generateBtn').textContent = wired
+    ? 'Generate filled SSA PDF →'
+    : 'Preview only — try the Function Report →';
+}
 let ACTIVE_FORM = 'fr';
 
 const SGA_LIMIT = 1550; // monthly substantial-gainful-activity threshold (illustrative)
@@ -620,7 +665,7 @@ function num(name) { const v = val(name); return v === '' ? null : Number(v); }
 function radio(name) { const el = document.querySelector(`input[name="${name}"]:checked`); return el ? el.value : ''; }
 function checkedValues(name) { return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value); }
 
-/* -------- buildSnapshot(): the live credibility engine (Lynnelle pattern) --------
+/* -------- buildSnapshot(): the live credibility engine --------
    Returns a payload of resolved values + boolean flags + the applicant-facing
    reason for each flag. Pure function of current form state — re-run on input. */
 function buildSnapshot() {
@@ -731,7 +776,7 @@ function refresh() {
 document.getElementById('intakeForm').addEventListener('input', refresh);
 document.getElementById('intakeForm').addEventListener('change', refresh);
 
-/* -------- attachNarratives(): AI-suggested answers (Sorelle pattern) --------
+/* -------- suggestAnswer(): AI-suggested answers --------
    In production this calls Claude with Jonathan's commentary as the system
    prompt. Here it's a deterministic, credibility-aware synthesizer so the demo
    runs offline — same shape: notes in, structured credible draft out. */
@@ -782,13 +827,13 @@ document.querySelectorAll('[data-ai-dismiss]').forEach(btn => {
   });
 });
 
-/* -------- FIELD_MAPS + fillPdf(): the Sorelle PDF auto-fill engine --------
+/* -------- FIELD_MAPS + fillPdf(): the official-PDF auto-fill engine --------
    FIELD_MAPS[form].text maps official SSA PDF field names → a function of the
    payload. In production fillPdf() loads the official fillable PDF
    (window.PDF_DATA[form]) and injects via form.getTextField(name).setText().
    Here, with no official binary bundled, it falls back to drawing the same
    field map onto a generated page — identical map, demo substrate. The
-   if (window.PDF_DATA) branch is exactly the Sorelle code path. */
+   if (window.PDF_DATA) branch loads and fills the official PDF. */
 const TODAY = (() => { const d = new Date(); return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`; })();
 const TREATMENT_LABEL = {
   weekly: 'weekly or more', monthly: 'monthly', few_months: 'every few months',
@@ -870,7 +915,7 @@ async function fillPdf(form, payload) {
     .map(([name, fn]) => [name, fn(payload)])
     .filter(([, on]) => on);
 
-  /* PRODUCTION path — same as Sorelle: load the official fillable PDF and inject.
+  /* PRODUCTION path — load the official fillable PDF and inject.
      Text via setText(); checkboxes/radios via the generic field-class switch. */
   if (window.PDF_DATA && window.PDF_DATA[form]) {
     const bytes = Uint8Array.from(atob(window.PDF_DATA[form]), c => c.charCodeAt(0));
@@ -924,31 +969,41 @@ async function fillPdf(form, payload) {
   }
   if (y < 110) { page = doc.addPage([612, 792]); y = 740; }
   page.drawLine({ start: { x: 54, y }, end: { x: 558, y }, thickness: 0.5, color: muted }); y -= 16;
-  for (const ln of wrap('This is a proof-of-concept rendering. In production these same field-map values are injected into the official SSA fillable PDF via the Sorelle fillPdf() engine, so the applicant downloads the genuine government form.', 100)) {
+  for (const ln of wrap('This is a proof-of-concept rendering. In production these same field-map values are injected into the official SSA fillable PDF via the fillPdf() engine, so the applicant downloads the genuine government form.', 100)) {
     page.drawText(ln, { x: 54, y, size: 8, font, color: muted }); y -= 12;
   }
   return { bytes: await doc.save(), filled: filled.length, demo: true };
 }
 
 /* -------- Generate button -------- */
+/* Only forms wired to their official SSA PDF (the Function Report, in this
+   preview) generate a real filled form. Other tabs point back to it. */
 document.getElementById('generateBtn').addEventListener('click', async () => {
-  const snap = refresh();
-  const payload = buildPayload();
+  refresh();
   const panel = document.getElementById('outputPanel');
   const status = document.getElementById('pdfStatus');
   panel.classList.add('show');
+
+  const wired = !!(window.PDF_DATA && window.PDF_DATA[ACTIVE_FORM]);
+  if (!wired) {
+    status.innerHTML = `This tab is a <strong>preview</strong> in this early build. `
+      + `The <strong>Function Report</strong> is the fully working example — switch to that tab and click `
+      + `<em>Generate filled SSA PDF</em> to download a real, completed SSA-3373 from your answers.`;
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return;
+  }
+
   status.textContent = 'Generating…';
-  document.getElementById('payloadOut').textContent =
-    JSON.stringify({ resolved: snap.resolved, flags: snap.flags }, null, 2);
+  const payload = buildPayload();
   try {
-    const { bytes, filled, demo } = await fillPdf(ACTIVE_FORM, payload);
+    const { bytes, filled } = await fillPdf(ACTIVE_FORM, payload);
     const blob = new Blob([bytes], { type: 'application/pdf' });
     const url = URL.createObjectURL(blob);
     window.open(url, '_blank');
-    status.innerHTML = `✓ ${FIELD_MAPS[ACTIVE_FORM].title} — ${filled} fields filled, opened in a new tab.`
-      + (demo ? ' <span style="color:#F6AD55">(demo render — production injects the official SSA PDF)</span>' : '');
+    status.innerHTML = `✓ Your official <strong>${FIELD_MAPS[ACTIVE_FORM].title}</strong> opened in a new tab — `
+      + `filled in from your answers and ready to download or print.`;
   } catch (e) {
-    status.innerHTML = `<span style="color:#FC8181">PDF generation failed: ${e.message}</span>`;
+    status.innerHTML = `<span style="color:#FC8181">Something went wrong generating the form: ${e.message}</span>`;
   }
   panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
 });
@@ -975,6 +1030,7 @@ document.getElementById('loadSampleBtn').addEventListener('click', () => {
   refresh();
 });
 
+updateFormChrome();
 refresh();
 </script>
 </body>
