@@ -102,8 +102,8 @@ table.matrix td.fname{text-align:left;font-weight:600;color:#334}
   <div class="sub">Walkthrough for James</div>
   <div class="nlabel">Start here</div>
   <a href="#welcome">👋 Welcome</a><a href="#login">🔑 Login &amp; access</a><a href="#pipeline">🧭 How it works</a>
-  <a href="#matters">🗂️ The 4 matters</a><a href="#flow">⏱️ Suggested demo flow</a>
-  <div class="nlabel">Feature walkthroughs</div><a href="#pi-chronology">⚖️ PI Medical Chronology</a><a href="#merit-review">🔬 Multi-Template Merit Review</a><a href="#deposition">🎙️ Deposition Summaries</a><a href="#wc-chronology">🦴 Workers-Comp Verbatim Chronology</a>
+  <a href="#matters">🗂️ The 5 matters</a><a href="#flow">⏱️ Suggested demo flow</a>
+  <div class="nlabel">Feature walkthroughs</div><a href="#pi-chronology">⚖️ PI Medical Chronology</a><a href="#merit-review">🔬 Multi-Template Merit Review</a><a href="#deposition">🎙️ Deposition Summaries</a><a href="#wc-chronology">🦴 Workers-Comp Verbatim Chronology</a><a href="#ime-review">🩺 IME / Physician-Expert Medical Review</a>
   <div class="nlabel">Reference</div>
   <a href="#matrix">✅ Feature matrix</a><a href="#decision">🌳 Which primitive?</a>
   <a href="#faq">💬 FAQ &amp; objections</a><a href="#admin">🛠️ Admin &amp; troubleshooting</a><a href="#ids">📎 Resource IDs</a>
@@ -111,7 +111,7 @@ table.matrix td.fname{text-align:left;font-weight:600;color:#334}
 <main>
  <div class="hero">
    <h1>Dodonai Demo Walkthrough</h1>
-   <p>One shared account, pre-loaded to show every feature we demo — chronologies, multi-template merit reviews, depositions, and workers-comp output. All data is synthetic (no PHI). This guide gives you the click-path, the talking points, and what each screen looks like.</p>
+   <p>One shared account, pre-loaded to show every feature we demo — chronologies, multi-template merit reviews, depositions, workers-comp output, and IME / physician-expert reviews. All data is synthetic (no PHI). This guide gives you the click-path, the talking points, and what each screen looks like.</p>
    <div class="login">
      <div class="lc"><b>URL</b><span>https://finch.dodonai.com</span></div>
      <div class="lc"><b>Email</b><span>demo@dodon.ai</span></div>
@@ -121,7 +121,7 @@ table.matrix td.fname{text-align:left;font-weight:600;color:#334}
  <div class="wrap">
   <section id="welcome">
     <h2>👋 Welcome</h2>
-    <p>This account exists so you never have to juggle local / stage / prod logins mid-demo. It lives on <b>stage</b> and is seeded with four ready-to-show matters, each mapped to a customer persona. Pick the matter that matches the prospect in front of you, follow its click-path, and use the talking points.</p>
+    <p>This account exists so you never have to juggle local / stage / prod logins mid-demo. It lives on <b>stage</b> and is seeded with five ready-to-show matters, each mapped to a customer persona. Pick the matter that matches the prospect in front of you, follow its click-path, and use the talking points.</p>
     <div class="callout">💡 <b>Golden rule:</b> show the <b>source PDF first</b> (the mess), <b>then</b> the summary (the order). The contrast is the whole pitch.</div>
   </section>
 
@@ -150,7 +150,7 @@ table.matrix td.fname{text-align:left;font-weight:600;color:#334}
   </section>
 
   <section id="matters">
-    <h2>🗂️ The four demo matters</h2>
+    <h2>🗂️ The five demo matters</h2>
     <p>Each card jumps to its full walkthrough.</p>
     <div class="cards"><a class="pcard" href="#pi-chronology" style="--accent:#6366f1">
    <div class="pcard-ic">⚖️</div>
@@ -168,7 +168,11 @@ table.matrix td.fname{text-align:left;font-weight:600;color:#334}
    <div class="pcard-ic">🦴</div>
    <div class="pcard-n">Persona 4</div>
    <div class="pcard-t">Workers-Comp Verbatim Chronology + Cover Sheet</div>
-   <div class="pcard-m">Matter 9959</div></a></div>
+   <div class="pcard-m">Matter 9959</div></a><a class="pcard" href="#ime-review" style="--accent:#8b5cf6">
+   <div class="pcard-ic">🩺</div>
+   <div class="pcard-n">Persona 5</div>
+   <div class="pcard-t">IME / Physician-Expert Medical Review + IME Executive Summary</div>
+   <div class="pcard-m">Matter 9960</div></a></div>
   </section>
 
   <section id="flow">
@@ -178,7 +182,7 @@ table.matrix td.fname{text-align:left;font-weight:600;color:#334}
       <div class="tl"><span class="t">2–6 min · Wow</span><b>Open the PI chronology + exec summary.</b> Click a citation to jump to source. This is the core “aha”.</div>
       <div class="tl"><span class="t">6–9 min · Depth</span><b>Merit Review.</b> Show per-specialty templates + the XD extraction table. “It adapts detail to record type.”</div>
       <div class="tl"><span class="t">9–12 min · Breadth</span><b>Deposition.</b> Page-Line + Narrative from one transcript. “Different work product, same engine.”</div>
-      <div class="tl"><span class="t">12–15 min · Fit</span><b>WC chronology.</b> Verbatim cover sheet. Pivot to the prospect’s own workflow.</div>
+      <div class="tl"><span class="t">12–15 min · Fit</span><b>WC chronology</b> (carriers / WC defense) or the <b>IME / Expert Review</b> matter (physician-experts, QME / IME evaluators — show the causation/apportionment/impairment exec summary). Pivot to the prospect’s own workflow.</div>
     </div>
   </section>
 
@@ -439,12 +443,77 @@ The patient returns for follow-up of his work-related lumbar injury of 01/06/202
           <div class="mock-cap">Excerpt of matter 9959's real generated executive summary.</div></div>
       <h3 class="sub">Talking points</h3>
       <div class="says"><div class="say">🗣️ “WC reviewers want verbatim detail — work status, restrictions, causation language — not a paraphrase.”</div><div class="say">🗣️ “The cover sheet front-loads the injury report and patient history the adjuster needs first.”</div><div class="say">🗣️ “Every visit type — occupational health, ortho, pain management, PT, imaging, procedures, second opinions — has its own verbatim format.”</div></div>
+    </section><section id="ime-review" class="persona" style="--accent:#8b5cf6">
+      <div class="p-head"><div class="p-icon">🩺</div>
+        <div><div class="p-kicker">Persona 5 · Physician experts, IME / QME evaluators, medical-legal record reviewers</div>
+        <h2>IME / Physician-Expert Medical Review + IME Executive Summary</h2>
+        <div class="p-meta"><span class="pill">Matter 9960</span><span class="pill">Rule set 26 · IME / Expert Review — Medical Chronology</span></div></div></div>
+      <div class="grid2">
+        <div class="card"><h3>What it proves</h3><ul class="ticks"><li>Index-based chronology from a mixed IME record set</li><li>Detects the IME examination report as its own document type</li><li>De-duplication of repeat records</li><li>Filtering out billing / fax-cover noise</li><li>Hyperlinked source-page citations</li><li>IME-structured executive summary (history · objective findings · diagnoses · causation / apportionment / impairment)</li></ul></div>
+        <div class="card"><h3>Click-path</h3><ol class="steps"><li>Open matter <b>Demo — IME / Expert Medical Review (Sandoval)</b></li><li>Open the source PDF (13 pages, mixed records incl. an IME report) — show the raw mess</li><li>Open the <b>Summary</b> → the chronology renders 8 ordered records</li><li>Click a <b>PDF REF</b> cell → jumps to the exact source page</li><li>Show the <b>IME report</b> row — classified and routed as its own type</li><li>Scroll to the <b>Executive Summary</b> → point to the <b>Causation, Apportionment &amp; Impairment</b> section</li></ol></div>
+      </div>
+      <h3 class="sub">What it looks like</h3>
+      <div class="mock">
+      <div class="mock-bar"><span class="dot r"></span><span class="dot y"></span><span class="dot g"></span>
+        <span class="mock-title">Chronology — matter rendering</span></div>
+      <table class="chrono">
+        <thead><tr><th>DATE</th><th>FACILITY / PROVIDER</th><th>MEDICAL EVENTS</th><th>PDF REF</th></tr></thead>
+        <tbody><tr>
+          <td class="c-date">08/12/2025</td>
+          <td class="c-prov"><span class="dt-badge">Emergency Department Record</span><div class="prov">Dr. Samuel Reyes, MD (Emergency Medicine)</div></td>
+          <td class="c-ev"><div class="ev-head">Emergency Department Visit</div><div class="ev-body">Marcus T. Sandoval is a 52-year-old warehouse associate who presents to the Emergency Department after a fall at work at approximately 14:15 on 08/12/2025. Patient reports he was stepping down from a loading dock when his footing gave way and he fell approximately four feet, landing on his outstretched right arm and right shoulder. Immediate onset of sharp right shoulder pain, now rated 8/10, with marked difficulty raising the arm overhead. Denies head strike, loss of consciousness, neck pain, numbness, or tingling in the hand. No prior right shoulder injury reported.</div></td>
+          <td class="c-ref"><span class="pageref">ime-merged-records.pdf, p.1</span></td>
+        </tr><tr>
+          <td class="c-date">08/20/2025</td>
+          <td class="c-prov"><span class="dt-badge">Office Visit</span><div class="prov">Dr. Helena Voss, MD (Orthopaedic Surgery - Shoulder &amp; Elbow)</div></td>
+          <td class="c-ev"><div class="ev-head">ORTHOPAEDIC CONSULTATION - INITIAL OFFICE VISIT</div><div class="ev-body">Approximately one week status post a fall from a loading dock onto the right upper extremity. Reports persistent right shoulder pain rated 7/10, worse with overhead reaching and at night when lying on the right side. Reports weakness lifting objects away from the body. Has been wearing the sling and taking naproxen with only partial relief. Denies neck pain or hand numbness. No prior right shoulder injury, surgery, or chronic shoulder complaints reported.</div></td>
+          <td class="c-ref"><span class="pageref">ime-merged-records.pdf, p.4</span></td>
+        </tr><tr>
+          <td class="c-date">09/04/2025</td>
+          <td class="c-prov"><span class="dt-badge">Diagnostic Imaging Report</span><div class="prov">Dr. Priya Raman, MD (Diagnostic Radiology)</div></td>
+          <td class="c-ev"><div class="ev-head">MRI Right Shoulder</div><div class="ev-body">Right shoulder pain and weakness following a fall at work on 08/12/2025. Evaluate the rotator cuff.</div></td>
+          <td class="c-ref"><span class="pageref">ime-merged-records.pdf, p.6</span></td>
+        </tr><tr>
+          <td class="c-date">09/12/2025</td>
+          <td class="c-prov"><span class="dt-badge">Physical Therapy Note</span><div class="prov">Daniel Okafor, PT, DPT</div></td>
+          <td class="c-ev"><div class="ev-head">Physical Therapy - Initial Evaluation</div><div class="ev-body">Patient reports right shoulder pain rated 6/10 at worst, with night pain and difficulty with overhead activity and lifting. Goals: reduce pain, restore motion and strength, return to warehouse work duties.</div></td>
+          <td class="c-ref"><span class="pageref">ime-merged-records.pdf, p.7</span></td>
+        </tr><tr>
+          <td class="c-date">10/06/2025</td>
+          <td class="c-prov"><span class="dt-badge">Physical Therapy Note</span><div class="prov">Daniel Okafor, PT, DPT</div></td>
+          <td class="c-ev"><div class="ev-head">Physical Therapy - Progress Note (Re-evaluation)</div><div class="ev-body">Patient reports only modest improvement after 6 sessions. Pain reduced to 5/10 but persistent night pain and continued weakness with overhead lifting. Unable to tolerate work-level loads.</div></td>
+          <td class="c-ref"><span class="pageref">ime-merged-records.pdf, p.8</span></td>
+        </tr><tr>
+          <td class="c-date">10/20/2025</td>
+          <td class="c-prov"><span class="dt-badge">Operative Report</span><div class="prov">Dr. Helena Voss, MD</div></td>
+          <td class="c-ev"><div class="ev-head">Operative Report - Right Shoulder Arthroscopy</div><div class="ev-body">The patient is a 52-year-old with a post-traumatic full-thickness supraspinatus tear (work injury 08/12/2025) confirmed on MRI, with residual pain and weakness despite conservative management including physical therapy. After discussion of risks, benefits, and alternatives, the patient elected to proceed with arthroscopic repair.</div></td>
+          <td class="c-ref"><span class="pageref">ime-merged-records.pdf, p.9</span></td>
+        </tr><tr>
+          <td class="c-date">10/27/2025</td>
+          <td class="c-prov"><span class="dt-badge">Lab Report</span><div class="prov">Dr. Olivia Tran, MD</div></td>
+          <td class="c-ev"><div class="ev-head">Laboratory Report - CBC &amp; Comprehensive Metabolic Panel</div><div class="ev-body">Routine post-operative labs, one week status post right shoulder arthroscopic rotator cuff repair.</div></td>
+          <td class="c-ref"><span class="pageref">ime-merged-records.pdf, p.10</span></td>
+        </tr><tr>
+          <td class="c-date">11/12/2025</td>
+          <td class="c-prov"><span class="dt-badge">Ime Report</span><div class="prov">Dr. Alan Whitfield, MD, QME</div></td>
+          <td class="c-ev"><div class="ev-head">Independent Medical Examination - Orthopedic Evaluation</div><div class="ev-body">The examinee reports he fell approximately four feet from a loading dock at work on 08/12/2025, landing on the outstretched right arm, with immediate right shoulder pain. He denies any prior right shoulder injury, treatment, or symptoms before this date. The reported mechanism is consistent with the documented rotator cuff pathology.</div></td>
+          <td class="c-ref"><span class="pageref">ime-merged-records.pdf, p.11</span></td>
+        </tr></tbody>
+      </table></div>
+      <div class="exec"><div class="exec-h">📄 Executive summary (generated)</div>
+          <div class="exec-body"><p><strong>Examinee Overview</strong></p>
+<p>Marcus T. Sandoval, a 52-year-old warehouse associate, is the examinee in this independent medical evaluation, with records reviewed from the initial emergency department visit on 08/12/2025 through the independent medical examination by Dr. Whitfield <span class="cite">(ime-merged-records, pp. 1, 11)</span>. The principal injury is a post-traumatic full-thickness supraspinatus (rotator cuff) tear with associated right shoulder impingement, involving the right shoulder girdle and periarticular soft tissues <span class="cite">(ime-merged-records, pp. 3-4, 6, 9, 11)</span>. Treating specialties include emergency medicine, orthopaedic surgery, diagnostic radiology, physical therapy, and laboratory medicine <span class="cite">(ime-merged-records, pp. 1, 4, 6-7, 9-10)</span>. The earliest date of service in the record set is 08/12/2025, and the most recent is the date of Dr. Whitfields IME examination <span class="cite">(ime-merged-records, pp. 1, 11)</span>.</p>
+<p><strong>History of Injury &amp; Treatment Course</strong></p>
+<p>On 08/12/2025, the examinee fell approximately four feet from a loading dock at work, landing on his outstretched right arm and shoulder, with immediate sharp right shoulder pain and marked limitation of elevation; he denied prior right shoulder injury or symptoms <span class="cite">(ime-merged-records, pp. 1, 11)</span>. Initial emergency department evaluation that day documented diffuse right shoulder tenderness, limited active flexion to ~70 degrees, and normal neurovascular status; X-ray showed no acute fracture or dislocation but mild subacromial spurring, and he was treated with IV ketorolac, prescribed naproxen, placed in a sling, and discharged off work with orthopedic follow-up</p></div>
+          <div class="mock-cap">Excerpt of matter 9960's real generated executive summary.</div></div>
+      <h3 class="sub">Talking points</h3>
+      <div class="says"><div class="say">🗣️ “This is built for the physician-expert workflow — it reads like your IME file, not a plaintiff PI case.”</div><div class="say">🗣️ “It recognizes the IME report itself as a distinct record and pulls the causation, apportionment and impairment opinions into the summary.”</div><div class="say">🗣️ “The executive summary is structured as an IME report skeleton — history, objective findings, diagnoses, then causation / apportionment / impairment — for you to edit, with every line citing its source page.”</div></div>
     </section>
 
   <section id="matrix">
     <h2>✅ Feature matrix</h2>
     <p>Which matter demonstrates which capability — pick the shortest path to what the prospect cares about.</p>
-    <table class="matrix"><thead><tr><th>Feature</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th></tr></thead><tbody><tr><td class='fname'>Document upload &amp; OCR</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Auto document-type detection</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Index-based chronology</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Per-doc-type templates</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Multi-template routing</td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>De-duplication</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Filtering (drop noise)</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Same-date/provider combination</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Hyperlinked citations</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Executive summary / cover sheet</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>XD cross-document extraction</td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Deposition Page-Line</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Deposition Narrative</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Verbatim work-status capture</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>PDF / Bates page references</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr></tbody></table>
+    <table class="matrix"><thead><tr><th>Feature</th><th>P1</th><th>P2</th><th>P3</th><th>P4</th><th>P5</th></tr></thead><tbody><tr><td class='fname'>Document upload &amp; OCR</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Auto document-type detection</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Index-based chronology</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Per-doc-type templates</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Multi-template routing</td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>De-duplication</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Filtering (drop noise)</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Same-date/provider combination</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Hyperlinked citations</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>Executive summary / cover sheet</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>IME causation / apportionment / impairment</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>XD cross-document extraction</td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Deposition Page-Line</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Deposition Narrative</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td></tr><tr><td class='fname'>Verbatim work-status capture</td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr><tr><td class='fname'>PDF / Bates page references</td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td><td><span class=no>·</span></td><td><span class=chk>✔</span></td><td><span class=chk>✔</span></td></tr></tbody></table>
   </section>
 
   <section id="decision">
@@ -459,6 +528,8 @@ flowchart TD
   B -- Verbatim / WC --> F[Verbatim per-visit templates<br/>+ cover sheet<br/><b>Persona 4</b>]
   A --> G{Depositions / transcripts?}
   G -- Yes --> H[Page-Line + Narrative<br/>no rule set needed<br/><b>Persona 3</b>]
+  A --> I{IME / expert med-legal review?}
+  I -- Yes --> J[Index chronology + IME exec summary<br/>causation · apportionment · impairment<br/><b>Persona 5</b>]
     </div>
   </section>
 
@@ -492,6 +563,7 @@ flowchart TD
       <div class="kv"><b>P2 · Merit Review</b>matter 9957 · rule set 24 · XD template 17</div>
       <div class="kv"><b>P3 · Deposition</b>matter 9958 · no rule set</div>
       <div class="kv"><b>P4 · WC Chronology</b>matter 9959 · rule set 25</div>
+      <div class="kv"><b>P5 · IME / Expert Review</b>matter 9960 · rule set 26</div>
       <div class="kv"><b>Rebuild</b>docs/demo-account/scripts/seed_demo.py</div>
     </div>
   </section>
