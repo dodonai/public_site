@@ -59,7 +59,7 @@
 		{
 			question: 'How do credits work with different process types?',
 			answer:
-				'Standard summaries (deposition, medical record, and general document) use 1 credit per page. Custom summaries use 2 credits per page. Advanced and index-based analysis uses 3 credits per page. OCR and transcription are always free and included with every plan.'
+				'Standard summaries (deposition, medical record, and general document) use 1 credit per page. Custom summaries use 2 credits per page. Advanced and index-based analysis uses 3 credits per page. Audio transcription is billed per audio minute: 2 credits per minute on subscription plans, or $0.25 per minute on invoice billing. OCR is always free and included with every plan.'
 		},
 		{
 			question: 'Do unused credits roll over?',
