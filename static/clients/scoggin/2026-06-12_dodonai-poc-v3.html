@@ -43,12 +43,12 @@
     </div>
     <nav class="flex-1 px-3 py-3 space-y-0.5 text-sm overflow-y-auto" id="sidebar-nav">
       <a href="#/dashboard" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="layout-dashboard" class="icon w-4 h-4 text-dodonai-300"></i> Command Center</a>
-      <div class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">The three screens · v1</div>
+      <div class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">v1 · building now</div>
+      <a href="#/news"      class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="filter" class="icon w-4 h-4 text-dodonai-300"></i> News &amp; Social Filter <span class="ml-auto text-[10px] bg-emerald-500 text-white rounded-full px-1.5 py-0.5 font-medium">First</span></a>
       <a href="#/lookup"    class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="search" class="icon w-4 h-4 text-dodonai-300"></i> Ticker Lookup <span class="ml-auto text-[10px] bg-dodonai-500 text-white rounded-full px-1.5 py-0.5 font-medium">1</span></a>
       <a href="#/alerts"    class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="bell-ring" class="icon w-4 h-4 text-dodonai-300"></i> Watch-List Alerts <span class="ml-auto text-[10px] bg-dodonai-500 text-white rounded-full px-1.5 py-0.5 font-medium">2</span></a>
       <a href="#/heatmap"   class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="flame" class="icon w-4 h-4 text-dodonai-300"></i> Heat Map <span class="ml-auto text-[10px] bg-dodonai-500 text-white rounded-full px-1.5 py-0.5 font-medium">3</span></a>
       <div class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">From the v2 concept</div>
-      <a href="#/news"      class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="filter" class="icon w-4 h-4 text-dodonai-300"></i> News &amp; Social Filter</a>
       <a href="#/chats"     class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="messages-square" class="icon w-4 h-4 text-dodonai-300"></i> Bloomberg Chat Filter</a>
       <a href="#/watchlist" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="list" class="icon w-4 h-4 text-dodonai-300"></i> Watchlist</a>
       <a href="#/menu"      class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="layout-grid" class="icon w-4 h-4 text-dodonai-300"></i> Future phases</a>
@@ -746,7 +746,7 @@ function renderNews(){
   const rel=posts.filter(p=>!p.noise).length;
   return ''+
   '<div class="p-6 space-y-4">'+
-    '<div class="flex items-start justify-between"><div><div class="flex items-center gap-2"><i data-lucide="filter" class="w-5 h-5 text-dodonai-600"></i><h1 class="text-xl font-semibold text-slate-800">News &amp; Social Filter</h1><span class="text-[10px] uppercase tracking-wider bg-slate-100 text-slate-500 border border-slate-200 rounded-full px-2 py-0.5">v2 concept</span></div>'+
+    '<div class="flex items-start justify-between"><div><div class="flex items-center gap-2"><i data-lucide="filter" class="w-5 h-5 text-dodonai-600"></i><h1 class="text-xl font-semibold text-slate-800">News &amp; Social Filter</h1><span class="text-[10px] uppercase tracking-wider bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-full px-2 py-0.5">v1 · building first</span></div>'+
       '<p class="text-sm text-slate-500 mt-1">X + StreetAccount, filtered to what\'s relevant to your watchlist with the noise stripped. The no-Bloomberg-dependency wedge — and we\'ve already built the core. <span class="text-slate-400">(The v3 Ticker Lookup is the per-name view of this same stream.)</span></p></div>'+
       '<button id="noise-btn" onclick="toggleNoise()" class="text-sm border border-slate-300 hover:bg-slate-50 rounded-md px-3 py-1.5">Show what was filtered out</button></div>'+
     '<div class="bg-dodonai-700 text-white rounded-lg p-4 flex items-center gap-4"><div><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Scanned today</div><div class="text-2xl font-semibold">1,240</div></div><i data-lucide="arrow-right" class="w-5 h-5 text-dodonai-300"></i><div><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Relevant to your book</div><div class="text-2xl font-semibold">'+rel+'</div></div><div class="ml-auto text-xs text-dodonai-200 text-right">memes, pumps, and spam removed automatically</div></div>'+
