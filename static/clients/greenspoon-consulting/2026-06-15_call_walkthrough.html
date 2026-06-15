@@ -1,0 +1,760 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Greenspoon Consulting — Firm OS Call Walkthrough</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!--
+  CALL WALKTHROUGH — internal note for Nick:
+  - Departure date is JULY 31 (corrected from July 13 in the brief).
+  - Pricing figures below are RECOMMENDED ballparks — confirm against the rate card before the call.
+    Search "data-confirm" to find every editable number.
+  - This is client-safe for screen-share. No internal strategy language included.
+-->
+<style>
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* HERO */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:56px 0 60px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:34px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+.brandbar .tag{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:50px;line-height:1.04;letter-spacing:-.025em;margin:0 0 16px;max-width:18ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:19px;line-height:1.45;color:var(--purple-soft);max-width:62ch;margin:0 0 36px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+
+/* SECTIONS */
+section{padding:52px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:31px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:68ch;margin:0 0 30px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+.ink .eyebrow{color:var(--purple-soft)}
+.agtime{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);background:rgba(124,58,237,.1);border:1px solid rgba(124,58,237,.22);padding:3px 10px;border-radius:14px;margin-left:10px;vertical-align:middle}
+.ink .agtime{color:var(--purple-soft);background:rgba(181,168,230,.12);border-color:rgba(181,168,230,.3)}
+
+/* AGENDA TOC */
+.agenda{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}
+.agitem{display:flex;gap:14px;align-items:flex-start;background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:15px 17px;text-decoration:none;color:inherit;transition:transform .2s,box-shadow .2s,border-color .2s}
+.agitem:hover{transform:translateY(-2px);box-shadow:0 14px 30px -22px rgba(26,26,69,.5);border-color:var(--purple-vivid)}
+.agitem .agn{flex:0 0 32px;height:32px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.agitem .agt{font-weight:800;font-size:15px;letter-spacing:-.01em;margin:0 0 2px}
+.agitem .agd{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin:0}
+.agitem .agmin{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);margin-top:5px}
+
+/* CLIFF */
+.cliff{background:var(--midnight);color:#fff;padding:28px 0}
+.cliff .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.cliff .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:150px;line-height:1.5}
+.cliff .ctitle .big{display:block;font-family:var(--sans);font-size:34px;letter-spacing:-.02em;color:#fff;margin-top:8px}
+.cliff .cbody{font-size:16px;line-height:1.55;color:var(--purple-soft)}
+.cliff .cbody b{color:#fff}
+
+/* PULL QUOTE */
+.pull{position:relative;background:#fff;border-radius:14px;padding:34px 40px 30px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:21px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+.os-def{margin-top:24px;font-size:18px;line-height:1.6;max-width:78ch}
+.os-def strong{color:var(--purple-bold)}
+
+/* FIT MAP — 4 phase mini */
+.fitgrid{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:8px}
+.fitcard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:16px 17px}
+.fitcard .fn{display:flex;align-items:center;gap:10px;margin-bottom:10px}
+.fitcard .fnum{flex:0 0 26px;height:26px;border-radius:8px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:13px;display:flex;align-items:center;justify-content:center}
+.fitcard .fname{font-weight:800;font-size:14.5px;letter-spacing:-.01em}
+.fitcard p{font-size:12.5px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.fitcard .fos{margin-top:10px;padding-top:10px;border-top:1px solid var(--cream-line);font-size:12.5px;line-height:1.5;color:var(--midnight)}
+.fitcard .fos b{color:var(--purple-bold)}
+
+/* GATES PIPELINE */
+.gateflow{display:flex;flex-direction:column;gap:10px}
+.gaterow{display:grid;grid-template-columns:44px 1fr auto;gap:16px;align-items:center;background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:15px 18px;border-left:4px solid var(--teal)}
+.gaterow .gn{width:34px;height:34px;border-radius:9px;background:rgba(14,116,137,.12);color:var(--teal);font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.gaterow .gt{font-weight:800;font-size:15.5px;letter-spacing:-.01em;margin:0 0 3px}
+.gaterow .gd{font-size:13px;color:var(--gray-meta-light);line-height:1.45;margin:0}
+.gaterow .gpill{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;background:rgba(14,116,137,.13);color:var(--teal);padding:5px 11px;border-radius:20px;white-space:nowrap}
+.gatenote{margin-top:22px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--purple-vivid);border-radius:0 12px 12px 0;padding:16px 20px;font-size:14.5px;line-height:1.6}
+.gatenote b{color:var(--purple-bold)}
+
+/* KEEP / REPLACE (reused) */
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.int{background:var(--green)} .dot.rep{background:var(--purple-vivid)} .dot.add{background:var(--amber)} .dot.skip{background:var(--gray-meta)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:17px 18px 15px;position:relative;overflow:hidden}
+.card.replace{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.card.add{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px}
+.card .name{font-weight:800;font-size:15px;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.badge.int{background:rgba(46,158,107,.13);color:var(--green)}
+.badge.rep{background:var(--purple-vivid);color:#fff}
+.badge.add{background:var(--amber);color:#fff}
+.card .why{font-size:12.5px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.card.replace .why,.card.add .why{color:var(--midnight)}
+
+/* NEED FROM YOU */
+.need{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:22px}
+.needcard{background:var(--midnight);color:#fff;border-radius:12px;padding:18px 20px}
+.needcard .nh{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:9px}
+.needcard .nt{font-weight:800;font-size:15px;margin-bottom:5px}
+.needcard p{font-size:12.5px;color:var(--purple-soft);line-height:1.5;margin:0}
+
+/* PAYMENT FLOW */
+.payflow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:12px;align-items:stretch;margin-top:6px}
+.paystep{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 19px}
+.paystep.gate{border:1.5px solid var(--teal);background:linear-gradient(180deg,#fff,rgba(14,116,137,.05))}
+.paystep.future{border:1.5px dashed var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.04))}
+.paystep .pst{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:9px;color:var(--gray-meta-light)}
+.paystep.gate .pst{color:var(--teal)} .paystep.future .pst{color:var(--amber)}
+.paystep .ph{font-weight:800;font-size:15px;letter-spacing:-.01em;margin-bottom:6px}
+.paystep p{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+.payarr{display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;color:var(--purple-vivid)}
+.payfail{margin-top:20px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:16px 20px;font-size:14px;line-height:1.6}
+.payfail b{color:var(--amber)}
+
+/* TIMELINE (reused) */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.tl-line{position:absolute;top:21px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));z-index:0}
+.phase-t{position:relative;z-index:1;padding:0 12px;text-align:center}
+.phase-t .pnode2{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;background:var(--purple-vivid);border:4px solid var(--cream)}
+.alt .phase-t .pnode2{border-color:var(--cream-deep)}
+.phase-t.future .pnode2{background:var(--midnight);color:var(--purple-soft)}
+.phase-t .ptagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phase-t .ph2{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+.phase-t .pd2{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5}
+
+/* KT cards */
+.ktgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:24px}
+.ktcard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;border-top:4px solid var(--purple-vivid)}
+.ktcard .ki{font-size:20px;margin-bottom:8px}
+.ktcard h4{font-size:15px;font-weight:800;letter-spacing:-.01em;margin:0 0 6px}
+.ktcard p{font-size:12.5px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+
+/* SUPPORT TIERS */
+.tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:14px}
+.tier{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 21px}
+.tier.mid{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05));position:relative}
+.tier .tname{font-weight:800;font-size:16px;margin-bottom:3px}
+.tier .tshape{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:12px}
+.tier ul{margin:0;padding-left:17px;font-size:12.5px;line-height:1.6;color:var(--midnight)}
+.tier li{margin-bottom:4px}
+.tier .tflag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--purple-vivid);color:#fff;padding:3px 8px;border-bottom-left-radius:8px}
+
+/* METRICS */
+.metrics{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:24px}
+.metric{background:var(--midnight);color:#fff;border-radius:12px;padding:18px 19px}
+.metric .mv{font-weight:800;font-size:25px;letter-spacing:-.02em;line-height:1;color:#fff}
+.metric .ml{font-family:var(--mono);font-size:9.5px;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-soft);margin-top:8px;line-height:1.35}
+.metric .md{font-size:11.5px;color:var(--gray-meta);margin-top:8px;line-height:1.4}
+
+/* VALUE + INVESTMENT */
+.numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px;align-items:start}
+.numcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px}
+.numcard h3{font-weight:800;font-size:18px;margin:0 0 4px}
+.numcard .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:14px}
+.paysplit{display:flex;gap:10px;margin:14px 0}
+.paysplit .half{flex:1;background:var(--cream-deep);border-radius:9px;padding:13px 15px;text-align:center}
+.paysplit .half .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.paysplit .half .v{font-weight:800;font-size:15px;color:var(--purple-bold)}
+.paysplit .arr{align-self:center;color:var(--purple-vivid);font-weight:800;font-size:18px}
+.numnote{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin-top:10px}
+.opex-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--cream-line)}
+.opex-row:last-of-type{border-bottom:none}
+.opex-row .ol .ot{font-weight:700;font-size:14.5px}
+.opex-row .ol .od{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin-top:3px}
+.opex-row .oa{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--purple-bold);white-space:nowrap;text-align:right;padding-top:2px}
+.value-anchor{margin-top:16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.value-anchor b{color:var(--purple-bold)}
+.vstats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-bottom:22px}
+.vstat{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;border-top:4px solid var(--purple-vivid)}
+.vstat .vn{font-weight:800;font-size:28px;letter-spacing:-.02em;color:var(--purple-bold);line-height:1;margin-bottom:8px}
+.vstat .vn .to{color:var(--purple-soft);margin:0 2px}
+.vstat .vl{font-size:13px;color:var(--gray-meta-light);line-height:1.45}
+
+/* Q&A */
+.qa{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.qacard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px}
+.qacard .qgroup{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);margin-bottom:8px}
+.qacard .qq{font-weight:800;font-size:14.5px;letter-spacing:-.01em;margin:0 0 7px;display:flex;gap:9px;align-items:flex-start}
+.qacard .qq .qmark{color:var(--purple-vivid);font-weight:800}
+.qacard .qaa{font-size:13px;color:var(--midnight);line-height:1.55;margin:0;padding-left:19px}
+.qacard .qaa b{color:var(--purple-bold)}
+
+/* NEXT STEPS */
+.steps{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.stepc{display:flex;gap:14px;align-items:flex-start;background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.18);border-radius:12px;padding:16px 18px}
+.stepc .scn{flex:0 0 32px;height:32px;border-radius:9px;background:var(--purple-vivid);color:#fff;font-weight:800;font-size:15px;display:flex;align-items:center;justify-content:center}
+.stepc .sct{font-weight:800;font-size:14.5px;margin:0 0 3px;color:#fff}
+.stepc .scd{font-size:12.5px;color:var(--purple-soft);line-height:1.5;margin:0}
+.stepc .scwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-soft);margin-top:6px}
+.ownbar{margin-top:26px;background:rgba(124,58,237,.1);border:1px solid rgba(181,168,230,.35);border-radius:12px;padding:18px 22px;font-size:15px;line-height:1.6;color:#fff}
+.ownbar b{color:#fff}
+.ownbar .ok{color:var(--purple-soft);font-weight:700}
+
+/* WORKFLOW DIAGRAMS (before/after + gate map) */
+.wflegend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.wflegend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.wfcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:20px 22px;margin-bottom:16px}
+.wfcard:last-child{margin-bottom:0}
+.wfhead{display:flex;align-items:center;gap:12px;margin-bottom:16px}
+.wfhead .wfn{flex:0 0 30px;height:30px;border-radius:9px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.wfhead .wfname{font-weight:800;font-size:17px;letter-spacing:-.01em}
+.wfhead .wfsave{margin-left:auto;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--green);background:rgba(46,158,107,.12);padding:4px 10px;border-radius:14px}
+.lane{margin-bottom:14px}
+.lane:last-child{margin-bottom:0}
+.lanelabel{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin-bottom:10px;display:flex;align-items:center;gap:8px}
+.lane.today .lanelabel{color:var(--amber)}
+.lane.os .lanelabel{color:var(--purple-bold)}
+.lanelabel .ld{width:9px;height:9px;border-radius:50%}
+.lane.today .lanelabel .ld{background:var(--amber)}
+.lane.os .lanelabel .ld{background:var(--purple-vivid)}
+.flow{display:flex;flex-wrap:wrap;align-items:stretch;gap:7px}
+.fn{display:inline-flex;flex-direction:column;justify-content:center;gap:4px;background:var(--cream-deep);border:1px solid var(--cream-line);border-radius:10px;padding:9px 12px;position:relative}
+.fn .flbl{font-size:12px;font-weight:600;line-height:1.25;color:var(--midnight)}
+.fn .fwho{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--gray-meta-light)}
+.fn.man{background:rgba(199,125,46,.08);border-color:rgba(199,125,46,.32)}
+.fn.man .fwho{color:var(--amber)}
+.fn.agent{background:rgba(124,58,237,.08);border-color:rgba(124,58,237,.32)}
+.fn.agent .fwho{color:var(--purple-bold)}
+.fn.gate{background:rgba(14,116,137,.09);border:1.5px solid var(--teal)}
+.fn.gate .fwho{color:var(--teal)}
+.fn .gnum{position:absolute;top:-9px;left:-9px;width:20px;height:20px;border-radius:50%;background:var(--teal);color:#fff;font-size:11px;font-weight:800;display:flex;align-items:center;justify-content:center;box-shadow:0 0 0 3px #fff}
+.farr{align-self:center;color:var(--gray-meta);font-weight:800;font-size:14px;flex:0 0 auto}
+.lane.os .farr{color:var(--purple-mid)}
+.gatemap{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 24px 22px;margin-bottom:26px}
+.gatemap .gmh{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;color:var(--purple-bold);margin-bottom:16px}
+.gatemap .flow{row-gap:16px}
+
+/* INTEGRATION DEPICTION */
+.integ{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:16px}
+.integcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:22px 24px}
+.integ-h{display:flex;align-items:center;gap:12px;margin-bottom:18px}
+.integ-h .ilogo{flex:0 0 auto;font-weight:800;font-size:14px;padding:9px 13px;border-radius:9px;color:#fff;letter-spacing:-.01em}
+.ilogo.pp{background:#1F8A70}
+.ilogo.ms{background:#0F6CBD}
+.integ-h .iname{font-weight:800;font-size:16.5px;letter-spacing:-.01em}
+.integ-h .irole{font-size:12px;color:var(--gray-meta-light);margin-top:1px}
+.exchange{display:grid;grid-template-columns:1fr 54px 1fr;gap:8px;align-items:center;margin-bottom:16px}
+.exbox{background:var(--cream-deep);border-radius:10px;padding:13px 12px;text-align:center}
+.exbox.os{background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff}
+.exbox .ebt{font-weight:800;font-size:13.5px;line-height:1.15}
+.exbox .ebs{font-family:var(--mono);font-size:8.5px;letter-spacing:.05em;text-transform:uppercase;margin-top:4px;color:var(--gray-meta-light)}
+.exbox.os .ebs{color:var(--purple-soft)}
+.exarr{text-align:center;color:var(--purple-vivid);font-weight:800;font-size:24px;line-height:1}
+.exflow{display:flex;flex-direction:column;gap:9px}
+.exrow{display:flex;gap:10px;align-items:flex-start;font-size:12.5px;line-height:1.45;color:var(--midnight)}
+.exrow .exdir{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple-bold);flex:0 0 46px;margin-top:2px}
+.integ-strip{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:22px}
+.ichip{background:#fff;border:1px solid var(--cream-line);border-radius:11px;padding:13px 15px;font-size:12px;line-height:1.45;color:var(--gray-meta-light)}
+.ichip b{display:block;color:var(--midnight);font-size:13px;margin-bottom:3px}
+
+/* PAYMENT PROCESSOR EXAMPLE */
+.procflow{display:flex;flex-wrap:wrap;align-items:stretch;gap:8px;margin-top:6px}
+.procnode{flex:1;min-width:155px;background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:15px 16px;position:relative}
+.procnode.proc{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.procnode.gate{border:1.5px solid var(--teal);background:linear-gradient(180deg,#fff,rgba(14,116,137,.05))}
+.procnode .pnt{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;color:var(--gray-meta-light);margin-bottom:7px}
+.procnode.proc .pnt{color:var(--amber)} .procnode.gate .pnt{color:var(--teal)}
+.procnode .pnh{font-weight:800;font-size:14px;letter-spacing:-.01em;margin-bottom:5px}
+.procnode p{font-size:12px;color:var(--gray-meta-light);line-height:1.45;margin:0}
+.procnode .extag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:8px;font-weight:700;letter-spacing:.05em;background:var(--amber);color:#fff;padding:3px 7px;border-bottom-left-radius:8px}
+.procarr{align-self:center;color:var(--purple-vivid);font-weight:800;font-size:18px;flex:0 0 auto}
+.procnote{margin-top:18px;font-size:13px;color:var(--gray-meta-light);line-height:1.55;background:var(--cream);border:1px dashed var(--cream-line);border-radius:10px;padding:13px 17px}
+.procnote b{color:var(--purple-bold)}
+
+/* PHASE 1 CALLOUT */
+.p1callout{background:linear-gradient(150deg,var(--midnight-deep),var(--midnight-soft));color:#fff;border-radius:14px;padding:24px 28px;margin-bottom:28px;display:grid;grid-template-columns:1.4fr 1fr;gap:28px;align-items:center}
+.p1callout .p1l .p1tag{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:var(--purple-soft);margin-bottom:8px}
+.p1callout .p1l h3{font-weight:800;font-size:22px;letter-spacing:-.01em;margin:0 0 10px}
+.p1callout .p1l ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6;color:var(--purple-soft)}
+.p1callout .p1l ul b{color:#fff}
+.p1callout .p1r{text-align:center;border-left:1px solid rgba(181,168,230,.25);padding-left:24px}
+.p1callout .p1r .p1when-l{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:8px}
+.p1callout .p1r .p1when{font-weight:800;font-size:24px;letter-spacing:-.02em;line-height:1.1}
+.p1callout .p1r .p1sub{font-size:12.5px;color:var(--purple-soft);margin-top:8px;line-height:1.4}
+
+@media(max-width:880px){
+  .integ,.p1callout{grid-template-columns:1fr}
+  .integ-strip{grid-template-columns:1fr 1fr}
+  .p1callout .p1r{border-left:none;border-top:1px solid rgba(181,168,230,.25);padding-left:0;padding-top:20px}
+  .procarr{transform:rotate(90deg);align-self:center}
+}
+
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:32px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
+
+@media(max-width:880px){
+  .hero h1{font-size:35px}
+  .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .agenda,.qa,.steps,.numbers-grid{grid-template-columns:1fr}
+  .cliff .wrap{grid-template-columns:1fr;gap:16px}
+  .fitgrid,.cards,.need,.ktgrid,.tiers{grid-template-columns:1fr}
+  .metrics,.vstats{grid-template-columns:1fr 1fr}
+  .payflow{grid-template-columns:1fr}.payarr{transform:rotate(90deg)}
+  .gaterow{grid-template-columns:34px 1fr}.gaterow .gpill{grid-column:1/-1}
+  .timeline{grid-template-columns:1fr;gap:26px}.tl-line{display:none}
+}
+@media print{.hero{padding:38px 0}section{padding:26px 0;page-break-inside:avoid}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Firm OS — Call Walkthrough</span>
+      <span class="tag">For Dr. Greenspoon</span>
+    </div>
+    <span class="eyebrow">Greenspoon Consulting, Inc. · Working through your agenda</span>
+    <h1>Your agenda, <span class="soft">answered point by point.</span></h1>
+    <p class="lede">You sent a sharp agenda and a strong list of questions. This walks straight down it: the fit, the physician gates, the integrations, payment automation, the timeline to July 31, the support model, and exactly what happens after this call, with a clear answer on each.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Call</div><div class="value">Mon Jun 15, 2026 · 2:30–3:30pm ET</div></div>
+      <div class="meta"><div class="label">With</div><div class="value">Dodonai — Nick + James</div></div>
+      <div class="meta"><div class="label">Handoff</div><div class="value">Phase 1 live before Jul 31</div></div>
+      <div class="meta"><div class="label">The principle</div><div class="value">You own the system. Judgment stays yours.</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- AGENDA TOC -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Today's path</span><h2>The agenda, <span class="soft">and where we land each one</span></h2>
+      <p class="sec-sub">Your seven items, in your order. Click any to jump. Each ends with a clear answer or a decision for us to make together.</p></div>
+    <div class="agenda">
+      <a class="agitem reveal d1" href="#s1"><span class="agn">1</span><div><p class="agt">Firm OS overview &amp; fit</p><p class="agd">Confirm the OS as your owned platform, mapped to Tatiana's four phases.</p><div class="agmin">8 min</div></div></a>
+      <a class="agitem reveal d1" href="#s2"><span class="agn">2</span><div><p class="agt">Physician decision gates</p><p class="agd">The six approval points that stay with you.</p><div class="agmin">12 min</div></div></a>
+      <a class="agitem reveal d2" href="#s3"><span class="agn">3</span><div><p class="agt">Integration requirements</p><p class="agd">Practice Panther, Microsoft 365, dashboard visibility.</p><div class="agmin">10 min</div></div></a>
+      <a class="agitem reveal d2" href="#s4"><span class="agn">4</span><div><p class="agt">Payment process &amp; automation</p><p class="agd">The release gate now, phased ACH next.</p><div class="agmin">10 min</div></div></a>
+      <a class="agitem reveal d3" href="#s5"><span class="agn">5</span><div><p class="agt">Timeline, phasing &amp; knowledge transfer</p><p class="agd">What's live before July 31, migration, the handoff package.</p><div class="agmin">12 min</div></div></a>
+      <a class="agitem reveal d3" href="#s6"><span class="agn">6</span><div><p class="agt">Support model &amp; success metrics</p><p class="agd">Managed services and how we measure it.</p><div class="agmin">8 min</div></div></a>
+      <a class="agitem reveal d4" href="#s7"><span class="agn">7</span><div><p class="agt">Next steps &amp; ownership</p><p class="agd">Immediate actions, who builds what, your IP.</p><div class="agmin">10 min</div></div></a>
+      <a class="agitem reveal d4" href="#value"><span class="agn">$</span><div><p class="agt">Value &amp; investment</p><p class="agd">The numbers, and what they replace.</p><div class="agmin">walk live</div></div></a>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE CLIFF -->
+<div class="cliff">
+  <div class="wrap">
+    <div class="ctitle">Weeks until handoff<span class="big">~6</span></div>
+    <div class="cbody">Tatiana documented all the steps and built the automation map. That's the work most firms pay a consultant to do, already done. With her departure now set for <b>July 31</b>, we have a cleaner runway to get Phase 1 live and capture her process while she's still here. The open question isn't <i>whether</i> to automate, it's <b>who builds it, who owns it, and whether it keeps running after she leaves.</b></div>
+  </div>
+</div>
+
+<!-- 1. OVERVIEW & FIT -->
+<section id="s1">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Agenda 1</span><h2>Firm OS overview &amp; fit <span class="agtime">8 min</span></h2>
+      <p class="sec-sub">Confirming we mean the same thing by "Firm OS," and how it maps onto the workflow Tatiana already documented.</p></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">You have to use one tool here, Claude here, Practice Panther there. All of this can be hosted in one place. That would be the biggest grab for him.</p>
+      <div class="qa">— Tatiana, on what would land for Dr. Greenspoon</div>
+    </div>
+    <p class="os-def reveal d2">A <strong>Firm OS</strong> is your practice running on one coherent system <strong>you own</strong>, instead of a stack of disconnected tools held together by one person clicking between them. It's your <strong>source of truth</strong> plus a <strong>web dashboard</strong> where you watch every matter and every agent run. It keeps the tools you already rely on (Practice Panther, Microsoft 365, Dodonai, your AI) and runs the coordination that lives in Tatiana's head today.</p>
+
+    <div class="sec-head reveal d2" style="margin-top:38px;margin-bottom:18px"><h2 style="font-size:23px">Each phase, <span class="soft">before and after</span></h2>
+      <p class="sec-sub" style="margin-bottom:0">Tatiana's four phases, drawn as workflow diagrams. The top lane is how it runs today, by hand. The bottom lane is how the OS runs it, with the few judgment steps handed back to you.</p></div>
+    <div class="wflegend reveal d2">
+      <span class="lg"><span class="dot" style="background:var(--amber)"></span> Manual today (Tatiana)</span>
+      <span class="lg"><span class="dot" style="background:var(--purple-vivid)"></span> OS agent</span>
+      <span class="lg"><span class="dot" style="background:var(--teal)"></span> Your judgment (stays with you)</span>
+    </div>
+
+    <div class="wfcard reveal d1">
+      <div class="wfhead"><span class="wfn">1</span><span class="wfname">Intake &amp; retention</span><span class="wfsave">~10 manual steps → 0</span></div>
+      <div class="lane today"><div class="lanelabel"><span class="ld"></span>Today — by hand</div><div class="flow">
+        <span class="fn man"><span class="flbl">Retention email</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Engagement letter + W9 / PP link</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Matter created in PP</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Schedule pre-review (Teams)</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Retainer invoice</span><span class="fwho">manual</span></span>
+      </div></div>
+      <div class="lane os"><div class="lanelabel"><span class="ld"></span>With the OS</div><div class="flow">
+        <span class="fn agent"><span class="flbl">Email detected</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Letter + intake drafted</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Matter auto-created</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Pre-review booked</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Retainer invoiced</span><span class="fwho">agent</span></span>
+      </div></div>
+    </div>
+
+    <div class="wfcard reveal d2">
+      <div class="wfhead"><span class="wfn">2</span><span class="wfname">Records review</span><span class="wfsave">the stuck point, solved</span></div>
+      <div class="lane today"><div class="lanelabel"><span class="ld"></span>Today — by hand</div><div class="flow">
+        <span class="fn man"><span class="flbl">Records received</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Download to OneDrive</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Combine + bookmark PDF</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Load into Dodonai</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Check output + file</span><span class="fwho">manual</span></span>
+      </div></div>
+      <div class="lane os"><div class="lanelabel"><span class="ld"></span>With the OS</div><div class="flow">
+        <span class="fn agent"><span class="flbl">Secure upload link</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Auto-filed to OneDrive</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Into Dodonai</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Review drafted + filed</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="flbl">Physician review + verify</span><span class="fwho">you</span></span>
+      </div></div>
+    </div>
+
+    <div class="wfcard reveal d3">
+      <div class="wfhead"><span class="wfn">3</span><span class="wfname">CME / IME execution</span><span class="wfsave">judgment, handed to you clean</span></div>
+      <div class="lane today"><div class="lanelabel"><span class="ld"></span>Today — by hand</div><div class="flow">
+        <span class="fn man"><span class="flbl">Confirmation emails (1mo / 1wk)</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Interview guide</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Exam + notes</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">H&amp;P + assessment</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Report emailed to firm</span><span class="fwho">manual</span></span>
+      </div></div>
+      <div class="lane os"><div class="lanelabel"><span class="ld"></span>With the OS</div><div class="flow">
+        <span class="fn agent"><span class="flbl">Confirmations sent</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Interview guide generated</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="flbl">Exam + H&amp;P + assessment</span><span class="fwho">you</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="flbl">Approve final report</span><span class="fwho">you</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Released to firm</span><span class="fwho">agent</span></span>
+      </div></div>
+    </div>
+
+    <div class="wfcard reveal d4">
+      <div class="wfhead"><span class="wfn">4</span><span class="wfname">Deposition</span><span class="wfsave">file assembled for you</span></div>
+      <div class="lane today"><div class="lanelabel"><span class="ld"></span>Today — by hand</div><div class="flow">
+        <span class="fn man"><span class="flbl">Offer dates</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Two invoices (depo + prep)</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Schedule pre-depo (Teams)</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Assemble duces tecum</span><span class="fwho">manual</span></span><span class="farr">→</span>
+        <span class="fn man"><span class="flbl">Physician reviews file</span><span class="fwho">manual</span></span>
+      </div></div>
+      <div class="lane os"><div class="lanelabel"><span class="ld"></span>With the OS</div><div class="flow">
+        <span class="fn agent"><span class="flbl">Dates offered</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Invoices fired</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Pre-depo booked</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Duces tecum assembled</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="flbl">Physician reviews file</span><span class="fwho">you</span></span>
+      </div></div>
+    </div>
+  </div>
+</section>
+
+<!-- 2. PHYSICIAN GATES -->
+<section class="alt" id="s2">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Agenda 2</span><h2>Physician decision gates <span class="agtime">12 min</span></h2>
+      <p class="sec-sub">The points where the system stops and waits for you. Nothing of consequence leaves the practice without your one-look approval. Confirm and refine these together.</p></div>
+
+    <div class="gatemap reveal d1">
+      <div class="gmh">The matter lifecycle — agents run the line, the six numbered gates stop for you</div>
+      <div class="flow">
+        <span class="fn agent"><span class="flbl">Intake + matter created</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="gnum">1</span><span class="flbl">Scope review</span><span class="fwho">you</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Records → Dodonai review</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="gnum">2</span><span class="flbl">Verify vs source PDF</span><span class="fwho">you</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">CME scheduled + guide</span><span class="fwho">agent</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="gnum">3</span><span class="flbl">Approve interview guide</span><span class="fwho">you</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="gnum">4</span><span class="flbl">Approve final report</span><span class="fwho">you</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="gnum">5</span><span class="flbl">Approve for release</span><span class="fwho">you</span></span><span class="farr">→</span>
+        <span class="fn gate"><span class="gnum">6</span><span class="flbl">Payment confirmed</span><span class="fwho">gate</span></span><span class="farr">→</span>
+        <span class="fn agent"><span class="flbl">Released to counsel</span><span class="fwho">agent</span></span>
+      </div>
+    </div>
+
+    <div class="gateflow">
+      <div class="gaterow reveal d1"><span class="gn">1</span><div><p class="gt">Initial matter scope review</p><p class="gd">The OS routes a new matter with the records summarized; you confirm fit — extremity / knee / shoulder focus, acceptable non-operated spine — before it proceeds.</p></div><span class="gpill">your call</span></div>
+      <div class="gaterow reveal d1"><span class="gn">2</span><div><p class="gt">Dodonai output verification against source PDFs</p><p class="gd">Dodonai's review traces back to the source records and is verified internally. The system surfaces it for your review; your verification stays in the loop by design.</p></div><span class="gpill">your call</span></div>
+      <div class="gaterow reveal d2"><span class="gn">3</span><div><p class="gt">CME interview-guide approval</p><p class="gd">The OS generates the interview guide for dictation; you approve it before the exam.</p></div><span class="gpill">your call</span></div>
+      <div class="gaterow reveal d2"><span class="gn">4</span><div><p class="gt">Final CME draft report approval</p><p class="gd">The assembled H&amp;P, assessment and discussion come to you as a draft; the opinions and the sign-off are yours.</p></div><span class="gpill">your call</span></div>
+      <div class="gaterow reveal d3"><span class="gn">5</span><div><p class="gt">One-click "Approve for Release"</p><p class="gd">On your approval, the final CME report is released to defense counsel — one action, fully logged.</p></div><span class="gpill">your call</span></div>
+      <div class="gaterow reveal d3"><span class="gn">6</span><div><p class="gt">Payment-confirmation gate before release</p><p class="gd">Release is blocked until the outstanding invoice clears <i>and</i> you've approved — the double-check you asked for. (Detail in section 4.)</p></div><span class="gpill">your call</span></div>
+    </div>
+    <div class="gatenote reveal d2">The OS removes the typing, <b>not the medicine</b>. The exam, the H&amp;P, the assessment, and every release decision stay with you. The system just hands them to you clean, on time, and with the source in reach.</div>
+  </div>
+</section>
+
+<!-- 3. INTEGRATIONS -->
+<section id="s3">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Agenda 3</span><h2>Integration requirements <span class="agtime">10 min</span></h2>
+      <p class="sec-sub">Your tools stay. The OS connects to the two that run the practice — Practice Panther and Microsoft 365 — through their APIs, reads and writes their data, and runs the coordination between them.</p></div>
+
+    <div class="integ">
+      <div class="integcard reveal d1">
+        <div class="integ-h"><span class="ilogo pp">PP</span><div><div class="iname">Practice Panther</div><div class="irole">Case + billing system of record</div></div></div>
+        <div class="exchange">
+          <div class="exbox"><div class="ebt">Practice Panther</div><div class="ebs">matters · tasks · invoices</div></div>
+          <div class="exarr">⇄</div>
+          <div class="exbox os"><div class="ebt">Firm OS</div><div class="ebs">orchestration</div></div>
+        </div>
+        <div class="exflow">
+          <div class="exrow"><span class="exdir">OS →</span><span>Creates matters, fires the right task workflow, triggers + updates invoices.</span></div>
+          <div class="exrow"><span class="exdir">→ OS</span><span>Reads matter status, payment status, and documents — live, via API + webhooks.</span></div>
+        </div>
+      </div>
+      <div class="integcard reveal d2">
+        <div class="integ-h"><span class="ilogo ms">365</span><div><div class="iname">Microsoft 365</div><div class="irole">Outlook · Teams · Word</div></div></div>
+        <div class="exchange">
+          <div class="exbox"><div class="ebt">Microsoft 365</div><div class="ebs">mail · calendar · docs</div></div>
+          <div class="exarr">⇄</div>
+          <div class="exbox os"><div class="ebt">Firm OS</div><div class="ebs">orchestration</div></div>
+        </div>
+        <div class="exflow">
+          <div class="exrow"><span class="exdir">OS →</span><span>Drafts replies, merges engagement letters + reports, books Teams meetings on the Outlook calendar.</span></div>
+          <div class="exrow"><span class="exdir">→ OS</span><span>Reads inbound mail + calendar to detect intake and kick off the workflow.</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="integ-strip">
+      <div class="ichip reveal d1"><b>OneDrive</b>Files into your existing folders (<span style="font-family:var(--mono);font-size:10.5px">01_Records_Received</span> / <span style="font-family:var(--mono);font-size:10.5px">02_AI_Chronology</span>) — no change to how you file.</div>
+      <div class="ichip reveal d2"><b>Dodonai</b>Record-review engine, fed clean PDFs; the review comes back to the right folder.</div>
+      <div class="ichip reveal d3"><b>Your preferred AI</b>Runs the drafting prompts you already use, in sequence, on demand.</div>
+      <div class="ichip reveal d4"><b>RadiAnt · CE Broker</b>Imaging viewer untouched; CO + FL license + CME deadlines watched and flagged early.</div>
+    </div>
+
+    <p class="sec-sub reveal d2" style="margin-bottom:18px">Your <b>Make.com scenario</b> isn't wasted — we fold its logic into the OS, so the OS becomes the one orchestration layer with no fragile scenarios for you to maintain solo after July 31.</p>
+
+    <div class="need">
+      <div class="needcard reveal d1"><div class="nh">What we need from you</div><div class="nt">Practice Panther access</div><p>API key + webhook permissions so the OS can create matters, fire task workflows, and trigger invoices. The one unblock to start.</p></div>
+      <div class="needcard reveal d2"><div class="nh">What we need from you</div><div class="nt">Microsoft 365 connection</div><p>Calendar + mailbox access scoped to the practice, so scheduling and intake replies run inside your existing tenant.</p></div>
+      <div class="needcard reveal d3"><div class="nh">Dashboard visibility</div><div class="nt">Live status + sign-off queue</div><p>One screen: every active matter, live agent activity, and a clear "needs your sign-off" list.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4. PAYMENT -->
+<section class="alt" id="s4">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Agenda 4</span><h2>Payment process &amp; automation <span class="agtime">10 min</span></h2>
+      <p class="sec-sub">Two things to separate: the <b>release gate</b> (block a report until it's paid) we build early; full <b>electronic ACH</b> with defense firms we sequence deliberately, since it touches the firms' side too.</p></div>
+    <div class="payflow">
+      <div class="paystep reveal d1"><div class="pst">Today</div><div class="ph">Manual</div><p>Invoices created and chased by hand; QuickBooks being phased out, invoicing consolidating into Practice Panther.</p></div>
+      <div class="payarr reveal d1">→</div>
+      <div class="paystep gate reveal d2"><div class="pst">Phase 1–2 · we build</div><div class="ph">Release gate</div><p>Before the final report releases, the OS checks the outstanding-invoice status in Practice Panther and holds release until it's cleared <i>and</i> you've approved.</p></div>
+      <div class="payarr reveal d2">→</div>
+      <div class="paystep future reveal d3"><div class="pst">Phase 2+ · roadmap</div><div class="ph">Phased ACH</div><p>Move toward electronic ACH with defense firms. Scoped deliberately — it needs payment rails and a process change on the firm side, so we phase it in.</p></div>
+    </div>
+    <div class="payfail reveal d2"><b>Payment verification failures:</b> the OS never auto-releases on ambiguous payment status. If a payment can't be confirmed, it <b>holds the report and flags it to you on the dashboard</b> — the same control you have today, just automatic and impossible to miss.</div>
+
+    <div class="sec-head reveal d2" style="margin-top:38px;margin-bottom:16px"><h2 style="font-size:21px">What the ACH path looks like <span class="soft">end to end</span></h2>
+      <p class="sec-sub" style="margin-bottom:0">An example of how the gate and the ACH rail fit together once invoicing is consolidated into Practice Panther.</p></div>
+    <div class="procflow reveal d2">
+      <div class="procnode"><div class="pnt">System of record</div><div class="pnh">Invoice issued</div><p>Practice Panther issues the invoice; the OS tracks it against the matter.</p></div>
+      <div class="procarr">→</div>
+      <div class="procnode proc"><span class="extag">example</span><div class="pnt">Payment rail</div><div class="pnh">Defense firm pays — ACH or card</div><p>Via an electronic processor (e.g. Stripe). Final processor confirmed with you.</p></div>
+      <div class="procarr">→</div>
+      <div class="procnode"><div class="pnt">Webhook → OS</div><div class="pnh">Payment confirmed</div><p>The processor confirms; the OS updates the matter's payment status automatically.</p></div>
+      <div class="procarr">→</div>
+      <div class="procnode gate"><div class="pnt">Gate</div><div class="pnh">Release clears</div><p>With payment confirmed <i>and</i> your approval in hand, the release gate opens.</p></div>
+      <div class="procarr">→</div>
+      <div class="procnode"><div class="pnt">Outbound</div><div class="pnh">Report released</div><p>The final report goes to defense counsel — logged, on the record.</p></div>
+    </div>
+    <div class="procnote reveal d2"><b>One note before we draw this in stone:</b> today you invoice through Practice Panther (moving off QuickBooks) and haven't locked an electronic-payment processor. Stripe above is illustrative — <b>we've built Stripe payment automations before, so it's a proven path for us</b>. Tell us who you'd prefer and we wire the OS to that rail. The <b>release gate works regardless of processor.</b></div>
+  </div>
+</section>
+
+<!-- 5. TIMELINE / KT -->
+<section id="s5">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Agenda 5</span><h2>Timeline, phasing &amp; knowledge transfer <span class="agtime">12 min</span></h2>
+      <p class="sec-sub">A realistic path to a working Phase 1 before July 31, with Tatiana's process captured into the system while she's still here.</p></div>
+
+    <div class="p1callout reveal d1">
+      <div class="p1l">
+        <div class="p1tag">What Phase 1 is</div>
+        <h3>Records-in + intake</h3>
+        <ul>
+          <li><b>Secure records upload via Dodonai</b> — one link per matter, no 25 MB ceiling; records ingest into Dodonai and auto-file into your OneDrive</li>
+          <li><b>Intake automation</b> — retention email detected, engagement letter + intake link drafted, matter auto-created in Practice Panther</li>
+          <li><b>Scheduling</b> — pre-review Teams meeting booked off the Outlook calendar</li>
+        </ul>
+      </div>
+      <div class="p1r">
+        <div class="p1when-l">Delivered</div>
+        <div class="p1when">Live &amp; testable<br>before Jul 31, 2026</div>
+        <div class="p1sub">On real matters, while Tatiana is here to validate.</div>
+      </div>
+    </div>
+
+    <div class="timeline reveal d1">
+      <div class="tl-line"></div>
+      <div class="phase-t"><div class="pnode2">0</div><div class="ptagline">This call</div><div class="ph2">Architecture</div><div class="pd2">Agree the destination, what we build first, and the Phase 1 numbers.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Before Jul 31</div><div class="ph2">Records-in + intake</div><div class="pd2">The stuck point first: secure upload, auto-file into Dodonai, intake + scheduling + matter creation. Capture Tatiana's process while she's here.</div></div>
+      <div class="phase-t future"><div class="pnode2">2</div><div class="ptagline">Next</div><div class="ph2">CME, depo + billing</div><div class="pd2">The rest of the four phases, the release + retainer gates, the cockpit dashboard, and license / CME monitoring.</div></div>
+      <div class="phase-t future"><div class="pnode2">3</div><div class="ptagline">Ongoing</div><div class="ph2">Refine &amp; scale</div><div class="pd2">Tune each agent on live matters, fold in personal-admin automations, and expand the OS as the caseload grows.</div></div>
+    </div>
+    <div class="sec-head reveal d2" style="margin-top:34px;margin-bottom:16px"><h2 style="font-size:21px">Two ways to run <span class="soft">the timeline</span></h2>
+      <p class="sec-sub" style="margin-bottom:0">Same destination. The difference is how much we build in parallel before July 31 — and the capacity that takes.</p></div>
+    <div class="numbers-grid">
+      <div class="numcard reveal d1"><div class="nlabel">Track A · phased</div><h3>Phase 1 by Jul 31, rest fast-follows</h3><p style="font-size:13.5px;color:var(--gray-meta-light);margin:.5em 0 0;line-height:1.55">Records-in + intake live before Tatiana leaves; CME, depo, billing gates, dashboard and license / CME monitoring roll out right after. Steady cadence, standard pricing.</p></div>
+      <div class="numcard reveal d2" style="border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))"><div class="nlabel">Track B · compressed sprint</div><h3>Full build targeted by Jul 31</h3><p style="font-size:13.5px;color:var(--midnight);margin:.5em 0 0;line-height:1.55">Everything we identify today, built in parallel before the handoff — so nothing is left running by hand when Tatiana leaves. Needs fast access, frozen scope, and dedicated capacity; priced at a premium for the concurrency.</p></div>
+    </div>
+    <p class="sec-sub reveal d2" style="margin:16px 0 0;font-size:14px">In both tracks, full <b>electronic ACH</b> is the one piece we sequence as a fast-follow — it's gated on your processor choice and a change on the defense firms' side, not on us.</p>
+
+    <div class="ktgrid">
+      <div class="ktcard reveal d1"><div class="ki">📦</div><h4>The handoff package</h4><p>The OS <i>is</i> the knowledge transfer — the process lives in the system, not a head. Plus documentation of each agent and a dashboard runbook.</p></div>
+      <div class="ktcard reveal d2"><div class="ki">🔁</div><h4>Bring active matters in</h4><p>Our recommendation: migrate your open matters into the OS so they don't lose their operator when Tatiana leaves. We carry over state, not redo work; new matters start in the OS by default.</p></div>
+      <div class="ktcard reveal d3"><div class="ki">🛟</div><h4>Errors after July 31</h4><p>The OS surfaces exceptions to the dashboard rather than failing silently, and the support retainer puts real people on call. The next person inherits a system, not a folder of instructions.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 6. SUPPORT + METRICS -->
+<section class="alt" id="s6">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Agenda 6</span><h2>Support model &amp; success metrics <span class="agtime">8 min</span></h2>
+      <p class="sec-sub">Day-to-day, the support layer is optional and tiered — you pick how much you lean on us, and we measure the OS against numbers that matter to the practice.</p></div>
+    <div class="tiers">
+      <div class="tier reveal d1"><div class="tname">A-la-carte</div><div class="tshape">As-you-need</div><ul><li>Pay for help when you use it</li><li>Best while volume is low</li><li>Email support, business-hours</li></ul></div>
+      <div class="tier mid reveal d2"><span class="tflag">common start</span><div class="tname">As-needed retainer</div><div class="tshape">A set monthly block</div><ul><li>Monitoring + exception handling</li><li>Agent tuning on live matters</li><li>Defined response time + escalation to Nick / James</li></ul></div>
+      <div class="tier reveal d3"><div class="tname">White-glove</div><div class="tshape">Full managed services</div><ul><li>We run the OS day-to-day</li><li>Priority response, proactive tuning</li><li>Quarterly roadmap + expansion</li></ul></div>
+    </div>
+    <div class="metrics">
+      <div class="metric reveal d1"><div class="mv">Automation rate</div><div class="ml">Steps run by the OS</div><div class="md">Share of the ~34 admin steps the OS handles per matter.</div></div>
+      <div class="metric reveal d2"><div class="mv">Time saved</div><div class="ml">Hours back / month</div><div class="md">Baselined against your real matters in discovery — target ~20 hrs/mo.</div></div>
+      <div class="metric reveal d3"><div class="mv">Error rate</div><div class="ml">Exceptions caught</div><div class="md">Issues the OS flags before they reach a firm or a deadline.</div></div>
+      <div class="metric reveal d4"><div class="mv">Review time</div><div class="ml">Physician minutes / matter</div><div class="md">How long you actually spend, once only the judgment reaches you.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- VALUE & INVESTMENT -->
+<section id="value">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Value &amp; investment</span><h2>The numbers, <span class="soft">and what they replace</span></h2>
+      <p class="sec-sub">The frame that matters isn't tool cost. It's that this replaces the operations role you're losing on July 31, gives you time back on the work only you can do, and you own the system instead of renting it.</p></div>
+    <div class="vstats reveal d1">
+      <div class="vstat"><div class="vn">~20 hrs</div><div class="vl">Admin time back every month, across a typical two-to-three-matter month.</div></div>
+      <div class="vstat"><div class="vn">34 <span class="to">&rarr;</span> ~10</div><div class="vl">Admin steps become medical judgments. The OS runs the routine; what reaches you is the decisions only you can make.</div></div>
+      <div class="vstat"><div class="vn">You own it</div><div class="vl">The OS code and custom agents are yours. No subscription that turns into a pumpkin.</div></div>
+    </div>
+    <div class="numbers-grid">
+      <div class="numcard reveal d1">
+        <div class="nlabel">Build · phased</div>
+        <h3>Pay per phase, not up front</h3>
+        <p style="font-size:14px;color:var(--gray-meta-light);margin:.4em 0 0;line-height:1.5">Work breaks into small phases. Each phase splits in half:</p>
+        <div class="paysplit">
+          <div class="half"><div class="h">Phase start</div><div class="v">50%</div></div>
+          <div class="arr">→</div>
+          <div class="half"><div class="h">Your approval</div><div class="v">50%</div></div>
+        </div>
+        <!-- data-confirm: Phase 1 starting figure — confirm against rate card before the call. -->
+        <p class="numnote">We start with the smallest high-value piece — <b>records-in + intake</b> — so the first cheque buys something you can feel. Cash tracks completion: you see a working result before you pay the back half. We'll size Phase 1 together on the call.</p>
+      </div>
+      <div class="numcard reveal d2">
+        <div class="nlabel">Ongoing · two layers</div>
+        <h3>Hosting + optional support</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Hosting / infrastructure</div><div class="od">Cloud hosting + storage for your OS; scales with how much the agents run</div></div><div class="oa">base layer<br>monthly</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Support retainer <span style="color:var(--gray-meta);font-weight:400">(optional)</span></div><div class="od">Access to Nick + James + team; a-la-carte → as-needed → white-glove</div></div><div class="oa">tiered<br>you pick</div></div>
+        <div class="value-anchor">We <b>split hosting from support</b> so you size each independently. And there's <b>no separate line for the workflow audit</b> — Tatiana already documented the process, so a light discovery folds into Phase 1 rather than billing twice.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- 7. NEXT STEPS & OWNERSHIP -->
+<section class="ink" id="s7">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Agenda 7</span><h2>Next steps &amp; ownership <span class="agtime">10 min</span></h2>
+      <p class="sec-sub">What happens the moment this call ends, who builds what, and the ownership question — answered plainly.</p></div>
+    <div class="steps">
+      <div class="stepc reveal d1"><span class="scn">1</span><div><p class="sct">Lock Phase 1 scope &amp; SOW</p><p class="scd">Agree records-in + intake as Phase 1, sized today. We fold a short discovery into it and turn around a phased SOW with the 50/50 schedule.</p><div class="scwho">decision · today</div></div></div>
+      <div class="stepc reveal d1"><span class="scn">2</span><div><p class="sct">Capture Tatiana's process</p><p class="scd">Discovery + working sessions while she's still here, so her process lands in the OS before July 31.</p><div class="scwho">Dodonai + Tatiana</div></div></div>
+      <div class="stepc reveal d2"><span class="scn">3</span><div><p class="sct">Grant Practice Panther access</p><p class="scd">API key + webhooks — the one technical unblock so we can start building.</p><div class="scwho">Greenspoon</div></div></div>
+      <div class="stepc reveal d2"><span class="scn">4</span><div><p class="sct">Share the Make.com scenario</p><p class="scd">So we can absorb what you've already built.</p><div class="scwho">Greenspoon + Tatiana</div></div></div>
+    </div>
+    <div class="ownbar reveal d2"><span class="ok">On ownership:</span> <b>You own the OS code and the custom agents we build</b> — connect your preferred AI agent, the keys stay with you, nothing turns into a pumpkin. Dodonai, the record-review engine, stays your existing subscription exactly as it is today, integrated into the OS. Who builds the approval workflow, dashboard, and payment gates? <b>We do — built with you, owned by you.</b></div>
+  </div>
+</section>
+
+<!-- KEY QUESTIONS -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Your questions</span><h2>Straight answers <span class="soft">to your list</span></h2>
+      <p class="sec-sub">The questions you and Grok raised, answered directly. The detail behind each lives in the sections above.</p></div>
+    <div class="qa">
+      <div class="qacard reveal d1"><div class="qgroup">Timeline</div><p class="qq"><span class="qmark">Q</span>Realistic timeline for working Phase 1 and full phases before Tatiana leaves?</p><p class="qaa">Two options: a <b>phased track</b> (Phase 1 live by July 31, the rest fast-follows) or a <b>compressed sprint</b> that targets the full build before July 31. Both are realistic with fast access and frozen scope; the intake agent is already built, so you'll see something working early. ACH is the one piece gated on processor + firm-side change, so it's a fast-follow either way. We'll pick the track today.</p></div>
+      <div class="qacard reveal d1"><div class="qgroup">Timeline</div><p class="qq"><span class="qmark">Q</span>When are the first custom agents live and testable?</p><p class="qaa">Within Phase 1. We adapt the existing intake agent to your flow first, then layer in records ingestion — both testable on real matters while Tatiana is here to validate.</p></div>
+      <div class="qacard reveal d2"><div class="qgroup">Scope &amp; integration</div><p class="qq"><span class="qmark">Q</span>How do your agents integrate with or replace our Make.com scenario?</p><p class="qaa">We <b>absorb its logic into the OS</b> — your work isn't wasted. The OS becomes the orchestration layer so there are no fragile scenarios to maintain solo after July 31.</p></div>
+      <div class="qacard reveal d2"><div class="qgroup">Scope &amp; integration</div><p class="qq"><span class="qmark">Q</span>What's in Phase 1 vs later phases?</p><p class="qaa"><b>Phase 1:</b> secure records upload, auto-file into Dodonai, intake + scheduling + matter creation. <b>Later:</b> CME / depo workflows, billing + release gates, the cockpit dashboard, license / CME monitoring, personal-admin automations.</p></div>
+      <div class="qacard reveal d3"><div class="qgroup">Scope &amp; integration</div><p class="qq"><span class="qmark">Q</span>Can the OS use our existing OneDrive structure as the handoff point?</p><p class="qaa">Yes. <span style="font-family:var(--mono);font-size:11.5px">01_Records_Received</span> / <span style="font-family:var(--mono);font-size:11.5px">02_AI_Chronology_Complete</span> stay exactly as they are; the OS files into them. No change to how you file.</p></div>
+      <div class="qacard reveal d3"><div class="qgroup">Pricing &amp; support</div><p class="qq"><span class="qmark">Q</span>Walk through the phased pricing (50/50) and monthly hosting.</p><p class="qaa"><b>Each phase: 50% at start, 50% on your approval.</b> Ongoing splits into hosting (base monthly, scales with usage) + an optional tiered support retainer. We'll size Phase 1 live — see Value &amp; Investment.</p></div>
+      <div class="qacard reveal d4"><div class="qgroup">Pricing &amp; support</div><p class="qq"><span class="qmark">Q</span>What does "managed services" include day-to-day?</p><p class="qaa">Monitoring, exception handling, agent tuning on live matters, a defined response time, and clear escalation to Nick + James. Tiered: a-la-carte → as-needed → white-glove. You pick.</p></div>
+      <div class="qacard reveal d4"><div class="qgroup">Pricing &amp; support</div><p class="qq"><span class="qmark">Q</span>Is there a separate cost for the initial workflow audit?</p><p class="qaa">No separate line. Tatiana already documented the process — the expensive part is done — so a light discovery folds into Phase 1.</p></div>
+      <div class="qacard reveal d5"><div class="qgroup">Technical &amp; access</div><p class="qq"><span class="qmark">Q</span>What Practice Panther API / webhook access do you need?</p><p class="qaa">An API key plus webhook permissions, so the OS can create matters, fire task workflows, and trigger invoices in real time. This is the one unblock to start.</p></div>
+      <div class="qacard reveal d5"><div class="qgroup">Technical &amp; access</div><p class="qq"><span class="qmark">Q</span>Will the dashboard show live agent activity and items needing my sign-off?</p><p class="qaa">Yes — one screen: every active matter, a live feed of what the agents did, and a clear "needs your sign-off" queue so nothing waits unnoticed.</p></div>
+      <div class="qacard reveal d5"><div class="qgroup">Technical &amp; access</div><p class="qq"><span class="qmark">Q</span>How do you handle secure, unlimited-size record uploads?</p><p class="qaa">Through <b>Dodonai</b> — it's built to ingest large medical-record sets with no 25 MB ceiling, on a HIPAA-compliant, SOC 2-certified platform. The system sends a secure per-matter upload link to the firm and files the records into the right matter folder automatically, no personal-folder sharing.</p></div>
+      <div class="qacard reveal d5"><div class="qgroup">Quality control</div><p class="qq"><span class="qmark">Q</span>How is Dodonai output verified against source PDFs?</p><p class="qaa">Dodonai verifies its review against the source internally and traces back to it; the system surfaces the result for your review, and your verification gate stays in place. The human check is the feature — we make it quick, we don't remove it.</p></div>
+      <div class="qacard reveal d5"><div class="qgroup">Quality control</div><p class="qq"><span class="qmark">Q</span>Can release be blocked until both approval and payment are complete?</p><p class="qaa">Yes. The report won't release until the outstanding invoice clears <i>and</i> you've approved. If payment can't be confirmed, the OS holds and flags it — never auto-releases.</p></div>
+      <div class="qacard reveal d5"><div class="qgroup">Next steps</div><p class="qq"><span class="qmark">Q</span>Migrate existing matters or start fresh? And what do you need immediately?</p><p class="qaa">We recommend <b>migrating your active matters into the OS</b> — with Tatiana leaving July 31, in-flight matters need an operator, and the OS becomes it. We carry over state, not redo work; new matters start in the OS by default. To start: Practice Panther access, the Make.com scenario, and a locked Phase 1 scope.</p></div>
+      <div class="qacard reveal d5"><div class="qgroup">Ownership</div><p class="qq"><span class="qmark">Q</span>Confirm we retain full code and IP ownership.</p><p class="qaa"><b>Yes — you own the OS code and the custom agents we build.</b> Dodonai (the review engine) remains your existing subscription, integrated in. The system you own doesn't expire and isn't locked to us.</p></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for Greenspoon Consulting, Inc. · Jun 15, 2026 · Confidential
+  </div>
+</footer>
+
+<script>
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('in'); } });
+  }, {threshold:0.12, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+})();
+</script>
+
+</body>
+</html>
