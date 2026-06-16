@@ -107,6 +107,36 @@ h2 .soft{color:var(--purple-bold)}
 .flow-mini b{color:#fff;font-weight:700}
 .flow-mini .ar{color:var(--purple-vivid);font-weight:700}
 .kills-line{font-size:13.5px;color:var(--purple-bold);font-weight:600;margin-top:6px}
+/* CONVERSION PIPELINE (node flow) */
+.cpipe-wrap{background:var(--midnight);border-radius:12px;padding:28px 20px 22px;margin:14px 0 4px;position:relative;overflow:hidden}
+.cpipe{display:flex;align-items:flex-start;gap:0;position:relative}
+.cpipe .pn{flex:1;text-align:center;position:relative;padding:0 6px}
+.cpipe .pdot{width:50px;height:50px;border-radius:13px;margin:0 auto 11px;display:flex;align-items:center;justify-content:center;font-size:21px;background:var(--midnight-soft);border:2px solid rgba(181,168,230,.35);position:relative;z-index:2;transition:all .4s}
+.cpipe .pn .pttl{font-weight:700;font-size:13px;letter-spacing:-.01em;margin-bottom:4px;color:#fff}
+.cpipe .pn .pwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-soft)}
+.cpipe .pn.gate .pwho{color:var(--green)}
+.cpipe .pn .pst{font-family:var(--mono);font-size:9px;font-weight:600;letter-spacing:.02em;text-transform:uppercase;margin-top:8px;padding:3px 8px;border-radius:10px;display:inline-block;background:rgba(255,255,255,.06);color:var(--purple-soft);line-height:1.35}
+.cpipe .pn.gate .pst{background:rgba(46,158,107,.16);color:var(--green)}
+.cpipe .pline{position:absolute;top:25px;height:3px;background:rgba(181,168,230,.25);z-index:0;left:9%;right:9%}
+.cpipe .pline .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft))}
+.cpipe .pdot .ic-done{position:absolute;opacity:0;color:#fff}
+.cpipe-wrap.play .pline .pfill{animation:cfill 9s linear infinite}
+@keyframes cfill{0%{width:0}90%,100%{width:100%}}
+.cpipe-wrap.play .pn .pdot{animation:cnode 9s linear infinite}
+.cpipe-wrap.play .pn:nth-child(2) .pdot,.cpipe-wrap.play .pn:nth-child(2) .pdot .ic-done,.cpipe-wrap.play .pn:nth-child(2) .pdot .ic-base{animation-delay:0s}
+.cpipe-wrap.play .pn:nth-child(3) .pdot,.cpipe-wrap.play .pn:nth-child(3) .pdot .ic-done,.cpipe-wrap.play .pn:nth-child(3) .pdot .ic-base{animation-delay:1.6s}
+.cpipe-wrap.play .pn:nth-child(4) .pdot,.cpipe-wrap.play .pn:nth-child(4) .pdot .ic-done,.cpipe-wrap.play .pn:nth-child(4) .pdot .ic-base{animation-delay:3.2s}
+.cpipe-wrap.play .pn:nth-child(5) .pdot,.cpipe-wrap.play .pn:nth-child(5) .pdot .ic-done,.cpipe-wrap.play .pn:nth-child(5) .pdot .ic-base{animation-delay:4.8s}
+.cpipe-wrap.play .pn:nth-child(6) .pdot,.cpipe-wrap.play .pn:nth-child(6) .pdot .ic-done,.cpipe-wrap.play .pn:nth-child(6) .pdot .ic-base{animation-delay:6.4s}
+@keyframes cnode{0%,8%{background:var(--midnight-soft);border-color:rgba(181,168,230,.35);transform:scale(1)}
+  10%{background:rgba(124,58,237,.25);border-color:var(--purple-vivid);transform:scale(1.08)}
+  16%,100%{background:var(--purple-vivid);border-color:var(--purple-vivid)}}
+.cpipe-wrap.play .pn .pdot .ic-done{animation:cdone 9s linear infinite}
+@keyframes cdone{0%,12%{opacity:0}16%,100%{opacity:1}}
+.cpipe-wrap.play .pn .pdot .ic-base{animation:cbase 9s linear infinite}
+@keyframes cbase{0%,12%{opacity:1}16%,100%{opacity:0}}
+.cpipe-foot{margin-top:18px;font-size:13.5px;color:var(--purple-soft);text-align:center;line-height:1.5}
+.cpipe-foot b{color:#fff}
 .feat{display:flex;flex-direction:column;gap:9px;margin-top:10px}
 .feat .f{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
 .feat .f .fm{color:var(--purple-vivid);font-weight:800;flex:0 0 auto}
@@ -191,6 +221,9 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
   .roi .rgrid{grid-template-columns:1fr;gap:18px}
   .timeline{grid-template-columns:1fr;gap:26px}
   .tl-line{display:none}
+  .cpipe{flex-direction:column;gap:20px}
+  .cpipe .pline{display:none}
+  .cpipe .pdot{margin-bottom:8px}
 }
 @media print{
   .hero{padding:40px 0}.section,section{padding:28px 0;page-break-inside:avoid}
@@ -283,14 +316,37 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
       <div class="pillar">
         <div class="phead"><span class="pnum">1</span><span class="ptitle">Conversion flow — own the pipeline</span></div>
         <div class="pbody">
-<span class="flow-mini"><b>Lead sources</b>  <span class="ar">──►</span>  <b>Conversion orchestrator</b>  <span class="ar">──►</span>  <b>You / Staff</b>
-Smith.AI · referral       1. Capture + tag referral source         OS pipeline
-email · direct email      2. ONE link: sign (Rsign) + pay (Stripe)  (replaces Streak)
-website form              3. Auto-match payment <span class="ar">↔</span> contract
-                          4. Email + SMS follow-ups (farmer-friendly)
-                          5. Partial-completion nudge
-                          6. Both done? <span class="ar">──►</span> alert you + write record
-                          7. Referral + cash-intake dashboards</span>
+<div class="cpipe-wrap" id="convpipe">
+            <div class="cpipe">
+              <div class="pline"><div class="pfill"></div></div>
+              <div class="pn">
+                <div class="pdot"><span class="ic-base">📨</span><span class="ic-done">✓</span></div>
+                <div class="pttl">Lead lands</div><div class="pwho">Agent</div>
+                <div class="pst">captured · source tagged</div>
+              </div>
+              <div class="pn">
+                <div class="pdot"><span class="ic-base">🔗</span><span class="ic-done">✓</span></div>
+                <div class="pttl">One link out</div><div class="pwho">Agent</div>
+                <div class="pst">sign (Rsign) + pay (Stripe)</div>
+              </div>
+              <div class="pn">
+                <div class="pdot"><span class="ic-base">🔄</span><span class="ic-done">✓</span></div>
+                <div class="pttl">Reconcile</div><div class="pwho">Agent</div>
+                <div class="pst">match payment ↔ contract · nudge by email + SMS</div>
+              </div>
+              <div class="pn gate">
+                <div class="pdot"><span class="ic-base">🔔</span><span class="ic-done">✓</span></div>
+                <div class="pttl">Both done</div><div class="pwho">You</div>
+                <div class="pst">you're alerted — nothing to chase</div>
+              </div>
+              <div class="pn">
+                <div class="pdot"><span class="ic-base">📊</span><span class="ic-done">✓</span></div>
+                <div class="pttl">Tracked</div><div class="pwho">OS</div>
+                <div class="pst">referral + cash-intake dashboards</div>
+              </div>
+            </div>
+            <div class="cpipe-foot">Four steps run themselves; you just get the both-done alert. The OS becomes your pipeline of record — <b>Streak retires.</b></div>
+          </div>
           <p class="kills-line">Kills: manual payment/contract reconciliation, dead leads, hand-tracking who's done what.</p>
         </div>
       </div>
@@ -346,7 +402,7 @@ website form              3. Auto-match payment <span class="ar">↔</span> cont
         <h3>Two separable layers</h3>
         <div class="opex-row"><div class="ol"><div class="ot">Hosting / infrastructure <span style="color:var(--gray-meta);font-weight:400">(only required cost)</span></div><div class="od">GCloud, US residency, storage; scales with AI token usage if agents run on a schedule</div></div><div class="oa">$200–500<br>/mo</div></div>
         <div class="opex-row"><div class="ol"><div class="ot">Support retainer <span style="color:var(--gray-meta);font-weight:400">(optional, tiered)</span></div><div class="od">Access to Nick + James + team. A-la-carte ~1 hr/mo → weekly touch → on-call white-glove</div></div><div class="oa">$0.3–3.5k<br>/mo</div></div>
-        <div class="opex-anchor"><b>Squares with 6/11:</b> the ~$3–5k/mo you heard was hosting <b>+</b> a heavy support tier; ~$1k/mo was hosting + light support. Hosting alone is a few hundred — roughly what you're cutting in Lawmatics ($453/mo) + Streak, so ongoing is near net-neutral from day one.</div>
+        <div class="opex-anchor"><b>What you're cutting covers it:</b> Lawmatics is ~$453/mo (gone July 1), plus Streak — roughly the whole hosting layer. The tools you retire pay for the OS that replaces them; support is optional on top, sized to what you actually want.</div>
       </div>
     </div>
 
@@ -417,6 +473,19 @@ website form              3. Auto-match payment <span class="ar">↔</span> cont
     Prepared for Rupprecht Law, P.A. · v2 · Confidential
   </div>
 </footer>
+
+<script>
+// Play the conversion-pipeline animation once it scrolls into view (idle until seen).
+(function(){
+  var el = document.getElementById('convpipe');
+  if(!el) return;
+  if(!('IntersectionObserver' in window)){ el.classList.add('play'); return; }
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting) e.target.classList.add('play'); });
+  }, {threshold:0.25});
+  io.observe(el);
+})();
+</script>
 
 </body>
 </html>
