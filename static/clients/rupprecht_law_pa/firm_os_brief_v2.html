@@ -1,0 +1,422 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Rupprecht Law — Firm OS Architecture Brief v2</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+/* HERO */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:60px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+.brandbar .v2{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:58px;line-height:1.0;letter-spacing:-.025em;margin:0 0 18px;max-width:15ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:20px;line-height:1.4;color:var(--purple-soft);max-width:58ch;margin:0 0 38px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+
+/* SECTIONS */
+section{padding:54px 0}
+section.alt{background:var(--cream-deep)}
+h2{font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:64ch;margin:0 0 30px}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+
+/* CHANGED STRIP */
+.changed{background:var(--midnight);color:#fff;padding:30px 0}
+.changed .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.changed .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:130px;line-height:1.4}
+.changed .clist{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.changed .ci{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4}
+.changed .ci .tick{color:var(--purple-soft);font-weight:800;flex:0 0 auto}
+.changed .ci b{color:#fff}
+.changed .ci span{color:var(--purple-soft)}
+
+/* PULL QUOTE */
+.pull{position:relative;background:#fff;border-radius:14px;padding:36px 42px 32px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:23px;line-height:1.4;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+.os-def{margin-top:24px;font-size:18px;line-height:1.6;max-width:74ch}
+.os-def strong{color:var(--purple-bold)}
+
+/* KEEP / REPLACE */
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.int{background:var(--green)} .dot.rep{background:var(--purple-vivid)} .dot.add{background:var(--amber)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 19px 16px;position:relative;overflow:hidden}
+.card.replace{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.card.add{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px}
+.card .name{font-weight:800;font-size:16.5px;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.badge.int{background:rgba(46,158,107,.13);color:var(--green)}
+.badge.rep{background:var(--purple-vivid);color:#fff}
+.badge.add{background:var(--amber);color:#fff}
+.card .why{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.card.replace .why,.card.add .why{color:var(--midnight)}
+.flag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--purple-vivid);color:#fff;padding:3px 8px;border-bottom-left-radius:8px}
+
+/* PILLARS */
+.pillars{display:flex;flex-direction:column;gap:18px}
+.pillar{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;position:relative}
+.pillar .phead{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.pillar .pnum{flex:0 0 36px;height:36px;border-radius:10px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.pillar .ptitle{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.pillar .ptag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:14px;margin-left:auto}
+.ptag.moved{background:rgba(124,58,237,.12);color:var(--purple-bold)}
+.ptag.new{background:var(--amber);color:#fff}
+.pillar p{font-size:14.5px;line-height:1.55;margin:.5em 0;color:var(--midnight)}
+.pillar .pbody{margin-top:6px}
+.flow-mini{font-family:var(--mono);font-size:11.5px;line-height:1.7;background:var(--midnight);color:var(--purple-soft);border-radius:10px;padding:16px 18px;margin:12px 0;overflow-x:auto;white-space:pre;display:block}
+.flow-mini b{color:#fff;font-weight:700}
+.flow-mini .ar{color:var(--purple-vivid);font-weight:700}
+.kills-line{font-size:13.5px;color:var(--purple-bold);font-weight:600;margin-top:6px}
+.feat{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.feat .f{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.feat .f .fm{color:var(--purple-vivid);font-weight:800;flex:0 0 auto}
+.feat .f b{color:var(--midnight)}
+
+/* SECURITY */
+.sec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.seccard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-bold)}
+.seccard .ic{font-size:22px;margin-bottom:10px}
+.seccard h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 8px;color:var(--purple-bold)}
+.seccard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.seccard p b{color:var(--midnight-deep)}
+.compliance{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--midnight);color:#fff;padding:8px 16px;border-radius:24px;display:inline-flex;align-items:center;gap:8px}
+.pill .pk{color:var(--purple-soft)}
+
+/* NUMBERS */
+.numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.numcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:26px 28px}
+.numcard h3{font-weight:800;font-size:18px;margin:0 0 4px}
+.numcard .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:14px}
+.paysplit{display:flex;gap:10px;margin:14px 0}
+.paysplit .half{flex:1;background:var(--cream-deep);border-radius:9px;padding:13px 15px;text-align:center}
+.paysplit .half .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.paysplit .half .v{font-weight:800;font-size:15px;color:var(--purple-bold)}
+.paysplit .arr{align-self:center;color:var(--purple-vivid);font-weight:800;font-size:18px}
+.numnote{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin-top:10px}
+.opex-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--cream-line)}
+.opex-row:last-of-type{border-bottom:none}
+.opex-row .ol .ot{font-weight:700;font-size:14.5px}
+.opex-row .ol .od{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin-top:3px}
+.opex-row .oa{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--purple-bold);white-space:nowrap;text-align:right;padding-top:2px}
+.opex-anchor{margin-top:16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.5}
+.opex-anchor b{color:var(--purple-bold)}
+.roi{margin-top:22px;background:linear-gradient(165deg,var(--midnight),var(--midnight-soft));border-radius:14px;padding:26px 30px;color:#fff}
+.roi .rlabel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:16px}
+.roi .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.roi .rstat .rn{font-weight:800;font-size:30px;letter-spacing:-.02em;color:#fff;line-height:1}
+.roi .rstat .rn small{font-size:16px;color:var(--purple-soft);font-weight:700}
+.roi .rstat .rd{font-size:13px;color:var(--purple-soft);line-height:1.4;margin-top:8px}
+.why-now{margin-top:18px;font-size:14px;color:var(--midnight);background:#fff;border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 18px;line-height:1.55}
+.why-now b{color:var(--red)}
+
+/* SCOPE OUT */
+.scope-box{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 26px;border-top:4px solid var(--gray-meta)}
+.scope-box h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 14px;color:var(--gray-meta-light)}
+.chips{display:flex;flex-direction:column;gap:11px}
+.chip{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.chip .mk{flex:0 0 auto;font-weight:800;font-family:var(--mono);color:var(--gray-meta)}
+.chip b{color:var(--midnight)}
+
+/* QUESTIONS */
+.answered{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.ans{font-size:13px;background:rgba(46,158,107,.1);border:1px solid rgba(46,158,107,.3);color:var(--green);border-radius:20px;padding:7px 14px;font-weight:600}
+.ans b{color:var(--green)}
+.qcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start}
+.qc .qcn{flex:0 0 34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qc .qct{font-weight:800;font-size:15px;margin:0 0 4px}
+.qc .qcd{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.tl-line{position:absolute;top:21px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));z-index:0}
+.phase{position:relative;z-index:1;padding:0 16px;text-align:center}
+.phase .pnode{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;background:var(--purple-vivid);border:4px solid var(--cream)}
+.phase.future .pnode{background:var(--midnight);color:var(--purple-soft)}
+.phase .ptagline{font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phase .ph{font-weight:800;font-size:16px;margin-bottom:8px;letter-spacing:-.01em}
+.phase .pd{font-size:13px;color:var(--gray-meta-light);line-height:1.5}
+
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
+
+@media(max-width:880px){
+  .hero h1{font-size:40px}
+  .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .changed .wrap{grid-template-columns:1fr;gap:16px}
+  .changed .clist{grid-template-columns:1fr}
+  .cards{grid-template-columns:1fr 1fr}
+  .sec-grid,.numbers-grid,.qcards{grid-template-columns:1fr}
+  .roi .rgrid{grid-template-columns:1fr;gap:18px}
+  .timeline{grid-template-columns:1fr;gap:26px}
+  .tl-line{display:none}
+}
+@media print{
+  .hero{padding:40px 0}.section,section{padding:28px 0;page-break-inside:avoid}
+  .roi,.flow-mini{box-shadow:none}
+}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Firm OS Architecture Brief</span>
+      <span class="v2">v2 · post-call</span>
+    </div>
+    <span class="eyebrow">Prepared for Rupprecht Law, P.A.</span>
+    <h1>Lock the scope.<br><span class="soft">Run the numbers.</span></h1>
+    <p class="lede">v2 folds in everything from the 6/11 call — Streak retires, deliverables move into v1, FAA-change monitoring becomes a pillar, and we end on the numbers so you can run your ROI math.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Call</div><div class="value">Tue Jun 16, 2026 · 2:00–3:00pm ET</div></div>
+      <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai — Nick + James</div></div>
+      <div class="meta"><div class="label">Goal today</div><div class="value">Lock v1 scope + architecture; walk the ballpark numbers</div></div>
+      <div class="meta"><div class="label">Your decision</div><div class="value">Pure ROI math — numbers are the go/no-go</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- WHAT CHANGED -->
+<div class="changed">
+  <div class="wrap">
+    <div class="ctitle">What changed since 6/11</div>
+    <div class="clist">
+      <div class="ci"><span class="tick">→</span><span><b>Streak retires</b> — the OS owns your pipeline now, not a keep</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Deliverables move into v1</b> — your "low-hanging fruit"</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Lockable ITAR sandbox</b> — folded into the v1 build (Phase 1d)</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>FAA-change monitoring</b> added as a v1 pillar</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Twilio</b> confirmed as the SMS rail</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Numbers section</b> — hosting vs. support, split cleanly</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- DESTINATION -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">The destination</span><h2>Where you want to <span class="soft">get to</span></h2></div>
+    <div class="pull">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">Replace Lawmatics and do everything through Google Workspace and Claude — and orchestrate the overall architecture so I'm not spinning my wheels going down dead-end streets.</p>
+      <div class="qa">— Jonathan Rupprecht</div>
+    </div>
+    <p class="os-def">A <strong>Firm OS</strong>: your firm runs on one coherent system you own, not a dozen disconnected SaaS tools. The OS is the brain — your source of truth plus a web dashboard of engagement status — and it integrates the tools that earn their keep. We inventory every line item and tag it <strong>Integrate</strong> or <strong>Replace &amp; Build</strong>.</p>
+  </div>
+</section>
+
+<!-- KEEP / REPLACE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">The inventory</span><h2>Keep, integrate, <span class="soft">replace</span></h2>
+      <p class="sec-sub">Two tools get cut, not eight. Everything that's best-in-class stays — the OS connects them.</p></div>
+    <div class="legend">
+      <span class="lg"><span class="dot int"></span> Integrate — keep it, the OS reads/writes it</span>
+      <span class="lg"><span class="dot rep"></span> Replace &amp; Build — collapse into the OS</span>
+      <span class="lg"><span class="dot add"></span> Add — new to the stack</span>
+    </div>
+    <div class="cards">
+      <div class="card"><div class="top"><span class="name">Stripe</span><span class="badge int">Integrate</span></div><p class="why">"Stripe just works." Payment rail + source for cash-intake reporting.</p></div>
+      <div class="card"><div class="top"><span class="name">ConvertKit</span><span class="badge int">Integrate</span></div><p class="why">Best deliverability you've measured (GlockApps-validated). OS triggers enrollment.</p></div>
+      <div class="card"><div class="top"><span class="name">Rsign</span><span class="badge int">Integrate</span></div><p class="why">Your familiar e-sign; powers the sign half of the sign-+-pay step.</p></div>
+      <div class="card"><div class="top"><span class="name">Google Apps Script + Doc templates</span><span class="badge int">Integrate</span></div><p class="why">Your petition/exemption PDF render engine. The OS feeds it clean inputs — we don't rebuild your templates.</p></div>
+      <div class="card"><div class="top"><span class="name">Gavel</span><span class="badge int">Integrate</span></div><p class="why">"A beast, we love it." Untouched in v1 — registration is its own phase 2.</p></div>
+      <div class="card"><div class="top"><span class="name">Smith.AI · DocuSign · QuickBooks · PNC</span><span class="badge int">Integrate</span></div><p class="why">Call summaries feed the OS as leads; the rest sits outside the conversion + deliverable flow.</p></div>
+      <div class="card add"><div class="top"><span class="name">Twilio</span><span class="badge add">Add</span></div><p class="why">SMS rail for follow-ups. You asked about Dialpad/CallRail — Dialpad resells Twilio; we go direct.</p></div>
+      <div class="card replace"><span class="flag">changed in v2</span><div class="top"><span class="name">Streak</span><span class="badge rep">Replace</span></div><p class="why">You want to own your pipeline data for control + opsec. The OS becomes your system of record; Streak retires.</p></div>
+      <div class="card replace"><div class="top"><span class="name">Lawmatics</span><span class="badge rep">Replace</span></div><p class="why">~$453/mo, month-to-month, cancellable July 1. Its intake/close/follow-up job becomes the v1 build.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- V1 SCOPE — THREE PILLARS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">v1 scope</span><h2>Three pillars, <span class="soft">one money path</span></h2>
+      <p class="sec-sub">v1 covers the full path — capture the lead, get paid + signed, generate the deliverable, and never get blindsided by an FAA change.</p></div>
+    <div class="pillars">
+
+      <div class="pillar">
+        <div class="phead"><span class="pnum">1</span><span class="ptitle">Conversion flow — own the pipeline</span></div>
+        <div class="pbody">
+<span class="flow-mini"><b>Lead sources</b>  <span class="ar">──►</span>  <b>Conversion orchestrator</b>  <span class="ar">──►</span>  <b>You / Staff</b>
+Smith.AI · referral       1. Capture + tag referral source         OS pipeline
+email · direct email      2. ONE link: sign (Rsign) + pay (Stripe)  (replaces Streak)
+website form              3. Auto-match payment <span class="ar">↔</span> contract
+                          4. Email + SMS follow-ups (farmer-friendly)
+                          5. Partial-completion nudge
+                          6. Both done? <span class="ar">──►</span> alert you + write record
+                          7. Referral + cash-intake dashboards</span>
+          <p class="kills-line">Kills: manual payment/contract reconciliation, dead leads, hand-tracking who's done what.</p>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="phead"><span class="pnum">2</span><span class="ptitle">Deliverable generation</span><span class="ptag moved">moved into v1</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>Structured intake feeds your <b>Google Apps Script → Doc template</b> engine with clean, validated data.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>Your human gate-check stays.</b> The OS surfaces the entry, flags anomalies (entity vs. personal name, address), and queues it for your one-look approval — it removes the typing, not you.</span></div>
+            <div class="f"><span class="fm">→</span><span>Staff pick up generated docs and deliver via Drive, exactly as today.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar">
+        <div class="phead"><span class="pnum">3</span><span class="ptitle">FAA-change monitoring + rapid update</span><span class="ptag new">new in v1</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>Monitor the channels where the FAA changes paperwork / approvals — email + government sites.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>Alert you the moment something shifts</b>, so "everything on hold" days shrink.</span></div>
+            <div class="f"><span class="fm">→</span><span>When a template/manual changes, the OS propagates the update everywhere it lives — the Claude-co-work save from last Friday, but built-in.</span></div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">The decision input</span><h2>The <span class="soft">numbers</span></h2>
+      <p class="sec-sub">You decide on math. Here's the build, phased — we firm each phase as scope locks today. Pay-as-you-go, never a big up-front lump.</p></div>
+    <div class="numbers-grid">
+      <div class="numcard">
+        <div class="nlabel">Build · CapEx</div>
+        <h3>~$18–28k · phased</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">1a · Conversion core</div><div class="od">Multi-source capture, one combined sign + pay link, auto-match payment ↔ contract, both-done alert, OS as system-of-record (kills Streak)</div></div><div class="oa">$8–12k</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">1b · Follow-up + dashboards</div><div class="od">Email + SMS follow-ups (Twilio), partial-completion nudges, referral-source + cash-intake dashboards</div></div><div class="oa">$4–6k</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">1c · Deliverable generation</div><div class="od">Validated intake → your Apps Script / Doc templates, anomaly flagging, your human gate stays</div></div><div class="oa">$3–5k</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">1d · FAA monitoring + sandbox</div><div class="od">FAA-change monitoring + lockable "good-now" ITAR sandbox</div></div><div class="oa">$3–5k</div></div>
+        <div class="paysplit">
+          <div class="half"><div class="h">Each phase: start</div><div class="v">50%</div></div>
+          <div class="arr">→</div>
+          <div class="half"><div class="h">Your approval criteria</div><div class="v">50%</div></div>
+        </div>
+        <p class="numnote">Cash outflow tracks completion. Example: an $8k phase = $4k to start, $4k on sign-off. Sequence by your highest-value pillar first.</p>
+      </div>
+      <div class="numcard">
+        <div class="nlabel">Ongoing · OpEx</div>
+        <h3>Two separable layers</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Hosting / infrastructure <span style="color:var(--gray-meta);font-weight:400">(only required cost)</span></div><div class="od">GCloud, US residency, storage; scales with AI token usage if agents run on a schedule</div></div><div class="oa">$200–500<br>/mo</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Support retainer <span style="color:var(--gray-meta);font-weight:400">(optional, tiered)</span></div><div class="od">Access to Nick + James + team. A-la-carte ~1 hr/mo → weekly touch → on-call white-glove</div></div><div class="oa">$0.3–3.5k<br>/mo</div></div>
+        <div class="opex-anchor"><b>Squares with 6/11:</b> the ~$3–5k/mo you heard was hosting <b>+</b> a heavy support tier; ~$1k/mo was hosting + light support. Hosting alone is a few hundred — roughly what you're cutting in Lawmatics ($453/mo) + Streak, so ongoing is near net-neutral from day one.</div>
+      </div>
+    </div>
+
+    <div class="roi">
+      <div class="rlabel">ROI frame — your language</div>
+      <div class="rgrid">
+        <div class="rstat"><div class="rn">$850<small>/hr</small></div><div class="rd">Your time cost — the OS gives hours back on every intake</div></div>
+        <div class="rstat"><div class="rn">100 → 1,000</div><div class="rd">Redeploy overseas staff to managerial; one person scales 10×</div></div>
+        <div class="rstat"><div class="rn">⅓</div><div class="rd">Lower input cost compounds on your rule-of-thirds — better margin or sharper pricing</div></div>
+      </div>
+    </div>
+    <p class="why-now"><b>Why now:</b> Lawmatics is cancellable July 1, and you're running two race horses (us vs. a Lawmatics consultant). The faster the numbers pencil, the faster you consolidate.</p>
+  </div>
+</section>
+
+<!-- OUT OF SCOPE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">Discipline</span><h2>Out of scope for <span class="soft">v1</span></h2>
+      <p class="sec-sub">So we ship, not sprawl.</p></div>
+    <div class="scope-box">
+      <h4>Waits for later</h4>
+      <div class="chips">
+        <div class="chip"><span class="mk">—</span><span><b>Registration pipeline (Gavel)</b> — separate flow, phase 2.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Defense-grade certification (FedRAMP, etc.)</b> — design-compatible now, formalize when a client requires it.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Accounting / trust</b> — N/A by design (100% upfront, non-refundable → no trust, no A/R).</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">To answer on the call</span><h2>What we still need to <span class="soft">pin down</span></h2></div>
+    <div class="answered">
+      <span class="ans"><b>Answered 6/11:</b> SMS → Twilio</span>
+      <span class="ans"><b>Answered 6/11:</b> system of record → the OS, Streak retires</span>
+    </div>
+    <div class="qcards">
+      <div class="qc"><span class="qcn">1</span><div><p class="qct">Sign + pay</p><p class="qcd">One combined link, or sequential is fine?</p></div></div>
+      <div class="qc"><span class="qcn">2</span><div><p class="qct">Referral source</p><p class="qcd">Where is it captured today, so we attribute cleanly for your performing/stagnant/declining view?</p></div></div>
+      <div class="qc"><span class="qcn">3</span><div><p class="qct">Deliverable doc types</p><p class="qcd">Which to automate first — petitions, waivers, authorizations? Pick the highest-volume one for v1.</p></div></div>
+      <div class="qc"><span class="qcn">4</span><div><p class="qct">FAA monitoring</p><p class="qcd">Which channels/sites signal a change, and what does "approval looks wrong" look like?</p></div></div>
+      <div class="qc"><span class="qcn">5</span><div><p class="qct">Sandbox triggers</p><p class="qcd">What pushes a matter into the locked sandbox, and who needs access?</p></div></div>
+      <div class="qc"><span class="qcn">6</span><div><p class="qct">Gavel boundary</p><p class="qcd">Confirm exactly where the OS hands off to Gavel registration.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASING -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head"><span class="eyebrow">The path</span><h2>Suggested <span class="soft">phasing</span></h2></div>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="phase"><div class="pnode">✓</div><div class="ptagline">This call</div><div class="ph">Lock scope + numbers</div><div class="pd">Agree the three v1 pillars, integrations, and the numbers → SOW.</div></div>
+      <div class="phase"><div class="pnode">0</div><div class="ptagline">After SOW</div><div class="ph">Discovery / architecture</div><div class="pd">Kicks off once the SOW is agreed: deep-dive the workflows, finalize the build spec.</div></div>
+      <div class="phase"><div class="pnode">1</div><div class="ptagline">The build</div><div class="ph">Build the v1 OS</div><div class="pd">Conversion flow + own-the-pipeline, deliverable generation, FAA-change monitoring. Off Lawmatics + Streak.</div></div>
+      <div class="phase future"><div class="pnode">2</div><div class="ptagline">Later</div><div class="ph">Registration + defense hardening</div><div class="pd">Gavel registration pipeline, ITAR/defense hardening, broader Firm OS — once v1 proves out.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for Rupprecht Law, P.A. · v2 · Confidential
+  </div>
+</footer>
+
+</body>
+</html>
