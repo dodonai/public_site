@@ -3,11 +3,11 @@
 	import PhaseWrapper from '$lib/components/hero/PhaseWrapper.svelte';
 
 	const nodes = [
-		{ label: 'Intake', icon: 'inbox' },
-		{ label: 'Matters', icon: 'folder' },
-		{ label: 'Docket', icon: 'calendar' },
-		{ label: 'Filings', icon: 'file' },
-		{ label: 'Billing', icon: 'billing' }
+		{ label: 'Intake', icon: 'inbox', task: 'manual entry' },
+		{ label: 'Matters', icon: 'folder', task: 'status emails' },
+		{ label: 'Docket', icon: 'calendar', task: 'deadline calc' },
+		{ label: 'Filings', icon: 'file', task: 'assembly' },
+		{ label: 'Billing', icon: 'billing', task: 'time capture' }
 	];
 
 	const agents = [
@@ -37,7 +37,7 @@
 	{#snippet children(step)}
 		<!-- Phase 0: Blueprint -->
 		{#if step === 0}
-			<PhaseWrapper caption="We map your workflows. The 1% gap is where humans still do the repetitive work.">
+			<PhaseWrapper caption="We map your firm's workflows and the repetitive work hiding in every step.">
 				<div class="scene">
 					<div class="blueprint-card">
 						<div class="card-header">
@@ -61,7 +61,7 @@
 										{/if}
 									</div>
 									<span class="node-label">{node.label}</span>
-									<span class="gap-tag" style="animation-delay: {700 + i * 180}ms">1% gap</span>
+									<span class="gap-tag" style="animation-delay: {700 + i * 180}ms">{node.task}</span>
 								</div>
 								{#if i < nodes.length - 1}
 									<div class="connector" style="animation-delay: {300 + i * 180}ms"></div>
@@ -69,7 +69,7 @@
 							{/each}
 						</div>
 						<div class="blueprint-footer">
-							<span class="footer-note">Where repetitive work hides between systems.</span>
+							<span class="footer-note">Every one of these is an agent we can build.</span>
 						</div>
 					</div>
 				</div>
@@ -290,8 +290,8 @@
 	.gap-tag {
 		font-size: 8px;
 		font-weight: 600;
-		color: #dc2626;
-		background: #fee2e2;
+		color: #b45309;
+		background: #fef3c7;
 		padding: 2px 6px;
 		border-radius: 10px;
 		opacity: 0;

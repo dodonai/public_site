@@ -67,7 +67,7 @@
 				'@type': 'HowToStep',
 				position: i + 1,
 				name: s.title,
-				text: s.description
+				text: stripLinks(s.description)
 			}))
 		},
 		{

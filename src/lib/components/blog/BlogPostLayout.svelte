@@ -64,6 +64,20 @@
 				}
 			}
 		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'BreadcrumbList',
+			itemListElement: [
+				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
+				{ '@type': 'ListItem', position: 2, name: 'Blog', item: 'https://www.dodon.ai/blog/' },
+				{
+					'@type': 'ListItem',
+					position: 3,
+					name: title,
+					item: `https://www.dodon.ai${page.url.pathname}`
+				}
+			]
+		},
 		...(faq.length > 0
 			? [
 					{
@@ -108,7 +122,10 @@
 
 		<header class="relative z-10 mx-auto w-[85%] max-w-[1250px] pb-16 pt-2 text-center sm:pb-20">
 			<div class="mb-8">
-				<BreadcrumbNav items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog/' }, { name: title }]} url={page.url.pathname} />
+				<BreadcrumbNav
+					items={[{ name: 'Home', href: '/' }, { name: 'Blog', href: '/blog/' }, { name: title }]}
+					url={page.url.pathname}
+				/>
 			</div>
 			<!-- Category + Reading Time -->
 			<div class="mb-6 flex items-center justify-center gap-3">
@@ -137,7 +154,13 @@
 	<!-- Hero Image (below header, wider) -->
 	{#if image}
 		<div class="mx-auto -mt-2 max-w-4xl px-4 pb-12 pt-8">
-			<img src={image} alt={imageAlt || title} width="1200" height="630" class="h-auto w-full rounded-xl shadow-lg" />
+			<img
+				src={image}
+				alt={imageAlt || title}
+				width="1200"
+				height="630"
+				class="h-auto w-full rounded-xl shadow-lg"
+			/>
 		</div>
 	{/if}
 

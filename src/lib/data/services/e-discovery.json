@@ -1,260 +1,260 @@
 {
-  "seo": {
-    "title": "AI eDiscovery Software | eDiscovery AI for Semantic Document Search",
-    "description": "AI eDiscovery software with semantic search across thousands of documents. eDiscovery AI that finds relevant evidence by meaning, not keywords. Starting at $30/mo.",
-    "canonical": "/electronic-discovery-software/"
-  },
-  "hero": {
-    "headline": "AI eDiscovery: Powerful Document Search",
-    "subheadline": "Dodonai's eDiscovery AI searches thousands of documents by meaning, not keywords. Describe what you're looking for in plain language and get relevant results in seconds. Starting at $30/mo, it's enterprise-grade eDiscovery without the enterprise price tag.",
-    "bullets": [],
-    "ctaText": "Free Summary",
-    "ctaUrl": "https://app.dodon.ai/signup",
-    "secondaryCtaText": "See Pricing",
-    "secondaryCtaUrl": "/pricing/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
-  },
-  "features": [],
-  "educationalContent": [
-    {
-      "title": "What is eDiscovery AI Software?",
-      "icon": "search",
-      "description": "eDiscovery AI software combines artificial intelligence with electronic discovery, the process lawyers use to collect and analyze digital data in legal cases. It sorts and organizes emails, documents, and social media records, uses semantic search that understands meaning rather than just keywords, and improves through continuous learning. eDiscovery AI makes sifting through digital evidence faster, more accurate, and far easier than legacy keyword-based platforms."
-    },
-    {
-      "title": "Semantic Search vs. Keyword Search",
-      "icon": "sparkles",
-      "description": "Traditional eDiscovery tools rely on keyword matching. You type a term and the software returns documents containing that exact word. This approach misses relevant documents that use synonyms or describe the same concept in different language. Dodonai's AI eDiscovery understands the meaning behind your query: ask for documents about 'breach of contract disputes' and the system finds relevant evidence even when that exact phrase never appears. The result is fewer false positives and fewer missed documents."
-    },
-    {
-      "title": "How Lawyers Use AI eDiscovery in Litigation",
-      "icon": "briefcase",
-      "description": "Litigation teams use AI eDiscovery to search and review thousands of documents in a fraction of the time manual review takes. Common workflows include identifying hot documents during early case assessment, running privilege reviews, and building chronologies from email chains. Dodonai's eDiscovery AI integrates with {{link:/deposition-summary-software/|deposition summary}} and {{link:/ai-medical-record-summaries-chronologies/|medical record summary}} workflows, giving teams a single platform for the major document-intensive tasks in litigation."
-    },
-    {
-      "title": "AI eDiscovery vs. Legacy Platform Costs",
-      "icon": "dollar",
-      "description": "Legacy eDiscovery platforms like Relativity and Everlaw charge per-gigabyte hosting fees, per-user licensing, and processing surcharges that can total $50,000+ per year for mid-size firms. Dodonai's AI eDiscovery provides semantic search, document review, and {{link:/ai-pdf-ocr/|OCR processing}} starting at $30/mo. That makes enterprise-grade eDiscovery accessible to solo practitioners and small firms without enterprise budgets. See our {{link:/compare/ediscovery-software-review/|eDiscovery software comparison}} for a detailed breakdown."
-    }
-  ],
-  "aiOverview": {
-    "heading": "Concept-Based Discovery: Search by Meaning, Not Just Keywords",
-    "paragraphs": [
-      "Dodonai's eDiscovery AI goes beyond keyword matching to deliver concept-based document discovery. Describe what you're looking for in plain language and the system finds relevant documents even when they use completely different terminology. No more running dozens of keyword variations to make sure you haven't missed something.",
-      "Every search result shows you exactly which passages matched and why, so you can confirm relevance and document your review methodology for the court. Combined with automated privilege detection and structured data extraction, Dodonai's AI eDiscovery gives litigation teams a review process that's both thorough and defensible."
-    ]
-  },
-  "howItWorks": [
-    {
-      "title": "Upload your Documentary Evidence",
-      "description": "Upload your PDFs, TXT, or Word documents (or a ZIP of them) to Dodonai. For larger collections, our team can handle the upload for you."
-    },
-    {
-      "title": "Search Semantically",
-      "description": "Skip the keyword guessing game. Describe the type of information you want to find in plain language. Dodonai's eDiscovery AI searches your documents for matching concepts, not exact words."
-    },
-    {
-      "title": "See Results",
-      "description": "Dodonai returns ranked snippets of your documentary evidence, with the most relevant passages surfaced first. Click through to the source document to verify."
-    }
-  ],
-  "valueProposition": {
-    "heading": "Litigate Better with AI-Assisted eDiscovery",
-    "cards": [
-      {
-        "title": "Save attorney time",
-        "icon": "clock",
-        "description": "Firms report cutting document review time by 85%. AI eDiscovery pulls the relevant passages so attorneys spend their hours on case strategy, not scrolling through PDFs."
-      },
-      {
-        "title": "Save paralegal time",
-        "icon": "users",
-        "description": "eDiscovery AI handles the sorting, categorizing, and indexing automatically. Paralegals skip the manual document analysis and move straight to the work that actually requires judgment."
-      },
-      {
-        "title": "Save on Vendor Cost",
-        "icon": "dollar",
-        "description": "Relativity and Everlaw can run $50,000+/year. Dodonai starts at $30/mo with no per-gigabyte surcharges, so smaller firms don't have to choose between eDiscovery and rent."
-      },
-      {
-        "title": "Grow your practice",
-        "icon": "growth",
-        "description": "When document review takes hours instead of weeks, your team has capacity to take on more cases. AI eDiscovery turns a bottleneck into a competitive advantage."
-      }
-    ]
-  },
-  "securitySection": {
-    "heading": "Security Built for Sensitive Legal Data",
-    "cards": [
-      {
-        "title": "End-to-End Encryption",
-        "icon": "shield",
-        "description": "All documents are encrypted in transit and at rest using AES-256 encryption, ensuring your evidence is protected at every stage of the review process."
-      },
-      {
-        "title": "SOC 2 Certified",
-        "icon": "document",
-        "description": "Our infrastructure and processes are independently audited and SOC 2 certified, meeting the security standards required by Am Law 100 firms."
-      },
-      {
-        "title": "HIPAA Compliant",
-        "icon": "heart",
-        "description": "Full HIPAA compliance with signed Business Associate Agreements (BAAs) for cases involving protected health information."
-      },
-      {
-        "title": "Total Control Over Your Data",
-        "icon": "clipboard",
-        "description": "You decide how long your data is stored and when it's deleted. Dodonai never uses your documents to train AI models. You can purge your data at any time."
-      }
-    ]
-  },
-  "customerWins": {
-    "heading": "Why Law Firms Choose Dodonai for eDiscovery AI",
-    "cards": [
-      {
-        "title": "85% Reduction in Staff Hours",
-        "icon": "clock",
-        "description": "Firms using Dodonai's eDiscovery AI report an 85% reduction in the staff hours required for document review, freeing associates and paralegals to focus on case strategy and client service."
-      },
-      {
-        "title": "100% Citation Accuracy",
-        "icon": "check",
-        "description": "Every search result links directly to the source passage in the original document. No hallucinated references, no missing citations. Just verifiable evidence you can rely on in court."
-      },
-      {
-        "title": "Zero Manual Data Entry",
-        "icon": "bolt",
-        "description": "Upload your documents and start searching immediately. Dodonai handles OCR, text extraction, and indexing automatically. No manual tagging, coding, or data entry required."
-      },
-      {
-        "title": "Semantic Search Across Entire Document Sets",
-        "icon": "search",
-        "description": "Search by concept, not keywords. Dodonai finds relevant documents even when they use different terminology, reducing missed evidence and false positives simultaneously."
-      },
-      {
-        "title": "90% Cost Reduction vs. Legacy Platforms",
-        "icon": "dollar",
-        "description": "Dodonai starts at $30/mo. Relativity and Everlaw can run $50,000+/year. That's a 90%+ cost reduction for the same core eDiscovery AI capabilities (semantic search, document review, privilege detection)."
-      },
-      {
-        "title": "No Setup, No Training Required",
-        "icon": "sparkles",
-        "description": "Upload documents and start searching in minutes. No implementation timeline, no training sessions, no dedicated IT support needed. If you can describe what you're looking for, you can use Dodonai."
-      }
-    ]
-  },
-  "practiceAreas": {
-    "heading": "eDiscovery AI for Every Practice Area",
-    "cards": [
-      {
-        "title": "Commercial Litigation",
-        "icon": "briefcase",
-        "description": "Search thousands of contracts, emails, and financial records to identify relevant communications, key obligations, and evidence of breach. eDiscovery AI handles the terminology variations common in complex commercial disputes."
-      },
-      {
-        "title": "Employment Litigation",
-        "icon": "users",
-        "description": "Review HR records, internal communications, and policy documents to build discrimination, harassment, or wrongful termination cases. AI-powered search identifies patterns across employee files that manual review would miss."
-      },
-      {
-        "title": "Intellectual Property",
-        "icon": "sparkles",
-        "description": "Analyze technical documents, patent filings, and development correspondence to establish prior art, infringement timelines, or trade secret misappropriation. AI eDiscovery understands technical concepts across different naming conventions."
-      },
-      {
-        "title": "Government Investigations",
-        "icon": "shield",
-        "description": "Process large-scale document productions for regulatory inquiries and investigations. Dodonai's eDiscovery AI handles automated privilege detection and defensible review methodology, helping teams respond efficiently while protecting privileged communications."
-      },
-      {
-        "title": "Product Liability",
-        "icon": "cube",
-        "description": "Search manufacturing records, safety reports, and internal communications to identify evidence of known defects or failure to warn. AI-powered review scales to handle the document volumes typical of mass tort and product liability matters."
-      },
-      {
-        "title": "Insurance Coverage",
-        "icon": "document",
-        "description": "Review policy language, claim files, and correspondence across multiple carriers to identify coverage obligations, exclusions, and reservation of rights. Semantic search handles the nuanced language differences across insurance contracts."
-      }
-    ]
-  },
-  "faq": [
-    {
-      "question": "What is AI eDiscovery?",
-      "answer": "AI eDiscovery (also called eDiscovery AI) uses artificial intelligence to automate the searching, sorting, and analysis of digital data in litigation. Instead of manually reviewing thousands of documents, legal teams can search by concept and let the AI surface relevant evidence across large document collections."
-    },
-    {
-      "question": "How does AI improve the eDiscovery process?",
-      "answer": "AI speeds up eDiscovery by analyzing large volumes of documents in seconds instead of days. Semantic search finds relevant evidence even when documents use different terminology than your search terms, which cuts false negatives. And automated classification (privilege, relevance, responsiveness) reduces the hours spent on manual review. For a detailed explanation of how semantic search works in eDiscovery, read {{link:/blog/ediscovery-ai-how-semantic-search-changes-document-review/|how semantic search changes document review}}."
-    },
-    {
-      "question": "Can AI eDiscovery software replace lawyers or paralegals?",
-      "answer": "No. AI eDiscovery software handles the time-consuming parts (searching, sorting, initial classification) so lawyers and paralegals can focus on the judgment calls: case strategy, privilege determinations, and building arguments. The AI surfaces what's relevant; the attorney decides what to do with it."
-    },
-    {
-      "question": "Is AI eDiscovery secure and confidential?",
-      "answer": "Yes. Dodonai is SOC 2 certified and HIPAA compliant, with AES-256 encryption in transit and at rest. We don't train AI models on your data, and our LLM providers operate under zero data retention (ZDR) policies. You control when your data is deleted."
-    },
-    {
-      "question": "How does Dodonai's AI eDiscovery differ from other eDiscovery tools?",
-      "answer": "3 things: (1) semantic search that finds documents by meaning, not keywords, (2) pricing that starts at $30/mo instead of $50,000+/year, and (3) zero setup time (upload and search in minutes, no implementation project). For a detailed comparison, see our {{link:/compare/ediscovery-software-review/|eDiscovery software comparison}}."
-    },
-    {
-      "question": "Is Dodonai's AI eDiscovery software suitable for all sizes of law firms?",
-      "answer": "Yes. Dodonai's AI eDiscovery starts at $30/mo, which makes it practical for solo practitioners and small firms. But the same semantic search and document review tools scale to handle the volume a larger firm would throw at it. You're not locked into a tier. For a deeper look at how small firms use AI eDiscovery in practice, see {{link:/blog/ai-ediscovery-for-small-law-firms/|AI eDiscovery for Small Law Firms}}."
-    },
-    {
-      "question": "What types of documents can I search with eDiscovery AI?",
-      "answer": "PDFs, Word documents, emails, text files, and scanned documents. For scanned or image-based documents, Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} converts them to searchable text before indexing. So even paper-based document productions become fully searchable through eDiscovery AI."
-    },
-    {
-      "question": "How much does AI eDiscovery cost compared to Relativity or Everlaw?",
-      "answer": "Legacy platforms like Relativity and Everlaw charge per-gigabyte hosting fees plus per-user licensing, easily totaling $50,000+/year for a mid-size firm. Dodonai's AI eDiscovery starts at $30/mo with no per-gigabyte surcharges. See our {{link:/pricing/|pricing page}} for full details or read our {{link:/compare/ediscovery-software-review/|eDiscovery software comparison}}."
-    },
-    {
-      "question": "Can I use eDiscovery AI with scanned or image-based PDFs?",
-      "answer": "Yes. Dodonai's {{link:/ai-pdf-ocr/|AI-powered OCR}} processes scanned documents, faxes, and image-based PDFs automatically. Once OCR is complete, the extracted text is indexed and fully searchable using semantic search. No manual preprocessing required."
-    },
-    {
-      "question": "What is eDiscovery Software?",
-      "answer": "eDiscovery (electronic discovery) is the process of identifying, collecting, and producing electronically stored information (ESI) as evidence in legal cases. ESI includes emails, documents, databases, voicemail, social media, and more. The process has several stages: identification, preservation, collection, processing, review, and production. As digital data volumes have grown, eDiscovery software has become essential for litigation, investigations, and FOIA requests."
-    },
-    {
-      "question": "I have more questions. Where can I find answers?",
-      "answer": "Visit our {{link:https://app.dodon.ai/help|Help Center}} for detailed guides on uploading and searching documents. You can also contact us at hello@dodon.ai with any questions."
-    }
-  ],
-  "testimonials": [
-    {
-      "headline": "40 hours a week of associate time, back.",
-      "quote": "Dodon.ai didn't just give us software; they gave us back 40 hours a week of associate time by delivering finished, audit-ready logs.",
-      "author": "",
-      "role": "Senior Partner",
-      "company": "Medical Malpractice Firm"
-    },
-    {
-      "quote": "\"The first day I used Dodonai it provided summaries of all of the deposition transcripts from one of my cases in seconds, saving hours of my time and hundreds of client dollars. This is the future of the legal practice.\"",
-      "author": "Ben",
-      "role": "Commercial Litigator",
-      "company": ""
-    }
-  ],
-  "videoUrl": "",
-  "relatedServices": [
-    {
-      "name": "AI Deposition Summaries",
-      "description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
-      "href": "/deposition-summary-software/"
-    },
-    {
-      "name": "Medical Record Summaries",
-      "description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
-      "href": "/ai-medical-record-summaries-chronologies/"
-    },
-    {
-      "name": "Transcript Management",
-      "description": "Manage deposition transcripts with AI-powered search, annotations, and automated blue book citations.",
-      "href": "/ai-deposition-transcript-software/"
-    }
-  ]
+	"seo": {
+		"title": "AI eDiscovery Software for Litigation Teams | Dodonai",
+		"description": "Process discovery sets in hours. Custodian collection, TAR, and privilege review. Built for litigation teams. SOC 2 certified. See pricing.",
+		"canonical": "/electronic-discovery-software/"
+	},
+	"hero": {
+		"headline": "AI eDiscovery: Powerful Document Search",
+		"subheadline": "Dodonai's eDiscovery AI searches thousands of documents by meaning, not keywords. Describe what you're looking for in plain language and get relevant results in seconds. Starting at $30/mo, it's enterprise-grade eDiscovery without the enterprise price tag.",
+		"bullets": [],
+		"ctaText": "Free Summary",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=service_e-discovery",
+		"secondaryCtaText": "See Pricing",
+		"secondaryCtaUrl": "/pricing/",
+		"badges": ["SOC-2 Certified", "HIPAA Compliant"]
+	},
+	"features": [],
+	"educationalContent": [
+		{
+			"title": "What is eDiscovery AI Software?",
+			"icon": "search",
+			"description": "eDiscovery AI software combines artificial intelligence with electronic discovery, the process lawyers use to collect and analyze digital data in legal cases. It sorts and organizes emails, documents, and social media records, uses semantic search that understands meaning rather than just keywords, and improves through continuous learning. eDiscovery AI makes sifting through digital evidence faster, more accurate, and far easier than legacy keyword-based platforms."
+		},
+		{
+			"title": "Semantic Search vs. Keyword Search",
+			"icon": "sparkles",
+			"description": "Traditional eDiscovery tools rely on keyword matching. You type a term and the software returns documents containing that exact word. This approach misses relevant documents that use synonyms or describe the same concept in different language. Dodonai's AI eDiscovery understands the meaning behind your query: ask for documents about 'breach of contract disputes' and the system finds relevant evidence even when that exact phrase never appears. The result is fewer false positives and fewer missed documents."
+		},
+		{
+			"title": "How Lawyers Use AI eDiscovery in Litigation",
+			"icon": "briefcase",
+			"description": "Litigation teams use AI eDiscovery to search and review thousands of documents in a fraction of the time manual review takes. Common workflows include identifying hot documents during early case assessment, running privilege reviews, and building chronologies from email chains. Dodonai's eDiscovery AI integrates with {{link:/deposition-summary-software/|deposition summary}} and {{link:/ai-medical-record-summaries-chronologies/|medical record summary}} workflows, giving teams a single platform for the major document-intensive tasks in litigation."
+		},
+		{
+			"title": "AI eDiscovery vs. Legacy Platform Costs",
+			"icon": "dollar",
+			"description": "Legacy eDiscovery platforms like Relativity and Everlaw charge per-gigabyte hosting fees, per-user licensing, and processing surcharges that can total $50,000+ per year for mid-size firms. Dodonai's AI eDiscovery provides semantic search, document review, and {{link:/ai-pdf-ocr/|OCR processing}} starting at $30/mo. That makes enterprise-grade eDiscovery accessible to solo practitioners and small firms without enterprise budgets. See our {{link:/compare/ediscovery-software-review/|eDiscovery software comparison}} for a detailed breakdown."
+		}
+	],
+	"aiOverview": {
+		"heading": "Concept-Based Discovery: Search by Meaning, Not Just Keywords",
+		"paragraphs": [
+			"Dodonai's eDiscovery AI goes beyond keyword matching to deliver concept-based document discovery. Describe what you're looking for in plain language and the system finds relevant documents even when they use completely different terminology. No more running dozens of keyword variations to make sure you haven't missed something.",
+			"Every search result shows you exactly which passages matched and why, so you can confirm relevance and document your review methodology for the court. Combined with automated privilege detection and structured data extraction, Dodonai's AI eDiscovery gives litigation teams a review process that's both thorough and defensible."
+		]
+	},
+	"howItWorks": [
+		{
+			"title": "Upload your Documentary Evidence",
+			"description": "Upload your PDFs, TXT, or Word documents (or a ZIP of them) to Dodonai. For larger collections, our team can handle the upload for you."
+		},
+		{
+			"title": "Search Semantically",
+			"description": "Skip the keyword guessing game. Describe the type of information you want to find in plain language. Dodonai's eDiscovery AI searches your documents for matching concepts, not exact words."
+		},
+		{
+			"title": "See Results",
+			"description": "Dodonai returns ranked snippets of your documentary evidence, with the most relevant passages surfaced first. Click through to the source document to verify."
+		}
+	],
+	"valueProposition": {
+		"heading": "Litigate Better with AI-Assisted eDiscovery",
+		"cards": [
+			{
+				"title": "Save attorney time",
+				"icon": "clock",
+				"description": "Firms report cutting document review time by 85%. AI eDiscovery pulls the relevant passages so attorneys spend their hours on case strategy, not scrolling through PDFs."
+			},
+			{
+				"title": "Save paralegal time",
+				"icon": "users",
+				"description": "eDiscovery AI handles the sorting, categorizing, and indexing automatically. Paralegals skip the manual document analysis and move straight to the work that actually requires judgment."
+			},
+			{
+				"title": "Save on Vendor Cost",
+				"icon": "dollar",
+				"description": "Relativity and Everlaw can run $50,000+/year. Dodonai starts at $30/mo with no per-gigabyte surcharges, so smaller firms don't have to choose between eDiscovery and rent."
+			},
+			{
+				"title": "Grow your practice",
+				"icon": "growth",
+				"description": "When document review takes hours instead of weeks, your team has capacity to take on more cases. AI eDiscovery turns a bottleneck into a competitive advantage."
+			}
+		]
+	},
+	"securitySection": {
+		"heading": "Security Built for Sensitive Legal Data",
+		"cards": [
+			{
+				"title": "End-to-End Encryption",
+				"icon": "shield",
+				"description": "All documents are encrypted in transit and at rest using AES-256 encryption, ensuring your evidence is protected at every stage of the review process."
+			},
+			{
+				"title": "SOC 2 Certified",
+				"icon": "document",
+				"description": "Our infrastructure and processes are independently audited and SOC 2 certified, meeting the security standards required by Am Law 100 firms."
+			},
+			{
+				"title": "HIPAA Compliant",
+				"icon": "heart",
+				"description": "Full HIPAA compliance with signed Business Associate Agreements (BAAs) for cases involving protected health information."
+			},
+			{
+				"title": "Total Control Over Your Data",
+				"icon": "clipboard",
+				"description": "You decide how long your data is stored and when it's deleted. Dodonai never uses your documents to train AI models. You can purge your data at any time."
+			}
+		]
+	},
+	"customerWins": {
+		"heading": "Why Law Firms Choose Dodonai for eDiscovery AI",
+		"cards": [
+			{
+				"title": "85% Reduction in Staff Hours",
+				"icon": "clock",
+				"description": "Firms using Dodonai's eDiscovery AI report an 85% reduction in the staff hours required for document review, freeing associates and paralegals to focus on case strategy and client service."
+			},
+			{
+				"title": "100% Citation Accuracy",
+				"icon": "check",
+				"description": "Every search result links directly to the source passage in the original document. No hallucinated references, no missing citations. Just verifiable evidence you can rely on in court."
+			},
+			{
+				"title": "Zero Manual Data Entry",
+				"icon": "bolt",
+				"description": "Upload your documents and start searching immediately. Dodonai handles OCR, text extraction, and indexing automatically. No manual tagging, coding, or data entry required."
+			},
+			{
+				"title": "Semantic Search Across Entire Document Sets",
+				"icon": "search",
+				"description": "Search by concept, not keywords. Dodonai finds relevant documents even when they use different terminology, reducing missed evidence and false positives simultaneously."
+			},
+			{
+				"title": "90% Cost Reduction vs. Legacy Platforms",
+				"icon": "dollar",
+				"description": "Dodonai starts at $30/mo. Relativity and Everlaw can run $50,000+/year. That's a 90%+ cost reduction for the same core eDiscovery AI capabilities (semantic search, document review, privilege detection)."
+			},
+			{
+				"title": "No Setup, No Training Required",
+				"icon": "sparkles",
+				"description": "Upload documents and start searching in minutes. No implementation timeline, no training sessions, no dedicated IT support needed. If you can describe what you're looking for, you can use Dodonai."
+			}
+		]
+	},
+	"practiceAreas": {
+		"heading": "eDiscovery AI for Every Practice Area",
+		"cards": [
+			{
+				"title": "Commercial Litigation",
+				"icon": "briefcase",
+				"description": "Search thousands of contracts, emails, and financial records to identify relevant communications, key obligations, and evidence of breach. eDiscovery AI handles the terminology variations common in complex commercial disputes."
+			},
+			{
+				"title": "Employment Litigation",
+				"icon": "users",
+				"description": "Review HR records, internal communications, and policy documents to build discrimination, harassment, or wrongful termination cases. AI-powered search identifies patterns across employee files that manual review would miss."
+			},
+			{
+				"title": "Intellectual Property",
+				"icon": "sparkles",
+				"description": "Analyze technical documents, patent filings, and development correspondence to establish prior art, infringement timelines, or trade secret misappropriation. AI eDiscovery understands technical concepts across different naming conventions."
+			},
+			{
+				"title": "Government Investigations",
+				"icon": "shield",
+				"description": "Process large-scale document productions for regulatory inquiries and investigations. Dodonai's eDiscovery AI handles automated privilege detection and defensible review methodology, helping teams respond efficiently while protecting privileged communications."
+			},
+			{
+				"title": "Product Liability",
+				"icon": "cube",
+				"description": "Search manufacturing records, safety reports, and internal communications to identify evidence of known defects or failure to warn. AI-powered review scales to handle the document volumes typical of mass tort and product liability matters."
+			},
+			{
+				"title": "Insurance Coverage",
+				"icon": "document",
+				"description": "Review policy language, claim files, and correspondence across multiple carriers to identify coverage obligations, exclusions, and reservation of rights. Semantic search handles the nuanced language differences across insurance contracts."
+			}
+		]
+	},
+	"faq": [
+		{
+			"question": "What is AI eDiscovery?",
+			"answer": "AI eDiscovery (also called eDiscovery AI) uses artificial intelligence to automate the searching, sorting, and analysis of digital data in litigation. Instead of manually reviewing thousands of documents, legal teams can search by concept and let the AI surface relevant evidence across large document collections."
+		},
+		{
+			"question": "How does AI improve the eDiscovery process?",
+			"answer": "AI speeds up eDiscovery by analyzing large volumes of documents in seconds instead of days. Semantic search finds relevant evidence even when documents use different terminology than your search terms, which cuts false negatives. And automated classification (privilege, relevance, responsiveness) reduces the hours spent on manual review. For a detailed explanation of how semantic search works in eDiscovery, read {{link:/blog/ediscovery-ai-how-semantic-search-changes-document-review/|how semantic search changes document review}}."
+		},
+		{
+			"question": "Can AI eDiscovery software replace lawyers or paralegals?",
+			"answer": "No. AI eDiscovery software handles the time-consuming parts (searching, sorting, initial classification) so lawyers and paralegals can focus on the judgment calls: case strategy, privilege determinations, and building arguments. The AI surfaces what's relevant; the attorney decides what to do with it."
+		},
+		{
+			"question": "Is AI eDiscovery secure and confidential?",
+			"answer": "Yes. Dodonai is SOC 2 certified and HIPAA compliant, with AES-256 encryption in transit and at rest. We don't train AI models on your data, and our LLM providers operate under zero data retention (ZDR) policies. You control when your data is deleted."
+		},
+		{
+			"question": "How does Dodonai's AI eDiscovery differ from other eDiscovery tools?",
+			"answer": "3 things: (1) semantic search that finds documents by meaning, not keywords, (2) pricing that starts at $30/mo instead of $50,000+/year, and (3) zero setup time (upload and search in minutes, no implementation project). For a detailed comparison, see our {{link:/compare/ediscovery-software-review/|eDiscovery software comparison}}."
+		},
+		{
+			"question": "Is Dodonai's AI eDiscovery software suitable for all sizes of law firms?",
+			"answer": "Yes. Dodonai's AI eDiscovery starts at $30/mo, which makes it practical for solo practitioners and small firms. But the same semantic search and document review tools scale to handle the volume a larger firm would throw at it. You're not locked into a tier. For a deeper look at how small firms use AI eDiscovery in practice, see {{link:/blog/ai-ediscovery-for-small-law-firms/|AI eDiscovery for Small Law Firms}}."
+		},
+		{
+			"question": "What types of documents can I search with eDiscovery AI?",
+			"answer": "PDFs, Word documents, emails, text files, and scanned documents. For scanned or image-based documents, Dodonai's {{link:/ai-pdf-ocr/|AI OCR}} converts them to searchable text before indexing. So even paper-based document productions become fully searchable through eDiscovery AI."
+		},
+		{
+			"question": "How much does AI eDiscovery cost compared to Relativity or Everlaw?",
+			"answer": "Legacy platforms like Relativity and Everlaw charge per-gigabyte hosting fees plus per-user licensing, easily totaling $50,000+/year for a mid-size firm. Dodonai's AI eDiscovery starts at $30/mo with no per-gigabyte surcharges. See our {{link:/pricing/|pricing page}} for full details or read our {{link:/compare/ediscovery-software-review/|eDiscovery software comparison}}."
+		},
+		{
+			"question": "Can I use eDiscovery AI with scanned or image-based PDFs?",
+			"answer": "Yes. Dodonai's {{link:/ai-pdf-ocr/|AI-powered OCR}} processes scanned documents, faxes, and image-based PDFs automatically. Once OCR is complete, the extracted text is indexed and fully searchable using semantic search. No manual preprocessing required."
+		},
+		{
+			"question": "What is eDiscovery Software?",
+			"answer": "eDiscovery (electronic discovery) is the process of identifying, collecting, and producing electronically stored information (ESI) as evidence in legal cases. ESI includes emails, documents, databases, voicemail, social media, and more. The process has several stages: identification, preservation, collection, processing, review, and production. As digital data volumes have grown, eDiscovery software has become essential for litigation, investigations, and FOIA requests."
+		},
+		{
+			"question": "I have more questions. Where can I find answers?",
+			"answer": "Visit our {{link:https://app.dodon.ai/help|Help Center}} for detailed guides on uploading and searching documents. You can also contact us at hello@dodon.ai with any questions."
+		}
+	],
+	"testimonials": [
+		{
+			"headline": "40 hours a week of associate time, back.",
+			"quote": "Dodon.ai didn't just give us software; they gave us back 40 hours a week of associate time by delivering finished, audit-ready logs.",
+			"author": "",
+			"role": "Senior Partner",
+			"company": "Medical Malpractice Firm"
+		},
+		{
+			"quote": "\"The first day I used Dodonai it provided summaries of all of the deposition transcripts from one of my cases in seconds, saving hours of my time and hundreds of client dollars. This is the future of the legal practice.\"",
+			"author": "Ben",
+			"role": "Commercial Litigator",
+			"company": ""
+		}
+	],
+	"videoUrl": "",
+	"relatedServices": [
+		{
+			"name": "AI Deposition Summaries",
+			"description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
+			"href": "/deposition-summary-software/"
+		},
+		{
+			"name": "Medical Record Summaries",
+			"description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
+			"href": "/ai-medical-record-summaries-chronologies/"
+		},
+		{
+			"name": "Transcript Management",
+			"description": "Manage deposition transcripts with AI-powered search, annotations, and automated blue book citations.",
+			"href": "/ai-deposition-transcript-software/"
+		}
+	]
 }

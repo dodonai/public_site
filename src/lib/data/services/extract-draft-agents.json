@@ -1,173 +1,173 @@
 {
-  "seo": {
-    "title": "AI Document Extraction & Report Builder",
-    "description": "Automate document processing and report generation with AI agents. Extract data from any source, build custom reports from reusable templates.",
-    "canonical": "/dodonai-extract-and-draft-agents/"
-  },
-  "hero": {
-    "headline": "AI Agents for Document Processing and  Report Generation",
-    "subheadline": "Dodonai XD Agents extract data from any document source and create accurate, custom, and reusable reports from your custom templates.",
-    "bullets": [],
-    "ctaText": "Get Started",
-    "ctaUrl": "https://app.dodon.ai/signup",
-    "secondaryCtaText": "See Pricing",
-    "secondaryCtaUrl": "/pricing/",
-    "badges": ["SOC-2 Certified", "HIPAA Compliant"]
-  },
-  "features": [],
-  "educationalContent": [
-    {
-      "heading": "Dodonai XD: AI Intelligent Document Processing and Report Generation",
-      "paragraphs": [
-        "Dodonai XD simplifies document processing and report creation. Create reusable templates that specify the data type and format you need. Dodonai's advanced AI seamlessly extracts, organizes, and formats data from any combination of source documents.",
-        "Traditional document processing workflows involve copying data between systems, reformatting spreadsheets, and manually compiling information from multiple sources into a single report. These repetitive tasks consume hours of skilled professional time every week. Dodonai XD Agents automate this entire pipeline — from extraction through formatting — so your team can focus on analysis and decision-making instead of data entry.",
-        "XD Agents are especially valuable for organizations that process the same types of documents repeatedly. Law firms extracting case data from intake forms, insurance companies compiling claim reports, and healthcare organizations building patient summaries all benefit from templates that can be defined once and reused indefinitely. Each run produces consistent, structured output regardless of who initiates it. For an overview of custom summarization options, see our {{link:https://app.dodon.ai/help/custom-summaries|guide to custom summaries}}."
-      ]
-    }
-  ],
-  "useCases": {
-    "heading": "How Can I Use Dodonai XD?",
-    "cards": [
-      {
-        "title": "Legal",
-        "description": "Extract and record data from common forms and contracts, organize discovery responses and objections, extract and organize evidence from discovery documents, and much more."
-      },
-      {
-        "title": "Health",
-        "description": "Extract common data from medical records and automate {{link:/ai-medical-record-summaries-chronologies/|medical record reviews}}."
-      },
-      {
-        "title": "Insurance",
-        "description": "Rapidly process and compile comprehensive claim reports, policy analyses, and underwriting documents, streamlining operations and reducing manual effort."
-      },
-      {
-        "title": "Business Analysis",
-        "description": "Swiftly develop detailed, precise analysis reports and business intelligence summaries, enabling more strategic decision-making."
-      },
-      {
-        "title": "Operations",
-        "description": "Automate routine operational and performance reporting, improving accuracy, consistency, and overall productivity."
-      }
-    ]
-  },
-  "additionalContent": [
-    {
-      "heading": "How is Dodonai XD different?",
-      "paragraphs": [
-        "Dodonai intelligently automates data extraction, sorting, and formatting through user-defined templates, significantly reducing manual reporting time. It uniquely allows interactive adjustments post-generation, ensuring precise final reports."
-      ]
-    },
-    {
-      "heading": "Why switch to AI-driven document processing?",
-      "paragraphs": [
-        "Manual processing is error-prone, repetitive, and time-consuming. Traditional intelligent document processing is too expensive for most tasks. Dodonai eliminates these inefficiencies by automating complex data handling tasks, drastically increasing productivity and accuracy, at a cost that is appealing for automating most document tasks."
-      ]
-    }
-  ],
-  "howItWorks": [
-    {
-      "title": "Create Your Report Template",
-      "description": "Define the structure, sections, data types, and formats you require. See our {{link:https://app.dodon.ai/help/creating-data-extraction-template|guide on creating extraction templates}} for tips."
-    },
-    {
-      "title": "Select Your Source Documents",
-      "description": "Easily select relevant documents to populate each section of your template."
-    },
-    {
-      "title": "Run the Extraction",
-      "description": "Dodonai XD agents automatically extract the templated data from the source documents. Easily adjust extracted data directly within the platform and export your finalized report. Learn more about {{link:https://app.dodon.ai/help/filling-documents-with-extracted-data|filling documents with extracted data}}."
-    }
-  ],
-  "valueProposition": {
-    "heading": "Benefits of Dodonai's AI Document Processing",
-    "cards": [
-      {
-        "title": "Time Efficiency",
-        "icon": "clock",
-        "description": "Automate report creation to save hours each week."
-      },
-      {
-        "title": "Accuracy & Consistency",
-        "icon": "shield",
-        "description": "Reduce human errors with AI-driven data extraction."
-      },
-      {
-        "title": "Fully Customizable",
-        "icon": "adjustments",
-        "description": "Adapt templates precisely to your data and reporting needs."
-      },
-      {
-        "title": "Easy Integration",
-        "icon": "squares",
-        "description": "Direct integration with existing document management workflows."
-      },
-      {
-        "title": "Human-in-the-Loop",
-        "icon": "cursor",
-        "description": "Optional post-generation editing ensures precise and refined outcomes."
-      },
-      {
-        "title": "AI-Powered Summarization",
-        "icon": "sparkles",
-        "description": "Immediate, actionable insights from complex documents."
-      }
-    ]
-  },
-  "faq": [
-    {
-      "question": "Can report templates be reused?",
-      "answer": "Yes, templates are designed for repeated use, significantly speeding up routine data extraction and reporting tasks. Once you define a template, you can run it against any number of source documents without reconfiguring the structure each time."
-    },
-    {
-      "question": "Is the generated content editable?",
-      "answer": "Absolutely. Dodonai XD enables easy adjustments within generated reports to meet exact requirements. You can edit extracted data directly in the platform before exporting the finalized report."
-    },
-    {
-      "question": "How secure is my data?",
-      "answer": "Dodonai is SOC 2 certified and HIPAA compliant. All data is encrypted using AES-256 in transit and at rest. Your documents are never used to train AI models, and you maintain full control over data retention and deletion."
-    },
-    {
-      "question": "Does Dodonai support integration with other document management systems?",
-      "answer": "Yes, Dodonai integrates with many document management platforms and workflows. Let us know which system you use and, if we don't already support it, we can explore building a custom integration."
-    },
-    {
-      "question": "What types of documents can XD Agents process?",
-      "answer": "XD Agents can extract data from PDFs, Word documents, text files, spreadsheets, and scanned documents. The platform includes built-in {{link:/ai-pdf-ocr/|AI OCR}} that handles scanned and image-based files, so you can process documents exactly as you receive them."
-    },
-    {
-      "question": "How is Dodonai XD different from standard form-filling tools?",
-      "answer": "Standard form-filling tools map fixed fields between documents. Dodonai XD Agents use AI to understand document content and extract information based on meaning, not just field position. This means they can handle documents with varying formats and layouts, and they can synthesize information from multiple source documents into a single report."
-    },
-    {
-      "question": "What does Dodonai XD cost?",
-      "answer": "XD Agents use Dodonai's credit system at 2 credits per page for custom extractions. Plans start at $30 per month with 200 credits. Visit our {{link:/pricing/|pricing page}} for details on all available plans."
-    }
-  ],
-  "testimonials": [
-    {
-      "quote": "\"Dodonai's medical records summaries are the same quality as what I used to pay $800 for elsewhere.\"",
-      "author": "Justin Wilmers",
-      "role": "",
-      "company": "Miller Wilmers, APC"
-    },
-    {
-      "quote": "\"The medical records summary tool is a definite force multiplier for my practice.\"",
-      "author": "Anthony",
-      "role": "Civil Litigator",
-      "company": ""
-    }
-  ],
-  "videoUrl": "",
-  "relatedServices": [
-    {
-      "name": "AI Deposition Summaries",
-      "description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
-      "href": "/deposition-summary-software/"
-    },
-    {
-      "name": "Medical Record Summaries",
-      "description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
-      "href": "/ai-medical-record-summaries-chronologies/"
-    }
-  ]
+	"seo": {
+		"title": "AI Document Extraction & Report Builder",
+		"description": "Automate document processing and report generation with AI agents. Extract data from any source, build custom reports from reusable templates.",
+		"canonical": "/dodonai-extract-and-draft-agents/"
+	},
+	"hero": {
+		"headline": "AI Agents for Document Processing and  Report Generation",
+		"subheadline": "Dodonai XD Agents extract data from any document source and create accurate, custom, and reusable reports from your custom templates.",
+		"bullets": [],
+		"ctaText": "Get Started",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=service_extract-draft-agents",
+		"secondaryCtaText": "See Pricing",
+		"secondaryCtaUrl": "/pricing/",
+		"badges": ["SOC-2 Certified", "HIPAA Compliant"]
+	},
+	"features": [],
+	"educationalContent": [
+		{
+			"heading": "Dodonai XD: AI Intelligent Document Processing and Report Generation",
+			"paragraphs": [
+				"Dodonai XD simplifies document processing and report creation. Create reusable templates that specify the data type and format you need. Dodonai's advanced AI seamlessly extracts, organizes, and formats data from any combination of source documents.",
+				"Traditional document processing workflows involve copying data between systems, reformatting spreadsheets, and manually compiling information from multiple sources into a single report. These repetitive tasks consume hours of skilled professional time every week. Dodonai XD Agents automate this entire pipeline — from extraction through formatting — so your team can focus on analysis and decision-making instead of data entry.",
+				"XD Agents are especially valuable for organizations that process the same types of documents repeatedly. Law firms extracting case data from intake forms, insurance companies compiling claim reports, and healthcare organizations building patient summaries all benefit from templates that can be defined once and reused indefinitely. Each run produces consistent, structured output regardless of who initiates it. For an overview of custom summarization options, see our {{link:https://app.dodon.ai/help/custom-summaries|guide to custom summaries}}."
+			]
+		}
+	],
+	"useCases": {
+		"heading": "How Can I Use Dodonai XD?",
+		"cards": [
+			{
+				"title": "Legal",
+				"description": "Extract and record data from common forms and contracts, organize discovery responses and objections, extract and organize evidence from discovery documents, and much more."
+			},
+			{
+				"title": "Health",
+				"description": "Extract common data from medical records and automate {{link:/ai-medical-record-summaries-chronologies/|medical record reviews}}."
+			},
+			{
+				"title": "Insurance",
+				"description": "Rapidly process and compile comprehensive claim reports, policy analyses, and underwriting documents, streamlining operations and reducing manual effort."
+			},
+			{
+				"title": "Business Analysis",
+				"description": "Swiftly develop detailed, precise analysis reports and business intelligence summaries, enabling more strategic decision-making."
+			},
+			{
+				"title": "Operations",
+				"description": "Automate routine operational and performance reporting, improving accuracy, consistency, and overall productivity."
+			}
+		]
+	},
+	"additionalContent": [
+		{
+			"heading": "How is Dodonai XD different?",
+			"paragraphs": [
+				"Dodonai intelligently automates data extraction, sorting, and formatting through user-defined templates, significantly reducing manual reporting time. It uniquely allows interactive adjustments post-generation, ensuring precise final reports."
+			]
+		},
+		{
+			"heading": "Why switch to AI-driven document processing?",
+			"paragraphs": [
+				"Manual processing is error-prone, repetitive, and time-consuming. Traditional intelligent document processing is too expensive for most tasks. Dodonai eliminates these inefficiencies by automating complex data handling tasks, drastically increasing productivity and accuracy, at a cost that is appealing for automating most document tasks."
+			]
+		}
+	],
+	"howItWorks": [
+		{
+			"title": "Create Your Report Template",
+			"description": "Define the structure, sections, data types, and formats you require. See our {{link:https://app.dodon.ai/help/creating-data-extraction-template|guide on creating extraction templates}} for tips."
+		},
+		{
+			"title": "Select Your Source Documents",
+			"description": "Easily select relevant documents to populate each section of your template."
+		},
+		{
+			"title": "Run the Extraction",
+			"description": "Dodonai XD agents automatically extract the templated data from the source documents. Easily adjust extracted data directly within the platform and export your finalized report. Learn more about {{link:https://app.dodon.ai/help/filling-documents-with-extracted-data|filling documents with extracted data}}."
+		}
+	],
+	"valueProposition": {
+		"heading": "Benefits of Dodonai's AI Document Processing",
+		"cards": [
+			{
+				"title": "Time Efficiency",
+				"icon": "clock",
+				"description": "Automate report creation to save hours each week."
+			},
+			{
+				"title": "Accuracy & Consistency",
+				"icon": "shield",
+				"description": "Reduce human errors with AI-driven data extraction."
+			},
+			{
+				"title": "Fully Customizable",
+				"icon": "adjustments",
+				"description": "Adapt templates precisely to your data and reporting needs."
+			},
+			{
+				"title": "Easy Integration",
+				"icon": "squares",
+				"description": "Direct integration with existing document management workflows."
+			},
+			{
+				"title": "Human-in-the-Loop",
+				"icon": "cursor",
+				"description": "Optional post-generation editing ensures precise and refined outcomes."
+			},
+			{
+				"title": "AI-Powered Summarization",
+				"icon": "sparkles",
+				"description": "Immediate, actionable insights from complex documents."
+			}
+		]
+	},
+	"faq": [
+		{
+			"question": "Can report templates be reused?",
+			"answer": "Yes, templates are designed for repeated use, significantly speeding up routine data extraction and reporting tasks. Once you define a template, you can run it against any number of source documents without reconfiguring the structure each time."
+		},
+		{
+			"question": "Is the generated content editable?",
+			"answer": "Absolutely. Dodonai XD enables easy adjustments within generated reports to meet exact requirements. You can edit extracted data directly in the platform before exporting the finalized report."
+		},
+		{
+			"question": "How secure is my data?",
+			"answer": "Dodonai is SOC 2 certified and HIPAA compliant. All data is encrypted using AES-256 in transit and at rest. Your documents are never used to train AI models, and you maintain full control over data retention and deletion."
+		},
+		{
+			"question": "Does Dodonai support integration with other document management systems?",
+			"answer": "Yes, Dodonai integrates with many document management platforms and workflows. Let us know which system you use and, if we don't already support it, we can explore building a custom integration."
+		},
+		{
+			"question": "What types of documents can XD Agents process?",
+			"answer": "XD Agents can extract data from PDFs, Word documents, text files, spreadsheets, and scanned documents. The platform includes built-in {{link:/ai-pdf-ocr/|AI OCR}} that handles scanned and image-based files, so you can process documents exactly as you receive them."
+		},
+		{
+			"question": "How is Dodonai XD different from standard form-filling tools?",
+			"answer": "Standard form-filling tools map fixed fields between documents. Dodonai XD Agents use AI to understand document content and extract information based on meaning, not just field position. This means they can handle documents with varying formats and layouts, and they can synthesize information from multiple source documents into a single report."
+		},
+		{
+			"question": "What does Dodonai XD cost?",
+			"answer": "XD Agents use Dodonai's credit system at 2 credits per page for custom extractions. Plans start at $30 per month with 200 credits. Visit our {{link:/pricing/|pricing page}} for details on all available plans."
+		}
+	],
+	"testimonials": [
+		{
+			"quote": "\"Dodonai's medical records summaries are the same quality as what I used to pay $800 for elsewhere.\"",
+			"author": "Justin Wilmers",
+			"role": "",
+			"company": "Miller Wilmers, APC"
+		},
+		{
+			"quote": "\"The medical records summary tool is a definite force multiplier for my practice.\"",
+			"author": "Anthony",
+			"role": "Civil Litigator",
+			"company": ""
+		}
+	],
+	"videoUrl": "",
+	"relatedServices": [
+		{
+			"name": "AI Deposition Summaries",
+			"description": "Get deposition transcripts summarized in minutes with page-line and narrative formats.",
+			"href": "/deposition-summary-software/"
+		},
+		{
+			"name": "Medical Record Summaries",
+			"description": "Generate AI medical record summaries and chronologies in minutes for personal injury and malpractice cases.",
+			"href": "/ai-medical-record-summaries-chronologies/"
+		}
+	]
 }

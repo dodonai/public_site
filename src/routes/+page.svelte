@@ -8,6 +8,7 @@
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import faqItems from '$lib/data/faq/general.json';
 	import LazyLoad from '$lib/components/layout/LazyLoad.svelte';
+	import { stripLinks } from '$lib/utils/linkify.js';
 </script>
 
 <SEOHead
@@ -73,7 +74,7 @@
 				name: item.question,
 				acceptedAnswer: {
 					'@type': 'Answer',
-					text: item.answer
+					text: stripLinks(item.answer)
 				}
 			}))
 		}
@@ -103,9 +104,9 @@
 					Deposition Summaries
 				</h3>
 				<p class="mt-6 text-lg leading-relaxed text-[#8181ac]">
-					Convert deposition transcripts into structured, page-and-line cited summaries in
-					minutes. Focus on key testimony, disputed facts, and damages — Dodonai captures
-					what matters so you can focus on strategy.
+					Convert deposition transcripts into structured, page-and-line cited summaries in minutes.
+					Focus on key testimony, disputed facts, and damages — Dodonai captures what matters so you
+					can focus on strategy.
 				</p>
 				<a
 					href="/deposition-summary-software/"
@@ -129,9 +130,9 @@
 					Medical Record Summaries & Chronologies
 				</h3>
 				<p class="mt-6 text-lg leading-relaxed text-[#8181ac]">
-					Generate comprehensive medical chronologies and summaries from records of any
-					length. Dodonai extracts diagnoses, treatments, providers, and dates into an
-					organized timeline your team can use immediately.
+					Generate comprehensive medical chronologies and summaries from records of any length.
+					Dodonai extracts diagnoses, treatments, providers, and dates into an organized timeline
+					your team can use immediately.
 				</p>
 				<a
 					href="/ai-medical-record-summaries-chronologies/"
@@ -151,9 +152,9 @@
 					Deposition Transcript Management
 				</h3>
 				<p class="mt-6 text-lg leading-relaxed text-[#8181ac]">
-					Search, annotate, and cite deposition transcripts with AI-powered tools.
-					Automated blue book citations, powerful full-text search, and an AI chat
-					assistant that knows every word of your transcript.
+					Search, annotate, and cite deposition transcripts with AI-powered tools. Automated blue
+					book citations, powerful full-text search, and an AI chat assistant that knows every word
+					of your transcript.
 				</p>
 				<a
 					href="/ai-deposition-transcript-software/"
@@ -177,9 +178,9 @@
 					Next-Generation AI OCR
 				</h3>
 				<p class="mt-6 text-lg leading-relaxed text-[#8181ac]">
-					Transform scanned PDFs — including tables, handwriting, and images — into
-					searchable, editable documents. Dodonai's AI-powered OCR goes beyond traditional
-					text extraction to understand document structure and layout.
+					Transform scanned PDFs — including tables, handwriting, and images — into searchable,
+					editable documents. Dodonai's AI-powered OCR goes beyond traditional text extraction to
+					understand document structure and layout.
 				</p>
 				<a
 					href="/ai-pdf-ocr/"
@@ -199,9 +200,9 @@
 					Extract & Draft Agents
 				</h3>
 				<p class="mt-6 text-lg leading-relaxed text-[#8181ac]">
-					Define custom templates and let Dodonai's AI agents extract data from any
-					document source to build accurate, reusable reports. Automate the repetitive work
-					of pulling structured information from unstructured documents.
+					Define custom templates and let Dodonai's AI agents extract data from any document source
+					to build accurate, reusable reports. Automate the repetitive work of pulling structured
+					information from unstructured documents.
 				</p>
 				<a
 					href="/dodonai-extract-and-draft-agents/"
@@ -225,9 +226,9 @@
 					AI-Powered E-Discovery
 				</h3>
 				<p class="mt-6 text-lg leading-relaxed text-[#8181ac]">
-					Search across thousands of documents using natural language instead of keywords.
-					Dodonai's semantic search finds relevant evidence by meaning, not just matching
-					terms — so no critical document is ever out of reach.
+					Search across thousands of documents using natural language instead of keywords. Dodonai's
+					semantic search finds relevant evidence by meaning, not just matching terms — so no
+					critical document is ever out of reach.
 				</p>
 				<a
 					href="/electronic-discovery-software/"
@@ -239,6 +240,39 @@
 		</div>
 	</div>
 </BlobBackground>
+
+<!-- AI Managed Services entry point -->
+<section class="bg-white py-20 sm:py-28">
+	<div class="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+		<div class="overflow-hidden rounded-3xl bg-[#282876] px-6 py-12 text-center sm:px-12 sm:py-16">
+			<p class="text-sm font-semibold uppercase tracking-wider text-[#a9b8ff]">Beyond the app</p>
+			<h2
+				class="mx-auto mt-3 max-w-3xl text-3xl font-extrabold tracking-tight text-white sm:text-4xl"
+			>
+				Custom AI workflow automation built around your firm
+			</h2>
+			<p class="mx-auto mt-5 max-w-2xl text-base leading-7 text-white/80 sm:text-lg">
+				Our AI Managed Services and consulting team designs, builds, and runs custom agents tuned to
+				how your firm actually works — intake, drafting, deadlines, billing, and more. Blueprint in
+				weeks, with an attorney in the loop on every output.
+			</p>
+			<div class="mt-8 flex flex-wrap items-center justify-center gap-4">
+				<a
+					href="/ai-managed-services/"
+					class="rounded-full bg-white px-7 py-3.5 text-sm font-semibold text-[#282876] shadow-md transition-all hover:bg-[#a9b8ff]"
+				>
+					Explore AI Managed Services
+				</a>
+				<a
+					href="/ai-managed-services/results/"
+					class="text-sm font-semibold text-white/90 transition-colors hover:text-white"
+				>
+					See what we've built &rarr;
+				</a>
+			</div>
+		</div>
+	</div>
+</section>
 
 <FAQAccordion items={faqItems} />
 

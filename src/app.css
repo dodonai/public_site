@@ -2,6 +2,20 @@
 @tailwind components;
 @tailwind utilities;
 
+/* Respect users who ask the OS to reduce motion: neutralize CSS animations,
+   transitions, and smooth scrolling site-wide (WCAG 2.2.2). JS-driven
+   animations (e.g. AnimationStage) handle this separately in onMount. */
+@media (prefers-reduced-motion: reduce) {
+	*,
+	*::before,
+	*::after {
+		animation-duration: 0.01ms !important;
+		animation-iteration-count: 1 !important;
+		transition-duration: 0.01ms !important;
+		scroll-behavior: auto !important;
+	}
+}
+
 /* Plus Jakarta Display font */
 @font-face {
 	font-family: 'Plus Jakarta Display';
@@ -50,7 +64,11 @@
 	}
 
 	body {
-		font-family: 'Plus Jakarta Display', system-ui, -apple-system, sans-serif;
+		font-family:
+			'Plus Jakarta Display',
+			system-ui,
+			-apple-system,
+			sans-serif;
 		font-size: 18px;
 		line-height: 32px;
 		-webkit-font-smoothing: antialiased;

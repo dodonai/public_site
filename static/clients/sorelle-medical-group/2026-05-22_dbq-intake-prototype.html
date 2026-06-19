@@ -1352,16 +1352,12 @@ async function fillPdf(cond, payload) {
     } catch (e) { /* swallow */ }
   }
 
-  /* PDFs were preprocessed by fix_dbq.py so /DA strings reference /Helv
-     (declared in /DR) and NeedAppearances=true is set. Regenerate
-     appearances with explicit Helvetica for consistent visual output. */
-  try {
-    const helv = await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica);
-    form.updateFieldAppearances(helv);
-  } catch (e) {
-    console.warn('Appearance regen failed', e);
-  }
-
+  /* Do NOT call form.updateFieldAppearances(helv): pdf-lib auto-sizes the
+     font based on field rect, rewriting /DA from "/Helv 8 Tf" to e.g.
+     "/Helvetica 40 Tf" for tall multi-line fields. Chrome's PDF viewer then
+     regenerates appearances at that huge size (via NeedAppearances=true),
+     overflowing every box. Leave the original /DA (8pt) intact and let the
+     viewer regen handle layout. */
   const outBytes = await pdfDoc.save({ updateFieldAppearances: false });
   return { bytes: outBytes, textFilled, btnFilled };
 }

@@ -59,7 +59,7 @@
 		{
 			question: 'How do credits work with different process types?',
 			answer:
-				'Standard summaries (deposition, medical record, and general document) use 1 credit per page. Custom summaries use 2 credits per page. Advanced and index-based analysis uses 3 credits per page. OCR and transcription are always free and included with every plan.'
+				'Standard summaries (deposition, medical record, and general document) use 1 credit per page. Custom summaries use 2 credits per page. Advanced and index-based analysis uses 3 credits per page. Audio transcription is billed per audio minute: 2 credits per minute on subscription plans, or $0.25 per minute on invoice billing. OCR is always free and included with every plan.'
 		},
 		{
 			question: 'Do unused credits roll over?',
@@ -127,128 +127,128 @@
 			]
 		},
 		{
-		'@context': 'https://schema.org',
-		'@type': 'Product',
-		name: 'Dodonai',
-		description:
-			'AI-powered document processing platform for legal professionals. Summarize depositions, medical records, and legal documents.',
-		brand: {
-			'@type': 'Organization',
-			name: 'Dodonai, Inc.'
-		},
-		offers: {
-			'@type': 'AggregateOffer',
-			priceCurrency: 'USD',
-			lowPrice: '25',
-			highPrice: '100',
-			offerCount: '7',
-			offers: [
-				{
-					'@type': 'Offer',
-					name: 'Lite (Monthly)',
-					price: '30',
-					priceCurrency: 'USD',
-					priceSpecification: {
-						'@type': 'UnitPriceSpecification',
+			'@context': 'https://schema.org',
+			'@type': 'Product',
+			name: 'Dodonai',
+			description:
+				'AI-powered document processing platform for legal professionals. Summarize depositions, medical records, and legal documents.',
+			brand: {
+				'@type': 'Organization',
+				name: 'Dodonai, Inc.'
+			},
+			offers: {
+				'@type': 'AggregateOffer',
+				priceCurrency: 'USD',
+				lowPrice: '25',
+				highPrice: '100',
+				offerCount: '7',
+				offers: [
+					{
+						'@type': 'Offer',
+						name: 'Lite (Monthly)',
 						price: '30',
 						priceCurrency: 'USD',
-						billingDuration: 'P1M'
+						priceSpecification: {
+							'@type': 'UnitPriceSpecification',
+							price: '30',
+							priceCurrency: 'USD',
+							billingDuration: 'P1M'
+						},
+						description: 'For solo practitioners and small teams. 200 credits per month.',
+						url: 'https://app.dodon.ai/signup'
 					},
-					description: 'For solo practitioners and small teams. 200 credits per month.',
-					url: 'https://app.dodon.ai/signup'
-				},
-				{
-					'@type': 'Offer',
-					name: 'Lite (Annual)',
-					price: '25',
-					priceCurrency: 'USD',
-					priceSpecification: {
-						'@type': 'UnitPriceSpecification',
+					{
+						'@type': 'Offer',
+						name: 'Lite (Annual)',
 						price: '25',
 						priceCurrency: 'USD',
-						billingDuration: 'P1Y'
+						priceSpecification: {
+							'@type': 'UnitPriceSpecification',
+							price: '25',
+							priceCurrency: 'USD',
+							billingDuration: 'P1Y'
+						},
+						description:
+							'For solo practitioners and small teams. 200 credits per month, billed annually.',
+						url: 'https://app.dodon.ai/signup'
 					},
-					description:
-						'For solo practitioners and small teams. 200 credits per month, billed annually.',
-					url: 'https://app.dodon.ai/signup'
-				},
-				{
-					'@type': 'Offer',
-					name: 'Basic (Monthly)',
-					price: '60',
-					priceCurrency: 'USD',
-					priceSpecification: {
-						'@type': 'UnitPriceSpecification',
+					{
+						'@type': 'Offer',
+						name: 'Basic (Monthly)',
 						price: '60',
 						priceCurrency: 'USD',
-						billingDuration: 'P1M'
+						priceSpecification: {
+							'@type': 'UnitPriceSpecification',
+							price: '60',
+							priceCurrency: 'USD',
+							billingDuration: 'P1M'
+						},
+						description: 'For growing firms. 1,000 credits per month.',
+						url: 'https://app.dodon.ai/signup'
 					},
-					description: 'For growing firms. 1,000 credits per month.',
-					url: 'https://app.dodon.ai/signup'
-				},
-				{
-					'@type': 'Offer',
-					name: 'Basic (Annual)',
-					price: '50',
-					priceCurrency: 'USD',
-					priceSpecification: {
-						'@type': 'UnitPriceSpecification',
+					{
+						'@type': 'Offer',
+						name: 'Basic (Annual)',
 						price: '50',
 						priceCurrency: 'USD',
-						billingDuration: 'P1Y'
+						priceSpecification: {
+							'@type': 'UnitPriceSpecification',
+							price: '50',
+							priceCurrency: 'USD',
+							billingDuration: 'P1Y'
+						},
+						description: 'For growing firms. 1,000 credits per month, billed annually.',
+						url: 'https://app.dodon.ai/signup'
 					},
-					description: 'For growing firms. 1,000 credits per month, billed annually.',
-					url: 'https://app.dodon.ai/signup'
-				},
-				{
-					'@type': 'Offer',
-					name: 'Pro (Monthly)',
-					price: '100',
-					priceCurrency: 'USD',
-					priceSpecification: {
-						'@type': 'UnitPriceSpecification',
+					{
+						'@type': 'Offer',
+						name: 'Pro (Monthly)',
 						price: '100',
 						priceCurrency: 'USD',
-						billingDuration: 'P1M'
+						priceSpecification: {
+							'@type': 'UnitPriceSpecification',
+							price: '100',
+							priceCurrency: 'USD',
+							billingDuration: 'P1M'
+						},
+						description: 'For high-volume teams. 5,000 credits per month.',
+						url: 'https://app.dodon.ai/signup'
 					},
-					description: 'For high-volume teams. 5,000 credits per month.',
-					url: 'https://app.dodon.ai/signup'
-				},
-				{
-					'@type': 'Offer',
-					name: 'Pro (Annual)',
-					price: '84',
-					priceCurrency: 'USD',
-					priceSpecification: {
-						'@type': 'UnitPriceSpecification',
+					{
+						'@type': 'Offer',
+						name: 'Pro (Annual)',
 						price: '84',
 						priceCurrency: 'USD',
-						billingDuration: 'P1Y'
+						priceSpecification: {
+							'@type': 'UnitPriceSpecification',
+							price: '84',
+							priceCurrency: 'USD',
+							billingDuration: 'P1Y'
+						},
+						description: 'For high-volume teams. 5,000 credits per month, billed annually.',
+						url: 'https://app.dodon.ai/signup'
 					},
-					description: 'For high-volume teams. 5,000 credits per month, billed annually.',
-					url: 'https://app.dodon.ai/signup'
-				},
-				{
-					'@type': 'Offer',
-					name: 'Enterprise',
-					description: 'Custom pricing for large organizations.',
-					url: 'https://app.dodon.ai/signup'
-				}
-			]
+					{
+						'@type': 'Offer',
+						name: 'Enterprise',
+						description: 'Custom pricing for large organizations.',
+						url: 'https://app.dodon.ai/signup'
+					}
+				]
+			}
 		}
-	}]}
+	]}
 />
 
 <!-- Hero -->
 <section class="bg-[#f4f5fd] pb-5 pt-28 sm:pt-36">
 	<div class="mx-auto max-w-7xl px-4 text-center sm:px-6 lg:px-8">
-		<p
-			class="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-[#836ae4] sm:text-sm"
-		>
+		<p class="mb-4 text-xs font-semibold uppercase tracking-[0.1em] text-[#836ae4] sm:text-sm">
 			Usage-Based Pricing
 		</p>
 		<h1 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl lg:text-5xl">
-			Every Feature. Every Plan.<br />Starting at <span class="text-[#836ae4]">2&cent; per page.</span>
+			Every Feature. Every Plan.<br />Starting at
+			<span class="text-[#836ae4]">2&cent; per page.</span>
 		</h1>
 		<p class="mx-auto mt-4 max-w-xl text-base text-[#8181ac] sm:text-lg">
 			No per-seat fees. No feature gates. Choose the volume that fits your workload — the more you
@@ -261,9 +261,7 @@
 <div class="flex items-center justify-center gap-3 bg-[#f4f5fd] pb-10 pt-8">
 	<button
 		type="button"
-		class="text-sm font-semibold transition-colors {isYearly
-			? 'text-[#9898b8]'
-			: 'text-[#282876]'}"
+		class="text-sm font-semibold transition-colors {isYearly ? 'text-[#9898b8]' : 'text-[#282876]'}"
 		onclick={() => (isYearly = false)}
 	>
 		Monthly
@@ -284,9 +282,7 @@
 	</button>
 	<button
 		type="button"
-		class="text-sm font-semibold transition-colors {isYearly
-			? 'text-[#282876]'
-			: 'text-[#9898b8]'}"
+		class="text-sm font-semibold transition-colors {isYearly ? 'text-[#282876]' : 'text-[#9898b8]'}"
 		onclick={() => (isYearly = true)}
 	>
 		Annual
@@ -305,9 +301,7 @@
 		{#each plans as plan}
 			{@const pp = perPage(plan)}
 			{@const price = isYearly ? Math.round(plan.yearly / 12) : plan.monthly}
-			{@const savings = isYearly
-				? Math.round((1 - plan.yearly / (plan.monthly * 12)) * 100)
-				: 0}
+			{@const savings = isYearly ? Math.round((1 - plan.yearly / (plan.monthly * 12)) * 100) : 0}
 			<div
 				class="relative flex flex-col rounded-[10px] border bg-white p-7 transition-all sm:p-8 {plan.recommended
 					? 'border-[#836ae4] shadow-[0_1px_24px_rgba(131,106,228,0.1)]'
@@ -322,9 +316,7 @@
 				{/if}
 
 				<div class="mb-1">
-					<span class="text-xl font-extrabold text-[#836ae4] sm:text-2xl"
-						>{fmtPerPage(pp)}</span
-					>
+					<span class="text-xl font-extrabold text-[#836ae4] sm:text-2xl">{fmtPerPage(pp)}</span>
 					<span class="text-sm text-[#9898b8]"> / page*</span>
 					<span class="mt-0.5 block text-xs text-[#9898b8]">(standard summaries)</span>
 				</div>
@@ -350,7 +342,7 @@
 				<p class="mt-3 mb-5 text-xs font-semibold text-[#282876]">{plan.support}</p>
 
 				<a
-					href="https://app.dodon.ai/signup"
+					href="https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=pricing_page"
 					class="block rounded-md py-2.5 text-center text-sm font-bold transition-colors {plan.recommended
 						? 'bg-[#836ae4] text-white hover:bg-[#7059cc]'
 						: 'bg-[#216fed] text-white hover:bg-[#1b5ad4]'}"
@@ -413,23 +405,120 @@
 				>
 					<div class="mt-0.5 flex h-5 w-5 flex-shrink-0 items-center justify-center">
 						{#if feature.icon === 'document'}
-							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M4 2h8a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1z"/><path d="M6 5h4M6 8h4M6 11h2"/></svg>
+							<svg
+								viewBox="0 0 16 16"
+								fill="none"
+								stroke="#836ae4"
+								stroke-width="1.5"
+								class="h-4 w-4"
+								><path d="M4 2h8a1 1 0 011 1v10a1 1 0 01-1 1H4a1 1 0 01-1-1V3a1 1 0 011-1z" /><path
+									d="M6 5h4M6 8h4M6 11h2"
+								/></svg
+							>
 						{:else if feature.icon === 'timeline'}
-							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M3 4h2v8H3M7 6h2v6H7M11 2h2v10h-2"/></svg>
+							<svg
+								viewBox="0 0 16 16"
+								fill="none"
+								stroke="#836ae4"
+								stroke-width="1.5"
+								class="h-4 w-4"><path d="M3 4h2v8H3M7 6h2v6H7M11 2h2v10h-2" /></svg
+							>
 						{:else if feature.icon === 'scan'}
-							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><rect x="2" y="2" width="12" height="12" rx="2"/><path d="M5 8h6M8 5v6" stroke-width="1.2"/><circle cx="8" cy="8" r="3" stroke-dasharray="1.5 1.5"/></svg>
+							<svg
+								viewBox="0 0 16 16"
+								fill="none"
+								stroke="#836ae4"
+								stroke-width="1.5"
+								class="h-4 w-4"
+								><rect x="2" y="2" width="12" height="12" rx="2" /><path
+									d="M5 8h6M8 5v6"
+									stroke-width="1.2"
+								/><circle cx="8" cy="8" r="3" stroke-dasharray="1.5 1.5" /></svg
+							>
 						{:else if feature.icon === 'agent'}
-							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M4 13V8l4-5 4 5v5"/><path d="M7 13v-3h2v3"/><circle cx="8" cy="5" r="1" fill="#836ae4" stroke="none"/></svg>
+							<svg
+								viewBox="0 0 16 16"
+								fill="none"
+								stroke="#836ae4"
+								stroke-width="1.5"
+								class="h-4 w-4"
+								><path d="M4 13V8l4-5 4 5v5" /><path d="M7 13v-3h2v3" /><circle
+									cx="8"
+									cy="5"
+									r="1"
+									fill="#836ae4"
+									stroke="none"
+								/></svg
+							>
 						{:else if feature.icon === 'search'}
-							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><circle cx="7" cy="7" r="4"/><path d="M10 10l3.5 3.5"/></svg>
+							<svg
+								viewBox="0 0 16 16"
+								fill="none"
+								stroke="#836ae4"
+								stroke-width="1.5"
+								class="h-4 w-4"><circle cx="7" cy="7" r="4" /><path d="M10 10l3.5 3.5" /></svg
+							>
 						{:else if feature.icon === 'waveform'}
-							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M8 2v2M8 12v2M5 5v6M11 4v8M3 7v2M13 6v4"/></svg>
+							<svg
+								viewBox="0 0 16 16"
+								fill="none"
+								stroke="#836ae4"
+								stroke-width="1.5"
+								class="h-4 w-4"><path d="M8 2v2M8 12v2M5 5v6M11 4v8M3 7v2M13 6v4" /></svg
+							>
 						{:else if feature.icon === 'rules'}
-							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M2 5h5M9 5h5M2 8h3M7 8h7M2 11h8M12 11h2"/><circle cx="6" cy="5" r="1" fill="#836ae4" stroke="none"/><circle cx="5" cy="8" r="1" fill="#836ae4" stroke="none"/><circle cx="11" cy="11" r="1" fill="#836ae4" stroke="none"/></svg>
+							<svg
+								viewBox="0 0 16 16"
+								fill="none"
+								stroke="#836ae4"
+								stroke-width="1.5"
+								class="h-4 w-4"
+								><path d="M2 5h5M9 5h5M2 8h3M7 8h7M2 11h8M12 11h2" /><circle
+									cx="6"
+									cy="5"
+									r="1"
+									fill="#836ae4"
+									stroke="none"
+								/><circle cx="5" cy="8" r="1" fill="#836ae4" stroke="none" /><circle
+									cx="11"
+									cy="11"
+									r="1"
+									fill="#836ae4"
+									stroke="none"
+								/></svg
+							>
 						{:else if feature.icon === 'grid'}
-							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><rect x="2" y="2" width="5" height="5" rx="1"/><rect x="9" y="2" width="5" height="5" rx="1"/><rect x="2" y="9" width="5" height="5" rx="1"/><rect x="9" y="9" width="5" height="5" rx="1"/></svg>
+							<svg
+								viewBox="0 0 16 16"
+								fill="none"
+								stroke="#836ae4"
+								stroke-width="1.5"
+								class="h-4 w-4"
+								><rect x="2" y="2" width="5" height="5" rx="1" /><rect
+									x="9"
+									y="2"
+									width="5"
+									height="5"
+									rx="1"
+								/><rect x="2" y="9" width="5" height="5" rx="1" /><rect
+									x="9"
+									y="9"
+									width="5"
+									height="5"
+									rx="1"
+								/></svg
+							>
 						{:else if feature.icon === 'chat'}
-							<svg viewBox="0 0 16 16" fill="none" stroke="#836ae4" stroke-width="1.5" class="h-4 w-4"><path d="M2 3h10a1 1 0 011 1v5a1 1 0 01-1 1H5l-3 3V4a1 1 0 011-1z"/><path d="M5 6h4"/></svg>
+							<svg
+								viewBox="0 0 16 16"
+								fill="none"
+								stroke="#836ae4"
+								stroke-width="1.5"
+								class="h-4 w-4"
+								><path d="M2 3h10a1 1 0 011 1v5a1 1 0 01-1 1H5l-3 3V4a1 1 0 011-1z" /><path
+									d="M5 6h4"
+								/></svg
+							>
 						{/if}
 					</div>
 					<div>
@@ -489,45 +578,27 @@
 							>Standard Summaries</td
 						>
 						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">1x</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmt(pps[0], 1)}</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmt(pps[1], 1)}</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmt(pps[2], 1)}</td
-						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[0], 1)}</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[1], 1)}</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[2], 1)}</td>
 					</tr>
 					<tr class="border-b border-[#f0f0f4]">
 						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
 							>Custom Summaries</td
 						>
 						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">2x</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmt(pps[0], 2)}</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmt(pps[1], 2)}</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmt(pps[2], 2)}</td
-						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[0], 2)}</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[1], 2)}</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[2], 2)}</td>
 					</tr>
 					<tr class="border-b border-[#f0f0f4]">
 						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
 							>Advanced Analysis</td
 						>
 						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">3x</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmt(pps[0], 3)}</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmt(pps[1], 3)}</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5"
-							>{fmt(pps[2], 3)}</td
-						>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[0], 3)}</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[1], 3)}</td>
+						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[2], 3)}</td>
 					</tr>
 					<tr>
 						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
@@ -564,12 +635,10 @@
 			</p>
 			<div class="mt-6">
 				<a
-					href="https://calendly.com/nick-dodonai"
-					target="_blank"
-					rel="noopener noreferrer"
+					href="/ai-managed-services/"
 					class="inline-block rounded-md border-[1.5px] border-[#d0d0e0] px-7 py-2.5 text-sm font-bold text-[#282876] transition-colors hover:border-[#282876]"
 				>
-					Contact Us
+					See Our AI Services
 				</a>
 			</div>
 		</div>
@@ -579,9 +648,7 @@
 <!-- FAQ -->
 <section class="bg-[#f4f5fd] px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
 	<div class="mx-auto max-w-3xl">
-		<h2
-			class="mb-8 text-center text-2xl font-extrabold tracking-tight text-[#282876] sm:text-3xl"
-		>
+		<h2 class="mb-8 text-center text-2xl font-extrabold tracking-tight text-[#282876] sm:text-3xl">
 			Frequently Asked Questions
 		</h2>
 
@@ -594,9 +661,7 @@
 					onclick={() => (faqOpen[i] = !faqOpen[i])}
 					aria-expanded={isOpen}
 				>
-					<span
-						class="pr-4 text-lg font-semibold leading-7 text-[#282876] sm:text-xl sm:leading-8"
-					>
+					<span class="pr-4 text-lg font-semibold leading-7 text-[#282876] sm:text-xl sm:leading-8">
 						{item.question}
 					</span>
 					<div class="flex h-6 w-6 flex-shrink-0 items-center justify-center">

@@ -1,0 +1,50 @@
+{
+	"slug": "estates-probate-solo",
+	"seo": {
+		"title": "Estates & Probate Solo AI Engagement | Dodonai",
+		"description": "Solo estates and probate practice AI engagement. Inventory drafts, beneficiary notices, and 706 prep automated. Composited from real work.",
+		"canonical": "/ai-managed-services/results/estates-probate-solo/"
+	},
+	"descriptor": "Solo trusts-and-estates / transactional practice",
+	"practiceArea": "Estates & Probate",
+	"practiceAreaSlug": "estates-probate",
+	"headline": "A solo estates practice cut document turnaround and stopped letting errors slip through",
+	"summary": "A small, focused build proving single-attorney shops get real help too: drafting and proofreading without a paralegal.",
+	"statStrip": [
+		{ "value": "4 agents", "label": "wiki, intake, drafting, proofreading" },
+		{ "value": "~6 weeks", "label": "discovery to live" },
+		{ "value": "Single-attorney", "label": "no paralegal required" }
+	],
+	"problem": {
+		"heading": "The starting state",
+		"paragraphs": [
+			"A solo attorney drafting deeds, trusts, powers of attorney, and estate documents from templates by hand. Proofreading was both the bottleneck and the risk: a mismatched name, a wrong date, or a stale defined term that survived to signing.",
+			"Intake and welcome correspondence ate into the limited billable time a solo has, and the clause library lived in the attorney's head and a folder of prior matters."
+		]
+	},
+	"built": {
+		"heading": "What we built",
+		"intro": "Four agents, scoped from a short discovery, built for a single-attorney workflow with no paralegal in the loop. The drafting and proofreading pair builds on our {{link:/dodonai-extract-and-draft-agents/|extract and draft agents}}.",
+		"agents": [
+			{ "name": "Firm Wiki / LLM Brain", "slug": null },
+			{ "name": "Intake Triage", "slug": "intake-triage" },
+			{ "name": "Estate-Document Drafter", "slug": null },
+			{ "name": "Estate-Document Proofreader", "slug": null }
+		]
+	},
+	"results": {
+		"heading": "What changed",
+		"items": [
+			"Deeds, trusts, and POAs draft from the firm's own templates and prior matters, not a generic form.",
+			"The proofreader flags inconsistencies (names, dates, defined terms, cross-references) before anything reaches a signing.",
+			"New matters are scored at intake and a first response is drafted automatically.",
+			"The firm wiki holds the clause library, so the attorney's judgment is encoded instead of re-typed.",
+			"Faster turnaround with fewer proofreading misses, and the attorney still reviews and signs every document."
+		]
+	},
+	"engagementArc": {
+		"discovery": "1 to 2 weeks",
+		"build": "~6 weeks, 4 agents",
+		"retainer": "Optional"
+	}
+}

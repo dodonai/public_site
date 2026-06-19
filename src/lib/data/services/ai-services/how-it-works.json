@@ -1,24 +1,23 @@
 {
   "seo": {
     "title": "How Dodonai's AI Agents Work: Blueprint, Build, Managed",
-    "description": "Custom AI agents for law firms: the Paralegal Test, a 4-layer safety architecture, and a Blueprint, Build, Managed engagement. See how it runs.",
-    "canonical": "/ai-services/how-it-works/"
+    "description": "How Dodonai's AI managed services for law firms work: the Checklist Test, a 4-layer safety architecture, and a Blueprint, Build, Managed engagement.",
+    "canonical": "/ai-managed-services/how-it-works/"
   },
   "hero": {
-    "headline": "How an AI Services engagement runs",
+    "headline": "How an AI Managed Services engagement runs",
     "subheadline": "We start with the work, not the model. If your team can write the procedure, we can ship the agent. Here's how the architecture, the engagement, and the safety layer fit together.",
     "ctaText": "Book an intro call",
     "ctaUrl": "https://calendly.com/nick-dodonai",
     "secondaryCtaText": "Browse the Agent Catalog",
-    "secondaryCtaUrl": "/ai-services/agents/",
-    "guarantee": "Blueprint refunded if we don't leave you with a clear path forward."
+    "secondaryCtaUrl": "/ai-managed-services/agents/"
   },
   "paralegalTest": {
-    "heading": "The Paralegal Test",
+    "heading": "The Checklist Test",
     "paragraphs": [
-      "Here's how we know if something in your practice can be automated. Can you write instructions for how a paralegal would do it? If yes, that's an AI skill we can build.",
-      "A document arrives. Read it. Classify it. Compute the deadline. Calendar it. File it. Notify the attorney. That's not a person anymore. That's a skill running every 15 minutes, on a schedule, against your data, with a human gate before anything reaches the outside world.",
-      "Most attorneys we work with come in expecting to talk about models, prompts, and licenses. We start somewhere else: which 3 workflows make you groan every week. The ones a trained paralegal could do from a procedure manual. Those are your first agents."
+      "Here's how we know if something in your practice can be automated. Can the work be written down as a checklist, clear steps in order? If yes, that's an AI skill we can build.",
+      "A document arrives. Read it. Classify it. Compute the deadline. Calendar it. File it. Notify the attorney. Six steps in a fixed order, a checklist. That's a skill running every 15 minutes, on a schedule, against your data, with a human gate before anything reaches the outside world.",
+      "Most attorneys come to AI managed services expecting to talk about models, prompts, and licenses. We start somewhere else: which 3 workflows make you groan every week. The ones that already follow a written procedure, or easily could. Those are your first agents."
     ]
   },
   "architecture": {
@@ -42,7 +41,7 @@
       {
         "icon": "shield",
         "title": "Safety layer (always on)",
-        "description": "The agent drafts. You decide. Nothing reaches a client, court, or outside party without your review. Every action is logged for the audit trail ABA Opinion 512 expects. {{link:/ai-services/safety/|See the full safety architecture.}}"
+        "description": "The agent drafts. You decide. Nothing reaches a client, court, or outside party without your review. Every action is logged for the audit trail ABA Opinion 512 expects. {{link:/ai-managed-services/safety/|See the full safety architecture.}}"
       }
     ]
   },
@@ -78,7 +77,7 @@
         "summary": "We keep the agents running, add new ones as your practice changes, and share what we learn from other firms.",
         "details": [
           "Monthly review of every agent's outputs, drift, and skipped escalations",
-          "New agents added as new workflows surface",
+          "New agents added as new workflows surface, including off-the-shelf work like {{link:/deposition-summary-software/|deposition summaries}} and {{link:/ai-medical-record-summaries-chronologies/|medical record chronologies}}",
           "Model upgrades when a better one ships, without you switching vendors",
           "Priority support during deadlines, hearings, and trial weeks"
         ]
