@@ -1,0 +1,1037 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Disability Answer Guide — Interactive (Proof of Concept)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Client-side PDF fill engine (pdf-lib). -->
+<script src="pdf-lib.min.js"></script>
+<!-- Official SSA-3373-BK, preprocessed (fix_dbq.py) + base64. Sets window.PDF_DATA.fr -->
+<script src="pdf-data.js"></script>
+<style>
+:root {
+  --midnight:        #1A1A45;
+  --midnight-deep:   #14143A;
+  --midnight-soft:   #252556;
+  --purple-soft:     #B5A8E6;
+  --purple-mid:      #8B7AB8;
+  --purple-bold:     #6B46C1;
+  --purple-vivid:    #7C3AED;
+  --cream:           #F4F1E8;
+  --cream-deep:      #EBE6D7;
+  --cream-line:      #D8D3C2;
+  --gray-meta:       #9B9BB8;
+  --gray-meta-light: #6B6B85;
+  --field-bg:        #FFFFFF;
+  --field-border:    #C9C4B4;
+  --field-focus:     #7C3AED;
+  --error:           #C53030;
+  --warn:            #C05621;
+  --ok:              #2F855A;
+}
+* { box-sizing: border-box; }
+html, body { margin: 0; padding: 0; background: var(--cream); }
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 11pt; line-height: 1.5; color: var(--midnight);
+}
+
+/* ============ Header ============ */
+.app-header {
+  background: var(--midnight); color: #fff;
+  padding: 26px 40px 28px;
+  position: sticky; top: 0; z-index: 50;
+  border-bottom: 4px solid var(--purple-vivid);
+}
+.app-header-inner {
+  max-width: 1240px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  flex-wrap: wrap; gap: 18px;
+}
+.app-brand .firm-name { font-weight: 800; font-size: 17pt; letter-spacing: -0.01em; line-height: 1.1; }
+.app-brand .firm-sub {
+  font-family: 'Source Code Pro', monospace; font-size: 8.5pt; color: var(--purple-soft);
+  letter-spacing: 0.16em; text-transform: uppercase; font-weight: 600; margin-top: 3px;
+}
+.app-meta {
+  display: flex; align-items: center; gap: 20px;
+  font-family: 'Source Code Pro', monospace; font-size: 9pt; color: var(--purple-soft);
+  letter-spacing: 0.10em; text-transform: uppercase; font-weight: 600;
+}
+.prototype-pill {
+  background: var(--purple-vivid); color: #fff; padding: 5px 11px; border-radius: 20px;
+  font-family: 'Source Code Pro', monospace; font-size: 8.5pt; letter-spacing: 0.12em; font-weight: 700; text-transform: uppercase;
+}
+
+/* ============ Form tabs ============ */
+.form-tabs {
+  background: var(--cream-deep); border-bottom: 1px solid var(--cream-line);
+  position: sticky; top: 82px; z-index: 40;
+}
+.form-tabs-inner { max-width: 1240px; margin: 0 auto; display: flex; gap: 4px; padding: 0 40px; }
+.form-tab {
+  appearance: none; border: none; background: transparent; cursor: pointer;
+  font-family: inherit; font-size: 10pt; font-weight: 600; color: var(--gray-meta-light);
+  padding: 14px 18px 12px; border-bottom: 3px solid transparent; letter-spacing: 0.01em;
+  display: flex; flex-direction: column; gap: 2px; align-items: flex-start;
+}
+.form-tab .ft-code { font-family: 'Source Code Pro', monospace; font-size: 7.5pt; letter-spacing: 0.12em; color: var(--gray-meta); }
+.form-tab:hover { color: var(--purple-bold); }
+.form-tab.active { color: var(--midnight-deep); border-bottom-color: var(--purple-vivid); }
+.form-tab.active .ft-code { color: var(--purple-bold); }
+.ft-status {
+  font-family: 'Source Code Pro', monospace; font-size: 7pt; font-weight: 700;
+  letter-spacing: 0.1em; text-transform: uppercase; padding: 2px 7px; border-radius: 10px;
+  margin-top: 3px;
+}
+.ft-status.live { background: rgba(47,133,90,0.14); color: var(--ok); }
+.ft-status.preview { background: rgba(107,107,133,0.14); color: var(--gray-meta-light); }
+
+/* ============ Preview / instructions bar ============ */
+.preview-bar { background: #fff; border-bottom: 1px solid var(--cream-line); }
+.preview-bar-inner {
+  max-width: 1240px; margin: 0 auto; padding: 16px 40px;
+  display: flex; gap: 14px; align-items: flex-start;
+  font-size: 10pt; line-height: 1.55; color: var(--midnight-deep);
+}
+.preview-bar .pb-badge {
+  flex: none; font-family: 'Source Code Pro', monospace; font-size: 8pt; font-weight: 700;
+  letter-spacing: 0.12em; text-transform: uppercase; color: #fff; background: var(--purple-vivid);
+  padding: 4px 10px; border-radius: 14px; margin-top: 1px;
+}
+.preview-bar .pb-text strong { color: var(--midnight-deep); }
+.preview-bar .pb-text em { font-style: normal; font-weight: 600; color: var(--purple-bold); }
+
+/* ============ Layout ============ */
+.layout {
+  max-width: 1240px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 340px; gap: 32px;
+  padding: 28px 40px 70px;
+}
+.form-main { min-width: 0; }
+
+/* ============ Section cards ============ */
+.form-panel { display: none; }
+.form-panel.active { display: block; }
+.section {
+  background: #fff; border: 1px solid var(--cream-line); border-radius: 10px;
+  padding: 28px 32px; margin-bottom: 20px;
+}
+.section-header { border-bottom: 2px solid var(--purple-bold); padding-bottom: 11px; margin-bottom: 20px; }
+.section-header .section-num {
+  font-family: 'Source Code Pro', monospace; font-size: 8.5pt; color: var(--purple-bold);
+  letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+}
+.section-header h2 { font-weight: 700; font-size: 16pt; line-height: 1.15; letter-spacing: -0.01em; color: var(--midnight); margin: 4px 0 6px 0; }
+.section-header .section-help { font-size: 10pt; color: var(--gray-meta-light); margin: 0; }
+
+.field-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px 22px; }
+.field-grid.one { grid-template-columns: 1fr; }
+.field { display: flex; flex-direction: column; gap: 6px; }
+.field.full { grid-column: 1 / -1; }
+.field label { font-size: 10pt; font-weight: 600; color: var(--midnight-deep); line-height: 1.4; }
+.field label .required { color: var(--error); margin-left: 3px; }
+.field .help { font-size: 9pt; color: var(--gray-meta-light); margin: 0; font-weight: 400; line-height: 1.4; }
+.field .unit { font-family: 'Source Code Pro', monospace; font-size: 8.5pt; color: var(--gray-meta); margin-left: 6px; letter-spacing: 0.06em; }
+.field input[type="text"], .field input[type="number"], .field input[type="date"], .field textarea, .field select {
+  width: 100%; font-family: inherit; font-size: 10.5pt; color: var(--midnight);
+  background: var(--field-bg); border: 1px solid var(--field-border); border-radius: 6px;
+  padding: 9px 12px; transition: border-color 0.15s, box-shadow 0.15s;
+}
+.field input:focus, .field textarea:focus, .field select:focus {
+  outline: none; border-color: var(--field-focus); box-shadow: 0 0 0 3px rgba(124, 58, 237, 0.15);
+}
+.field textarea { resize: vertical; min-height: 80px; line-height: 1.5; }
+.field.flagged input, .field.flagged select { border-color: var(--warn); box-shadow: 0 0 0 3px rgba(192, 86, 33, 0.12); }
+
+.yesno-group { display: flex; gap: 8px; }
+.yesno-group input[type="radio"] { display: none; }
+.yesno-group label {
+  flex: 1; text-align: center; padding: 9px 14px; border: 1px solid var(--field-border);
+  border-radius: 6px; background: var(--field-bg); font-size: 10pt; font-weight: 500;
+  color: var(--midnight); cursor: pointer; transition: all 0.15s;
+}
+.yesno-group label:hover { border-color: var(--purple-soft); background: var(--cream); }
+.yesno-group input[type="radio"]:checked + label { background: var(--purple-bold); color: #fff; border-color: var(--purple-bold); font-weight: 600; }
+
+.checklist { display: grid; grid-template-columns: repeat(2, 1fr); gap: 8px 18px; }
+.checklist label { display: flex; align-items: center; gap: 9px; font-size: 10pt; font-weight: 500; color: var(--midnight); cursor: pointer; }
+.checklist input { width: 16px; height: 16px; accent-color: var(--purple-vivid); }
+
+/* ============ Inline credibility note ============ */
+.cred-note {
+  margin-top: 8px; display: none;
+  background: rgba(192, 86, 33, 0.08); border-left: 3px solid var(--warn);
+  padding: 10px 13px; border-radius: 4px; font-size: 9.5pt; color: #7a3514; line-height: 1.5;
+}
+.cred-note.show { display: block; }
+.cred-note .cn-head { font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; font-size: 8pt; font-family: 'Source Code Pro', monospace; display: block; margin-bottom: 3px; }
+.cred-note.good { background: rgba(47, 133, 90, 0.08); border-left-color: var(--ok); color: #1f5c3d; }
+
+/* ============ AI-suggested answer ============ */
+.ai-suggest { margin-top: 10px; }
+.btn-ai {
+  display: inline-flex; align-items: center; gap: 7px;
+  background: var(--field-bg); color: var(--purple-bold); border: 1px dashed var(--purple-soft);
+  border-radius: 6px; padding: 8px 14px; font-family: inherit; font-size: 9.5pt; font-weight: 600;
+  letter-spacing: 0.02em; cursor: pointer; transition: all 0.15s;
+}
+.btn-ai:hover { border-color: var(--purple-vivid); background: var(--cream); color: var(--purple-vivid); }
+.ai-output { display: none; margin-top: 10px; background: var(--cream); border: 1px solid var(--cream-line); border-radius: 8px; padding: 14px 16px; }
+.ai-output.show { display: block; }
+.ai-output .ai-label {
+  font-family: 'Source Code Pro', monospace; font-size: 8pt; color: var(--purple-bold);
+  letter-spacing: 0.12em; text-transform: uppercase; font-weight: 700; margin-bottom: 8px;
+  display: flex; align-items: center; gap: 8px;
+}
+.ai-output .ai-text { font-size: 10pt; line-height: 1.6; color: var(--midnight); white-space: pre-wrap; }
+.ai-output .ai-actions { margin-top: 12px; display: flex; gap: 8px; }
+.ai-output .btn-mini {
+  font-family: inherit; font-size: 9pt; font-weight: 600; padding: 6px 12px; border-radius: 5px; cursor: pointer; border: none;
+}
+.btn-accept { background: var(--purple-vivid); color: #fff; }
+.btn-accept:hover { background: var(--purple-bold); }
+.btn-dismiss { background: var(--cream-deep); color: var(--gray-meta-light); border: 1px solid var(--field-border) !important; }
+
+/* ============ Live credibility sidebar ============ */
+.cred-rail { position: sticky; top: 150px; align-self: flex-start; }
+.cred-card {
+  background: var(--midnight); color: #fff; border-radius: 12px; padding: 22px 22px 24px; margin-bottom: 18px;
+}
+.cred-card h3 { margin: 0 0 4px 0; font-size: 13pt; font-weight: 700; letter-spacing: -0.01em; }
+.cred-card .cc-sub {
+  font-family: 'Source Code Pro', monospace; font-size: 8pt; color: var(--purple-soft);
+  letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 16px;
+}
+.score-ring { display: flex; align-items: center; gap: 16px; margin-bottom: 18px; }
+.score-num { font-size: 30pt; font-weight: 800; letter-spacing: -0.02em; line-height: 1; }
+.score-label { font-size: 9.5pt; color: var(--purple-soft); line-height: 1.4; }
+.score-good { color: #68D391; } .score-mid { color: #F6AD55; } .score-low { color: #FC8181; }
+.flag-list { display: flex; flex-direction: column; gap: 10px; }
+.flag-item {
+  background: var(--midnight-soft); border: 1px solid var(--midnight-deep); border-radius: 8px;
+  padding: 11px 13px; font-size: 9.5pt; line-height: 1.45;
+}
+.flag-item .fi-head { display: flex; align-items: center; gap: 8px; font-weight: 700; margin-bottom: 3px; }
+.flag-item .fi-dot { width: 9px; height: 9px; border-radius: 50%; flex: none; }
+.fi-warn .fi-dot { background: #F6AD55; } .fi-warn .fi-head { color: #F6AD55; }
+.fi-ok .fi-dot { background: #68D391; } .fi-ok .fi-head { color: #68D391; }
+.flag-item .fi-body { color: #D5D0EA; }
+.cred-empty { font-size: 9.5pt; color: var(--purple-soft); font-style: italic; }
+
+.rail-note {
+  background: #fff; border: 1px solid var(--cream-line); border-radius: 12px; padding: 18px 20px;
+  font-size: 9.5pt; color: var(--gray-meta-light); line-height: 1.55;
+}
+.rail-note strong { color: var(--midnight-deep); }
+
+/* ============ Footer / PDF ============ */
+.form-footer {
+  margin-top: 24px; display: flex; align-items: center; justify-content: space-between; gap: 18px;
+  background: #fff; border: 1px solid var(--cream-line); border-radius: 10px; padding: 20px 26px;
+}
+.form-footer .footer-meta { font-family: 'Source Code Pro', monospace; font-size: 9pt; color: var(--gray-meta-light); letter-spacing: 0.06em; text-transform: uppercase; }
+.btn { font-family: inherit; font-weight: 700; font-size: 10.5pt; padding: 12px 22px; border-radius: 6px; border: none; cursor: pointer; transition: all 0.15s; letter-spacing: 0.02em; }
+.btn-primary { background: var(--purple-vivid); color: #fff; }
+.btn-primary:hover { background: var(--purple-bold); }
+.btn-secondary { background: var(--cream); color: var(--midnight); border: 1px solid var(--field-border); margin-right: 8px; }
+.btn-secondary:hover { background: var(--cream-deep); }
+
+.output-panel { display: none; background: var(--midnight); color: #fff; border-radius: 12px; padding: 24px 28px; margin-top: 20px; }
+.output-panel.show { display: block; }
+.output-panel h3 { margin: 0 0 8px 0; font-size: 14pt; font-weight: 700; }
+.output-panel .output-sub { font-family: 'Source Code Pro', monospace; font-size: 9pt; color: var(--purple-soft); letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 14px; }
+.output-panel pre {
+  background: var(--midnight-deep); border: 1px solid var(--midnight-soft); border-radius: 6px;
+  padding: 16px 20px; color: #E0DCEF; font-family: 'Source Code Pro', monospace; font-size: 9pt;
+  line-height: 1.55; max-height: 360px; overflow: auto; margin: 0;
+}
+.pdf-status { margin-top: 14px; font-family: 'Source Code Pro', monospace; font-size: 9pt; color: var(--purple-soft); letter-spacing: 0.04em; }
+
+/* ============ UPL gate modal ============ */
+.gate-overlay {
+  position: fixed; inset: 0; background: rgba(20, 20, 58, 0.86); z-index: 200;
+  display: flex; align-items: center; justify-content: center; padding: 24px;
+}
+.gate-overlay.hidden { display: none; }
+.gate-modal {
+  background: var(--cream); border-radius: 14px; max-width: 560px; width: 100%;
+  padding: 34px 36px 30px; box-shadow: 0 24px 60px rgba(0,0,0,0.4); border-top: 5px solid var(--purple-vivid);
+}
+.gate-modal .gate-tag {
+  font-family: 'Source Code Pro', monospace; font-size: 8.5pt; color: var(--purple-bold);
+  letter-spacing: 0.14em; text-transform: uppercase; font-weight: 700;
+}
+.gate-modal h2 { font-size: 17pt; font-weight: 800; margin: 8px 0 14px; letter-spacing: -0.01em; }
+.gate-modal p { font-size: 10pt; line-height: 1.6; color: var(--midnight-deep); margin: 0 0 12px; }
+.gate-modal .gate-box {
+  background: #fff; border: 1px solid var(--cream-line); border-radius: 8px; padding: 14px 16px; margin: 14px 0 18px;
+  font-size: 9.5pt; line-height: 1.55; color: var(--gray-meta-light);
+}
+.gate-modal .gate-check { display: flex; align-items: flex-start; gap: 10px; margin-bottom: 18px; font-size: 9.5pt; color: var(--midnight-deep); }
+.gate-modal .gate-check input { width: 17px; height: 17px; margin-top: 1px; accent-color: var(--purple-vivid); }
+.gate-modal .btn { width: 100%; padding: 13px; font-size: 11pt; }
+.gate-modal .btn:disabled { opacity: 0.45; cursor: not-allowed; }
+
+@media (max-width: 980px) {
+  .layout { grid-template-columns: 1fr; padding: 20px 16px 50px; }
+  .cred-rail { position: relative; top: 0; }
+  .form-tabs { top: 0; position: relative; }
+  .form-tabs-inner, .app-header { padding-left: 16px; padding-right: 16px; }
+  .field-grid, .checklist { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ============ UPL accept-gate (the one genuinely new risk vs. internal tools) ============ -->
+<div class="gate-overlay" id="gateOverlay">
+  <div class="gate-modal">
+    <div class="gate-tag">Before you begin</div>
+    <h2>This is general information, not legal advice.</h2>
+    <p>The Disability Answer Guide helps you understand the Social Security disability forms and how to describe your situation clearly and credibly. It is an educational tool.</p>
+    <div class="gate-box">
+      Using this tool does <strong>not</strong> create an attorney-client relationship, and nothing here is legal advice about your specific case. The suggestions describe how applicants with similar conditions commonly answer — they are <strong>not</strong> instructions about what to enter. You decide every answer, and you file your own forms with Social Security.
+    </div>
+    <label class="gate-check">
+      <input type="checkbox" id="gateCheck">
+      <span>I understand this is general information, not legal advice, and that I am responsible for my own answers.</span>
+    </label>
+    <button class="btn btn-primary" id="gateBtn" disabled>Continue to the forms</button>
+  </div>
+</div>
+
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="app-brand">
+      <div class="firm-name">Disability Answer Guide</div>
+      <div class="firm-sub">Interactive SSDI Forms · Ginsberg Law</div>
+    </div>
+    <div class="app-meta">
+      <span class="prototype-pill">Proof of Concept</span>
+      <span>Built by Dodon.ai</span>
+    </div>
+  </div>
+</header>
+
+<!-- Form switcher -->
+<div class="form-tabs">
+  <div class="form-tabs-inner" id="formTabs">
+    <button class="form-tab active" data-form="fr">
+      <span class="ft-code">SSA-3373</span>Function Report — Adult
+      <span class="ft-status live">Fully working</span>
+    </button>
+    <button class="form-tab" data-form="adr">
+      <span class="ft-code">SSA-3368</span>Adult Disability Report
+      <span class="ft-status preview">Preview</span>
+    </button>
+    <button class="form-tab" data-form="wh">
+      <span class="ft-code">SSA-3369</span>Work History Report
+      <span class="ft-status preview">Preview</span>
+    </button>
+  </div>
+</div>
+
+<div class="preview-bar">
+  <div class="preview-bar-inner">
+    <span class="pb-badge">Start here</span>
+    <div class="pb-text">
+      This is an early working preview. The <strong>Function Report</strong> is the fully built example — click <em>Load sample answers</em>, watch the <strong>Credibility check</strong> on the right react as the answers change, then <em>Generate filled SSA PDF</em> to download the real, completed SSA-3373. The other two tabs show the same form-and-flag experience as previews; the suggested-answer text is an illustrative example of what the finished tool will write.
+    </div>
+  </div>
+</div>
+
+<div class="layout">
+  <main class="form-main">
+    <form id="intakeForm" novalidate>
+
+      <!-- ====================================================== -->
+      <!-- FORM 1 — Function Report (SSA-3373) — the deep one      -->
+      <!-- ====================================================== -->
+      <div class="form-panel active" data-form="fr">
+
+        <section class="section">
+          <div class="section-header">
+            <div class="section-num">SSA-3373 · Section A</div>
+            <h2>About you &amp; your conditions</h2>
+            <p class="section-help">The Function Report asks how your conditions limit what you can do day to day. The more concrete and consistent you are with your medical records, the more credible your answers.</p>
+          </div>
+          <div class="field-grid">
+            <div class="field"><label>Your name</label><input type="text" name="fr_name"></div>
+            <div class="field"><label>Date of birth</label><input type="date" name="fr_dob"></div>
+            <div class="field full">
+              <label>What are the illnesses, injuries, or conditions that limit your ability to work?</label>
+              <textarea name="fr_conditions" rows="3" placeholder="In your own words. e.g., lower back injury, can't sit or stand for long, constant pain"></textarea>
+              <div class="ai-suggest">
+                <button type="button" class="btn-ai" data-ai="fr_conditions">✦ Suggest a clearer way to say this</button>
+                <div class="ai-output" data-ai-out="fr_conditions">
+                  <div class="ai-label">✦ AI-suggested draft · example · edit in your own words</div>
+                  <div class="ai-text"></div>
+                  <div class="ai-actions">
+                    <button type="button" class="btn-mini btn-accept" data-ai-accept="fr_conditions">Use this</button>
+                    <button type="button" class="btn-mini btn-dismiss" data-ai-dismiss="fr_conditions">Dismiss</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div class="section-num">SSA-3373 · Section C</div>
+            <h2>Physical abilities</h2>
+            <p class="section-help">Social Security compares these numbers against your doctors' records. Answers that sound more capable than your medical file can quietly hurt your claim — the guide flags those as you type.</p>
+          </div>
+          <div class="field-grid">
+            <div class="field" data-flagfield="lifting_flag">
+              <label>How much can you lift and carry?<span class="unit">lbs</span></label>
+              <p class="help">The heaviest you can lift and carry, even occasionally.</p>
+              <input type="number" name="fr_lift_lbs" min="0" step="1" placeholder="e.g., 10">
+              <div class="cred-note" data-note="lifting_flag">
+                <span class="cn-head">Worth a second look</span>
+                Applicants with back or orthopedic conditions usually report lifting 10–15 lbs at most. A higher number than your records support can make a reviewer question the whole report. Lift what's true on a <em>bad</em> day, not your best day.
+              </div>
+            </div>
+            <div class="field" data-flagfield="standing_flag">
+              <label>How long can you stand at one time?<span class="unit">minutes</span></label>
+              <input type="number" name="fr_stand_min" min="0" step="5" placeholder="e.g., 20">
+              <div class="cred-note" data-note="standing_flag">
+                <span class="cn-head">Worth a second look</span>
+                Standing more than ~2 hours straight reads as fairly capable. If your condition forces you to shift, sit, or rest, describe the typical limit — not the rare good stretch.
+              </div>
+            </div>
+            <div class="field" data-flagfield="sitting_flag">
+              <label>How long can you sit at one time?<span class="unit">minutes</span></label>
+              <input type="number" name="fr_sit_min" min="0" step="5" placeholder="e.g., 30">
+              <div class="cred-note" data-note="sitting_flag">
+                <span class="cn-head">Worth a second look</span>
+                Sitting comfortably for more than ~2 hours can undercut a claim built on chronic pain. If you need to get up and move, that detail matters — say so.
+              </div>
+            </div>
+            <div class="field">
+              <label>How far can you walk before needing to stop and rest?<span class="unit">minutes</span></label>
+              <input type="number" name="fr_walk_min" min="0" step="1" placeholder="e.g., 5">
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div class="section-num">SSA-3373 · Section B</div>
+            <h2>A typical day</h2>
+            <p class="section-help">This is the most-read part of the form. Describing a fully independent day is the most common mistake — it tells the reviewer you can function. Describe a realistic day, including the hard parts.</p>
+          </div>
+          <div class="field-grid one">
+            <div class="field full" data-flagfield="independence_flag">
+              <label>Which of these can you do without help, on most days?</label>
+              <div class="checklist">
+                <label><input type="checkbox" name="fr_act" value="cook"> Cook full meals</label>
+                <label><input type="checkbox" name="fr_act" value="drive"> Drive a car</label>
+                <label><input type="checkbox" name="fr_act" value="shop"> Shop in stores alone</label>
+                <label><input type="checkbox" name="fr_act" value="money"> Manage money / pay bills</label>
+                <label><input type="checkbox" name="fr_act" value="laundry"> Do laundry</label>
+                <label><input type="checkbox" name="fr_act" value="yard"> Yard work / mowing</label>
+                <label><input type="checkbox" name="fr_act" value="house"> Clean the house</label>
+                <label><input type="checkbox" name="fr_act" value="social"> Go out socially without help</label>
+              </div>
+              <div class="cred-note" data-note="independence_flag">
+                <span class="cn-head">Worth a second look</span>
+                You've marked yourself independent on most daily activities. That's the single most common way a strong claim gets weakened — it reads as "able to function." If any of these are only possible on good days, take longer than they used to, or need breaks or help, the form has room to say that. Be accurate, not modest.
+              </div>
+            </div>
+            <div class="field full">
+              <label>Describe what you do from when you wake up until you go to bed.</label>
+              <textarea name="fr_typical_day" rows="4" placeholder="In your own words. Include rest breaks, pain, bad days, and anything you've stopped doing."></textarea>
+              <div class="ai-suggest">
+                <button type="button" class="btn-ai" data-ai="fr_typical_day">✦ Help me describe this credibly</button>
+                <div class="ai-output" data-ai-out="fr_typical_day">
+                  <div class="ai-label">✦ AI-suggested draft · example · edit in your own words</div>
+                  <div class="ai-text"></div>
+                  <div class="ai-actions">
+                    <button type="button" class="btn-mini btn-accept" data-ai-accept="fr_typical_day">Use this</button>
+                    <button type="button" class="btn-mini btn-dismiss" data-ai-dismiss="fr_typical_day">Dismiss</button>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <section class="section">
+          <div class="section-header">
+            <div class="section-num">SSA-3373 · Section D</div>
+            <h2>Treatment</h2>
+            <p class="section-help">Consistent treatment is one of the strongest credibility signals there is. Gaps in care are the first thing a reviewer points to.</p>
+          </div>
+          <div class="field-grid">
+            <div class="field" data-flagfield="treatment_gap_flag">
+              <label>How often are you currently seeing a doctor for these conditions?</label>
+              <select name="fr_treatment">
+                <option value="">—</option>
+                <option value="weekly">Weekly or more</option>
+                <option value="monthly">Monthly</option>
+                <option value="few_months">Every few months</option>
+                <option value="rarely">Rarely</option>
+                <option value="not_currently">Not currently</option>
+              </select>
+              <div class="cred-note" data-note="treatment_gap_flag">
+                <span class="cn-head">Worth a second look</span>
+                A reviewer reads little or no current treatment as "the condition can't be that limiting." If cost, transportation, or access is the reason you're not in care, that explanation belongs on the form — it changes how the gap is read.
+              </div>
+            </div>
+            <div class="field">
+              <label>Does pain or your condition affect your sleep?</label>
+              <div class="yesno-group">
+                <input type="radio" name="fr_sleep" value="Yes" id="fr-sleep-y"><label for="fr-sleep-y">Yes</label>
+                <input type="radio" name="fr_sleep" value="No" id="fr-sleep-n"><label for="fr-sleep-n">No</label>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ====================================================== -->
+      <!-- FORM 2 — Adult Disability Report (SSA-3368) — medium    -->
+      <!-- ====================================================== -->
+      <div class="form-panel" data-form="adr">
+        <section class="section">
+          <div class="section-header">
+            <div class="section-num">SSA-3368 · Work</div>
+            <h2>Are you working now?</h2>
+            <p class="section-help">This is the first thing Social Security checks. Earnings above the "substantial gainful activity" limit can end a claim at Step 1 — before anyone even looks at your medical condition.</p>
+          </div>
+          <div class="field-grid">
+            <div class="field full" data-flagfield="sga_flag">
+              <label>Are you working at this time?</label>
+              <div class="yesno-group">
+                <input type="radio" name="adr_working" value="Yes" id="adr-w-y"><label for="adr-w-y">Yes</label>
+                <input type="radio" name="adr_working" value="No" id="adr-w-n"><label for="adr-w-n">No</label>
+              </div>
+            </div>
+            <div class="field" data-flagfield="sga_flag">
+              <label>If working, your average monthly earnings<span class="unit">$ / mo</span></label>
+              <input type="number" name="adr_earnings" min="0" step="50" placeholder="e.g., 1200">
+              <div class="cred-note" data-note="sga_flag">
+                <span class="cn-head">Important — Step 1 risk</span>
+                Earnings at or above the monthly "substantial gainful activity" limit (about $1,550) usually mean an automatic technical denial, no matter how serious your condition is. If your work is part-time, supported, or you've had to cut back, those facts matter and belong on the form.
+              </div>
+            </div>
+            <div class="field"><label>Date you stopped working (if applicable)</label><input type="date" name="adr_stopped"></div>
+          </div>
+        </section>
+        <section class="section">
+          <div class="section-header">
+            <div class="section-num">SSA-3368 · Medical</div>
+            <h2>Your conditions &amp; doctors</h2>
+            <p class="section-help">List every condition and every provider. A condition with no supporting doctor is hard for Social Security to credit.</p>
+          </div>
+          <div class="field-grid">
+            <div class="field"><label>Height<span class="unit">in</span></label><input type="number" name="adr_height" min="0" placeholder="e.g., 68"></div>
+            <div class="field"><label>Weight<span class="unit">lbs</span></label><input type="number" name="adr_weight" min="0" placeholder="e.g., 190"></div>
+            <div class="field full">
+              <label>Physical or mental conditions that limit your ability to work</label>
+              <textarea name="adr_conditions" rows="3" placeholder="List all of them, even the ones that feel minor."></textarea>
+            </div>
+            <div class="field"><label>Main treating doctor / clinic</label><input type="text" name="adr_doctor" placeholder="Name"></div>
+            <div class="field"><label>Approx. date last seen</label><input type="date" name="adr_last_seen"></div>
+          </div>
+        </section>
+      </div>
+
+      <!-- ====================================================== -->
+      <!-- FORM 3 — Work History Report (SSA-3369) — light         -->
+      <!-- ====================================================== -->
+      <div class="form-panel" data-form="wh">
+        <section class="section">
+          <div class="section-header">
+            <div class="section-num">SSA-3369 · Past work</div>
+            <h2>Your most recent job</h2>
+            <p class="section-help">How physically demanding your past work was decides which jobs Social Security expects you could still do. Understating the demands of old jobs can work against you, especially if you're 50 or older.</p>
+          </div>
+          <div class="field-grid">
+            <div class="field"><label>Most recent job title</label><input type="text" name="wh_title" placeholder="e.g., warehouse picker"></div>
+            <div class="field"><label>Years in this job</label><input type="number" name="wh_years" min="0" step="1" placeholder="e.g., 8"></div>
+            <div class="field" data-flagfield="work_exertion_flag">
+              <label>How heavy was this job, as you actually did it?</label>
+              <select name="wh_exertion">
+                <option value="">—</option>
+                <option value="sedentary">Sedentary — mostly seated, light items</option>
+                <option value="light">Light — on feet, up to ~20 lbs</option>
+                <option value="medium">Medium — up to ~50 lbs</option>
+                <option value="heavy">Heavy — over 50 lbs regularly</option>
+              </select>
+              <div class="cred-note good" data-note="work_exertion_flag">
+                <span class="cn-head">Good to capture</span>
+                Heavier past work, described accurately, can actually help — under Social Security's "grid rules," someone 50+ who can no longer do physical work they used to do may qualify more easily. Don't downplay how demanding the job really was.
+              </div>
+            </div>
+            <div class="field" data-flagfield="work_consistency_flag">
+              <label>Heaviest weight you lifted on this job<span class="unit">lbs</span></label>
+              <input type="number" name="wh_lift_lbs" min="0" step="5" placeholder="e.g., 50">
+              <div class="cred-note" data-note="work_consistency_flag">
+                <span class="cn-head">Worth a second look</span>
+                The weight you entered is heavier than the exertion level you picked above. Social Security cross-checks these — make sure the job's category matches what you actually lifted, or the report looks inconsistent.
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <div class="form-footer">
+        <div class="footer-meta" id="footerMeta">Downloads the real, completed SSA-3373</div>
+        <div>
+          <button type="button" class="btn btn-secondary" id="loadSampleBtn">Load sample answers</button>
+          <button type="button" class="btn btn-primary" id="generateBtn">Generate filled SSA PDF →</button>
+        </div>
+      </div>
+
+      <div class="output-panel" id="outputPanel">
+        <h3>Your filled Social Security form</h3>
+        <div class="output-sub">your answers, written into the official SSA form</div>
+        <div class="pdf-status" id="pdfStatus">Generating…</div>
+      </div>
+    </form>
+  </main>
+
+  <!-- ============ Live credibility rail ============ -->
+  <aside class="cred-rail">
+    <div class="cred-card">
+      <h3>Credibility check</h3>
+      <div class="cc-sub">updates as you answer</div>
+      <div class="score-ring">
+        <div class="score-num score-good" id="scoreNum">100</div>
+        <div class="score-label" id="scoreLabel">No issues yet. Start filling the form and the guide will flag anything that could weaken your claim.</div>
+      </div>
+      <div class="flag-list" id="flagList">
+        <div class="cred-empty">No flags raised.</div>
+      </div>
+    </div>
+    <div class="rail-note">
+      <strong>How this works.</strong> This guide reflects how applicants with similar conditions commonly answer, and what Social Security reviewers look for. It is general information, not legal advice — every answer is yours to decide.
+    </div>
+  </aside>
+</div>
+
+<script>
+/* ============================================================================
+   Disability Answer Guide — v1 proof of concept
+   Engine:
+     · buildSnapshot()       — live credibility flags from the form state
+     · suggestAnswer()       — AI-suggested answer drafts
+     · FIELD_MAPS + fillPdf() — fills the official SSA PDF, client-side
+   ========================================================================== */
+
+/* -------- UPL accept-gate -------- */
+const gateCheck = document.getElementById('gateCheck');
+const gateBtn = document.getElementById('gateBtn');
+gateCheck.addEventListener('change', () => { gateBtn.disabled = !gateCheck.checked; });
+gateBtn.addEventListener('click', () => { document.getElementById('gateOverlay').classList.add('hidden'); });
+
+/* -------- Form switcher -------- */
+document.getElementById('formTabs').addEventListener('click', (e) => {
+  const tab = e.target.closest('.form-tab');
+  if (!tab) return;
+  const form = tab.dataset.form;
+  document.querySelectorAll('.form-tab').forEach(t => t.classList.toggle('active', t === tab));
+  document.querySelectorAll('.form-panel').forEach(p => p.classList.toggle('active', p.dataset.form === form));
+  ACTIVE_FORM = form;
+  updateFormChrome();
+  refresh();
+});
+
+/* Footer hint + button label reflect whether the active tab is fully wired. */
+const FORM_NUM = { fr: '3373', adr: '3368', wh: '3369' };
+function updateFormChrome() {
+  const wired = !!(window.PDF_DATA && window.PDF_DATA[ACTIVE_FORM]);
+  document.getElementById('footerMeta').textContent = wired
+    ? `Downloads the real, completed SSA-${FORM_NUM[ACTIVE_FORM]}`
+    : 'Preview tab — the Function Report is the fully working example';
+  document.getElementById('generateBtn').textContent = wired
+    ? 'Generate filled SSA PDF →'
+    : 'Preview only — try the Function Report →';
+}
+let ACTIVE_FORM = 'fr';
+
+const SGA_LIMIT = 1550; // monthly substantial-gainful-activity threshold (illustrative)
+
+/* -------- gather helpers -------- */
+function val(name) { const el = document.querySelector(`[name="${name}"]`); return el ? el.value.trim() : ''; }
+function num(name) { const v = val(name); return v === '' ? null : Number(v); }
+function radio(name) { const el = document.querySelector(`input[name="${name}"]:checked`); return el ? el.value : ''; }
+function checkedValues(name) { return Array.from(document.querySelectorAll(`input[name="${name}"]:checked`)).map(el => el.value); }
+
+/* -------- buildSnapshot(): the live credibility engine --------
+   Returns a payload of resolved values + boolean flags + the applicant-facing
+   reason for each flag. Pure function of current form state — re-run on input. */
+function buildSnapshot() {
+  const acts = checkedValues('fr_act');
+
+  const liftLbs   = num('fr_lift_lbs');
+  const standMin  = num('fr_stand_min');
+  const sitMin    = num('fr_sit_min');
+  const treatment = val('fr_treatment');
+
+  const lifting_flag      = liftLbs != null && liftLbs > 20;
+  const standing_flag     = standMin != null && standMin > 120;
+  const sitting_flag      = sitMin  != null && sitMin  > 120;
+  const independence_flag = acts.length >= 4;
+  const treatment_gap_flag = treatment === 'rarely' || treatment === 'not_currently';
+
+  const working   = radio('adr_working');
+  const earnings  = num('adr_earnings');
+  const sga_flag  = working === 'Yes' && earnings != null && earnings >= SGA_LIMIT;
+
+  const whExert   = val('wh_exertion');
+  const whLift    = num('wh_lift_lbs');
+  const work_exertion_flag   = whExert === 'medium' || whExert === 'heavy';   // good-to-capture (positive)
+  const work_consistency_flag =
+        whLift != null && (
+          (whExert === 'sedentary' && whLift > 10) ||
+          (whExert === 'light' && whLift > 20) ||
+          (whExert === 'medium' && whLift > 50));
+
+  /* Per-flag applicant-facing summaries for the rail */
+  const reasons = {
+    lifting_flag:       ['warn', 'Lifting looks high', `You entered ${liftLbs} lbs — most applicants with similar conditions report 10–15. A higher number can make the whole report look less credible.`],
+    standing_flag:      ['warn', 'Standing looks high', `${standMin} min at one time reads as fairly capable. Describe your typical limit, not your best stretch.`],
+    sitting_flag:       ['warn', 'Sitting looks high', `${sitMin} min at one time can undercut a chronic-pain claim. Note it if you have to get up and move.`],
+    independence_flag:  ['warn', 'Day looks very independent', `You marked ${acts.length} daily activities as done without help. That's the most common way a strong claim gets weakened — flag anything that's only possible on good days.`],
+    treatment_gap_flag: ['warn', 'Treatment gap', `Little or no current treatment reads as "not that limiting." If access or cost is the reason, that explanation belongs on the form.`],
+    sga_flag:           ['warn', 'Earnings may end the claim', `Working at ~$${earnings}/mo is at or above the SGA limit (~$${SGA_LIMIT}) — a Step 1 technical denial risk regardless of your condition.`],
+    work_consistency_flag: ['warn', 'Job demands don’t match', `The weight you lifted is heavier than the exertion level you chose for that job. Social Security cross-checks these.`],
+    work_exertion_flag: ['ok', 'Past work captured well', `Heavy past work, described accurately, can help under the grid rules if you’re 50 or older. Good to keep it accurate.`],
+  };
+
+  return {
+    schema_version: '1.0-poc',
+    form: ACTIVE_FORM,
+    resolved: {
+      lift_lbs: liftLbs, stand_minutes: standMin, sit_minutes: sitMin,
+      walk_minutes: num('fr_walk_min'), independent_activities: acts,
+      current_treatment: treatment, working, monthly_earnings: earnings,
+      recent_job_exertion: whExert, recent_job_lift_lbs: whLift,
+    },
+    flags: {
+      lifting_flag, standing_flag, sitting_flag, independence_flag,
+      treatment_gap_flag, sga_flag, work_consistency_flag, work_exertion_flag,
+    },
+    reasons,
+  };
+}
+
+/* Which flags belong to which form (so the rail shows the active form's flags) */
+const FORM_FLAGS = {
+  fr:  ['lifting_flag', 'standing_flag', 'sitting_flag', 'independence_flag', 'treatment_gap_flag'],
+  adr: ['sga_flag'],
+  wh:  ['work_consistency_flag', 'work_exertion_flag'],
+};
+
+/* -------- render: inline notes + rail + score -------- */
+function refresh() {
+  const snap = buildSnapshot();
+
+  /* inline cred-notes next to each field */
+  document.querySelectorAll('.cred-note[data-note]').forEach(note => {
+    const key = note.dataset.note;
+    const on = !!snap.flags[key];
+    note.classList.toggle('show', on);
+    const fieldWrap = note.closest('[data-flagfield]');
+    if (fieldWrap && !note.classList.contains('good')) fieldWrap.classList.toggle('flagged', on);
+  });
+
+  /* rail flags for the active form */
+  const active = FORM_FLAGS[snap.form].filter(k => snap.flags[k]);
+  const list = document.getElementById('flagList');
+  if (active.length === 0) {
+    list.innerHTML = '<div class="cred-empty">No flags raised on this form.</div>';
+  } else {
+    list.innerHTML = active.map(k => {
+      const [kind, head, body] = snap.reasons[k];
+      return `<div class="flag-item fi-${kind}">
+        <div class="fi-head"><span class="fi-dot"></span>${head}</div>
+        <div class="fi-body">${body}</div>
+      </div>`;
+    }).join('');
+  }
+
+  /* credibility score = 100 minus a weight per concern flag (positive flags don't subtract) */
+  const concerns = ['lifting_flag','standing_flag','sitting_flag','independence_flag','treatment_gap_flag','sga_flag','work_consistency_flag']
+    .filter(k => snap.flags[k]).length;
+  const score = Math.max(40, 100 - concerns * 12);
+  const numEl = document.getElementById('scoreNum');
+  numEl.textContent = score;
+  numEl.className = 'score-num ' + (score >= 85 ? 'score-good' : score >= 65 ? 'score-mid' : 'score-low');
+  document.getElementById('scoreLabel').textContent =
+    concerns === 0 ? 'Looking consistent. Keep your answers true to a typical day.'
+    : concerns === 1 ? 'One answer could be read against you. See the flag below.'
+    : `${concerns} answers could weaken your claim. Review the flags below — none are about lying, all are about being accurate and consistent.`;
+
+  return snap;
+}
+document.getElementById('intakeForm').addEventListener('input', refresh);
+document.getElementById('intakeForm').addEventListener('change', refresh);
+
+/* -------- suggestAnswer(): AI-suggested answers --------
+   In production this calls Claude with Jonathan's commentary as the system
+   prompt. Here it's a deterministic, credibility-aware synthesizer so the demo
+   runs offline — same shape: notes in, structured credible draft out. */
+function suggestAnswer(field) {
+  const snap = buildSnapshot();
+  if (field === 'fr_conditions') {
+    const raw = val('fr_conditions') || 'a back condition that causes constant pain';
+    return `I have ${raw}. The pain is present every day and gets worse with activity. `
+      + `On a bad day I can do very little, and even on a better day I have to stop and rest often. `
+      + `These limits have not improved with treatment, and they are why I can no longer do my past work.`;
+  }
+  if (field === 'fr_typical_day') {
+    const raw = val('fr_typical_day');
+    const stem = raw ? raw + '\n\n' : '';
+    const indep = snap.flags.independence_flag
+      ? `The things I still do — like meals or errands — take me much longer than they used to, I do them in stages, and I need to rest or get help on bad days. `
+      : `Most days I need help with or have given up on tasks I used to do easily. `;
+    return stem
+      + `I wake up stiff and in pain and it takes me a while to get going. `
+      + indep
+      + `Pain and fatigue force me to lie down and rest several times during the day. `
+      + `By evening I'm worn out, and my sleep is broken by discomfort. No two days are the same, and the bad days are frequent.`;
+  }
+  return '';
+}
+
+document.querySelectorAll('.btn-ai').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const field = btn.dataset.ai;
+    const out = document.querySelector(`[data-ai-out="${field}"]`);
+    out.querySelector('.ai-text').textContent = suggestAnswer(field);
+    out.classList.add('show');
+  });
+});
+document.querySelectorAll('[data-ai-accept]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    const field = btn.dataset.aiAccept;
+    const out = document.querySelector(`[data-ai-out="${field}"]`);
+    const el = document.querySelector(`[name="${field}"]`);
+    if (el) { el.value = out.querySelector('.ai-text').textContent; }
+    out.classList.remove('show');
+    refresh();
+  });
+});
+document.querySelectorAll('[data-ai-dismiss]').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelector(`[data-ai-out="${btn.dataset.aiDismiss}"]`).classList.remove('show');
+  });
+});
+
+/* -------- FIELD_MAPS + fillPdf(): the official-PDF auto-fill engine --------
+   FIELD_MAPS[form].text maps official SSA PDF field names → a function of the
+   payload. In production fillPdf() loads the official fillable PDF
+   (window.PDF_DATA[form]) and injects via form.getTextField(name).setText().
+   Here, with no official binary bundled, it falls back to drawing the same
+   field map onto a generated page — identical map, demo substrate. The
+   if (window.PDF_DATA) branch loads and fills the official PDF. */
+const TODAY = (() => { const d = new Date(); return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`; })();
+const TREATMENT_LABEL = {
+  weekly: 'weekly or more', monthly: 'monthly', few_months: 'every few months',
+  rarely: 'rarely', not_currently: 'not currently',
+};
+/* Q20A free-text: only include the limits the applicant actually entered. */
+function physicalLimitsSummary(p) {
+  const parts = [];
+  if (p.fr_lift_lbs  != null) parts.push(`Lifting and carrying: about ${p.fr_lift_lbs} lbs at most.`);
+  if (p.fr_stand_min != null) parts.push(`Standing: about ${p.fr_stand_min} minutes at one time.`);
+  if (p.fr_sit_min   != null) parts.push(`Sitting: about ${p.fr_sit_min} minutes at one time.`);
+  if (p.fr_walk_min  != null) parts.push(`Walking: about ${p.fr_walk_min} minutes before needing to stop and rest.`);
+  if (!parts.length) return '';
+  return parts.join(' ') + ' These reflect a typical day; bad days are worse.';
+}
+
+const FIELD_MAPS = {
+  /* SSA-3373 uses the REAL field names enumerated from the official PDF
+     (form1[0].BodyPageN[0].QuestionField). text{} sets text fields,
+     checkbox{} checks the affected-ability / Yes-No boxes. */
+  fr: {
+    title: 'Function Report — Adult (SSA-3373)',
+    real: true,
+    text: {
+      'form1[0].BodyPage3[0].Name[0]':    p => p.fr_name,
+      'form1[0].BodyPage10[0].Name[0]':   p => p.fr_name,
+      'form1[0].BodyPage10[0].Date[0]':   p => TODAY,
+      'form1[0].BodyPage3[0].N5text[0]':  p => p.fr_conditions,          // Q5 — how conditions limit work
+      'form1[0].BodyPage4[0].N6text[0]':  p => p.fr_typical_day,         // Q6 — typical day, wake to bed
+      'form1[0].BodyPage5[0].N13AIfYesField[0]': p => p.fr_sleep === 'Yes' ? 'Pain and discomfort wake me and make it hard to stay asleep.' : '',
+      'form1[0].BodyPage8[0].N20A[0]':    p => physicalLimitsSummary(p),  // Q20A — physical limits detail
+      'form1[0].BodyPage10[0].Remarks[0]': p => p.fr_treatment ? `Currently seeing a doctor for these conditions: ${TREATMENT_LABEL[p.fr_treatment] || p.fr_treatment}.` : '',
+    },
+    checkbox: {
+      'form1[0].BodyPage5[0].N13ACB[0]':         p => p.fr_sleep === 'Yes',   // Q13 sleep affected? Yes
+      'form1[0].BodyPage5[0].N13ACB[1]':         p => p.fr_sleep === 'No',    // Q13 sleep affected? No
+      'form1[0].BodyPage8[0].N20ACBLifting[0]':  p => p.fr_lift_lbs  != null, // Q20 abilities affected
+      'form1[0].BodyPage8[0].N20ACBStanding[0]': p => p.fr_stand_min != null,
+      'form1[0].BodyPage8[0].N20ACBSitting[0]':  p => p.fr_sit_min   != null,
+      'form1[0].BodyPage8[0].N20ACBWalking[0]':  p => p.fr_walk_min  != null,
+      'form1[0].BodyPage6[0].N15BDrive[0]':      p => (p.fr_act || []).includes('drive'),
+      'form1[0].BodyPage6[0].N16AInStores[0]':   p => (p.fr_act || []).includes('shop'),
+    },
+  },
+  adr: {
+    title: 'Adult Disability Report (SSA-3368)',
+    text: {
+      'F[0].Working[0]':   p => p.adr_working,
+      'F[0].Earnings[0]':  p => p.adr_earnings != null ? `$${p.adr_earnings}/mo` : '',
+      'F[0].Conditions[0]':p => p.adr_conditions,
+      'F[0].Doctor[0]':    p => p.adr_doctor,
+    },
+  },
+  wh: {
+    title: 'Work History Report (SSA-3369)',
+    text: {
+      'F[0].JobTitle[0]':  p => p.wh_title,
+      'F[0].Exertion[0]':  p => p.wh_exertion,
+      'F[0].LiftLbs[0]':   p => p.wh_lift_lbs != null ? `${p.wh_lift_lbs} lbs` : '',
+    },
+  },
+};
+
+function buildPayload() {
+  const fd = new FormData(document.getElementById('intakeForm'));
+  const obj = {};
+  fd.forEach((v, k) => { if (k === 'fr_act') { (obj.fr_act = obj.fr_act || []).push(v); } else { obj[k] = v; } });
+  ['fr_lift_lbs','fr_stand_min','fr_sit_min','fr_walk_min','adr_earnings','wh_lift_lbs']
+    .forEach(k => { if (obj[k] != null && obj[k] !== '') obj[k] = Number(obj[k]); else obj[k] = obj[k] === '' ? null : obj[k]; });
+  return obj;
+}
+
+async function fillPdf(form, payload) {
+  const map = FIELD_MAPS[form];
+  const filled = Object.entries(map.text)
+    .map(([name, fn]) => [name, fn(payload)])
+    .filter(([, v]) => v != null && v !== '');
+  const boxes = Object.entries(map.checkbox || {})
+    .map(([name, fn]) => [name, fn(payload)])
+    .filter(([, on]) => on);
+
+  /* PRODUCTION path — load the official fillable PDF and inject.
+     Text via setText(); checkboxes/radios via the generic field-class switch. */
+  if (window.PDF_DATA && window.PDF_DATA[form]) {
+    const bytes = Uint8Array.from(atob(window.PDF_DATA[form]), c => c.charCodeAt(0));
+    const pdfDoc = await PDFLib.PDFDocument.load(bytes, { ignoreEncryption: true });
+    const acro = pdfDoc.getForm();
+    try { acro.acroForm.dict.set(PDFLib.PDFName.of('NeedAppearances'), PDFLib.PDFBool.True); } catch (e) {}
+    const names = new Set(acro.getFields().map(f => f.getName()));
+    let n = 0;
+    for (const [name, v] of filled) {
+      if (!names.has(name)) continue;
+      try { acro.getTextField(name).setText(String(v)); n++; } catch (e) {}
+    }
+    for (const [name] of boxes) {
+      if (!names.has(name)) continue;
+      try {
+        const f = acro.getField(name);
+        const cls = f.constructor.name;
+        if (cls === 'PDFCheckBox') { f.check(); n++; }
+        else if (cls === 'PDFRadioGroup') { const o = f.getOptions(); if (o && o.length) { f.select(o[0]); n++; } }
+        else if (typeof f.check === 'function') { f.check(); n++; }
+      } catch (e) { /* swallow — some XFA widgets resist */ }
+    }
+    try { acro.updateFieldAppearances(await pdfDoc.embedFont(PDFLib.StandardFonts.Helvetica)); } catch (e) {}
+    return { bytes: await pdfDoc.save({ updateFieldAppearances: false }), filled: n, demo: false };
+  }
+
+  /* DEMO fallback — no official binary bundled: draw the same field map onto a page. */
+  const { PDFDocument, StandardFonts, rgb } = PDFLib;
+  const doc = await PDFDocument.create();
+  let page = doc.addPage([612, 792]);
+  const font = await doc.embedFont(StandardFonts.Helvetica);
+  const bold = await doc.embedFont(StandardFonts.HelveticaBold);
+  const ink = rgb(0.10, 0.10, 0.27), muted = rgb(0.42, 0.42, 0.52), accent = rgb(0.42, 0.20, 0.80);
+  let y = 740;
+  page.drawText('SOCIAL SECURITY ADMINISTRATION', { x: 54, y, size: 9, font: bold, color: muted });
+  y -= 20; page.drawText(map.title, { x: 54, y, size: 16, font: bold, color: ink });
+  y -= 14; page.drawText('Auto-filled from the Disability Answer Guide — DEMO', { x: 54, y, size: 9, font, color: accent });
+  y -= 8;  page.drawLine({ start: { x: 54, y }, end: { x: 558, y }, thickness: 1.5, color: accent });
+  y -= 26;
+  const wrap = (t, max) => {
+    const words = String(t).split(/\s+/); const lines = []; let line = '';
+    for (const w of words) { if ((line + ' ' + w).trim().length > max) { lines.push(line.trim()); line = w; } else line += ' ' + w; }
+    if (line.trim()) lines.push(line.trim()); return lines;
+  };
+  for (const [name, v] of filled) {
+    const label = name.split('.').pop().replace(/\[0\]/g, '').replace(/([A-Z])/g, ' $1').trim();
+    if (y < 80) { page = doc.addPage([612, 792]); y = 740; }
+    page.drawText(label.toUpperCase(), { x: 54, y, size: 8, font: bold, color: muted }); y -= 14;
+    for (const ln of wrap(v, 92)) { if (y < 70) { page = doc.addPage([612, 792]); y = 740; } page.drawText(ln, { x: 54, y, size: 11, font, color: ink }); y -= 15; }
+    y -= 10;
+  }
+  if (y < 110) { page = doc.addPage([612, 792]); y = 740; }
+  page.drawLine({ start: { x: 54, y }, end: { x: 558, y }, thickness: 0.5, color: muted }); y -= 16;
+  for (const ln of wrap('This is a proof-of-concept rendering. In production these same field-map values are injected into the official SSA fillable PDF via the fillPdf() engine, so the applicant downloads the genuine government form.', 100)) {
+    page.drawText(ln, { x: 54, y, size: 8, font, color: muted }); y -= 12;
+  }
+  return { bytes: await doc.save(), filled: filled.length, demo: true };
+}
+
+/* -------- Generate button -------- */
+/* Only forms wired to their official SSA PDF (the Function Report, in this
+   preview) generate a real filled form. Other tabs point back to it. */
+document.getElementById('generateBtn').addEventListener('click', async () => {
+  refresh();
+  const panel = document.getElementById('outputPanel');
+  const status = document.getElementById('pdfStatus');
+  panel.classList.add('show');
+
+  const wired = !!(window.PDF_DATA && window.PDF_DATA[ACTIVE_FORM]);
+  if (!wired) {
+    status.innerHTML = `This tab is a <strong>preview</strong> in this early build. `
+      + `The <strong>Function Report</strong> is the fully working example — switch to that tab and click `
+      + `<em>Generate filled SSA PDF</em> to download a real, completed SSA-3373 from your answers.`;
+    panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+    return;
+  }
+
+  status.textContent = 'Generating…';
+  const payload = buildPayload();
+  try {
+    const { bytes, filled } = await fillPdf(ACTIVE_FORM, payload);
+    const blob = new Blob([bytes], { type: 'application/pdf' });
+    const url = URL.createObjectURL(blob);
+    window.open(url, '_blank');
+    status.innerHTML = `✓ Your official <strong>${FIELD_MAPS[ACTIVE_FORM].title}</strong> opened in a new tab — `
+      + `filled in from your answers and ready to download or print.`;
+  } catch (e) {
+    status.innerHTML = `<span style="color:#FC8181">Something went wrong generating the form: ${e.message}</span>`;
+  }
+  panel.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+});
+
+/* -------- Sample data so the demo shows flags immediately -------- */
+const SAMPLE = {
+  fr_name: 'Pat Rivera', fr_dob: '1968-04-12',
+  fr_conditions: 'lower back injury and nerve pain down my leg',
+  fr_lift_lbs: 35, fr_stand_min: 150, fr_sit_min: 45, fr_walk_min: 5,
+  fr_treatment: 'rarely', fr_typical_day: '',
+  adr_working: 'Yes', adr_earnings: 1600, adr_conditions: 'chronic lower back pain, sciatica',
+  adr_doctor: 'Dr. Lin, Pinewood Clinic', adr_height: 69, adr_weight: 205,
+  wh_title: 'warehouse picker', wh_years: 9, wh_exertion: 'light', wh_lift_lbs: 55,
+};
+const SAMPLE_ACTS = ['cook','drive','shop','money','laundry'];
+document.getElementById('loadSampleBtn').addEventListener('click', () => {
+  Object.entries(SAMPLE).forEach(([k, v]) => {
+    const el = document.querySelector(`[name="${k}"]`);
+    if (!el) return;
+    if (el.type === 'radio') { const r = document.querySelector(`input[name="${k}"][value="${v}"]`); if (r) r.checked = true; }
+    else el.value = v;
+  });
+  document.querySelectorAll('input[name="fr_act"]').forEach(el => el.checked = SAMPLE_ACTS.includes(el.value));
+  refresh();
+});
+
+updateFormChrome();
+refresh();
+</script>
+</body>
+</html>

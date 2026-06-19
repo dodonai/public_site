@@ -1,0 +1,1002 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Dodonai Consulting Proposal — Rupprecht Law</title>
+<style>
+/* ============================================================
+   Dodonai Proposal Style — v2
+   Aligned with the Dodon.ai Social Card Templates design system
+   (as rendered in the Dabdoub pitch deck, May 2026).
+   Forward-only: existing v1 proposals continue to use proposal-style.css.
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap');
+
+:root {
+  --midnight:        #1A1A45;
+  --midnight-deep:   #14143A;
+  --midnight-soft:   #252556;
+  --purple-soft:     #B5A8E6;
+  --purple-mid:      #8B7AB8;
+  --purple-bold:     #6B46C1;
+  --purple-vivid:    #7C3AED;
+  --cream:           #F4F1E8;
+  --cream-deep:      #EBE6D7;
+  --cream-line:      #D8D3C2;
+  --gray-meta:       #9B9BB8;
+  --gray-meta-light: #6B6B85;
+}
+
+/* ==== Page / print ============================================= */
+@page {
+  size: letter;
+  margin: 0.85in 0.7in 0.95in 0.7in;
+  background: var(--cream);
+  @bottom-left {
+    content: "Prepared for Jonathan Rupprecht, Esq.<br/>Rupprecht Law, P.A.";
+    font-size: 8.5pt;
+    color: var(--purple-bold);
+    font-family: 'Source Code Pro', monospace;
+    letter-spacing: 0.10em;
+    text-transform: uppercase;
+  }
+  @bottom-right {
+    content: counter(page) " / " counter(pages);
+    font-size: 8.5pt;
+    color: var(--purple-bold);
+    font-family: 'Source Code Pro', monospace;
+    letter-spacing: 0.10em;
+  }
+  @top-right {
+    content: "DODON.AI";
+    font-size: 8.5pt;
+    color: var(--purple-vivid);
+    font-family: 'Source Code Pro', monospace;
+    font-weight: 700;
+    letter-spacing: 0.16em;
+  }
+}
+@page :first {
+  margin: 0;
+  background: var(--midnight);
+  @bottom-left { content: ""; }
+  @bottom-right { content: ""; }
+  @top-right { content: ""; }
+}
+
+html, body {
+  background: var(--cream);
+  margin: 0;
+  padding: 0;
+}
+body {
+  font-family: 'Plus Jakarta Sans', -apple-system, BlinkMacSystemFont, "Helvetica Neue", Arial, sans-serif;
+  font-size: 10.5pt;
+  line-height: 1.55;
+  color: var(--midnight);
+  font-weight: 400;
+}
+
+/* ==== Cover page =============================================== */
+.cover-page {
+  page-break-after: always;
+  page: cover;
+  position: relative;
+  width: 8.5in;
+  height: 11in;
+  margin: 0;
+  padding: 0;
+  background: var(--midnight);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  box-sizing: border-box;
+  padding: 1.0in 0.85in 0.85in 0.85in;
+}
+.cover-logos {
+  display: flex;
+  align-items: center;
+  gap: 18px;
+  margin-bottom: 0.4in;
+  flex-wrap: nowrap;
+}
+.cover-logos .dab-logo {
+  height: 36px;
+  width: auto;
+  object-fit: contain;
+  flex: 0 0 auto;
+}
+.cover-logos .vrule {
+  width: 1px;
+  height: 28px;
+  background: rgba(255,255,255,0.3);
+  flex: 0 0 auto;
+}
+.cover-logos .dodonai-wordmark {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 30pt;
+  letter-spacing: -0.01em;
+  color: #fff;
+  line-height: 1;
+  flex: 0 0 auto;
+}
+.cover-logos .dodonai-wordmark .glyph {
+  color: var(--purple-soft);
+}
+.cover-eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 10pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 24px;
+}
+.cover-headline {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 56pt;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0 0 18px 0;
+  max-width: 6.5in;
+}
+.cover-headline .soft {
+  color: var(--purple-soft);
+  font-weight: 700;
+}
+.cover-subhead {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 400;
+  font-size: 16pt;
+  line-height: 1.35;
+  color: var(--purple-soft);
+  max-width: 6.0in;
+  margin: 0 0 0.5in 0;
+}
+.cover-meta {
+  margin-top: auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 36px;
+  border-top: 1px solid rgba(255,255,255,0.18);
+  padding-top: 24px;
+}
+.cover-meta-block .label {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  margin-bottom: 6px;
+  font-weight: 600;
+}
+.cover-meta-block .value {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13pt;
+  color: #fff;
+  font-weight: 600;
+  line-height: 1.3;
+}
+
+/* ==== Body content ============================================= */
+.proposal-body {
+  max-width: 7.0in;
+  margin: 0 auto;
+  padding: 0;
+}
+
+/* eyebrow before h2 — use as <p class="eyebrow">— SECTION TITLE</p> */
+.eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin: 1.6em 0 0.4em 0;
+  page-break-after: avoid;
+}
+
+h1 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 28pt;
+  line-height: 1.05;
+  letter-spacing: -0.02em;
+  color: var(--midnight);
+  margin: 0.6em 0 0.4em 0;
+  page-break-after: avoid;
+}
+h1 .soft, h1 em {
+  color: var(--purple-bold);
+  font-style: normal;
+  font-weight: 800;
+}
+h2 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 19pt;
+  line-height: 1.15;
+  letter-spacing: -0.01em;
+  color: var(--midnight);
+  margin: 1.6em 0 0.4em 0;
+  padding-bottom: 8px;
+  border-bottom: 2px solid var(--purple-bold);
+  page-break-after: avoid;
+}
+h2 .soft, h2 em {
+  color: var(--purple-bold);
+  font-style: normal;
+  font-weight: 700;
+}
+h3 {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 13pt;
+  color: var(--midnight);
+  margin: 1.4em 0 0.3em 0;
+  page-break-after: avoid;
+}
+h4 {
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  font-size: 9.5pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  margin: 1.2em 0 0.3em 0;
+  page-break-after: avoid;
+}
+
+p { margin: 0.55em 0; color: var(--midnight); }
+strong { color: var(--midnight-deep); font-weight: 700; }
+em { color: var(--purple-bold); font-style: italic; }
+a { color: var(--purple-bold); text-decoration: none; border-bottom: 1px solid var(--purple-soft); }
+
+ul, ol { margin: 0.5em 0; padding-left: 1.4em; }
+li { margin: 0.3em 0; }
+li::marker { color: var(--purple-vivid); }
+
+hr {
+  border: none;
+  border-top: 1px solid var(--cream-line);
+  margin: 1.8em 0;
+}
+
+blockquote {
+  border-left: 3px solid var(--purple-bold);
+  margin: 1.2em 0;
+  padding: 0.6em 1em;
+  color: var(--midnight);
+  font-style: italic;
+  background: rgba(107,70,193,0.04);
+  page-break-inside: avoid;
+}
+blockquote p { margin: 0.2em 0; }
+
+code {
+  background: var(--cream-deep);
+  padding: 1px 5px;
+  border-radius: 3px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5pt;
+  color: var(--purple-bold);
+}
+pre {
+  page-break-inside: avoid;
+  background: var(--cream-deep);
+  border: 1px solid var(--cream-line);
+  border-radius: 5px;
+  padding: 14px 18px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  line-height: 1.45;
+  color: var(--midnight);
+  margin: 1em 0;
+}
+pre code {
+  background: transparent;
+  padding: 0;
+  color: inherit;
+  font-size: inherit;
+}
+
+/* ==== Tables =================================================== */
+table {
+  border-collapse: collapse;
+  width: 100%;
+  margin: 1em 0;
+  font-size: 10pt;
+  page-break-inside: avoid;
+}
+thead { display: table-header-group; }
+tr { page-break-inside: avoid; }
+th, td {
+  padding: 9px 11px;
+  text-align: left;
+  vertical-align: top;
+  border-bottom: 1px solid var(--cream-line);
+}
+th {
+  background: var(--midnight);
+  color: #fff;
+  font-family: 'Source Code Pro', monospace;
+  font-weight: 700;
+  font-size: 9pt;
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  border-bottom: none;
+}
+tbody tr:nth-child(even) td { background: rgba(107,70,193,0.04); }
+tbody tr:last-child td { border-bottom: 2px solid var(--midnight); }
+
+/* Pricing table — special treatment when class="pricing" applied */
+table.pricing th { background: var(--midnight); }
+table.pricing tbody tr:last-child td {
+  background: rgba(107,70,193,0.10);
+  border-top: 2px solid var(--midnight);
+  border-bottom: 2px solid var(--midnight);
+  font-weight: 800;
+  color: var(--purple-vivid);
+  font-size: 11pt;
+}
+
+/* ==== Stat callouts ============================================= */
+.stat-card {
+  background: var(--cream-deep);
+  border: 1px solid var(--cream-line);
+  border-radius: 6px;
+  padding: 28px 32px;
+  margin: 1.4em 0;
+  page-break-inside: avoid;
+}
+.stat-card .stat-eyebrow {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 10px;
+}
+.stat-card .stat-num {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 64pt;
+  line-height: 0.95;
+  letter-spacing: -0.025em;
+  color: var(--purple-vivid);
+  margin: 0 0 8px 0;
+  display: block;
+}
+.stat-card .stat-line {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13pt;
+  color: var(--midnight);
+  font-weight: 500;
+  line-height: 1.35;
+  margin: 0 0 14px 0;
+  max-width: 5.5in;
+}
+.stat-card .stat-rule {
+  width: 60px;
+  height: 1px;
+  background: var(--purple-bold);
+  margin: 14px 0;
+}
+.stat-card .stat-chain {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9.5pt;
+  color: var(--midnight);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  text-transform: uppercase;
+}
+.stat-card .stat-chain .arrow {
+  color: var(--purple-vivid);
+  font-weight: 700;
+  margin: 0 8px;
+}
+.stat-card .stat-anchor {
+  margin-top: 14px;
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+/* ==== Phase row (deck-style pricing-table alternative) ========= */
+.phase-row {
+  display: grid;
+  grid-template-columns: 1fr 110px 110px;
+  gap: 20px;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--cream-line);
+  page-break-inside: avoid;
+}
+.phase-row .phase-label {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  color: var(--midnight);
+  font-size: 11pt;
+}
+.phase-row .phase-sub {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 8.5pt;
+  color: var(--gray-meta-light);
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  margin-top: 3px;
+}
+.phase-row .phase-days {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.06em;
+  font-weight: 600;
+  text-align: right;
+}
+.phase-row .phase-price {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 700;
+  font-size: 14pt;
+  color: var(--purple-vivid);
+  text-align: right;
+}
+.phase-row.total {
+  border-top: 2px solid var(--midnight);
+  border-bottom: 2px solid var(--midnight);
+  margin-top: 8px;
+  padding: 18px 0;
+}
+.phase-row.total .phase-label { font-size: 13pt; font-weight: 800; }
+.phase-row.total .phase-price { font-size: 22pt; color: var(--purple-vivid); font-weight: 800; }
+.phase-row.discount .phase-label { color: var(--purple-bold); }
+.phase-row.discount .phase-price { color: var(--purple-bold); }
+
+/* ==== Pull quotes ============================================== */
+.pull-quote {
+  margin: 1.6em 0;
+  padding: 1em 0 1em 1.2em;
+  border-left: 4px solid var(--purple-vivid);
+  page-break-inside: avoid;
+}
+.pull-quote .quote-mark {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 36pt;
+  color: var(--purple-bold);
+  line-height: 0.5;
+  font-weight: 800;
+}
+.pull-quote .quote-text {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-size: 13pt;
+  color: var(--midnight);
+  line-height: 1.4;
+  font-weight: 500;
+  font-style: italic;
+  margin: 0.3em 0;
+}
+.pull-quote .quote-attrib {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 9pt;
+  color: var(--purple-bold);
+  letter-spacing: 0.10em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-top: 0.5em;
+}
+
+/* ==== Section divider ========================================== */
+.section-divider {
+  page-break-before: always;
+  page-break-after: always;
+  height: 9.6in;
+  background: var(--midnight);
+  color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 0.85in;
+  margin: 0;
+  page: cover;
+}
+.section-divider .section-num {
+  font-family: 'Source Code Pro', monospace;
+  font-size: 11pt;
+  color: var(--purple-soft);
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  margin-bottom: 18px;
+  font-weight: 600;
+}
+.section-divider .section-title {
+  font-family: 'Plus Jakarta Sans', sans-serif;
+  font-weight: 800;
+  font-size: 44pt;
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  color: #fff;
+  margin: 0;
+  max-width: 6.0in;
+}
+.section-divider .section-title .soft {
+  color: var(--purple-soft);
+  font-weight: 700;
+}
+
+/* ==== Utility ================================================== */
+.muted { color: var(--gray-meta-light); }
+.small { font-size: 9.5pt; }
+.center { text-align: center; }
+img { max-width: 100%; height: auto; display: block; margin: 1em auto; }
+figure { page-break-inside: avoid; margin: 1.4em 0; }
+
+/* ==== End ====================================================== */
+
+</style>
+</head>
+<body>
+<div class="cover-page">
+  <div>
+    <div class="cover-logos">
+      
+      
+      <span class="dodonai-wordmark">DODON<span class="glyph">.AI</span></span>
+    </div>
+    <div class="cover-eyebrow">— FIRM OS PROPOSAL · JUNE 16, 2026</div>
+    <h1 class="cover-headline">Run your firm on one system<br/><span class="soft">you own.</span></h1>
+    <p class="cover-subhead">Replace Lawmatics and Streak with a Firm OS that converts more leads, generates your deliverables, and keeps you ahead of FAA changes — built around the tools you already love, priced so the numbers make the decision for you.</p>
+  </div>
+
+  <div class="cover-meta">
+    <div class="cover-meta-block">
+      <div class="label">Prepared for</div>
+      <div class="value">Jonathan Rupprecht, Esq.<br/>Rupprecht Law, P.A.</div>
+    </div>
+    <div class="cover-meta-block">
+      <div class="label">Prepared by</div>
+      <div class="value">Nick Chapleau<br/>Dodonai Consulting</div>
+    </div>
+  </div>
+</div>
+
+<div class="proposal-body">
+<h1 id="ai-automation-consulting-proposal">AI Automation Consulting
+Proposal</h1>
+<p><strong>Prepared for:</strong> Jonathan Rupprecht, Rupprecht Law,
+P.A.<br />
+<strong>Prepared by:</strong> Nick Chapleau, Dodonai Consulting<br />
+<strong>Date:</strong> 2026-06-16</p>
+<p><em>Follows our 2026-06-11 architecture call and our 2026-06-16
+deep-dive. This proposal puts the numbers on paper so you can run your
+ROI math — the build is phased and pay-as-you-go, and the ongoing cost
+is roughly what you're already cutting in tools.</em></p>
+<hr />
+<h2 id="executive-summary">Executive Summary</h2>
+<p>You're running a drone &amp; aviation practice on a stack of
+disconnected SaaS — Lawmatics (~$453/mo) for intake and closing, Streak
+as a CRM, plus manual reconciliation of who signed, who paid, and under
+what name. The crop-dusting / drone-spraying exemption flow is ~80% of
+your business and today it runs through your hands: you review the
+intake, match the right contract and price, verify the name and address,
+type it into a Sheet, and hand it to staff. That's your ~$850/hr time
+spent on data entry.</p>
+<p>We'll build you a <strong>Firm OS</strong> — one coherent system you
+own that converts leads to clients automatically, generates your
+deliverables from clean validated data, and alerts you the moment the
+FAA changes the paperwork. The outcome is positional as well as
+operational: Rupprecht Law becomes the most technologically capable
+drone-law practice in the country, with your two overseas staff
+redeployed from manual entry into managerial roles — one person handling
+500–1,000 clients instead of 100.</p>
+<p>The deeper outcome is leverage: lower input cost compounds on your
+rule-of-thirds, so you can price sharper or keep fatter margin, and the
+build pays for itself against the tools it retires and the hours it
+gives back.</p>
+<hr />
+<h2 id="what-we-heard">What We Heard</h2>
+<p>From our conversations on 2026-06-11 and 2026-06-16, we mapped the
+workflows across your practice that are candidates for automation. The
+table below shows what we recommend tackling first in v1, scoped tightly
+to the spraying-exemption money path and deliverable — not the
+registration pipeline.</p>
+<table>
+<thead>
+<tr>
+<th>Priority</th>
+<th>Workflow</th>
+<th>Current Cost / Time</th>
+<th>Automation Approach</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>Lead → client conversion (Smith.AI calls, referral + direct email,
+web form)</td>
+<td>Manual review + matching; leads go cold</td>
+<td>Capture + tag source, one combined sign + pay link, auto follow-ups
+(email + SMS), partial-completion nudges</td>
+</tr>
+<tr>
+<td>2</td>
+<td>Payment ↔︎ contract reconciliation</td>
+<td>Manual "who paid under what name" matching</td>
+<td>Auto-match Stripe payment to Rsign contract; alert you when BOTH are
+done</td>
+</tr>
+<tr>
+<td>3</td>
+<td>Deliverable generation (petitions / exemption docs)</td>
+<td>You type validated data into Sheets, staff render PDFs</td>
+<td>Validated intake feeds your Apps Script / Doc templates; anomaly
+flagging; your one-look human gate stays</td>
+</tr>
+<tr>
+<td>4</td>
+<td>Referral-source + cash-intake tracking</td>
+<td>Hand-tracked, no weekly view</td>
+<td>Dashboards: referral performance (performing / stagnant / declining)
++ weekly/monthly cash intake</td>
+</tr>
+<tr>
+<td>5</td>
+<td>FAA-change awareness</td>
+<td>You find out reactively; "everything on hold" days</td>
+<td>Monitor FAA channels/sites, alert you the moment paperwork or
+approvals shift</td>
+</tr>
+</tbody>
+</table>
+<p>We also identified the <strong>registration pipeline (Gavel)</strong>
+and <strong>defense/ITAR hardening</strong> as strong candidates once
+the v1 OS is proven. See <strong>Phase 2</strong> below.</p>
+<hr />
+<h2 id="scope-of-work">Scope of Work</h2>
+<p>The engagement is structured as <strong>learn-alongside, not
+hand-off</strong> — you (and your technical staffer) end up
+understanding the system and able to iterate on it, with your codebase
+optionally connected to your own Claude so you can make tweaks and keep
+the keys.</p>
+<h3 id="phase-0-discovery--architecture">Phase 0: Discovery &amp;
+Architecture</h3>
+<p><strong>Kicks off once this SOW is agreed.</strong> A focused
+architecture pass that turns the v1 scope above into a build spec:
+deep-dive working sessions on the spraying-exemption flow end-to-end,
+confirm the integration boundaries (Stripe, ConvertKit, Rsign, Gavel,
+Apps Script, Smith.AI, Twilio), and lock acceptance criteria for each
+pillar.</p>
+<p><strong>What you walk away with:</strong> a written
+<strong>Architecture Blueprint</strong> — each workflow mapped to a
+specific build step, integration requirements, and a build schedule —
+that you own regardless of whether we continue.</p>
+<p><strong>Satisfaction guarantee:</strong> if the Blueprint doesn't
+give you a clear, actionable roadmap, you're under no obligation to
+continue to the build.</p>
+<h3 id="phase-1-build-the-v1-firm-os--1800028000-phased">Phase 1: Build
+the v1 Firm OS — ~$18,000–$28,000 (phased)</h3>
+<p>The build is broken into four connected phases. We sequence by your
+highest-value pillar first, and each phase is billed half at start, half
+on your approval criteria — so cash outflow tracks completion, never a
+big up-front lump.</p>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>What gets built</th>
+<th>Estimate</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>1a — Conversion core</strong></td>
+<td>Multi-source lead capture + referral-source tagging; one combined
+link that does contract-sign (Rsign) + payment (Stripe); auto-match
+payment ↔︎ contract; both-done alert to you; the OS becomes your system
+of record (retires Streak)</td>
+<td>$8,000–$12,000</td>
+</tr>
+<tr>
+<td><strong>1b — Follow-up + dashboards</strong></td>
+<td>Automatic email + SMS follow-ups (Twilio), farmer-friendly cadence;
+partial-completion nudges (signed-not-paid / paid-not-signed);
+referral-source performance dashboard + weekly/monthly cash-intake
+dashboard</td>
+<td>$4,000–$6,000</td>
+</tr>
+<tr>
+<td><strong>1c — Deliverable generation</strong></td>
+<td>Structured, validated intake feeds your existing Google Apps Script
+→ Doc template engine; anomaly flagging (entity vs. personal name,
+address); queued for your one-look approval — removes the typing, not
+your judgment</td>
+<td>$3,000–$5,000</td>
+</tr>
+<tr>
+<td><strong>1d — FAA monitoring + secure sandbox</strong></td>
+<td>FAA-change monitoring across the channels that signal a
+paperwork/approval shift, with alerts to you; plus a lockable "good-now"
+sandbox for export-controlled / ITAR matters (gated access, isolated
+from general staff — you hold the keys)</td>
+<td>$3,000–$5,000</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Deliverables:</strong> the four pillars above deployed and
+integrated; end-to-end testing on real spraying-exemption cases;
+training sessions for you and your staff; setup documentation and
+runbooks; off Lawmatics and Streak.</p>
+<h3 id="phase-2-optional-registration--firm-os-expansion">Phase 2
+(Optional): Registration + Firm OS Expansion</h3>
+<p><strong>Scheduled after v1 go-live, scoped and priced in a follow-up
+SOW.</strong> Once the conversion + deliverable OS is proven, the
+natural next steps are the <strong>Gavel registration pipeline</strong>,
+broader Firm OS consolidation, and any <strong>defense-grade
+certification</strong> (e.g., FedRAMP) a client comes to require. Exact
+scope and pricing depend on what we learn running v1 — we'll revisit
+together at your first monthly review.</p>
+<h3 id="ongoing-hosting--advisory">Ongoing: Hosting + Advisory</h3>
+<p><strong>Starts after go-live. Cancel anytime with 30 days'
+notice.</strong> Two separable layers, sized independently:</p>
+<table>
+<thead>
+<tr>
+<th>Layer</th>
+<th>What it covers</th>
+<th>Monthly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>Hosting / infrastructure</strong> <em>(the only required
+ongoing cost)</em></td>
+<td>Your OS hosted on Google Cloud (US data residency) + storage; scales
+with AI token usage if agents run on a schedule</td>
+<td><strong>$200–$500</strong></td>
+</tr>
+<tr>
+<td><strong>Support retainer</strong> <em>(optional, tiered)</em></td>
+<td>Access to Nick + James + team. Light (hosting + email support +
+monthly check-in + light tuning) → Standard (~2–4 hrs/mo incremental
+work) → Active (~6–8 hrs/mo, meaningful new capability each month)</td>
+<td><strong>$300 / $1,000–1,500 / $2,500–3,500</strong></td>
+</tr>
+</tbody>
+</table>
+<p>The advisory keeps your agents current as Anthropic ships new
+capabilities, brings cross-client patterns to your firm, and
+continuously optimizes architecture cost so you stay on the lowest
+Claude tier that still delivers. Re-tier any month by mutual
+agreement.</p>
+<hr />
+<h2 id="investment--roi">Investment &amp; ROI</h2>
+<h3 id="what-youre-cutting-monthly">What You're Cutting (Monthly)</h3>
+<table>
+<thead>
+<tr>
+<th>Vendor / Cost</th>
+<th>Monthly</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Lawmatics (cancellable July 1)</td>
+<td>~$453</td>
+</tr>
+<tr>
+<td>Streak</td>
+<td>(retired into the OS)</td>
+</tr>
+<tr>
+<td><strong>Identifiable tool spend retired</strong></td>
+<td><strong>~$453+</strong></td>
+</tr>
+</tbody>
+</table>
+<h3 id="proposed-investment">Proposed Investment</h3>
+<table>
+<thead>
+<tr>
+<th>Phase</th>
+<th>Cost</th>
+<th>Payment Terms</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase 0: Discovery &amp; Architecture</td>
+<td>included at Phase 1a kickoff</td>
+<td>—</td>
+</tr>
+<tr>
+<td>Phase 1: Build the v1 Firm OS</td>
+<td>$18,000–$28,000</td>
+<td>Per phase: 50% at phase start, 50% on your approval criteria</td>
+</tr>
+<tr>
+<td>Phase 2: Registration + Expansion (optional)</td>
+<td>scoped later</td>
+<td>50% at start, 50% at delivery</td>
+</tr>
+<tr>
+<td>Hosting / infrastructure</td>
+<td>$200–$500/mo</td>
+<td>Billed monthly in advance, net 15</td>
+</tr>
+<tr>
+<td>Support retainer (optional, tiered)</td>
+<td>$300–$3,500/mo</td>
+<td>Billed monthly in advance, net 15</td>
+</tr>
+<tr>
+<td>Claude (Pro or Max)</td>
+<td>$20–$100/mo</td>
+<td>Paid directly to Anthropic</td>
+</tr>
+</tbody>
+</table>
+<p><strong>Satisfaction guarantee:</strong> if the Phase 0 Architecture
+Blueprint doesn't give you a clear, actionable roadmap, you're under no
+obligation to continue to the build.</p>
+<h3 id="the-math">The Math</h3>
+<p>You're already cutting ~$453/mo in Lawmatics (gone July 1), plus
+Streak — which roughly covers the hosting layer on its own. The tools
+you retire pay for the OS that replaces them, so your only real new
+spend is the build, and support is optional on top.</p>
+<p>At your ~$850/hr cost, the build pays back on your recovered time
+alone. The real return is staff leverage: redeploying your two overseas
+staff from manual entry into managerial roles takes one person from 100
+clients to 500–1,000 — and lower input cost compounds on your
+rule-of-thirds as either sharper pricing or fatter margin.</p>
+<hr />
+<h2 id="what-you-provide">What You Provide</h2>
+<ul>
+<li>Claude Pro or Max subscription ($20–$100/mo, paid directly to
+Anthropic)</li>
+<li>Access to your tools for integration setup — Stripe, ConvertKit,
+Rsign, Google Workspace / Apps Script, Smith.AI, and your
+domain/registrar (we'll do this together)</li>
+<li>Your existing contract templates, the ~12 pricing variants and the 4
+questions that determine price, and a representative spraying-exemption
+case for the acceptance test</li>
+<li>Feedback during testing — you'll review agent outputs before
+anything goes live</li>
+<li>~30 minutes/week during the build for check-ins</li>
+</ul>
+<hr />
+<h2 id="assumptions--out-of-scope">Assumptions &amp; Out of Scope</h2>
+<p><strong>We're assuming:</strong></p>
+<ul>
+<li>You'll provide access to the tools above within 5 business days of
+Phase 0 kickoff</li>
+<li>Stripe, Rsign, ConvertKit, Smith.AI, and Twilio API capabilities are
+as documented — if a specific workflow is blocked by an API limitation,
+we'll surface alternatives during the Blueprint</li>
+<li>During the build, you and your staff are available ~30 minutes/week
+for check-ins and testing feedback</li>
+<li>Third-party pricing and APIs (Anthropic, Twilio, Stripe, your
+vendors) remain broadly stable — material changes outside our control
+may require re-scoping</li>
+</ul>
+<p><strong>Out of scope for v1 unless specifically added</strong>
+(out-of-scope items are new scope by mutual agreement, not
+absorbed):</p>
+<ul>
+<li><strong>Registration pipeline (Gavel)</strong> — Gavel stays
+untouched in v1; the OS hands off to it. Registration automation is
+Phase 2.</li>
+<li><strong>Defense-grade certification (FedRAMP, etc.)</strong> — the
+v1 sandbox is designed so this isn't precluded as defense work grows;
+formalizing it is a separate engagement when a client requires it.</li>
+<li><strong>Accounting / trust</strong> — N/A by design (100% upfront,
+non-refundable → no trust, no A/R).</li>
+<li>Custom machine learning or model training</li>
+<li>Auto-sending of contracts, filings, or payments on your behalf —
+agents draft and prepare; you review and approve</li>
+<li>Any workflow requiring regulated professional judgment</li>
+</ul>
+<hr />
+<h2 id="security--compliance">Security &amp; Compliance</h2>
+<p>The platform baseline is <strong>HIPAA-compliant and SOC
+2-certified</strong>, with all storage on Google Cloud (US data
+residency) and encryption at rest and in transit. Your export-controlled
+/ ITAR matters get a lockable sandbox (Phase 1d) with gated access you
+control — built "good now, perfect later" so it ships without stalling
+the rest of the build.</p>
+<hr />
+<h2 id="timeline">Timeline</h2>
+<table>
+<thead>
+<tr>
+<th>Stage</th>
+<th>What Happens</th>
+<th>Expected Outcome / Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Phase 0</td>
+<td>Architecture deep-dives, integration boundaries confirmed, Blueprint
+delivered</td>
+<td>Clear, standalone roadmap — yours to keep even if we part ways
+here</td>
+</tr>
+<tr>
+<td>Phase 1a</td>
+<td>Conversion core deployed</td>
+<td>One sign + pay link; payment ↔︎ contract auto-matched; Streak
+retired</td>
+</tr>
+<tr>
+<td>Phase 1b</td>
+<td>Follow-up engine + dashboards live</td>
+<td>Dead leads recovered; referral + cash-intake visibility</td>
+</tr>
+<tr>
+<td>Phase 1c</td>
+<td>Deliverable generation live</td>
+<td>The typing is gone; your one-look approval stays</td>
+</tr>
+<tr>
+<td>Phase 1d</td>
+<td>FAA monitoring + secure sandbox</td>
+<td>You're never blindsided by an FAA change; defense matters locked
+down</td>
+</tr>
+<tr>
+<td>Go-live +</td>
+<td>Training, runbooks, hosting + advisory begin</td>
+<td>Agents running with your review; firm stays on the leading edge</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="about-dodonai-consulting">About Dodonai Consulting</h2>
+<p>Dodonai is an AI platform purpose-built for legal practice, and it's
+built by someone who has actually practiced. Nick Chapleau, the founder,
+earned his JD from the University of Chicago Law School and practiced as
+a trial attorney for four years before moving into technology. He
+understands the tooling, workflows, and constraints that matter inside a
+law firm from the inside — billing discipline, client confidentiality,
+and the difference between "drafted by AI" and "practiced by a
+lawyer."</p>
+<p>After leaving practice, Nick co-founded Starchup (acquired by Cents
+in 2022), then founded Dodonai to bring AI automation to legal
+professionals. His work is trusted by members of Ernie Svenson's Inner
+Circle AI Lab — where you and Nick first connected — and the broader
+community of tech-forward solo and small-firm attorneys.</p>
+<p>On the technical side: Nick built the Dodonai platform itself using
+custom coding agents, and he operates 13+ production AI agents that
+automate marketing, sales, customer success, and operations workflows
+daily. This consulting practice brings that same proven architecture —
+Claude Code skills, scheduled agents, API integrations, and
+human-in-the-loop review — directly to your firm, adapted for your drone
+&amp; aviation practice.</p>
+<hr />
+<h2 id="next-steps">Next Steps</h2>
+<ol type="1">
+<li><strong>Review this proposal</strong> — tell me what you'd adjust
+before we lock the SOW</li>
+<li><strong>Confirm the v1 scope</strong> — the five workflows above,
+spraying-exemption flow first</li>
+<li><strong>Sign off</strong> — Phase 0 Architecture kicks off within
+the week; Lawmatics is cancellable July 1, so we time the cutover to
+land before you'd renew</li>
+</ol>
+<hr />
+<p><em>This proposal is valid through 2026-06-30. Signature via Google
+Docs.</em></p>
+
+</div>
+</body>
+</html>

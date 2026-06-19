@@ -1,0 +1,864 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex,nofollow">
+  <title>Kickoff Memo · Dabdoub Law Firm (Scaffold)</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Newsreader:opsz,wght@6..72,400;6..72,500;6..72,600&display=swap" rel="stylesheet">
+  <style>
+    :root{--ink:#2d2740;--p900:#3f3461;--p700:#5a4e82;--p600:#6d5fa6;--p400:#8a7bb8;--p100:#e4dff0;--p050:#f7f5fb;--paper:#faf8fc;--body:#2b2733;--muted:#6f6885;--line:#e7e3f0;--amber:#b45309;--amber-bg:#fdf4e7;--amber-bd:#f0d8b0;--green:#2f7d5d;--green-bg:#eaf5ef;--green-bd:#bfe3d0;--red:#b3261e;--red-bg:#fbecec;--red-bd:#f0c9c7;--radius:14px;--shadow:0 1px 2px rgba(45,39,64,.06),0 8px 24px rgba(45,39,64,.07)}
+    *{box-sizing:border-box}html{scroll-behavior:smooth}
+    body{margin:0;background:linear-gradient(180deg,#f3f0f9,#f7f5fb 240px);color:var(--body);font-family:"Inter",system-ui,-apple-system,"Helvetica Neue",Arial,sans-serif;font-size:15.5px;line-height:1.6;-webkit-font-smoothing:antialiased}
+    .page{max-width:1000px;margin:32px auto;background:#fff;border-radius:20px;box-shadow:var(--shadow);overflow:hidden}
+    .pad{padding:40px 56px}
+    h1,h2,h3{font-family:"Newsreader","Iowan Old Style",Georgia,serif;color:var(--ink);line-height:1.2;letter-spacing:-.01em}
+    h1{font-size:33px;margin:.2em 0 .1em}h2{font-size:22px;margin:1.8em 0 .5em;padding-bottom:.3em;border-bottom:2px solid var(--p100);display:flex;align-items:baseline;gap:12px}h2 .sn{font-size:14px;font-family:"Inter",sans-serif;font-weight:700;color:#fff;background:var(--p600);border-radius:8px;padding:3px 10px;letter-spacing:.02em}
+    h3{font-size:17px;color:var(--p700);margin:1.3em 0 .4em}h4{font-size:14.5px;color:var(--p700);margin:1em 0 .3em;font-weight:700}
+    p{margin:.6em 0}a{color:var(--p600)}strong{color:var(--ink)}
+    code{font-family:"SF Mono",Menlo,Consolas,monospace;font-size:.86em;background:var(--p050);color:var(--p700);padding:1px 6px;border-radius:5px;border:1px solid var(--line)}
+    small{color:var(--muted)}
+    .brand{display:flex;align-items:center;justify-content:space-between;gap:24px;padding:22px 56px;background:linear-gradient(110deg,var(--ink),var(--p700));color:#fff}
+    .brand .wm{font-family:"Newsreader",serif;font-weight:600;font-size:22px;letter-spacing:.14em}.brand .wm b{color:#cdbff0}
+    .brand .meta{text-align:right;font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:#cdbff0;line-height:1.5}.brand .meta b{display:block;color:#fff;font-size:12px;letter-spacing:.08em}
+    .hero{padding:32px 56px 8px}
+    .eyebrow{display:inline-block;font-size:12px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--p600);background:var(--p050);border:1px solid var(--p100);padding:5px 12px;border-radius:999px}
+    .lede{font-size:17px;color:var(--p700);max-width:70ch}
+    .chips{display:flex;flex-wrap:wrap;gap:10px;margin:16px 0}
+    .chip{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;background:#fff;border:1px solid var(--p100);color:var(--p700);padding:8px 14px;border-radius:999px;box-shadow:var(--shadow)}.chip svg{width:15px;height:15px;color:var(--p600)}
+    .callout{display:flex;gap:14px;border-radius:var(--radius);padding:16px 18px;margin:16px 0;border:1px solid var(--p100);background:var(--p050)}.callout .ic{flex:0 0 auto}.callout .ic svg{width:24px;height:24px;color:var(--p600)}.callout h4{margin:.1em 0 .25em;color:var(--p700)}.callout p{margin:.2em 0}
+    .callout.sacred{background:var(--amber-bg);border-color:var(--amber-bd)}.callout.sacred .ic svg,.callout.sacred h4{color:var(--amber)}
+    .callout.promise{background:var(--green-bg);border-color:var(--green-bd)}.callout.promise .ic svg,.callout.promise h4{color:var(--green)}
+    .callout.warn{background:var(--red-bg);border-color:var(--red-bd)}.callout.warn .ic svg,.callout.warn h4{color:var(--red)}
+    .callout.info{background:var(--p050);border-color:var(--p100)}.callout.info .ic svg,.callout.info h4{color:var(--p600)}
+    .grid{display:grid;gap:16px;margin:18px 0}.grid.c2{grid-template-columns:repeat(2,1fr)}.grid.c3{grid-template-columns:repeat(3,1fr)}.grid.c4{grid-template-columns:repeat(4,1fr)}
+    .card{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:18px;box-shadow:var(--shadow)}.card .ic svg{width:22px;height:22px;color:var(--p600)}.card h4{margin:.2em 0 .3em;color:var(--ink)}.card .n{font-family:"Newsreader",serif;font-size:24px;color:var(--p600);line-height:1}
+    .steps{counter-reset:s;margin:18px 0}.step{position:relative;padding:2px 0 16px 52px;border-left:2px solid var(--p100);margin-left:18px}.step:last-child{border-left-color:transparent}.step::before{counter-increment:s;content:counter(s);position:absolute;left:-18px;top:-2px;width:36px;height:36px;border-radius:50%;background:var(--p600);color:#fff;font-weight:700;display:grid;place-items:center;font-size:15px;box-shadow:var(--shadow)}.step h4{margin:.2em 0 .2em}
+    table{border-collapse:collapse;width:100%;margin:16px 0;font-size:13.5px;border-radius:10px;overflow:hidden;box-shadow:var(--shadow)}thead th{background:var(--p600);color:#fff;text-align:left;padding:10px 12px;font-weight:600}td{border-bottom:1px solid var(--line);padding:9px 12px;vertical-align:top}tbody tr:nth-child(even) td{background:var(--p050)}tbody tr:last-child td{border-bottom:none}
+    .foot{padding:24px 56px;color:var(--muted);font-size:12px;border-top:1px solid var(--line);display:flex;justify-content:space-between;flex-wrap:wrap;gap:10px}
+    .stat{background:linear-gradient(160deg,var(--p050),#fff);border:1px solid var(--p100);border-radius:var(--radius);padding:16px;text-align:center}.stat .big{font-family:"Newsreader",serif;font-size:30px;color:var(--p700);line-height:1}.stat .lbl{font-size:11.5px;text-transform:uppercase;letter-spacing:.07em;color:var(--muted);margin-top:6px}
+    .roadmap{display:flex;flex-wrap:wrap;gap:8px;margin:16px 0}.phase{flex:1 1 110px;border:1px solid var(--p100);border-radius:12px;padding:12px;text-align:center;background:#fff}.phase .ph{font-size:11px;letter-spacing:.08em;text-transform:uppercase;color:var(--p400);font-weight:700}.phase .nm{font-weight:700;color:var(--ink);font-size:13px;margin:4px 0}.phase .cost{color:var(--p600);font-weight:700}.phase.cur{background:var(--p600);border-color:var(--p600)}.phase.cur .nm,.phase.cur .cost{color:#fff}.phase.cur .ph{color:#cdbff0}
+    .meta-table{display:grid;grid-template-columns:max-content 1fr;gap:0;border:1px solid var(--line);border-radius:12px;overflow:hidden;margin:16px 0;box-shadow:var(--shadow)}.meta-table div{padding:10px 14px;border-bottom:1px solid var(--line)}.meta-table .k{background:var(--p050);font-weight:700;color:var(--p700);font-size:13.5px}.meta-table .v{font-size:14px}.meta-table>div:nth-last-child(-n+2){border-bottom:none}
+    .capture{display:block;background:repeating-linear-gradient(135deg,#fff,#fff 10px,#faf7ff 10px,#faf7ff 20px);border:1px dashed var(--p400);border-radius:8px;padding:8px 12px;margin:6px 0;color:var(--p700);font-size:13.5px}.capture::before{content:"✎ CAPTURE ON THE DAY";display:block;font-size:10px;font-weight:700;letter-spacing:.1em;color:var(--p400);margin-bottom:3px}
+    .divider{border:none;border-top:1px solid var(--line);margin:2em 0}
+    .acceptance-list{list-style:none;padding:0;margin:.6em 0}.acceptance-list li{display:flex;gap:10px;padding:6px 0;border-bottom:1px solid var(--line)}.acceptance-list li:last-child{border-bottom:none}.acceptance-list li::before{content:"";display:inline-block;width:18px;height:18px;border:2px solid var(--p400);border-radius:4px;flex-shrink:0;margin-top:2px}
+    @media (max-width:720px){.pad,.hero,.brand,.foot{padding-left:22px;padding-right:22px}.grid.c2,.grid.c3,.grid.c4{grid-template-columns:1fr}.meta-table{grid-template-columns:1fr}}
+    @media print{body{background:#fff}.page{box-shadow:none;margin:0;border-radius:0;max-width:none}.card,.callout,table,.stat,.phase,.step,.meta-table{box-shadow:none}h2{break-after:avoid}.callout,.card,tr,.step{break-inside:avoid}a{color:inherit;text-decoration:none}}
+  </style>
+</head>
+<body>
+<div class="page">
+
+  <!-- BRAND HEADER -->
+  <div class="brand">
+    <span class="wm">DODON<b>AI</b></span>
+    <div class="meta">
+      Dodonai Consulting
+      <b>Engagement Source-of-Truth</b>
+    </div>
+  </div>
+
+  <!-- HERO -->
+  <div class="hero">
+    <span class="eyebrow">Phase 0 Kickoff Memo &middot; Scaffold</span>
+    <h1>Dabdoub Law Firm Kickoff Memo</h1>
+    <p class="lede">Engagement source-of-truth for the Dodonai &harr; Dabdoub Law Firm AI implementation. This memo is the durable reference for the whole engagement. It records each Phase 0 substrate decision made on the Kickoff/Discovery day and the engagement-wide terms that govern every later phase. Where a decision is captured live on the day, this scaffold marks it as a capture field below. Nick finalizes this memo within ~1&nbsp;week of the on-site session and delivers it as a Phase 0 deliverable.</p>
+
+    <div class="chips">
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Appeals support team: Monday 2026-06-08, 1:00 PM
+      </span>
+      <span class="chip">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></svg>
+        Attorneys: Tuesday 2026-06-09, 11:30 AM
+      </span>
+    </div>
+
+    <!-- Meta table -->
+    <div class="meta-table">
+      <div class="k">Client</div>
+      <div class="v">Dabdoub Law Firm (operating publicly as Long-Term Disability, longtermdisability.net)</div>
+      <div class="k">Office</div>
+      <div class="v">1600 Ponce De Leon Blvd, Suite 1202, Coral Gables, FL 33134</div>
+      <div class="k">Consultant</div>
+      <div class="v">Dodonai LLC (Nick Chapleau, Key Personnel)</div>
+      <div class="k">On-site sessions</div>
+      <div class="v">Appeals support team: Monday 2026-06-08, 1:00 PM &nbsp;&middot;&nbsp; Attorneys: Tuesday 2026-06-09, 11:30 AM</div>
+      <div class="k">Memo compiled</div>
+      <div class="v">2026-06-03 (scaffold) &nbsp;&middot;&nbsp; finalized <code>[FINALIZE DATE]</code></div>
+      <div class="k">Governing agreement</div>
+      <div class="v">Consulting Services Agreement (CSA) between Dodonai LLC and Dabdoub Law Firm, plus its Data Processing Addendum (Exhibit A)</div>
+      <div class="k">Phase 0 SOW</div>
+      <div class="v">Kickoff. $5,000, paid at signing (net 15)</div>
+      <div class="k">Phase 1A SOW</div>
+      <div class="v">Wave 1A: Foundation + First-Draft Appeals. $22,000 ($11,000 at start, net 15; $11,000 30 days after go-live on acceptance)</div>
+    </div>
+  </div>
+
+  <!-- MAIN CONTENT -->
+  <div class="pad">
+
+    <!-- SECTION 1 -->
+    <h2><span class="sn">§1</span> Engagement Overview, Parties, and What's Signed</h2>
+
+    <p><strong>Who Dabdoub Law Firm is.</strong> A 100% claimant-side LTD/STD/ERISA disability litigation boutique founded in 1998 by Edward Dabdoub. The firm runs on a contingency model (a percentage of recovered benefits, no billable hours), so recovered staff and attorney hours convert directly to capacity. The firm's stated goal is to "double caseloads without doubling staff and attorneys."</p>
+
+    <p><strong>Relationship.</strong> Dabdoub is a pre-existing Dodonai client. A HubSpot CRM + AI buildout ran October 2025 to February 2026. The Dodonai app is in production (Prudential claim-file rule set live since 2026-01-29; Bryn Natland is a daily power user of custom event-extraction tables across 12-document batches). This engagement expands that relationship from the app into a full department-by-department AI implementation, starting with Appeals.</p>
+
+    <p><strong>Parties to the engagement.</strong></p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Party</th>
+          <th>Who</th>
+          <th>Role on this engagement</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Dodonai LLC</strong></td>
+          <td>Nick Chapleau, CEO</td>
+          <td>Sole developer + Key Personnel; on-site at the kickoff of each phase.</td>
+        </tr>
+        <tr>
+          <td rowspan="3"><strong>Dabdoub Law Firm</strong></td>
+          <td>Edward "Eddie" P. Dabdoub, Founding Partner</td>
+          <td>Economic buyer; final signer; cost- and outcome-gated.</td>
+        </tr>
+        <tr>
+          <td>Bryn Natland, JD</td>
+          <td>Operational lead + champion; signs off on adoption before each phase advances.</td>
+        </tr>
+        <tr>
+          <td>Lansight Technology (firm's IT / MSP)</td>
+          <td>Holds tenant admin for the firm's M365; provisioned Nick's firm account + Power Automate license (ticket 211080, 2026-06-05); coordinates any remaining Dodonai-Graph app consent + the Egnyte connector by ticket. Rodolfo Barreto / Orlando &nbsp;&middot;&nbsp; support@lansight.com &nbsp;&middot;&nbsp; 305-445-8897.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>What is signed.</strong></p>
+    <ul>
+      <li><strong>Consulting Services Agreement (CSA).</strong> The master agreement, signed once. Governs ownership, confidentiality, data handling, acceptance, termination, and liability. The CSA controls on any conflict with an SOW (CSA §1.2).</li>
+      <li><strong>Phase 0 Kickoff SOW.</strong> $5,000, paid at signing, net 15. One day on-site + ~1 week async substrate work.</li>
+      <li><strong>Phase 1A SOW (Wave 1A).</strong> $22,000. $11,000 at phase start (net 15); $11,000 due 30 days after go-live, on acceptance.</li>
+    </ul>
+
+    <!-- SECTION 2 -->
+    <h2><span class="sn">§2</span> Scope Summary</h2>
+
+    <p>The full scope is itemized in the <strong>Scope Inventory exhibit</strong> (the authoritative line-item list; this memo summarizes, it does not restate it). The headline numbers:</p>
+
+    <div class="grid c4">
+      <div class="stat">
+        <div class="big">155</div>
+        <div class="lbl">Workflows Mapped</div>
+      </div>
+      <div class="stat">
+        <div class="big">152</div>
+        <div class="lbl">In Build Scope</div>
+      </div>
+      <div class="stat">
+        <div class="big">21</div>
+        <div class="lbl">Already Delivered</div>
+      </div>
+      <div class="stat">
+        <div class="big">131</div>
+        <div class="lbl">To Build</div>
+      </div>
+    </div>
+
+    <p><strong>3</strong> workflows are mapped but outside build scope: I-05 and I-08 (firm-owned Dialpad call-transcript workflows) and X-07 (a firm policy question, already resolved).</p>
+
+    <div class="callout info">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      </div>
+      <div>
+        <h4>Scope Rule</h4>
+        <p>The enumerated Scope Inventory is fixed. A workflow not in the inventory is out of scope by definition. Additions happen only by mutual written agreement, through the retainer backlog or a Change Order priced at the time (CSA §1.5). Locked phase prices hold regardless of any individual workflow's complexity. Extras are new scope.</p>
+        <p>Phase 1A's six build deliverables and acceptance criteria are detailed in Section 9.</p>
+      </div>
+    </div>
+
+    <!-- SECTION 3 -->
+    <h2><span class="sn">§3</span> Cross-Phase Substrate Decisions</h2>
+
+    <p>These are the Phase 0 decisions that govern every downstream phase. Each is locked on the day and recorded here verbatim. The acceptance test for Phase 0 is that this memo records each of these decisions.</p>
+
+    <h3>3.1 Canonical matter-folder template + AI output destination</h3>
+
+    <p>Every AI workflow across the engagement writes to the canonical client matter folder under an <strong>"AI output" subfolder</strong>, with matter-identifiable filenames, firing an alert when the output lands. The firm is mid-migration from SharePoint (the S drive) to its <strong>Egnyte</strong> tenant (the migration target switched from Azure to Egnyte on 2026-06-02), so the destination definition must track that migration. Files read/write through whichever system holds the matter folders: SharePoint today (via Graph), Egnyte post-migration (via Egnyte's API). Interim output targets SharePoint until the migration stabilizes.</p>
+
+    <ul>
+      <li>
+        <strong>Canonical matter-folder template (the mock folder structure):</strong>
+        <span class="capture">The agreed folder tree, top-level matter folder name convention, subfolders, and the exact "AI output" subfolder path</span>
+      </li>
+      <li>
+        <strong>Filename convention (matter-identifiable):</strong>
+        <span class="capture">e.g., {ClientLast}_{MatterID}_{DocType}_{YYYY-MM-DD}.docx</span>
+      </li>
+      <li>
+        <strong>SharePoint &rarr; Egnyte migration state + cutover trigger:</strong>
+        <span class="capture">Current state, who owns the migration (Lansight), when output should switch its target path, and the interim SharePoint path until then</span>
+      </li>
+      <li>
+        <strong>Owner / confirmer:</strong>
+        <span class="capture">Who signs off on the template: Bryn / Kevin / IT</span>
+      </li>
+    </ul>
+
+    <h3>3.2 Inbound-letter taxonomy bones (Phase 1B classifier)</h3>
+
+    <p>The Phase 1B insurer-letter classifier categorizes inbound mail/fax. The taxonomy bones are agreed now so the later build has a target. Working category set: medical review &middot; approval &middot; denial &middot; OP/overpayment letter &middot; buyout offer &middot; extension &middot; def-change &middot; termination &middot; other.</p>
+
+    <ul>
+      <li>
+        <strong>Confirmed category list + any firm-specific splits or merges:</strong>
+        <span class="capture">Confirmed category list + any firm-specific splits or merges</span>
+      </li>
+      <li>
+        <strong>Where each category routes (HubSpot property write + workflow trigger):</strong>
+        <span class="capture">Where each category routes (HubSpot property write + workflow trigger)</span>
+      </li>
+      <li>
+        <strong>Confidence-scoring + human-review fallback expectation:</strong>
+        <span class="capture">Confidence-scoring + human-review fallback expectation</span>
+      </li>
+    </ul>
+
+    <h3>3.3 Past-rebuttal corpus location</h3>
+
+    <p>The past-response retrieval index (Phase 1A) is seeded from the firm's historical appeals and rebuttals. The corpus must be located and access-confirmed on the day so the index build is not a Week-1 surprise.</p>
+
+    <ul>
+      <li>
+        <strong>Where the corpus lives (path / system / how organized):</strong>
+        <span class="capture">Where the corpus lives (path / system / how organized)</span>
+      </li>
+      <li>
+        <strong>Access confirmed for Nick (read access to the corpus):</strong>
+        <span class="capture">Yes/no + how granted</span>
+      </li>
+      <li>
+        <strong>Known quality notes (variants, no canonical-version system across the ~894-doc template library):</strong>
+        <span class="capture">Known quality notes (variants, no canonical-version system across the ~894-doc template library)</span>
+      </li>
+    </ul>
+
+    <h3>3.4 The firm-selected seed appeals (5&ndash;10)</h3>
+
+    <p>Five to ten hand-picked exemplar appeals the firm considers model letters, <strong>not</strong> the closest ones by recency. These seed the retrieval index. Captured in the table in Section 4.</p>
+
+    <h3>3.5 Evaluation-question pattern + attorney handoff signaling</h3>
+
+    <p>How draft quality is evaluated and how a draft signals it is ready for the attorney.</p>
+
+    <ul>
+      <li>
+        <strong>Evaluation-question pattern</strong> (the standard questions an attorney asks of a draft, what counts as "usable"):
+        <span class="capture">Evaluation-question pattern (the standard questions an attorney asks of a draft, what counts as "usable")</span>
+      </li>
+      <li>
+        <strong>70% quality bar, defined concretely:</strong> the contractual bar is "a usable first draft requiring attorney review/editing, not redrafting from scratch." Capture which sections must be present, which arguments must be attempted, and what counts as usable.
+        <span class="capture">70% quality bar defined concretely: which sections must be present, which arguments must be attempted, what counts as usable (see Section 9 for the bar definition and Bryn's 80 to 90% stretch aspiration)</span>
+      </li>
+      <li>
+        <strong>Attorney handoff signaling</strong> (how the attorney is alerted a draft is ready, and what they see): the standard is an alert when the draft lands in the "AI output" subfolder, with the A-F rating control and source-document traceability surfaced on the draft.
+        <span class="capture">How the alert is delivered, who is alerted per matter, and the on-draft review experience</span>
+      </li>
+    </ul>
+
+    <!-- SECTION 4 -->
+    <h2><span class="sn">§4</span> The Firm-Selected Seed Appeals (5&ndash;10)</h2>
+
+    <p>Hand-picked on the afternoon of the on-site day from the located past-rebuttal corpus (Section 3.3). These seed the Phase 1A retrieval index. The selection criterion is "model letter we would want the system to learn from," not recency. Five is the floor; capture up to ten if the firm wants broader carrier/condition coverage.</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Matter / client identifier</th>
+          <th>Carrier</th>
+          <th>Condition(s)</th>
+          <th>Why this one is a model letter</th>
+          <th>Corpus location / file</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td><span class="capture">Matter / client identifier</span></td>
+          <td><span class="capture">Carrier</span></td>
+          <td><span class="capture">Condition(s)</span></td>
+          <td><span class="capture">Why this one is a model letter</span></td>
+          <td><span class="capture">Corpus location / file</span></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td><span class="capture">Matter / client identifier</span></td>
+          <td><span class="capture">Carrier</span></td>
+          <td><span class="capture">Condition(s)</span></td>
+          <td><span class="capture">Why this one is a model letter</span></td>
+          <td><span class="capture">Corpus location / file</span></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td><span class="capture">Matter / client identifier</span></td>
+          <td><span class="capture">Carrier</span></td>
+          <td><span class="capture">Condition(s)</span></td>
+          <td><span class="capture">Why this one is a model letter</span></td>
+          <td><span class="capture">Corpus location / file</span></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td><span class="capture">Matter / client identifier</span></td>
+          <td><span class="capture">Carrier</span></td>
+          <td><span class="capture">Condition(s)</span></td>
+          <td><span class="capture">Why this one is a model letter</span></td>
+          <td><span class="capture">Corpus location / file</span></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td><span class="capture">Matter / client identifier</span></td>
+          <td><span class="capture">Carrier</span></td>
+          <td><span class="capture">Condition(s)</span></td>
+          <td><span class="capture">Why this one is a model letter</span></td>
+          <td><span class="capture">Corpus location / file</span></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+          <td><span class="capture">Optional</span></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p><strong>Selection notes</strong> (carrier/condition coverage, gaps to fill in later tuning):</p>
+    <span class="capture">Selection notes: carrier/condition coverage, gaps to fill in later tuning</span>
+
+    <p>For reference, the carriers the firm litigates against and the condition templates with mature substrate are listed in Section 11. A-16 drafts carrier-aware and condition-aware, so a spread across carriers and conditions in the seed set is preferable to several of the same.</p>
+
+    <!-- SECTION 5 -->
+    <h2><span class="sn">§5</span> Microsoft Access / Graph Consent / Egnyte Status</h2>
+
+    <p>Phase 1A's F-01 Microsoft Graph foundation covers auth + Outlook / Word / Teams operations on the Microsoft surface, plus the matter-folder file connector (SharePoint today via Graph, Egnyte post-migration via Egnyte's API). The firm's MSP, <strong>Lansight Technology</strong>, holds tenant admin and is provisioning access by ticket (211080), so this is no longer a cold in-room consent: base access is already live, and any remaining app consent is coordinated with Lansight.</p>
+
+    <ul>
+      <li>
+        <strong>Base access provisioned (firm account <code>nick@longtermdisability.net</code>, SharePoint + calendars, Power Automate license):</strong> Yes &mdash; Lansight, 2026-06-05.
+        <span class="capture">Confirm login + SharePoint + calendar access verified</span>
+      </li>
+      <li>
+        <strong>Dodonai-Graph app consent (any remaining tenant-admin app scopes):</strong>
+        <span class="capture">Coordinated with Lansight via ticket 211080 &mdash; status + date</span>
+      </li>
+      <li>
+        <strong>Scopes for the Dodonai-Graph app:</strong> request broad up front, narrow later once usage is known.
+        <span class="capture">The granted scopes</span>
+      </li>
+      <li>
+        <strong>Power Automate license tier:</strong> free/convenience attached;
+        <span class="capture">Decide: keep free, or Premium only if PA later bridges to Dodonai over HTTP</span>
+      </li>
+      <li>
+        <strong>Egnyte connector validated:</strong>
+        <span class="capture">Files migrating SharePoint &rarr; Egnyte; connector tested</span>
+      </li>
+      <li><strong>Teams identity for Nick:</strong> the firm account is Nick's Teams identity &mdash; done.</li>
+    </ul>
+
+    <div class="callout info">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg>
+      </div>
+      <div>
+        <h4>Access Gate Note</h4>
+        <p>Base Microsoft access is already provisioned, so F-01 is not gated on the on-site day. If a remaining app consent or the Egnyte connector is delayed, the F-01 milestone date shifts accordingly and the dependency is flagged on the delivery tracker (Section 10).</p>
+      </div>
+    </div>
+
+    <!-- SECTION 6 -->
+    <h2><span class="sn">§6</span> Data-Handling SOP</h2>
+
+    <p>This SOP lives inside the Kickoff memo as the durable operating description of how claim files, PHI, and matter data are handled during the engagement. It is the operational companion to the CSA's confidentiality (CSA §5), DPA (Exhibit A), and BAA-where-PHI-is-processed (CSA §4.3) provisions. The CSA controls on any conflict.</p>
+
+    <p><strong>What data Dodonai touches.</strong> Claim files (often hundreds of pages of medical records, vocational reports, claim forms, correspondence), medical reviews/IME/FCE/CPET reports, denial letters, policies, client PII, and the matter folders that hold them.</p>
+
+    <p><strong>Where it stays.</strong> Inside the firm's own systems: its Microsoft 365 tenant (mail, calendar, Teams) and its firm-controlled file storage &mdash; SharePoint today, migrating to the firm's own Egnyte tenant (the migration target switched from Azure to Egnyte on 2026-06-02). HubSpot holds pipeline metadata only, not file storage. AI workflows read from the matter folder and write <code>.docx</code> output back into the matter folder's "AI output" subfolder. Dodonai introduces no storage of its own outside these firm-controlled systems, and does no Dodonai-side logging of firm content beyond the firm's own audit trail. Egnyte is the firm's own contracted platform; where the engagement relies on it as a sub-processor of firm content, that is reflected in the DPA. This sovereignty, everything under the firm's control, is a value Eddie holds explicitly.</p>
+
+    <p><strong>Processing purpose.</strong> Customer Data is processed solely to deliver the scoped workflows (CSA §3.5, DPA §2). It is not used for advertising, profiling, or any purpose outside the Services, and it is never used to train, fine-tune, or improve any product or model offered to any other client (CSA §3.5, DPA §2.b.iii).</p>
+
+    <p><strong>LLM API handling.</strong> For the drafting step, claim-file content routes through Microsoft Graph to the LLM provider and returns as a <code>.docx</code> in the matter folder. This is pass-through inference: the provider does not train on the firm's data (Anthropic zero-data-retention / enterprise terms; OpenAI API no-training-by-default; Exhibit B). LLM API cost is at-cost, no markup, billed via the firm's own provider key or through Dodonai with a <strong>per-workflow usage breakdown</strong> available. Projected ~$200&ndash;$500/month at the Phase 1A stage.</p>
+
+    <p><strong>Access.</strong> Limited to Key Personnel (Nick) under the engagement (CSA §1.4). Anyone else handling Customer Data or Confidential Information is bound by obligations no less protective than the CSA (CSA §1.7, §5.4).</p>
+
+    <div class="callout warn">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="11" width="18" height="11" rx="2"/><path d="M7 11V7a5 5 0 0 1 10 0v4"/></svg>
+      </div>
+      <div>
+        <h4>Accounting Wall-Off</h4>
+        <p>Fee and disbursement data is walled off by the permission model in HubSpot and in any Dodonai dashboard. Accounting data is not surfaced in Appeals-facing views or in firm-wide dashboards. Maria Calvo's accounting function sits behind that wall.</p>
+      </div>
+    </div>
+
+    <div class="callout sacred">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <h4>Human-in-the-Loop</h4>
+        <p>No auto-send. Every AI-drafted document is human-reviewed before it leaves the firm; privilege stays with the attorney. Deadline calendaring is always human-supervised. AI may calendar a date, but a human reads the denial letter and confirms it (the default ERISA appeal deadline is 180 days from receipt of denial, but rare exceptions appear in the letter). Submissions and deadlines are never described as fully automated.</p>
+      </div>
+    </div>
+
+    <p><strong>Retention / return-or-destroy.</strong> On termination or expiration, or earlier on the firm's written request, Dodonai returns or deletes Customer Data within 30 days, unless retention is required by law, and certifies deletion in writing on request (CSA §4.5, DPA §7). At any exit point the firm keeps everything built and receives a portability package in source form (CSA §3.7).</p>
+
+    <p><strong>PHI / BAA.</strong> Where the Services involve processing PHI under HIPAA, a BAA is executed as a condition precedent and controls on PHI matters (CSA §4.3).</p>
+    <span class="capture">Confirm BAA execution status against the signed CSA package</span>
+
+    <!-- SECTION 7 -->
+    <h2><span class="sn">§7</span> Engagement-Wide Terms (Recap)</h2>
+
+    <p>Set by the Phase 0 SOW; binding for the full engagement; incorporated by reference into each later-phase SOW. These are operational commitments; the contract sections that back them are noted.</p>
+
+    <ul>
+      <li><strong>Key Personnel.</strong> Nick Chapleau is named Key Personnel; not reassigned off the engagement without the firm's prior written consent (CSA §1.4).</li>
+      <li><strong>On-site every phase.</strong> Nick is on-site at the kickoff of each phase and through its build (not Wave 1 only), recalibrated by mutual agreement after Phase 1.</li>
+      <li><strong>Microsoft Teams = first-class channel</strong> for both Dodonai&harr;firm communication and AI workflow alerts. Nick's firm account <code>nick@longtermdisability.net</code> (provisioned by Lansight 2026-06-05) is his Teams identity &mdash; done.</li>
+      <li><strong>AI output destination.</strong> Every workflow writes to the canonical matter folder (tracking the SharePoint&rarr;Egnyte migration) under an "AI output" subfolder, with matter-identifiable filenames and an alert when output lands.</li>
+      <li><strong>Delivery visibility + slip alerts.</strong> A shared delivery tracker with real-time milestone visibility; the firm hears about a slip <em>before</em> the date, with cause and proposed trade-offs (CSA §1.9; remedy at §1.10).</li>
+      <li><strong>Source-document traceability.</strong> Every AI-drafted document surfaces the past appeals, rebuttals, and templates retrieved to produce it.</li>
+      <li><strong>Feedback loop.</strong> Each drafting workflow carries an A-F rating plus diff-based learning from the attorney's final edited version.</li>
+      <li><strong>Training + adoption.</strong> Each phase opens with a department-level kickoff explainer + AI-generated summary handouts before formal training; training assets = AI-generated videos + a written runbook per workflow, all firm-owned; a 30-day adoption check-in per phase; Bryn signs off on adoption before the next phase begins.</li>
+      <li><strong>Per-role dashboards</strong> with accounting walled off (see Section 8).</li>
+      <li><strong>Scope = the Scope Inventory</strong> (Section 2); additions only by mutual written agreement (CSA §1.5).</li>
+      <li><strong>Acceptance + final payment.</strong> 30 calendar days from delivery to accept in writing or identify criteria not met; silence = deemed accepted and the phase's remaining 50% becomes due. (The Dabdoub SOWs extend the CSA's base 10-business-day acceptance window to 30 calendar days; see CSA §1.3 as modified by the SOW.) The single exception is the engagement's final payment, which requires affirmative written sign-off and is never deemed accepted by passage of time. Phase 1A is not the final payment, so its 30-day deemed-acceptance backstop applies.</li>
+      <li><strong>Termination.</strong> Each phase is a standalone commitment; on convenience termination the firm owes Fees for completed phases plus the in-flight phase's start payment, and nothing for phases not commenced (CSA §10.3 as applied per the SOW). A Material Schedule Failure remedy (CSA §1.10) lets the firm terminate an in-flight phase for cause if a milestone slips materially for reasons in Dodonai's control and is not cured after notice.</li>
+    </ul>
+
+    <!-- SECTION 8 -->
+    <h2><span class="sn">§8</span> Per-Role Dashboard Definitions</h2>
+
+    <p>Per-role dashboards are productionized in Phase 5; interim HubSpot alerts are welcome in the meantime, and Bryn may set up her own (e.g., homework not set within 1 week of signing; appeal not submitted &ge;2 weeks before deadline). The role definitions to carry forward:</p>
+
+    <table>
+      <thead>
+        <tr>
+          <th>Role</th>
+          <th>Sees</th>
+          <th>Notes</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Eddie (executive)</strong></td>
+          <td>New clients, appeals in flight, litigation count (high-level, no case specifics)</td>
+          <td>Concise executive view.</td>
+        </tr>
+        <tr>
+          <td><strong>Bryn (case-movement monitor)</strong></td>
+          <td>Extensions requested; time from intake to appeal submitted; time from complaint to demand; ROI per case (settlement vs. expected)</td>
+          <td>Operational lead view.</td>
+        </tr>
+        <tr>
+          <td><strong>Each assistant</strong></td>
+          <td>Own case status</td>
+          <td>Day-to-day work surface.</td>
+        </tr>
+        <tr>
+          <td><strong>Each attorney</strong></td>
+          <td>Assigned cases + pending intakes</td>
+          <td>Caseload view.</td>
+        </tr>
+        <tr>
+          <td><strong>Accounting (Maria)</strong></td>
+          <td><strong>Walled off</strong></td>
+          <td>Fee/disbursement data is not visible firm-wide; enforced by the HubSpot permission model and any Dodonai dashboard.</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Any role-definition refinements captured on the day:</p>
+    <span class="capture">Role-definition refinements captured on the day</span>
+
+    <!-- SECTION 9 -->
+    <h2><span class="sn">§9</span> Phase 1A Build Deliverables, Quality Bar, and Acceptance</h2>
+
+    <div class="grid c3" style="margin-bottom:24px">
+      <div class="stat">
+        <div class="big">$5,000</div>
+        <div class="lbl">Phase 0 Kickoff</div>
+      </div>
+      <div class="stat">
+        <div class="big">$22,000</div>
+        <div class="lbl">Phase 1A SOW</div>
+      </div>
+      <div class="stat">
+        <div class="big">$96,000</div>
+        <div class="lbl">Implementation Total</div>
+      </div>
+    </div>
+
+    <p><strong>Six deliverables ($22,000), 6 weeks / ~17 dev-days single-developer, two weeks of post-launch tuning included:</strong></p>
+
+    <div class="grid c2">
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+        <h4>1. F-01 Microsoft Graph Foundation</h4>
+        <p>Auth + Outlook / Word / Teams operations on the Microsoft surface, plus the matter-folder file connector (SharePoint today via Graph, Egnyte post-migration via Egnyte's API).</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+        <h4>2. Past-Response Retrieval Index</h4>
+        <p>Over the firm's historical appeals/rebuttals, seeded with the 5&ndash;10 seed appeals (Section 4), with source-document traceability on every retrieval.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+        <h4>3. Dabdoub-Specific Claim-File Summarizer</h4>
+        <p>Custom extraction (key dates, policy provisions, denial rationale, treating-physician statements, IME conclusions) formatted to feed A-16 directly; triggered when the coordinator marks "Homework Complete" in HubSpot; built on the Dodonai app's bulk-document infrastructure.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+        <h4>4. A-16 AI-Drafted First-Pass Appeal Letters</h4>
+        <p>Pulls the claim-file summary + denial + policy review + retrieved past responses; drops a <code>.docx</code> first draft into the matter folder's "AI output" subfolder with an alert when it lands; A-F rating + diff feedback enabled; carrier-aware and condition-aware.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><path d="M14 2v6h6M16 13H8M16 17H8M10 9H8"/></svg></div>
+        <h4>5. A-23 Medical-Review Rebuttal Drafting</h4>
+        <p>The same retrieval-grounded engine retargeted at peer-review / IME / FCE rebuttals, in the firm's voice from its own historical responses.</p>
+      </div>
+      <div class="card">
+        <div class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 19a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5l2 3h9a2 2 0 0 1 2 2z"/></svg></div>
+        <h4>6. Client Portal</h4>
+        <p>Uploads + case-status tracking on the Dodonai platform.</p>
+      </div>
+    </div>
+
+    <div class="callout promise">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4 12 14.01l-3-3"/></svg>
+      </div>
+      <div>
+        <h4>70% Quality Bar</h4>
+        <p>The contractual bar is "a usable first draft requiring attorney review/editing, not redrafting from scratch." Bryn's own framing: the very first draft will be rough ("probably going to be garbage, we're going to work with it to fix it"), with an eventual stretch aspiration of 80&ndash;90% of a full appeal. The concrete definition of what 70% looks like (which sections, which arguments, what counts as usable) is captured in Section 3.5.</p>
+      </div>
+    </div>
+
+    <div class="callout promise">
+      <div class="ic">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+      </div>
+      <div>
+        <h4>Satisfaction Guarantee</h4>
+        <p>If Phase 1A's first AI-drafted appeals do not clear the 70% bar, the firm is under no obligation to continue to Phase 1B. The Kickoff memo and the Phase 1A substrate are the firm's to keep regardless.</p>
+      </div>
+    </div>
+
+    <h3>Phase 1A Acceptance Criteria</h3>
+    <p>(On representative matters the firm selects:)</p>
+    <ul>
+      <li>The claim-file summarizer ingests a real claim file and produces the structured summary in the agreed format.</li>
+      <li>A-16 produces a <code>.docx</code> first-draft appeal landing in the correct matter folder with an alert.</li>
+      <li>A-23 produces a first-draft medical-review rebuttal on the same basis.</li>
+      <li>Each draft surfaces the retrieved source documents (traceability).</li>
+      <li>At the end of the 2-week tuning window, drafts clear the 70% quality bar.</li>
+      <li>The A-F rating + diff-feedback capture is live.</li>
+    </ul>
+
+    <!-- SECTION 10 -->
+    <h2><span class="sn">§10</span> Training, Adoption, Roadmap, and Phase Gates</h2>
+
+    <h3>10.1 Training &amp; Adoption Plan</h3>
+
+    <p>The prior HubSpot build was technically delivered but adoption was rocky. Bryn's diagnosis: "we just threw this thing at them." The department explainer is the explicit, contractual cure. Every automation is framed as work removed from Sonya and the assistants, not a system added. The adoption sequence per phase:</p>
+
+    <div class="steps">
+      <div class="step">
+        <h4>Department-Level Kickoff Explainer</h4>
+        <p>AI-generated summary handouts, before any tool lands. "Here's what you do today &rarr; here's what we automate &rarr; here's what it looks like."</p>
+      </div>
+      <div class="step">
+        <h4>AI-Generated Training Videos + Written Runbook per Workflow</h4>
+        <p>All training assets are firm-owned.</p>
+      </div>
+      <div class="step">
+        <h4>30-Day Adoption Check-In</h4>
+        <p>Structured follow-up to verify adoption at the department level.</p>
+      </div>
+      <div class="step">
+        <h4>Bryn Signs Off on Adoption</h4>
+        <p>Bryn's adoption sign-off before the next phase begins. This is the gate between phases.</p>
+      </div>
+    </div>
+
+    <p>For the on-site kickoff specifically, this runs as <strong>two separate sessions</strong>: the <strong>Monday 2026-06-08 (1:00 PM) support-staff session</strong> (Sonya + assistants) is the explainer-and-walkthrough in action; the <strong>Tuesday 2026-06-09 (11:30 AM) attorney session</strong> locks the substrate decisions.</p>
+
+    <h3>10.2 Roadmap + Phase Gates</h3>
+
+    <p>Seven phases, each a standalone SOW under the CSA with an explicit pause-point. Pricing and scope are locked across all seven so the firm can plan the year. The firm commits one phase at a time; Bryn's adoption sign-off is the gate between phases.</p>
+
+    <div class="roadmap">
+      <div class="phase">
+        <div class="ph">Phase 0</div>
+        <div class="nm">Kickoff</div>
+        <div class="cost">$5,000</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Week 0</div>
+      </div>
+      <div class="phase cur">
+        <div class="ph">Phase 1A</div>
+        <div class="nm">Foundation + First-Draft Appeals</div>
+        <div class="cost">$22,000</div>
+        <div style="font-size:11px;color:#cdbff0;margin-top:4px">Weeks 1&ndash;6</div>
+      </div>
+      <div class="phase">
+        <div class="ph">Phase 1B</div>
+        <div class="nm">Appeals Completion + Ingest Substrate</div>
+        <div class="cost">$10,000</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Weeks 7&ndash;11</div>
+      </div>
+      <div class="phase">
+        <div class="ph">Phase 2</div>
+        <div class="nm">On Claims</div>
+        <div class="cost">$15,000</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Weeks 12&ndash;16</div>
+      </div>
+      <div class="phase">
+        <div class="ph">Phase 3</div>
+        <div class="nm">Litigation</div>
+        <div class="cost">$25,000</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Weeks 17&ndash;23</div>
+      </div>
+      <div class="phase">
+        <div class="ph">Phase 4</div>
+        <div class="nm">Accounting</div>
+        <div class="cost">$5,000</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Weeks 24&ndash;25</div>
+      </div>
+      <div class="phase">
+        <div class="ph">Phase 5</div>
+        <div class="nm">Firm Intel + Intake + Marketing</div>
+        <div class="cost">$14,000</div>
+        <div style="font-size:11px;color:var(--muted);margin-top:4px">Weeks 26&ndash;30</div>
+      </div>
+    </div>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Phase</th>
+          <th>Cost</th>
+          <th>Calendar</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>0</td>
+          <td>Kickoff</td>
+          <td>$5,000</td>
+          <td>Week 0</td>
+        </tr>
+        <tr>
+          <td>1A</td>
+          <td>Wave 1A: Foundation + First-Draft Appeals</td>
+          <td>$22,000</td>
+          <td>Weeks 1&ndash;6</td>
+        </tr>
+        <tr>
+          <td>1B</td>
+          <td>Wave 1B: Appeals Completion + Ingest Substrate</td>
+          <td>$10,000</td>
+          <td>Weeks 7&ndash;11</td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>On Claims</td>
+          <td>$15,000</td>
+          <td>Weeks 12&ndash;16</td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Litigation</td>
+          <td>$25,000</td>
+          <td>Weeks 17&ndash;23</td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Accounting</td>
+          <td>$5,000</td>
+          <td>Weeks 24&ndash;25</td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Firm Intel + Intake + Marketing</td>
+          <td>$14,000</td>
+          <td>Weeks 26&ndash;30</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p>Implementation total <strong>$96,000</strong> (or <strong>$88,000</strong> on the partnership track with case-study + co-marketing rights). Ongoing retainer <strong>$2,500/month</strong> begins at end of Wave 1B. Optional HubSpot admin add-on at <strong>$200/hour</strong>, hours used. Targeting Thanksgiving 2026 from a June-anchored Kickoff; re-baselined at each phase boundary.</p>
+
+    <!-- SECTION 11 -->
+    <h2><span class="sn">§11</span> Reference: Carriers + Conditions (for A-16 / A-23 Drafting)</h2>
+
+    <p>A-16 and A-23 draft carrier-aware and condition-aware. Brief reference (full detail in the firm wiki carrier and condition playbooks):</p>
+
+    <p><strong>Carriers the firm litigates against:</strong> Hartford, Prudential (rule set live), Lincoln Financial, Cigna/LINA, Unum (largest by volume, surveillance-heavy), Guardian, Aetna, MetLife, New York Life, Reliance Standard, Sun Life, The Standard, Liberty Mutual/Liberty Life, plus smaller-volume carriers.</p>
+
+    <p><strong>Universal denial patterns:</strong> mental-health 24-month cap; self-reported-symptoms exclusions; pre-existing-condition look-backs; own-occupation &rarr; any-occupation transition; peer-review/IME stacking; surveillance overreach.</p>
+
+    <p><strong>Conditions with mature template substrate:</strong> Long COVID/PASC, ME/CFS, fibromyalgia, migraine/chronic headache, ADD/ADHD, trigeminal/occipital neuralgia, lung cancer, mental-health primary. Recurring RFC argument across fatigue-spectrum conditions: sustainability over a full work week (not point-in-time capacity); CPET (ideally two-day) is the gold-standard objective evidence.</p>
+
+    <p><strong>ERISA procedural anchors:</strong> appeal window 180 days from receipt of denial (29 CFR 2560.503-1(h)(3)(i)); carrier appeal-decision deadline 45 days, extendable once by 45 to 90 (i)(3)(i); claim-file rights under &sect;&nbsp;503/505; deemed exhaustion under (l). The firm's <code>DLF 45 day letter.docx</code> is the deemed-exhaustion enforcement letter.</p>
+
+    <!-- SECTION 12 -->
+    <h2><span class="sn">§12</span> Open Items + Owners</h2>
+
+    <table>
+      <thead>
+        <tr>
+          <th>#</th>
+          <th>Open Item</th>
+          <th>Owner</th>
+          <th>Target</th>
+          <th>Status</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>1</td>
+          <td>On-site dates fixed: support team Mon 2026-06-08 1:00 PM; attorneys Tue 2026-06-09 11:30 AM</td>
+          <td>Bryn / Nick</td>
+          <td>Done</td>
+          <td><code>[x]</code></td>
+        </tr>
+        <tr>
+          <td>2</td>
+          <td>Confirm morning attendees (Sonya + which named assistants)</td>
+          <td>Bryn</td>
+          <td>Before the day</td>
+          <td><code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td>3</td>
+          <td>Confirm afternoon attendees (Bryn, Kevin; Eddie if available)</td>
+          <td>Bryn</td>
+          <td>Before the day</td>
+          <td><code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td>4</td>
+          <td>Coordinate any remaining Dodonai-Graph app consent + Power Automate license tier with Lansight (ticket 211080)</td>
+          <td>Lansight / Nick</td>
+          <td>By ticket</td>
+          <td><code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td>5</td>
+          <td>Confirm Nick's firm-account login (<code>nick@longtermdisability.net</code>, provisioned by Lansight 2026-06-05)</td>
+          <td>Nick / Lansight</td>
+          <td>Before the day</td>
+          <td><code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td>6</td>
+          <td>Confirm past-rebuttal corpus access so the 5&ndash;10 seed appeals can be pulled</td>
+          <td>Bryn / Kevin</td>
+          <td>Before / on the day</td>
+          <td><code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td>7</td>
+          <td>Room + AV: live HubSpot + SharePoint screen-share capability</td>
+          <td>Firm</td>
+          <td>Before the day</td>
+          <td><code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td>8</td>
+          <td>Confirm BAA execution status in the signed CSA package</td>
+          <td>Nick</td>
+          <td>At signing</td>
+          <td><code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td>9</td>
+          <td>Validate the Egnyte connector (files migrating SharePoint &rarr; Egnyte)</td>
+          <td>Nick / Lansight</td>
+          <td>At kickoff</td>
+          <td><code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td>10</td>
+          <td>Confirm whether Egnyte needs adding as a sub-processor in the DPA</td>
+          <td>Nick</td>
+          <td>At signing</td>
+          <td><code>[ ]</code></td>
+        </tr>
+        <tr>
+          <td>11</td>
+          <td><span class="capture">Add items surfaced on the day</span></td>
+          <td></td>
+          <td></td>
+          <td><code>[ ]</code></td>
+        </tr>
+      </tbody>
+    </table>
+
+    <hr class="divider">
+
+    <p><small><em>Phase 0 acceptance: this memo delivered recording each substrate decision; the 5&ndash;10 seed appeals identified; Dodonai-Graph app access confirmed (base access provisioned by Lansight, any remaining consent coordinated via ticket 211080). Finalized by Nick within ~1 week of the on-site sessions.</em></small></p>
+
+  </div><!-- /.pad -->
+
+  <!-- FOOTER -->
+  <div class="foot">
+    <span>Dodonai Consulting &middot; Prepared for Dabdoub Law Firm</span>
+    <span>Confidential &middot; Engagement source-of-truth (scaffold)</span>
+  </div>
+
+</div><!-- /.page -->
+</body>
+</html>

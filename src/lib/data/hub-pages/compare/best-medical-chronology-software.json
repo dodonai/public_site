@@ -1,144 +1,287 @@
 {
-	"seo": {
-		"title": "Best Medical Chronology Software 2026 Compared | Dodonai",
-		"description": "Compare medical chronology software by cost, turnaround, page citations, and HIPAA compliance. Updated June 2026 for litigation teams.",
-		"canonical": "/compare/best-medical-chronology-software/"
-	},
-	"breadcrumbs": [
-		{ "name": "Home", "href": "/" },
-		{ "name": "Compare", "href": null },
-		{ "name": "Best Medical Chronology Software" }
-	],
-	"hero": {
-		"headline": "Best Medical Chronology Software for Legal Teams",
-		"subheadline": "Medical chronology software turns hundreds of disorganized pages into clear, date-ordered timelines. Compare AI-powered medical chronology tools to legacy vendors and manual review, and see why more law firms are switching to AI for medical summaries.",
-		"ctaText": "Upload Your Records Free",
-		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=best-medical-chronology-software",
-		"secondaryCtaText": "See Pricing",
-		"secondaryCtaUrl": "/pricing/"
-	},
-	"sections": [
-		{
-			"type": "content",
-			"heading": "What Medical Chronology Software Does and Why It Matters",
-			"paragraphs": [
-				"A plaintiff's records span 2,000 pages across a dozen providers, and trial is six weeks out. Medical chronology software automates the extraction of dates, providers, diagnoses, treatments, and outcomes from those records and arranges them into a structured timeline. That step is essential for personal injury, medical malpractice, and disability cases.",
-				"Without it, building a medical chronology eats days of paralegal or nurse reviewer time per case, sometimes weeks when records arrive from a dozen providers.",
-				"The best medical chronology software goes beyond simple extraction. It should link each entry to the exact source page, handle scanned and OCR'd documents, and allow filtering by provider, date range, or event type. With sorting, filtering, and source-page linking, your team moves from raw records to case-ready analysis in a fraction of the time.",
-				"Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical record summarization}} tool generates both a narrative medical record summary and a detailed legal medical chronology with page references for quick verification, all within minutes of uploading the records."
-			]
-		},
-		{
-			"type": "features",
-			"heading": "Why Dodonai Leads in Medical Chronology Software",
-			"cards": [
-				{
-					"icon": "clock",
-					"title": "Chronologies in Minutes",
-					"description": "Hundreds of pages processed per run. Upload the records and have a complete medical records chronology before your next meeting, not next week."
-				},
-				{
-					"icon": "document",
-					"title": "Every Entry Traces to the Source",
-					"description": "Each chronology entry links directly to the underlying record. One click to verify instead of searching through hundreds of pages."
-				},
-				{
-					"icon": "search",
-					"title": "Sort, Filter, and Search",
-					"description": "Which providers saw the patient between the accident and surgery? Filter by date range and provider to surface exactly that. Search by keyword or medical term across the entire record set."
-				},
-				{
-					"icon": "heart",
-					"title": "HIPAA Compliant and SOC 2 Certified",
-					"description": "Patient records get AES-256 encryption throughout. SOC 2 certified and HIPAA compliant with signed BAAs. Your data stays out of training pipelines."
-				},
-				{
-					"icon": "adjustments",
-					"title": "Customizable Output",
-					"description": "Highlight specific diagnoses or providers. Download as PDF, Word, Excel, or text, all formatted for your team's workflow."
-				},
-				{
-					"icon": "sparkles",
-					"title": "Handles Scanned Records",
-					"description": "Dodonai's built-in AI OCR processes scanned PDFs and image-based documents, so you skip the preprocessing step entirely."
-				}
-			]
-		},
-		{
-			"type": "comparison",
-			"heading": "Medical Chronology Software Comparison",
-			"columns": ["Feature", "Dodonai", "Legacy Summarization", "Manual Review"],
-			"rows": [
-				["Processing time", "Minutes", "5-10 business days", "8-40+ hours"],
-				["Cost per record set", "$0.02-$0.15/page", "$5-$15/page", "Billed at staff hourly rate"],
-				["Chronological timeline", true, true, true],
-				["Source-page linking", true, "Varies by vendor", false],
-				["Sort and filter by provider", true, false, false],
-				["Scanned PDF / OCR support", true, "Varies", false],
-				["HIPAA compliant", true, "Varies", "Depends on firm"],
-				["Interactive viewer", true, false, false],
-				["Free trial available", true, false, false]
-			]
-		},
-		{
-			"type": "howItWorks",
-			"items": [
-				{
-					"title": "Upload Medical Records",
-					"description": "Upload your medical records PDF and select the Medical Record summary type. Enter key diagnoses, providers, or topics to emphasize. Dodonai handles scanned documents, multi-hundred-page files, and records from multiple providers."
-				},
-				{
-					"title": "AI Generates the Chronology",
-					"description": "Dodonai's AI extracts dates, providers, diagnoses, treatments, prescriptions, and outcomes. It organizes them chronologically and produces both a narrative summary and a detailed medical chronology with page numbers pointing to the original."
-				},
-				{
-					"title": "Review, Filter, and Download",
-					"description": "Use the interactive viewer to review the chronology side-by-side with the original records. Sort by date or provider, filter by event type, and download as PDF, Word, Excel, or text."
-				}
-			]
-		}
-	],
-	"faq": [
-		{
-			"question": "What is medical chronology software?",
-			"answer": "It extracts key medical events from patient records and arranges them into a date-ordered timeline, giving attorneys a clear view of treatment history without manually reading hundreds of pages."
-		},
-		{
-			"question": "How is AI medical chronology software different from a record review service?",
-			"answer": "Record review services use human reviewers and typically take 5-10 business days. AI medical chronology software like Dodonai delivers results in minutes at $0.02 to $0.15 per page, compared to $5-$15 per page from review services. See our {{link:https://app.dodon.ai/help/basic-medical-record-summaries|medical record summaries guide}} for a walkthrough of the full process."
-		},
-		{
-			"question": "Can Dodonai handle scanned medical records?",
-			"answer": "Yes. Built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} processes scanned PDFs and image-based documents, so there's no separate OCR step needed."
-		},
-		{
-			"question": "What output formats are available for medical chronologies?",
-			"answer": "PDF, Word (.docx), Excel (.xls), and text (.txt). You can also interact with the chronology in the browser using the side-by-side viewer. Learn more about {{link:/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/|choosing between chronology and narrative formats}}. Many firms use the Excel export as a reusable medical chronology template across similar cases. See our {{link:https://app.dodon.ai/help/basic-medical-record-template|medical record template guide}} for step-by-step setup instructions."
-		},
-		{
-			"question": "Is patient data safe when using AI summarization software?",
-			"answer": "Records stay encrypted from upload to deletion. SOC 2 certified, HIPAA compliant, BAAs on every account. Nothing you upload trains our models. You delete files on your timeline. We don't retain copies."
-		},
-		{
-			"question": "How much does medical chronology software cost compared to manual review?",
-			"answer": "Dodonai starts at $30/month for 200 pages. Outsourced services charge $5-$15 per page, and in-house staff is billed at hourly rates. For firms with recurring volume, Dodonai pays for itself within the first case or two."
-		}
-	],
-	"relatedPages": [
-		{
-			"title": "AI Medical Record Summaries & Chronologies",
-			"href": "/ai-medical-record-summaries-chronologies/",
-			"description": "See detailed output examples including chronologies, narratives, and provider timelines generated by AI."
-		}
-	],
-	"relatedBlogPosts": [
-		"/blog/understanding-medical-chronology-clear-actionable-timelines/",
-		"/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/",
-		"/blog/building-medical-chronologies-for-ssdi-disability-claims/",
-		"/blog/real-cost-of-outsourcing-medical-record-summaries/"
-	],
-	"ctaOverride": {
-		"headline": "Get Your First Medical Chronology Free",
-		"description": "Upload medical records and receive a complete chronology with every entry linked to its source page. No credit card required."
-	}
+  "seo": {
+    "title": "Best Medical Chronology Software 2026 Compared | Dodonai",
+    "description": "Compare medical chronology software by cost, turnaround, page citations, and HIPAA compliance. Updated June 2026 for litigation teams.",
+    "canonical": "/compare/best-medical-chronology-software/"
+  },
+  "breadcrumbs": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "Compare",
+      "href": null
+    },
+    {
+      "name": "Best Medical Chronology Software"
+    }
+  ],
+  "hero": {
+    "headline": "Best Medical Chronology Software in 2026 \u2014 Compared for Attorneys",
+    "subheadline": "Last updated May 2026. Reviewed for plaintiff attorneys, personal injury firms, workers' comp practices, and disability benefits attorneys. Compare AI-native chronology platforms, outsourced summary services, general AI tools, and manual paralegal review side by side.",
+    "ctaText": "Try Dodonai Free",
+    "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=best-medical-chronology-software",
+    "secondaryCtaText": "See Pricing",
+    "secondaryCtaUrl": "/pricing/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "What Medical Chronology Software Does and Why It Matters",
+      "paragraphs": [
+        "A plaintiff's records span 2,000 pages across a dozen providers, and trial is six weeks out. Medical chronology software extracts the dates, providers, diagnoses, treatments, and outcomes from those records and arranges them into a structured timeline. That timeline is the foundation of case evaluation, damages analysis, deposition prep, and demand-letter writing for personal injury, medical malpractice, workers' comp, and {{link:/practice-areas/disability-benefits/|disability benefits cases}}.",
+        "Without it, building a medical chronology eats days of paralegal or nurse reviewer time per case \u2014 sometimes weeks when records arrive from a dozen providers. The best medical chronology software goes beyond extraction: it links each entry to the exact source page, handles scanned and OCR'd documents, and lets your team filter by provider, date range, or event type.",
+        "Four categories of solution exist today. They trade off differently on speed, cost, accuracy, and effort required from the firm. Here is how they actually compare."
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "Medical Chronology Software Comparison",
+      "columns": [
+        "Capability",
+        "Dodonai (AI-Native)",
+        "Outsourced Summary Services",
+        "General AI Document Tools",
+        "Manual Paralegal Review"
+      ],
+      "rows": [
+        [
+          "Built specifically for legal medical chronologies",
+          true,
+          true,
+          false,
+          true
+        ],
+        [
+          "Turnaround per record set",
+          "Minutes",
+          "Days to weeks",
+          "Minutes (low reliability)",
+          "Hours to days"
+        ],
+        [
+          "Page citations to every chronology entry",
+          true,
+          "Varies by vendor",
+          false,
+          "Manual effort"
+        ],
+        [
+          "Handles scanned, faxed, and handwritten records",
+          true,
+          true,
+          "Limited",
+          true
+        ],
+        [
+          "Sort and filter by provider, date, event type",
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          "Side-by-side source viewer",
+          true,
+          false,
+          false,
+          false
+        ],
+        [
+          "Bulk processing of multiple cases",
+          true,
+          true,
+          false,
+          "Limited by staff"
+        ],
+        [
+          "Output formats (PDF, Word, Excel, text)",
+          true,
+          "Varies",
+          "Text only",
+          true
+        ],
+        [
+          "HIPAA compliant + signed BAAs",
+          true,
+          "Varies",
+          false,
+          "Depends on firm"
+        ],
+        [
+          "Data never used to train AI models",
+          true,
+          "N/A",
+          false,
+          "N/A"
+        ],
+        [
+          "Self-serve \u2014 no implementation project",
+          true,
+          false,
+          true,
+          "N/A"
+        ],
+        [
+          "Predictable monthly cost",
+          true,
+          false,
+          "Varies",
+          false
+        ],
+        [
+          "Free trial available",
+          true,
+          false,
+          true,
+          false
+        ]
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "How Each Category Actually Performs",
+      "paragraphs": [
+        "AI-native medical chronology platforms like Dodonai are purpose-built for the legal medical record workflow. The AI extracts events, builds the date-ordered timeline, and produces narrative summaries \u2014 all with page citations back to the source record. Turnaround is minutes per case rather than days. The output is consistent across reviewers because the underlying model is consistent. Predictable subscription pricing. Best for: plaintiff and defense firms with recurring medical record volume across personal injury, medical malpractice, workers' comp, mass tort, and disability work.",
+        "Outsourced summary services assign a human reviewer (often a nurse or paralegal) to read the records and produce a chronology. Quality is high when the reviewer is good, but turnaround runs days to weeks, per-page pricing is steep, and consistency varies between reviewers. Best for: occasional high-stakes cases where the firm wants a human reviewer in the loop and can wait. Often a poor fit for firms with steady volume \u2014 costs scale linearly with caseload.",
+        "General AI document tools (consumer chatbots and general-purpose AI summarizers) are fast and inexpensive but unreliable for medical records. They lack HIPAA compliance and BAAs, often use uploaded data for model training, struggle with scanned and handwritten records, and produce summaries without verifiable page citations. Best for: low-stakes informational tasks. Materially risky for protected health information and discoverable case files.",
+        "Manual paralegal review is the baseline. Full control over the output and no software cost beyond staff time, but it does not scale. A 500-page record set is a full paralegal day; a complex mass tort claimant set can take a week. Quality varies with the reviewer's experience and attention under deadline. Best for: firms with low and irregular medical record volume, or as a verification layer on top of AI output."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Why Dodonai Leads the AI-Native Category",
+      "cards": [
+        {
+          "icon": "clock",
+          "title": "Chronologies in Minutes",
+          "description": "Hundreds of pages processed per run. Upload the records and have a complete medical chronology before your next meeting, not next week."
+        },
+        {
+          "icon": "document",
+          "title": "Every Entry Traces to the Source",
+          "description": "Each chronology entry links directly to the underlying record. One click to verify a finding instead of searching through hundreds of pages."
+        },
+        {
+          "icon": "search",
+          "title": "Sort, Filter, and Search",
+          "description": "Which providers saw the patient between the accident and surgery? Filter by date range and provider to surface exactly that. Search by keyword or medical term across the entire record set."
+        },
+        {
+          "icon": "heart",
+          "title": "HIPAA Compliant and SOC 2 Certified",
+          "description": "Patient records get AES-256 encryption throughout. SOC 2 certified and HIPAA compliant with signed BAAs. Your data stays out of training pipelines."
+        },
+        {
+          "icon": "adjustments",
+          "title": "Customizable Output",
+          "description": "Highlight specific diagnoses or providers. Download as PDF, Word, Excel, or text, formatted for your team's workflow."
+        },
+        {
+          "icon": "sparkles",
+          "title": "Handles Scanned Records",
+          "description": "Built-in AI OCR processes scanned PDFs, image-based documents, faxed records, and handwritten provider notes \u2014 no preprocessing step needed."
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "How to Choose Medical Chronology Software",
+      "paragraphs": [
+        "Six criteria separate the categories. Score any tool against these before committing \u2014 they predict whether the software will actually work for your firm:",
+        "AI-native vs. template-based. AI-native tools handle unstructured records well. Template-based extractors require records to fit a predefined shape and break down on variable provider charting styles. Most real medical record sets are messy, so AI-native wins for litigation work.",
+        "Output format. Some tools produce chronologies only. Some produce narrative summaries only. Litigation usually needs both \u2014 chronology for evidence and timeline analysis, narrative for case evaluation and quick read-ins. Confirm both are first-class outputs, not add-ons.",
+        "Record type coverage. Can it handle scanned PDFs, faxed records, and handwritten provider notes alongside digital files? If the tool requires preprocessing of any record type, you'll be doing manual work the tool was supposed to eliminate.",
+        "Workflow integration. Export formats (PDF, Word, Excel) and source-page linking matter for everyday use. So does the ability to drop output into case management systems or demand-letter templates without reformatting.",
+        "Pricing model. Per-page pricing creates unpredictable case costs and disincentivizes thorough review of large record sets. Flat monthly subscription pricing makes the unit economics work across high-volume firms.",
+        "Security and data handling. HIPAA compliance, signed BAAs, AES-256 encryption, SOC 2 certification, and a clear policy against using uploaded data for AI training \u2014 all of these are table stakes for medical records work, not optional."
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Medical Records",
+          "description": "Upload your medical records PDF and select the Medical Record summary type. Enter key diagnoses, providers, or topics to emphasize. Dodonai handles scanned documents, multi-hundred-page files, and records from multiple providers."
+        },
+        {
+          "title": "AI Generates the Chronology",
+          "description": "Dodonai's AI extracts dates, providers, diagnoses, treatments, prescriptions, and outcomes. It organizes them chronologically and produces both a narrative summary and a detailed medical chronology with page numbers pointing to the original."
+        },
+        {
+          "title": "Review, Filter, and Download",
+          "description": "Use the interactive viewer to review the chronology side-by-side with the original records. Sort by date or provider, filter by event type, and download as PDF, Word, Excel, or text."
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "Verdict",
+      "paragraphs": [
+        "For plaintiff and defense firms handling recurring medical record volume \u2014 personal injury, medical malpractice, workers' comp, mass tort, or disability benefits \u2014 an AI-native platform like Dodonai is the right primary tool. Turnaround in minutes, predictable monthly cost, HIPAA-compliant by default, page citations on every entry.",
+        "For occasional high-stakes cases where a human reviewer in the loop is non-negotiable and turnaround is flexible, outsourced summary services still have a role \u2014 usually as a verification layer over AI output rather than a full replacement.",
+        "General AI chatbots are the wrong tool for medical records, even though they are technically fast and cheap. The HIPAA and data-training exposure makes them a real risk on discoverable case files.",
+        "Manual paralegal review remains the baseline for low-volume firms or as a quality check on AI output. It does not scale.",
+        "The cleanest way to evaluate fit is to upload a single representative case file to a free trial of the AI-native option and compare the output to what your team produces manually. {{link:/ai-medical-record-summaries-chronologies/|Dodonai's medical chronology software}} offers that trial with no credit card required."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "What is medical chronology software?",
+      "answer": "Medical chronology software extracts key medical events from patient records and arranges them into a date-ordered timeline. It gives attorneys a clear view of treatment history without manually reading hundreds of pages, and produces output suitable for case evaluation, deposition prep, and demand-letter packaging."
+    },
+    {
+      "question": "How is AI medical chronology software different from outsourced summary services?",
+      "answer": "Outsourced summary services use human reviewers and typically take days to weeks. AI-native medical chronology platforms like Dodonai deliver results in minutes with predictable subscription pricing. See our {{link:https://app.dodon.ai/help/basic-medical-record-summaries|medical record summaries guide}} for a walkthrough of the full process."
+    },
+    {
+      "question": "Are general AI tools like ChatGPT safe for medical records?",
+      "answer": "Generally no. Most consumer AI tools lack HIPAA compliance, do not sign BAAs, and may use uploaded data to train models. Protected health information and discoverable case files require purpose-built infrastructure with HIPAA compliance, encryption, BAAs, and a clear policy against AI training on customer data."
+    },
+    {
+      "question": "Can Dodonai handle scanned medical records?",
+      "answer": "Yes. Built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} processes scanned PDFs, image-based documents, faxed records, and handwritten provider notes \u2014 no separate OCR step required."
+    },
+    {
+      "question": "What output formats are available for medical chronologies?",
+      "answer": "PDF, Word (.docx), Excel (.xls), and text (.txt). You can also interact with the chronology in the browser using the side-by-side viewer. Learn more about {{link:/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/|choosing between chronology and narrative formats}}. Many firms use the Excel export as a reusable medical chronology template across similar cases."
+    },
+    {
+      "question": "Is patient data safe when using AI medical chronology software?",
+      "answer": "With Dodonai, records stay encrypted from upload to deletion. SOC 2 certified, HIPAA compliant, BAAs on every account. Nothing you upload trains the models. You delete files on your timeline and Dodonai does not retain copies."
+    },
+    {
+      "question": "How does Dodonai pricing compare to outsourced services and manual review?",
+      "answer": "Dodonai uses flat monthly subscription pricing. Outsourced services typically charge per page, which scales linearly with caseload. Manual review is billed at staff hourly rates. For firms with recurring volume across multiple cases per month, the subscription model usually pays for itself within the first few cases. See the {{link:/pricing/|pricing page}} for current plans."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "See detailed output examples including chronologies, narratives, and provider timelines generated by AI."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "The analysis step that feeds into chronology generation."
+    },
+    {
+      "title": "Disability Benefits Cases",
+      "href": "/practice-areas/disability-benefits/",
+      "description": "SSDI, LTD, and VA disability medical record chronologies."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/understanding-medical-chronology-clear-actionable-timelines/",
+    "/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/",
+    "/blog/building-medical-chronologies-for-ssdi-disability-claims/",
+    "/blog/real-cost-of-outsourcing-medical-record-summaries/"
+  ],
+  "ctaOverride": {
+    "headline": "Get Your First Medical Chronology Free",
+    "description": "Upload medical records and receive a complete chronology with every entry linked to its source page. No credit card required."
+  }
 }

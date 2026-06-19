@@ -1,0 +1,601 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Milind Agtey · Accounting AI Build Blueprint</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  --teal-bright:#06B6D4; --rose:#E11D48; --good:#16A34A;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:60px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+.brandbar .tag,.brandbar .v2{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:56px;line-height:1.02;letter-spacing:-.025em;margin:0 0 18px;max-width:17ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:20px;line-height:1.45;color:var(--purple-soft);max-width:60ch;margin:0 0 38px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+section{padding:54px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:66ch;margin:0 0 30px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+.ink .eyebrow{color:var(--purple-soft)}
+.cliff{background:var(--midnight);color:#fff;padding:30px 0}
+.cliff .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.cliff .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:150px;line-height:1.5}
+.cliff .ctitle .big{display:block;font-family:var(--sans);font-size:34px;letter-spacing:-.02em;color:#fff;margin-top:8px}
+.cliff .cbody{font-size:16px;line-height:1.55;color:var(--purple-soft)}
+.cliff .cbody b{color:#fff}
+.pull{position:relative;background:#fff;border-radius:14px;padding:36px 42px 32px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:22px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+.os-def{margin-top:24px;font-size:18px;line-height:1.6;max-width:76ch}
+.os-def strong{color:var(--purple-bold)}
+.phasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.phasecard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:20px 22px;position:relative}
+.phasecard .ph-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.phasecard .ph-n{flex:0 0 30px;height:30px;border-radius:9px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.phasecard .ph-name{font-weight:800;font-size:17px;letter-spacing:-.01em}
+.phasecard .ph-meta{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light)}
+.flow{display:flex;flex-direction:column;gap:7px}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4;position:relative;padding-left:2px}
+.step .sb{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:6px;background:var(--gray-meta)}
+.step.man .sb{background:var(--amber)}
+.step.gate .sb{background:var(--teal)}
+.step .stx{color:var(--midnight)}
+.step .stx .who{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.who.w-man{background:rgba(199,125,46,.14);color:var(--amber)}
+.who.w-gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.flow-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.flow-legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.flow-legend .dot{width:10px;height:10px;border-radius:50%}
+.tally{margin-top:26px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15px;line-height:1.6}
+.tally b{color:var(--amber)}
+.pipe-wrap{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:30px 26px 26px;position:relative;overflow:hidden}
+.pipe{display:flex;align-items:stretch;gap:0;position:relative}
+.pnode{flex:1;text-align:center;position:relative;padding:0 6px}
+.pnode .pdot{width:54px;height:54px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--cream-deep);border:2px solid var(--cream-line);position:relative;z-index:2;transition:all .4s}
+.pnode .pttl{font-weight:700;font-size:13.5px;letter-spacing:-.01em;margin-bottom:4px}
+.pnode .pwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-bold)}
+.pnode.gate .pwho{color:var(--teal)}
+.pnode .pstatus{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:7px;padding:2px 8px;border-radius:10px;display:inline-block;background:var(--cream-deep);color:var(--gray-meta-light)}
+.pline{position:absolute;top:27px;height:3px;background:var(--cream-line);z-index:0;left:0;right:0}
+.pline .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft))}
+.play .pline .pfill{animation:fill 9s linear infinite}
+@keyframes fill{0%{width:0}90%,100%{width:100%}}
+.play .pnode .pdot{animation:nodeActivate 9s linear infinite}
+.play .pnode:nth-child(2) .pdot{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot{animation-delay:6.4s}
+@keyframes nodeActivate{0%,8%{background:var(--cream-deep);border-color:var(--cream-line);transform:scale(1)}
+  10%{background:rgba(124,58,237,.15);border-color:var(--purple-vivid);transform:scale(1.08)}
+  16%,100%{background:var(--purple-vivid);border-color:var(--purple-vivid)}}
+.play .pnode .pstatus{animation:statusFlip 9s linear infinite}
+.play .pnode:nth-child(2) .pstatus{animation-delay:0s}
+.play .pnode:nth-child(3) .pstatus{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pstatus{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pstatus{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pstatus{animation-delay:6.4s}
+@keyframes statusFlip{0%,8%{background:var(--cream-deep);color:var(--gray-meta-light)}
+  16%,100%{background:rgba(46,158,107,.14);color:var(--green)}}
+.pnode .pdot .ic-done{position:absolute;opacity:0}
+.play .pnode .pdot .ic-done{animation:doneShow 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-done{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-done{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-done{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-done{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-done{animation-delay:6.4s}
+@keyframes doneShow{0%,12%{opacity:0}16%,100%{opacity:1}}
+.play .pnode .pdot .ic-base{animation:baseHide 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-base{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-base{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-base{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-base{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-base{animation-delay:6.4s}
+@keyframes baseHide{0%,12%{opacity:1}16%,100%{opacity:0;color:#fff}}
+.pipe-foot{margin-top:22px;font-size:14px;color:var(--gray-meta-light);text-align:center;line-height:1.5}
+.pipe-foot b{color:var(--teal)}
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.int{background:var(--green)} .dot.rep{background:var(--purple-vivid)} .dot.add{background:var(--amber)} .dot.skip{background:var(--gray-meta)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 19px 16px;position:relative;overflow:hidden}
+.card.replace{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.card.add{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.card.skip{border:1.5px dashed var(--gray-meta)}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px}
+.card .name{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.badge.int{background:rgba(46,158,107,.13);color:var(--green)}
+.badge.rep{background:var(--purple-vivid);color:#fff}
+.badge.add{background:var(--amber);color:#fff}
+.badge.skip{background:var(--cream-deep);color:var(--gray-meta-light)}
+.card .why{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.card.replace .why,.card.add .why{color:var(--midnight)}
+.flag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--purple-vivid);color:#fff;padding:3px 8px;border-bottom-left-radius:8px}
+.pillars{display:flex;flex-direction:column;gap:18px}
+.pillar{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;position:relative}
+.pillar.hot{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.04))}
+.pillar .phead{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.pillar .pnum{flex:0 0 36px;height:36px;border-radius:10px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.pillar .picon{flex:0 0 40px;height:40px;border-radius:11px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center}
+.pillar .ptitle{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.pillar .ptag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:14px;margin-left:auto;background:var(--purple-vivid);color:#fff}
+.ptag.moved{background:rgba(124,58,237,.12);color:var(--purple-bold)}
+.ptag.new{background:var(--amber);color:#fff}
+.pillar p{font-size:14.5px;line-height:1.55;margin:.5em 0;color:var(--midnight)}
+.pillar .pbody{margin-top:6px}
+.flow-mini{font-family:var(--mono);font-size:11.5px;line-height:1.7;background:var(--midnight);color:var(--purple-soft);border-radius:10px;padding:16px 18px;margin:12px 0;overflow-x:auto;white-space:pre;display:block}
+.flow-mini b{color:#fff;font-weight:700}
+.flow-mini .ar{color:var(--purple-vivid);font-weight:700}
+.kills-line{font-size:13.5px;color:var(--purple-bold);font-weight:600;margin-top:6px}
+.feat{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.feat .f{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.feat .f .fm{color:var(--purple-vivid);font-weight:800;flex:0 0 auto}
+.feat .f b{color:var(--midnight)}
+/* ===== feature workflow nodes ===== */
+.fflow{display:grid;grid-template-columns:1fr auto 1fr auto 1fr;gap:10px;align-items:stretch;margin:14px 0 16px}
+.ffnode{background:var(--midnight);border:1px solid rgba(181,168,230,.25);border-radius:12px;padding:15px 12px;text-align:center;color:#fff;display:flex;flex-direction:column;align-items:center;gap:6px}
+.ffnode.out{background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));border-color:transparent}
+.ffnode .ffic{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.10);display:flex;align-items:center;justify-content:center;font-size:18px}
+.ffnode .fft{font-weight:700;font-size:13px;line-height:1.2}
+.ffnode .ffs{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-soft)}
+.ffarrow{display:flex;align-items:center;justify-content:center;color:var(--purple-vivid);font-weight:800;font-size:20px}
+/* ===== excel-style sheet mock ===== */
+.xlsheet{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;box-shadow:0 18px 40px -30px rgba(26,26,69,.45);margin:6px 0 10px}
+.xl-bar{display:flex;align-items:center;gap:10px;padding:9px 14px;background:#1f7a48;color:#fff}
+.xl-bar .xl-logo{font-weight:800;font-size:12.5px;letter-spacing:.01em}
+.xl-bar .xl-file{font-family:var(--mono);font-size:10.5px;opacity:.85}
+.xl-bar .xl-live{margin-left:auto;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(255,255,255,.18);padding:3px 9px;border-radius:20px}
+.xl-fx{display:flex;align-items:center;gap:9px;padding:6px 12px;background:var(--cream-deep);border-bottom:1px solid var(--cream-line);font-family:var(--mono);font-size:11px;color:var(--gray-meta-light)}
+.xl-fx .fx-cell{font-weight:700;color:var(--midnight);background:#fff;border:1px solid var(--cream-line);border-radius:4px;padding:2px 9px}
+.xl-fx .fx-eq{color:#1f7a48;font-weight:800}
+.xl-scroll{overflow-x:auto}
+.xl-grid{width:100%;border-collapse:collapse;font-family:var(--mono);font-size:11.5px}
+.xl-grid th,.xl-grid td{border:1px solid #e6e3d7;padding:6px 11px;text-align:right;white-space:nowrap}
+.xl-grid thead th{background:var(--cream-deep);color:var(--gray-meta-light);font-weight:700;text-align:center;font-size:10px;letter-spacing:.04em}
+.xl-grid .rownum{background:var(--cream-deep);color:var(--gray-meta-light);text-align:center;font-weight:700;width:30px}
+.xl-grid td.lbl{text-align:left;font-family:var(--sans);font-weight:600;color:var(--midnight)}
+.xl-grid td.num{font-variant-numeric:tabular-nums}
+.xl-grid td.fill{background:rgba(124,58,237,.12);color:var(--purple-bold);font-weight:700}
+.xl-grid tr.total td{font-weight:800;border-top:2px solid var(--midnight)}
+.xl-grid tr.total td.fill{background:rgba(124,58,237,.18)}
+.xl-tabs{display:flex;background:var(--cream-deep);border-top:1px solid var(--cream-line)}
+.xl-tab{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.04em;padding:7px 14px;color:var(--gray-meta-light);border-right:1px solid var(--cream-line)}
+.xl-tab.active{background:#fff;color:#1f7a48;border-top:2px solid #1f7a48;margin-top:-1px}
+.xl-cap{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5;margin:0 0 4px;display:flex;gap:9px;align-items:flex-start}
+.xl-cap .xl-key{flex:0 0 auto;width:13px;height:13px;border-radius:3px;background:rgba(124,58,237,.45);margin-top:2px}
+/* ===== narrative memo mock ===== */
+.memo{background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--purple-vivid);border-radius:0 12px 12px 0;padding:16px 20px;box-shadow:0 14px 34px -30px rgba(26,26,69,.45);margin:6px 0 12px}
+.memo .memo-h{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:9px;display:flex;gap:9px;align-items:center}
+.memo .memo-tag{font-size:8.5px;background:var(--cream-deep);color:var(--gray-meta-light);padding:2px 7px;border-radius:10px;letter-spacing:.06em}
+.memo p{font-size:14px;line-height:1.65;margin:0 0 8px;color:var(--midnight)}
+.memo .num{background:rgba(124,58,237,.12);color:var(--purple-bold);font-weight:700;padding:1px 6px;border-radius:5px;font-variant-numeric:tabular-nums}
+.memo .src{font-family:var(--mono);font-size:10px;color:var(--gray-meta-light);line-height:1.4}
+/* ===== chat mock ===== */
+.chatmock{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:16px 16px;box-shadow:0 14px 34px -30px rgba(26,26,69,.45);margin:6px 0 12px;display:flex;flex-direction:column;gap:10px}
+.cbub{max-width:82%;padding:10px 14px;border-radius:13px;font-size:13.5px;line-height:1.5}
+.cbub.q{align-self:flex-end;background:var(--midnight);color:#fff;border-bottom-right-radius:3px}
+.cbub.a{align-self:flex-start;background:var(--cream-deep);color:var(--midnight);border-bottom-left-radius:3px}
+.cbub.a .num{background:rgba(124,58,237,.14);color:var(--purple-bold);font-weight:700;padding:1px 6px;border-radius:5px;font-variant-numeric:tabular-nums}
+.cbub .csrc{display:block;font-family:var(--mono);font-size:9px;letter-spacing:.04em;color:var(--gray-meta-light);margin-top:7px}
+.rblock{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:6px}
+.rb{background:var(--cream-deep);border-radius:11px;padding:16px 18px}
+.rb.fix{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.25)}
+.rb .rh{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:9px}
+.rb.now .rh{color:var(--red)} .rb.fix .rh{color:var(--purple-bold)}
+.rb ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6}
+.rb li{margin-bottom:4px}
+.rb-arrow{font-size:26px;font-weight:800;color:var(--purple-vivid)}
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gatecard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--teal)}
+.gatecard .gi{font-size:20px;margin-bottom:8px}
+.gatecard h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:0 0 7px;color:var(--teal)}
+.gatecard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.sec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.seccard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-bold)}
+.seccard .ic{font-size:22px;margin-bottom:10px}
+.seccard h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 8px;color:var(--purple-bold)}
+.seccard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.seccard p b{color:var(--midnight-deep)}
+.compliance{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--midnight);color:#fff;padding:8px 16px;border-radius:24px;display:inline-flex;align-items:center;gap:8px}
+.pill .pk{color:var(--purple-soft)}
+.alt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.altc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 21px}
+.altc.us{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.altc .an{font-weight:800;font-size:16px;margin-bottom:3px}
+.altc .ashape{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:12px}
+.altc .agreat{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0 0 10px}
+.altc .agreat b{color:var(--green)}
+.altc .afit{font-size:13px;line-height:1.5;color:var(--midnight);margin:0;padding-top:10px;border-top:1px solid var(--cream-line)}
+.altc .afit b{color:var(--purple-bold)}
+.arch-diagram{margin:24px 0 8px}
+.arch-diagram svg{width:100%;height:auto;max-height:380px}
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
+@media(max-width:880px){
+  .hero h1{font-size:38px}
+  .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .cliff .wrap{grid-template-columns:1fr;gap:16px}
+  .phasegrid,.cards,.alt-grid,.gates,.sec-grid{grid-template-columns:1fr}
+  .pipe{flex-direction:column;gap:14px}.pline{display:none}
+  .rblock{grid-template-columns:1fr;gap:12px}.rb-arrow{transform:rotate(90deg)}
+  .fflow{grid-template-columns:1fr;gap:8px}.ffarrow{transform:rotate(90deg)}
+}
+@media print{
+  .hero{padding:40px 0}section{padding:28px 0;page-break-inside:avoid}
+  .reveal{opacity:1;transform:none}
+  .pipe-wrap,.flow-mini{box-shadow:none}
+  .phasecard,.card,.gatecard,.seccard,.altc,.pillar{page-break-inside:avoid}
+}
+</style>
+</head><body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Accounting AI Build Blueprint</span>
+      <span class="tag">v1 · post-call</span>
+    </div>
+    <span class="eyebrow">Prepared for Milind Agtey</span>
+    <h1>The financial analysis your clients pay someone to assemble,<br><span class="soft">produced in minutes, in your own template.</span></h1>
+    <p class="lede">You want to turn QuickBooks data into the report a client actually reads, then let anyone ask it questions in plain language. This is the plan to build that, with a working version you can put in front of real users by the end of September.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Conversation</div><div class="value">Discovery, June 2026</div></div>
+      <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · Nick Chapleau</div></div>
+      <div class="meta"><div class="label">Goal</div><div class="value">Agree the shape of the build</div></div>
+      <div class="meta"><div class="label">Your decision</div><div class="value">Greenlight a scoped POC</div></div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The idea</span><h2>What you described, <span class="soft">in one place</span></h2>
+      <p class="sec-sub">Three features, one workflow: get the numbers in, turn them into analysis, and let people ask about it.</p></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">Connect to QuickBooks, pull the data into a template the user provides, run the analysis they want on it, and let them ask questions about that analysis in a chat.</p>
+      <div class="qa">— The goal we aligned on</div>
+    </div>
+    <p class="os-def reveal d2">Think of it as a <strong>reporting engine</strong>: it reads a firm's QuickBooks, drops the numbers into the exact template they already hand clients, writes the commentary that usually takes an analyst an afternoon, and answers follow-up questions in plain language. The firm keeps its report. The engine does the assembly.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The product</span><h2>Three features, <span class="soft">built in order</span></h2>
+      <p class="sec-sub">Feature 1 is the foundation. The analysis and the chat only work once the numbers underneath them are right, so we prove that first. Each shows its real data path, with a preview of what it produces.</p></div>
+    <div class="pillars">
+      <div class="pillar reveal d1">
+        <div class="phead"><span class="pnum">1</span><span class="ptitle">Your template, filled from QuickBooks</span></div>
+        <div class="pbody">
+          <div class="fflow">
+            <div class="ffnode"><div class="ffic">📥</div><div class="fft">QuickBooks</div><div class="ffs">Reports API</div></div>
+            <div class="ffarrow">&rarr;</div>
+            <div class="ffnode"><div class="ffic">⚙️</div><div class="fft">Canonical model</div><div class="ffs">normalize</div></div>
+            <div class="ffarrow">&rarr;</div>
+            <div class="ffnode out"><div class="ffic">📊</div><div class="fft">Your template</div><div class="ffs">filled .xlsx</div></div>
+          </div>
+          <div class="xlsheet">
+            <div class="xl-bar"><span class="xl-logo">▦ Monthly P&amp;L</span><span class="xl-file">ClientCo_2026-Q1.xlsx</span><span class="xl-live">● auto-filled</span></div>
+            <div class="xl-fx"><span class="fx-cell">E2</span><span class="fx-eq">=</span><span>QuickBooks · Profit &amp; Loss · Q1 · Net income</span></div>
+            <div class="xl-scroll">
+              <table class="xl-grid">
+                <thead><tr><th class="rownum"></th><th>A · Account</th><th>B · Jan</th><th>C · Feb</th><th>D · Mar</th><th>E · Q1</th></tr></thead>
+                <tbody>
+                  <tr><td class="rownum">1</td><td class="lbl">Total income</td><td class="num fill">412,300</td><td class="num fill">438,900</td><td class="num fill">471,200</td><td class="num fill">1,322,400</td></tr>
+                  <tr><td class="rownum">2</td><td class="lbl">Cost of goods sold</td><td class="num fill">(243,100)</td><td class="num fill">(256,900)</td><td class="num fill">(271,800)</td><td class="num fill">(771,800)</td></tr>
+                  <tr class="total"><td class="rownum">3</td><td class="lbl">Gross profit</td><td class="num fill">169,200</td><td class="num fill">182,000</td><td class="num fill">199,400</td><td class="num fill">550,600</td></tr>
+                  <tr><td class="rownum">4</td><td class="lbl">Operating expenses</td><td class="num fill">(121,500)</td><td class="num fill">(128,300)</td><td class="num fill">(161,000)</td><td class="num fill">(410,800)</td></tr>
+                  <tr class="total"><td class="rownum">5</td><td class="lbl">Net income</td><td class="num fill">47,700</td><td class="num fill">53,700</td><td class="num fill">38,400</td><td class="num fill">139,800</td></tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="xl-tabs"><span class="xl-tab active">P&amp;L</span><span class="xl-tab">Balance Sheet</span><span class="xl-tab">Cash Flow</span></div>
+          </div>
+          <p class="xl-cap"><span class="xl-key"></span> The purple cells are written by the engine from QuickBooks. The template, labels, and layout stay exactly as the firm built them.</p>
+          <div class="feat">
+            <div class="f"><span class="fm">&rarr;</span><span>Connects with Intuit's official login. No exporting by hand.</span></div>
+            <div class="f"><span class="fm">&rarr;</span><span>Proven against a real hand-built report before anything is built on top.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar reveal d2">
+        <div class="phead"><span class="pnum">2</span><span class="ptitle">Analysis written for you</span><span class="ptag moved">needs Feature 1</span></div>
+        <div class="pbody">
+          <div class="fflow">
+            <div class="ffnode"><div class="ffic">🧮</div><div class="fft">Metrics engine</div><div class="ffs">computed in code</div></div>
+            <div class="ffarrow">&rarr;</div>
+            <div class="ffnode"><div class="ffic">✓</div><div class="fft">Verified numbers</div><div class="ffs">with provenance</div></div>
+            <div class="ffarrow">&rarr;</div>
+            <div class="ffnode out"><div class="ffic">✍️</div><div class="fft">Narrative</div><div class="ffs">written by AI</div></div>
+          </div>
+          <div class="memo">
+            <div class="memo-h">📝 Auto-written commentary <span class="memo-tag">DRAFT</span></div>
+            <p>Q1 income reached <span class="num">$1.32M</span> at a <span class="num">41.6%</span> gross margin. Operating expenses of <span class="num">$410,800</span> brought net income to <span class="num">$139,800</span>. March was the soft spot: net income fell to <span class="num">$38,400</span> as operating costs climbed.</p>
+            <span class="src">Every figure above is computed by the metrics engine, then checked. The model writes the prose, never the math.</span>
+          </div>
+          <div class="feat">
+            <div class="f"><span class="fm">&rarr;</span><span>Every figure is <b>computed, never guessed</b>.</span></div>
+            <div class="f"><span class="fm">&rarr;</span><span>A check rejects any number in the writeup that does not match.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar reveal d3">
+        <div class="phead"><span class="pnum">3</span><span class="ptitle">Ask it anything</span><span class="ptag moved">needs Feature 2</span></div>
+        <div class="pbody">
+          <div class="fflow">
+            <div class="ffnode"><div class="ffic">💬</div><div class="fft">Your question</div><div class="ffs">plain language</div></div>
+            <div class="ffarrow">&rarr;</div>
+            <div class="ffnode"><div class="ffic">🔧</div><div class="fft">Tool-call metrics</div><div class="ffs">+ retrieve data</div></div>
+            <div class="ffarrow">&rarr;</div>
+            <div class="ffnode out"><div class="ffic">🎯</div><div class="fft">Grounded answer</div><div class="ffs">cites figures</div></div>
+          </div>
+          <div class="chatmock">
+            <div class="cbub q">Why did net income drop in March?</div>
+            <div class="cbub a">March net income was <span class="num">$38,400</span>, down <span class="num">28%</span> from February's <span class="num">$53,700</span>. Operating expenses rose <span class="num">$32,700</span>, driven mostly by payroll, while income was roughly flat.<span class="csrc">source · P&amp;L → operating expenses, net income · Mar vs Feb</span></div>
+          </div>
+          <div class="feat">
+            <div class="f"><span class="fm">&rarr;</span><span>Chat over the finished analysis in plain language.</span></div>
+            <div class="f"><span class="fm">&rarr;</span><span>Answers rest on the computed numbers, not a hunch.</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How it is built</span><h2>One hosted stack, <span class="soft">four layers</span></h2>
+      <p class="sec-sub">Each layer sits on the one below it. Get the connection and the data right, and the analysis and chat follow.</p></div>
+    <div class="arch-diagram reveal d1">
+      <svg viewBox="0 0 1000 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lgA" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#b45309" stop-opacity=".95"/><stop offset="100%" stop-color="#f59e0b" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="lgB" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6B46C1" stop-opacity=".95"/><stop offset="100%" stop-color="#7C3AED" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="lgC" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0e7490" stop-opacity=".95"/><stop offset="100%" stop-color="#06b6d4" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="lgD" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#252556" stop-opacity=".95"/><stop offset="100%" stop-color="#1A1A45" stop-opacity=".95"/></linearGradient>
+          <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#7C3AED" opacity=".6"/></marker>
+        </defs>
+        <rect x="80" y="20" width="840" height="90" rx="12" fill="url(#lgA)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" repeatCount="indefinite"/></rect>
+        <text x="110" y="50" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 4 · DELIVERY</text>
+        <text x="110" y="77" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">Web view · monthly emailed report · chat Q&amp;A</text>
+        <rect x="80" y="130" width="840" height="90" rx="12" fill="url(#lgB)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" begin="1.5s" repeatCount="indefinite"/></rect>
+        <text x="110" y="160" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 3 · ANALYSIS</text>
+        <text x="110" y="187" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">AI commentary written over numbers computed in code</text>
+        <rect x="80" y="240" width="840" height="90" rx="12" fill="url(#lgC)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" begin="3s" repeatCount="indefinite"/></rect>
+        <text x="110" y="270" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 2 · DATA MODEL</text>
+        <text x="110" y="297" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">QuickBooks data mapped into your own template</text>
+        <rect x="80" y="350" width="840" height="90" rx="12" fill="url(#lgD)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" begin="4.5s" repeatCount="indefinite"/></rect>
+        <text x="110" y="380" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 1 · FOUNDATION</text>
+        <text x="110" y="407" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">Secure, hosted connection to QuickBooks (OAuth)</text>
+        <line x1="940" y1="350" x2="940" y2="330" stroke="#7C3AED" stroke-width="2" stroke-dasharray="4 3" opacity=".5" marker-end="url(#arrowhead)"/>
+        <line x1="940" y1="240" x2="940" y2="220" stroke="#7C3AED" stroke-width="2" stroke-dasharray="4 3" opacity=".5" marker-end="url(#arrowhead)"/>
+        <line x1="940" y1="130" x2="940" y2="110" stroke="#7C3AED" stroke-width="2" stroke-dasharray="4 3" opacity=".5" marker-end="url(#arrowhead)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The pieces</span><h2>What we build, <span class="soft">what we plug into</span></h2>
+      <p class="sec-sub">Most of the moving parts already exist. We build only the few that make this specific to your product, on top of Dodonai's existing stack.</p></div>
+    <div class="legend reveal d1">
+      <span class="lg"><span class="dot int"></span> Integrate, don't rebuild</span>
+      <span class="lg"><span class="dot rep"></span> We build this</span>
+      <span class="lg"><span class="dot add"></span> Runs on Dodonai's stack</span>
+    </div>
+    <div class="cards reveal d2">
+      <div class="card"><div class="top"><span class="name">QuickBooks Online API</span><span class="badge int">Integrate</span></div><p class="why">Official OAuth connection. We read the reports and ledger, we do not rebuild QuickBooks.</p></div>
+      <div class="card"><div class="top"><span class="name">Claude (AI)</span><span class="badge int">Integrate</span></div><p class="why">Writes the narrative and powers chat, over numbers we already computed.</p></div>
+      <div class="card add"><div class="top"><span class="name">FastAPI · Cloud Run · Postgres</span><span class="badge add">Stack</span></div><p class="why">Dodonai's existing hosting. Encrypted token store and scheduled monthly runs.</p></div>
+      <div class="card replace"><span class="flag">we build</span><div class="top"><span class="name">Template binding engine</span><span class="badge rep">Build</span></div><p class="why">Maps the data into your own .xlsx by labeled cell, values only.</p></div>
+      <div class="card replace"><span class="flag">we build</span><div class="top"><span class="name">Metrics engine</span><span class="badge rep">Build</span></div><p class="why">Pure functions for ratios, variances, and trends. The single source of every number.</p></div>
+      <div class="card replace"><span class="flag">we build</span><div class="top"><span class="name">Canonical financial model</span><span class="badge rep">Build</span></div><p class="why">One internal shape for accounts and periods, so analysis and chat read the same data.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The hard part</span><h2>Getting the numbers right, <span class="soft">every time</span></h2>
+      <p class="sec-sub">The product lives or dies on figure correctness, so correctness is built into the architecture, not bolted on after.</p></div>
+    <div class="pillar hot reveal d1">
+      <div class="phead"><span class="picon">🔢</span><span class="ptitle">Numbers computed in code, never by the AI</span><span class="ptag">non-negotiable</span></div>
+      <div class="rblock">
+        <div class="rb now"><div class="rh">If the AI did the math</div><ul><li>Plausible-looking but wrong figures.</li><li>No way to trace where a number came from.</li><li>In financial reporting, that is a liability.</li></ul></div>
+        <div class="rb-arrow">&rarr;</div>
+        <div class="rb fix"><div class="rh">How we build it</div><ul><li>Every figure is computed by code, from the QuickBooks data.</li><li>The AI only writes about numbers the system already calculated.</li><li>Feature 1 is matched to a real hand-built report before anything ships on top.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The build question you asked</span><h2>Excel plug-in, download, <span class="soft">or hosted app?</span></h2>
+      <p class="sec-sub">Excel and Google Sheets stay as the output format. The question is where the engine that fills them runs. A hosted app is the only option that can hold a secure QuickBooks login and produce reports on a schedule.</p></div>
+    <div class="alt-grid">
+      <div class="altc reveal d1"><div class="an">Excel / Sheets add-in</div><div class="ashape">lives in the spreadsheet</div><p class="agreat">Great at: <b>zero change to how people work</b></p><p class="afit">Where it breaks: <b>cannot safely hold the QuickBooks login or run reports on a schedule</b></p></div>
+      <div class="altc reveal d2"><div class="an">Local download</div><div class="ashape">installed on one machine</div><p class="agreat">Great at: <b>data never leaves the desk</b></p><p class="afit">Where it breaks: <b>no unattended monthly runs, hard to update, fragile login security</b></p></div>
+      <div class="altc us reveal d3"><div class="an">Hosted web app</div><div class="ashape">Dodonai recommends</div><p class="agreat">Great at: <b>secure QuickBooks connection, scheduled reports, simple to update</b></p><p class="afit">Best fit when: <b>you want a product you can sell, not a one-machine tool</b></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How a report runs</span><h2>The monthly report <span class="soft">builds itself</span></h2></div>
+    <div class="pipe-wrap reveal d1" id="pipe">
+      <div class="pipe">
+        <div class="pline"><div class="pfill"></div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">🔗</span><span class="ic-done">✓</span></div><div class="pttl">Connect QuickBooks</div><div class="pwho">Engine</div><div class="pstatus">linked</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📊</span><span class="ic-done">✓</span></div><div class="pttl">Pull the numbers</div><div class="pwho">Engine</div><div class="pstatus">fetched</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📄</span><span class="ic-done">✓</span></div><div class="pttl">Fill template + draft analysis</div><div class="pwho">Engine</div><div class="pstatus">drafted</div></div>
+        <div class="pnode gate"><div class="pdot"><span class="ic-base">👤</span><span class="ic-done">✓</span></div><div class="pttl">You check the numbers</div><div class="pwho">You</div><div class="pstatus">queued for review</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">💬</span><span class="ic-done">✓</span></div><div class="pttl">Send and open chat</div><div class="pwho">Engine</div><div class="pstatus">delivered</div></div>
+      </div>
+      <div class="pipe-foot">The engine does the routine steps. <b>You do one: confirm the numbers are right.</b></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Handling financial data</span><h2>Security and <span class="soft">compliance</span></h2></div>
+    <div class="compliance reveal d1">
+      <span class="pill"><span class="pk">✓</span> SOC 2 Certified</span>
+      <span class="pill"><span class="pk">✓</span> HIPAA Compliant</span>
+      <span class="pill"><span class="pk">✓</span> Tenant-resident</span>
+    </div>
+    <div class="sec-grid">
+      <div class="seccard reveal d1"><div class="ic">🔐</div><h4>The QuickBooks login, protected</h4><p>The connection uses Intuit's official secure login. Access tokens are stored encrypted, never in a spreadsheet or on a laptop.</p></div>
+      <div class="seccard reveal d2"><div class="ic">🏛️</div><h4>Each firm's data kept separate</h4><p>A firm's financial data is processed in its own space and removed at the end of the POC. <b>Dodonai is SOC 2 certified and HIPAA compliant.</b></p></div>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The build</span><h2>Phase by phase, <span class="soft">to end of September</span></h2>
+      <p class="sec-sub">Feature 1 is the gate. We prove the data and the filled template are correct before building analysis and chat on top.</p></div>
+    <div class="flow-legend reveal d1">
+      <span class="lg"><span class="dot" style="background:var(--gray-meta)"></span> Build step</span>
+      <span class="lg"><span class="dot" style="background:var(--teal)"></span> Proof / checkpoint</span>
+    </div>
+    <div class="phasegrid">
+      <div class="phasecard reveal d1">
+        <div class="ph-top"><span class="ph-n">0</span><span class="ph-name">Setup</span><span class="ph-meta">connect</span></div>
+        <div class="flow">
+          <div class="step"><span class="sb"></span><span class="stx">Register the Intuit app, OAuth connect a company (sandbox)</span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Scaffold the service, database, and token store on Cloud Run</span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Pull a first P&amp;L<span class="who w-gate">connected</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d2">
+        <div class="ph-top"><span class="ph-n">1</span><span class="ph-name">Feature 1, the gate</span><span class="ph-meta">core</span></div>
+        <div class="flow">
+          <div class="step"><span class="sb"></span><span class="stx">Ingest P&amp;L, Balance Sheet, Cash Flow, GL, Trial Balance</span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Normalize into the canonical model</span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Map and fill one real template</span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Filled report matches a hand-built one<span class="who w-gate">golden-file</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d3">
+        <div class="ph-top"><span class="ph-n">2</span><span class="ph-name">Analysis</span><span class="ph-meta">Feature 2</span></div>
+        <div class="flow">
+          <div class="step"><span class="sb"></span><span class="stx">Metrics engine: ratios, variances, trends in code</span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Narrative written over the verified numbers</span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Every figure traces back to the data<span class="who w-gate">validated</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d4">
+        <div class="ph-top"><span class="ph-n">3</span><span class="ph-name">Chat</span><span class="ph-meta">Feature 3</span></div>
+        <div class="flow">
+          <div class="step"><span class="sb"></span><span class="stx">Retrieval over the canonical model</span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Tool-calls into the metrics functions</span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Answers cite computed figures<span class="who w-gate">grounded</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d5">
+        <div class="ph-top"><span class="ph-n">4</span><span class="ph-name">Delivery</span><span class="ph-meta">usable</span></div>
+        <div class="flow">
+          <div class="step"><span class="sb"></span><span class="stx">Web dashboard: connect, run, view, chat</span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Scheduled monthly run</span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Emailed and downloadable report</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for Milind Agtey · v1 · Confidential
+  </div>
+</footer>
+
+<script>
+(function () {
+  var PLAY_IDS = ['xform', 'pipe', 'dash'];
+  function observe() {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealIO.unobserve(e.target);
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('play'); }
+      });
+    }, { threshold: 0.2 });
+    var targets = {};
+    PLAY_IDS.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) targets[id] = el;
+    });
+    document.querySelectorAll('[data-play]').forEach(function (el) {
+      targets[el.id || ('p' + Math.round(el.getBoundingClientRect().top))] = el;
+    });
+    Object.keys(targets).forEach(function (k) { playIO.observe(targets[k]); });
+  }
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observe);
+  } else {
+    observe();
+  }
+})();
+</script>
+</body></html>

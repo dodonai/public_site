@@ -69,6 +69,21 @@
 				name: s.title,
 				text: stripLinks(s.description)
 			}))
+		},
+		{
+			'@context': 'https://schema.org',
+			'@type': 'SoftwareApplication',
+			name: 'Dodonai Medical Chronology',
+			applicationCategory: 'LegalApplication',
+			operatingSystem: 'Web',
+			description: data.seo.description,
+			url: `https://www.dodon.ai${data.seo.canonical}`,
+			offers: {
+				'@type': 'Offer',
+				price: '0',
+				priceCurrency: 'USD',
+				description: 'Free trial available'
+			}
 		}
 	]}
 />
@@ -94,6 +109,27 @@
 			<div style="height: 500px" aria-hidden="true"></div>
 		{/if}
 	</ServiceHero>
+
+	<!-- 1b. Definition block (snippet-bait: "What is a medical chronology?") -->
+	{#if data.definition}
+		<section class="pt-4 pb-12 sm:pt-8 sm:pb-16" aria-labelledby="definition-heading">
+			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
+				<div class="rounded-2xl border-2 border-[#836ae440] bg-[#836ae40d] p-8 shadow-brand-card sm:p-10">
+					<div class="flex items-start gap-5">
+						<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#836ae41a]">
+							<svg class="h-6 w-6 text-[#836ae4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
+								<path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+							</svg>
+						</div>
+						<div>
+							<h2 id="definition-heading" class="text-2xl font-bold text-[#282876] sm:text-3xl">{data.definition.term}</h2>
+							<p class="mt-3 text-base leading-relaxed text-[#282876]">{data.definition.body}</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</section>
+	{/if}
 
 	<!-- 2. Testimonials -->
 	{#if data.testimonials.length > 0}

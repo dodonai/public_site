@@ -1,0 +1,1075 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>The Juge Firm — Firm OS Findings & Recommendations Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* HERO */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:60px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+.brandbar .tag{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:54px;line-height:1.02;letter-spacing:-.025em;margin:0 0 18px;max-width:18ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:20px;line-height:1.45;color:var(--purple-soft);max-width:62ch;margin:0 0 38px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+
+/* SECTIONS */
+section{padding:54px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:66ch;margin:0 0 30px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+.ink .eyebrow{color:var(--purple-soft)}
+
+/* GOALS */
+.goals{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.goal{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 24px 22px;position:relative;border-top:4px solid var(--purple-vivid)}
+.goal .gn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);margin-bottom:10px}
+.goal h4{font-weight:800;font-size:19px;letter-spacing:-.01em;margin:0 0 8px}
+.goal p{font-size:13.5px;line-height:1.55;color:var(--gray-meta-light);margin:0}
+.goal .gq{font-size:13px;font-style:italic;color:var(--purple-bold);margin-top:10px;line-height:1.45}
+
+/* CLIFF STRIP */
+.cliff{background:var(--midnight);color:#fff;padding:30px 0}
+.cliff .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.cliff .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:160px;line-height:1.5}
+.cliff .ctitle .big{display:block;font-family:var(--sans);font-size:34px;letter-spacing:-.02em;color:#fff;margin-top:8px}
+.cliff .cbody{font-size:16px;line-height:1.55;color:var(--purple-soft)}
+.cliff .cbody b{color:#fff}
+
+/* PULL QUOTE */
+.pull{position:relative;background:#fff;border-radius:14px;padding:36px 42px 32px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:22px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+.os-def{margin-top:24px;font-size:18px;line-height:1.6;max-width:76ch}
+.os-def strong{color:var(--purple-bold)}
+
+/* WORKFLOW TODAY — phase flow charts */
+.phasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.phasecard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:20px 22px;position:relative}
+.phasecard .ph-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.phasecard .ph-n{flex:0 0 30px;height:30px;border-radius:9px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.phasecard .ph-name{font-weight:800;font-size:17px;letter-spacing:-.01em}
+.phasecard .ph-meta{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light)}
+.flow{display:flex;flex-direction:column;gap:7px}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4;position:relative;padding-left:2px}
+.step .sb{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:6px;background:var(--gray-meta)}
+.step.man .sb{background:var(--amber)}
+.step.gate .sb{background:var(--teal)}
+.step .stx{color:var(--midnight)}
+.step .stx .who{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.who.w-man{background:rgba(199,125,46,.14);color:var(--amber)}
+.who.w-gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.flow-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.flow-legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.flow-legend .dot{width:10px;height:10px;border-radius:50%}
+.tally{margin-top:26px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15px;line-height:1.6}
+.tally b{color:var(--amber)}
+
+/* OUTCOME */
+.ocards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ocard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-vivid)}
+.ocard .ostat{font-weight:800;font-size:32px;letter-spacing:-.02em;color:var(--purple-bold);line-height:1;margin-bottom:12px}
+.ocard .ostat .to{color:var(--purple-soft);font-weight:700;margin:0 2px}
+.ocard h4{font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin:0 0 7px;color:var(--midnight)}
+.ocard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--gray-meta-light)}
+.ocaveat{font-size:12.5px;color:var(--gray-meta-light);line-height:1.55;margin-top:18px;max-width:90ch}
+
+/* TRANSFORMATION ANIMATION */
+.xform{display:grid;grid-template-columns:1fr 64px 1fr;gap:8px;align-items:stretch;margin-top:10px}
+.xcol{background:rgba(255,255,255,.04);border:1px solid rgba(181,168,230,.22);border-radius:16px;padding:24px 22px 26px;position:relative;overflow:hidden}
+.xcol .xlabel{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.xcol.today .xlabel{color:var(--purple-soft)}
+.xcol.os .xlabel{color:#fff}
+.xcol.os{border-color:rgba(124,58,237,.6);background:radial-gradient(420px 240px at 70% 0%,rgba(124,58,237,.22),transparent 60%),rgba(124,58,237,.06)}
+.scatter{position:relative;height:300px}
+.tool-chip{position:absolute;font-family:var(--mono);font-size:11px;font-weight:600;background:var(--midnight-soft);color:var(--purple-soft);border:1px solid rgba(181,168,230,.3);border-radius:9px;padding:7px 10px;white-space:nowrap;opacity:0;transform:scale(.85)}
+.play .tool-chip{animation:chipIn .5s ease forwards}
+.tool-chip:nth-child(1){top:6%;left:4%}
+.tool-chip:nth-child(2){top:2%;left:52%}
+.tool-chip:nth-child(3){top:26%;left:28%}
+.tool-chip:nth-child(4){top:30%;left:64%}
+.tool-chip:nth-child(5){top:50%;left:6%}
+.tool-chip:nth-child(6){top:54%;left:42%}
+.tool-chip:nth-child(7){top:74%;left:20%}
+.tool-chip:nth-child(8){top:78%;left:58%}
+.play .tool-chip:nth-child(1){animation-delay:.05s}
+.play .tool-chip:nth-child(2){animation-delay:.13s}
+.play .tool-chip:nth-child(3){animation-delay:.21s}
+.play .tool-chip:nth-child(4){animation-delay:.29s}
+.play .tool-chip:nth-child(5){animation-delay:.37s}
+.play .tool-chip:nth-child(6){animation-delay:.45s}
+.play .tool-chip:nth-child(7){animation-delay:.53s}
+.play .tool-chip:nth-child(8){animation-delay:.61s}
+.scatter .runner{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px rgba(199,125,46,.22);opacity:0}
+.play .scatter .runner{animation:runnerFade .6s .7s ease forwards,runAround 6s 1.3s ease-in-out infinite}
+.scatter .handlabel{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--amber);font-weight:700;opacity:0;text-align:center;width:90%}
+.play .scatter .handlabel{animation:runnerFade .5s 1s ease forwards}
+@keyframes chipIn{to{opacity:1;transform:scale(1)}}
+@keyframes runnerFade{to{opacity:1}}
+@keyframes runAround{
+  0%{top:8%;left:6%}12%{top:6%;left:54%}25%{top:28%;left:30%}38%{top:32%;left:64%}
+  50%{top:52%;left:8%}62%{top:56%;left:44%}75%{top:76%;left:22%}88%{top:80%;left:58%}100%{top:8%;left:6%}}
+.hub{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+.hub-core{width:120px;height:120px;border-radius:24px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 0 rgba(124,58,237,.5);position:relative;z-index:3;opacity:0;transform:scale(.8)}
+.play .hub-core{animation:hubIn .6s 1.2s cubic-bezier(.2,1.3,.4,1) forwards,hubPulse 2.8s 1.9s ease-in-out infinite}
+.hub-core .hw{font-weight:800;font-size:15px;letter-spacing:-.01em}
+.hub-core .hs{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-soft);margin-top:4px}
+.spoke{position:absolute;font-family:var(--mono);font-size:10.5px;font-weight:600;background:var(--midnight-soft);color:#fff;border:1px solid rgba(181,168,230,.4);border-radius:8px;padding:6px 9px;white-space:nowrap;opacity:0;z-index:2}
+.play .spoke{animation:spokeIn .5s ease forwards}
+.spoke:nth-of-type(1){top:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(2){top:24%;right:2%}
+.spoke:nth-of-type(3){bottom:24%;right:0%}
+.spoke:nth-of-type(4){bottom:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(5){bottom:24%;left:0%}
+.spoke:nth-of-type(6){top:24%;left:2%}
+.play .spoke:nth-of-type(1){animation-delay:1.7s}
+.play .spoke:nth-of-type(2){animation-delay:1.85s}
+.play .spoke:nth-of-type(3){animation-delay:2.0s}
+.play .spoke:nth-of-type(4){animation-delay:2.15s}
+.play .spoke:nth-of-type(5){animation-delay:2.3s}
+.play .spoke:nth-of-type(6){animation-delay:2.45s}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:0}
+.play .hub svg.links{animation:runnerFade .6s 2.5s ease forwards}
+.hub svg.links line{stroke:rgba(181,168,230,.45);stroke-width:1.5;stroke-dasharray:4 5}
+.play .hub svg.links line{animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-18}}
+@keyframes hubIn{to{opacity:1;transform:scale(1)}}
+@keyframes spokeIn{from{opacity:0;transform:scale(.8) translateY(6px)}to{opacity:1}}
+@keyframes hubPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.45)}50%{box-shadow:0 0 0 14px rgba(124,58,237,0)}}
+.xarrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--purple-soft)}
+.xarrow .ah{font-size:30px;font-weight:800;line-height:1}
+.xarrow .at{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--purple-soft)}
+.xcaption{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+.xcaption .xc{font-size:14.5px;line-height:1.55}
+.xcaption .xc .h{font-weight:800;color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.xcaption .xc .h .pin{width:9px;height:9px;border-radius:50%}
+.xcaption .xc.l .h .pin{background:var(--amber)}
+.xcaption .xc.r .h .pin{background:var(--purple-vivid)}
+.xcaption .xc p{margin:0;color:var(--purple-soft)}
+
+/* PIPELINE (self-running workflow) */
+.pipe-wrap{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:30px 26px 26px;position:relative;overflow:hidden}
+.pipe{display:flex;align-items:stretch;gap:0;position:relative}
+.pnode{flex:1;text-align:center;position:relative;padding:0 6px}
+.pnode .pdot{width:54px;height:54px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--cream-deep);border:2px solid var(--cream-line);position:relative;z-index:2;transition:all .4s}
+.pnode .pttl{font-weight:700;font-size:13.5px;letter-spacing:-.01em;margin-bottom:4px}
+.pnode .pwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-bold)}
+.pnode.gate .pwho{color:var(--teal)}
+.pnode .pstatus{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:7px;padding:2px 8px;border-radius:10px;display:inline-block;background:var(--cream-deep);color:var(--gray-meta-light)}
+.pline{position:absolute;top:27px;height:3px;background:var(--cream-line);z-index:0;left:0;right:0}
+.pline .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft))}
+.play .pline .pfill{animation:fill 9s linear infinite}
+@keyframes fill{0%{width:0}90%,100%{width:100%}}
+.play .pnode .pdot{animation:nodeActivate 9s linear infinite}
+.play .pnode:nth-child(2) .pdot{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot{animation-delay:6.4s}
+@keyframes nodeActivate{0%,8%{background:var(--cream-deep);border-color:var(--cream-line);transform:scale(1)}
+  10%{background:rgba(124,58,237,.15);border-color:var(--purple-vivid);transform:scale(1.08)}
+  16%,100%{background:var(--purple-vivid);border-color:var(--purple-vivid)}}
+.play .pnode .pstatus{animation:statusFlip 9s linear infinite}
+.play .pnode:nth-child(2) .pstatus{animation-delay:0s}
+.play .pnode:nth-child(3) .pstatus{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pstatus{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pstatus{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pstatus{animation-delay:6.4s}
+@keyframes statusFlip{0%,8%{background:var(--cream-deep);color:var(--gray-meta-light)}
+  16%,100%{background:rgba(46,158,107,.14);color:var(--green)}}
+.pnode.gate .pstatus{}
+.play .pnode.gate .pstatus{animation:statusFlipGate 9s linear infinite}
+@keyframes statusFlipGate{0%,8%{background:var(--cream-deep);color:var(--gray-meta-light)}
+  16%,100%{background:rgba(14,116,137,.16);color:var(--teal)}}
+.pnode .pdot .ic-done{position:absolute;opacity:0}
+.play .pnode .pdot .ic-done{animation:doneShow 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-done{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-done{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-done{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-done{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-done{animation-delay:6.4s}
+@keyframes doneShow{0%,12%{opacity:0}16%,100%{opacity:1}}
+.play .pnode .pdot .ic-base{animation:baseHide 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-base{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-base{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-base{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-base{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-base{animation-delay:6.4s}
+@keyframes baseHide{0%,12%{opacity:1}16%,100%{opacity:0;color:#fff}}
+.pipe-foot{margin-top:22px;font-size:14px;color:var(--gray-meta-light);text-align:center;line-height:1.5}
+.pipe-foot b{color:var(--teal)}
+
+/* COCKPIT DASHBOARD MOCKUP */
+.dash{background:#0F0F2E;border-radius:18px;padding:0;overflow:hidden;border:1px solid rgba(181,168,230,.25);box-shadow:0 40px 80px -50px rgba(0,0,0,.7)}
+.dash-bar{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(181,168,230,.18)}
+.dash-bar .dots{display:flex;gap:6px}
+.dash-bar .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dash-bar .dots i:nth-child(1){background:#ff5f57}.dash-bar .dots i:nth-child(2){background:#febc2e}.dash-bar .dots i:nth-child(3){background:#28c840}
+.dash-bar .dtitle{font-family:var(--mono);font-size:12px;color:var(--purple-soft);letter-spacing:.06em;font-weight:600}
+.dash-bar .dlive{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:7px}
+.dash-bar .dlive::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dash-body{display:grid;grid-template-columns:1.35fr 1fr;gap:0}
+.dash-col{padding:20px 22px}
+.dash-col.left{border-right:1px solid rgba(181,168,230,.14)}
+.dash-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:14px;display:flex;justify-content:space-between}
+.dash-h .cnt{color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.16);border-radius:11px;padding:12px 13px}
+.kpi .kn{font-weight:800;font-size:24px;color:#fff;letter-spacing:-.02em;line-height:1}
+.kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta);margin-top:6px;line-height:1.3}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 13px;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;margin-bottom:8px}
+.mrow .mname{font-size:13px;color:#fff;font-weight:600}
+.mrow .mphase{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--purple-soft);margin-top:3px}
+.mrow .mpill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.mpill.run{background:rgba(124,58,237,.22);color:var(--purple-soft)}
+.mpill.wait{background:rgba(199,125,46,.2);color:#F0B366}
+.mpill.done{background:rgba(46,158,107,.18);color:#5FD6A0}
+.feed{position:relative;height:268px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent)}
+.feed-track{display:flex;flex-direction:column;gap:9px}
+.play .feed-track{animation:scrollfeed 16s linear infinite}
+@keyframes scrollfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.aevent{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;padding:10px 12px}
+.aevent .aic{flex:0 0 26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(124,58,237,.18)}
+.aevent.ok .aic{background:rgba(46,158,107,.18)}
+.aevent.gate .aic{background:rgba(14,116,137,.2)}
+.aevent .atx{font-size:12px;line-height:1.4;color:#E7E4F5}
+.aevent .atx b{color:#fff;font-weight:700}
+.aevent .atime{font-family:var(--mono);font-size:9px;color:var(--gray-meta);margin-top:3px;letter-spacing:.04em}
+.aevent .atx .agent{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple-soft);letter-spacing:.03em}
+.dash-cap{font-size:14px;color:var(--purple-soft);line-height:1.6;margin-top:26px;text-align:center;max-width:76ch;margin-left:auto;margin-right:auto}
+.dash-cap b{color:#fff}
+
+/* KEEP / REPLACE */
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.int{background:var(--green)} .dot.rep{background:var(--purple-vivid)} .dot.add{background:var(--amber)} .dot.skip{background:var(--gray-meta)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 19px 16px;position:relative;overflow:hidden}
+.card.replace{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.card.add{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.card.skip{border:1.5px dashed var(--gray-meta)}
+.card.keep{border:1.5px solid var(--green);background:linear-gradient(180deg,#fff,rgba(46,158,107,.05))}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px}
+.card .name{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.badge.int{background:rgba(46,158,107,.13);color:var(--green)}
+.badge.rep{background:var(--purple-vivid);color:#fff}
+.badge.add{background:var(--amber);color:#fff}
+.badge.skip{background:var(--cream-deep);color:var(--gray-meta-light)}
+.card .why{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.card.replace .why,.card.add .why,.card.keep .why{color:var(--midnight)}
+.flag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--purple-vivid);color:#fff;padding:3px 8px;border-bottom-left-radius:8px}
+.flag.g{background:var(--green)}
+
+/* HIGHLIGHT PILLAR */
+.pillar{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;position:relative}
+.pillar.hot{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.04))}
+.pillar .phead{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.pillar .picon{flex:0 0 40px;height:40px;border-radius:11px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center}
+.pillar .ptitle{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.pillar .ptag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:14px;margin-left:auto;background:var(--purple-vivid);color:#fff}
+.rblock{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:6px}
+.rb{background:var(--cream-deep);border-radius:11px;padding:16px 18px}
+.rb.fix{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.25)}
+.rb .rh{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:9px}
+.rb.now .rh{color:var(--red)} .rb.fix .rh{color:var(--purple-bold)}
+.rb ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6}
+.rb li{margin-bottom:4px}
+.rb-arrow{font-size:26px;font-weight:800;color:var(--purple-vivid)}
+
+/* GATES */
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gatecard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--teal)}
+.gatecard .gi{font-size:20px;margin-bottom:8px}
+.gatecard h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:0 0 7px;color:var(--teal)}
+.gatecard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.gatecard p b{color:var(--midnight-deep)}
+
+/* ALTERNATIVES */
+.alt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.altc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 21px}
+.altc.us{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.altc .an{font-weight:800;font-size:16px;margin-bottom:3px}
+.altc .ashape{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:12px}
+.altc .agreat{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0 0 10px}
+.altc .agreat b{color:var(--green)}
+.altc .afit{font-size:13px;line-height:1.5;color:var(--midnight);margin:0;padding-top:10px;border-top:1px solid var(--cream-line)}
+.altc .afit b{color:var(--purple-bold)}
+
+/* NUMBERS */
+.numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.numcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:26px 28px}
+.numcard h3{font-weight:800;font-size:18px;margin:0 0 4px}
+.numcard .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:14px}
+.paysplit{display:flex;gap:10px;margin:14px 0}
+.paysplit .half{flex:1;background:var(--cream-deep);border-radius:9px;padding:13px 15px;text-align:center}
+.paysplit .half .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.paysplit .half .v{font-weight:800;font-size:15px;color:var(--purple-bold)}
+.paysplit .arr{align-self:center;color:var(--purple-vivid);font-weight:800;font-size:18px}
+.numnote{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin-top:10px}
+.opex-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--cream-line)}
+.opex-row:last-of-type{border-bottom:none}
+.opex-row .ol .ot{font-weight:700;font-size:14.5px}
+.opex-row .ol .od{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin-top:3px}
+.opex-row .oa{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--purple-bold);white-space:nowrap;text-align:right;padding-top:2px}
+.value-anchor{margin-top:16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.value-anchor b{color:var(--purple-bold)}
+
+/* QUESTIONS */
+.qcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start}
+.qc .qcn{flex:0 0 34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qc .qct{font-weight:800;font-size:15px;margin:0 0 4px}
+.qc .qcd{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.tl-line{position:absolute;top:21px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));z-index:0}
+.phase-t{position:relative;z-index:1;padding:0 12px;text-align:center}
+.phase-t .pnode2{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;background:var(--purple-vivid);border:4px solid var(--cream)}
+.phase-t.future .pnode2{background:var(--midnight);color:var(--purple-soft)}
+.phase-t .ptagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phase-t .ph2{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+.phase-t .pd2{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5}
+
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
+
+/* HERO STATS */
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:16px;margin:0 0 38px}
+.hero-stat{background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.22);border-radius:13px;padding:18px 18px 16px}
+.hero-stat .hn{font-weight:800;font-size:30px;letter-spacing:-.02em;line-height:1;color:#fff}
+.hero-stat .hn .to{color:var(--purple-soft);font-weight:700;font-size:17px;margin:0 1px}
+.hero-stat .hl{font-size:12.5px;line-height:1.4;color:var(--purple-soft);margin-top:9px}
+
+/* WORKFLOW BEFORE/AFTER — two parallel flowcharts per phase */
+.wfphase{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:22px 24px 24px;margin-bottom:16px;box-shadow:0 1px 0 var(--cream-line),0 14px 32px -28px rgba(26,26,69,.35)}
+.wfphase .wfh{display:flex;align-items:center;gap:13px;margin-bottom:20px}
+.wfphase .wfn{flex:0 0 34px;height:34px;border-radius:10px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-family:var(--mono);font-weight:700;font-size:15px;display:flex;align-items:center;justify-content:center}
+.wfphase .wfname{font-weight:800;font-size:18px;letter-spacing:-.01em}
+.wfphase .wfmeta{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light);background:var(--cream-deep);padding:5px 11px;border-radius:20px}
+.wftracks{display:grid;grid-template-columns:1fr 48px 1fr;align-items:stretch}
+.wftrack{border-radius:13px;padding:15px 15px 17px}
+.wftrack.today{background:rgba(199,125,46,.055);border:1px solid rgba(199,125,46,.22)}
+.wftrack.os{background:rgba(124,58,237,.05);border:1px solid rgba(124,58,237,.22)}
+.wftrack .tl{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;display:flex;align-items:center;gap:8px;margin-bottom:15px}
+.wftrack.today .tl{color:var(--amber)}
+.wftrack.os .tl{color:var(--purple-bold)}
+.wftrack .tl .d{width:8px;height:8px;border-radius:50%}
+.wftrack.today .tl .d{background:var(--amber)}
+.wftrack.os .tl .d{background:var(--purple-vivid)}
+.wfstep{position:relative;background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:11px 14px;font-size:13px;font-weight:600;color:var(--midnight);line-height:1.4;margin-bottom:26px}
+.wfstep:last-child{margin-bottom:0}
+.wfstep::after{content:"↓";position:absolute;left:22px;bottom:-21px;transform:translateX(-50%);font-size:14px;font-weight:800;line-height:1;color:var(--gray-meta)}
+.wftrack.os .wfstep::after{color:var(--purple-mid)}
+.wfstep:last-child::after{display:none}
+.wftrack.today .wfstep{border-left:3px solid var(--amber)}
+.wftrack.os .wfstep{border-left:3px solid var(--purple-vivid)}
+.wftrack.os .wfstep.gate{border-left:3px solid var(--teal);background:rgba(14,116,137,.07);border-color:rgba(14,116,137,.35)}
+.wfstep .gtag{display:block;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--teal);margin-top:4px}
+.wfmid{display:flex;align-items:center;justify-content:center;color:var(--purple-vivid);font-size:24px;font-weight:800}
+
+/* BEFORE/AFTER TABS (dark/ink context) */
+.ba-tabs{display:flex;gap:0;background:rgba(255,255,255,.06);border-radius:12px;padding:4px;margin:30px 0 20px;width:fit-content}
+.ba-tab{padding:9px 22px;border-radius:9px;font-weight:700;cursor:pointer;transition:all .25s;user-select:none;font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:rgba(255,255,255,.45)}
+.ba-tab.active-before{background:rgba(194,65,12,.22);color:#fca5a5;box-shadow:0 0 0 1px rgba(194,65,12,.45)}
+.ba-tab.active-after{background:rgba(46,158,107,.2);color:#6ee7b7;box-shadow:0 0 0 1px rgba(46,158,107,.45)}
+.ba-panels{position:relative}
+.ba-panel{display:none;animation:panelIn .35s ease}
+.ba-panel.active{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+@keyframes panelIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+.ba-col-card{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);border-radius:14px;padding:18px 22px}
+.ba-col-card.pain-card{border-color:rgba(194,65,12,.28);background:rgba(194,65,12,.06)}
+.ba-col-card.win-card{border-color:rgba(46,158,107,.28);background:rgba(46,158,107,.06)}
+.ba-item{display:flex;gap:12px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.07);font-size:13.5px;line-height:1.5}
+.ba-item:last-child{border-bottom:none}
+.ba-item .icon{flex-shrink:0;font-size:18px;margin-top:1px}
+.ba-item .text b{display:block;font-size:13px;margin-bottom:3px;color:#fff}
+.pain-card .text b{color:#fca5a5}
+.win-card .text b{color:#6ee7b7}
+.ba-item .text span{font-size:12.5px;color:rgba(255,255,255,.5)}
+
+/* ECOSYSTEM 3-CARD (light theme) */
+.eco{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:28px}
+.eco-col{border-radius:16px;padding:22px 22px 18px;border:1px solid var(--cream-line);background:#fff}
+.eco-col.stays{border-color:rgba(46,158,107,.4);background:linear-gradient(180deg,#fff,rgba(46,158,107,.05))}
+.eco-col.goes{border-color:rgba(194,65,12,.4);background:linear-gradient(180deg,#fff,rgba(194,65,12,.05))}
+.eco-col.builds{border-color:rgba(124,58,237,.4);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.eco-col h4{font-size:13px;font-weight:800;margin:0 0 14px;display:flex;align-items:center;gap:7px;letter-spacing:.01em}
+.eco-col.stays h4{color:var(--green)}
+.eco-col.goes h4{color:var(--red)}
+.eco-col.builds h4{color:var(--purple-bold)}
+.eco-col ul{list-style:none;margin:0;padding:0}
+.eco-col ul li{font-size:13px;padding:8px 0;border-bottom:1px solid var(--cream-line);color:var(--midnight);line-height:1.45}
+.eco-col ul li:last-child{border-bottom:none}
+.eco-col ul li b{color:var(--midnight-deep)}
+.eco-col.stays li::before{content:"✓ ";color:var(--green);font-weight:800}
+.eco-col.goes li::before{content:"✕ ";color:var(--red);font-weight:800}
+.eco-col.builds li::before{content:"→ ";color:var(--purple-bold);font-weight:800}
+
+/* CHANGE MANAGEMENT */
+.cm-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.cmcard{background:rgba(255,255,255,.04);border:1px solid rgba(181,168,230,.22);border-radius:13px;padding:22px 22px 20px}
+.cmcard .ci{font-size:22px;margin-bottom:10px}
+.cmcard h4{font-weight:800;font-size:16px;letter-spacing:-.01em;margin:0 0 7px;color:#fff}
+.cmcard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--purple-soft)}
+.cmcard p b{color:#fff}
+
+@media(max-width:880px){
+  .hero h1{font-size:38px}
+  .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .cliff .wrap{grid-template-columns:1fr;gap:16px}
+  .ba-panel.active,.eco,.cm-grid{grid-template-columns:1fr}
+  .wftracks{grid-template-columns:1fr;gap:14px}.wfmid{transform:rotate(90deg);padding:4px 0}
+  .goals,.phasegrid,.cards,.alt-grid,.gates,.ocards,.numbers-grid,.qcards{grid-template-columns:1fr}
+  .xform{grid-template-columns:1fr;gap:18px}.xarrow{flex-direction:row}.xarrow .at{writing-mode:horizontal-tb}.xcaption{grid-template-columns:1fr}
+  .pipe{flex-direction:column;gap:14px}.pline{display:none}
+  .dash-body{grid-template-columns:1fr}.dash-col.left{border-right:none;border-bottom:1px solid rgba(181,168,230,.14)}
+  .rblock{grid-template-columns:1fr;gap:12px}.rb-arrow{transform:rotate(90deg)}
+  .timeline{grid-template-columns:1fr;gap:26px}.tl-line{display:none}
+}
+@media print{.hero{padding:40px 0}section{padding:28px 0;page-break-inside:avoid}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Firm OS · Findings &amp; Recommendations</span>
+      <span class="tag">For The Juge Firm</span>
+    </div>
+    <span class="eyebrow">Prepared for The Juge Firm — New Orleans</span>
+    <h1>Get back to the law. <span class="soft">Let the system run the rest.</span></h1>
+    <p class="lede">From the 6/15 call: a unified AI system that indexes the 6,000-page claim files, captures the billable time you're leaving on the table, and keeps Omega exactly where it is — so four partners spend their day on hearings and trials, not on the administrative crap. Here's what it adds up to:</p>
+    <div class="hero-stats">
+      <div class="hero-stat"><div class="hn">~300<span class="to">hrs/mo</span></div><div class="hl">Admin handed back to the firm, every month</div></div>
+      <div class="hero-stat"><div class="hn">+1.2<span class="to">hrs/day</span></div><div class="hl">Compliant billable time captured, per attorney</div></div>
+      <div class="hero-stat"><div class="hn">6,000pg<span class="to">→ mins</span></div><div class="hl">Claim files indexed &amp; citation-linked, not skimmed</div></div>
+      <div class="hero-stat"><div class="hn">14</div><div class="hl">Attorneys back on the law, not the busywork</div></div>
+    </div>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Call</div><div class="value">Mon Jun 22, 2026 · 2:00pm CT / 3:00pm ET</div></div>
+      <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai — Nick + James</div></div>
+      <div class="meta"><div class="label">Goal today</div><div class="value">Walk the findings, agree the phased plan, pick what we build first</div></div>
+      <div class="meta"><div class="label">The principle</div><div class="value">Keep Omega. Replace Practice Master. You own the system.</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- THREE GOALS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What we heard</span><h2>Your three goals, <span class="soft">in your order</span></h2>
+      <p class="sec-sub">You named them on the call. Everything in this brief is in service of these three — not the other way around.</p></div>
+    <div class="goals">
+      <div class="goal reveal d1"><div class="gn">Goal 01</div><h4>Stay modern</h4><p>Carriers will eventually expect AI <em>and</em> push rates down. You want to be ahead of that line, not chasing it.</p><div class="gq">"We clearly want to stay with the times… make sure we're not falling behind."</div></div>
+      <div class="goal reveal d2"><div class="gn">Goal 02</div><h4>Reduce the stress</h4><p>A 90%-comp-defense practice at 100–120 emails a day is a treadmill. The point of automation is to get you off it.</p><div class="gq">"Reduce the chronic daily stress level… it's going to put me in the grave."</div></div>
+      <div class="goal reveal d3"><div class="gn">Goal 03</div><h4>Increase profit</h4><p>Recapture the admin hours the firm loses, and capture the compliant billable time the current process leaks.</p><div class="gq">"The third thing we want to do is we want to increase profits."</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- CLIFF -->
+<div class="cliff">
+  <div class="wrap">
+    <div class="ctitle">Admin lost, firm-wide<span class="big">~300 hrs/mo</span></div>
+    <div class="cbody">By your own estimate, every attorney loses about <b>20 non-billable hours a month</b> to the same intake, filing, summarizing, and time-reconstruction. Across 14 attorneys that's <b>~300 hours a month</b> — most of a full-time hire — spent on work that isn't law. The question isn't <i>whether</i> to automate it. It's <b>who builds it, who owns it, and how fast the firm feels the difference</b>.</div>
+  </div>
+</div>
+
+<!-- DESTINATION -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The destination</span><h2>One system, <span class="soft">not a pile of subscriptions</span></h2></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">I'm all in. I'm all in for what makes it easier and more efficient and less stressful for me to work.</p>
+      <div class="qa">— Tommy Ruli, The Juge Firm</div>
+    </div>
+    <p class="os-def reveal d2">A <strong>Firm OS</strong>: your firm runs on one coherent system you own, instead of a stack of disconnected tools — consumer Claude here, Practice Master there, Omega over here — held together by each attorney clicking between them. The OS is the brain. It keeps the tools that earn their keep (<strong>Omega</strong>, <strong>Dodonai</strong>) in <strong>one place</strong>, replaces the antiquated case manager, and runs the coordination that today eats your day — without stacking another subscription on top.</p>
+  </div>
+</section>
+
+<!-- WORKFLOW BEFORE / AFTER -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What we mapped</span><h2>Your four workflows, <span class="soft">before &amp; after</span></h2>
+      <p class="sec-sub">Straight from the call. Each workflow is the same sequence — the OS just changes who runs it. The amber column (left) is what you and your staff do by hand now; the purple column (right) is the OS, stopping at the one teal step that's actually legal judgment.</p></div>
+    <div class="flow-legend reveal d1">
+      <span class="lg"><span class="dot" style="background:var(--amber)"></span> Manual today (you / staff)</span>
+      <span class="lg"><span class="dot" style="background:var(--purple-vivid)"></span> Firm OS runs it</span>
+      <span class="lg"><span class="dot" style="background:var(--teal)"></span> Legal judgment (stays with the attorney)</span>
+    </div>
+
+    <div class="wfphase reveal d1">
+      <div class="wfh"><span class="wfn">1</span><span class="wfname">File intake &amp; opening</span><span class="wfmeta">2–3 hrs of setup today</span></div>
+      <div class="wftracks">
+        <div class="wftrack today">
+          <div class="tl"><span class="d"></span>Today — by hand</div>
+          <div class="wfstep">New file arrives</div>
+          <div class="wfstep">IT numbers it, emails billing</div>
+          <div class="wfstep">Billing re-keys into Practice Master</div>
+          <div class="wfstep">Assemble docs + draft pleadings from scratch</div>
+        </div>
+        <div class="wfmid">→</div>
+        <div class="wftrack os">
+          <div class="tl"><span class="d"></span>Firm OS</div>
+          <div class="wfstep">File detected → matter auto-opened</div>
+          <div class="wfstep">Checklist verified</div>
+          <div class="wfstep">Answer · motion to enroll · letters drafted</div>
+          <div class="wfstep gate">Attorney approves &amp; signs<span class="gtag">legal judgment</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wfphase reveal d2">
+      <div class="wfh"><span class="wfn">2</span><span class="wfname">Claim-file &amp; medical review</span><span class="wfmeta">1,000–6,000 pages</span></div>
+      <div class="wftracks">
+        <div class="wftrack today">
+          <div class="tl"><span class="d"></span>Today — by hand</div>
+          <div class="wfstep">Unordered 6,000-page dump in</div>
+          <div class="wfstep">Separate notes / medical / surveillance by hand</div>
+          <div class="wfstep">Read thousands of pages for causation</div>
+          <div class="wfstep">Cite the record back by hand</div>
+        </div>
+        <div class="wfmid">→</div>
+        <div class="wftrack os">
+          <div class="tl"><span class="d"></span>Firm OS</div>
+          <div class="wfstep">File ingested</div>
+          <div class="wfstep">Indexed: notes / medical / surveillance, citation-linked</div>
+          <div class="wfstep">Causation drafted — mechanism, pre-existing vs. acute, LA case law</div>
+          <div class="wfstep gate">Attorney's opinion<span class="gtag">legal judgment</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wfphase reveal d3">
+      <div class="wfh"><span class="wfn">3</span><span class="wfname">Billable-time capture</span><span class="wfmeta">100–120 emails/day</span></div>
+      <div class="wftracks">
+        <div class="wftrack today">
+          <div class="tl"><span class="d"></span>Today — by hand</div>
+          <div class="wfstep">Reconstruct the day from a wall of email</div>
+          <div class="wfstep">Bulk value-bill in larger blocks</div>
+          <div class="wfstep">The 0.1-hr increments leak</div>
+        </div>
+        <div class="wfmid">→</div>
+        <div class="wftrack os">
+          <div class="tl"><span class="d"></span>Firm OS</div>
+          <div class="wfstep">Emails read in real time</div>
+          <div class="wfstep">0.1-hr L/A line items drafted</div>
+          <div class="wfstep gate">Attorney frames the descriptor<span class="gtag">legal judgment</span></div>
+          <div class="wfstep">Pushed into Omega</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="wfphase reveal d4">
+      <div class="wfh"><span class="wfn">4</span><span class="wfname">Litigation drafting</span><span class="wfmeta">work-product forms</span></div>
+      <div class="wftracks">
+        <div class="wftrack today">
+          <div class="tl"><span class="d"></span>Today — by hand</div>
+          <div class="wfstep">Assemble answer package from scratch</div>
+          <div class="wfstep">Interrogatories &amp; requests for production</div>
+          <div class="wfstep">Letters to court / opposing counsel</div>
+          <div class="wfstep">Tweak per file</div>
+        </div>
+        <div class="wfmid">→</div>
+        <div class="wftrack os">
+          <div class="tl"><span class="d"></span>Firm OS</div>
+          <div class="wfstep">Answer · interrogatories · RFPs drafted on file open</div>
+          <div class="wfstep">Letters generated from matter data</div>
+          <div class="wfstep gate">Attorney edits &amp; signs<span class="gtag">legal judgment</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="tally reveal d2">Across all four workflows, the large majority of steps are <b>routine coordination</b> the OS can run: re-keying intake, hand-separating a 6,000-page dump, reconstructing time from email, assembling the same answer package. Roughly a dozen are genuine <b>legal judgment</b> — the causation opinion, the billing-descriptor framing, the strategy. The OS runs the amber column and hands you the teal step cleanly.</div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">After the build</span><h2>What changes <span class="soft">for the firm</span></h2>
+      <p class="sec-sub">The engagement isn't software. It's what the week looks like once it's running.</p></div>
+    <div class="ocards">
+      <div class="ocard reveal d1"><div class="ostat">~300 hrs</div><h4>Admin time back, every month</h4><p>The intake, indexing, filing, and time-reconstruction run by the OS instead of by hand — firm-wide, toward the hearings and trials only attorneys can bill.</p></div>
+      <div class="ocard reveal d2"><div class="ostat">+1.2 hrs<span class="to">/day</span></div><h4>Billable time you're leaving on the table</h4><p>John's own Claude test picked up 1.2 billable hours in a single day just following the carriers' own rules. The OS captures that automatically, per attorney.</p></div>
+      <div class="ocard reveal d3"><div class="ostat">6,000 pg <span class="to">&rarr;</span> mins</div><h4>Claim files indexed, not skimmed</h4><p>Claim notes, medical records, and surveillance separated automatically, every fact citation-linked to its page. "That alone would be a godsend." — Tommy</p></div>
+      <div class="ocard reveal d4"><div class="ostat">Associates</div><h4>Do law, not admin — and stay</h4><p>The administrative grind that drives junior attorneys out gets handled by the system. They build skills, bill hours, and give the firm bench strength instead of restarting the hiring cycle.</p></div>
+    </div>
+    <p class="ocaveat reveal d2">The ~300 hrs/mo and +1.2 hrs/day are your own figures from the call, not measured time studies — we'll baseline them against real Juge matters in discovery, where they tend to land higher once full record sets and the email volume are counted.</p>
+  </div>
+</section>
+
+<!-- TRANSFORMATION (animated) -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The transformation</span><h2>From attorneys clicking between tools <span class="soft">to a system that runs the path</span></h2>
+      <p class="sec-sub">Same work, same files. The difference is what holds it together: today it's each partner's attention, after it's the OS.</p></div>
+
+    <div class="xform reveal d1" id="xform">
+      <div class="xcol today">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber);display:inline-block"></span> Today</div>
+        <div class="scatter">
+          <span class="tool-chip">Consumer Claude</span>
+          <span class="tool-chip">Practice Master</span>
+          <span class="tool-chip">Omega</span>
+          <span class="tool-chip">Outlook · 120/day</span>
+          <span class="tool-chip">Excel time sheets</span>
+          <span class="tool-chip">LawPro AI</span>
+          <span class="tool-chip">Word · pleadings</span>
+          <span class="tool-chip">6,000-pg PDFs</span>
+          <span class="runner"></span>
+          <span class="handlabel">Four partners clicking between all of them, every file, every day</span>
+        </div>
+      </div>
+
+      <div class="xarrow"><span class="at">Build &amp; own</span><span class="ah">→</span></div>
+
+      <div class="xcol os">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--purple-vivid);display:inline-block"></span> Firm OS</div>
+        <div class="hub">
+          <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="92" y2="28"/>
+            <line x1="50" y1="50" x2="92" y2="72"/><line x1="50" y1="50" x2="50" y2="92"/>
+            <line x1="50" y1="50" x2="8" y2="72"/><line x1="50" y1="50" x2="8" y2="28"/>
+          </svg>
+          <div class="hub-core"><span class="hw">Firm OS</span><span class="hs">the brain</span></div>
+          <span class="spoke">Omega (kept)</span>
+          <span class="spoke">Dodonai</span>
+          <span class="spoke">Enterprise Claude</span>
+          <span class="spoke">Email</span>
+          <span class="spoke">Document store</span>
+          <span class="spoke">Case mgmt</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="xcaption reveal d2">
+      <div class="xc l"><div class="h"><span class="pin"></span>Today</div><p>Every tool is an island. The glue is four partners' attention, on top of a 90%-comp practice — and the moment someone's out, the sequence stalls.</p></div>
+      <div class="xc r"><div class="h"><span class="pin"></span>Firm OS</div><p>The OS holds the sequence in one place. It indexes, drafts, captures time, and pushes it into Omega — then surfaces the few steps that need a lawyer. The knowledge lives in the system, not a head.</p></div>
+    </div>
+
+    <!-- Animated before/after panels -->
+    <div class="reveal d2" style="margin-top:44px">
+      <div class="sec-head" style="margin-bottom:0"><h2 style="margin-top:0">What changes <span class="soft">when the system runs itself</span></h2>
+        <p class="sec-sub">The build doesn't change <em>what</em> you do. It changes what you have to do <em>yourself</em>. Flip between the two.</p></div>
+      <div class="ba-tabs">
+        <div class="ba-tab active-before" onclick="switchTab('before',this)">📛 Today — without the system</div>
+        <div class="ba-tab" onclick="switchTab('after',this)">✅ After — Firm OS running</div>
+      </div>
+      <div class="ba-panels">
+        <div class="ba-panel active" id="panel-before">
+          <div class="ba-col-card pain-card">
+            <div class="ba-item"><span class="icon">📬</span><div class="text"><b>Morning email triage — 45–60 min</b><span>100–120 emails to sort and file. Billable time buried inside that won't get captured until end of day — if at all.</span></div></div>
+            <div class="ba-item"><span class="icon">📦</span><div class="text"><b>New file — 2–3 hrs of manual setup</b><span>IT generates a number. Billing re-enters it in Practice Master. Someone keys in contacts, dates, documents. The attorney opens a 6,000-page dump with no index.</span></div></div>
+            <div class="ba-item"><span class="icon">🏥</span><div class="text"><b>Medical records — half a day</b><span>Unstructured, unordered, thousands of pages. Pre- and post-accident mixed together, with no citations back to the source.</span></div></div>
+          </div>
+          <div class="ba-col-card pain-card">
+            <div class="ba-item"><span class="icon">🧾</span><div class="text"><b>Time entry — reconstructed at day's end</b><span>Attorneys rebuild their day from email threads. Entries are vague and routinely zeroed-out by carriers who flag them as non-compliant.</span></div></div>
+            <div class="ba-item"><span class="icon">📝</span><div class="text"><b>Pleadings — drafted from scratch</b><span>Answers, motions to enroll, notices — templated but still assembled piece by piece in Practice Master's aging interface.</span></div></div>
+            <div class="ba-item"><span class="icon">👤</span><div class="text"><b>Associates — doing admin, not law</b><span>Junior attorneys drown in overhead. They leave. The hiring cycle restarts. Partners absorb the load and the stress compounds.</span></div></div>
+          </div>
+        </div>
+        <div class="ba-panel" id="panel-after">
+          <div class="ba-col-card win-card">
+            <div class="ba-item"><span class="icon">⚡</span><div class="text"><b>Emails auto-filed, time auto-captured</b><span>Every email routed to the right matter and logged as a 0.1-hr entry with a carrier-compliant descriptor — before you open your laptop.</span></div></div>
+            <div class="ba-item"><span class="icon">🎯</span><div class="text"><b>New file opens itself</b><span>File arrives → checklist verified → matter created → draft answer, motion to enroll, and intake letters waiting in your queue. Review, approve, move on.</span></div></div>
+            <div class="ba-item"><span class="icon">🗂️</span><div class="text"><b>Medical records — indexed and cited</b><span>Claim notes, medical, and surveillance separated automatically. Pre- and post-accident split. Causation analysis with page citations delivered to your inbox.</span></div></div>
+          </div>
+          <div class="ba-col-card win-card">
+            <div class="ba-item"><span class="icon">💰</span><div class="text"><b>Billing entries written for carrier rules</b><span>The system drafts descriptions that survive carrier review. Attorney rates defended. 0.1-hr granularity throughout. No more end-of-day reconstruction.</span></div></div>
+            <div class="ba-item"><span class="icon">📄</span><div class="text"><b>Pleadings drafted on file open</b><span>Standard answers, motions, and notices generated from intake data the moment a matter is created. Attorneys edit and sign — they don't draft.</span></div></div>
+            <div class="ba-item"><span class="icon">🏛</span><div class="text"><b>Associates do law — and stay</b><span>The admin grind that drives junior attorneys out is handled by the system. They build skills, bill hours, and give the firm bench strength.</span></div></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SELF-RUNNING PIPELINE (animated) -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How a file moves</span><h2>The pipeline <span class="soft">runs itself</span></h2>
+      <p class="sec-sub">A new claim file lands. Watch what the OS does before it ever reaches a partner's desk — and exactly where it stops and waits for the legal judgment.</p></div>
+    <div class="pipe-wrap reveal d1" id="pipe">
+      <div class="pipe">
+        <div class="pline"><div class="pfill"></div></div>
+        <div class="pnode">
+          <div class="pdot"><span class="ic-base">📨</span><span class="ic-done">✓</span></div>
+          <div class="pttl">File lands</div><div class="pwho">Agent</div>
+          <div class="pstatus">detected → matter opened</div>
+        </div>
+        <div class="pnode">
+          <div class="pdot"><span class="ic-base">🗂️</span><span class="ic-done">✓</span></div>
+          <div class="pttl">Claim file indexed</div><div class="pwho">Dodonai</div>
+          <div class="pstatus">notes / medical / surveillance split</div>
+        </div>
+        <div class="pnode">
+          <div class="pdot"><span class="ic-base">🧠</span><span class="ic-done">✓</span></div>
+          <div class="pttl">Causation drafted</div><div class="pwho">Agent</div>
+          <div class="pstatus">mechanism + LA case law, cited</div>
+        </div>
+        <div class="pnode gate">
+          <div class="pdot"><span class="ic-base">⚖️</span><span class="ic-done">✓</span></div>
+          <div class="pttl">Your sign-off</div><div class="pwho">Attorney</div>
+          <div class="pstatus">review + frame the opinion</div>
+        </div>
+        <div class="pnode">
+          <div class="pdot"><span class="ic-base">💸</span><span class="ic-done">✓</span></div>
+          <div class="pttl">Time → Omega</div><div class="pwho">Agent</div>
+          <div class="pstatus">0.1 L/A codes captured + pushed</div>
+        </div>
+      </div>
+      <div class="pipe-foot">The agents do the four routine steps. <b>You do the one that's actually law — the causation opinion.</b> Same control you have today, none of the re-keying, and the billable time captured instead of leaked.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COCKPIT DASHBOARD (animated) -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The cockpit</span><h2>One dashboard, <span class="soft">every file and every agent</span></h2>
+      <p class="sec-sub">What the firm opens each morning. Live status on every active matter, billable time captured to date, and a running feed of what the agents did overnight — so nothing sits in someone's inbox waiting to be noticed.</p></div>
+
+    <div class="dash reveal d1" id="dash">
+      <div class="dash-bar">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="dtitle">The Juge Firm · Firm OS</span>
+        <span class="dlive">Live</span>
+      </div>
+      <div class="dash-body">
+        <div class="dash-col left">
+          <div class="kpis">
+            <div class="kpi"><div class="kn">23</div><div class="kl">Active comp files</div></div>
+            <div class="kpi"><div class="kn">4</div><div class="kl">Need attorney sign-off</div></div>
+            <div class="kpi"><div class="kn">+9.4h</div><div class="kl">Billable captured today</div></div>
+          </div>
+          <div class="dash-h">Active matters <span class="cnt">23</span></div>
+          <div class="mrow"><div><div class="mname">Boudreaux v. Gulf Coast Stevedoring</div><div class="mphase">Phase 2 · Claim-file review</div></div><span class="mpill done">Indexed</span></div>
+          <div class="mrow"><div><div class="mname">Thibodeaux — carrier: LWCC</div><div class="mphase">Phase 2 · Causation analysis</div></div><span class="mpill wait">Your sign-off</span></div>
+          <div class="mrow"><div><div class="mname">Hebert v. Crescent Logistics</div><div class="mphase">Phase 1 · File opening</div></div><span class="mpill run">Agent: drafting answer</span></div>
+          <div class="mrow"><div><div class="mname">Landry — IME dispute</div><div class="mphase">Phase 4 · Litigation drafting</div></div><span class="mpill run">Agent: interrogatories</span></div>
+          <div class="mrow"><div><div class="mname">Guidry v. Port Fourchon Marine</div><div class="mphase">Phase 2 · Medical records</div></div><span class="mpill wait">Your sign-off</span></div>
+        </div>
+        <div class="dash-col right">
+          <div class="dash-h">Agent activity <span class="cnt">live</span></div>
+          <div class="feed">
+            <div class="feed-track" id="feed">
+              <!-- set A -->
+              <div class="aevent ok"><span class="aic">🗂️</span><div><div class="atx"><b>Claim file indexed</b> for Boudreaux — 4,180 pages split into notes / medical / surveillance, all citation-linked. <span class="agent">[ dodonai ]</span></div><div class="atime">07:38</div></div></div>
+              <div class="aevent ok"><span class="aic">🧠</span><div><div class="atx"><b>Causation analysis drafted</b> — pre-existing L4-L5 vs. acute exacerbation, applied to LA comp case law. <span class="agent">[ records-agent ]</span></div><div class="atime">07:52</div></div></div>
+              <div class="aevent gate"><span class="aic">⚖️</span><div><div class="atx"><b>Thibodeaux opinion</b> ready for your sign-off before it goes to the carrier. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:05</div></div></div>
+              <div class="aevent ok"><span class="aic">💸</span><div><div class="atx"><b>1.2 billable hrs captured</b> from yesterday's email — 0.1 L/A line items, queued for Omega. <span class="agent">[ billing-agent ]</span></div><div class="atime">08:11</div></div></div>
+              <div class="aevent"><span class="aic">📨</span><div><div class="atx"><b>New file from LWCC</b> — matter opened, answer + motion to enroll drafted from the form. <span class="agent">[ intake-agent ]</span></div><div class="atime">08:19</div></div></div>
+              <div class="aevent ok"><span class="aic">📋</span><div><div class="atx"><b>Weekly case summary</b> emailed to the file team — no prompt needed. <span class="agent">[ summary-agent ]</span></div><div class="atime">08:24</div></div></div>
+              <div class="aevent gate"><span class="aic">📁</span><div><div class="atx"><b>23 inbound emails</b> auto-filed to their matters; 2 flagged for your eyes. <span class="agent">[ inbox-agent ]</span></div><div class="atime">08:30</div></div></div>
+              <!-- set B (duplicate for seamless loop) -->
+              <div class="aevent ok"><span class="aic">🗂️</span><div><div class="atx"><b>Claim file indexed</b> for Boudreaux — 4,180 pages split into notes / medical / surveillance, all citation-linked. <span class="agent">[ dodonai ]</span></div><div class="atime">07:38</div></div></div>
+              <div class="aevent ok"><span class="aic">🧠</span><div><div class="atx"><b>Causation analysis drafted</b> — pre-existing L4-L5 vs. acute exacerbation, applied to LA comp case law. <span class="agent">[ records-agent ]</span></div><div class="atime">07:52</div></div></div>
+              <div class="aevent gate"><span class="aic">⚖️</span><div><div class="atx"><b>Thibodeaux opinion</b> ready for your sign-off before it goes to the carrier. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:05</div></div></div>
+              <div class="aevent ok"><span class="aic">💸</span><div><div class="atx"><b>1.2 billable hrs captured</b> from yesterday's email — 0.1 L/A line items, queued for Omega. <span class="agent">[ billing-agent ]</span></div><div class="atime">08:11</div></div></div>
+              <div class="aevent"><span class="aic">📨</span><div><div class="atx"><b>New file from LWCC</b> — matter opened, answer + motion to enroll drafted from the form. <span class="agent">[ intake-agent ]</span></div><div class="atime">08:19</div></div></div>
+              <div class="aevent ok"><span class="aic">📋</span><div><div class="atx"><b>Weekly case summary</b> emailed to the file team — no prompt needed. <span class="agent">[ summary-agent ]</span></div><div class="atime">08:24</div></div></div>
+              <div class="aevent gate"><span class="aic">📁</span><div><div class="atx"><b>23 inbound emails</b> auto-filed to their matters; 2 flagged for your eyes. <span class="agent">[ inbox-agent ]</span></div><div class="atime">08:30</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="dash-cap reveal d2">This is the "one place" you described — not another subscription to learn, <b>the layer above your tools</b>. Omega still does the accounting; the OS just feeds it captured time and runs everything around it from a single screen.</p>
+  </div>
+</section>
+
+<!-- THE BILLABLE-TIME WIN -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The clearest win</span><h2>The billable time you're <span class="soft">already leaving on the table</span></h2>
+      <p class="sec-sub">This is the one finding that pays for the whole engagement. The carriers' own rules let you bill it — the firm just doesn't have the time to capture it by hand.</p></div>
+    <div class="pillar hot reveal d1">
+      <div class="phead"><span class="picon">💸</span><span class="ptitle">Compliant time capture, automatically</span><span class="ptag">pays for itself</span></div>
+      <div class="rblock">
+        <div class="rb now">
+          <div class="rh">Today</div>
+          <ul>
+            <li>Carriers want every task line-itemed in 0.1-hr increments with L/A codes</li>
+            <li>Nine emails back-and-forth on a file gets bulk value-billed at 0.5 — the increments leak</li>
+            <li>Time reconstructed by hand from 100–120 emails a day, days later</li>
+          </ul>
+        </div>
+        <div class="rb-arrow">→</div>
+        <div class="rb fix">
+          <div class="rh">With the OS</div>
+          <ul>
+            <li>Email read in real time → compliant 0.1 line items drafted with the right descriptor</li>
+            <li>The +1.2 hrs/day John proved by hand, captured automatically, per attorney</li>
+            <li>Attorney approves the framing; captured time pushed straight into Omega</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- KEEP / INTEGRATE / REPLACE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The inventory</span><h2>Keep, integrate, <span class="soft">replace</span></h2>
+      <p class="sec-sub">We don't rip out what works — and we don't touch Omega. What gets replaced is the antiquated case manager and the manual glue; what gets skipped is every vendor that bundles a billing module you don't want.</p></div>
+    <div class="legend reveal d1">
+      <span class="lg"><span class="dot int"></span> Keep / Integrate — the OS reads &amp; writes it</span>
+      <span class="lg"><span class="dot rep"></span> Replace &amp; Build — collapse into the OS</span>
+      <span class="lg"><span class="dot add"></span> Add — new capability</span>
+      <span class="lg"><span class="dot skip"></span> Skip — don't buy the subscription</span>
+    </div>
+    <div class="cards">
+      <div class="card keep reveal d1"><span class="flag g">don't touch it</span><div class="top"><span class="name">Omega Legal Systems</span><span class="badge int">Keep</span></div><p class="why">Billing <em>and</em> full accounting — checks, 1099s, P&amp;L, WIP. Touching it risks staff "mutiny." The OS <b>pushes captured time into</b> Omega; it doesn't replace it. (Fiscal year ends Dec 31 — any later accounting change waits for that line.)</p></div>
+      <div class="card keep reveal d1"><div class="top"><span class="name">Dodonai app</span><span class="badge int">Integrate</span></div><p class="why">Out-of-the-box claim-file indexing, medical summarization, chat with citations. John already trialed it — the OS feeds it clean files and routes the output to the right matter.</p></div>
+      <div class="card add reveal d2"><div class="top"><span class="name">Enterprise Claude / direct APIs</span><span class="badge add">Add</span></div><p class="why">The enterprise model layer. Mix LLMs with plain APIs where they're cheaper — the "fractional CTO" approach, no stacking of per-seat subscriptions.</p></div>
+      <div class="card replace reveal d2"><span class="flag">build first</span><div class="top"><span class="name">Practice Master</span><span class="badge rep">Replace</span></div><p class="why">Antiquated, ~$20k/yr, doesn't integrate. Its case management + file-open + drafting job becomes the v1 build — your stated first priority.</p></div>
+      <div class="card replace reveal d3"><div class="top"><span class="name">Consumer Claude (self-built)</span><span class="badge rep">Replace</span></div><p class="why">Genuinely useful — but ad-hoc, inconsistent, and locked in one person's head. The same workflows you built, made structured, carrier-compliant, and repeatable across all 14 attorneys.</p></div>
+      <div class="card skip reveal d3"><div class="top"><span class="name">LawPro AI</span><span class="badge skip">Skip</span></div><p class="why">The medical-chronology tool you trialed — "way too expensive for our level of utilization." Replicated inside the OS at your volume.</p></div>
+      <div class="card skip reveal d4"><div class="top"><span class="name">Filevine · Clio · Cosmolex</span><span class="badge skip">Skip</span></div><p class="why">The modern case managers you already evaluated and rejected: all bundle a billing module you don't want, lean plaintiff-side, and carry migration headaches.</p></div>
+    </div>
+
+    <h2 class="reveal" style="font-size:24px;margin:42px 0 4px">Nothing gets ripped out. <span class="soft">One thing gets replaced.</span></h2>
+    <p class="sec-sub reveal d1">Omega stays. We build around it, not on top of it. Practice Master goes — replaced with modern case management that lives on your server, without the billing module you never wanted.</p>
+    <div class="eco">
+      <div class="eco-col stays reveal d1">
+        <h4>🟢 Stays — untouched</h4>
+        <ul>
+          <li><b>Omega Legal Systems</b> — billing, accounting, P&amp;L, checks, 1099s. No staff mutiny, no December disruption.</li>
+          <li><b>Claude</b> — the AI you already use. We build structured workflows on top of what works.</li>
+          <li><b>Your carrier relationships</b> — we work within their guidelines, not around them.</li>
+          <li><b>IT file-numbering system</b> — connected to, not replaced.</li>
+        </ul>
+      </div>
+      <div class="eco-col goes reveal d2">
+        <h4>🔴 Goes — replaced</h4>
+        <ul>
+          <li><b>Practice Master</b> — modern, server-resident case management, without the bundled billing module.</li>
+          <li><b>Manual time reconstruction</b> — the end-of-day "what did I actually do?" exercise ends.</li>
+          <li><b>Manual file-open chain</b> — IT → billing → Practice Master re-entry, automated end to end.</li>
+          <li><b>Ad-hoc, inconsistent AI use</b> — replaced with structured, carrier-compliant workflows.</li>
+        </ul>
+      </div>
+      <div class="eco-col builds reveal d3">
+        <h4>🔵 Built — new capability</h4>
+        <ul>
+          <li><b>Claim-file indexing</b> — 6,000-page dumps indexed with citations back to the page.</li>
+          <li><b>Email triage + auto-filing</b> — every email routed to the right matter automatically.</li>
+          <li><b>Compliant billing auto-capture</b> — 0.1-hr entries, carrier-approved descriptors, pushed to Omega.</li>
+          <li><b>Automated file-open + pleadings</b> — intake → checklist → draft documents on case creation.</li>
+          <li><b>Scheduled case intelligence</b> — matter summaries to your inbox, no prompting needed.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- HUMAN GATES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>The OS removes the re-keying, <span class="soft">not the lawyering</span></h2>
+      <p class="sec-sub">Automation stops where judgment starts. These stay with the attorneys by design — the OS just hands them over clean, cited, and on time.</p></div>
+    <div class="gates">
+      <div class="gatecard reveal d1"><div class="gi">⚖️</div><h4>Legal judgment</h4><p>The causation opinion, the litigation strategy, the substance of the answer package. The OS assembles the inputs; the opinion is yours.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">✍️</div><h4>The billing descriptor</h4><p>The OS captures the time; the attorney frames it — <em>"analyzed the medicals re: mechanism of injury and LA case law,"</em> not "summarized." Carrier-compliant, your call.</p></div>
+      <div class="gatecard reveal d3"><div class="gi">🤝</div><h4>Your carrier relationships</h4><p>We work <em>within</em> the carriers' billing guidelines, not around them — encoding their rules so the firm bills compliantly, never bending them.</p></div>
+      <div class="gatecard reveal d4"><div class="gi">🏛️</div><h4>You own the system &amp; keep Omega</h4><p>The OS is yours — no subscription that turns into a pumpkin, and Omega stays exactly where it is. The keys stay with the firm.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ALTERNATIVES -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">You already ran this comparison</span><h2>Build-and-own vs. <span class="soft">the vendors you rejected</span></h2>
+      <p class="sec-sub">You've already trialed the alternatives — modern case managers and LawPro AI both came up short for a 14-attorney comp-defense boutique. The honest question is who builds the thing that actually fits, and whether it keeps Omega.</p></div>
+    <div class="alt-grid">
+      <div class="altc reveal d1">
+        <div class="an">Filevine / Clio / Cosmolex</div>
+        <div class="ashape">Modern case managers</div>
+        <p class="agreat"><b>Great at:</b> a polished, modern case-management UI for firms starting fresh.</p>
+        <p class="afit">All bundle a billing module you'd be paying for and don't want, lean plaintiff-side, and force a migration off Omega — exactly the disruption you're avoiding.</p>
+      </div>
+      <div class="altc reveal d2">
+        <div class="an">Consumer Claude, DIY</div>
+        <div class="ashape">What you do now</div>
+        <p class="agreat"><b>Great at:</b> proving the value — your own spreadsheets and summaries already work.</p>
+        <p class="afit">Nothing's integrated or repeatable, and it lives in each attorney's head — it doesn't scale to 14 people or survive a busy week.</p>
+      </div>
+      <div class="altc us reveal d3">
+        <div class="an">Dodonai Firm OS</div>
+        <div class="ashape">Built with you, owned by you</div>
+        <p class="agreat"><b>Great at:</b> the whole path in one owned system — indexing, drafting, and compliant time capture, with Omega kept and Dodonai already inside it.</p>
+        <p class="afit">We build it with you, you own the system, and there's a real team to call. A fractional CTO, not another subscription that turns into a pumpkin.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CHANGE MANAGEMENT -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The hard part</span><h2>The risk isn't the build. <span class="soft">It's getting the firm to adopt it.</span></h2>
+      <p class="sec-sub">Cost and code are the easy part. On the call we said it plainly — change management is the hardest part of any engagement like this, harder than the price or the technical work. So we design the rollout around adoption, not just delivery.</p></div>
+    <div class="cm-grid">
+      <div class="cmcard reveal d1"><div class="ci">🧩</div><h4>Phased, never all-at-once</h4><p>Each phase ships a working result before the next begins. The firm absorbs one change at a time — Practice Master first — instead of swallowing a new way of working overnight.</p></div>
+      <div class="cmcard reveal d2"><div class="ci">🟢</div><h4>Omega untouched — no mutiny</h4><p>The accounting your staff lives in doesn't move. We build <b>around</b> it, push captured time <b>into</b> it, and sequence any accounting-adjacent work after your <b>Dec 31</b> fiscal close.</p></div>
+      <div class="cmcard reveal d3"><div class="ci">🤝</div><h4>We do it with your people</h4><p>Live demos, direct access for your staff, and hands-on support through every handoff. The four of you bring the firm along; we make each step land — and stay landed.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How it's priced</span><h2>The <span class="soft">shape of the numbers</span></h2>
+      <p class="sec-sub">No surprise lump sum, and nothing you don't approve. Here's the structure — we'll size the first phase together on the call, once we agree what we build first.</p></div>
+    <div class="numbers-grid">
+      <div class="numcard reveal d1">
+        <div class="nlabel">Build · phased</div>
+        <h3>Pay per phase, not up front</h3>
+        <p style="font-size:14px;color:var(--gray-meta-light);margin:.4em 0 0;line-height:1.5">Work breaks into small phases. Each phase splits in half:</p>
+        <div class="paysplit">
+          <div class="half"><div class="h">Phase start</div><div class="v">50%</div></div>
+          <div class="arr">→</div>
+          <div class="half"><div class="h">Your approval</div><div class="v">50%</div></div>
+        </div>
+        <p class="numnote">Cash tracks completion — you see a working result before you pay the back half. We start with the Practice Master replacement (your stated first priority, highest-value), so the first cheque buys something the firm feels.</p>
+      </div>
+      <div class="numcard reveal d2">
+        <div class="nlabel">Ongoing · two layers</div>
+        <h3>Hosting + optional support</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Hosting / infrastructure <span style="color:var(--gray-meta);font-weight:400">(only required cost)</span></div><div class="od">GCloud, US data residency, storage for your OS; scales with how much the agents run</div></div><div class="oa">base layer<br>monthly</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Support retainer <span style="color:var(--gray-meta);font-weight:400">(optional)</span></div><div class="od">Access to Nick + James + team — a-la-carte → as-needed → white-glove</div></div><div class="oa">tiered<br>you pick</div></div>
+        <div class="value-anchor"><b>The frame for a 14-attorney New Orleans firm:</b> this recaptures ~300 admin hrs/month and the +1.2 hrs/day of leaked billable time — against the ~$20k/yr antiquated Practice Master it replaces. We'll walk real ballpark numbers live and split hosting from support so you can size each independently.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">To agree on the call</span><h2>What we'll <span class="soft">pin down Monday</span></h2></div>
+    <div class="qcards">
+      <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">Rank your priorities</p><p class="qcd">Revenue uplift, time back, associate retention, or stress — which leads Phase 1? You agreed to rank these as a group.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">2</span><div><p class="qct">Practice Master migration</p><p class="qcd">Confirm data export and exactly what has to carry over from the old case manager.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">3</span><div><p class="qct">Dodonai trial</p><p class="qcd">Confirm Jeff's signup email so we extend the trial and demo claim-file indexing on a real (redacted) Juge file.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">4</span><div><p class="qct">The Dec 31 line</p><p class="qcd">Accounting year closes Dec 31 — any Omega-adjacent work is sequenced after it. Confirm the boundary.</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">5</span><div><p class="qct">First drafting templates</p><p class="qcd">Which forms to automate first — answer package, interrogatories, requests for production, motion to enroll?</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">6</span><div><p class="qct">Carrier billing guidelines</p><p class="qcd">Share a representative set so we encode compliant descriptors + 0.1 granularity into the time-capture agent.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Suggested <span class="soft">phasing</span></h2></div>
+    <div class="timeline reveal d1">
+      <div class="tl-line"></div>
+      <div class="phase-t"><div class="pnode2">0</div><div class="ptagline">This call</div><div class="ph2">Findings + plan</div><div class="pd2">Agree the destination, rank priorities, and pick what we build first → SOW.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">First build</div><div class="ph2">Replace Practice Master</div><div class="pd2">Claim-file + medical indexing with citations, file-open automation, litigation drafting. Omega untouched.</div></div>
+      <div class="phase-t future"><div class="pnode2">2</div><div class="ptagline">Next</div><div class="ph2">Capture the money</div><div class="pd2">Compliant billable-time auto-capture (0.1 / L+A codes) pushed into Omega, email triage + filing, scheduled case summaries.</div></div>
+      <div class="phase-t future"><div class="pnode2">3</div><div class="ptagline">Ongoing</div><div class="ph2">Broader unified OS</div><div class="pd2">Tune agents on live matters, fold in the rest of the firm, revisit accounting integration after the Dec 31 close.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for The Juge Firm · Confidential · From the 6/15 discovery call
+  </div>
+</footer>
+
+<script>
+// Scroll-reveal + play animations when a block scrolls into view.
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); }
+    });
+  }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // Animated blocks: add .play once visible (keeps CSS animations idle until seen).
+  var playIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('play'); } });
+  }, {threshold:0.2});
+  ['xform','pipe','dash'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) playIO.observe(el);
+  });
+})();
+
+// A-day-in-the-life before/after tab switch.
+function switchTab(which, btn){
+  document.querySelectorAll('.ba-tab').forEach(function(t){ t.className='ba-tab'; });
+  document.querySelectorAll('.ba-panel').forEach(function(p){ p.classList.remove('active'); });
+  document.getElementById('panel-'+which).classList.add('active');
+  btn.classList.add(which==='before' ? 'active-before' : 'active-after');
+}
+</script>
+
+</body>
+</html>

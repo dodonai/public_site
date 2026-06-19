@@ -1,0 +1,216 @@
+{
+  "seo": {
+    "title": "eDiscovery Alternatives for Document Review | Dodonai",
+    "description": "Full eDiscovery platforms are built for terabyte productions. For routine review work, Dodonai is lighter, faster, and lower cost.",
+    "canonical": "/compare/ediscovery-alternatives-for-document-review/"
+  },
+  "breadcrumbs": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "Compare",
+      "href": null
+    },
+    {
+      "name": "eDiscovery Alternatives for Document Review"
+    }
+  ],
+  "hero": {
+    "headline": "eDiscovery Alternatives for Everyday Document Review",
+    "subheadline": "Enterprise eDiscovery platforms are engineered for terabyte-scale email productions with privilege review and TAR. If your real workflow is contract review, medical chronologies, and deposition summaries, you're paying enterprise pricing for over-spec'd software. Dodonai is the right-sized tool.",
+    "ctaText": "Start Free Trial",
+    "ctaUrl": "https://app.dodon.ai/signup",
+    "secondaryCtaText": "See Contract Review",
+    "secondaryCtaUrl": "/use-cases/contract-review-extraction/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "When eDiscovery Is the Wrong Shape of Tool",
+      "paragraphs": [
+        "Full eDiscovery platforms exist for a specific job: processing massive volumes of email, chat, and document custodian collections during litigation discovery, with privilege screening, technology-assisted review (TAR), legal hold management, and production sets ready for opposing counsel. That work is real and those tools are excellent at it.",
+        "The problem is that most document review inside a law firm is not that work. It's a partner needing 80 vendor contracts extracted for due diligence by Friday. It's a paralegal building a medical chronology from 1,200 pages of records. It's an associate summarizing four expert depositions for trial prep. These workflows don't need custodian collection, legal hold, or TAR \u2014 they need fast, structured output and citation-grounded summaries.",
+        "Running those tasks through an eDiscovery platform is like flying a 747 to a meeting across town. It will get you there. The cost and complexity are wildly out of proportion to the job."
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "eDiscovery vs. Document Review: What Each Tool Is Built For",
+      "columns": [
+        "Capability",
+        "Dodonai",
+        "Full eDiscovery Platforms",
+        "Manual / In-House",
+        "General AI Chatbots"
+      ],
+      "rows": [
+        [
+          "Built for terabyte-scale productions",
+          false,
+          true,
+          false,
+          false
+        ],
+        [
+          "Custodian collection and legal hold",
+          false,
+          true,
+          false,
+          false
+        ],
+        [
+          "Technology-assisted review (TAR)",
+          false,
+          true,
+          false,
+          false
+        ],
+        [
+          "Privilege review workflow",
+          false,
+          true,
+          "Manual",
+          false
+        ],
+        [
+          "Contract extraction with custom fields",
+          true,
+          "Add-on or limited",
+          true,
+          "Unreliable"
+        ],
+        [
+          "Medical record chronologies with citations",
+          true,
+          false,
+          true,
+          "Unreliable"
+        ],
+        [
+          "Deposition summaries with page-line citations",
+          true,
+          false,
+          true,
+          "Unreliable"
+        ],
+        [
+          "Time to first usable output",
+          "Minutes",
+          "Days to weeks (project setup)",
+          "Hours to days",
+          "Minutes (low reliability)"
+        ],
+        [
+          "Implementation effort",
+          "None \u2014 self-serve",
+          "Significant \u2014 onboarding required",
+          "None",
+          "None"
+        ],
+        [
+          "Pricing model",
+          "$30\u2013$100/month subscription",
+          "Per-GB processed + hosting + seats",
+          "Billed time",
+          "Free or subscription"
+        ],
+        [
+          "Typical monthly spend (small/mid firm)",
+          "$30\u2013$100",
+          "$2,000\u2013$20,000+",
+          "Variable",
+          "$0\u2013$200"
+        ],
+        [
+          "SOC 2 + HIPAA + AES-256",
+          true,
+          "Varies",
+          "N/A",
+          false
+        ],
+        [
+          "Free trial available",
+          true,
+          "Rare \u2014 demo only",
+          false,
+          true
+        ]
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "Right-Sized for Document Review Work",
+      "cards": [
+        {
+          "icon": "folder",
+          "title": "Contract Review and Extraction",
+          "description": "Upload vendor agreements, leases, NDAs, or settlements. Dodonai's Extract & Draft Agents pull termination clauses, indemnification provisions, payment terms, and any custom fields you define \u2014 with page citations to the source."
+        },
+        {
+          "icon": "heart",
+          "title": "Medical Record Chronologies",
+          "description": "Process 1,000+ pages of medical records into a date-ordered chronology covering ER visits, specialist referrals, surgeries, medication changes, and IME findings. Each entry cites the source page."
+        },
+        {
+          "icon": "document",
+          "title": "Deposition Summaries",
+          "description": "Page-line or narrative summaries of deposition transcripts with citations. A 100-page transcript processes in roughly 3 minutes."
+        },
+        {
+          "icon": "dollar",
+          "title": "Predictable Monthly Pricing",
+          "description": "Lite $30/month for 200 pages, Basic $60/month for 1,000 pages, Pro $100/month for 5,000 pages. No per-GB processing, no hosting fees, no seat licenses, no implementation cost."
+        }
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "When You Still Need a Full eDiscovery Platform",
+      "paragraphs": [
+        "Dodonai is not an eDiscovery platform replacement when the actual job is discovery: large-scale custodian collections, ESI processing with metadata preservation, privilege screening at scale, technology-assisted review for relevance coding, or production sets formatted for opposing counsel. For those workflows, the established eDiscovery platforms exist for good reason \u2014 keep them.",
+        "The case for Dodonai is for everything else: the day-to-day document review work that fills associate and paralegal hours but doesn't require discovery infrastructure. Many firms run both \u2014 eDiscovery platforms for litigation discovery, Dodonai for routine document review across transactional, regulatory, and pre-litigation work."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "Is Dodonai an eDiscovery platform?",
+      "answer": "No. Dodonai is a document review and analysis platform built for contract review, medical record chronologies, and deposition summaries. It does not handle custodian collection, legal hold, technology-assisted review, or production sets. For those workflows, established eDiscovery platforms remain the right tool."
+    },
+    {
+      "question": "Why is the cost so much lower than an eDiscovery platform?",
+      "answer": "Because Dodonai isn't doing the same work. eDiscovery platforms price for terabyte-scale processing, custodian management, and hosting infrastructure \u2014 overhead that's required for discovery but not for routine document review. Dodonai's narrower scope means a flat monthly subscription instead of per-GB and per-seat fees."
+    },
+    {
+      "question": "Can we use Dodonai alongside our existing eDiscovery platform?",
+      "answer": "Yes, and many firms do. eDiscovery platforms handle litigation discovery; Dodonai handles the contract review, medical record summaries, and deposition prep that doesn't require discovery infrastructure. The two have minimal overlap."
+    },
+    {
+      "question": "What kinds of documents does Dodonai handle well?",
+      "answer": "Vendor contracts, employment agreements, leases, NDAs, settlement agreements, deposition transcripts, expert reports, medical records (digital PDFs, scanned, or handwritten), IME reports, and demand letter inputs. AI-powered OCR handles scanned and image-only files automatically."
+    },
+    {
+      "question": "How long does it take to get started?",
+      "answer": "Minutes. Dodonai is self-serve \u2014 sign up, upload a document, get output. No onboarding project, no implementation consultant, no IT setup. Most firms run their first real document through it within 15 minutes of creating an account."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Contract Review and Extraction",
+      "href": "/use-cases/contract-review-extraction/",
+      "description": "Extract clauses, obligations, and risk flags from contracts in minutes."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "Turn 1,000+ pages of records into a date-ordered chronology with citations."
+    },
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "Page-line and narrative summaries with citations in minutes."
+    }
+  ]
+}
