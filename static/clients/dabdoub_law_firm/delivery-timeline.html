@@ -67,11 +67,31 @@
   .b-next{background:rgba(216,148,58,.14);color:var(--amber)}
   .b-planned{background:#f0eef5;color:var(--slate)}
 
-  /* Need-from-you */
-  .need{display:grid;grid-template-columns:1fr 1fr;gap:14px}
-  .need .item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
-  .need .item b{display:block;font-size:14px;margin-bottom:5px}
-  .need .item p{font-size:13.5px;color:var(--muted)}
+  /* Sub-deliverable checklist inside a phase card */
+  .sub-intro{font-size:13px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .sub-list{margin-top:8px}
+  .sub-item{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--line)}
+  .sub-item:last-child{border-bottom:none;padding-bottom:0}
+  .sub-item .lbl{font-size:13.5px;color:var(--ink);font-weight:500}
+  .sub-item .lbl em{display:block;font-style:normal;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px;line-height:1.4}
+  .spill{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+  .s-built{background:rgba(47,158,111,.13);color:var(--green)}
+  .s-tune{background:rgba(109,95,166,.14);color:var(--purple)}
+  .s-prog{background:rgba(216,148,58,.15);color:var(--amber)}
+  .s-plan{background:#f0eef5;color:var(--slate)}
+
+  /* Checklist: what we asked the firm for */
+  .check-list{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 24px;box-shadow:0 8px 30px rgba(45,39,64,.05)}
+  .check-item{display:flex;gap:15px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--line)}
+  .check-item:last-child{border-bottom:none}
+  .cbox{width:23px;height:23px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;margin-top:1px}
+  .cbox.done{background:var(--green);color:#fff}
+  .cbox.open{background:#faf8fc;border:2px solid #d8cfe8}
+  .ctext{font-size:14.5px;font-weight:600}
+  .ctext em{display:block;font-style:normal;font-weight:400;color:var(--muted);font-size:13px;margin-top:3px;line-height:1.45}
+  .ctag{margin-left:auto;font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap;align-self:center}
+  .ctag.t-done{background:rgba(47,158,111,.12);color:var(--green)}
+  .ctag.t-open{background:rgba(216,148,58,.14);color:var(--amber)}
 
   /* note */
   .note{font-size:13.5px;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:12px;padding:16px 20px;margin-top:18px}
@@ -144,20 +164,74 @@
             <div class="ptitle"><small>WAVE 1A</small>Foundation + First-Draft Appeals</div>
             <div class="pwhen">First appeals ~mid-July</div>
           </div>
-          <div class="pdesc">The Microsoft Graph foundation, a retrieval index over your historical appeals and rebuttals, the Dabdoub-specific claim-file summarizer, and the A-16 first-draft appeal letters plus A-23 medical-review rebuttals. Two weeks of post-launch tuning included.</div>
+          <div class="pdesc">The foundation every later phase rides on, plus your first AI-drafted appeals. Two weeks of post-launch tuning included.</div>
           <span class="badge b-active">In progress</span>
+          <p class="sub-intro">The five build pieces, where each stands today:</p>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="lbl">Microsoft access foundation <em>Secure read and write across Outlook, SharePoint, and Word</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Past-response retrieval <em>Indexed over your historical appeals and rebuttals, running on your live document set</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Claim-file summarizer <em>Pulls key dates, policy provisions, denial rationale, and medical conclusions from a real claim file</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">First-draft appeal letters <em>Producing end-to-end drafts on real matters internally; tuning toward the 70% quality bar</em></div>
+              <span class="spill s-tune">In tuning</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Medical-review rebuttal drafting <em>Same engine, retargeted at peer-review / IME / FCE rebuttals; in tuning</em></div>
+              <span class="spill s-tune">In tuning</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Letter wording in your voice <em>Appeal and examiner cover-letter templates wired in; wording under review with Bryn and Sonya</em></div>
+              <span class="spill s-prog">Your review</span>
+            </div>
+          </div>
         </div>
       </div>
 
-      <div class="phase">
-        <div class="dot">2</div>
+      <div class="phase active">
+        <div class="dot">●</div>
         <div class="pcard">
           <div class="prow">
             <div class="ptitle"><small>WAVE 1B</small>Appeals Completion + Ingest Substrate</div>
             <div class="pwhen">~mid-August</div>
           </div>
-          <div class="pdesc">IME/FCE cover letters, calendaring, the seven lifecycle letters, folder-watch with insurer-letter classification, the disbursement statement (pulled forward at Bryn's request), and the Appeals cleanup items.</div>
-          <span class="badge b-next">Up next</span>
+          <div class="pdesc">Everything around the draft, so an appeal runs end to end with no manual step removed and none added.</div>
+          <span class="badge b-active">Groundwork underway</span>
+          <p class="sub-intro">Wave 1B formally begins after Wave 1A sign-off, but we have pulled significant groundwork forward already:</p>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="lbl">Inbound insurer-letter reader <em>Classifies incoming letters and extracts the appeal deadline at receipt; core verified on real letters internally</em></div>
+              <span class="spill s-tune">Core built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Deadline calendaring <em>Appeal-deadline and submission reminders, always human-confirmed off the letter; engine built, trigger wiring next</em></div>
+              <span class="spill s-tune">Engine built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Request and lifecycle letters <em>Claim-file and policy requests, homework follow-ups, client updates; templates located and transcribed, ready for your red-line</em></div>
+              <span class="spill s-prog">Your review</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">IME / FCE cover letter + records packet <em>Your priority ask; both halves prototyped, confirming packet contents with you</em></div>
+              <span class="spill s-tune">Prototyped</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Appeal submission packet bundling <em>Assembles the letter, evidence, and process forms into one submission; engine built and tested internally</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Disbursement statement <em>Pulled forward from Phase 4 at your request</em></div>
+              <span class="spill s-plan">Planned</span>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -215,17 +289,54 @@
 
 <section style="padding-top:8px">
   <div class="wrap">
-    <div class="kicker">To keep Wave 1A on schedule</div>
-    <h2>What helps most from the firm</h2>
-    <p class="sub">Light touch by design. None of this blocks the build day to day.</p>
-    <div class="need">
-      <div class="item">
-        <b>~30 minutes a week from Bryn</b>
-        <p>Or a designated attorney, to review draft output and give feedback before anything goes live on a real matter.</p>
+    <div class="kicker">What we asked the firm for</div>
+    <h2>Most of it is already in hand</h2>
+    <p class="sub">The access and inputs we needed to build. Two items are still in flight.</p>
+    <div class="check-list">
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">Microsoft access consent <em>Tenant admin consent so the automation can work in Outlook, SharePoint, and Word</em></span>
+        <span class="ctag t-done">Provided</span>
       </div>
-      <div class="item">
-        <b>The remaining letter-wording red-lines</b>
-        <p>Your edits on the appeal and examiner cover-letter wording we set up, so the drafts read in the firm's voice.</p>
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">HubSpot access <em>For the case-list and trigger integration</em></span>
+        <span class="ctag t-done">Provided</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">SharePoint and Outlook access <em>Provisioned with the firm's IT team</em></span>
+        <span class="ctag t-done">Provided</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">A Teams account for Nick <em>First-class channel for firm communication and workflow alerts</em></span>
+        <span class="ctag t-done">Provided</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">The five seed appeal letters <em>Firm-selected exemplars that seed the drafting engine</em></span>
+        <span class="ctag t-done">Provided</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">Your past-response corpus <em>Historical appeals and rebuttals for retrieval grounding</em></span>
+        <span class="ctag t-done">Provided</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">Letter and cover-letter samples <em>Appeal, examiner cover-letter, treating-doctor, and request templates</em></span>
+        <span class="ctag t-done">Provided</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Red-lines on the drafted letter wording <em>Your edits so the drafts read in the firm's voice (in progress with Bryn and Sonya)</em></span>
+        <span class="ctag t-open">In flight</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">~30 minutes a week to review drafts <em>Bryn or a designated attorney, before anything goes live on a real matter (ongoing through build)</em></span>
+        <span class="ctag t-open">Ongoing</span>
       </div>
     </div>
     <div class="note">
