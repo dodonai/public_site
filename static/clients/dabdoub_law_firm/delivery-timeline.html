@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dabdoub Law Firm: AI Implementation Delivery Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --midnight:#1a1535; --midnight-2:#241d49; --purple:#6d5fa6; --purple-lite:#8a7bb8;
+    --cream:#f7f4ef; --ink:#2d2740; --muted:#6b6580; --line:#e4dff0;
+    --green:#2f9e6f; --amber:#d8943a; --slate:#9a93ad;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .mono{font-family:'Source Code Pro',monospace}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+  /* Hero */
+  .hero{background:linear-gradient(155deg,var(--midnight),var(--midnight-2));color:#fff;padding:64px 0 56px}
+  .hero .wrap{max-width:880px}
+  .eyebrow{font-family:'Source Code Pro',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-lite);margin-bottom:18px}
+  .hero h1{font-size:34px;line-height:1.18;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
+  .hero h1 span{color:var(--purple-lite)}
+  .hero p.lede{font-size:17px;color:#d8d3ea;max-width:620px}
+  .hero .meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:14px;color:#bcb6d6}
+  .hero .meta b{color:#fff;font-weight:600}
+
+  /* Section */
+  section{padding:48px 0}
+  .kicker{font-family:'Source Code Pro',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple);margin-bottom:10px}
+  h2{font-size:23px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .sub{color:var(--muted);font-size:15px;margin-bottom:26px}
+
+  /* Now-card */
+  .now{background:#fff;border:1px solid var(--line);border-left:4px solid var(--purple);border-radius:14px;padding:24px 26px;box-shadow:0 8px 30px rgba(45,39,64,.05)}
+  .now h3{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(47,158,111,.5);animation:p 2s infinite}
+  @keyframes p{0%{box-shadow:0 0 0 0 rgba(47,158,111,.45)}70%{box-shadow:0 0 0 8px rgba(47,158,111,0)}100%{box-shadow:0 0 0 0 rgba(47,158,111,0)}}
+  .now ul{list-style:none}
+  .now li{position:relative;padding-left:22px;margin-bottom:9px;font-size:15px}
+  .now li:before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--purple-lite)}
+  .now li:last-child{margin-bottom:0}
+
+  /* Timeline */
+  .tl{position:relative;margin-top:8px}
+  .tl:before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
+  .phase{position:relative;padding:0 0 26px 56px}
+  .phase:last-child{padding-bottom:0}
+  .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--muted);z-index:1}
+  .phase.done .dot{background:var(--green);border-color:var(--green);color:#fff}
+  .phase.active .dot{background:var(--purple);border-color:var(--purple);color:#fff;box-shadow:0 0 0 5px rgba(109,95,166,.16)}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+  .phase.active .pcard{border-color:#cdc2e8;box-shadow:0 6px 22px rgba(45,39,64,.06)}
+  .prow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .ptitle{font-size:16px;font-weight:700}
+  .ptitle small{font-weight:600;color:var(--purple);font-family:'Source Code Pro',monospace;font-size:12px;margin-right:8px}
+  .pwhen{font-size:13px;color:var(--muted);font-family:'Source Code Pro',monospace;white-space:nowrap}
+  .pdesc{font-size:14px;color:var(--muted);margin-top:7px}
+  .badge{display:inline-block;font-family:'Source Code Pro',monospace;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-top:11px}
+  .b-done{background:rgba(47,158,111,.12);color:var(--green)}
+  .b-active{background:rgba(109,95,166,.13);color:var(--purple)}
+  .b-next{background:rgba(216,148,58,.14);color:var(--amber)}
+  .b-planned{background:#f0eef5;color:var(--slate)}
+
+  /* Need-from-you */
+  .need{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+  .need .item{background:#fff;border:1px solid var(--line);border-radius:12px;padding:18px 20px}
+  .need .item b{display:block;font-size:14px;margin-bottom:5px}
+  .need .item p{font-size:13.5px;color:var(--muted)}
+
+  /* note */
+  .note{font-size:13.5px;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:12px;padding:16px 20px;margin-top:18px}
+  .note b{color:var(--ink)}
+
+  /* footer */
+  footer{background:var(--midnight);color:#bcb6d6;padding:34px 0;font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  footer .trust{font-family:'Source Code Pro',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--purple-lite)}
+  footer a{color:#fff;text-decoration:none}
+  @media(max-width:620px){.need{grid-template-columns:1fr}.hero h1{font-size:27px}.phase{padding-left:48px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Dodonai Consulting &nbsp;·&nbsp; Delivery Tracker</div>
+    <h1>Your firm, AI-native by Thanksgiving.<br><span>Here is exactly where every phase stands.</span></h1>
+    <p class="lede">A live view of the Dabdoub Law Firm AI implementation, Appeals first, then across the whole firm. We update this as milestones move, and you hear from us before any date if something is trending late.</p>
+    <div class="meta">
+      <div><b>Prepared for</b> &nbsp;Bryn Natland · Edward P. Dabdoub, JD MBA</div>
+      <div><b>Status as of</b> &nbsp;June 19, 2026</div>
+      <div><b>Target</b> &nbsp;Full firm AI-native by Thanksgiving 2026</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Where we are right now</div>
+    <h2>Wave 1A is being built</h2>
+    <p class="sub">The foundation every later phase rides on, plus your first AI-drafted appeals.</p>
+    <div class="now">
+      <h3><span class="pulse"></span> In flight this week</h3>
+      <ul>
+        <li>Microsoft Graph foundation in place: secure access to Outlook, SharePoint, and Word is wired up (firm environment provisioned June 5 via Lansight).</li>
+        <li>Your existing appeal and examiner letter templates pulled from SharePoint and set up so the automation fills them in. Wording is under review with Bryn and Sonya.</li>
+        <li>The active Appeals &amp; Claims list is being moved into HubSpot so every case lives in one place.</li>
+        <li>On track for the first AI-drafted appeals to land in real case files around mid-July, behind the 70% quality-bar guarantee.</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:8px">
+  <div class="wrap">
+    <div class="kicker">The seven-phase roadmap</div>
+    <h2>Department by department, Appeals first</h2>
+    <p class="sub">Each phase is its own milestone. You commit one phase at a time, and Bryn signs off on adoption before the next begins. Windows are re-baselined at each phase boundary.</p>
+
+    <div class="tl">
+
+      <div class="phase done">
+        <div class="dot">✓</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASE 0</small>Kickoff</div>
+            <div class="pwhen">Complete</div>
+          </div>
+          <div class="pdesc">On-site kickoff held June 8 (appeals department) and June 9 (attorneys). Cross-phase foundation decisions locked, Microsoft access consented, and the five seed appeals selected.</div>
+          <span class="badge b-done">Done</span>
+        </div>
+      </div>
+
+      <div class="phase active">
+        <div class="dot">●</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>WAVE 1A</small>Foundation + First-Draft Appeals</div>
+            <div class="pwhen">First appeals ~mid-July</div>
+          </div>
+          <div class="pdesc">The Microsoft Graph foundation, a retrieval index over your historical appeals and rebuttals, the Dabdoub-specific claim-file summarizer, and the A-16 first-draft appeal letters plus A-23 medical-review rebuttals. Two weeks of post-launch tuning included.</div>
+          <span class="badge b-active">In progress</span>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="dot">2</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>WAVE 1B</small>Appeals Completion + Ingest Substrate</div>
+            <div class="pwhen">~mid-August</div>
+          </div>
+          <div class="pdesc">IME/FCE cover letters, calendaring, the seven lifecycle letters, folder-watch with insurer-letter classification, the disbursement statement (pulled forward at Bryn's request), and the Appeals cleanup items.</div>
+          <span class="badge b-next">Up next</span>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="dot">3</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASE 2</small>On Claims</div>
+            <div class="pwhen">~late September</div>
+          </div>
+          <div class="pdesc">Past-benefit ladder, definition-change auto-fire, overpayment workflows, and buyout and termination drafting.</div>
+          <span class="badge b-planned">Planned</span>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="dot">4</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASE 3</small>Litigation</div>
+            <div class="pwhen">~early November</div>
+          </div>
+          <div class="pdesc">Complaint drafting, joint scheduling and planning reports, mediation statements, demand letters, dismissals, and the Friday litigation report.</div>
+          <span class="badge b-planned">Planned</span>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="dot">5</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASE 4</small>Accounting</div>
+            <div class="pwhen">~mid-November</div>
+          </div>
+          <div class="pdesc">DocuSign and QuickBooks recording, late-payment escalation, and the Friday-report feeder. Accounting stays walled off behind the firm's permission model.</div>
+          <span class="badge b-planned">Planned</span>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="dot">6</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASE 5</small>Firm Intel + Intake + Marketing</div>
+            <div class="pwhen">~December</div>
+          </div>
+          <div class="pdesc">The client portal for uploads and case-status tracking, productionized chat tools, intake automation, the per-role operational dashboards, and the marketing dashboards. This phase closes the engagement.</div>
+          <span class="badge b-planned">Planned</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:8px">
+  <div class="wrap">
+    <div class="kicker">To keep Wave 1A on schedule</div>
+    <h2>What helps most from the firm</h2>
+    <p class="sub">Light touch by design. None of this blocks the build day to day.</p>
+    <div class="need">
+      <div class="item">
+        <b>~30 minutes a week from Bryn</b>
+        <p>Or a designated attorney, to review draft output and give feedback before anything goes live on a real matter.</p>
+      </div>
+      <div class="item">
+        <b>The remaining letter-wording red-lines</b>
+        <p>Your edits on the appeal and examiner cover-letter wording we set up, so the drafts read in the firm's voice.</p>
+      </div>
+    </div>
+    <div class="note">
+      <b>How dates work.</b> The windows above are targets, re-baselined at each phase boundary. If any milestone starts trending late, you hear it from us before the date, with the cause and the trade-offs, never after the fact. That delivery-visibility commitment is built into the engagement.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px">Dodonai Consulting</div>
+      <div>Prepared by Nick Chapleau &nbsp;·&nbsp; <a href="mailto:nick@dodon.ai">nick@dodon.ai</a></div>
+    </div>
+    <div class="trust">SOC 2 certified &nbsp;·&nbsp; HIPAA compliant</div>
+  </div>
+</footer>
+
+</body>
+</html>
