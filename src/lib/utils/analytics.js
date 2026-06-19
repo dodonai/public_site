@@ -14,6 +14,26 @@ function grantConsent() {
 }
 
 /**
+ * Fire a one-time consent decision event so acceptance rate is measurable
+ * in GA4. Called from CookieConsent on the accept-button click moment
+ * (not on subsequent page loads where consent is already granted).
+ */
+export function trackConsentAccepted() {
+	if (typeof window === 'undefined' || !window.gtag) return;
+	window.gtag('event', 'consent_accepted', { event_category: 'consent' });
+}
+
+/**
+ * Fire on the decline-button click. The event itself sends in cookieless /
+ * modeled mode (consent storage remains denied), which is the correct path
+ * for measuring decline rate without persisting user identity.
+ */
+export function trackConsentDeclined() {
+	if (typeof window === 'undefined' || !window.gtag) return;
+	window.gtag('event', 'consent_declined', { event_category: 'consent' });
+}
+
+/**
  * Track SPA page views on client-side navigation.
  * GA4 is always available (loaded in app.html). Meta Pixel only after consent.
  */

@@ -28,12 +28,13 @@ jobs:
       - name: Build static site
         run: npm run build
 
-      - name: Exclude client prototypes from production
-        # Client-facing prototypes/deliverables under /clients/ are served on
-        # stage only. Removing them here (before the mirror rsync below) keeps
-        # them out of the prod bucket; the rsync -d flag also purges any that
-        # were previously deployed. They remain in source and on the stage build.
-        run: rm -rf build/clients
+      - name: Strip client deliverables from prod build
+        run: |
+          # Client-facing HTML deliverables are staged via the `stage` branch
+          # and served only from landing.dodonai.com (noindex). This guard
+          # prevents accidental leaks to www.dodon.ai if a client file ever
+          # lands on main via a bad merge.
+          rm -rf build/clients
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2

@@ -1,149 +1,176 @@
 {
-	"seo": {
-		"title": "AI Medical Record Review for Law Firms | Dodonai",
-		"description": "Upload 500 pages of medical records. Get a chronology with page citations in 15 minutes. SOC 2 certified. HIPAA compliant. Try free.",
-		"canonical": "/use-cases/medical-record-review/"
-	},
-	"breadcrumbs": [
-		{ "name": "Home", "href": "/" },
-		{ "name": "Use Cases", "href": null },
-		{ "name": "Medical Record Review" }
-	],
-	"hero": {
-		"headline": "AI-Powered Medical Record Review",
-		"subheadline": "A single plaintiff's records can span 2,000 pages across a dozen providers. Dodonai's AI summarizes, organizes, and builds chronologies from even the most complex medical files in minutes, not days.",
-		"ctaText": "Upload Your First Record",
-		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=medical-record-review",
-		"secondaryCtaText": "See the Output",
-		"secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
-	},
-	"sections": [
-		{
-			"type": "content",
-			"heading": "How AI Transforms the Medical Record Review Process",
-			"paragraphs": [
-				"Manual medical record review hasn't changed much in decades: open the file, read every page, take notes, build the chronology. For a 500-page record set, that's a full day of paralegal time. Multiply that across 20 active cases and you've buried your team in paperwork.",
-				"AI medical record review for attorneys and legal teams changes the equation. Instead of reading every page line by line, Dodonai ingests the full record set, identifies key medical events, and produces a structured medical record summary, including {{link:/ai-medical-record-summaries-chronologies/|chronologies and narrative summaries}}, your team can use immediately. The AI works across provider documentation styles, recognizes clinical terminology in context, and organizes events chronologically with page numbers pointing to the original.",
-				"For law firms handling personal injury, medical malpractice, or mass tort cases, this means faster case evaluations, more consistent work product, and lower costs per case. For medical review services and {{link:/industries/ime-companies/|IME companies}}, it means scaling operations without proportionally scaling headcount."
-			]
-		},
-		{
-			"type": "features",
-			"heading": "Medical Record Review Capabilities",
-			"cards": [
-				{
-					"icon": "calendar",
-					"title": "Automated Medical Chronology",
-					"description": "No more manually cross-referencing dates across scattered documents. Dodonai extracts dates, providers, diagnoses, treatments, and outcomes from the full record set and arranges them into a detailed chronological timeline."
-				},
-				{
-					"icon": "document",
-					"title": "Narrative Summarization",
-					"description": "A clear, readable summary of the patient's medical history alongside the chronology. Key diagnoses, surgical interventions, medication changes, treatment modalities, and gaps in care are organized for case evaluation, expert referrals, and demand preparation."
-				},
-				{
-					"icon": "search",
-					"title": "OCR for Scanned Records",
-					"description": "Scanned PDFs, handwritten notes, and faxed documents are no problem. Dodonai's {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text accurately so nothing gets missed during review."
-				},
-				{
-					"icon": "shield",
-					"title": "HIPAA-Compliant Processing",
-					"description": "Patient data is encrypted with AES-256 on SOC 2 certified infrastructure. BAAs signed before your first upload. Records never enter a training pipeline."
-				},
-				{
-					"icon": "adjustments",
-					"title": "Customizable Output Formats",
-					"description": "Export as PDF, Word, Excel, or plain text. Highlight specific providers or diagnoses and tailor the output to match your firm's preferred format."
-				},
-				{
-					"icon": "squares",
-					"title": "Bulk Record Processing",
-					"description": "Whether it's a single plaintiff case or thousands of claimants in a mass tort, upload and process multiple record sets simultaneously. Dodonai scales to your volume without sacrificing quality."
-				}
-			]
-		},
-		{
-			"type": "howItWorks",
-			"items": [
-				{
-					"title": "Upload Your Medical Records",
-					"description": "Upload the full record set to Dodonai's secure platform. Accepts PDFs of any size, including scanned and handwritten documents. Specify key topics, providers, or diagnoses to focus the review."
-				},
-				{
-					"title": "AI Processes and Organizes the Records",
-					"description": "Dodonai reads every page, extracts relevant medical events, and builds a structured chronology alongside a narrative summary. Diagnoses, procedures, prescriptions, and provider visits are organized chronologically with source-page citations, ready for case evaluation, demand prep, or expert referral."
-				},
-				{
-					"title": "Review, Refine, and Export",
-					"description": "Review the AI-generated summary with side-by-side source linking. Sort and filter by date, provider, or event type. Make adjustments, then export in your preferred format."
-				}
-			]
-		},
-		{
-			"type": "comparison",
-			"heading": "AI vs. Manual Medical Record Review",
-			"columns": ["Capability", "Dodonai AI", "Manual Review"],
-			"rows": [
-				["Process 500+ pages in under 15 minutes", true, false],
-				["Generate chronology in minutes", true, false],
-				["Consistent output quality across reviewers", true, false],
-				["Handle scanned and handwritten records", true, false],
-				["Scale to thousands of cases simultaneously", true, false],
-				["HIPAA-compliant data handling", true, true],
-				["Source-linked citations", true, false],
-				["Cost under $100 per record set", true, false],
-				["Free trial available", true, false]
-			]
-		}
-	],
-	"faq": [
-		{
-			"question": "How accurate is AI medical record review compared to manual review?",
-			"answer": "Dodonai extracts key medical events with high precision across charting styles. Every summary includes page citations so reviewers can verify any data point against the original record, reducing the oversight errors that occur when processing large volumes manually."
-		},
-		{
-			"question": "What types of medical records can Dodonai process?",
-			"answer": "Hospital discharge summaries, SOAP notes, operative reports, lab panels, imaging studies, therapy notes, pharmacy records, and correspondence. The {{link:/ai-pdf-ocr/|AI OCR engine}} extracts text from even low-quality scans, so scanned faxes and handwritten notes get processed alongside digital records."
-		},
-		{
-			"question": "Is the platform HIPAA compliant?",
-			"answer": "Encrypted from upload to deletion with AES-256. SOC 2 certified, HIPAA compliant, with signed BAAs on every account. Your records stay out of training pipelines, and your firm controls the retention schedule."
-		},
-		{
-			"question": "How long does it take to review a medical record set?",
-			"answer": "Most record sets process in minutes regardless of length. A 500-page record that might take 8-12 hours manually is summarized in under 15 minutes. See our {{link:https://app.dodon.ai/help/basic-medical-record-summaries|medical record summaries guide}} for step-by-step instructions on uploading and processing records."
-		},
-		{
-			"question": "Can I customize the output to match my firm's format?",
-			"answer": "Yes. Multiple export formats including PDF, Word, Excel, and plain text. Customize detail level, filter by provider or date range, and configure the summary structure to match your firm's templates."
-		},
-		{
-			"question": "What practice areas benefit most from AI medical record review?",
-			"answer": "Any litigation involving medical records: {{link:/practice-areas/personal-injury/|personal injury}}, medical malpractice, mass torts, workers' comp, and disability claims. Insurance companies and IME firms also rely on Dodonai for high-volume processing."
-		}
-	],
-	"relatedPages": [
-		{
-			"title": "Personal Injury",
-			"href": "/practice-areas/personal-injury/",
-			"description": "AI document processing for PI cases, from medical records through depositions and demand prep."
-		},
-		{
-			"title": "IME Companies",
-			"href": "/industries/ime-companies/",
-			"description": "Process hundreds of claimant record sets per month with consistent AI-generated summaries."
-		}
-	],
-	"relatedBlogPosts": [
-		"/blog/understanding-medical-chronology-clear-actionable-timelines/",
-		"/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know/",
-		"/blog/how-to-organize-medical-records-for-personal-injury-demand-package/",
-		"/blog/medical-malpractice-record-review-standard-of-care/",
-		"/blog/how-ime-companies-use-ai-to-process-medical-records/"
-	],
-	"ctaOverride": {
-		"headline": "Start Your Free Medical Record Review",
-		"description": "Upload a medical record set and see the AI-generated summary and chronology. No credit card required."
-	}
+  "seo": {
+    "title": "AI Medical Record Review for Law Firms | Dodonai",
+    "description": "Upload 500 pages of medical records. Get a chronology with page citations in 15 minutes. SOC 2 certified. HIPAA compliant. Try free.",
+    "canonical": "/use-cases/medical-record-review/"
+  },
+  "breadcrumbs": [
+    { "name": "Home", "href": "/" },
+    { "name": "Use Cases", "href": null },
+    { "name": "Medical Record Review" }
+  ],
+  "hero": {
+    "headline": "AI Medical Record Review — Analyze Patient Records Faster",
+    "subheadline": "Medical record review is the analysis step — reading patient records and extracting the clinical events that matter to your case. Dodonai's AI reads the records for your team, flagging diagnoses, treatments, inconsistencies, and timeline gaps so attorneys review conclusions, not raw documents.",
+    "ctaText": "Upload Your First Record",
+    "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=medical-record-review",
+    "secondaryCtaText": "See the Chronology Output",
+    "secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "What Medical Record Review Actually Means",
+      "paragraphs": [
+        "Medical record review is the analysis step in any case involving patient records — physician notes, diagnostic results, imaging reports, treatment history, IME findings. The job is to read the records, identify what's clinically relevant, flag inconsistencies, and surface the moments that affect case strategy. For attorneys, that means reading thousands of pages before you can build a {{link:/ai-medical-record-summaries-chronologies/|medical chronology}}, evaluate damages, or prepare for deposition.",
+        "Manual review hasn't changed much in decades: open the file, read every page, take notes. For a 500-page record set, that's a full day of paralegal time. Multiply that across 20 active cases and your team is buried in paperwork — and still has to build the chronology afterward.",
+        "AI medical record review changes the equation. Dodonai ingests the full record set, identifies key clinical events, flags inconsistencies and treatment gaps, and produces structured output with page citations back to the source. Your team reviews the AI's findings instead of reading every page line by line. For law firms handling personal injury, medical malpractice, mass tort, workers' comp, or {{link:/practice-areas/disability-benefits/|disability benefits cases}}, the result is faster case evaluation, more consistent analysis across the firm, and lower cost per case."
+      ]
+    },
+    {
+      "type": "features",
+      "heading": "What the AI Does During Review",
+      "cards": [
+        {
+          "icon": "search",
+          "title": "Clinical Event Extraction",
+          "description": "The AI reads every page and extracts diagnoses, procedures, medications, provider visits, lab results, and imaging findings — with a page citation for every extracted event so any finding can be verified against the source record in seconds."
+        },
+        {
+          "icon": "adjustments",
+          "title": "Inconsistency and Gap Flagging",
+          "description": "Surfaces inconsistencies across providers, gaps in treatment, contradictions between IME findings and treating physician notes, and prior conditions that could affect causation analysis. The signals attorneys would otherwise hunt for manually."
+        },
+        {
+          "icon": "document",
+          "title": "Narrative Analysis Summary",
+          "description": "A readable analytical summary of the patient's clinical picture — key diagnoses, course of treatment, response to therapy, and the threads that connect them. Built for case evaluation and {{link:/use-cases/expert-witness-preparation/|expert witness preparation}}, not just data extraction."
+        },
+        {
+          "icon": "search",
+          "title": "OCR for Scanned Records",
+          "description": "Scanned PDFs, handwritten notes, and faxed documents are no problem. Dodonai's {{link:/ai-pdf-ocr/|AI-powered OCR}} extracts text accurately so nothing gets missed during review."
+        },
+        {
+          "icon": "shield",
+          "title": "HIPAA-Compliant Processing",
+          "description": "Patient data is encrypted with AES-256 on SOC 2 certified infrastructure. BAAs signed before your first upload. Records never enter a training pipeline."
+        },
+        {
+          "icon": "squares",
+          "title": "Bulk Record Processing",
+          "description": "Whether it's a single plaintiff case or thousands of claimants in a mass tort, upload and process multiple record sets in parallel. Dodonai scales to your volume without sacrificing analysis quality."
+        }
+      ]
+    },
+    {
+      "type": "howItWorks",
+      "items": [
+        {
+          "title": "Upload Your Medical Records",
+          "description": "Upload the full record set to Dodonai's secure platform. Accepts PDFs of any size, including scanned and handwritten documents. Specify key topics, providers, or diagnoses to focus the analysis."
+        },
+        {
+          "title": "AI Reads and Analyzes the Records",
+          "description": "Dodonai reads every page, extracts the clinically relevant events, and flags inconsistencies and treatment gaps. Every extracted event includes a page citation back to the source so any finding is verifiable in one click."
+        },
+        {
+          "title": "Review the AI's Findings, Not Every Page",
+          "description": "Open the analysis in the side-by-side viewer. Sort and filter by date, provider, or event type. Make adjustments to the analysis, then export in your preferred format — or hand the analyzed record set off to chronology generation."
+        }
+      ]
+    },
+    {
+      "type": "comparison",
+      "heading": "AI vs. Manual Medical Record Review",
+      "columns": ["Capability", "Dodonai AI", "Manual Review"],
+      "rows": [
+        ["Read and analyze 500+ pages in under 15 minutes", true, false],
+        ["Flag inconsistencies and treatment gaps automatically", true, "Depends on reviewer"],
+        ["Consistent analysis quality across reviewers", true, false],
+        ["Handle scanned and handwritten records", true, true],
+        ["Scale to thousands of cases simultaneously", true, false],
+        ["HIPAA-compliant data handling", true, true],
+        ["Source-page citations for every extracted event", true, false],
+        ["Free trial available", true, false]
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "From Medical Record Review to Chronology",
+      "paragraphs": [
+        "Review is the input. The chronology is the output. Once Dodonai has read and analyzed the records, it automatically organizes the extracted events into a complete medical chronology — a structured, date-ordered timeline your team can use in depositions, mediation, demand letters, and trial. The analysis and the chronology come from a single upload; you don't run two tools.",
+        "If you want to see the chronology output specifically — formats, examples, and how attorneys use it — {{link:/ai-medical-record-summaries-chronologies/|generate a full medical chronology}} is the dedicated page for that. If you're comparing chronology software vendors, see our {{link:/compare/best-medical-chronology-software/|comparison of medical chronology software options}}."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How accurate is AI medical record review compared to manual review?",
+      "answer": "Dodonai extracts clinical events with high precision across provider charting styles. Every extracted event includes a page citation so reviewers can verify any finding against the original record. The structured output reduces the oversight errors that occur when paralegals process large volumes manually under time pressure."
+    },
+    {
+      "question": "What types of medical records can Dodonai analyze?",
+      "answer": "Hospital discharge summaries, SOAP notes, operative reports, lab panels, imaging studies, therapy notes, pharmacy records, IME reports, and correspondence. The {{link:/ai-pdf-ocr/|AI OCR engine}} extracts text from low-quality scans, so scanned faxes and handwritten notes get analyzed alongside digital records."
+    },
+    {
+      "question": "Is the platform HIPAA compliant?",
+      "answer": "Encrypted from upload to deletion with AES-256. SOC 2 certified, HIPAA compliant, with signed BAAs on every account. Your records stay out of training pipelines, and your firm controls the retention schedule."
+    },
+    {
+      "question": "How long does AI medical record review take?",
+      "answer": "Most record sets process in minutes regardless of length. A 500-page record set that would take a paralegal a full day to review manually is analyzed in under 15 minutes. The output is ready to review immediately — no overnight batch wait."
+    },
+    {
+      "question": "How is medical record review different from generating a medical chronology?",
+      "answer": "Review is the analysis step — reading the records and extracting relevant clinical events. The chronology is the structured output — those events arranged into a date-ordered timeline. Dodonai handles both from a single upload: see the {{link:/ai-medical-record-summaries-chronologies/|chronology page}} for output formats and examples."
+    },
+    {
+      "question": "What practice areas benefit most from AI medical record review?",
+      "answer": "Any litigation involving medical records: {{link:/practice-areas/personal-injury/|personal injury}}, medical malpractice, mass torts, workers' comp, and {{link:/practice-areas/disability-benefits/|disability benefits medical records}}. Insurance companies and {{link:/industries/ime-companies/|IME companies}} also rely on Dodonai for high-volume processing."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "The output side of the workflow — chronologies, narrative summaries, and formats."
+    },
+    {
+      "title": "Compare Medical Chronology Software",
+      "href": "/compare/best-medical-chronology-software/",
+      "description": "Side-by-side comparison of chronology software options for law firms."
+    },
+    {
+      "title": "Expert Witness Preparation",
+      "href": "/use-cases/expert-witness-preparation/",
+      "description": "How attorneys prep for expert depositions using analyzed records and prior testimony."
+    },
+    {
+      "title": "Disability Benefits Cases",
+      "href": "/practice-areas/disability-benefits/",
+      "description": "SSDI, LTD, and VA disability medical record review."
+    },
+    {
+      "title": "Personal Injury",
+      "href": "/practice-areas/personal-injury/",
+      "description": "AI document processing for PI cases, from medical records through depositions and demand prep."
+    },
+    {
+      "title": "IME Companies",
+      "href": "/industries/ime-companies/",
+      "description": "Process hundreds of claimant record sets per month with consistent AI-generated analysis."
+    }
+  ],
+  "relatedBlogPosts": [
+    "/blog/understanding-medical-chronology-clear-actionable-timelines/",
+    "/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know/",
+    "/blog/how-to-organize-medical-records-for-personal-injury-demand-package/",
+    "/blog/medical-malpractice-record-review-standard-of-care/",
+    "/blog/how-ime-companies-use-ai-to-process-medical-records/"
+  ],
+  "ctaOverride": {
+    "headline": "Start Your Free Medical Record Review",
+    "description": "Upload a medical record set and see the AI-generated analysis. No credit card required."
+  }
 }

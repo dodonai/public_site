@@ -1,6 +1,6 @@
 <script>
 	import { onMount } from 'svelte';
-	import { loadAnalytics } from '$lib/utils/analytics.js';
+	import { loadAnalytics, trackConsentAccepted, trackConsentDeclined } from '$lib/utils/analytics.js';
 
 	let visible = $state(false);
 
@@ -16,11 +16,13 @@
 	function accept() {
 		localStorage.setItem('cookie-consent', 'accepted');
 		loadAnalytics();
+		trackConsentAccepted();
 		visible = false;
 	}
 
 	function decline() {
 		localStorage.setItem('cookie-consent', 'declined');
+		trackConsentDeclined();
 		visible = false;
 	}
 </script>
