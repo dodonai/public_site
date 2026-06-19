@@ -1,0 +1,880 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Disability Answer Guide — Function Report (Live Fill)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<!-- Client-side PDF fill engine (pdf-lib). Optional — export still mocks if absent. -->
+<script src="pdf-lib.min.js"></script>
+<!-- Official SSA-3373-BK, preprocessed + base64. Sets window.PDF_DATA.fr (optional). -->
+<script src="pdf-data.js"></script>
+<style>
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --field-bg:#FFFFFF; --field-border:#C9C4B4; --field-focus:#7C3AED;
+  --error:#C53030; --warn:#C05621; --ok:#2F855A;
+  --ink:#15336e;            /* "your answers" ink colour on the form */
+  --paper:#FFFFFF; --paper-line:#9a9a9a; --paper-ink:#1a1a1a; --paper-bar:#e7e7e7;
+}
+*{box-sizing:border-box;}
+html,body{margin:0;padding:0;background:var(--cream);}
+body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;font-size:11pt;line-height:1.5;color:var(--midnight);}
+
+/* ============ Header ============ */
+.app-header{background:var(--midnight);color:#fff;padding:18px 30px 20px;position:sticky;top:0;z-index:60;border-bottom:4px solid var(--purple-vivid);}
+.app-header-inner{max-width:1440px;margin:0 auto;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:16px;}
+.app-brand .firm-name{font-weight:800;font-size:16pt;letter-spacing:-0.01em;line-height:1.1;}
+.app-brand .firm-sub{font-family:'Source Code Pro',monospace;font-size:8.5pt;color:var(--purple-soft);letter-spacing:0.16em;text-transform:uppercase;font-weight:600;margin-top:3px;}
+.app-meta{display:flex;align-items:center;gap:14px;font-family:'Source Code Pro',monospace;font-size:9pt;color:var(--purple-soft);letter-spacing:0.10em;text-transform:uppercase;font-weight:600;}
+.prototype-pill{background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px;font-family:'Source Code Pro',monospace;font-size:8.5pt;letter-spacing:0.12em;font-weight:700;text-transform:uppercase;}
+.hdr-strength{display:flex;align-items:center;gap:9px;background:var(--midnight-soft);border:1px solid var(--midnight-deep);border-radius:22px;padding:6px 14px 6px 10px;cursor:pointer;}
+.hdr-strength .hs-dot{width:10px;height:10px;border-radius:50%;background:#68D391;flex:none;}
+.hdr-strength .hs-txt{font-size:9.5pt;color:#E0DCEF;font-weight:600;letter-spacing:0.01em;white-space:nowrap;}
+.hdr-strength.warn .hs-dot{background:#F6AD55;}
+
+/* ============ Intro / philosophy bar ============ */
+.intro-bar{background:#fff;border-bottom:1px solid var(--cream-line);}
+.intro-inner{max-width:1440px;margin:0 auto;padding:14px 30px;display:flex;gap:16px;align-items:flex-start;}
+.intro-badge{flex:none;font-family:'Source Code Pro',monospace;font-size:8pt;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#fff;background:var(--purple-vivid);padding:5px 11px;border-radius:14px;margin-top:2px;}
+.intro-text{font-size:10pt;line-height:1.6;color:var(--midnight-deep);}
+.intro-text strong{color:var(--midnight-deep);}
+.intro-text .more{display:none;}
+.intro-text.open .more{display:inline;}
+.intro-toggle{background:none;border:none;color:var(--purple-bold);font-family:inherit;font-weight:700;font-size:9.5pt;cursor:pointer;padding:0;margin-left:4px;}
+
+/* ============ Two-pane layout ============ */
+.split{max-width:1440px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:start;}
+.pane-guided{padding:22px 26px 90px;min-width:0;}
+.pane-form{position:sticky;top:86px;height:calc(100vh - 86px);overflow:auto;background:var(--cream-deep);border-left:1px solid var(--cream-line);padding:18px 22px 60px;}
+.pane-head{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:14px;}
+.pane-head .ph-title{font-weight:800;font-size:12.5pt;letter-spacing:-0.01em;}
+.pane-head .ph-sub{font-family:'Source Code Pro',monospace;font-size:8pt;color:var(--gray-meta-light);letter-spacing:0.10em;text-transform:uppercase;font-weight:600;}
+.pane-form .pane-head .ph-sub{color:var(--purple-bold);}
+
+/* ============ Guided question cards ============ */
+.gsection{margin-bottom:8px;}
+.gsection-bar{display:flex;align-items:baseline;gap:10px;margin:26px 0 12px;padding-bottom:7px;border-bottom:2px solid var(--purple-bold);}
+.gsection-bar:first-child{margin-top:0;}
+.gsection-bar .gs-code{font-family:'Source Code Pro',monospace;font-size:8pt;color:var(--purple-bold);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;}
+.gsection-bar h2{font-weight:700;font-size:13.5pt;letter-spacing:-0.01em;margin:0;color:var(--midnight);}
+
+.q{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:16px 18px;margin-bottom:13px;transition:border-color .15s,box-shadow .15s;}
+.q.focus{border-color:var(--purple-soft);box-shadow:0 0 0 3px rgba(124,58,237,0.10);}
+.q-head{display:flex;align-items:flex-start;gap:8px;margin-bottom:9px;}
+.q-num{font-family:'Source Code Pro',monospace;font-size:8.5pt;font-weight:700;color:var(--purple-bold);background:var(--cream);border:1px solid var(--cream-line);border-radius:5px;padding:2px 7px;margin-top:1px;flex:none;}
+.q-label{font-size:10.5pt;font-weight:600;color:var(--midnight-deep);line-height:1.4;flex:1;}
+.q-sub{font-size:9pt;color:var(--gray-meta-light);font-weight:400;display:block;margin-top:3px;line-height:1.45;}
+
+/* guidance tooltip trigger */
+.q-help{flex:none;position:relative;}
+.help-dot{width:21px;height:21px;border-radius:50%;border:1.5px solid var(--purple-soft);color:var(--purple-bold);background:#fff;font-size:11px;font-weight:800;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:Georgia,serif;}
+.help-dot:hover,.help-dot.open{background:var(--purple-vivid);color:#fff;border-color:var(--purple-vivid);}
+.tip{position:absolute;right:0;top:28px;width:340px;background:var(--midnight);color:#fff;border-radius:11px;padding:16px 17px 15px;box-shadow:0 18px 44px rgba(20,20,58,.36);z-index:80;display:none;border-top:3px solid var(--purple-vivid);}
+.tip.show{display:block;}
+.tip .tip-from{font-family:'Source Code Pro',monospace;font-size:7.5pt;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:7px;display:flex;align-items:center;gap:7px;}
+.tip .tip-body{font-size:9.5pt;line-height:1.55;color:#EDEAF8;}
+.tip .tip-quote{margin:11px 0 0;padding:9px 11px;background:var(--midnight-soft);border-left:3px solid var(--purple-soft);border-radius:5px;font-size:9pt;line-height:1.5;color:#D5D0EA;font-style:italic;}
+.tip .tip-quote .tq-cite{display:block;font-style:normal;font-family:'Source Code Pro',monospace;font-size:7.5pt;color:var(--gray-meta);margin-top:5px;letter-spacing:0.04em;}
+.tip-video{margin-top:12px;display:inline-flex;align-items:center;gap:8px;background:var(--purple-vivid);color:#fff;border:none;border-radius:7px;padding:8px 13px;font-family:inherit;font-size:9pt;font-weight:700;cursor:pointer;letter-spacing:0.02em;}
+.tip-video:hover{background:var(--purple-bold);}
+.tip-video .vt-tri{font-size:8pt;}
+.tip-video .vt-len{font-family:'Source Code Pro',monospace;font-size:7.5pt;opacity:.8;font-weight:600;}
+
+/* always-on inline guidance (Show all guidance mode) */
+.guide-inline{display:none;margin-top:11px;background:var(--cream);border:1px solid var(--cream-line);border-left:3px solid var(--purple-vivid);border-radius:8px;padding:12px 14px;}
+body.guidance-all .guide-inline{display:block;}
+.guide-inline .tip-from{font-family:'Source Code Pro',monospace;font-size:7.5pt;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:7px;}
+.guide-inline .tip-body{font-size:9.5pt;line-height:1.55;color:var(--midnight-deep);}
+.guide-inline .tip-quote{margin:10px 0 0;padding:9px 11px;background:#fff;border-left:3px solid var(--purple-soft);border-radius:5px;font-size:9pt;line-height:1.5;color:var(--gray-meta-light);font-style:italic;}
+.guide-inline .tip-quote .tq-cite{display:block;font-style:normal;font-family:'Source Code Pro',monospace;font-size:7.5pt;color:var(--gray-meta);margin-top:5px;letter-spacing:0.04em;}
+/* guidance toggle in header */
+.guide-toggle{background:var(--midnight-soft);border:1px solid var(--midnight-deep);color:#E0DCEF;font-family:inherit;font-weight:600;font-size:9pt;padding:6px 13px;border-radius:22px;cursor:pointer;letter-spacing:0.01em;white-space:nowrap;}
+.guide-toggle:hover{border-color:var(--purple-soft);}
+.guide-toggle.on{background:var(--purple-vivid);border-color:var(--purple-vivid);color:#fff;}
+
+/* inputs */
+.q input[type=text],.q input[type=date],.q input[type=tel],.q textarea,.q select{
+  width:100%;font-family:inherit;font-size:10.5pt;color:var(--midnight);background:var(--field-bg);
+  border:1px solid var(--field-border);border-radius:6px;padding:9px 11px;transition:border-color .15s,box-shadow .15s;}
+.q textarea{resize:vertical;min-height:64px;line-height:1.5;}
+.q input:focus,.q textarea:focus,.q select:focus{outline:none;border-color:var(--field-focus);box-shadow:0 0 0 3px rgba(124,58,237,.15);}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:11px;}
+.yesno{display:flex;gap:7px;max-width:230px;}
+.yesno input{display:none;}
+.yesno label{flex:1;text-align:center;padding:8px 12px;border:1px solid var(--field-border);border-radius:6px;background:#fff;font-size:9.5pt;font-weight:600;color:var(--midnight);cursor:pointer;transition:all .15s;}
+.yesno label:hover{border-color:var(--purple-soft);background:var(--cream);}
+.yesno input:checked+label{background:var(--purple-bold);color:#fff;border-color:var(--purple-bold);}
+.opts{display:grid;grid-template-columns:repeat(2,1fr);gap:7px 16px;margin-top:2px;}
+.opts.one{grid-template-columns:1fr;}
+.opts label{display:flex;align-items:center;gap:8px;font-size:9.5pt;font-weight:500;color:var(--midnight);cursor:pointer;}
+.opts input{width:15px;height:15px;accent-color:var(--purple-vivid);flex:none;}
+.explain-wrap{margin-top:9px;}
+.explain-wrap textarea{min-height:48px;}
+.mini-label{font-size:9pt;color:var(--gray-meta-light);font-weight:600;margin:9px 0 5px;}
+
+/* AI suggest */
+.ai-suggest{margin-top:9px;}
+.btn-ai{display:inline-flex;align-items:center;gap:7px;background:#fff;color:var(--purple-bold);border:1px dashed var(--purple-soft);border-radius:6px;padding:7px 13px;font-family:inherit;font-size:9pt;font-weight:600;cursor:pointer;transition:all .15s;}
+.btn-ai:hover{border-color:var(--purple-vivid);background:var(--cream);color:var(--purple-vivid);}
+.ai-output{display:none;margin-top:9px;background:var(--cream);border:1px solid var(--cream-line);border-radius:8px;padding:13px 14px;}
+.ai-output.show{display:block;}
+.ai-label{font-family:'Source Code Pro',monospace;font-size:7.5pt;color:var(--purple-bold);letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin-bottom:7px;}
+.ai-text{font-size:9.5pt;line-height:1.6;color:var(--midnight);white-space:pre-wrap;}
+.ai-actions{margin-top:10px;display:flex;gap:7px;}
+.btn-mini{font-family:inherit;font-size:8.5pt;font-weight:700;padding:6px 11px;border-radius:5px;cursor:pointer;border:none;}
+.btn-accept{background:var(--purple-vivid);color:#fff;}.btn-accept:hover{background:var(--purple-bold);}
+.btn-dismiss{background:var(--cream-deep);color:var(--gray-meta-light);border:1px solid var(--field-border)!important;}
+
+/* inline credibility note */
+.cred-note{margin-top:10px;display:none;background:rgba(192,86,33,.08);border-left:3px solid var(--warn);padding:9px 12px;border-radius:4px;font-size:9pt;color:#7a3514;line-height:1.5;}
+.cred-note.show{display:block;}
+.cred-note.good{background:rgba(47,133,90,.08);border-left-color:var(--ok);color:#1f5c3d;}
+.cred-note .cn-head{font-weight:700;text-transform:uppercase;letter-spacing:0.07em;font-size:7.5pt;font-family:'Source Code Pro',monospace;display:block;margin-bottom:3px;}
+
+/* ============ The live form facsimile (right pane) ============ */
+.paper{background:var(--paper);color:var(--paper-ink);font-family:Georgia,'Times New Roman',serif;border:1px solid #c4c4c4;box-shadow:0 4px 18px rgba(0,0,0,.10);border-radius:3px;padding:30px 34px 36px;position:relative;}
+.paper-watermark{position:absolute;top:14px;right:18px;font-family:'Source Code Pro',monospace;font-size:7.5pt;letter-spacing:0.18em;text-transform:uppercase;color:#c9b8b8;font-weight:700;transform:rotate(0deg);}
+.paper-top{display:flex;justify-content:space-between;font-size:7.5pt;color:#555;font-family:'Source Code Pro',monospace;letter-spacing:0.03em;border-bottom:1px solid #ddd;padding-bottom:5px;margin-bottom:14px;}
+.paper-title{text-align:center;margin:6px 0 4px;}
+.paper-title .pt-main{font-size:14pt;font-weight:700;letter-spacing:0.04em;}
+.paper-title .pt-sub{font-size:8.5pt;color:#555;font-style:italic;margin-top:2px;}
+.fx-rule{border:none;border-top:1.5px solid var(--paper-ink);margin:12px 0 16px;}
+.fx-section{background:var(--paper-bar);border:1px solid #cfcfcf;text-align:center;font-size:9pt;font-weight:700;letter-spacing:0.06em;padding:6px;margin:18px 0 12px;}
+.fxq{margin-bottom:13px;padding:3px 4px;border-radius:4px;transition:background .2s,box-shadow .2s;}
+.fxq.fx-active{background:#fff6d8;box-shadow:0 0 0 2px #f2d479;}
+.fxq-text{font-size:9.5pt;line-height:1.4;color:var(--paper-ink);}
+.fxq-num{font-weight:700;}
+.fx-ans{display:block;min-height:15px;border-bottom:1px solid var(--paper-line);margin-top:4px;padding:1px 2px 3px;color:var(--ink);font-size:9.5pt;line-height:1.55;font-family:'Plus Jakarta Sans',sans-serif;white-space:pre-wrap;word-break:break-word;}
+.fx-ans:empty::after{content:"";}
+.fx-inline{color:var(--ink);font-family:'Plus Jakarta Sans',sans-serif;font-weight:600;border-bottom:1px solid var(--paper-line);padding:0 4px;min-width:60px;display:inline-block;}
+.fx-row{display:flex;gap:6px;align-items:center;flex-wrap:wrap;margin:5px 0;}
+.fx-cbset{display:flex;flex-wrap:wrap;gap:5px 14px;margin:6px 0;}
+.fx-cbi{display:inline-flex;align-items:center;gap:5px;font-size:9pt;}
+.fx-cb{width:13px;height:13px;border:1.3px solid var(--paper-ink);display:inline-flex;align-items:center;justify-content:center;flex:none;font-size:10px;line-height:1;color:var(--ink);font-weight:800;background:#fff;}
+.fx-cb.on::after{content:"✕";}
+.fx-yn{display:inline-flex;gap:12px;margin-left:8px;}
+.paper-foot{margin-top:20px;border-top:1px solid #ddd;padding-top:6px;font-size:7.5pt;color:#777;font-family:'Source Code Pro',monospace;display:flex;justify-content:space-between;}
+
+/* ============ Export bar ============ */
+.export-bar{position:fixed;bottom:0;left:0;right:0;background:var(--midnight);color:#fff;z-index:55;border-top:3px solid var(--purple-vivid);}
+.export-inner{max-width:1440px;margin:0 auto;padding:13px 30px;display:flex;align-items:center;justify-content:space-between;gap:18px;}
+.export-meta{font-size:9.5pt;color:var(--purple-soft);line-height:1.4;}
+.export-meta strong{color:#fff;}
+.export-meta .em-lock{font-family:'Source Code Pro',monospace;font-size:8pt;letter-spacing:0.06em;text-transform:uppercase;}
+.btn{font-family:inherit;font-weight:700;font-size:10.5pt;padding:11px 20px;border-radius:7px;border:none;cursor:pointer;transition:all .15s;letter-spacing:0.02em;}
+.btn-primary{background:var(--purple-vivid);color:#fff;}.btn-primary:hover{background:var(--purple-bold);}
+.btn-ghost{background:transparent;color:var(--purple-soft);border:1px solid var(--midnight-soft);margin-right:8px;}.btn-ghost:hover{color:#fff;border-color:var(--purple-soft);}
+
+/* ============ Modals (UPL gate, payment, video) ============ */
+.overlay{position:fixed;inset:0;background:rgba(20,20,58,.86);z-index:200;display:flex;align-items:center;justify-content:center;padding:24px;}
+.overlay.hidden{display:none;}
+.modal{background:var(--cream);border-radius:14px;max-width:560px;width:100%;padding:32px 34px 28px;box-shadow:0 24px 60px rgba(0,0,0,.4);border-top:5px solid var(--purple-vivid);max-height:90vh;overflow:auto;}
+.modal .m-tag{font-family:'Source Code Pro',monospace;font-size:8.5pt;color:var(--purple-bold);letter-spacing:0.14em;text-transform:uppercase;font-weight:700;}
+.modal h2{font-size:16pt;font-weight:800;margin:8px 0 13px;letter-spacing:-0.01em;}
+.modal p{font-size:10pt;line-height:1.6;color:var(--midnight-deep);margin:0 0 11px;}
+.m-box{background:#fff;border:1px solid var(--cream-line);border-radius:8px;padding:13px 15px;margin:13px 0 17px;font-size:9.5pt;line-height:1.55;color:var(--gray-meta-light);}
+.m-check{display:flex;align-items:flex-start;gap:10px;margin-bottom:17px;font-size:9.5pt;color:var(--midnight-deep);}
+.m-check input{width:17px;height:17px;margin-top:1px;accent-color:var(--purple-vivid);flex:none;}
+.modal .btn{width:100%;padding:13px;font-size:11pt;}
+.modal .btn:disabled{opacity:.45;cursor:not-allowed;}
+.pay-price{display:flex;align-items:baseline;gap:8px;margin:4px 0 14px;}
+.pay-price .pp-amt{font-size:26pt;font-weight:800;color:var(--midnight);letter-spacing:-0.02em;}
+.pay-price .pp-unit{font-size:10pt;color:var(--gray-meta-light);font-weight:600;}
+.pay-token{display:flex;gap:9px;margin:6px 0 4px;}
+.pay-token input{flex:1;font-family:'Source Code Pro',monospace;letter-spacing:0.08em;font-size:11pt;padding:11px 13px;border:1px solid var(--field-border);border-radius:7px;background:#fff;text-transform:uppercase;}
+.pay-feats{list-style:none;padding:0;margin:14px 0 4px;}
+.pay-feats li{font-size:9pt;color:var(--midnight-deep);padding:5px 0 5px 24px;position:relative;line-height:1.4;}
+.pay-feats li::before{content:"🔒";position:absolute;left:0;top:4px;font-size:10pt;}
+.modal-video .v-frame{background:var(--midnight-deep);border-radius:10px;aspect-ratio:16/9;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:12px;color:var(--purple-soft);margin:10px 0 8px;border:1px solid var(--midnight-soft);}
+.v-frame .v-play{width:62px;height:62px;border-radius:50%;background:var(--purple-vivid);display:flex;align-items:center;justify-content:center;color:#fff;font-size:22pt;}
+.v-frame .v-cap{font-size:9pt;font-family:'Source Code Pro',monospace;letter-spacing:0.08em;text-transform:uppercase;}
+.m-close{margin-top:6px;background:var(--cream-deep);color:var(--midnight);border:1px solid var(--field-border);}
+
+.pdf-status{font-size:9pt;color:var(--purple-soft);margin-top:12px;font-family:'Source Code Pro',monospace;line-height:1.5;}
+
+@media (max-width:1080px){
+  .split{grid-template-columns:1fr;}
+  .pane-form{position:relative;top:0;height:auto;border-left:none;border-top:1px solid var(--cream-line);}
+  .tip{width:280px;}
+  .row2,.opts{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- ====== UPL accept-gate ====== -->
+<div class="overlay" id="gateOverlay">
+  <div class="modal">
+    <div class="m-tag">Before you begin</div>
+    <h2>This is general information, not legal advice.</h2>
+    <p>The Disability Answer Guide helps you understand the Social Security disability forms and how to describe your situation clearly, honestly, and completely. It is an educational tool built from Jonathan Ginsberg's decades of disability practice.</p>
+    <div class="m-box">
+      Using this tool does <strong>not</strong> create an attorney-client relationship, and nothing here is legal advice about your specific case. The guidance describes how applicants commonly approach each question and what reviewers tend to look for — it is <strong>not</strong> a script of what to write. You decide every answer in your own words, and you file your own form with Social Security.
+    </div>
+    <label class="m-check">
+      <input type="checkbox" id="gateCheck">
+      <span>I understand this is general information, not legal advice, and that I am responsible for my own answers.</span>
+    </label>
+    <button class="btn btn-primary" id="gateBtn" disabled>Continue to the form</button>
+  </div>
+</div>
+
+<!-- ====== Header ====== -->
+<header class="app-header">
+  <div class="app-header-inner">
+    <div class="app-brand">
+      <div class="firm-name">Disability Answer Guide</div>
+      <div class="firm-sub">Function Report · Adult — Live Fill</div>
+    </div>
+    <div class="app-meta">
+      <button class="guide-toggle" id="guideToggle" title="Show Jonathan's guidance inline for every question">Show all guidance</button>
+      <div class="hdr-strength" id="hdrStrength" title="How your answers are reading so far">
+        <span class="hs-dot"></span><span class="hs-txt" id="hsTxt">Strength check: looking consistent</span>
+      </div>
+      <span class="prototype-pill">Proof of Concept</span>
+      <span>Built by Dodon.ai</span>
+    </div>
+  </div>
+</header>
+
+<!-- ====== Intro / philosophy ====== -->
+<div class="intro-bar">
+  <div class="intro-inner">
+    <span class="intro-badge">Read first</span>
+    <div class="intro-text" id="introText">
+      This form is decided on <strong>function, not diagnosis</strong> — the question is whether your condition keeps you from doing things that add up to work. The reviewer is trained to be skeptical, so the most common way a strong claim gets weakened is sounding <strong>too capable</strong>.<span class="more"> Describe a realistic day — including the bad parts, the rest breaks, and what you've stopped doing. Be specific and concrete ("I can walk about a block before my leg gives out and I rest 10 minutes"), not vague ("I can't walk far"). Don't exaggerate, but don't minimize either — every honest limitation is a reason you'd be an unreliable employee, and that is what wins these cases.</span>
+      <button class="intro-toggle" id="introToggle">Read more</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Split layout ====== -->
+<div class="split">
+
+  <!-- ============ LEFT: guided Q&A ============ -->
+  <main class="pane-guided">
+    <div class="pane-head">
+      <div class="ph-title">Your answers, in plain language</div>
+      <div class="ph-sub">Guided · SSA-3373</div>
+    </div>
+    <form id="frm" novalidate>
+      <!-- Sections + questions are rendered here by JS from FORM[] -->
+    </form>
+  </main>
+
+  <!-- ============ RIGHT: live form facsimile ============ -->
+  <aside class="pane-form">
+    <div class="pane-head">
+      <div class="ph-title">Your official form, filling in</div>
+      <div class="ph-sub">Live preview</div>
+    </div>
+    <div class="paper" id="paper">
+      <div class="paper-watermark">Working Preview</div>
+      <div class="paper-top"><span>Form SSA-3373 (02-2024)</span><span>OMB No. 0960-0681</span></div>
+      <div class="paper-title">
+        <div class="pt-main">FUNCTION REPORT &mdash; ADULT</div>
+        <div class="pt-sub">How your illnesses, injuries, or conditions limit your activities</div>
+      </div>
+      <hr class="fx-rule">
+      <div id="paperBody"><!-- facsimile rendered by JS --></div>
+      <div class="paper-foot"><span>Form SSA-3373 (02-2024)</span><span>Page — of 10</span></div>
+    </div>
+  </aside>
+</div>
+
+<!-- ====== Export bar ====== -->
+<div class="export-bar">
+  <div class="export-inner">
+    <div class="export-meta">
+      <strong>When you're done</strong>, download your completed SSA-3373, ready to print or upload.
+      <span class="em-lock">🔒 unlocks with your one-time access code</span>
+    </div>
+    <div>
+      <button class="btn btn-ghost" id="sampleBtn">Load sample answers</button>
+      <button class="btn btn-primary" id="exportBtn">Download completed form →</button>
+    </div>
+  </div>
+</div>
+
+<!-- ====== Payment gate modal ====== -->
+<div class="overlay hidden" id="payOverlay">
+  <div class="modal">
+    <div class="m-tag">One-time access</div>
+    <h2>Download your completed Function Report</h2>
+    <p>Your answers stay on this device. Unlock to generate the official, filled SSA-3373 as a PDF you can print or upload to Social Security.</p>
+    <div class="pay-price"><span class="pp-amt">$65</span><span class="pp-unit">one form · one-time</span></div>
+    <ul class="pay-feats">
+      <li>Generates the genuine SSA-3373 with your answers written in</li>
+      <li>One-time download tied to your access code — not a subscription</li>
+      <li>Bundle all the common SSDI forms + audio guide for less</li>
+    </ul>
+    <div class="mini-label" style="margin-top:16px">Enter your access code (demo: type anything)</div>
+    <div class="pay-token">
+      <input type="text" id="payToken" placeholder="DAG-XXXX-XXXX" maxlength="14">
+      <button class="btn btn-primary" id="payBtn" style="width:auto;white-space:nowrap;padding:11px 18px;">Unlock</button>
+    </div>
+    <div class="pdf-status" id="payStatus"></div>
+    <button class="btn m-close" id="payClose" style="margin-top:14px;">Not yet — keep editing</button>
+  </div>
+</div>
+
+<!-- ====== Video modal ====== -->
+<div class="overlay hidden" id="videoOverlay">
+  <div class="modal modal-video">
+    <div class="m-tag">Jonathan's walkthrough</div>
+    <h2 id="videoTitle">Video guidance</h2>
+    <div class="v-frame">
+      <div class="v-play">▶</div>
+      <div class="v-cap" id="videoCap">Clip to be recorded</div>
+    </div>
+    <p id="videoDesc" style="font-size:9.5pt;color:var(--gray-meta-light);"></p>
+    <button class="btn m-close" id="videoClose">Close</button>
+  </div>
+</div>
+
+<script>
+/* ============================================================================
+   Disability Answer Guide — v2 split-screen live-fill PoC (2026-06-19)
+   - FORM[] is the single source of truth: drives BOTH the guided Q&A (left)
+     and the live SSA-3373 facsimile (right). Adding the next SSA form = new
+     data, same engine. This is the "locked format" template.
+   - Guidance text in each question's .tip is Jonathan's actual advice from the
+     Disability Answer Guide (paraphrase + quote + page), pending his pass.
+   ========================================================================== */
+
+/* ---- exact form text + Jonathan's guidance, by question -------------------
+   t  = type: text | tel | date | textarea | yesno | one | many | money(matrix)
+   formText = the EXACT wording shown on the facsimile (right pane)
+   ask      = plain-language prompt on the guided side (left). Falls back to formText.
+   tip/quote/page/video = the guidance popover (Jonathan's book)
+   flag     = id of a credibility flag this field can raise
+   ai       = show "help me phrase this" on this narrative field
+   opts     = options for one/many                                            */
+const SECTIONS = [
+ {code:'Section A', title:'General information', qs:[
+   {id:'q1', num:'1', t:'text', formText:'NAME OF DISABLED PERSON (First, Middle Initial, Last)', ask:'Your full name'},
+   {id:'q2', num:'2', t:'text', formText:'SOCIAL SECURITY NUMBER', ask:'Social Security number'},
+   {id:'q3', num:'3', t:'tel', formText:'YOUR DAYTIME TELEPHONE NUMBER', ask:'Daytime phone number'},
+   {id:'q4a', num:'4a', t:'one', formText:'Where do you live? (Check one.)', ask:'Where do you live?',
+     opts:['House','Apartment','Boarding House','Nursing Home','Shelter','Group Home','Other']},
+   {id:'q4b', num:'4b', t:'one', formText:'With whom do you live? (Check one.)', ask:'Who do you live with?',
+     opts:['Alone','With Family','With Friends','Other']},
+ ]},
+ {code:'Section B', title:'How your conditions limit your work', qs:[
+   {id:'q5', num:'5', t:'textarea', formText:'How do your illnesses, injuries, or conditions limit your ability to work?',
+     ask:'In your own words, how do your conditions keep you from working?', ai:true, flag:'vague',
+     tip:"Don't write something vague like “I can't walk far and it hurts to sit” — that tells the examiner nothing. Be specific and quantified, and tie each limit back to why you couldn't hold a job (too much pain to focus, too many days you'd miss).",
+     quote:"Do not say “I cannot walk very far and it hurts me to sit.” … Instead, say “I can walk no more than 30 feet, after which the pain in my back is so severe that my left leg gives out.”", page:'Overview chapter', video:'How to phrase a work limitation'},
+ ]},
+ {code:'Section C', title:'Your daily activities', qs:[
+   {id:'q6', num:'6', t:'textarea', formText:'Describe what you do from the time you wake up until going to bed.',
+     ask:'Walk us through an ordinary day, start to finish.', ai:true, flag:'independent',
+     tip:"This is one of the most-read answers on the form. Social Security assumes that if you can get through an ordinary day, you aren't seriously impaired — so describe a realistic day honestly, including rest breaks, pain, and the things you've had to give up. Don't paint a fully independent day.",
+     quote:"Social Security will assume that if you can perform regular daily activities, you are not seriously impaired. In this section, you want to minimize your physical activity level and note any problems you might have with attention and concentration.", page:'SSA-3373 chapter', video:'Describing a realistic day'},
+   {id:'q7', num:'7', t:'yesno', formText:'Do you take care of anyone else such as a wife/husband, children, grandchildren, parents, friend, other?',
+     ask:'Do you take care of another person?', explain:'If yes, who, and what do you do for them?', flag:'carework7',
+     tip:"Be careful here. Regularly caring for a child, relative, or partner can be read as work-like activity that cuts against your claim. If you do help, be clear about what you can't do and who helps you.",
+     quote:"If you care for others (even a pet) it could be construed as work like activity.", page:'SSA-3373 chapter', video:'When caring for others hurts your claim'},
+   {id:'q8', num:'8', t:'yesno', formText:'Do you take care of pets or other animals?',
+     ask:'Do you care for any pets or animals?', explain:'If yes, what do you do for them?', flag:'carework8',
+     tip:"Even caring for a pet can be construed as work-like activity. If a pet depends on you, note what you struggle with or who helps.",
+     quote:"If you care for others (even a pet) it could be construed as work like activity.", page:'SSA-3373 chapter', video:'When caring for others hurts your claim'},
+   {id:'q9', num:'9', t:'yesno', formText:'Does anyone help you care for other people or animals?',
+     ask:'Does anyone help you with that care?', explain:'If yes, who helps, and what do they do?',
+     tip:"If someone helps you with that care, say so. Needing help is itself evidence of your limitations — and it softens any “work-like activity” read from the two questions above.",
+     video:'When you need help with care'},
+   {id:'q10', num:'10', t:'textarea', formText:"What were you able to do before your illnesses, injuries, or conditions that you can't do now?",
+     ask:'What could you do before that you can’t do now?', ai:true,
+     tip:"This is your chance to show what you've lost. List the sports, hobbies, church, or chores you used to do and can't now — think back 5 or 10 years and describe how things have changed.",
+     quote:"If you no longer can participate in sports, hobbies or church, this is where you should tell Social Security. Think about your activities 5 or 10 years ago and how they have changed.", page:'SSA-3373 chapter', video:'Before and after your condition'},
+   {id:'q11', num:'11', t:'yesno', formText:'Do the illnesses, injuries, or conditions affect your sleep?',
+     ask:'Does your condition affect your sleep?', explain:'If yes, how?', flag:'sleep',
+     tip:"Interrupted sleep is very common with disabling conditions. If your sleep has changed at all, it's worth checking “yes” and explaining how — poor sleep feeds fatigue and concentration problems.",
+     quote:"Interrupted sleep is common in individuals with disabilities, so it is a good idea to check the yes box if your sleeping has changed.", page:'SSA-3373 chapter', video:'Why sleep matters'},
+   {id:'q12', num:'12', t:'textarea', formText:'PERSONAL CARE — Explain how your conditions affect your ability to dress, bathe, care for hair, shave, feed yourself, and use the toilet.',
+     ask:'How do your conditions affect dressing, bathing, grooming, and other personal care?',
+     tip:"Trouble dressing, bathing, or grooming signals you'd struggle at work too. Think honestly about whether you can really answer “yes, no problem” to each of these — small daily struggles are evidence.",
+     quote:"Someone who has trouble bathing or getting dressed would likely have trouble in a work environment, so think carefully about whether you can answer “yes” to any of these questions.", page:'SSA-3373 chapter', video:'Personal care as evidence'},
+   {id:'q13', num:'13', t:'yesno', formText:'MEALS — Do you prepare your own meals?',
+     ask:'Do you cook your own meals?', explain:'If yes, what kind of food, how often, and how long does it take? Any changes since your condition began?', flag:'meals',
+     tip:"The strongest answers show you can manage only simple food — sandwiches, frozen dinners, salads — not standing to cook full, multi-course meals. Note if cooking now takes longer or you've cut back.",
+     quote:"The best answers suggest that you can prepare simple meals like sandwiches or salads.", page:'SSA-3373 chapter', video:'Meals: keep it simple'},
+   {id:'q14', num:'14', t:'textarea', formText:'HOUSE AND YARD WORK — List the household chores, indoors and outdoors, that you are able to do. How long do they take, and do you need help?',
+     ask:'What house or yard work can you still do?', flag:'yardwork',
+     tip:"Yard work hurts your case. Light tidying is fine, but mowing, vacuuming, and the bending and stooping of floor work all suggest you could handle a physical job. Be accurate about what you actually do, and how often.",
+     quote:"If you can do yard work, that will work against your case. Light housekeeping is not a problem, but vacuuming, bending and stooping to do floors is not good for your case.", page:'SSA-3373 chapter', video:'Chores that work against you'},
+   {id:'q15', num:'15', t:'many', formText:'GETTING AROUND — When going out, how do you travel? (Check all that apply.)',
+     ask:'When you go out, how do you get around?', opts:['Walk','Drive a car','Ride in a car','Ride a bicycle','Public transportation','Other'],
+     sub:'Also: can you go out alone? Do you drive? If not, why not?', flag:'getaround',
+     tip:"If getting out of the house is hard — you need someone with you, can't drive anymore, rarely go out — say so plainly here. Don't overstate how freely you move around.",
+     quote:"Question 15 asks about getting around — if you have trouble getting around, note it here.", page:'SSA-3373 chapter', video:'Getting around'},
+   {id:'q16', num:'16', t:'many', formText:'SHOPPING — If you do any shopping, do you shop: (Check all that apply.)',
+     ask:'How do you shop, and how is it now?', opts:['In stores','By phone','By mail','By computer'],
+     sub:'Describe what you shop for, how often, and how long it takes.', flag:'getaround',
+     tip:"Answer truthfully — and note if shopping takes longer now, needs help, or you mostly avoid stores.",
+     quote:"Question 16 asks about shopping — answer truthfully.", page:'SSA-3373 chapter', video:'Shopping'},
+   {id:'q17', num:'17', t:'yesno', formText:'MONEY — Are you able to pay bills, count change, handle a savings account, and use a checkbook/money orders?',
+     ask:'Can you manage your own money — bills, change, banking?', explain:'Explain any “no,” and note if your ability has changed since your condition began.',
+     tip:"Unless a vision or reading-comprehension problem affects you, it's fine to say you handle your own money — this question usually won't hurt your case.",
+     quote:"Assuming you do not have visual or reading comprehension problems, you will not hurt your case if you respond that you can handle personal finances.", page:'SSA-3373 chapter', video:'Money questions'},
+   {id:'q18', num:'18', t:'textarea', formText:'HOBBIES AND INTERESTS — What are your hobbies and interests, how often and how well do you do them, and how have they changed?',
+     ask:'What are your hobbies, and how have they changed?',
+     tip:"Describe simple, low-physical hobbies (reading, watching TV) rather than active ones, and note how they've shrunk since your condition.",
+     quote:"it is best to describe simple, non-physical hobbies.", page:'SSA-3373 chapter', video:'Hobbies'},
+   {id:'q19', num:'19', t:'textarea', formText:'SOCIAL ACTIVITIES — How and how often do you spend time with others, where do you go regularly, and have your social activities changed?',
+     ask:'How is your social life, and how has it changed?',
+     tip:"If your social life has narrowed — you see people less, avoid groups, need someone along — record those changes here. Isolation and irritability are real evidence in mental-health claims.",
+     quote:"if there have been any changes in your social life, note them here.", page:'SSA-3373 chapter', video:'Social activities'},
+ ]},
+ {code:'Section D', title:'Your abilities', qs:[
+   {id:'q20', num:'20a', t:'many', formText:'Check any of the following that your illnesses, injuries, or conditions affect:',
+     ask:'Which of these does your condition affect?',
+     opts:['Lifting','Squatting','Bending','Standing','Reaching','Walking','Sitting','Kneeling','Talking','Hearing','Stair Climbing','Seeing','Memory','Completing Tasks','Concentration','Understanding','Following Instructions','Using Hands','Getting Along With Others'],
+     flag:'abilities',
+     tip:"This is the heart of the form. Don't check every box, but check every limitation you can honestly claim — the more legitimate problems, the better. Attention and concentration carry a lot of weight, so if your condition affects focus, be sure to say so.",
+     quote:"While you should not check every box, in general, the more problems you can claim legitimately, the better for your case. Attention and concentration are big issues in Social Security cases.", page:'SSA-3373 chapter', video:'The abilities checklist'},
+   {id:'q20exp', num:'20a', t:'textarea', formText:'Explain how your conditions affect each item you checked (for example, you can only lift [how many pounds], or you can only walk [how far]).',
+     ask:'For the ones you checked, explain how (be specific — pounds, minutes, distance):', ai:true,
+     tip:"Translate each checked box into a concrete number: how many pounds, how many minutes, how far. “I can lift a gallon of milk but not a laundry basket” beats “I can't lift much.”"},
+   {id:'q20c', num:'20c', t:'text', formText:'How far can you walk before needing to stop and rest? How long before you can resume?',
+     ask:'How far can you walk before you have to stop and rest?', flag:'walk',
+     tip:"Give it in concrete terms — “about half a block, then I rest 10 minutes.” A large distance reads as fairly capable, so describe a typical day, not your best stretch."},
+   {id:'q20j', num:'20j', t:'textarea', formText:'How well do you handle stress and changes in routine? Have you noticed any unusual behavior or fears?',
+     ask:'How do you handle stress and changes in routine?',
+     tip:"Stress tolerance and rigidity are core to mental-health and pain claims. If pressure or change makes your symptoms worse, say so concretely."},
+   {id:'q21', num:'21', t:'many', formText:'Do you use any of the following? (Check all that apply.)',
+     ask:'Do you use any of these aids?', opts:['Crutches','Cane','Hearing Aid','Walker','Brace/Splint','Glasses/Contact Lenses','Wheelchair','Artificial Limb','Other'],
+     sub:'Which were prescribed by a doctor, and when do you need them?', flag:'devices',
+     tip:"Check “yes” for anything you use full- or part-time — and yes, that includes eyeglasses. Note which were prescribed and when you need them.",
+     quote:"Answer yes if you use a device full or part time, including eyeglasses.", page:'SSA-3373 chapter', video:'Assistive devices'},
+   {id:'q22', num:'22', t:'textarea', formText:'Do any of your medicines cause side effects? List only the medicines that cause side effects and what those side effects are.',
+     ask:'Do any of your medications cause side effects?',
+     tip:"List the medicines that cause side effects, not all of them. Severe side effects — drowsiness, nausea, irritability, trouble sleeping — can by themselves support a finding of disability.",
+     quote:"severe side effects can be the basis of a finding of disability. Common side effects include drowsiness, anxiety, gastric upset, nausea, vomiting, irritability, and sleeplessness.", page:'SSA-3441 chapter', video:'Medication side effects'},
+ ]},
+ {code:'Section E', title:'Remarks', qs:[
+   {id:'qE', num:'—', t:'textarea', formText:'REMARKS — Any added information you did not show in earlier parts of this form.',
+     ask:'Anything else? Use this space to describe a really bad day.', ai:true,
+     tip:"Don't just write “none.” Use this space to describe a really bad day — a flare that sent you to the ER, a day you couldn't get out of bed — so the examiner sees your worst, not just your average.",
+     quote:"I recommend that you use this section to describe a really bad day. For example, if you had to go to the emergency room, describe what happened to cause you to go.", page:'SSA-3441 chapter', video:'Use Remarks for your worst day'},
+ ]},
+];
+
+/* =====================  RENDER: guided (left) + facsimile (right)  ===================== */
+const frm = document.getElementById('frm');
+const paperBody = document.getElementById('paperBody');
+const esc = s => String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;');
+
+function optId(qid,opt){ return qid+'__'+opt.replace(/[^a-z0-9]/gi,'').toLowerCase(); }
+
+SECTIONS.forEach(sec=>{
+  /* ---- left: section bar ---- */
+  const bar=document.createElement('div');
+  bar.className='gsection-bar';
+  bar.innerHTML=`<span class="gs-code">${esc(sec.code)}</span><h2>${esc(sec.title)}</h2>`;
+  frm.appendChild(bar);
+
+  /* ---- right: section bar ---- */
+  const fxbar=document.createElement('div');
+  fxbar.className='fx-section';
+  fxbar.textContent=`${sec.code.toUpperCase()} — ${sec.title.toUpperCase()}`;
+  paperBody.appendChild(fxbar);
+
+  sec.qs.forEach(q=>{
+    /* =========== LEFT card =========== */
+    const card=document.createElement('div');
+    card.className='q'; card.dataset.qgroup=q.id;
+    let inner=`<div class="q-head">
+        <span class="q-num">${esc(q.num)}</span>
+        <div class="q-label">${esc(q.ask||q.formText)}${q.sub?`<span class="q-sub">${esc(q.sub)}</span>`:''}</div>`;
+    if(q.tip){
+      inner+=`<div class="q-help">
+        <button type="button" class="help-dot" data-tip="${q.id}" aria-label="Guidance">i</button>
+        <div class="tip" id="tip-${q.id}">${guideInner(q)}</div>
+      </div>`;
+    }
+    inner+=`</div>`;
+
+    /* input(s) */
+    if(q.t==='text'||q.t==='tel'||q.t==='date'){
+      inner+=`<input type="${q.t==='tel'?'tel':q.t}" data-q="${q.id}" autocomplete="off">`;
+    } else if(q.t==='textarea'){
+      inner+=`<textarea data-q="${q.id}" rows="3"></textarea>`;
+      if(q.ai) inner+=aiBlock(q.id);
+    } else if(q.t==='yesno'){
+      inner+=`<div class="yesno">
+        <input type="radio" name="${q.id}" value="Yes" id="${q.id}-y" data-qradio="${q.id}"><label for="${q.id}-y">Yes</label>
+        <input type="radio" name="${q.id}" value="No" id="${q.id}-n" data-qradio="${q.id}"><label for="${q.id}-n">No</label>
+      </div>`;
+      if(q.explain) inner+=`<div class="explain-wrap"><div class="mini-label">${esc(q.explain)}</div><textarea data-q="${q.id}_ex" rows="2"></textarea></div>`;
+    } else if(q.t==='one'||q.t==='many'){
+      const type=q.t==='one'?'radio':'checkbox';
+      inner+=`<div class="opts${q.opts.length<=3?' one':''}">`+q.opts.map(o=>
+        `<label><input type="${type}" name="${q.id}" value="${esc(o)}" data-qopt="${q.id}">${esc(o)}</label>`).join('')+`</div>`;
+    }
+    if(q.flag) inner+=`<div class="cred-note" data-note="${q.id}"><span class="cn-head">Worth a second look</span><span class="cn-body"></span></div>`;
+    if(q.tip) inner+=`<div class="guide-inline">${guideInner(q)}</div>`;
+    card.innerHTML=inner;
+    frm.appendChild(card);
+
+    /* =========== RIGHT facsimile block =========== */
+    const fxq=document.createElement('div');
+    fxq.className='fxq'; fxq.dataset.fxgroup=q.id;
+    let fx=`<div class="fxq-text"><span class="fxq-num">${esc(q.num)}.</span> ${esc(q.formText)}`;
+    if(q.t==='yesno'){
+      fx+=` <span class="fx-yn">
+        <span class="fx-cbi"><span class="fx-cb" data-fillbox="${q.id}=Yes"></span>Yes</span>
+        <span class="fx-cbi"><span class="fx-cb" data-fillbox="${q.id}=No"></span>No</span></span></div>`;
+      if(q.explain) fx+=`<span class="fx-ans" data-fill="${q.id}_ex"></span>`;
+    } else if(q.t==='one'||q.t==='many'){
+      fx+=`</div><div class="fx-cbset">`+q.opts.map(o=>
+        `<span class="fx-cbi"><span class="fx-cb" data-fillbox="${q.id}=${esc(o)}"></span>${esc(o)}</span>`).join('')+`</div>`;
+    } else if(q.t==='text'||q.t==='tel'||q.t==='date'){
+      fx+=` <span class="fx-inline" data-fill="${q.id}"></span></div>`;
+    } else {
+      fx+=`</div><span class="fx-ans" data-fill="${q.id}"></span>`;
+    }
+    fxq.innerHTML=fx;
+    paperBody.appendChild(fxq);
+  });
+});
+
+/* Shared guidance markup — used by the hover popover AND the always-on inline
+   "Show all guidance" view (Jonathan's annotation-review mode). */
+function guideInner(q){
+  return `<div class="tip-from">✦ From Jonathan's guide</div>
+    <div class="tip-body">${esc(q.tip)}</div>
+    ${q.quote?`<div class="tip-quote">${esc(q.quote)}<span class="tq-cite">— Disability Answer Guide · ${esc(q.page||'')}</span></div>`:''}
+    ${q.video?`<button type="button" class="tip-video" data-video="${q.id}"><span class="vt-tri">▶</span> Watch <span class="vt-len">1:${(q.num.replace(/\D/g,'')||'0').padStart(2,'0')}</span></button>`:''}`;
+}
+
+function aiBlock(id){
+  return `<div class="ai-suggest">
+    <button type="button" class="btn-ai" data-ai="${id}">✦ Help me phrase this clearly</button>
+    <div class="ai-output" data-ai-out="${id}">
+      <div class="ai-label">✦ Suggested wording · example · edit in your own words</div>
+      <div class="ai-text"></div>
+      <div class="ai-actions">
+        <button type="button" class="btn-mini btn-accept" data-ai-accept="${id}">Use this</button>
+        <button type="button" class="btn-mini btn-dismiss" data-ai-dismiss="${id}">Dismiss</button>
+      </div>
+    </div></div>`;
+}
+
+/* =====================  LIVE SYNC: left state -> right facsimile  ===================== */
+function val(q){ const el=document.querySelector(`[data-q="${q}"]`); return el?el.value.trim():''; }
+function radioVal(q){ const el=document.querySelector(`input[name="${q}"]:checked`); return el?el.value:''; }
+function manyVals(q){ return Array.from(document.querySelectorAll(`input[name="${q}"]:checked`)).map(e=>e.value); }
+
+function sync(){
+  /* text + textarea + explain -> fill spans */
+  document.querySelectorAll('[data-fill]').forEach(t=>{
+    const key=t.dataset.fill;
+    const el=document.querySelector(`[data-q="${key}"]`);
+    if(el) t.textContent=el.value;
+  });
+  /* yes/no + option boxes */
+  document.querySelectorAll('.fx-cb[data-fillbox]').forEach(box=>{
+    const s=box.dataset.fillbox, i=s.indexOf('='), name=s.slice(0,i), v=s.slice(i+1);
+    const on=Array.from(document.querySelectorAll(`input[name="${name}"]`)).some(r=>r.checked && r.value===v);
+    box.classList.toggle('on',on);
+  });
+  refreshFlags();
+}
+
+/* =====================  CREDIBILITY FLAGS (Jonathan's real warnings)  =====================
+   The structured flags (carework/sleep/devices/abilities) key off Yes-No and
+   checkbox state, so they're reliable. The free-text flags additionally guard
+   on noNeg(): if the applicant is already describing a limitation ("I can't…",
+   "no longer", "my daughter helps"), we don't nag them for naming the activity.
+   Deep free-text credibility review is where the live AI model plugs in.        */
+function noNeg(t){ return !/(can['’]?t|cannot|can ?not|no longer|not able|unable|never|stopped|don['’]?t|do not|couldn['’]?t|won['’]?t|hardly|too much|with help|need help|someone (else )?(help|does)|my (daughter|son|wife|husband|family|partner|spouse)\b)/i.test(t||''); }
+const FLAG_TEXT = {
+  vague:        ()=>{ const v=val('q5'); return (v && v.length<40 && !/\d/.test(v)) ?
+                  "This reads a little general. Examiners respond to specifics — try a concrete limit and how often it stops you (“about a block before my leg gives out”), not just “it's hard.”" : ''; },
+  independent:  ()=>{ const v=val('q6').toLowerCase();
+                  const cap=/(clean|cook|drive|shop|errand|gym|walk the dog|normal day|everything myself|chores|garden|mow)/.test(v);
+                  return (v.length>30 && cap && noNeg(v) && !/(rest|pain|lie down|nap|bad day|slow|break)/.test(v)) ?
+                  "Your day reads quite independent. That's the most common way a strong claim gets weakened. If any of this is only possible on good days, takes longer, or needs breaks or help, the form has room to say so." : ''; },
+  carework7:    ()=>{ return radioVal('q7')==='Yes' ?
+                  "Regularly caring for another person can be read as work-like activity. It's fine to be honest — just make clear what you can't do and who helps you." : ''; },
+  carework8:    ()=>{ return radioVal('q8')==='Yes' ?
+                  "Even caring for a pet can be construed as work-like activity. If a pet depends on you, note what you struggle with or who helps." : ''; },
+  meals:        ()=>{ const v=(val('q13_ex')||'').toLowerCase(); return (/(complete|full|course|scratch|elaborate|big meal|cook dinner)/.test(v) && noNeg(v)) ?
+                  "Full, multi-course cooking reads as fairly capable. The stronger answer shows simple meals — sandwiches, frozen dinners — if that's closer to the truth." : ''; },
+  yardwork:     ()=>{ const v=val('q14').toLowerCase(); return (/(mow|yard|lawn|garden|rake|vacuum|floors|mop|shovel)/.test(v) && noNeg(v)) ?
+                  "Yard work and heavy cleaning (mowing, vacuuming, floors) can work against your case — they suggest you could handle a physical job. Keep it accurate, and note help or how long it takes." : ''; },
+  sleep:        ()=>{ return radioVal('q11')==='No' ?
+                  ['good',"Many applicants find their condition does affect sleep once they think about it — pain, worry, or medication. If yours has changed at all, it's worth noting."] : ''; },
+  devices:      ()=>{ const d=manyVals('q21'); return (d.length && !d.includes('Glasses/Contact Lenses')) ?
+                  ['good',"Remember that eyeglasses count here too — check them if you wear prescription lenses."] : ''; },
+  abilities:    ()=>{ const a=manyVals('q20'); if(!a.length) return '';
+                  const mental=['Memory','Completing Tasks','Concentration','Understanding','Following Instructions','Getting Along With Others'];
+                  return !a.some(x=>mental.includes(x)) ?
+                  ['good',"You've noted physical limits. If your condition (or its medication) also affects focus, memory, or finishing tasks, those carry a lot of weight — don't leave them off."] : ''; },
+  walk:         ()=>{ const v=val('q20c').toLowerCase();
+                  return (/(\bmile|several block|hour|no problem|no limit|\bfar\b)/.test(v) && noNeg(v)) ?
+                  "A long walking distance reads as fairly capable. Describe a typical day, not your best stretch — and include how long you have to rest." : ''; },
+  getaround:    ()=>'',
+};
+
+function refreshFlags(){
+  let concerns=0;
+  document.querySelectorAll('.cred-note[data-note]').forEach(note=>{
+    const id=note.dataset.note;
+    const sec=SECTIONS.flatMap(s=>s.qs).find(q=>q.id===id);
+    const fn=sec && FLAG_TEXT[sec.flag];
+    let res=fn?fn():'';
+    let kind='warn', body='';
+    if(Array.isArray(res)){ kind=res[0]; body=res[1]; } else { body=res; }
+    const on=!!body;
+    note.classList.toggle('show',on);
+    note.classList.toggle('good',kind==='good');
+    if(on){ note.querySelector('.cn-body').textContent=body; if(kind!=='good') concerns++; }
+    const head=note.querySelector('.cn-head'); if(head) head.textContent = kind==='good'?'A tip':'Worth a second look';
+  });
+  /* header strength chip */
+  const chip=document.getElementById('hdrStrength'), txt=document.getElementById('hsTxt');
+  if(concerns===0){ chip.classList.remove('warn'); txt.textContent='Strength check: looking consistent'; }
+  else { chip.classList.add('warn'); txt.textContent=`Strength check: ${concerns} thing${concerns>1?'s':''} to review`; }
+}
+
+frm.addEventListener('input',sync);
+frm.addEventListener('change',sync);
+
+/* =====================  FOCUS HIGHLIGHT (left field -> right block)  ===================== */
+let lastFx=null;
+/* scroll the right (form) pane only — never the window, so clicking a tooltip
+   or the page doesn't jump. No-op on mobile, where the pane isn't its own scroller. */
+function scrollPaneTo(fx){
+  const pane=document.querySelector('.pane-form');
+  if(!pane || pane.scrollHeight<=pane.clientHeight+4) return;
+  const r=fx.getBoundingClientRect(), pr=pane.getBoundingClientRect();
+  const target=pane.scrollTop + (r.top-pr.top) - pane.clientHeight/2 + r.height/2;
+  pane.scrollTo({top:Math.max(0,target), behavior:'smooth'});
+}
+function highlight(id){
+  if(lastFx) lastFx.classList.remove('fx-active');
+  const fx=document.querySelector(`[data-fxgroup="${id}"]`);
+  if(fx){ fx.classList.add('fx-active'); lastFx=fx; scrollPaneTo(fx); }
+  const card=document.querySelector(`[data-qgroup="${id}"]`);
+  document.querySelectorAll('.q.focus').forEach(c=>c.classList.remove('focus'));
+  if(card) card.classList.add('focus');
+}
+/* Only real input fields drive the highlight/scroll — NOT the tooltip or
+   video buttons (focusing a button was what jumped the page). */
+frm.addEventListener('focusin',e=>{
+  if(!e.target.matches('input, textarea, select')) return;
+  const grp=e.target.closest('[data-qgroup]'); if(grp) highlight(grp.dataset.qgroup);
+});
+
+/* =====================  GUIDANCE TIP + VIDEO popovers  ===================== */
+document.querySelectorAll('.help-dot').forEach(dot=>{
+  dot.addEventListener('click',e=>{
+    e.stopPropagation();
+    const tip=document.getElementById('tip-'+dot.dataset.tip);
+    const open=tip.classList.contains('show');
+    document.querySelectorAll('.tip.show').forEach(t=>t.classList.remove('show'));
+    document.querySelectorAll('.help-dot.open').forEach(d=>d.classList.remove('open'));
+    if(!open){ tip.classList.add('show'); dot.classList.add('open'); }
+  });
+});
+document.addEventListener('click',()=>{ /* click-away closes tips */
+  document.querySelectorAll('.tip.show').forEach(t=>t.classList.remove('show'));
+  document.querySelectorAll('.help-dot.open').forEach(d=>d.classList.remove('open'));
+});
+
+const VIDEO_DESC = {}; SECTIONS.flatMap(s=>s.qs).forEach(q=>{ if(q.video) VIDEO_DESC[q.id]=q.video; });
+function openVideo(id){
+  const q=SECTIONS.flatMap(s=>s.qs).find(x=>x.id===id);
+  document.getElementById('videoTitle').textContent=q.video||'Video guidance';
+  document.getElementById('videoCap').textContent=`Q${q.num} · clip to be recorded`;
+  document.getElementById('videoDesc').textContent='In the finished product, Jonathan records a short hover-video for each question. This placeholder marks where that clip plays.';
+  document.getElementById('videoOverlay').classList.remove('hidden');
+}
+document.querySelectorAll('.tip-video').forEach(b=> b.addEventListener('click',e=>{ e.stopPropagation();
+  document.querySelectorAll('.tip.show').forEach(t=>t.classList.remove('show'));
+  document.querySelectorAll('.help-dot.open').forEach(d=>d.classList.remove('open'));
+  openVideo(b.dataset.video); }));
+document.getElementById('videoClose').addEventListener('click',()=>document.getElementById('videoOverlay').classList.add('hidden'));
+
+/* =====================  AI-SUGGESTED ANSWERS (deterministic demo synth)  ===================== */
+function suggest(id){
+  if(id==='q5'){ const raw=val('q5')||'a back condition with constant pain';
+    return `I have ${raw}. The pain is there every day and gets worse the longer I stay on my feet or sit in one position. `
+      +`I can manage short tasks, but I have to stop and rest often, and on a bad day I can do very little. `
+      +`These limits are why I can no longer keep up with the demands of my past work.`; }
+  if(id==='q6'){ const stem=val('q6')?val('q6')+'\n\n':'';
+    return stem+`I wake up stiff and sore, and it takes me a while to get moving. `
+      +`I do small things in short stretches and rest in between because of pain and fatigue. `
+      +`Tasks I used to do quickly now take much longer or have to wait for a good day, and I often need help or have to lie down. `
+      +`By evening I'm worn out, and pain breaks up my sleep. No two days are the same, and the bad days are frequent.`; }
+  if(id==='q10'){ return `Before my condition I could ${val('q10')||'work a full day, keep up the house, and stay active'} without thinking about it. `
+      +`Now I've had to give up or cut back on most of that — the physical activities first, then even simple routines. `
+      +`Comparing now to a few years ago, the difference is hard to miss.`; }
+  if(id==='q20exp'){ const a=manyVals('q20');
+    return (a.length?`The areas I checked affect me like this: `:`My condition affects me like this: `)
+      +`I can lift only light items — about a gallon of milk — before pain stops me. `
+      +`I can stand or sit for only a short time before I have to change position, and I can walk a short distance before resting. `
+      +`I also lose focus and lose track of tasks when the pain or medication is bad.`; }
+  if(id==='qE'){ return `I want to describe one of my bad days. ${val('qE')?val('qE')+' ':''}`
+      +`On a bad day the pain spikes to the point that I can't get out of bed or even basic tasks are impossible. `
+      +`Days like this happen often enough that I could not be relied on to show up and work a regular schedule.`; }
+  return '';
+}
+document.querySelectorAll('.btn-ai').forEach(b=> b.addEventListener('click',()=>{
+  const out=document.querySelector(`[data-ai-out="${b.dataset.ai}"]`);
+  out.querySelector('.ai-text').textContent=suggest(b.dataset.ai);
+  out.classList.add('show');
+}));
+document.querySelectorAll('[data-ai-accept]').forEach(b=> b.addEventListener('click',()=>{
+  const id=b.dataset.aiAccept, out=document.querySelector(`[data-ai-out="${id}"]`);
+  const el=document.querySelector(`[data-q="${id}"]`);
+  if(el){ el.value=out.querySelector('.ai-text').textContent; }
+  out.classList.remove('show'); sync();
+}));
+document.querySelectorAll('[data-ai-dismiss]').forEach(b=> b.addEventListener('click',()=>{
+  document.querySelector(`[data-ai-out="${b.dataset.aiDismiss}"]`).classList.remove('show');
+}));
+
+/* =====================  SHOW ALL GUIDANCE (annotation-review mode)  ===================== */
+document.getElementById('guideToggle').addEventListener('click',e=>{
+  const on=document.body.classList.toggle('guidance-all');
+  e.currentTarget.classList.toggle('on',on);
+  e.currentTarget.textContent=on?'Hide guidance':'Show all guidance';
+});
+
+/* =====================  INTRO toggle  ===================== */
+document.getElementById('introToggle').addEventListener('click',()=>{
+  const t=document.getElementById('introText'), open=t.classList.toggle('open');
+  document.getElementById('introToggle').textContent=open?'Read less':'Read more';
+});
+
+/* =====================  UPL GATE  ===================== */
+const gateCheck=document.getElementById('gateCheck'), gateBtn=document.getElementById('gateBtn');
+gateCheck.addEventListener('change',()=>gateBtn.disabled=!gateCheck.checked);
+gateBtn.addEventListener('click',()=>document.getElementById('gateOverlay').classList.add('hidden'));
+
+/* =====================  PAYMENT GATE + PDF EXPORT  ===================== */
+const payOverlay=document.getElementById('payOverlay');
+document.getElementById('exportBtn').addEventListener('click',()=>{ payOverlay.classList.remove('hidden'); document.getElementById('payToken').focus(); });
+document.getElementById('payClose').addEventListener('click',()=>payOverlay.classList.add('hidden'));
+
+const TODAY=(()=>{ const d=new Date(); return `${d.getMonth()+1}/${d.getDate()}/${d.getFullYear()}`; })();
+function physicalSummary(){
+  const parts=[];
+  if(val('q20exp')) parts.push(val('q20exp'));
+  if(val('q20c')) parts.push(`Walking: ${val('q20c')}.`);
+  return parts.join(' ');
+}
+/* Map our question ids -> real SSA-3373 PDF field names (enumerated from the official PDF). */
+const FIELD_MAP = {
+  text:{
+    'form1[0].BodyPage3[0].Name[0]':   ()=>val('q1'),
+    'form1[0].BodyPage10[0].Name[0]':  ()=>val('q1'),
+    'form1[0].BodyPage10[0].Date[0]':  ()=>TODAY,
+    'form1[0].BodyPage3[0].N5text[0]': ()=>val('q5'),
+    'form1[0].BodyPage4[0].N6text[0]': ()=>val('q6'),
+    'form1[0].BodyPage5[0].N13AIfYesField[0]': ()=>radioVal('q11')==='Yes'?val('q11_ex'):'',
+    'form1[0].BodyPage8[0].N20A[0]':   ()=>physicalSummary(),
+    'form1[0].BodyPage10[0].Remarks[0]': ()=>val('qE'),
+  },
+  checkbox:{
+    'form1[0].BodyPage5[0].N13ACB[0]': ()=>radioVal('q11')==='Yes',
+    'form1[0].BodyPage5[0].N13ACB[1]': ()=>radioVal('q11')==='No',
+    'form1[0].BodyPage8[0].N20ACBLifting[0]':  ()=>manyVals('q20').includes('Lifting'),
+    'form1[0].BodyPage8[0].N20ACBStanding[0]': ()=>manyVals('q20').includes('Standing'),
+    'form1[0].BodyPage8[0].N20ACBSitting[0]':  ()=>manyVals('q20').includes('Sitting'),
+    'form1[0].BodyPage8[0].N20ACBWalking[0]':  ()=>manyVals('q20').includes('Walking'),
+    'form1[0].BodyPage6[0].N15BDrive[0]':      ()=>manyVals('q15').includes('Drive a car'),
+    'form1[0].BodyPage6[0].N16AInStores[0]':   ()=>manyVals('q16').includes('In stores'),
+  }
+};
+
+async function generatePdf(){
+  const status=document.getElementById('payStatus');
+  status.textContent='Generating your form…';
+  const text=Object.entries(FIELD_MAP.text).map(([n,fn])=>[n,fn()]).filter(([,v])=>v!=null&&v!=='');
+  const boxes=Object.entries(FIELD_MAP.checkbox).map(([n,fn])=>[n,fn()]).filter(([,on])=>on);
+  try{
+    if(window.PDF_DATA && window.PDF_DATA.fr && window.PDFLib){
+      const bytes=Uint8Array.from(atob(window.PDF_DATA.fr),c=>c.charCodeAt(0));
+      const pdf=await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true});
+      const acro=pdf.getForm();
+      try{ acro.acroForm.dict.set(PDFLib.PDFName.of('NeedAppearances'),PDFLib.PDFBool.True); }catch(e){}
+      const names=new Set(acro.getFields().map(f=>f.getName()));
+      for(const [n,v] of text){ if(names.has(n)){ try{ acro.getTextField(n).setText(String(v)); }catch(e){} } }
+      for(const [n] of boxes){ if(names.has(n)){ try{ const f=acro.getField(n); if(typeof f.check==='function') f.check(); }catch(e){} } }
+      try{ acro.updateFieldAppearances(await pdf.embedFont(PDFLib.StandardFonts.Helvetica)); }catch(e){}
+      const out=await pdf.save({updateFieldAppearances:false});
+      openBlob(out); status.innerHTML='✓ Your official SSA-3373 opened in a new tab — filled from your answers, ready to print or upload.';
+      return;
+    }
+    /* fallback: render a simple PDF of the answers if the official binary/pdf-lib isn't present */
+    if(window.PDFLib){
+      const {PDFDocument,StandardFonts,rgb}=PDFLib;
+      const doc=await PDFDocument.create(); let page=doc.addPage([612,792]);
+      const font=await doc.embedFont(StandardFonts.Helvetica), bold=await doc.embedFont(StandardFonts.HelveticaBold);
+      let y=740; page.drawText('FUNCTION REPORT — ADULT (SSA-3373)',{x:54,y,size:14,font:bold,color:rgb(.1,.1,.27)}); y-=26;
+      const wrap=(t,m)=>{const w=String(t).split(/\s+/),l=[];let c='';for(const x of w){if((c+' '+x).trim().length>m){l.push(c.trim());c=x;}else c+=' '+x;}if(c.trim())l.push(c.trim());return l;};
+      for(const [n,v] of text){ const lab=n.split('.').pop().replace(/\[0\]/g,'').replace(/([A-Z])/g,' $1').trim();
+        if(y<80){page=doc.addPage([612,792]);y=740;} page.drawText(lab.toUpperCase(),{x:54,y,size:8,font:bold,color:rgb(.4,.4,.5)});y-=14;
+        for(const ln of wrap(v,92)){if(y<70){page=doc.addPage([612,792]);y=740;}page.drawText(ln,{x:54,y,size:11,font,color:rgb(.1,.1,.27)});y-=15;} y-=8; }
+      openBlob(await doc.save()); status.innerHTML='✓ Demo PDF generated (official SSA binary not bundled in this preview).';
+      return;
+    }
+    status.innerHTML='<span style="color:#C53030">PDF engine not loaded — open this file with pdf-lib.min.js present.</span>';
+  }catch(e){ status.innerHTML='<span style="color:#C53030">Something went wrong: '+esc(e.message)+'</span>'; }
+}
+function openBlob(bytes){ const b=new Blob([bytes],{type:'application/pdf'}); window.open(URL.createObjectURL(b),'_blank'); }
+
+document.getElementById('payBtn').addEventListener('click',()=>{
+  const tok=document.getElementById('payToken').value.trim();
+  if(!tok){ document.getElementById('payStatus').innerHTML='<span style="color:#C53030">Enter your access code to unlock (type anything in this demo).</span>'; return; }
+  generatePdf();
+});
+
+/* =====================  SAMPLE DATA  ===================== */
+const SAMPLE={
+  q1:'Pat Rivera', q2:'XXX-XX-1234', q3:'(404) 555-0142',
+  q5:"I can't sit or stand for long without my lower back locking up, and the pain runs down my left leg. I lose focus when it flares and can't keep a steady pace.",
+  q6:'I wake up stiff and it takes me an hour to loosen up. I make coffee and a sandwich, then have to lie down. I try small chores in short bursts and rest between them. My daughter helps with anything heavy. By afternoon the pain wears me out and I nap. Evenings I ice my back and my sleep is broken.',
+  q10:'I used to coach my son’s baseball team, mow my own lawn, and work full days on my feet. I can’t do any of that now.',
+  q12:'Dressing is slow — I can’t bend to put on socks or shoes without help some days. Showering wears me out and I hold the grab bar.',
+  q13_ex:'Mostly sandwiches and frozen dinners. I can’t stand long enough to cook a full meal anymore.',
+  q14:'A little light tidying. I can’t vacuum, mop, or do yard work — the bending and stooping is too much.',
+  q17_ex:'I can still pay my own bills and handle the bank.',
+  q18:'Reading and TV, mostly. I had to give up fishing and bowling.',
+  q19:'I see family at home but I’ve stopped going to church and gatherings — I can’t sit that long and I get irritable when I hurt.',
+  q20exp:'I can lift about a gallon of milk. I can stand 10 minutes and sit 20 before I have to move. Pain breaks my concentration.',
+  q20c:'About half a block, then I rest 10 minutes.',
+  q20j:'Stress makes the pain worse and I get short with people. Changes in routine throw me off.',
+  q22:'Gabapentin makes me drowsy and foggy; the muscle relaxer knocks me out by mid-afternoon.',
+  qE:'Two weeks ago the pain got so bad I couldn’t get out of bed for a day and a half. That happens a few times a month.',
+};
+const SAMPLE_RADIO={ q7:'No', q8:'Yes', q9:'No', q11:'Yes', q13:'Yes', q17:'Yes' };
+const SAMPLE_MANY={ q15:['Ride in a car'], q16:['In stores','By computer'],
+  q20:['Lifting','Bending','Standing','Sitting','Walking','Stair Climbing','Concentration','Completing Tasks'],
+  q21:['Cane','Brace/Splint','Glasses/Contact Lenses'], q4a:['House'], q4b:['With Family'] };
+const SAMPLE_EX={ q8_ex:'I feed the dog but my daughter walks him.', q11_ex:'Pain wakes me several times a night and I can’t fall back asleep.' };
+document.getElementById('sampleBtn').addEventListener('click',()=>{
+  Object.entries(SAMPLE).forEach(([k,v])=>{ const el=document.querySelector(`[data-q="${k}"]`); if(el) el.value=v; });
+  Object.entries(SAMPLE_EX).forEach(([k,v])=>{ const el=document.querySelector(`[data-q="${k}"]`); if(el) el.value=v; });
+  Object.entries(SAMPLE_RADIO).forEach(([k,v])=>{ const r=document.querySelector(`input[name="${k}"][value="${v}"]`); if(r) r.checked=true; });
+  Object.entries(SAMPLE_MANY).forEach(([k,arr])=>{ document.querySelectorAll(`input[name="${k}"]`).forEach(el=>{ el.checked=arr.includes(el.value); }); });
+  sync();
+  window.scrollTo({top:0,behavior:'smooth'});
+});
+
+/* init */
+sync();
+</script>
+</body>
+</html>
