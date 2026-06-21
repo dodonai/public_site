@@ -924,7 +924,10 @@ async function generatePdf(){
       const bytes=Uint8Array.from(atob(window.PDF_DATA.fr),c=>c.charCodeAt(0));
       const pdf=await PDFLib.PDFDocument.load(bytes,{ignoreEncryption:true});
       const acro=pdf.getForm();
-      try{ acro.acroForm.dict.set(PDFLib.PDFName.of('NeedAppearances'),PDFLib.PDFBool.True); }catch(e){}
+      const helv=await pdf.embedFont(PDFLib.StandardFonts.Helvetica);
+      const FIELD_FONT=9; // fixed size on every field — the SSA fields default to auto-size (0), which blows short answers up huge and shrinks long ones
+      /* We generate fixed-size appearances ourselves, so tell viewers not to re-auto-size. */
+      try{ acro.acroForm.dict.set(PDFLib.PDFName.of('NeedAppearances'),PDFLib.PDFBool.False); }catch(e){}
       const names=new Set(acro.getFields().map(f=>f.getName()));
       const overflows=[];
       for(const [n,v] of text){
@@ -935,10 +938,17 @@ async function generatePdf(){
           out = head + '  (continued on attached page)';
           if(tail) overflows.push({label:ov.label, text:tail});
         }
-        if(names.has(n)){ try{ acro.getTextField(n).setText(out); }catch(e){} }
+        if(names.has(n)){ try{
+          const f=acro.getTextField(n);
+          /* the form's DA is octal-escaped ("\057Helv 10\05600 Tf"), so pdf-lib can't
+             parse it and setFontSize throws — overwrite with a clean DA first. */
+          try{ f.acroField.setDefaultAppearance('/Helv 0 Tf 0 g'); }catch(e){}
+          f.setText(out);
+          try{ f.setFontSize(FIELD_FONT); }catch(e){}
+        }catch(e){} }
       }
       for(const [n] of boxes){ if(names.has(n)){ try{ const f=acro.getField(n); if(typeof f.check==='function') f.check(); }catch(e){} } }
-      try{ acro.updateFieldAppearances(await pdf.embedFont(PDFLib.StandardFonts.Helvetica)); }catch(e){}
+      try{ acro.updateFieldAppearances(helv); }catch(e){}
       if(overflows.length) await appendContinuationPages(pdf, overflows);
       const out=await pdf.save({updateFieldAppearances:false});
       openBlob(out);
