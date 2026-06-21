@@ -76,7 +76,7 @@ body{font-family:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica
 .q-help{flex:none;position:relative;}
 .help-dot{width:21px;height:21px;border-radius:50%;border:1.5px solid var(--purple-soft);color:var(--purple-bold);background:#fff;font-size:11px;font-weight:800;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-family:Georgia,serif;}
 .help-dot:hover,.help-dot.open{background:var(--purple-vivid);color:#fff;border-color:var(--purple-vivid);}
-.tip{position:absolute;right:0;top:28px;width:340px;background:var(--midnight);color:#fff;border-radius:11px;padding:16px 17px 15px;box-shadow:0 18px 44px rgba(20,20,58,.36);z-index:80;display:none;border-top:3px solid var(--purple-vivid);}
+.tip{position:absolute;right:0;top:28px;width:340px;max-height:64vh;overflow:auto;background:var(--midnight);color:#fff;border-radius:11px;padding:16px 17px 15px;box-shadow:0 18px 44px rgba(20,20,58,.36);z-index:80;display:none;border-top:3px solid var(--purple-vivid);}
 .tip.show{display:block;}
 .tip .tip-from{font-family:'Source Code Pro',monospace;font-size:7.5pt;letter-spacing:0.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:7px;display:flex;align-items:center;gap:7px;}
 .tip .tip-body{font-size:9.5pt;line-height:1.55;color:#EDEAF8;}
@@ -98,6 +98,21 @@ body.guidance-all .guide-inline{display:block;}
 .guide-toggle{background:var(--midnight-soft);border:1px solid var(--midnight-deep);color:#E0DCEF;font-family:inherit;font-weight:600;font-size:9pt;padding:6px 13px;border-radius:22px;cursor:pointer;letter-spacing:0.01em;white-space:nowrap;}
 .guide-toggle:hover{border-color:var(--purple-soft);}
 .guide-toggle.on{background:var(--purple-vivid);border-color:var(--purple-vivid);color:#fff;}
+/* 4-part guidance (why / avoid / do / sample) */
+.g-part{margin-top:10px;}
+.g-lbl{display:block;font-family:'Source Code Pro',monospace;font-size:7pt;letter-spacing:0.1em;text-transform:uppercase;font-weight:700;margin-bottom:3px;}
+.tip .g-lbl{color:var(--purple-soft);}
+.guide-inline .g-lbl{color:var(--purple-bold);}
+.tip .g-lbl.g-avoid{color:#F6AD55;} .guide-inline .g-lbl.g-avoid{color:var(--warn);}
+.tip .g-lbl.g-do{color:#68D391;} .guide-inline .g-lbl.g-do{color:var(--ok);}
+.g-lbl.g-sample{color:var(--purple-bold);}
+.tip .tip-quote .g-lbl.g-sample{color:var(--purple-soft);}
+.tip-from.g-draft{color:var(--gray-meta);opacity:.9;}
+.guide-inline .tip-from.g-draft{color:var(--gray-meta-light);}
+/* character-overflow → attachment-page note (informational, not a warning) */
+.overflow-note{display:none;margin-top:9px;background:rgba(124,58,237,0.07);border:1px solid var(--cream-line);border-left:3px solid var(--purple-soft);padding:9px 12px;border-radius:5px;font-size:9pt;color:var(--purple-bold);line-height:1.5;}
+.overflow-note.show{display:flex;gap:8px;align-items:flex-start;}
+.overflow-note .ov-ic{font-weight:800;flex:none;}
 
 /* inputs */
 .q input[type=text],.q input[type=date],.q input[type=tel],.q textarea,.q select{
@@ -249,7 +264,7 @@ body.guidance-all .guide-inline{display:block;}
   <div class="intro-inner">
     <span class="intro-badge">Read first</span>
     <div class="intro-text" id="introText">
-      This form is decided on <strong>function, not diagnosis</strong> — the question is whether your condition keeps you from doing things that add up to work. The reviewer is trained to be skeptical, so the most common way a strong claim gets weakened is sounding <strong>too capable</strong>.<span class="more"> Describe a realistic day — including the bad parts, the rest breaks, and what you've stopped doing. Be specific and concrete ("I can walk about a block before my leg gives out and I rest 10 minutes"), not vague ("I can't walk far"). Don't exaggerate, but don't minimize either — every honest limitation is a reason you'd be an unreliable employee, and that is what wins these cases.</span>
+      This is one of the most important forms Social Security will ask you to complete. It's where you explain why you can't work, and it's decided on <strong>function, not diagnosis</strong>: the real question is whether you can <strong>reliably</strong> hold a simple, entry-level job.<span class="more"> The biggest mistake is vague, non-specific answers. As you answer, picture a slightly below-average day (a 3 to 4 on a 10-point scale) and your capacity to do things day after day, week after week, not just once. For reference, a "light" job means standing or walking about 6 hours a day and lifting 20 lbs occasionally; a "sedentary" job means standing or walking no more than 2 hours and lifting 10 lbs. One tip: fill this out online rather than by hand. Social Security scans every page, and handwriting is often missed.</span>
       <button class="intro-toggle" id="introToggle">Read more</button>
     </div>
   </div>
@@ -359,8 +374,10 @@ body.guidance-all .guide-inline{display:block;}
    opts     = options for one/many                                            */
 const SECTIONS = [
  {code:'Section A', title:'General information', qs:[
-   {id:'q1', num:'1', t:'text', formText:'NAME OF DISABLED PERSON (First, Middle Initial, Last)', ask:'Your full name'},
-   {id:'q2', num:'2', t:'text', formText:'SOCIAL SECURITY NUMBER', ask:'Social Security number'},
+   {id:'q1', num:'1', t:'text', formText:'NAME OF DISABLED PERSON (First, Middle Initial, Last)', ask:'Your full name',
+     guide:{do:`Write your legal name as it appears on your Social Security card or in government correspondence. If you have been known by other names (a married name or a maiden name), include that as well.`}},
+   {id:'q2', num:'2', t:'text', formText:'SOCIAL SECURITY NUMBER', ask:'Social Security number',
+     guide:{do:`Double-check to make sure you are accurate.`}},
    {id:'q3', num:'3', t:'tel', formText:'YOUR DAYTIME TELEPHONE NUMBER', ask:'Daytime phone number'},
    {id:'q4a', num:'4a', t:'one', formText:'Where do you live? (Check one.)', ask:'Where do you live?',
      opts:['House','Apartment','Boarding House','Nursing Home','Shelter','Group Home','Other']},
@@ -370,38 +387,61 @@ const SECTIONS = [
  {code:'Section B', title:'How your conditions limit your work', qs:[
    {id:'q5', num:'5', t:'textarea', formText:'How do your illnesses, injuries, or conditions limit your ability to work?',
      ask:'In your own words, how do your conditions keep you from working?', ai:true, flag:'vague',
-     tip:"Don't write something vague like “I can't walk far and it hurts to sit” — that tells the examiner nothing. Be specific and quantified, and tie each limit back to why you couldn't hold a job (too much pain to focus, too many days you'd miss).",
-     quote:"Do not say “I cannot walk very far and it hurts me to sit.” … Instead, say “I can walk no more than 30 feet, after which the pain in my back is so severe that my left leg gives out.”", page:'Overview chapter', video:'How to phrase a work limitation'},
+     guide:{
+       why:`The decision-maker is deciding whether you have the capacity to reliably perform your past work, a simple entry-level light job (standing/walking about 6 hours a day, lifting 20 lbs occasionally), or a simple entry-level sedentary job (standing/walking no more than 2 hours, lifting 10 lbs occasionally).`,
+       avoid:`Don't write something vague like "My disabilities keep me from working and I'm in pain all the time," or "I have a herniated disc in my back and poorly controlled diabetes."`,
+       do:`Focus on the real-life issues you face that make it impossible for you to be reliable at any job.`,
+       samples:[{label:'Sample answer', text:`I have a herniated disc in my lower back that causes severe pain in my lower back and into both legs. Because of this, sitting, standing or walking are extremely painful. I am confined to my recliner with my feet up 3 to 5 hours per day, and the pain meds I have been prescribed (neurontin, hydrocodone and Percocet) make me very drowsy and unable to concentrate. I am also diabetic and since I have stopped working my A1c has been in the 6 to 8 range. The high blood sugar also makes it very difficult to focus and I have to urinate every 45 minutes.`}]
+     }},
  ]},
  {code:'Section C', title:'Your daily activities', qs:[
    {id:'q6', num:'6', t:'textarea', formText:'Describe what you do from the time you wake up until going to bed.',
      ask:'Walk us through an ordinary day, start to finish.', ai:true, flag:'independent',
-     tip:"This is one of the most-read answers on the form. Social Security assumes that if you can get through an ordinary day, you aren't seriously impaired — so describe a realistic day honestly, including rest breaks, pain, and the things you've had to give up. Don't paint a fully independent day.",
-     quote:"Social Security will assume that if you can perform regular daily activities, you are not seriously impaired. In this section, you want to minimize your physical activity level and note any problems you might have with attention and concentration.", page:'SSA-3373 chapter', video:'Describing a realistic day'},
+     guide:{
+       why:`SSA correlates your activities of daily living with your capacity to perform the duties of a simple, entry-level job.`,
+       do:`Emphasize how much slower you are with everyday activities, how your medical condition prevents you from performing many activities, and how you often need help.`,
+       samples:[{label:'Sample answer', text:`I sleep poorly at night due to pain so I do not feel rested when I wake up. I usually get up around 8am and I often spend 30 minutes in bed stretching. I keep a bottle by my bed in case I have to urinate and I can't move fast enough to get to the bathroom. I am usually very stiff in the morning and I will eat cereal or toast and coffee along with my morning medications. I then rest in my recliner while the meds take effect. The TV will be on but I often doze off. I will make a sandwich or microwave soup for lunch and I can run minor errands until about 3pm. I drive two or three times a week to the grocery or drug store which are about 10 minutes away. By 3pm I am getting stiff again, and I take my afternoon meds and head back to my recliner where I watch TV or YouTube videos and often doze off. My husband comes home from work around 5:30. I can no longer stand long enough to cook meals so he will grill chicken or burgers, or he'll pick up food and bring it home. After dinner I'll head back to the recliner for a couple of hours, then take my evening meds and try to sleep.`}]
+     }},
    {id:'q7', num:'7', t:'yesno', formText:'Do you take care of anyone else such as a wife/husband, children, grandchildren, parents, friend, other?',
      ask:'Do you take care of another person?', explain:'If yes, who, and what do you do for them?', flag:'carework7',
-     tip:"Be careful here. Regularly caring for a child, relative, or partner can be read as work-like activity that cuts against your claim. If you do help, be clear about what you can't do and who helps you.",
-     quote:"If you care for others (even a pet) it could be construed as work like activity.", page:'SSA-3373 chapter', video:'When caring for others hurts your claim'},
+     guide:{
+       why:`SSA is asking whether you care for another because doing so reflects responsibility and reliability. There are also jobs like "caretaker" or "sitter" that exist if you are able to care for someone 6 to 8 hours a day.`,
+       do:`If yes, emphasize that your role is more to keep an eye on a child or older person and to call for assistance if needed, not to serve as a caretaker.`,
+       samples:[
+         {label:'Sample — grandchildren', text:`Around 3:30 my grandchildren get home from school. They are 8 and 10 and need a little guidance. I'll get them a snack and encourage them to finish their homework. I am usually in my recliner at this point so my main role is to keep an eye on what is going on. If there are any issues, I will call my daughter.`},
+         {label:'Sample — elderly parent', text:`My 86 year old mother lives with me. She is physically mobile but her memory is not great and I sometimes have to remind her to eat or take her medicine. My sister lives nearby and if Mom needs to go to the doctor or grocery my sister takes her.`}
+       ]
+     }},
    {id:'q8', num:'8', t:'yesno', formText:'Do you take care of pets or other animals?',
      ask:'Do you care for any pets or animals?', explain:'If yes, what do you do for them?', flag:'carework8',
-     tip:"Even caring for a pet can be construed as work-like activity. If a pet depends on you, note what you struggle with or who helps.",
-     quote:"If you care for others (even a pet) it could be construed as work like activity.", page:'SSA-3373 chapter', video:'When caring for others hurts your claim'},
+     guide:{
+       why:`SSA is asking about pet care because it demonstrates responsibility and reliability.`,
+       do:`If yes, note that your main role is to let the dog or cat outside and to put food and water in the bowl. Emphasize that you do not lift the animal or go on walks of more than 10 minutes.`,
+       samples:[{label:'Sample answer', text:`My wife and I have two small, 20 lb dogs. Once or twice a day I open the back door and let them out to relieve themselves in the back yard. I also keep the water bowl filled. I am unable to pick up the dogs or take them on walks as I am not steady on my feet.`}]
+     }},
    {id:'q9', num:'9', t:'yesno', formText:'Does anyone help you care for other people or animals?',
      ask:'Does anyone help you with that care?', explain:'If yes, who helps, and what do they do?',
-     tip:"If someone helps you with that care, say so. Needing help is itself evidence of your limitations — and it softens any “work-like activity” read from the two questions above.",
-     video:'When you need help with care'},
+     guide:{
+       do:`Emphasize that your role in the care of people or animals is limited to observing and guiding. If you have physical limitations, note that you do not lift or carry because your lifting/carrying is limited to 5 or 10 lbs. If you have focus or concentration issues due to a mental health condition, note that you are not left alone with others or animals and that you are not responsible for their care.`
+     }},
    {id:'q10', num:'10', t:'textarea', formText:"What were you able to do before your illnesses, injuries, or conditions that you can't do now?",
      ask:'What could you do before that you can’t do now?', ai:true,
-     tip:"This is your chance to show what you've lost. List the sports, hobbies, church, or chores you used to do and can't now — think back 5 or 10 years and describe how things have changed.",
-     quote:"If you no longer can participate in sports, hobbies or church, this is where you should tell Social Security. Think about your activities 5 or 10 years ago and how they have changed.", page:'SSA-3373 chapter', video:'Before and after your condition'},
+     guide:{
+       do:`Show what you've lost. List the sports, hobbies, and routines you used to do and can't now, and be specific about why.`,
+       samples:[{label:'Sample answer', text:`I used to play pickleball but because of back pain I cannot bend over or move from side to side safely. I used to make dinners for my family but I can't stand in the kitchen by the stove for more than 10 minutes so I no longer cook. My husband and I used to take 30 to 45 minute walks with the dogs but I can only walk for 5 to 10 minutes due to back pain so I no longer go with him on walks around the neighborhood.`}]
+     }},
    {id:'q11', num:'11', t:'yesno', formText:'Do the illnesses, injuries, or conditions affect your sleep?',
      ask:'Does your condition affect your sleep?', explain:'If yes, how?', flag:'sleep',
-     tip:"Interrupted sleep is very common with disabling conditions. If your sleep has changed at all, it's worth checking “yes” and explaining how — poor sleep feeds fatigue and concentration problems.",
-     quote:"Interrupted sleep is common in individuals with disabilities, so it is a good idea to check the yes box if your sleeping has changed.", page:'SSA-3373 chapter', video:'Why sleep matters'},
+     guide:{
+       why:`SSA asks about sleep because non-restorative sleep interferes with attention, concentration and focus, and can prevent you from performing a skilled or semi-skilled job. If you are limited to unskilled work, your chances of approval increase.`
+     }},
    {id:'q12', num:'12', t:'textarea', formText:'PERSONAL CARE — Explain how your conditions affect your ability to dress, bathe, care for hair, shave, feed yourself, and use the toilet.',
      ask:'How do your conditions affect dressing, bathing, grooming, and other personal care?',
-     tip:"Trouble dressing, bathing, or grooming signals you'd struggle at work too. Think honestly about whether you can really answer “yes, no problem” to each of these — small daily struggles are evidence.",
-     quote:"Someone who has trouble bathing or getting dressed would likely have trouble in a work environment, so think carefully about whether you can answer “yes” to any of these questions.", page:'SSA-3373 chapter', video:'Personal care as evidence'},
+     guide:{
+       why:`Every employer expects you to be well groomed and able to handle basic hygiene. And if you need reminders to bathe or take medicine, that suggests difficulty with focus, concentration, memory, or keeping track of time in a work setting.`,
+       avoid:`Don't exaggerate problems here unless the medical evidence supports what you write down. It is okay to say "no problem" if there are no problems.`,
+       do:`Dressing, bathing and toileting are the most important activities. For example, you might need a shower chair or grab bars, or help getting socks and shoes on, or you may use slip-on shoes.`
+     }},
    {id:'q13', num:'13', t:'yesno', formText:'MEALS — Do you prepare your own meals?',
      ask:'Do you cook your own meals?', explain:'If yes, what kind of food, how often, and how long does it take? Any changes since your condition began?', flag:'meals',
      tip:"The strongest answers show you can manage only simple food — sandwiches, frozen dinners, salads — not standing to cook full, multi-course meals. Note if cooking now takes longer or you've cut back.",
@@ -445,7 +485,10 @@ const SECTIONS = [
      tip:"Translate each checked box into a concrete number: how many pounds, how many minutes, how far. “I can lift a gallon of milk but not a laundry basket” beats “I can't lift much.”"},
    {id:'q20c', num:'20c', t:'text', formText:'How far can you walk before needing to stop and rest? How long before you can resume?',
      ask:'How far can you walk before you have to stop and rest?', flag:'walk',
-     tip:"Give it in concrete terms — “about half a block, then I rest 10 minutes.” A large distance reads as fairly capable, so describe a typical day, not your best stretch."},
+     guide:{
+       why:`SSA is not asking how far you could walk if your life depended on it. It is asking how far you could walk on an average to slightly-below-average day, if you needed to walk five or six times that day and daily for the next 6 months.`,
+       samples:[{label:'Sample answer', text:`I can walk about 50 to 75 yards, or perhaps 10 to 15 minutes, before the pain in my lower back makes it too uncomfortable for me to remain on my feet. I then need to sit down for around 10 minutes before I could walk again. I could repeat this cycle three to four times during a day, so my total walking on an average day rarely exceeds one hour.`}]
+     }},
    {id:'q20j', num:'20j', t:'textarea', formText:'How well do you handle stress and changes in routine? Have you noticed any unusual behavior or fears?',
      ask:'How do you handle stress and changes in routine?',
      tip:"Stress tolerance and rigidity are core to mental-health and pain claims. If pressure or change makes your symptoms worse, say so concretely."},
@@ -466,6 +509,20 @@ const SECTIONS = [
      quote:"I recommend that you use this section to describe a really bad day. For example, if you had to go to the emergency room, describe what happened to cause you to go.", page:'SSA-3441 chapter', video:'Use Remarks for your worst day'},
  ]},
 ];
+
+/* ---- Character-overflow → attachment page (6/19 ask) -----------------------
+   The official PDF fields hold a finite amount of text. When an answer runs
+   longer, we end it cleanly in the field and print the remainder on an attached
+   "Question N continued" page (with the claimant's name + SSN) — so nothing is
+   silently cut off on the printed form. cap = approx. characters the field holds. */
+const OVERFLOW = {
+  q5:     {cap:600,  label:'Question 5',                field:'form1[0].BodyPage3[0].N5text[0]'},
+  q6:     {cap:380,  label:'Question 6 (a typical day)', field:'form1[0].BodyPage4[0].N6text[0]'},
+  q20exp: {cap:360,  label:'Question 20A',              field:'form1[0].BodyPage8[0].N20A[0]'},
+  qE:     {cap:1000, label:'Remarks (Section E)',        field:'form1[0].BodyPage10[0].Remarks[0]'},
+};
+const FIELD_OVERFLOW = {};
+Object.values(OVERFLOW).forEach(o=>{ FIELD_OVERFLOW[o.field] = {cap:o.cap, label:o.label}; });
 
 /* =====================  RENDER: guided (left) + facsimile (right)  ===================== */
 const frm = document.getElementById('frm');
@@ -494,7 +551,7 @@ SECTIONS.forEach(sec=>{
     let inner=`<div class="q-head">
         <span class="q-num">${esc(q.num)}</span>
         <div class="q-label">${esc(q.ask||q.formText)}${q.sub?`<span class="q-sub">${esc(q.sub)}</span>`:''}</div>`;
-    if(q.tip){
+    if(q.tip || q.guide){
       inner+=`<div class="q-help">
         <button type="button" class="help-dot" data-tip="${q.id}" aria-label="Guidance">i</button>
         <div class="tip" id="tip-${q.id}">${guideInner(q)}</div>
@@ -508,6 +565,7 @@ SECTIONS.forEach(sec=>{
     } else if(q.t==='textarea'){
       inner+=`<textarea data-q="${q.id}" rows="3"></textarea>`;
       if(q.ai) inner+=aiBlock(q.id);
+      if(OVERFLOW[q.id]) inner+=`<div class="overflow-note" data-ovnote="${q.id}"><span class="ov-ic">⊕</span><span class="ov-txt"></span></div>`;
     } else if(q.t==='yesno'){
       inner+=`<div class="yesno">
         <input type="radio" name="${q.id}" value="Yes" id="${q.id}-y" data-qradio="${q.id}"><label for="${q.id}-y">Yes</label>
@@ -520,7 +578,7 @@ SECTIONS.forEach(sec=>{
         `<label><input type="${type}" name="${q.id}" value="${esc(o)}" data-qopt="${q.id}">${esc(o)}</label>`).join('')+`</div>`;
     }
     if(q.flag) inner+=`<div class="cred-note" data-note="${q.id}"><span class="cn-head">Worth a second look</span><span class="cn-body"></span></div>`;
-    if(q.tip) inner+=`<div class="guide-inline">${guideInner(q)}</div>`;
+    if(q.tip || q.guide) inner+=`<div class="guide-inline">${guideInner(q)}</div>`;
     card.innerHTML=inner;
     frm.appendChild(card);
 
@@ -547,12 +605,27 @@ SECTIONS.forEach(sec=>{
 });
 
 /* Shared guidance markup — used by the hover popover AND the always-on inline
-   "Show all guidance" view (Jonathan's annotation-review mode). */
+   "Show all guidance" view. Two shapes:
+   - q.guide present → Jonathan's real 4-part content (why / avoid / do / samples)
+   - else → Dodonai first-pass placeholder (tip + book quote), tagged as awaiting his content. */
+function watchBtn(q){
+  return `<button type="button" class="tip-video" data-video="${q.id}"><span class="vt-tri">▶</span> Watch <span class="vt-len">1:${(q.num.replace(/\D/g,'')||'0').padStart(2,'0')}</span></button>`;
+}
 function guideInner(q){
-  return `<div class="tip-from">✦ From Jonathan's guide</div>
+  if(q.guide){
+    const g=q.guide;
+    let h=`<div class="tip-from">✦ From Jonathan's guide</div>`;
+    if(g.why)   h+=`<div class="g-part"><span class="g-lbl">Why SSA asks this</span>${esc(g.why)}</div>`;
+    if(g.avoid) h+=`<div class="g-part"><span class="g-lbl g-avoid">What to avoid</span>${esc(g.avoid)}</div>`;
+    if(g.do)    h+=`<div class="g-part"><span class="g-lbl g-do">How to approach</span>${esc(g.do)}</div>`;
+    (g.samples||[]).forEach(s=>{ h+=`<div class="tip-quote"><span class="g-lbl g-sample">${esc(s.label||'Sample answer')}</span>${esc(s.text)}</div>`; });
+    if(g.video) h+=watchBtn(q);
+    return h;
+  }
+  return `<div class="tip-from g-draft">✦ Dodonai first pass — awaiting Jonathan's content</div>
     <div class="tip-body">${esc(q.tip)}</div>
     ${q.quote?`<div class="tip-quote">${esc(q.quote)}<span class="tq-cite">— Disability Answer Guide · ${esc(q.page||'')}</span></div>`:''}
-    ${q.video?`<button type="button" class="tip-video" data-video="${q.id}"><span class="vt-tri">▶</span> Watch <span class="vt-len">1:${(q.num.replace(/\D/g,'')||'0').padStart(2,'0')}</span></button>`:''}`;
+    ${q.video?watchBtn(q):''}`;
 }
 
 function aiBlock(id){
@@ -585,6 +658,14 @@ function sync(){
     const s=box.dataset.fillbox, i=s.indexOf('='), name=s.slice(0,i), v=s.slice(i+1);
     const on=Array.from(document.querySelectorAll(`input[name="${name}"]`)).some(r=>r.checked && r.value===v);
     box.classList.toggle('on',on);
+  });
+  /* character-overflow notes — reassure, don't warn */
+  Object.keys(OVERFLOW).forEach(id=>{
+    const note=document.querySelector(`[data-ovnote="${id}"]`); if(!note) return;
+    const v=val(id), over=v.length>OVERFLOW[id].cap;
+    note.classList.toggle('show',over);
+    if(over) note.querySelector('.ov-txt').textContent=
+      `This is longer than the space on the form. The extra text will print on an attached "${OVERFLOW[id].label} continued" page (with your name and Social Security number), so nothing gets cut off.`;
   });
   refreshFlags();
 }
@@ -798,6 +879,41 @@ const FIELD_MAP = {
   }
 };
 
+/* split a long answer at a sentence (then word) boundary at/under the cap */
+function splitAt(text,cap){
+  text=String(text);
+  if(text.length<=cap) return [text,''];
+  let cut=text.lastIndexOf('. ',cap);
+  if(cut < cap*0.5) cut=text.lastIndexOf(' ',cap);
+  cut = cut>0 ? cut+1 : cap;
+  return [text.slice(0,cut).trim(), text.slice(cut).trim()];
+}
+function wrapText(t,max){ const w=String(t).split(/\s+/),l=[]; let c=''; for(const x of w){ if((c+' '+x).trim().length>max){ l.push(c.trim()); c=x; } else c+=' '+x; } if(c.trim()) l.push(c.trim()); return l; }
+/* append "Question N continued" attachment page(s) with the claimant's name + SSN */
+async function appendContinuationPages(pdf, overflows){
+  const tNorm=await pdf.embedFont(PDFLib.StandardFonts.TimesRoman);
+  const tBold=await pdf.embedFont(PDFLib.StandardFonts.TimesRomanBold);
+  const ink=PDFLib.rgb(0.07,0.07,0.07);
+  const name=val('q1')||'____________________', ssn=val('q2')||'_____-___-________';
+  let page, y;
+  const header=()=>{
+    page=pdf.addPage([612,792]); y=748;
+    page.drawText('ATTACHMENT TO FORM SSA-3373 — FUNCTION REPORT (ADULT)',{x:54,y,size:11,font:tBold,color:ink}); y-=15;
+    page.drawText(`Name: ${name}        Social Security Number: ${ssn}`,{x:54,y,size:10,font:tNorm,color:ink}); y-=9;
+    page.drawLine({start:{x:54,y},end:{x:558,y},thickness:1,color:ink}); y-=22;
+  };
+  header();
+  overflows.forEach(ov=>{
+    if(y<130) header();
+    page.drawText(`${ov.label} continued:`,{x:54,y,size:11,font:tBold,color:ink}); y-=17;
+    for(const ln of wrapText(ov.text,96)){
+      if(y<60){ header(); page.drawText(`${ov.label} continued (cont.):`,{x:54,y,size:11,font:tBold,color:ink}); y-=17; }
+      page.drawText(ln,{x:54,y,size:10.5,font:tNorm,color:ink}); y-=14;
+    }
+    y-=14;
+  });
+}
+
 async function generatePdf(){
   const status=document.getElementById('payStatus');
   status.textContent='Generating your form…';
@@ -810,11 +926,25 @@ async function generatePdf(){
       const acro=pdf.getForm();
       try{ acro.acroForm.dict.set(PDFLib.PDFName.of('NeedAppearances'),PDFLib.PDFBool.True); }catch(e){}
       const names=new Set(acro.getFields().map(f=>f.getName()));
-      for(const [n,v] of text){ if(names.has(n)){ try{ acro.getTextField(n).setText(String(v)); }catch(e){} } }
+      const overflows=[];
+      for(const [n,v] of text){
+        let out=String(v);
+        const ov=FIELD_OVERFLOW[n];
+        if(ov && out.length>ov.cap){
+          const [head,tail]=splitAt(out,ov.cap);
+          out = head + '  (continued on attached page)';
+          if(tail) overflows.push({label:ov.label, text:tail});
+        }
+        if(names.has(n)){ try{ acro.getTextField(n).setText(out); }catch(e){} }
+      }
       for(const [n] of boxes){ if(names.has(n)){ try{ const f=acro.getField(n); if(typeof f.check==='function') f.check(); }catch(e){} } }
       try{ acro.updateFieldAppearances(await pdf.embedFont(PDFLib.StandardFonts.Helvetica)); }catch(e){}
+      if(overflows.length) await appendContinuationPages(pdf, overflows);
       const out=await pdf.save({updateFieldAppearances:false});
-      openBlob(out); status.innerHTML='✓ Your official SSA-3373 opened in a new tab — filled from your answers, ready to print or upload.';
+      openBlob(out);
+      status.innerHTML = overflows.length
+        ? `✓ Your official SSA-3373 opened in a new tab — with ${overflows.length} continuation page${overflows.length>1?'s':''} attached so nothing got cut off.`
+        : '✓ Your official SSA-3373 opened in a new tab — filled from your answers, ready to print or upload.';
       return;
     }
     /* fallback: render a simple PDF of the answers if the official binary/pdf-lib isn't present */
@@ -845,7 +975,7 @@ document.getElementById('payBtn').addEventListener('click',()=>{
 const SAMPLE={
   q1:'Pat Rivera', q2:'XXX-XX-1234', q3:'(404) 555-0142',
   q5:"I can't sit or stand for long without my lower back locking up, and the pain runs down my left leg. I lose focus when it flares and can't keep a steady pace.",
-  q6:'I wake up stiff and it takes me an hour to loosen up. I make coffee and a sandwich, then have to lie down. I try small chores in short bursts and rest between them. My daughter helps with anything heavy. By afternoon the pain wears me out and I nap. Evenings I ice my back and my sleep is broken.',
+  q6:`I sleep poorly at night due to pain so I do not feel rested when I wake up. I usually get up around 8am and I often spend 30 minutes in bed stretching. I keep a bottle by my bed in case I have to urinate and I can't move fast enough to get to the bathroom. I am usually very stiff in the morning and I will eat cereal or toast and coffee along with my morning medications. I then rest in my recliner while the meds take effect. The TV will be on but I often doze off. I will make a sandwich or microwave soup for lunch and I can run minor errands until about 3pm. I drive two or three times a week to the grocery or drug store which are about 10 minutes away. By 3pm I am getting stiff again, and I take my afternoon meds and head back to my recliner. My husband comes home around 5:30 and does the cooking because I can no longer stand long enough. After dinner I head back to the recliner, then take my evening meds and try to sleep.`,
   q10:'I used to coach my son’s baseball team, mow my own lawn, and work full days on my feet. I can’t do any of that now.',
   q12:'Dressing is slow — I can’t bend to put on socks or shoes without help some days. Showering wears me out and I hold the grab bar.',
   q13_ex:'Mostly sandwiches and frozen dinners. I can’t stand long enough to cook a full meal anymore.',
