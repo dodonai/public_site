@@ -10,14 +10,22 @@
 		{ "name": "Personal Injury" }
 	],
 	"hero": {
-		"headline": "Personal Injury Case Management: AI Document Processing for PI Firms",
-		"subheadline": "PI cases generate thousands of pages of medical records and transcripts. Dodonai turns that paperwork into organized summaries and chronologies in minutes, so your team stays focused on case strategy and client outcomes.",
+		"headline": "Give Every PI Attorney 8 Hours a Week Back",
+		"subheadline": "PI firms running Dodonai recover 8 hours per attorney per week and over an hour per day on billable-time capture by handing medical record review, deposition summaries, and demand-package prep to AI. Your team gets back to case strategy and client outcomes.",
 		"ctaText": "Try It With Your Records",
 		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=personal-injury",
 		"secondaryCtaText": "See Pricing",
 		"secondaryCtaUrl": "/pricing/"
 	},
 	"sections": [
+		{
+			"type": "content",
+			"heading": "What PI Firms Get Back",
+			"paragraphs": [
+				"The PI partners and paralegals we work with describe the wins in concrete numbers: 8 hours per attorney per week reclaimed from manual medical record review. 1.2 hours per day per attorney captured on billable time that previously slipped through. 300 administrative hours per month recovered firm-wide once chronology, deposition prep, and demand-package assembly run through Dodonai. One PI attorney told us he replaced 5 separate AI tools with Dodonai and stopped re-prompting the same case three different ways.",
+				"That is the floor, not the ceiling. Firms that compress the documentation cycle send demands sooner, settle faster, and take on more cases without hiring."
+			]
+		},
 		{
 			"type": "content",
 			"heading": "How Personal Injury Firms Use AI for Case Management",

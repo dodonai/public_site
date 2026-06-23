@@ -1,0 +1,149 @@
+{
+	"seo": {
+		"title": "AI for Medical Malpractice Defense Firms | Dodonai",
+		"description": "Most AI for litigation is built for the plaintiff side. Dodonai's medical chronology and deposition tools are built for defense — alternative causation, standard-of-care compliance, and testimony-vs-record contradictions on 22,000-page charts. SOC 2 + HIPAA, BAA on every account.",
+		"canonical": "/practice-areas/medical-malpractice-defense/"
+	},
+	"breadcrumbs": [
+		{ "name": "Home", "href": "/" },
+		{ "name": "Practice Areas", "href": null },
+		{ "name": "Medical Malpractice Defense" }
+	],
+	"hero": {
+		"headline": "AI for Medical Malpractice Defense — Built for the Defense Side",
+		"subheadline": "Most AI litigation tools were built for plaintiff PI firms: demand packages, damages narratives, treatment timelines. Defense firms get a tool optimized for the wrong outcome. Dodonai surfaces alternative causation, standard-of-care compliance evidence, and testimony-vs-record contradictions across 22,000-page charts — the work defense litigators actually do.",
+		"ctaText": "Run a Defense Case Through Dodonai",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=medmal-defense",
+		"secondaryCtaText": "See How It Works",
+		"secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
+	},
+	"sections": [
+		{
+			"type": "content",
+			"heading": "Why Defense Firms Need a Different Tool",
+			"paragraphs": [
+				"The senior partners and technical evaluators we talk to at defense firms keep saying the same thing: \"Most AI tools are plaintiff-built.\" A demand-package generator looks impressive on a plaintiff PI matter and useless when your job is to defend a hospital, physician group, or nursing home against a 22,000-page chart-review allegation. The questions you're answering are different. The evidence patterns you're hunting for are different. The output your experts and trial team need is different.",
+				"Defense-side medical malpractice litigation is structured around four jobs an AI summarizer needs to do well: surface alternative-causation evidence across the full treatment record, document standard-of-care compliance with cited provider-by-provider entries, flag every contradiction between deposition testimony and the underlying chart, and compress massive multi-provider records into a defensible chronology your retained experts can work from. Dodonai is built around these four jobs."
+			]
+		},
+		{
+			"type": "content",
+			"heading": "Defense-Favorable Evidence Extraction, by Design",
+			"paragraphs": [
+				"Dodonai's chronology output is configurable — your team controls which events get surfaced, which providers are isolated, and which time windows are filtered. For defense matters, that means you can build templates focused on the moments where standard of care was met, the differential diagnosis was reasonable, the informed consent was documented, and the patient's pre-existing condition or intervening event explains the outcome. Every entry includes a source-page citation so your team can verify against the original record and your experts can rely on the structured output without re-reading the chart from scratch.",
+				"Lab-trend tracking across an admission, alternative-causation evidence across multi-provider records, testimony-vs-record contradictions across deposition transcripts and the underlying chart — these are exactly the patterns Dodonai is tuned to surface. Plaintiff-leaning tools either skip them or bury them in damages-oriented output. You spend hours reformatting their output to be useful to the defense theory. With Dodonai you start from a defense-framed chronology and refine.",
+				"For firms displacing FileVine's AI add-on, ad-hoc Claude or Perplexity usage on anonymized records, or outsourced legal-nurse chronologies that cost $1,000–$1,500 each, the consolidation upside is large: one HIPAA-compliant workspace with a signed BAA, source-pinned output, no PHI bouncing between vendor tools."
+			]
+		},
+		{
+			"type": "features",
+			"heading": "Built for the Way Defense Firms Actually Litigate",
+			"cards": [
+				{
+					"icon": "search",
+					"title": "Alternative-Causation Evidence",
+					"description": "Filter chronologies for pre-existing conditions, intervening events, prior providers, and the moments your causation experts depend on. Plaintiff-tool output buries this; Dodonai surfaces it."
+				},
+				{
+					"icon": "clipboard",
+					"title": "Standard-of-Care Compliance Documentation",
+					"description": "Provider-by-provider entries showing the differential diagnosis was reasonable, the protocols were followed, and the timing of interventions was within accepted clinical practice — with citations to the chart."
+				},
+				{
+					"icon": "document",
+					"title": "Testimony-vs-Record Contradictions",
+					"description": "Upload depositions of treating physicians, retained experts, and parties alongside the underlying chart. Dodonai flags where testimony departs from the documented record, ready for cross-examination prep."
+				},
+				{
+					"icon": "calendar",
+					"title": "22,000-Page Chart Compression",
+					"description": "Defense matters routinely produce 20,000+ page charts. Dodonai compresses the full record into a structured timeline in minutes, with lab-trend tracking across the admission and provider-by-provider organization. Your experts work from organized output, not a banker's box."
+				},
+				{
+					"icon": "briefcase",
+					"title": "Expert Witness Prep, Defense-Framed",
+					"description": "Hand your retained experts a chronology organized around defense theories instead of damages timelines. Source-cited, filter-ready, and exportable to PDF or Word for expert files and trial binders."
+				},
+				{
+					"icon": "shield",
+					"title": "BAA Before Your First Upload",
+					"description": "Defense practices in med-mal, hospital liability, and long-term-care work with PHI that demands stricter posture than most AI tools deliver. Signed BAA on every account, SOC 2 certified, AES-256 encryption, zero-retention by default. Nothing trains our models."
+				}
+			]
+		},
+		{
+			"type": "howItWorks",
+			"items": [
+				{
+					"title": "Upload the Full Chart and Deposition Set",
+					"description": "Records from every treating provider, hospital admission, and specialist plus deposition transcripts of treating physicians, retained experts, and parties. PDFs, Word, scanned documents — no preprocessing required."
+				},
+				{
+					"title": "Apply Your Defense-Framed Template",
+					"description": "Run a defense-side chronology template focused on standard-of-care compliance, alternative causation, and testimony contradictions. Filter by provider, date range, or event type. Configure custom fields and output formats to match your firm's workflow and your experts' preferences."
+				},
+				{
+					"title": "Review, Verify, and Hand to Experts and Trial Team",
+					"description": "Every entry links to its source page in the chart or transcript. Verify any contested finding in seconds. Export structured chronologies and deposition summaries for expert review, mediation prep, and trial binders."
+				}
+			]
+		}
+	],
+	"faq": [
+		{
+			"question": "Is Dodonai actually defense-oriented, or is this just plaintiff AI with rebrand?",
+			"answer": "Defense firms running Dodonai configure chronologies and templates around the work they actually do — alternative-causation evidence, standard-of-care compliance documentation, lab-trend tracking, and testimony-vs-record contradictions. The platform's customization is the answer to plaintiff-leaning generic AI: you control the output structure, not the vendor. We work directly with med-mal defense partners on template builds when needed."
+		},
+		{
+			"question": "Can Dodonai handle the 22,000-page charts our hospital and long-term-care matters produce?",
+			"answer": "Yes. Voluminous multi-provider records are the default use case. Upload the full chart and Dodonai consolidates it into a date-ordered chronology with provider filtering and lab-trend tracking across the admission. Source-page citations on every entry let your experts and trial team verify against the original record."
+		},
+		{
+			"question": "Will Dodonai sign a BAA before we upload PHI?",
+			"answer": "Yes. Signed BAA on every account before your first upload. SOC 2 certified infrastructure, AES-256 encryption, zero-retention defaults. Your records do not train our models, and deletion is on your firm's schedule. This is non-negotiable for defense practices, and it is built into our standard contracting."
+		},
+		{
+			"question": "We currently use FileVine's AI add-on or ad-hoc Claude on anonymized records. Why switch?",
+			"answer": "FileVine's bundled AI is general-purpose and case-management-coupled. Ad-hoc Claude usage on anonymized records lacks BAA coverage and source-pinning. Dodonai gives you defense-framed output, signed BAA, source citations on every chronology entry, and works regardless of which case-management system you use. The win is one HIPAA-compliant workspace your defense team owns instead of three half-solutions stitched together."
+		},
+		{
+			"question": "How does Dodonai handle hallucination risk on standard-of-care arguments?",
+			"answer": "Every chronology entry links to its exact source page. Your team verifies the underlying record in the side-by-side viewer in seconds. For high-stakes arguments — standard-of-care deviations, causation evidence, testimony contradictions — we recommend defense attorneys or retained reviewers confirm key clinical findings before relying on them in motions, expert reports, or at trial. Dodonai eliminates the data-extraction burden; clinical and legal judgment stays with your team."
+		},
+		{
+			"question": "Can Dodonai compare deposition testimony against the underlying medical record?",
+			"answer": "Yes. Upload the deposition transcripts alongside the chart and Dodonai surfaces where the testimony of treating physicians, retained experts, or parties departs from the documented record. Useful for cross-examination prep, motions to exclude or limit expert testimony, and impeachment at trial."
+		}
+	],
+	"relatedPages": [
+		{
+			"title": "Medical Malpractice",
+			"href": "/practice-areas/medical-malpractice/",
+			"description": "The general medical malpractice page covering both sides of the bar."
+		},
+		{
+			"title": "AI Medical Record Summaries & Chronologies",
+			"href": "/ai-medical-record-summaries-chronologies/",
+			"description": "The chronology engine underneath every defense-side workflow on this page."
+		},
+		{
+			"title": "AI Deposition Summary Software",
+			"href": "/deposition-summary-software/",
+			"description": "Summarize treating physician, expert, and party depositions in minutes."
+		},
+		{
+			"title": "Workers' Compensation",
+			"href": "/practice-areas/workers-compensation/",
+			"description": "WC defense firms running unified document workflows on Dodonai."
+		}
+	],
+	"relatedBlogPosts": [
+		"/blog/understanding-medical-chronology-clear-actionable-timelines/",
+		"/blog/medical-malpractice-record-review-standard-of-care/",
+		"/blog/medical-malpractice-deposition-prep-chronology-examination-outline/"
+	],
+	"ctaOverride": {
+		"headline": "Run One Defense Matter Through Dodonai",
+		"description": "Upload a chart and depositions from a current defense case. Get a defense-framed chronology and deposition summaries in minutes. BAA signed before your first upload. No credit card required."
+	}
+}
