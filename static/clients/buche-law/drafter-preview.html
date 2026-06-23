@@ -34,15 +34,23 @@
   h2{font-size:22px; font-weight:800; letter-spacing:-.3px;}
   .lead{font-size:16px; color:var(--slate); margin-top:8px;}
 
-  /* Steps */
-  .step{display:flex; gap:16px; align-items:flex-start; padding:14px 0;
-        border-top:1px solid #f0ecf8;}
-  .step:first-of-type{border-top:none;}
-  .num{flex:0 0 32px; height:32px; width:32px; border-radius:50%;
-       background:var(--purple); color:#fff; font-weight:700; font-size:15px;
-       display:flex; align-items:center; justify-content:center;}
-  .step h3{font-size:15px; font-weight:700;}
-  .step p{font-size:14.5px; color:var(--slate); margin-top:3px;}
+  /* Workflow timeline */
+  .stage{display:flex; gap:18px; align-items:stretch;}
+  .rail{flex:0 0 40px; display:flex; flex-direction:column; align-items:center;}
+  .node{height:40px; width:40px; border-radius:50%; background:var(--purple); color:#fff;
+        font-weight:800; font-size:16px; display:flex; align-items:center; justify-content:center;
+        flex:0 0 40px;}
+  .line{flex:1 1 auto; width:2px; background:var(--line); min-height:14px;}
+  .stage:last-child .line{display:none;}
+  .stage-body{padding:5px 0 26px;}
+  .stage:last-child .stage-body{padding-bottom:0;}
+  .who{display:inline-block; font-size:10px; letter-spacing:.7px; text-transform:uppercase;
+       font-weight:800; padding:3px 9px; border-radius:20px; margin-bottom:7px;}
+  .who.you{background:#efe7fb; color:var(--purple-dark);}
+  .who.auto{background:var(--green-wash); color:var(--green);}
+  .stage-body h3{font-size:16px; font-weight:700;}
+  .stage-body p{font-size:14.5px; color:var(--slate); margin-top:4px;}
+  .stage-body .same{font-size:12.5px; color:#9690a3; font-weight:600; margin-top:5px;}
 
   /* Highlight / table */
   .highlight{background:var(--wash); border:1px solid var(--line); border-radius:14px;
@@ -96,22 +104,60 @@
       </div>
 
       <section>
-        <div class="kicker">How it works</div>
-        <div class="step">
-          <div class="num">1</div>
-          <div><h3>Run your medical summary</h3><p>Exactly like you do today. Nothing about that step changes.</p></div>
+        <div class="kicker">The full workflow</div>
+        <h2 style="margin-bottom:6px;">From the case file to a finished brief</h2>
+        <p class="lead" style="margin-bottom:26px;">The first two steps are the Dodonai workflow you run today. The brief is a new step that picks up right where your summary leaves off.</p>
+
+        <div class="stage">
+          <div class="rail"><div class="node">1</div><div class="line"></div></div>
+          <div class="stage-body">
+            <span class="who you">You</span>
+            <h3>Upload the case file</h3>
+            <p>Medical records, the denial report, anything in the file, into the matter.</p>
+            <div class="same">Same as any Dodonai case &middot; nothing changes</div>
+          </div>
         </div>
-        <div class="step">
-          <div class="num">2</div>
-          <div><h3>Click Generate brief</h3><p>Right on the summary. Pick the claim type and fill in the case details: player, team, roster dates, category.</p></div>
+
+        <div class="stage">
+          <div class="rail"><div class="node">2</div><div class="line"></div></div>
+          <div class="stage-body">
+            <span class="who auto">Dodonai</span>
+            <h3>Generate the medical summary</h3>
+            <p>The chronology you already rely on, built from the records.</p>
+            <div class="same">Same as today &middot; the brief reads from this</div>
+          </div>
         </div>
-        <div class="step">
-          <div class="num">3</div>
-          <div><h3>Get a Word doc back</h3><p>It reads the summary, applies that claim type's rules, and drops a .docx in the matter. Runs in the background and pings you when it's done.</p></div>
+
+        <div class="stage">
+          <div class="rail"><div class="node">3</div><div class="line"></div></div>
+          <div class="stage-body">
+            <span class="who you">You</span>
+            <h3>Click Generate brief</h3>
+            <p>Right on the finished summary. Pick the claim type, then enter the case details: player, team, roster dates, and category.</p>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="rail"><div class="node">4</div><div class="line"></div></div>
+          <div class="stage-body">
+            <span class="who auto">Dodonai</span>
+            <h3>Draft the brief</h3>
+            <p>It reads the summary, ties every fact back to a record citation, scores the impairments against the 2025 Point Chart for LOD, and flags anything the record doesn't cover instead of guessing. Runs in the background and pings you when it's done.</p>
+          </div>
+        </div>
+
+        <div class="stage">
+          <div class="rail"><div class="node">5</div><div class="line"></div></div>
+          <div class="stage-body">
+            <span class="who you">You</span>
+            <h3>Review and finalize</h3>
+            <p>The Word doc lands in the matter next to the summary. Edit it like any draft, then file it.</p>
+          </div>
         </div>
       </section>
 
       <section style="padding-top:0;">
+        <div class="kicker">A closer look at step 4</div>
         <div class="highlight">
           <h2>The LOD point values aren't written by the AI</h2>
           <p>Every impairment gets looked up in the 2025 Point Chart, and the total is added up by code. So the score and the 9-point threshold call are exact every time. Each distinct injury lands under its own category with the record citation behind it. If something doesn't map cleanly to the chart, it flags it for you instead of guessing.</p>
