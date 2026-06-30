@@ -644,6 +644,8 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 /* staggered reveal — generic */
 .dc-stg{opacity:0;transform:translateY(9px);transition:opacity .5s ease,transform .5s ease}
 .dc-screen.play .dc-stg{opacity:1;transform:none}
+/* replay reset — kill transitions so rows snap back to hidden instantly */
+.dc-screen.dc-reset .dc-stg{transition:none}
 .dc-screen.play .s1{transition-delay:.10s}.dc-screen.play .s2{transition-delay:.40s}.dc-screen.play .s3{transition-delay:.70s}.dc-screen.play .s4{transition-delay:1.00s}.dc-screen.play .s5{transition-delay:1.30s}.dc-screen.play .s6{transition-delay:1.60s}.dc-screen.play .s7{transition-delay:1.90s}.dc-screen.play .s8{transition-delay:2.20s}.dc-screen.play .s9{transition-delay:2.50s}
 /* fax rows */
 .fx-row{display:flex;align-items:flex-start;gap:11px;padding:11px 12px;border:1px solid var(--cream-line);border-radius:10px;margin-bottom:9px;background:#fff}
@@ -984,8 +986,8 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 <!-- FUTURE INTRO + REMAINING NAMED WORKFLOWS -->
 <section class="alt">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">On the roadmap · after the first two</span><h2>The rest of the Firm OS <span class="soft">you were drawn to on the first call</span></h2>
-      <p class="sec-sub">The two demos today are where we start. These next pieces are the ones you raised on the intro call. They come after the fax and inbox wins are proven, on the same engine and the same human gates. Future phases, sized once Phase 1 is in.</p></div>
+    <div class="sec-head reveal"><span class="eyebrow">On the roadmap · candidate projects</span><h2>Potential <span class="soft">future improvements</span></h2>
+      <p class="sec-sub">The two demos today are where we start. Beyond them is a wider set of projects — some you raised on the intro call, some natural adjacencies once intake routing is running. Candidates for later phases, not commitments. Each runs on the same engine and the same human gates, and gets sized only if and when you decide it's next. We never build ahead of a proven win.</p></div>
     <div class="pillars">
 
       <div class="pillar reveal d1">
@@ -1011,8 +1013,41 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
         </div>
       </div>
 
+      <div class="pillar reveal d3">
+        <div class="phead"><span class="pnum">3</span><span class="ptitle">Medical chronology</span><span class="ptag moved">later phase</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>Reads the <b>filed records on a matter</b>, once intake routing is running.</span></div>
+            <div class="f"><span class="fm">→</span><span>Assembles a <b>dated medical chronology</b>, with cite-back to the source page.</span></div>
+            <div class="f"><span class="fm">→</span><span>Your team gets a draft to check, not a blank page to build from.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar reveal d4">
+        <div class="phead"><span class="pnum">4</span><span class="ptitle">Demand package assembly</span><span class="ptag moved">later phase</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>Triggers when a matter is <b>demand-ready</b>: treatment confirmed, records and chronology in place.</span></div>
+            <div class="f"><span class="fm">→</span><span>Drafts the cover from the records, the chronology, and your <b>prior demands</b>.</span></div>
+            <div class="f"><span class="fm">→</span><span>A first-pass draft for your sign-off. Feeds EvenUp, never goes out on its own.</span></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="pillar reveal d5">
+        <div class="phead"><span class="pnum">5</span><span class="ptitle">Intake to engagement</span><span class="ptag moved">later phase</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>Picks up a <b>new lead</b> from the web form, a referral, or a call log.</span></div>
+            <div class="f"><span class="fm">→</span><span>Runs the <b>conflict check</b>, schedules the consult, and drafts the engagement and welcome materials.</span></div>
+            <div class="f"><span class="fm">→</span><span>Opens the matter stub so a new client starts clean, with nothing keyed by hand.</span></div>
+          </div>
+        </div>
+      </div>
+
     </div>
-    <p class="ocaveat reveal d3">Together with the two demos, these are the four workflows you named. Two we show running today; two are the natural next phases. We never build ahead of a proven win.</p>
+    <p class="ocaveat reveal d3">Two of the workflows you named we show running today; these are examples of where the same engine could go next. Options for later phases, sized if and when you want them, never ahead of a proven win.</p>
   </div>
 </section>
 
@@ -1193,7 +1228,7 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 <!-- LEAVE THE CALL WITH / PHASING -->
 <section class="alt">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Leave the call <span class="soft">with</span></h2></div>
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Next <span class="soft">steps</span></h2></div>
     <div class="timeline reveal d1">
       <div class="tl-line"></div>
       <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">Today</div><div class="ph2">Both demos seen</div><div class="pd2">Fax triage and email management, running. The mechanism is clear and the gates are clear.</div></div>
@@ -1226,8 +1261,14 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
     btn.addEventListener('click', function(){
       var s = document.getElementById(btn.getAttribute('data-t'));
       if(!s) return;
+      /* .dc-stg rows animate via CSS transition, not @keyframes, so the bare
+         remove/reflow/add trick no-ops. Disable transitions first so the rows
+         snap back to the hidden state, then re-enable and replay. */
+      s.classList.add('dc-reset');
       s.classList.remove('play');
-      void s.offsetWidth;       /* force reflow so the transition restarts */
+      void s.offsetWidth;       /* commit the hidden state instantly */
+      s.classList.remove('dc-reset');
+      void s.offsetWidth;       /* re-enable transitions before replaying */
       s.classList.add('play');
     });
   });
