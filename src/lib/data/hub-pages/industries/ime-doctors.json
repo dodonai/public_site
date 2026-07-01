@@ -59,7 +59,7 @@
 				{
 					"icon": "shield",
 					"title": "HIPAA Compliant",
-					"description": "HIPAA compliant with signed BAAs. SOC 2 certified. AES-256 encrypted. Claimant records stay out of training pipelines, and you choose when they're deleted."
+					"description": "HIPAA compliant, with a signed BAA available on request. SOC 2 certified. AES-256 encrypted. Claimant records stay out of training pipelines, and you choose when they're deleted."
 				}
 			]
 		},
@@ -104,7 +104,7 @@
 		},
 		{
 			"question": "Is the platform HIPAA compliant?",
-			"answer": "Claimant PHI falls under strict federal and state privacy rules. Signed BAAs, AES-256 encryption and SOC 2 certification are all standard. Records never enter a training pipeline. Deletion runs on your schedule."
+			"answer": "Claimant PHI falls under strict federal and state privacy rules. A signed BAA is available on request, and AES-256 encryption and SOC 2 certification are standard. Records never enter a training pipeline. Deletion runs on your schedule."
 		}
 	],
 	"relatedPages": [
