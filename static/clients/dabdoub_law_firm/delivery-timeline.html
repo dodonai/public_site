@@ -114,7 +114,9 @@
     <p class="lede">A live view of the Dabdoub Law Firm AI implementation, Appeals first, then across the whole firm. We update this as milestones move, and you hear from us before any date if something is trending late.</p>
     <div class="meta">
       <div><b>Prepared for</b> &nbsp;Bryn Natland · Edward P. Dabdoub, JD MBA</div>
-      <div><b>Status as of</b> &nbsp;June 19, 2026</div>
+      <div><b>Status as of</b> &nbsp;<!-- GEN:status-date -->
+June 29, 2026
+<!-- /GEN:status-date --></div>
       <div><b>Target</b> &nbsp;Full firm AI-native by Thanksgiving 2026</div>
     </div>
   </div>
@@ -131,7 +133,7 @@
         <li>Microsoft Graph foundation in place: secure access to Outlook, SharePoint, and Word is wired up (firm environment provisioned June 5 via Lansight).</li>
         <li>Your existing appeal and examiner letter templates pulled from SharePoint and set up so the automation fills them in. Wording is under review with Bryn and Sonya.</li>
         <li>The active Appeals &amp; Claims list is being moved into HubSpot so every case lives in one place.</li>
-        <li>On track for the first AI-drafted appeals to land in real case files around mid-July, behind the 70% quality-bar guarantee.</li>
+        <li>The first AI-drafted appeal came back with the firm's edits, now incorporated into the drafting rules. On track for AI-drafted appeals in real case files around mid-July, behind the 70% quality-bar guarantee.</li>
       </ul>
     </div>
   </div>
@@ -173,7 +175,7 @@
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Past-response retrieval <em>Indexed over your historical appeals and rebuttals, running on your live document set</em></div>
+              <div class="lbl">Past-response grounding <em>The drafter reads your own historical appeals and rebuttals so drafts sound like your firm, running on your live document set</em></div>
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
@@ -181,16 +183,16 @@
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">First-draft appeal letters <em>Producing end-to-end drafts on real matters internally; tuning toward the 70% quality bar</em></div>
+              <div class="lbl">First-draft appeal letters <em>Now running in your Dodonai environment. The first AI-drafted appeal came back with the firm's edits, now incorporated; tuning toward the 70% quality bar</em></div>
               <span class="spill s-tune">In tuning</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Medical-review rebuttal drafting <em>Same engine, retargeted at peer-review / IME / FCE rebuttals; in tuning</em></div>
+              <div class="lbl">Medical-review rebuttal drafting <em>Same engine, retargeted at peer-review / IME / FCE rebuttals; now enabled in your environment, in tuning</em></div>
               <span class="spill s-tune">In tuning</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Letter wording in your voice <em>Appeal and examiner cover-letter templates wired in; wording under review with Bryn and Sonya</em></div>
-              <span class="spill s-prog">Your review</span>
+              <div class="lbl">Letter wording in your voice <em>Appeal and examiner cover-letter templates wired in; Bryn and Sonya's red-lines and clarifications incorporated</em></div>
+              <span class="spill s-built">Built</span>
             </div>
           </div>
         </div>
@@ -208,8 +210,8 @@
           <p class="sub-intro">Wave 1B formally begins after Wave 1A sign-off, but we have pulled significant groundwork forward already:</p>
           <div class="sub-list">
             <div class="sub-item">
-              <div class="lbl">Inbound insurer-letter reader <em>Classifies incoming letters and extracts the appeal deadline at receipt; core verified on real letters internally</em></div>
-              <span class="spill s-tune">Core built</span>
+              <div class="lbl">Inbound insurer-letter reader <em>Classifies incoming letters, routes each to the right matter, and flags duplicates across mail and folders; the full reader is built and verified on real letters internally</em></div>
+              <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
               <div class="lbl">Deadline calendaring <em>Appeal-deadline and submission reminders, always human-confirmed off the letter; engine built, trigger wiring next</em></div>
@@ -227,11 +229,19 @@
               <div class="lbl">Appeal submission packet bundling <em>Assembles the letter, evidence, and process forms into one submission; engine built and tested internally</em></div>
               <span class="spill s-built">Built</span>
             </div>
-            <div class="sub-item">
-              <div class="lbl">Disbursement statement <em>Pulled forward from Phase 4 at your request</em></div>
-              <span class="spill s-plan">Planned</span>
-            </div>
           </div>
+        </div>
+      </div>
+
+      <div class="phase active">
+        <div class="dot">●</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASE 1C</small>Accounting, Pulled Forward: Disbursement Statement</div>
+            <div class="pwhen">~early August (within Wave 1B)</div>
+          </div>
+          <div class="pdesc">Accounting starts early, at your request. The disbursement statement (attorney fee, cost reimbursement, and net to client) generates automatically, months ahead of the main Accounting phase, and builds standalone so it does not wait on the QuickBooks work later in the plan. The generator is already built and validated against your firm's real statement format; it goes live once we wire the live data pull, with your go-ahead.</div>
+          <span class="badge b-active">Built ahead</span>
         </div>
       </div>
 
@@ -263,10 +273,10 @@
         <div class="dot">5</div>
         <div class="pcard">
           <div class="prow">
-            <div class="ptitle"><small>PHASE 4</small>Accounting</div>
+            <div class="ptitle"><small>PHASE 4</small>Accounting (remainder)</div>
             <div class="pwhen">~mid-November</div>
           </div>
-          <div class="pdesc">DocuSign and QuickBooks recording, late-payment escalation, and the Friday-report feeder. Accounting stays walled off behind the firm's permission model.</div>
+          <div class="pdesc">DocuSign and QuickBooks recording, late-payment escalation, and the Friday-report feeder. The disbursement statement already shipped early in Phase 1C. Accounting stays walled off behind the firm's permission model.</div>
           <span class="badge b-planned">Planned</span>
         </div>
       </div>
@@ -291,53 +301,110 @@
   <div class="wrap">
     <div class="kicker">What we asked the firm for</div>
     <h2>Most of it is already in hand</h2>
-    <p class="sub">The access and inputs we needed to build. Two items are still in flight.</p>
+    <p class="sub">The access and inputs we needed to build. The list below is current as of June 29, and a few of the open items are for Eddie, Tanja, or Sonya rather than Bryn.</p>
     <div class="check-list">
+      <!-- GEN:firm-asks -->
       <div class="check-item">
         <span class="cbox done">&#10003;</span>
-        <span class="ctext">Microsoft access consent <em>Tenant admin consent so the automation can work in Outlook, SharePoint, and Word</em></span>
+        <span class="ctext">Microsoft access consent <em>Tenant admin consent so the automation can work in Outlook, SharePoint, and Word.</em></span>
         <span class="ctag t-done">Provided</span>
       </div>
       <div class="check-item">
         <span class="cbox done">&#10003;</span>
-        <span class="ctext">HubSpot access <em>For the case-list and trigger integration</em></span>
+        <span class="ctext">HubSpot access <em>For the case-list and trigger integration.</em></span>
         <span class="ctag t-done">Provided</span>
       </div>
       <div class="check-item">
         <span class="cbox done">&#10003;</span>
-        <span class="ctext">SharePoint and Outlook access <em>Provisioned with the firm's IT team</em></span>
+        <span class="ctext">SharePoint and Outlook access <em>Provisioned with the firm's IT team.</em></span>
         <span class="ctag t-done">Provided</span>
       </div>
       <div class="check-item">
         <span class="cbox done">&#10003;</span>
-        <span class="ctext">A Teams account for Nick <em>First-class channel for firm communication and workflow alerts</em></span>
+        <span class="ctext">A Teams account for Nick <em>First-class channel for firm communication and workflow alerts.</em></span>
         <span class="ctag t-done">Provided</span>
       </div>
       <div class="check-item">
         <span class="cbox done">&#10003;</span>
-        <span class="ctext">The five seed appeal letters <em>Firm-selected exemplars that seed the drafting engine</em></span>
+        <span class="ctext">The five seed appeal letters <em>Firm-selected exemplars that seed the drafting engine.</em></span>
         <span class="ctag t-done">Provided</span>
       </div>
       <div class="check-item">
         <span class="cbox done">&#10003;</span>
-        <span class="ctext">Your past-response corpus <em>Historical appeals and rebuttals for retrieval grounding</em></span>
+        <span class="ctext">Your past-response corpus <em>Historical appeals and rebuttals the drafter grounds on.</em></span>
         <span class="ctag t-done">Provided</span>
       </div>
       <div class="check-item">
         <span class="cbox done">&#10003;</span>
-        <span class="ctext">Letter and cover-letter samples <em>Appeal, examiner cover-letter, treating-doctor, and request templates</em></span>
+        <span class="ctext">Letter and cover-letter samples <em>Appeal, examiner cover-letter, treating-doctor, and request templates.</em></span>
+        <span class="ctag t-done">Provided</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">Red-lines on the drafted letter wording <em>Bryn and Sonya returned their edits and clarifications (6/18–19); all incorporated into the automation.</em></span>
+        <span class="ctag t-done">Provided</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">Feedback on the first AI-drafted appeal <em>Eddie and Tanja's redline on the Anne Price draft (6/26–27), received and folded into the drafting rules.</em></span>
+        <span class="ctag t-done">Provided</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">&#10003;</span>
+        <span class="ctext">CO-01 change-order e-signature <em>Signed 6/29 — the fee-agreement automation build is cleared to start.</em></span>
         <span class="ctag t-done">Provided</span>
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">Red-lines on the drafted letter wording <em>Your edits so the drafts read in the firm's voice (in progress with Bryn and Sonya)</em></span>
-        <span class="ctag t-open">In flight</span>
+        <span class="ctext">Benefits and present-value calculation method <em>Your benefits calculation method (net-of-offset monthly benefit + how you compute present value). It feeds the case-value and high-value flag in HubSpot; it does not hold up the appeal drafts.</em></span>
+        <span class="ctag t-open">Bryn</span>
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">~30 minutes a week to review drafts <em>Bryn or a designated attorney, before anything goes live on a real matter (ongoing through build)</em></span>
+        <span class="ctext">Firm-authored scenario backdrops 2, 3 & 4 <em>The first paragraphs for each case type beyond the STD-to-LTD one we already have. Eddie and Tanja are authoring these.</em></span>
+        <span class="ctag t-open">Eddie + Tanja</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Williams brief <em>A source brief for the scenario-1 backdrop, requested in the 6/27 reply.</em></span>
+        <span class="ctag t-open">Eddie</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">A few more live cases to test on <em>Ideally one per appeal scenario, so we can validate each new template on a real file.</em></span>
+        <span class="ctag t-open">Firm</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Final onboarding-form fields and any fee-agreement wording edits <em>To lock the onboarding form's field mapping and the fee-agreement template.</em></span>
+        <span class="ctag t-open">Bryn</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Referring-doctors list <em>Drives the evaluation-scheduling and referral routing.</em></span>
+        <span class="ctag t-open">Sonya</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Matter-folder format variations + a couple of multi-insurer sample files <em>So the folder-organization automation handles every case type and multi-insurer matters.</em></span>
+        <span class="ctag t-open">Sonya</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Impact Med referral sheet + your internal referral sheet <em>For the referral-form auto-fill.</em></span>
+        <span class="ctag t-open">Bryn</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">A few quick confirmations <em>Your firm closure-holiday calendar; whether carriers accept a secure download link for oversized appeals; and the disbursement-statement format.</em></span>
+        <span class="ctag t-open">Bryn</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">~30 minutes a week to review drafts <em>Bryn or a designated attorney, before anything goes live on a real matter (ongoing through build).</em></span>
         <span class="ctag t-open">Ongoing</span>
       </div>
+<!-- /GEN:firm-asks -->
     </div>
     <div class="note">
       <b>How dates work.</b> The windows above are targets, re-baselined at each phase boundary. If any milestone starts trending late, you hear it from us before the date, with the cause and the trade-offs, never after the fact. That delivery-visibility commitment is built into the engagement.

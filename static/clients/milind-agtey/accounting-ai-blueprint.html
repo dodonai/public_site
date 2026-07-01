@@ -279,16 +279,16 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
       <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
       <span class="vrule"></span>
       <span class="partner">Accounting AI Build Blueprint</span>
-      <span class="tag">v1 · post-call</span>
+      <span class="tag">v2 · scope review</span>
     </div>
     <span class="eyebrow">Prepared for Milind Agtey</span>
     <h1>The financial analysis your clients pay someone to assemble,<br><span class="soft">produced in minutes, in your own template.</span></h1>
-    <p class="lede">You want to turn QuickBooks data into the report a client actually reads, then let anyone ask it questions in plain language. This is the plan to build that, with a working version you can put in front of real users by the end of September.</p>
+    <p class="lede">You want to turn QuickBooks data into the report a client actually reads, then let anyone ask it questions in plain language. This is the plan to build that, with a working version you can put in front of real users by the end of September. This version answers the open items you wrote down.</p>
     <div class="meta-grid">
-      <div class="meta"><div class="label">Conversation</div><div class="value">Discovery, June 2026</div></div>
+      <div class="meta"><div class="label">Conversation</div><div class="value">Scope review, June 2026</div></div>
       <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · Nick Chapleau</div></div>
-      <div class="meta"><div class="label">Goal</div><div class="value">Agree the shape of the build</div></div>
-      <div class="meta"><div class="label">Your decision</div><div class="value">Greenlight a scoped POC</div></div>
+      <div class="meta"><div class="label">Goal</div><div class="value">Confirm scope and cost</div></div>
+      <div class="meta"><div class="label">Your decision</div><div class="value">Approve the scope, sign the SOW</div></div>
     </div>
   </div>
 </header>
@@ -386,6 +386,39 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Setting up a template</span><h2>You map it once. <span class="soft">The system keeps it.</span></h2>
+      <p class="sec-sub">The first time you load one of your report templates, the engine proposes how each of your labels ties to a QuickBooks account and shows you its work side by side. You correct anything it got wrong, save it, and that mapping is reused every month after.</p></div>
+    <div class="xlsheet reveal d1">
+      <div class="xl-bar"><span class="xl-logo">▦ Mapping review</span><span class="xl-file">GrossMargin_byProduct.xlsx</span><span class="xl-live">● first-pass proposal</span></div>
+      <div class="xl-scroll">
+        <table class="xl-grid">
+          <thead><tr><th class="rownum"></th><th>A · Your label (your template)</th><th>B · Proposed QuickBooks account</th><th>C · Status</th></tr></thead>
+          <tbody>
+            <tr><td class="rownum">1</td><td class="lbl">Product revenue</td><td class="lbl">Income : Product Sales</td><td class="num fill">matched</td></tr>
+            <tr><td class="rownum">2</td><td class="lbl">Direct labor</td><td class="lbl">COGS : Direct Labor</td><td class="num fill">matched</td></tr>
+            <tr><td class="rownum">3</td><td class="lbl">Materials</td><td class="lbl">COGS : Materials &amp; Supplies</td><td class="num fill">matched</td></tr>
+            <tr><td class="rownum">4</td><td class="lbl">Freight in</td><td class="lbl">needs your confirmation</td><td class="num fill">review</td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="xl-cap"><span class="xl-key"></span> The engine fills its best guess and flags anything it is unsure about. You edit, re-run, and save once it is right.</p>
+      <p class="xl-cap"><span class="xl-key"></span> Every month after, the same mapping refreshes with the new period's numbers. Past months stay in place and new columns are added beside them, so nothing you built before is lost.</p>
+    </div>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Two questions you raised</span><h2>Both, <span class="soft">yes.</span></h2></div>
+    <div class="sec-grid">
+      <div class="seccard reveal d1"><div class="ic">🗂️</div><h4>Workbooks with multiple sheets</h4><p>A template can have as many sheets as your report needs. P&amp;L on one, balance sheet on another, a summary on a third. The engine fills each from the right QuickBooks data and keeps the workbook's structure intact.</p></div>
+      <div class="seccard reveal d2"><div class="ic">🔀</div><h4>Combining QuickBooks with another file</h4><p>Yes. You can upload a second source, say a billing-system export, and tell the engine which columns to pull from it. Those values are merged into the QuickBooks-driven sheet, so one report can draw on both.</p></div>
     </div>
   </div>
 </section>
@@ -556,10 +589,50 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
   </div>
 </section>
 
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Your open items, answered</span><h2>The questions <span class="soft">from your list</span></h2>
+      <p class="sec-sub">The items you wrote down to settle before we start, addressed directly.</p></div>
+    <div class="sec-grid">
+      <div class="seccard reveal d1"><div class="ic">🧠</div><h4>Which AI engine, and why one</h4><p>We start with a single provider, <b>Claude (Anthropic)</b>: its strongest model for the reasoning-heavy steps, a cheaper model for routine ones. It runs on Dodonai's account with usage passed through to you, so your bookkeeper customers never need an AI account of their own. One provider keeps the product simple and the cost easy to predict. We can add others later if there is a reason to.</p></div>
+      <div class="seccard reveal d2"><div class="ic">🏗️</div><h4>Demo and production environments</h4><p>Yes, both. A <b>staging</b> environment to build and try things safely, and a separate <b>production</b> environment for the live product. Changes are proven in staging before they reach production.</p></div>
+      <div class="seccard reveal d3"><div class="ic">📜</div><h4>Who owns the IP</h4><p>You do. The product, its code, and the build belong to <b>JBY</b>. It runs in a Google Cloud project dedicated to this build and can be moved to your own environment when you are ready. QuickBooks stays your system of record: we pull data in memory to build a report and do not keep a copy.</p></div>
+      <div class="seccard reveal d4"><div class="ic">🗄️</div><h4>What it runs on</h4><p>Dodonai's existing stack: a Python service on Google Cloud Run, a <b>PostgreSQL</b> database for settings and the encrypted QuickBooks tokens, a scheduler for the monthly runs, and Claude for the writing and chat. Postgres scales comfortably well past where this product will go.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What it costs</span><h2>One fixed build fee, <span class="soft">then low running costs</span></h2>
+      <p class="sec-sub">The build is a fixed price. Running the product costs what the cloud and the AI actually use, plus a flat support plan. A full Statement of Work follows this document with the exact terms.</p></div>
+    <div class="sec-grid">
+      <div class="seccard reveal d1"><div class="ic">🔨</div><h4>To build it: $20,000 fixed</h4><p>The full three-feature product, through to a working version on real data by end of September. Fixed fee, billed half at signing and half at go-live. No surprise overage on the build itself.</p></div>
+      <div class="seccard reveal d2"><div class="ic">📈</div><h4>To run it: usage plus a support plan</h4><p>Google Cloud hosting starts around <b>$100/month</b> and scales with use. Claude (AI) usage is passed through <b>at cost</b>, billed on what you actually run. A flat monthly <b>Dodonai support plan</b> covers hosting, monitoring, and small fixes. Your own pricing to bookkeeping firms sits on top of these.</p></div>
+    </div>
+    <p class="sec-sub reveal d3" style="margin-top:22px">Because the AI cost moves with usage, it maps cleanly onto a usage-based price for your own product, which is the model we would suggest you build your pricing around.</p>
+  </div>
+</section>
+
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Future enhancements</span><h2>Where it goes <span class="soft">after the first version</span></h2>
+      <p class="sec-sub">The September build is the foundation. These are the natural next steps once it is in front of real users, added on your go-ahead rather than bundled into the fixed build.</p></div>
+    <div class="cards reveal d1">
+      <div class="card"><div class="top"><span class="name">More analysis recipes</span><span class="badge add">Later</span></div><p class="why">A growing library of ready-made analyses (benchmarks, cash-flow forecasting, budget vs actual) firms can switch on.</p></div>
+      <div class="card"><div class="top"><span class="name">Self-serve onboarding</span><span class="badge add">Later</span></div><p class="why">Let a new firm connect QuickBooks and map its first template without us in the loop, so you sign customers without a setup call.</p></div>
+      <div class="card"><div class="top"><span class="name">Multi-client dashboard</span><span class="badge add">Later</span></div><p class="why">One view across all of a firm's clients, for bookkeepers running many sets of books at once.</p></div>
+      <div class="card"><div class="top"><span class="name">Scheduled delivery options</span><span class="badge add">Later</span></div><p class="why">Branded PDF output, client-ready email send, and reminders tied to each client's close calendar.</p></div>
+      <div class="card"><div class="top"><span class="name">More data sources</span><span class="badge add">Later</span></div><p class="why">Beyond the second-file merge, direct connections to billing or payroll systems firms commonly use.</p></div>
+      <div class="card"><div class="top"><span class="name">Intuit production approval</span><span class="badge add">Later</span></div><p class="why">When you move from pilot to selling broadly, the app goes through Intuit's production review so any firm can connect.</p></div>
+    </div>
+  </div>
+</section>
+
 <footer>
   <div class="wrap">
     <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
-    Prepared for Milind Agtey · v1 · Confidential
+    Prepared for Milind Agtey · v2 · Confidential
   </div>
 </footer>
 

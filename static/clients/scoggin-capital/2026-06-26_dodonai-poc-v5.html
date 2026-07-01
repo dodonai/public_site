@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dodonai — Scoggin Intelligence Workspace POC v5</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    fontFamily: { sans: ['-apple-system','BlinkMacSystemFont','"Helvetica Neue"','Arial','sans-serif'] },
+    colors: { dodonai: { 50:'#faf8fc',100:'#f2eff7',200:'#e4dff0',300:'#d8cfe8',400:'#8a7bb8',500:'#6d5fa6',600:'#5a4e82',700:'#3f3461',800:'#332954',900:'#2d2740' } }
+  } } };
+</script>
+<style>
+  html, body { height: 100%; }
+  body { background: #f5f3f9; }
+  .toast { animation: toastIn .2s ease-out, toastOut .3s ease-in 5.7s forwards; }
+  @keyframes toastIn { from { opacity:0; transform:translateY(8px);} to { opacity:1; transform:translateY(0);} }
+  @keyframes toastOut { to { opacity:0; transform:translateY(8px);} }
+  .pulse-dot { animation: pulse 1.4s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.3;} }
+  .flash { animation: flash 1.4s ease-out; }
+  @keyframes flash { 0%{ background:#ffe4e6; } 100%{ background:transparent; } }
+  .breaking-glow { animation: glow 1.8s ease-in-out infinite; }
+  @keyframes glow { 0%,100%{ box-shadow:0 0 0 0 rgba(225,29,72,0); } 50%{ box-shadow:0 0 0 3px rgba(225,29,72,.12); } }
+  ::-webkit-scrollbar { width:8px; height:8px; }
+  ::-webkit-scrollbar-thumb { background:#d8cfe8; border-radius:4px; }
+  .heat-tile { transition: transform .1s ease; cursor:pointer; }
+  .heat-tile:hover { transform: scale(1.05); z-index:5; }
+  /* sidebar collapse */
+  #sidebar { transition: margin-left .2s ease; }
+  .sidebar-collapsed #sidebar { margin-left:-16rem; }
+  /* styled checkbox */
+  .scheck { appearance:none; -webkit-appearance:none; width:1.05rem; height:1.05rem; border:1.5px solid #8a7bb8; border-radius:5px; background:#fff; position:relative; cursor:pointer; flex-shrink:0; transition:all .12s; }
+  .scheck:checked { background:#3f3461; border-color:#3f3461; }
+  .scheck:checked::after { content:''; position:absolute; left:5px; top:1.5px; width:4px; height:8px; border:solid #fff; border-width:0 2px 2px 0; transform:rotate(45deg); }
+  .scheck:hover { border-color:#5a4e82; }
+  /* drag state */
+  .panel { transition: box-shadow .15s, opacity .15s; }
+  .panel.dragging { opacity:.4; }
+  .panel.drop-target { box-shadow:0 0 0 2px #8a7bb8; }
+  .drag-handle { cursor:grab; }
+  .drag-handle:active { cursor:grabbing; }
+  /* density */
+  .density-compact { font-size:.82rem; }
+  .density-compact .panel-pad { padding:.6rem .75rem; }
+  .density-compact table td, .density-compact table th { padding-top:.3rem; padding-bottom:.3rem; }
+  .seg-btn.active { background:#3f3461; color:#fff; border-color:#3f3461; }
+</style>
+</head>
+<body class="font-sans text-slate-800">
+
+<div class="flex h-screen overflow-hidden" id="frame">
+
+  <!-- Sidebar -->
+  <aside id="sidebar" class="w-64 bg-dodonai-900 text-dodonai-100 flex flex-col flex-shrink-0">
+    <div class="px-5 pt-5 pb-4 border-b border-dodonai-700">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-md bg-gradient-to-br from-dodonai-400 to-dodonai-500 flex items-center justify-center text-white font-bold text-lg">D</div>
+        <div><div class="text-white font-semibold tracking-tight leading-tight">Dodonai</div><div class="text-xs text-dodonai-300 leading-tight">Intelligence Workspace</div></div>
+      </div>
+    </div>
+
+    <div class="flex-1 overflow-y-auto px-3 py-3 space-y-5 text-sm">
+
+      <!-- Active user (per-user personalization) -->
+      <div>
+        <div class="px-1 pb-1.5 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">Workspace · per user</div>
+        <div class="bg-dodonai-700/60 rounded-lg p-1 flex gap-1" id="user-switch"></div>
+        <div class="text-[11px] text-dodonai-300 mt-1.5 px-1">Each analyst gets their own panels, sizing, and layout. This is <span id="user-label" class="text-white font-medium">Pete</span>'s.</div>
+      </div>
+
+      <!-- Panel visibility (styled checkboxes) -->
+      <div>
+        <div class="px-1 pb-1.5 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">Screens — show / hide</div>
+        <div id="panel-toggles" class="space-y-0.5"></div>
+      </div>
+
+      <!-- UI sizing -->
+      <div>
+        <div class="px-1 pb-1.5 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">UI sizing</div>
+        <div class="bg-dodonai-700/60 rounded-lg p-1 flex gap-1" id="density-switch"></div>
+        <div class="text-[11px] text-dodonai-300 mt-1.5 px-1">Panels also resize (½ / full) and reorder by drag — that's the "location" part.</div>
+      </div>
+
+      <div>
+        <div class="px-1 pb-1.5 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">Under the hood</div>
+        <button onclick="openSources()" class="w-full text-left flex items-center gap-2.5 px-2 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="plug" class="w-4 h-4 text-dodonai-300"></i> Data sources &amp; roadmap</button>
+        <button onclick="resetLayout()" class="w-full text-left flex items-center gap-2.5 px-2 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="rotate-ccw" class="w-4 h-4 text-dodonai-300"></i> Reset this layout</button>
+      </div>
+    </div>
+
+    <div class="px-3 pb-4 pt-2 border-t border-dodonai-700">
+      <div class="bg-dodonai-700 rounded-lg p-3">
+        <div class="flex items-center gap-2 mb-1"><i data-lucide="building-2" class="w-4 h-4 text-dodonai-300"></i><span class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Client</span></div>
+        <div class="text-white font-medium text-sm leading-tight">Scoggin Capital</div>
+        <div class="text-xs text-dodonai-300 mt-0.5">Intelligence Workspace · Demo v5</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="flex-1 flex flex-col overflow-hidden min-w-0">
+    <header class="h-14 bg-white border-b border-slate-200 flex items-center px-4 gap-3 flex-shrink-0">
+      <button onclick="toggleSidebar()" title="Hide / show the menu" class="w-9 h-9 rounded-md hover:bg-slate-100 flex items-center justify-center text-slate-600"><i data-lucide="panel-left" class="w-5 h-5"></i></button>
+      <div class="text-sm font-semibold text-slate-800 hidden sm:block">Intelligence Workspace</div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-1.5 text-xs text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1"><i data-lucide="eye" class="w-3.5 h-3.5"></i> Filter &amp; monitor only — never executes trades</div>
+      <div class="flex items-center gap-1.5 text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2.5 py-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 pulse-dot"></span> Market open · live tape (simulated)</div>
+      <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-sky-300 to-indigo-400 text-white flex items-center justify-center font-semibold text-sm" id="hdr-avatar">PP</div><div class="text-sm leading-tight hidden md:block"><div class="font-medium text-slate-800" id="hdr-name">Pete Pasetsky</div><div class="text-xs text-slate-500">Scoggin desk</div></div></div>
+    </header>
+
+    <main id="view" class="flex-1 overflow-y-auto"></main>
+  </div>
+</div>
+
+<div id="toasts" class="fixed bottom-6 right-6 z-50 space-y-2"></div>
+
+<button onclick="openWelcome()" id="tour-fab" class="fixed bottom-5 left-5 z-40 bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-full px-4 py-2.5 text-sm shadow-lg flex items-center gap-2"><i data-lucide="compass" class="w-4 h-4"></i> How this works</button>
+
+<!-- Welcome modal -->
+<div id="welcome" class="fixed inset-0 z-[60] bg-slate-900/50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-xl w-full p-7 shadow-2xl">
+    <div class="flex items-center gap-2 mb-3"><div class="w-9 h-9 rounded-md bg-gradient-to-br from-dodonai-400 to-dodonai-500 flex items-center justify-center text-white font-bold">D</div><div class="font-semibold text-slate-800">Dodonai · Scoggin demo v5</div></div>
+    <h2 class="text-xl font-semibold text-slate-800">Hey Pete — one screen, built around you.</h2>
+    <p class="text-sm text-slate-600 mt-2">Everything from the proposal now lives on a <strong>single workspace</strong> you arrange yourself. Three things to try:</p>
+    <ul class="mt-3 space-y-2 text-sm text-slate-700">
+      <li class="flex items-start gap-2"><i data-lucide="search" class="w-4 h-4 text-dodonai-500 mt-0.5 flex-shrink-0"></i><span><strong>Type a ticker</strong> in the bar up top — the whole page becomes a deep-dive on that one name (news, brokers, blocks, peers, filings all re-scope at once).</span></li>
+      <li class="flex items-start gap-2"><i data-lucide="panel-left" class="w-4 h-4 text-dodonai-500 mt-0.5 flex-shrink-0"></i><span><strong>Hide the menu</strong> with the button top-left for full-width real estate.</span></li>
+      <li class="flex items-start gap-2"><i data-lucide="settings-2" class="w-4 h-4 text-dodonai-500 mt-0.5 flex-shrink-0"></i><span><strong>Make it yours</strong> — toggle which screens show, switch sizing, and drag panels side-by-side into columns. Flip to "Austin" to see a different analyst's layout.</span></li>
+    </ul>
+    <div class="bg-amber-50 border border-amber-200 rounded-lg p-2.5 mt-4 text-xs text-amber-900 flex items-start gap-2"><i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>Simulated data. Tickers and broker codes are real; every number and timestamp is made up to show the workflow. <strong>Surfaces information — never trades.</strong></div></div>
+    <div class="flex flex-wrap gap-2 mt-5">
+      <button onclick="closeWelcome(); setTicker('NVDA');" class="bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-md px-4 py-2 text-sm font-medium flex items-center gap-2"><i data-lucide="play" class="w-4 h-4"></i> Show me — filter to NVDA</button>
+      <button onclick="closeWelcome()" class="border border-slate-300 hover:bg-slate-50 rounded-md px-4 py-2 text-sm">I'll explore on my own</button>
+    </div>
+  </div>
+</div>
+
+<!-- Sources / roadmap drawer -->
+<div id="sources-modal" class="hidden fixed inset-0 z-[60] bg-slate-900/50 flex items-start justify-center p-4 overflow-y-auto">
+  <div class="bg-slate-50 rounded-2xl max-w-4xl w-full my-8 shadow-2xl">
+    <div class="flex items-center justify-between px-6 py-4 border-b border-slate-200 bg-white rounded-t-2xl sticky top-0">
+      <div class="font-semibold text-slate-800">Data sources &amp; roadmap</div>
+      <button onclick="closeSources()" class="text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-5 h-5"></i></button>
+    </div>
+    <div id="sources-body" class="p-6"></div>
+  </div>
+</div>
+
+<script>
+// ============================================================================
+// SIMULATED DATA — illustrative only. Tickers and broker acronyms are REAL
+// (JEFF, JPM, BCAP, SUSQ, CANT, MLCO, GSCO, MSCO, etc.) for realism; every
+// volume, price, sentiment score, % and timestamp is MADE UP to show the
+// workflow — this is not Scoggin's book or any real broker's flow.
+// v5 collapses v4's multi-page cockpit into ONE personalizable workspace:
+//   - one master ticker bar that filters every panel at once
+//   - one color-coded Newsfeed (Watch-List Alerts folded in)
+//   - draggable / resizable / toggleable panels, saved per user
+// FILTER & MONITOR ONLY — never trades.
+// ============================================================================
+
+const WATCHLIST = ['NVDA','AMD','SMCI','COIN','MSTR','PLTR','RDDT','ARM','CRWD','CVNA','HOOD','AFRM','WULF','CORZ','IREN','RKLB','SOFI','TSLA','META','NBIS','CIFR','SOUN','BBAI'];
+
+const NAMES = [
+  {tk:'NVDA', px:128.40, tag:'Keynote 2:00 ET'},
+  {tk:'SMCI', px:48.20,  tag:'Earnings 6/24'},
+  {tk:'CVNA', px:268.00, tag:'Activist short'},
+  {tk:'COIN', px:241.50, tag:'Outage reports'},
+  {tk:'MSTR', px:178.30, tag:''},
+  {tk:'PLTR', px:24.60,  tag:'Gov award'},
+  {tk:'RKLB', px:11.30,  tag:''},
+  {tk:'WULF', px:7.85,   tag:'8-K · AI lease'},
+  {tk:'CORZ', px:9.40,   tag:''},
+  {tk:'IREN', px:8.10,   tag:''},
+  {tk:'SOFI', px:9.95,   tag:''},
+  {tk:'CIFR', px:4.20,   tag:''},
+  {tk:'SOUN', px:1.65,   tag:'sub-$2'},
+  {tk:'BBAI', px:1.90,   tag:'sub-$2'}
+];
+const NAME_PX = Object.fromEntries(NAMES.map(n=>[n.tk,n.px]));
+const NAME_TAG = Object.fromEntries(NAMES.map(n=>[n.tk,n.tag]));
+
+const ALL_BROKERS = ['GSCO','MSCO','JPM','BCAP','JEFF','SUSQ','CANT','MLCO','BTIG','COWN','STFL','NMRA','VIRT','UBSW','RBCC'];
+const BROKER_NAMES = { GSCO:'Goldman Sachs', MSCO:'Morgan Stanley', JPM:'J.P. Morgan', BCAP:'Barclays', JEFF:'Jefferies', SUSQ:'Susquehanna', CANT:'Cantor Fitzgerald', MLCO:'BofA Securities', BTIG:'BTIG', COWN:'TD Cowen', STFL:'Stifel', NMRA:'Nomura', VIRT:'Virtu', UBSW:'UBS', RBCC:'RBC Capital' };
+
+// Deterministic per-ticker advert generator.
+// v5: heavy-tailed so a lead broker can clear 20%+ of the name's flow, plus a
+// 5-day history per broker and a consecutive-days-traded streak.
+function rng(seed){ let s=0; for(let i=0;i<seed.length;i++) s=(s*131+seed.charCodeAt(i))>>>0; return function(){ s=(s*1664525+1013904223)>>>0; return s/4294967296; }; }
+function genBrokers(tk){
+  const r=rng(tk+'adv5');
+  let rows=ALL_BROKERS.map(b=>{
+    // heavy tail: cube the uniform so most desks are small and one or two dominate
+    const today=Math.round(10 + Math.pow(r(),3)*1700);
+    const hist=[]; // hist[0] = yesterday, hist[1] = 2 days ago, ... 5 days back
+    // a desk doesn't show size in a name every day — 0 = absent that session
+    for(let i=0;i<5;i++){ const present=r()>0.34; hist.push(present?Math.round(today*(0.35+r()*1.35)):0); }
+    let streak=1; // include today; count back while the desk showed >= 10k
+    for(let i=0;i<hist.length;i++){ if(hist[i]>=10) streak++; else break; }
+    return { broker:b, today, yest:hist[0], hist, streak };
+  }).filter(x=>x.today>=10); // Pete: min broker volume 10k shares
+  const total=rows.reduce((a,x)=>a+x.today,0)||1;
+  rows.forEach(x=>{ x.pct=+(x.today/total*100).toFixed(1); x.delta=+(((x.today-x.yest)/x.yest)*100).toFixed(0); });
+  rows.sort((a,b)=>b.today-a.today);
+  rows.forEach((x,i)=>x.rank=i+1);
+  return rows;
+}
+function band(px){ return px>10?'gt10':(px>2?'gt2':'lt2'); }
+function bandCls(px){ const b=band(px); return b==='gt10'?'bg-indigo-100 text-indigo-700 border-indigo-200':(b==='gt2'?'bg-sky-100 text-sky-700 border-sky-200':'bg-amber-100 text-amber-800 border-amber-200'); }
+
+// ---- Unified Newsfeed (Watch-List Alerts folded in). cls: tracked | broad | theme
+const NEWSFEED = [
+  { t:'11:34', cls:'tracked', tk:['CVNA'], src:'Discord', cred:'Flow-traders server · high signal', text:'Short-report teaser hit Discord 41 min before the first wire mention — borrow tightening at two primes ahead of the report drop', sent:-1, breaking:true, edge:'2,460s' },
+  { t:'11:31', cls:'tracked', tk:['NVDA'], src:'X', cred:'3 desks corroborate', text:'Desks flagging unusual NVDA call buying into the 2:00 keynote — accelerating, 74s ahead of any wire', sent:1, edge:'74s' },
+  { t:'11:30', cls:'broad', tk:[], src:'X', cred:'Axios / Ratcliffe · first credible print', text:'"Skeptical Iran honors concessions" headline starts circulating on X', sent:-1, breaking:true },
+  { t:'11:28', cls:'tracked', tk:['COIN'], src:'Reddit', cred:'r/Coinbase · 40 reports/hr and climbing', text:'COIN — intermittent order failures reported; company status page still green', sent:-1, edge:'190s' },
+  { t:'11:22', cls:'tracked', tk:['SMCI'], src:'StreetAccount', cred:'Primary source', text:'Super Micro pre-announces preliminary revenue above consensus', sent:1, edge:'31s' },
+  { t:'11:18', cls:'theme', tk:['WULF','IREN','CORZ'], src:'Substack', cred:'Paid newsletter · 18k subs', text:'AI power demand — nuclear / data-center names (OKLO, WULF, IREN) bid as a basket', sent:1 },
+  { t:'11:12', cls:'theme', tk:['NVDA','AMD'], src:'X', cred:'Semis specialist · high credibility', text:'Hyperscaler order pull-forward chatter — second credible mention this hour', sent:1 },
+  { t:'11:04', cls:'tracked', tk:['WULF'], src:'X', cred:'2 product accounts confirm · 8-K filed', text:'TeraWulf signs expanded AI-hosting lease; caught on X first, filing corroborated 58s later', sent:1, edge:'58s' },
+  { t:'10:52', cls:'tracked', tk:['CVNA'], src:'Discord', cred:'Flow server · first credible mention', text:'Short-report teaser screenshot circulating — full piece expected later today', sent:-1 },
+  { t:'10:48', cls:'tracked', tk:['HOOD'], src:'X', cred:'Two policy accounts · low confidence', text:'Payment-for-order-flow rule chatter resurfacing — flagged, below popup threshold', sent:-1 },
+  { t:'10:44', cls:'theme', tk:['RKLB'], src:'Reddit', cred:'r/space · upvote velocity 4x', text:'Launch-cadence thread spilling into RKLB / ASTS sentiment', sent:1 },
+  { t:'10:37', cls:'broad', tk:[], src:'Tape', cred:'Index print', text:'Broad market sold off sharply — SPX -0.9% in eight minutes', sent:-1 },
+  { t:'10:31', cls:'tracked', tk:['PLTR'], src:'X', cred:'Credible buy-side', text:'PLTR — gov-contract award larger than Street models', sent:1, edge:'66s' },
+  { t:'10:18', cls:'broad', tk:[], src:'Calendar', cred:'Scheduled catalyst (pre-flagged)', text:'Trump remarks scheduled 10:45 ET — theme-watch armed on Iran / energy 19 min early', sent:0 },
+  { t:'10:12', cls:'theme', tk:['COIN'], src:'X', cred:'Crypto desk · corroborated', text:'Stablecoin-bill momentum lifting COIN / crypto-adjacent names', sent:1 },
+  { t:'09:48', cls:'broad', tk:[], src:'Wire', cred:'AP / mainstream', text:'Crude up 3% pre-market; energy complex bid', sent:0 }
+];
+const FEED_POOL = [
+  { t:'11:41', cls:'tracked', tk:['MSTR'], src:'X', cred:'2 credible accounts', text:'MSTR — fresh BTC purchase chatter referencing an 8-K in prep', sent:1 },
+  { t:'11:39', cls:'broad', tk:[], src:'Wire', cred:'AP / mainstream', text:'Fed speaker: "data-dependent, no rush" — rates desks unwinding cut bets', sent:0 },
+  { t:'11:37', cls:'tracked', tk:['IREN'], src:'Discord', cred:'Flow server', text:'IREN — block buyer chatter, advertised size building since the open', sent:1, breaking:true }
+];
+
+// ---- Per-name lookup detail (shown beside the filtered feed) ----------------
+const TICKERS = {
+  NVDA: { name:'NVIDIA', sent:34, vol:'Elevated', summary:[
+      'Unusual call buying flagged by multiple desks ahead of the 2:00 AI-summit keynote; chatter is anticipatory, not news-driven.',
+      'Two credible accounts reference a hyperscaler order pull-forward; nothing on wires yet — treat as unconfirmed but spreading.'],
+    catalysts:[ {t:'Today 2:00 ET', x:'AI summit keynote'}, {t:'7/18', x:'Conference: BofA Tech'} ] },
+  SMCI: { name:'Super Micro', sent:48, vol:'Spiking', summary:[
+      'Pre-announced preliminary revenue above consensus before the open; the move is real and the chatter is chasing it.',
+      'Skeptic accounts already probing the margin mix — expect a fade-the-pop thesis to circulate within the hour.'],
+    catalysts:[ {t:'6/24', x:'Earnings (confirmed)'} ] },
+  CVNA: { name:'Carvana', sent:-41, vol:'Spiking', summary:[
+      'A short-report teaser hit a flow-traders Discord ~41 minutes before the first wire mention — classic early-chatter pattern.',
+      'Negative velocity is 6x the trailing hour; if you are involved, this is the "something is going on you don\'t know about" alert working as designed.'],
+    catalysts:[ {t:'7/19', x:'Lender conference presentation'} ] },
+  COIN: { name:'Coinbase', sent:-12, vol:'Elevated', summary:[
+      'Mixed tape: listing chatter (three credible accounts, same filing) against an intermittent-outage report spreading on Reddit.',
+      'Outage posts are outrunning the company status page — the negative side is currently winning the conversation.'],
+    catalysts:[ {t:'7/17', x:'Crypto policy hearing, Senate Banking'} ] },
+  WULF: { name:'TeraWulf', sent:29, vol:'Elevated', summary:[
+      'Expanded AI-hosting lease confirmed by an 8-K; caught on X first, filing corroborated it within the minute.'],
+    catalysts:[ {t:'7/30', x:'Earnings (est.)'} ] },
+  PLTR: { name:'Palantir', sent:20, vol:'Elevated', summary:[
+      'Gov-contract award chatter from a credible buy-side account, larger than Street models; not yet on the wires.'],
+    catalysts:[ {t:'8/04', x:'Earnings (est.)'} ] }
+};
+
+// ---- Blocks (notional $mn, bps vs last sale) --------------------------------
+const BLOCKS = [
+  { t:'11:32', tk:'NVDA', side:'Buy',  sh:820,  px:128.10, notional:105, pctADV:6,  bps:-23 },
+  { t:'11:28', tk:'AAPL', side:'Buy',  sh:540,  px:214.30, notional:116, pctADV:3,  bps:8 },
+  { t:'11:21', tk:'SMCI', side:'Sell', sh:310,  px:47.90,  notional:15,  pctADV:24, bps:-42 },
+  { t:'11:14', tk:'TSLA', side:'Buy',  sh:680,  px:182.40, notional:124, pctADV:4,  bps:31 },
+  { t:'11:09', tk:'CVNA', side:'Sell', sh:62,   px:266.10, notional:16,  pctADV:21, bps:-48 },
+  { t:'11:02', tk:'MSFT', side:'Buy',  sh:295,  px:432.70, notional:128, pctADV:5,  bps:12 },
+  { t:'10:55', tk:'COIN', side:'Buy',  sh:74,   px:240.90, notional:18,  pctADV:22, bps:38 },
+  { t:'10:47', tk:'PLTR', side:'Sell', sh:540,  px:24.50,  notional:13,  pctADV:20, bps:-19 },
+  { t:'10:39', tk:'NVDA', side:'Buy',  sh:910,  px:128.00, notional:116, pctADV:7,  bps:-9 },
+  { t:'10:31', tk:'WULF', side:'Buy',  sh:1900, px:7.80,   notional:15,  pctADV:28, bps:44 },
+  { t:'10:24', tk:'META', side:'Sell', sh:230,  px:498.10, notional:115, pctADV:3,  bps:-14 },
+  { t:'10:18', tk:'MSTR', side:'Buy',  sh:78,   px:177.90, notional:14,  pctADV:23, bps:-46 },
+  { t:'10:09', tk:'AMD',  side:'Buy',  sh:870,  px:141.80, notional:123, pctADV:5,  bps:6 },
+  { t:'10:01', tk:'IREN', side:'Sell', sh:1700, px:8.05,   notional:14,  pctADV:26, bps:-41 },
+  { t:'09:53', tk:'GOOGL',side:'Buy',  sh:660,  px:176.20, notional:116, pctADV:4,  bps:17 },
+  { t:'09:46', tk:'SOFI', side:'Buy',  sh:1400, px:9.90,   notional:14,  pctADV:25, bps:33 },
+  { t:'09:38', tk:'AMZN', side:'Sell', sh:610,  px:188.40, notional:115, pctADV:3,  bps:-7 },
+  { t:'09:31', tk:'CORZ', side:'Buy',  sh:1300, px:9.35,   notional:12,  pctADV:22, bps:-39 }
+];
+
+// ---- Open/Close imbalance ---------------------------------------------------
+const IMBALANCE = {
+  NVDA: { side:'Buy',  imbSh:1850, notional:237, pctVol:9,  last:128.40, avg5:42100, avg30:38600, close5:126.80, close30:121.40 },
+  SMCI: { side:'Sell', imbSh:980,  notional:47,  pctVol:18, last:48.20,  avg5:8200,  avg30:7600,  close5:46.10,  close30:44.30 },
+  CVNA: { side:'Sell', imbSh:210,  notional:56,  pctVol:22, last:268.00, avg5:3100,  avg30:2900,  close5:259.40, close30:248.10 },
+  COIN: { side:'Buy',  imbSh:430,  notional:104, pctVol:11, last:241.50, avg5:9800,  avg30:9100,  close5:236.20, close30:228.70 },
+  WULF: { side:'Buy',  imbSh:5200, notional:41,  pctVol:19, last:7.85,   avg5:28400, avg30:24100, close5:7.40,   close30:6.85 },
+  PLTR: { side:'Buy',  imbSh:1100, notional:27,  pctVol:6,  last:24.60,  avg5:51200, avg30:47800, close5:24.10,  close30:22.90 },
+  IREN: { side:'Sell', imbSh:3900, notional:31,  pctVol:17, last:8.10,   avg5:19600, avg30:17300, close5:7.95,   close30:7.30 },
+  SOFI: { side:'Buy',  imbSh:6100, notional:60,  pctVol:8,  last:9.95,   avg5:48900, avg30:45100, close5:9.70,   close30:9.05 }
+};
+const IMB_AUTO = ['SMCI','CVNA','WULF','IREN'];
+
+// ---- Competitive analysis ---------------------------------------------------
+const COMPS = {
+  NVDA: { name:'NVIDIA', self:{p1:1.8,p5:4.2,p30:11.6,ytd:38.4},
+    peers:[ {tk:'AMD',name:'Adv. Micro Devices',p1:0.9,p5:2.1,p30:6.8,ytd:14.2},
+            {tk:'AVGO',name:'Broadcom',p1:1.2,p5:3.4,p30:9.1,ytd:27.6},
+            {tk:'MRVL',name:'Marvell',p1:-0.4,p5:1.1,p30:4.2,ytd:8.9},
+            {tk:'SMCI',name:'Super Micro',p1:3.1,p5:-2.4,p30:14.8,ytd:-6.2},
+            {tk:'TSM',name:'Taiwan Semi',p1:0.6,p5:2.8,p30:7.4,ytd:31.0} ],
+    news:[ {tk:'NVDA',t:'2d',text:'Partners flag supply tightness into H2'},
+           {tk:'AMD',t:'1d',text:'MI-series roadmap update lands ahead of summit'},
+           {tk:'AVGO',t:'3d',text:'Custom-silicon order chatter from a hyperscaler'},
+           {tk:'SMCI',t:'today',text:'Prelim revenue pre-announce above consensus'} ] },
+  COIN: { name:'Coinbase', self:{p1:-1.4,p5:3.8,p30:8.2,ytd:22.1},
+    peers:[ {tk:'HOOD',name:'Robinhood',p1:-0.8,p5:2.2,p30:6.1,ytd:18.4},
+            {tk:'MSTR',name:'MicroStrategy',p1:2.1,p5:5.6,p30:12.9,ytd:41.3},
+            {tk:'MARA',name:'Marathon Digital',p1:-2.2,p5:-1.1,p30:3.4,ytd:-9.7},
+            {tk:'CIFR',name:'Cipher Mining',p1:1.4,p5:2.8,p30:7.0,ytd:5.2} ],
+    news:[ {tk:'COIN',t:'today',text:'Intermittent order failures reported on Reddit'},
+           {tk:'MSTR',t:'1d',text:'Fresh BTC purchase chatter referencing an 8-K'},
+           {tk:'HOOD',t:'2d',text:'PFOF rule chatter resurfacing via policy accounts'} ] },
+  CVNA: { name:'Carvana', self:{p1:-3.6,p5:-5.1,p30:2.4,ytd:19.8},
+    peers:[ {tk:'KMX',name:'CarMax',p1:0.4,p5:1.2,p30:-1.8,ytd:-4.1},
+            {tk:'AN',name:'AutoNation',p1:0.2,p5:0.8,p30:1.1,ytd:6.3},
+            {tk:'VRM',name:'Vroom',p1:-1.1,p5:-2.4,p30:-6.2,ytd:-22.4} ],
+    news:[ {tk:'CVNA',t:'today',text:'Activist short publishes; shares move'},
+           {tk:'KMX',t:'4d',text:'Used-vehicle pricing index ticks lower'} ] }
+};
+
+// ---- Filing list ------------------------------------------------------------
+const FILINGS = [
+  { date:'06/24', tk:'NVDA', type:'Insider Sell', who:'C. Kress (CFO)',   amount:'-$2.4M',  detail:'Rule 144 sale, 18,500 sh' },
+  { date:'06/24', tk:'WULF', type:'Insider Buy',  who:'P. Prager (Dir.)', amount:'+$640K',  detail:'Open-market purchase, 82,000 sh' },
+  { date:'06/23', tk:'PLTR', type:'10b5-1',       who:'A. Karp (CEO)',    amount:'plan',    detail:'New 10b5-1 plan adopted, effective 08/01' },
+  { date:'06/23', tk:'CVNA', type:'Insider Sell', who:'E. Garcia (CEO)',  amount:'-$11.8M', detail:'10b5-1 scheduled sale, 44,000 sh' },
+  { date:'06/22', tk:'SOFI', type:'ATM',          who:'Company',          amount:'$200M',   detail:'New ATM program announced' },
+  { date:'06/21', tk:'MSTR', type:'ATM',          who:'Company',          amount:'$38M',    detail:'ATM activity — shares sold last week' },
+  { date:'06/21', tk:'COIN', type:'Insider Buy',  who:'F. Ehrsam (Dir.)', amount:'+$1.1M',  detail:'Open-market purchase, 4,600 sh' },
+  { date:'06/20', tk:'SMCI', type:'10b5-1',       who:'C. Liang (CEO)',   amount:'updated', detail:'10b5-1 plan amended — cadence changed' },
+  { date:'06/20', tk:'IREN', type:'ATM',          who:'Company',          amount:'$75M',    detail:'ATM program activity, qtr-to-date' },
+  { date:'06/19', tk:'RKLB', type:'Insider Sell', who:'P. Beck (CEO)',    amount:'-$3.2M',  detail:'10b5-1 scheduled sale, 280,000 sh' },
+  { date:'06/19', tk:'CORZ', type:'Insider Buy',  who:'A. Sullivan (CFO)',amount:'+$305K',  detail:'Open-market purchase, 32,000 sh' },
+  { date:'06/18', tk:'HOOD', type:'Insider Sell', who:'V. Tenev (CEO)',   amount:'-$5.6M',  detail:'10b5-1 scheduled sale, 240,000 sh' },
+  { date:'06/18', tk:'AFRM', type:'10b5-1',       who:'M. Levchin (CEO)', amount:'new',     detail:'New 10b5-1 plan filed' },
+  { date:'06/17', tk:'NBIS', type:'Insider Buy',  who:'A. Volozh (CEO)',  amount:'+$2.0M',  detail:'Open-market purchase, 95,000 sh' }
+];
+
+// ---- Heat map ---------------------------------------------------------------
+const HEAT = [
+  {tk:'SMCI', buzz:4.1, sent:48},{tk:'CVNA', buzz:6.2, sent:-41},{tk:'NVDA', buzz:2.7, sent:34},
+  {tk:'LUNR', buzz:3.8, sent:35},{tk:'COIN', buzz:3.3, sent:-12},{tk:'DJT',  buzz:3.1, sent:-28},
+  {tk:'RKLB', buzz:2.9, sent:31},{tk:'OKLO', buzz:1.7, sent:26},{tk:'SAVA', buzz:2.6, sent:-55},
+  {tk:'IREN', buzz:2.4, sent:22},{tk:'KULR', buzz:2.2, sent:41},{tk:'NKLA', buzz:2.1, sent:-47},
+  {tk:'ASTS', buzz:2.0, sent:38},{tk:'WULF', buzz:1.9, sent:29},{tk:'CHPT', buzz:1.8, sent:-33},
+  {tk:'PLTR', buzz:1.6, sent:20},{tk:'PLUG', buzz:1.6, sent:-21},{tk:'RDDT', buzz:1.5, sent:21},
+  {tk:'SOUN', buzz:1.5, sent:18},{tk:'MARA', buzz:1.4, sent:-9},{tk:'ACHR', buzz:1.4, sent:24},
+  {tk:'HIMS', buzz:1.3, sent:-18},{tk:'TMC',  buzz:1.3, sent:15},{tk:'BBAI', buzz:1.2, sent:11},
+  {tk:'RUM',  buzz:1.2, sent:-14},{tk:'JOBY', buzz:1.1, sent:13},{tk:'CLSK', buzz:1.1, sent:-7},
+  {tk:'DNA',  buzz:1.0, sent:6},{tk:'LCID', buzz:1.0, sent:-11},{tk:'NNE',  buzz:1.0, sent:17},
+  {tk:'SES',  buzz:0.9, sent:4},{tk:'PL',   buzz:0.9, sent:9},{tk:'VRT',  buzz:0.8, sent:12}
+];
+
+// ============================================================================
+// Workspace state
+// ============================================================================
+const PANELS = {
+  newsfeed:   { icon:'newspaper',   title:'Newsfeed',               badge:'' },
+  broker:     { icon:'bar-chart-3', title:'Broker Rank List',       badge:'Flagship' },
+  blocks:     { icon:'layers',      title:'Block Screens',          badge:'' },
+  imbalance:  { icon:'scale',       title:'Open / Close Imbalance', badge:'' },
+  competitive:{ icon:'git-compare', title:'Competitive Analysis',   badge:'' },
+  filings:    { icon:'file-text',   title:'Filing List',            badge:'' },
+  heatmap:    { icon:'flame',       title:'Heat Map',               badge:'' }
+};
+
+function defaultLayout(){
+  return {
+    order:   ['newsfeed','broker','blocks','imbalance','competitive','filings','heatmap'],
+    visible: { newsfeed:true, broker:true, blocks:true, imbalance:true, competitive:true, filings:true, heatmap:true },
+    width:   { newsfeed:'full', broker:'full', blocks:'full', imbalance:'full', competitive:'full', filings:'full', heatmap:'full' }
+  };
+}
+// Austin's saved layout — demonstrates per-user personalization (different
+// panels, different sizing, panels paired into columns).
+function austinLayout(){
+  return {
+    order:   ['broker','newsfeed','blocks','imbalance','filings','competitive','heatmap'],
+    visible: { newsfeed:true, broker:true, blocks:true, imbalance:true, competitive:false, filings:true, heatmap:false },
+    width:   { newsfeed:'full', broker:'full', blocks:'half', imbalance:'half', competitive:'full', filings:'full', heatmap:'full' }
+  };
+}
+
+const USERS = {
+  pete:   { name:'Pete Pasetsky', short:'Pete',   avatar:'PP', layout:defaultLayout(), density:'comfortable' },
+  austin: { name:'Austin (analyst)', short:'Austin', avatar:'AU', layout:austinLayout(), density:'compact' }
+};
+let currentUser = 'pete';
+let LAYOUT = USERS.pete.layout;
+let density = 'comfortable';
+let activeTicker = '';
+let dragId = null;
+let simI = 0;
+
+// ============================================================================
+// Small helpers
+// ============================================================================
+function srcChip(src){
+  const map={ 'X':'bg-violet-100 text-violet-700','Reddit':'bg-orange-100 text-orange-700','Discord':'bg-indigo-100 text-indigo-700','Substack':'bg-amber-100 text-amber-700','StreetAccount':'bg-sky-100 text-sky-700','Wire':'bg-slate-200 text-slate-700','Tape':'bg-slate-200 text-slate-700','Calendar':'bg-dodonai-100 text-dodonai-700' };
+  const key=src.split(' ')[0].replace('→','').trim();
+  return '<span class="text-[10px] px-1.5 py-0.5 rounded '+(map[key]||'bg-slate-100 text-slate-600')+'">'+src+'</span>';
+}
+function sentDot(s){ return s>0?'<span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">+</span>':(s<0?'<span class="text-[10px] px-1.5 py-0.5 rounded bg-rose-100 text-rose-700">−</span>':''); }
+function perfCell(v){ const c=v>0?'text-emerald-600':(v<0?'text-rose-600':'text-slate-500'); return '<span class="font-mono text-sm '+c+'">'+(v>0?'+':'')+v+'%</span>'; }
+function deltaArrow(d){ const c=d>0?'text-emerald-600':(d<0?'text-rose-600':'text-slate-400'); const ar=d>0?'▲':(d<0?'▼':'—'); return '<span class="font-mono text-xs '+c+'">'+ar+' '+(d>0?'+':'')+d+'%</span>'; }
+function sideCls(s){ return s==='Buy'?'bg-emerald-50 text-emerald-700 border-emerald-200':'bg-rose-50 text-rose-700 border-rose-200'; }
+function tickerTag(tk){ return '<button onclick="setTicker(\''+tk+'\')" class="font-mono text-[10px] font-semibold bg-slate-100 hover:bg-dodonai-100 text-slate-600 hover:text-dodonai-700 rounded px-1.5 py-0.5">'+tk+'</button>'; }
+function streakCls(s){ return s>=5?'bg-emerald-100 text-emerald-700 border-emerald-200':(s>=3?'bg-amber-100 text-amber-800 border-amber-200':'bg-slate-100 text-slate-500 border-slate-200'); }
+function sentMeter(s){
+  const pct=(s+100)/2; const col = s>15?'bg-emerald-500':(s<-15?'bg-rose-500':'bg-amber-400');
+  const lbl = s>15?'Positive':(s<-15?'Negative':'Mixed');
+  return '<div><div class="flex items-center justify-between text-xs mb-1"><span class="text-slate-500 uppercase tracking-wider font-semibold">Sentiment</span><span class="font-semibold '+(s>15?'text-emerald-600':(s<-15?'text-rose-600':'text-amber-600'))+'">'+lbl+' · '+(s>0?'+':'')+s+'</span></div>'+
+    '<div class="relative h-2 rounded-full bg-gradient-to-r from-rose-200 via-amber-100 to-emerald-200"><div class="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full border-2 border-white shadow '+col+'" style="left:calc('+pct+'% - 7px)"></div></div></div>';
+}
+function toast(msg){ const el=document.createElement('div'); el.className='toast bg-dodonai-900 text-white rounded-lg shadow-2xl px-4 py-3 text-sm max-w-sm'; el.textContent=msg; document.getElementById('toasts').appendChild(el); setTimeout(()=>el.remove(),5200); }
+
+// ============================================================================
+// Newsfeed
+// ============================================================================
+const CAT = {
+  tracked:{ label:'Tracked', chip:'bg-dodonai-100 text-dodonai-700', bar:'border-dodonai-500' },
+  broad:  { label:'Broad market', chip:'bg-sky-100 text-sky-700', bar:'border-sky-400' },
+  theme:  { label:'Theme', chip:'bg-violet-100 text-violet-700', bar:'border-violet-400' }
+};
+function feedItem(m){
+  const tags = m.tk.map(tickerTag).join(' ');
+  const edge = m.edge ? '<span class="text-[10px] bg-emerald-100 text-emerald-700 rounded px-1.5 py-0.5 font-mono">Δ '+m.edge+' ahead of Street</span>' : '';
+  if(m.breaking){
+    return '<div class="breaking-glow rounded-lg border border-rose-300 bg-gradient-to-r from-rose-50 to-white p-3 mb-2" data-breaking="1">'+
+      '<div class="flex items-center gap-2 flex-wrap mb-1">'+
+        '<span class="flex items-center gap-1 text-[10px] font-bold uppercase tracking-wider bg-rose-600 text-white px-2 py-0.5 rounded-full"><span class="w-1.5 h-1.5 rounded-full bg-white pulse-dot"></span> Breaking</span>'+
+        '<span class="text-xs font-mono text-slate-400">'+m.t+'</span>'+tags+sentDot(m.sent)+edge+
+      '</div>'+
+      '<div class="text-sm font-semibold text-slate-900 leading-snug">'+m.text+'</div>'+
+      '<div class="text-[11px] text-slate-500 mt-1 flex items-center gap-1.5">'+srcChip(m.src)+'<span>'+m.cred+'</span></div>'+
+    '</div>';
+  }
+  const meta=CAT[m.cls];
+  return '<div class="border-l-4 '+meta.bar+' bg-white rounded-r-lg shadow-sm border border-l-0 border-slate-100 p-3 mb-2">'+
+    '<div class="flex items-center gap-2 flex-wrap mb-1">'+
+      '<span class="text-[10px] px-1.5 py-0.5 rounded font-medium '+meta.chip+'">'+meta.label+'</span>'+
+      '<span class="text-xs font-mono text-slate-400">'+m.t+'</span>'+tags+sentDot(m.sent)+edge+
+    '</div>'+
+    '<div class="text-sm text-slate-800 leading-snug">'+m.text+'</div>'+
+    '<div class="text-[11px] text-slate-400 mt-1 flex items-center gap-1.5">'+srcChip(m.src)+'<span>'+m.cred+'</span></div>'+
+  '</div>';
+}
+function feedLegend(){
+  return '<div class="flex items-center gap-3 text-[11px] text-slate-500 flex-wrap">'+
+    '<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-dodonai-500 inline-block"></span> Tracked names</span>'+
+    '<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-sky-400 inline-block"></span> Broad market</span>'+
+    '<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-violet-400 inline-block"></span> Themes</span>'+
+    '<span class="flex items-center gap-1"><span class="w-2.5 h-2.5 rounded bg-rose-500 inline-block"></span> Breaking</span></div>';
+}
+function newsfeedBody(){
+  if(activeTicker){
+    const items = NEWSFEED.filter(m=>m.tk.includes(activeTicker));
+    const feedHtml = items.length ? items.map(feedItem).join('') : '<div class="text-sm text-slate-400 italic py-6 text-center">No items on '+activeTicker+' in this demo window.</div>';
+    const d = TICKERS[activeTicker];
+    let detail;
+    if(d){
+      const cats = d.catalysts.map(c=>'<div class="flex items-center gap-3 py-1.5 border-b border-slate-100 last:border-0"><div class="text-xs font-mono text-slate-500 w-24 flex-shrink-0">'+c.t+'</div><div class="text-sm text-slate-700">'+c.x+'</div></div>').join('');
+      detail = '<div class="bg-white rounded-xl border border-slate-200 p-4">'+
+        '<div class="flex items-center gap-2 mb-2"><div class="text-xl font-mono font-bold text-slate-800">'+activeTicker+'</div><div class="text-sm text-slate-500">'+d.name+'</div><span class="ml-auto text-xs px-2 py-0.5 rounded-full border '+(d.vol==='Spiking'?'bg-rose-50 text-rose-700 border-rose-200':'bg-slate-100 text-slate-600 border-slate-200')+'">Chatter: '+d.vol+'</span></div>'+
+        '<div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1.5">The 10-second read</div>'+
+        '<ul class="space-y-1.5 mb-3">'+d.summary.map(s=>'<li class="flex items-start gap-2 text-sm text-slate-700"><i data-lucide="corner-down-right" class="w-3.5 h-3.5 text-dodonai-400 flex-shrink-0 mt-0.5"></i><span>'+s+'</span></li>').join('')+'</ul>'+
+        sentMeter(d.sent)+
+        '<div class="mt-3 pt-3 border-t border-slate-100"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1.5 flex items-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5"></i> Upcoming dates</div>'+cats+'</div>'+
+      '</div>';
+    } else {
+      detail = '<div class="bg-slate-50 border border-dashed border-slate-300 rounded-xl p-6 text-sm text-slate-400 text-center">No simulated summary card for '+activeTicker+' — production covers the full US-listed universe. The feed column at left still filters to the name.</div>';
+    }
+    return '<div class="grid grid-cols-1 lg:grid-cols-5 gap-4">'+
+      '<div class="lg:col-span-2"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">'+activeTicker+' — filtered feed</div><div class="max-h-[60vh] overflow-y-auto pr-1">'+feedHtml+'</div></div>'+
+      '<div class="lg:col-span-3"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">What\'s up today</div>'+detail+'</div>'+
+    '</div>';
+  }
+  // firehose
+  const items = NEWSFEED.slice().sort((a,b)=>a.t<b.t?1:-1);
+  return '<div class="flex items-center justify-between mb-2">'+feedLegend()+
+    '<button onclick="simulateBreaking()" class="text-xs bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-md px-3 py-1.5 font-medium flex items-center gap-1.5"><i data-lucide="zap" class="w-3.5 h-3.5"></i> Simulate next headline</button></div>'+
+    '<div id="feed-stream" class="max-h-[62vh] overflow-y-auto pr-1">'+items.map(feedItem).join('')+'</div>';
+}
+
+// ============================================================================
+// Broker Rank List
+// ============================================================================
+function brokerDayCells(hist){
+  const max=Math.max(...hist,1);
+  return hist.map((v,i)=>{
+    const lbl = v>0 ? v : '·';
+    const bar = v>0 ? '<div class="w-full bg-dodonai-400" style="height:'+Math.max(8,Math.round(v/max*100))+'%"></div>' : '';
+    return '<div class="flex flex-col items-center gap-0.5" title="'+(v>0?v+'k':'no size')+', '+(i+1)+'d ago"><div class="w-4 '+(v>0?'bg-slate-100':'bg-slate-50 border border-dashed border-slate-200')+' rounded-sm overflow-hidden flex items-end" style="height:24px">'+bar+'</div><div class="text-[9px] font-mono '+(v>0?'text-slate-400':'text-slate-300')+'">'+lbl+'</div></div>';
+  }).join('');
+}
+// Screener state — surfaces the ticker × broker rows that fit Pete's params,
+// so a watched desk building size in a name (especially over days) stands out.
+const brState = { name:'ALL', top2:false, pct20:false, band:'all', minStreak:0, sort:'buildup' };
+function brSet(k,v){ brState[k]=v; renderCanvas(); }
+function brScreenerRows(){
+  let out=[];
+  NAMES.forEach(n=>{
+    if(brState.name!=='ALL' && n.tk!==brState.name) return;
+    if(brState.band!=='all' && band(n.px)!==brState.band) return;
+    let brs=genBrokers(n.tk);                       // genBrokers already enforces the 10k floor
+    if(brState.top2)      brs=brs.filter(b=>b.rank<=2);
+    if(brState.pct20)     brs=brs.filter(b=>b.pct>20);
+    if(brState.minStreak) brs=brs.filter(b=>b.streak>=brState.minStreak);
+    brs.forEach(b=>out.push({n:n,b:b}));
+  });
+  if(brState.sort==='pct')        out.sort((a,b)=> b.b.pct - a.b.pct);
+  else if(brState.sort==='delta') out.sort((a,b)=> b.b.delta - a.b.delta);
+  else                            out.sort((a,b)=> (b.b.streak*b.b.pct) - (a.b.streak*a.b.pct)); // build-up
+  return out.slice(0,60);
+}
+function brokerBody(){
+  if(activeTicker){
+    const rows = genBrokers(activeTicker);
+    if(!rows.length) return '<div class="text-sm text-slate-400 italic py-6 text-center">No broker adverts for '+activeTicker+' clear the 10k-share floor in this demo.</div>';
+    const body = rows.map(b=>{
+      const rankBadge = b.rank<=2 ? '<span class="text-xs font-semibold px-2 py-0.5 rounded bg-dodonai-700 text-white">#'+b.rank+'</span>' : '<span class="text-xs text-slate-500">#'+b.rank+'</span>';
+      const pctCell = b.pct>20 ? '<span class="font-mono text-sm font-semibold text-rose-600">'+b.pct+'%</span>' : '<span class="font-mono text-sm text-slate-700">'+b.pct+'%</span>';
+      const streak = '<span class="text-xs px-2 py-0.5 rounded border font-mono '+streakCls(b.streak)+'">'+b.streak+'d</span>';
+      return '<tr class="hover:bg-dodonai-50">'+
+        '<td class="py-2 px-3"><span class="font-mono text-sm font-semibold text-slate-800">'+b.broker+'</span> <span class="text-[10px] text-slate-400">'+BROKER_NAMES[b.broker]+'</span></td>'+
+        '<td class="py-2 px-3 text-center">'+rankBadge+'</td>'+
+        '<td class="py-2 px-3 text-right">'+pctCell+'</td>'+
+        '<td class="py-2 px-3 text-right font-mono text-sm text-slate-800">'+b.today+'k</td>'+
+        '<td class="py-2 px-3 text-right">'+deltaArrow(b.delta)+'</td>'+
+        '<td class="py-2 px-3 text-center">'+streak+'</td>'+
+        '<td class="py-2 px-3"><div class="flex items-end gap-1 justify-end">'+brokerDayCells(b.hist)+'</div></td>'+
+      '</tr>';
+    }).join('');
+    return '<div class="text-xs text-slate-500 mb-2">Brokers advertising size in <span class="font-mono font-semibold text-slate-700">'+activeTicker+'</span> today — broker first, ranked by share of the name\'s advertised volume. Bars at right are the prior 5 sessions (most recent at left).</div>'+
+      '<div class="overflow-x-auto"><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr>'+
+        '<th class="py-2 px-3 text-left">Broker</th><th class="py-2 px-3 text-center">Rank</th><th class="py-2 px-3 text-right">% of vol</th><th class="py-2 px-3 text-right">Adv today</th><th class="py-2 px-3 text-right">vs yest</th><th class="py-2 px-3 text-center">Streak</th><th class="py-2 px-3 text-right">Prior 5 days</th>'+
+      '</tr></thead><tbody class="divide-y divide-slate-100">'+body+'</tbody></table></div>';
+  }
+  // all-names screener — one row per ticker × watched broker that fits the params
+  const rows = brScreenerRows();
+  const nameOpts = '<option value="ALL"'+(brState.name==='ALL'?' selected':'')+'>All names</option>'+NAMES.map(n=>'<option value="'+n.tk+'"'+(brState.name===n.tk?' selected':'')+'>'+n.tk+'</option>').join('');
+  const bandOpts = [['all','All price bands'],['gt10','Above $10'],['gt2','$2 – $10'],['lt2','Below $2']].map(o=>'<option value="'+o[0]+'"'+(brState.band===o[0]?' selected':'')+'>'+o[1]+'</option>').join('');
+  const streakOpts = [[0,'Any persistence'],[2,'2+ days'],[3,'3+ days'],[4,'4+ days'],[5,'5+ days']].map(o=>'<option value="'+o[0]+'"'+(brState.minStreak==o[0]?' selected':'')+'>'+o[1]+'</option>').join('');
+  const sortBtn=(v,l)=>'<button onclick="brSet(\'sort\',\''+v+'\')" class="seg-btn text-xs rounded-md px-2.5 py-1 border '+(brState.sort===v?'active':'border-slate-300 text-slate-600 hover:bg-slate-50')+'">'+l+'</button>';
+  const body = rows.map(r=>{
+    const n=r.n, b=r.b;
+    const rankBadge = b.rank<=2 ? '<span class="text-xs font-semibold px-2 py-0.5 rounded bg-dodonai-700 text-white">#'+b.rank+'</span>' : '<span class="text-xs text-slate-500">#'+b.rank+'</span>';
+    const pctCell = b.pct>20 ? '<span class="font-mono text-sm font-semibold text-rose-600">'+b.pct+'%</span>' : '<span class="font-mono text-sm text-slate-700">'+b.pct+'%</span>';
+    const streak = '<span class="text-xs px-2 py-0.5 rounded border font-mono '+streakCls(b.streak)+'">'+b.streak+'d</span>';
+    return '<tr class="hover:bg-dodonai-50 cursor-pointer" onclick="setTicker(\''+n.tk+'\')">'+
+      '<td class="py-2 px-3"><span class="font-mono text-sm font-semibold text-slate-800">'+b.broker+'</span> <span class="text-[10px] text-slate-400">'+BROKER_NAMES[b.broker]+'</span></td>'+
+      '<td class="py-2 px-3"><span class="font-mono text-sm font-semibold text-slate-800">'+n.tk+'</span></td>'+
+      '<td class="py-2 px-3"><span class="text-xs px-2 py-0.5 rounded border '+bandCls(n.px)+'">$'+n.px.toFixed(2)+'</span></td>'+
+      '<td class="py-2 px-3 text-center">'+rankBadge+'</td>'+
+      '<td class="py-2 px-3 text-right">'+pctCell+'</td>'+
+      '<td class="py-2 px-3 text-right font-mono text-sm text-slate-800">'+b.today+'k</td>'+
+      '<td class="py-2 px-3 text-right">'+deltaArrow(b.delta)+'</td>'+
+      '<td class="py-2 px-3 text-center">'+streak+'</td>'+
+      '<td class="py-2 px-3"><div class="flex items-end gap-1 justify-end">'+brokerDayCells(b.hist)+'</div></td>'+
+      '<td class="py-2 px-3 text-xs text-slate-600">'+(NAME_TAG[n.tk]||'—')+'</td>'+
+    '</tr>';
+  }).join('') || '<tr><td colspan="10" class="py-6 text-center text-sm text-slate-400 italic">No broker rows match these filters.</td></tr>';
+  return '<div class="text-xs text-slate-500 mb-2">Each row is one of your <strong>watched brokers building in a name</strong> — broker first, then the ticker, with today\'s advertised size vs yesterday and the prior 5 sessions. Sort by <em>build-up</em> to surface a desk leaning into a name over several days. Click a row to scope the whole workspace to that ticker.</div>'+
+    '<div class="bg-slate-50 border border-slate-200 rounded-lg p-2.5 mb-3 flex flex-wrap items-center gap-3">'+
+      '<div class="flex items-center gap-1.5"><label class="text-xs text-slate-500">Name</label><select onchange="brSet(\'name\',this.value)" class="border border-slate-200 rounded px-2 py-1 text-sm">'+nameOpts+'</select></div>'+
+      '<div class="flex items-center gap-1.5"><label class="text-xs text-slate-500">Price</label><select onchange="brSet(\'band\',this.value)" class="border border-slate-200 rounded px-2 py-1 text-sm">'+bandOpts+'</select></div>'+
+      '<div class="flex items-center gap-1.5"><label class="text-xs text-slate-500">Persistence</label><select onchange="brSet(\'minStreak\',+this.value)" class="border border-slate-200 rounded px-2 py-1 text-sm">'+streakOpts+'</select></div>'+
+      '<label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="scheck" onchange="brSet(\'top2\',this.checked)" '+(brState.top2?'checked':'')+'> Rank top 2</label>'+
+      '<label class="flex items-center gap-2 text-sm cursor-pointer"><input type="checkbox" class="scheck" onchange="brSet(\'pct20\',this.checked)" '+(brState.pct20?'checked':'')+'> % vol &gt; 20</label>'+
+      '<div class="flex items-center gap-1.5 ml-auto"><span class="text-xs text-slate-500">Sort</span>'+sortBtn('buildup','Build-up')+sortBtn('pct','% of vol')+sortBtn('delta','Biggest move')+'</div>'+
+    '</div>'+
+    '<div class="overflow-x-auto"><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr>'+
+      '<th class="py-2 px-3 text-left">Broker</th><th class="py-2 px-3 text-left">Name</th><th class="py-2 px-3 text-left">Price</th><th class="py-2 px-3 text-center">Rank</th><th class="py-2 px-3 text-right">% of vol</th><th class="py-2 px-3 text-right">Adv today</th><th class="py-2 px-3 text-right">vs yest</th><th class="py-2 px-3 text-center">Streak</th><th class="py-2 px-3 text-right">Prior 5 days</th><th class="py-2 px-3 text-left">News / earnings</th>'+
+    '</tr></thead><tbody class="divide-y divide-slate-100">'+body+'</tbody></table></div>';
+}
+
+// ============================================================================
+// Block Screens
+// ============================================================================
+let blockView='disc';
+function setBlock(v){ blockView=v; renderCanvas(); }
+function blocksBody(){
+  let rows;
+  if(blockView==='disc') rows=BLOCKS.filter(b=>b.notional>=10 && b.notional<100 && b.pctADV>=20 && Math.abs(b.bps)<=50);
+  else rows=BLOCKS.filter(b=>b.notional>=100);
+  if(activeTicker) rows=rows.filter(b=>b.tk===activeTicker);
+  rows=rows.slice().sort((a,b)=>a.t<b.t?1:-1);
+  const body=rows.map(b=>{
+    const tag = b.bps<0 ? '<span class="text-xs px-2 py-0.5 rounded bg-rose-50 text-rose-700 border border-rose-200">Discount '+b.bps+'bps</span>' : '<span class="text-xs px-2 py-0.5 rounded bg-emerald-50 text-emerald-700 border border-emerald-200">Premium +'+b.bps+'bps</span>';
+    return '<tr class="hover:bg-dodonai-50 cursor-pointer" onclick="setTicker(\''+b.tk+'\')">'+
+      '<td class="py-2 px-3 text-xs font-mono text-slate-400">'+b.t+'</td>'+
+      '<td class="py-2 px-3"><span class="font-mono text-sm font-semibold text-slate-800">'+b.tk+'</span></td>'+
+      '<td class="py-2 px-3"><span class="text-xs px-2 py-0.5 rounded border '+sideCls(b.side)+'">'+b.side+'</span></td>'+
+      '<td class="py-2 px-3 text-right font-mono text-sm text-slate-800">'+b.sh+'k</td>'+
+      '<td class="py-2 px-3 text-right font-mono text-sm text-slate-500">$'+b.px.toFixed(2)+'</td>'+
+      '<td class="py-2 px-3 text-right font-mono text-sm font-semibold text-slate-800">$'+b.notional+'mn</td>'+
+      '<td class="py-2 px-3 text-right font-mono text-sm '+(b.pctADV>=20?'text-rose-600 font-semibold':'text-slate-600')+'">'+b.pctADV+'%</td>'+
+      '<td class="py-2 px-3 text-right">'+tag+'</td>'+
+    '</tr>';
+  }).join('') || '<tr><td colspan="8" class="py-6 text-center text-sm text-slate-400 italic">No blocks match'+(activeTicker?' for '+activeTicker:'')+' right now.</td></tr>';
+  const tab=(v,l)=>'<button onclick="setBlock(\''+v+'\')" class="seg-btn text-xs rounded-md px-3 py-1.5 border '+(blockView===v?'active':'border-slate-300 text-slate-600 hover:bg-slate-50')+'">'+l+'</button>';
+  return '<div class="flex items-center gap-2 mb-2 flex-wrap">'+tab('disc','Discount / premium (&gt;$10mn · ~20% vol · ±50bps)')+tab('large','Large notional (&gt;$100mn)')+'</div>'+
+    '<div class="overflow-x-auto"><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr>'+
+      '<th class="py-2 px-3 text-left">Time</th><th class="py-2 px-3 text-left">Name</th><th class="py-2 px-3 text-left">Side</th><th class="py-2 px-3 text-right">Shares</th><th class="py-2 px-3 text-right">Price</th><th class="py-2 px-3 text-right">Notional</th><th class="py-2 px-3 text-right">% of ADV</th><th class="py-2 px-3 text-right">vs last sale</th>'+
+    '</tr></thead><tbody class="divide-y divide-slate-100">'+body+'</tbody></table></div>';
+}
+
+// ============================================================================
+// Open/Close Imbalance
+// ============================================================================
+function imbCard(tk){
+  const d=IMBALANCE[tk]; if(!d) return '';
+  const big=d.pctVol>15;
+  return '<div class="bg-white border '+(big?'border-dodonai-400 ring-1 ring-dodonai-200':'border-slate-200')+' rounded-xl p-4">'+
+    '<div class="flex items-center gap-2 mb-3 flex-wrap"><div class="text-xl font-mono font-bold text-slate-800">'+tk+'</div>'+
+      '<span class="text-xs px-2 py-0.5 rounded border '+sideCls(d.side)+'">'+d.side+' imbalance</span>'+
+      (big?'<span class="text-xs px-2 py-0.5 rounded bg-dodonai-700 text-white">Outsized · '+d.pctVol+'% of vol</span>':'<span class="text-xs px-2 py-0.5 rounded bg-slate-100 text-slate-600 border border-slate-200">'+d.pctVol+'% of vol</span>')+
+      '<span class="ml-auto font-mono text-sm text-slate-500">last $'+d.last.toFixed(2)+'</span></div>'+
+    '<div class="grid grid-cols-3 gap-4 text-sm">'+
+      '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Imbalance</div><div class="font-mono text-lg text-slate-800">'+d.imbSh.toLocaleString()+'k</div><div class="text-xs text-slate-500">$'+d.notional+'mn</div></div>'+
+      '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Avg volume</div><div class="font-mono text-slate-800">5d '+d.avg5.toLocaleString()+'k</div><div class="font-mono text-slate-500 text-xs">30d '+d.avg30.toLocaleString()+'k</div></div>'+
+      '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Closing avg</div><div class="font-mono text-slate-800">5d $'+d.close5.toFixed(2)+'</div><div class="font-mono text-slate-500 text-xs">30d $'+d.close30.toFixed(2)+'</div></div>'+
+    '</div></div>';
+}
+function imbalanceBody(){
+  if(activeTicker){
+    return IMBALANCE[activeTicker] ? imbCard(activeTicker) : '<div class="text-sm text-slate-400 italic py-6 text-center">No simulated imbalance for '+activeTicker+' — production covers the full universe.</div>';
+  }
+  const auto=IMB_AUTO.map(tk=>imbCard(tk)).join('');
+  return '<div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2 flex items-center gap-1.5"><i data-lucide="bell" class="w-3.5 h-3.5"></i> Auto-surfaced — outsized vs the day\'s volume (&gt; 15%)</div>'+
+    '<div class="grid grid-cols-1 xl:grid-cols-2 gap-3">'+auto+'</div>';
+}
+
+// ============================================================================
+// Competitive Analysis
+// ============================================================================
+function competitiveBody(){
+  const arg = activeTicker;
+  const d = COMPS[arg];
+  if(arg && d){
+    const selfRow='<tr class="bg-dodonai-50/60 font-medium">'+
+      '<td class="py-2 px-3"><span class="font-mono text-sm font-semibold text-dodonai-700">'+arg+'</span> <span class="text-[10px] text-slate-400">'+d.name+'</span></td>'+
+      '<td class="py-2 px-3 text-right">'+perfCell(d.self.p1)+'</td><td class="py-2 px-3 text-right">'+perfCell(d.self.p5)+'</td><td class="py-2 px-3 text-right">'+perfCell(d.self.p30)+'</td><td class="py-2 px-3 text-right">'+perfCell(d.self.ytd)+'</td></tr>';
+    const peerRows=d.peers.map(p=>'<tr class="hover:bg-dodonai-50 cursor-pointer" onclick="setTicker(\''+p.tk+'\')">'+
+      '<td class="py-2 px-3"><span class="font-mono text-sm font-semibold text-slate-800">'+p.tk+'</span> <span class="text-[10px] text-slate-400">'+p.name+'</span></td>'+
+      '<td class="py-2 px-3 text-right">'+perfCell(p.p1)+'</td><td class="py-2 px-3 text-right">'+perfCell(p.p5)+'</td><td class="py-2 px-3 text-right">'+perfCell(p.p30)+'</td><td class="py-2 px-3 text-right">'+perfCell(p.ytd)+'</td></tr>').join('');
+    const news=d.news.map(n=>'<div class="flex items-start gap-3 py-2 border-b border-slate-100 last:border-0"><div class="text-xs font-mono text-slate-400 w-12 flex-shrink-0 pt-0.5">'+n.t+'</div><div class="flex-1"><button onclick="setTicker(\''+n.tk+'\')" class="font-mono text-xs font-semibold text-dodonai-700 hover:underline">'+n.tk+'</button><div class="text-sm text-slate-800">'+n.text+'</div></div></div>').join('');
+    return '<div class="grid grid-cols-1 lg:grid-cols-3 gap-4">'+
+      '<div class="lg:col-span-2">'+
+        '<div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Peer group &amp; relative performance <span class="text-slate-400 normal-case font-normal">(RV / PC / CFND in spirit)</span></div>'+
+        '<div class="overflow-x-auto"><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr><th class="py-2 px-3 text-left">Name</th><th class="py-2 px-3 text-right">1-day</th><th class="py-2 px-3 text-right">5-day</th><th class="py-2 px-3 text-right">30-day</th><th class="py-2 px-3 text-right">YTD</th></tr></thead>'+
+        '<tbody class="divide-y divide-slate-100">'+selfRow+peerRows+'</tbody></table></div>'+
+      '</div>'+
+      '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2 flex items-center gap-1.5"><i data-lucide="newspaper" class="w-3.5 h-3.5"></i> Name &amp; peers — last 5 days</div>'+news+'</div>'+
+    '</div>';
+  }
+  if(arg) return '<div class="text-sm text-slate-400 italic py-6 text-center">No simulated peer set for '+arg+' — production builds peers from GICS + correlation across the full universe.</div>';
+  const chips=Object.keys(COMPS).map(k=>'<button onclick="setTicker(\''+k+'\')" class="text-xs font-mono border border-slate-200 text-slate-500 hover:border-dodonai-300 rounded-full px-2.5 py-1">'+k+'</button>').join(' ');
+  return '<div class="text-sm text-slate-500 mb-2">Type a name up top for its peer group, relative value, and 1 / 5 / 30-day + YTD performance. Or jump to a sample:</div><div class="flex items-center gap-1.5 flex-wrap">'+chips+'</div>';
+}
+
+// ============================================================================
+// Filing List
+// ============================================================================
+let filingFilter='all';
+function setFiling(v){ filingFilter=v; renderCanvas(); }
+function filingsBody(){
+  const typeCls={ 'Insider Buy':'bg-emerald-50 text-emerald-700 border-emerald-200','Insider Sell':'bg-rose-50 text-rose-700 border-rose-200','10b5-1':'bg-sky-50 text-sky-700 border-sky-200','ATM':'bg-amber-50 text-amber-800 border-amber-200' };
+  let rows=FILINGS.slice();
+  if(activeTicker) rows=rows.filter(f=>f.tk===activeTicker);
+  if(filingFilter==='buy') rows=rows.filter(f=>f.type==='Insider Buy');
+  else if(filingFilter==='sell') rows=rows.filter(f=>f.type==='Insider Sell');
+  else if(filingFilter==='plan') rows=rows.filter(f=>f.type==='10b5-1');
+  else if(filingFilter==='atm') rows=rows.filter(f=>f.type==='ATM');
+  const body=rows.map(f=>'<tr class="hover:bg-dodonai-50 cursor-pointer" onclick="setTicker(\''+f.tk+'\')">'+
+    '<td class="py-2 px-3 text-xs font-mono text-slate-400">'+f.date+'</td>'+
+    '<td class="py-2 px-3"><span class="font-mono text-sm font-semibold text-slate-800">'+f.tk+'</span></td>'+
+    '<td class="py-2 px-3"><span class="text-xs px-2 py-0.5 rounded border '+(typeCls[f.type]||'bg-slate-100 text-slate-600 border-slate-200')+'">'+f.type+'</span></td>'+
+    '<td class="py-2 px-3 text-sm text-slate-700">'+f.who+'</td>'+
+    '<td class="py-2 px-3 text-right font-mono text-sm '+(f.amount.startsWith('+')?'text-emerald-600':(f.amount.startsWith('-')?'text-rose-600':'text-slate-700'))+'">'+f.amount+'</td>'+
+    '<td class="py-2 px-3 text-sm text-slate-600">'+f.detail+'</td>'+
+  '</tr>').join('') || '<tr><td colspan="6" class="py-6 text-center text-sm text-slate-400 italic">No filings'+(activeTicker?' for '+activeTicker:' of this type')+'.</td></tr>';
+  const tab=(v,l)=>'<button onclick="setFiling(\''+v+'\')" class="seg-btn text-xs rounded-md px-3 py-1.5 border '+(filingFilter===v?'active':'border-slate-300 text-slate-600 hover:bg-slate-50')+'">'+l+'</button>';
+  return '<div class="flex items-center gap-2 mb-2 flex-wrap">'+tab('all','All')+tab('buy','Insider buys')+tab('sell','Insider sells')+tab('plan','10b5-1')+tab('atm','ATM')+'</div>'+
+    '<div class="overflow-x-auto"><table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr>'+
+      '<th class="py-2 px-3 text-left">Date</th><th class="py-2 px-3 text-left">Name</th><th class="py-2 px-3 text-left">Type</th><th class="py-2 px-3 text-left">Who</th><th class="py-2 px-3 text-right">Amount</th><th class="py-2 px-3 text-left">Detail</th>'+
+    '</tr></thead><tbody class="divide-y divide-slate-100">'+body+'</tbody></table></div>';
+}
+
+// ============================================================================
+// Heat Map
+// ============================================================================
+let heatMode='buzz';
+function setHeat(m){ heatMode=m; renderCanvas(); }
+function heatmapBody(){
+  let tiles=[...HEAT];
+  if(heatMode==='pos') tiles.sort((a,b)=>b.sent-a.sent);
+  else if(heatMode==='neg') tiles.sort((a,b)=>a.sent-b.sent);
+  else tiles.sort((a,b)=>b.buzz-a.buzz);
+  const tile=h=>{
+    const big = h.buzz>=4 ? 'col-span-2 row-span-2' : (h.buzz>=2 ? 'col-span-2' : '');
+    const bg = h.sent>15 ? 'bg-emerald-'+(h.sent>40?'500':'300') : (h.sent<-15 ? 'bg-rose-'+(h.sent<-40?'500':'300') : 'bg-slate-200');
+    const txt = Math.abs(h.sent)>40 ? 'text-white' : 'text-slate-700';
+    return '<button onclick="setTicker(\''+h.tk+'\')" class="heat-tile '+big+' '+bg+' '+txt+' rounded-md p-2 flex flex-col justify-between min-h-[52px] text-left">'+
+      '<div class="font-mono font-semibold text-sm">'+h.tk+'</div>'+
+      '<div class="text-[10px] opacity-80 leading-tight">'+h.buzz+'x · '+(h.sent>0?'+':'')+h.sent+'</div></button>';
+  };
+  const btn=(m,l)=>'<button onclick="setHeat(\''+m+'\')" class="seg-btn text-xs rounded-md px-3 py-1.5 border '+(heatMode===m?'active':'border-slate-300 text-slate-600 hover:bg-slate-50')+'">'+l+'</button>';
+  const note = activeTicker ? '<div class="bg-amber-50 border border-amber-200 rounded-lg p-2.5 mb-3 text-xs text-amber-900 flex items-start gap-2"><i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>The heat map watches the ~30k names you\'re <strong>not</strong> in — it stays broad even when you filter to '+activeTicker+'.</div></div>' : '';
+  return note + '<div class="flex items-center gap-2 mb-2 flex-wrap">'+btn('buzz','Hottest')+btn('pos','Most positive')+btn('neg','Most negative')+'</div>'+
+    '<div class="grid grid-cols-8 auto-rows-min gap-1.5">'+tiles.map(tile).join('')+'</div>'+
+    '<div class="text-[11px] text-slate-400 mt-2">Tile size = chatter vs the name\'s 20-day normal · color = sentiment · click → filter the workspace to it.</div>';
+}
+
+// ============================================================================
+// Panel shell + canvas
+// ============================================================================
+function panelBody(id){
+  switch(id){
+    case 'newsfeed':    return newsfeedBody();
+    case 'broker':      return brokerBody();
+    case 'blocks':      return blocksBody();
+    case 'imbalance':   return imbalanceBody();
+    case 'competitive': return competitiveBody();
+    case 'filings':     return filingsBody();
+    case 'heatmap':     return heatmapBody();
+  }
+  return '';
+}
+function panelShell(id){
+  const meta=PANELS[id];
+  const width=LAYOUT.width[id];
+  const flex = width==='half' ? 'flex:1 1 calc(50% - 0.5rem); min-width:340px;' : 'flex:1 1 100%;';
+  const badge = meta.badge ? '<span class="text-[10px] uppercase tracking-wider bg-amber-100 text-amber-800 border border-amber-200 rounded-full px-2 py-0.5 font-semibold">'+meta.badge+'</span>' : '';
+  const widthIcon = width==='half' ? 'maximize-2' : 'columns-2';
+  const widthTitle = width==='half' ? 'Make full width' : 'Make half width (column)';
+  return '<section class="panel bg-white border border-slate-200 rounded-xl shadow-sm overflow-hidden" style="'+flex+'" draggable="true" data-panel="'+id+'"'+
+      ' ondragstart="onDragStart(event,\''+id+'\')" ondragend="onDragEnd(event)" ondragover="onDragOver(event,\''+id+'\')" ondragleave="onDragLeave(event)" ondrop="onDrop(event,\''+id+'\')">'+
+    '<header class="flex items-center gap-2 px-4 py-2.5 border-b border-slate-100 bg-slate-50/60">'+
+      '<i data-lucide="grip-vertical" class="drag-handle w-4 h-4 text-slate-300 flex-shrink-0"></i>'+
+      '<i data-lucide="'+meta.icon+'" class="w-4 h-4 text-dodonai-600 flex-shrink-0"></i>'+
+      '<span class="font-semibold text-slate-800 text-sm">'+meta.title+'</span>'+badge+
+      (activeTicker?'<span class="text-[10px] font-mono bg-dodonai-100 text-dodonai-700 rounded px-1.5 py-0.5">'+activeTicker+'</span>':'')+
+      '<div class="ml-auto flex items-center gap-0.5">'+
+        '<button onclick="cycleWidth(\''+id+'\')" title="'+widthTitle+'" class="w-7 h-7 rounded hover:bg-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700"><i data-lucide="'+widthIcon+'" class="w-4 h-4"></i></button>'+
+        '<button onclick="hidePanel(\''+id+'\')" title="Hide this screen" class="w-7 h-7 rounded hover:bg-slate-200 flex items-center justify-center text-slate-400 hover:text-slate-700"><i data-lucide="x" class="w-4 h-4"></i></button>'+
+      '</div>'+
+    '</header>'+
+    '<div class="panel-pad p-4">'+panelBody(id)+'</div>'+
+  '</section>';
+}
+function renderCanvas(){
+  const visible = LAYOUT.order.filter(id=>LAYOUT.visible[id]);
+  const panelsHtml = visible.length
+    ? visible.map(panelShell).join('')
+    : '<div class="w-full bg-white border border-dashed border-slate-300 rounded-xl p-10 text-center text-sm text-slate-400">Every screen is hidden. Turn some back on from the left menu.</div>';
+
+  const clearBtn = activeTicker
+    ? '<button onclick="clearTicker()" class="text-sm border border-slate-300 hover:bg-white rounded-lg px-3 py-2.5 flex items-center gap-1.5 text-slate-600"><i data-lucide="x" class="w-4 h-4"></i> Clear '+activeTicker+'</button>'
+    : '';
+  const sampleChips = ['NVDA','SMCI','CVNA','COIN','WULF','PLTR'].map(t=>'<button onclick="setTicker(\''+t+'\')" class="text-xs font-mono border '+(t===activeTicker?'border-dodonai-400 bg-dodonai-50 text-dodonai-700':'border-slate-200 text-slate-500 hover:border-dodonai-300')+' rounded-full px-2.5 py-1">'+t+'</button>').join(' ');
+
+  const banner = activeTicker
+    ? '<div class="bg-dodonai-700 text-white rounded-lg px-4 py-2.5 text-sm flex items-center gap-2 mb-4"><i data-lucide="filter" class="w-4 h-4"></i> Whole workspace scoped to <span class="font-mono font-bold">'+activeTicker+'</span> — every screen below shows just this name. Clear the filter to return to the full desk.</div>'
+    : '<div class="bg-amber-50 border border-amber-200 rounded-lg px-3 py-2 text-xs text-amber-900 flex items-start gap-2 mb-4"><i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>Simulated data — tickers and broker codes are real, every number is made up to show the workflow. <strong>Surfaces information; never trades.</strong></div></div>';
+
+  document.getElementById('view').innerHTML =
+    '<div class="density-'+density+'">'+
+    '<div class="sticky top-0 z-20 bg-[#f5f3f9]/95 backdrop-blur border-b border-slate-200 px-5 py-3">'+
+      '<div class="flex items-center gap-3 flex-wrap">'+
+        '<div class="relative flex-1 min-w-[220px] max-w-md"><i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>'+
+          '<input id="ticker-input" value="'+activeTicker+'" placeholder="Type a ticker to scope the whole page — e.g. NVDA" class="w-full border border-slate-300 rounded-lg pl-9 pr-3 py-2.5 text-sm font-mono uppercase focus:outline-none focus:ring-2 focus:ring-dodonai-400">'+
+        '</div>'+
+        '<button onclick="applyTicker()" class="bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-lg px-4 py-2.5 text-sm font-medium">Filter</button>'+
+        clearBtn+
+        '<div class="flex items-center gap-1.5 flex-wrap ml-auto">'+sampleChips+'</div>'+
+      '</div>'+
+    '</div>'+
+    '<div class="p-5">'+banner+
+      '<div id="canvas" class="flex flex-wrap gap-4 items-start">'+panelsHtml+'</div>'+
+    '</div></div>';
+
+  lucide.createIcons();
+  const inp=document.getElementById('ticker-input');
+  if(inp) inp.addEventListener('keydown',e=>{ if(e.key==='Enter') applyTicker(); });
+}
+
+// ============================================================================
+// Sidebar controls
+// ============================================================================
+function renderSidebar(){
+  // user switch
+  document.getElementById('user-switch').innerHTML = Object.keys(USERS).map(u=>
+    '<button onclick="switchUser(\''+u+'\')" class="flex-1 text-xs rounded-md px-2 py-1.5 '+(currentUser===u?'bg-white text-dodonai-800 font-semibold':'text-dodonai-200 hover:bg-dodonai-700')+'">'+USERS[u].short+'</button>').join('');
+  document.getElementById('user-label').textContent = USERS[currentUser].short;
+  // panel toggles
+  document.getElementById('panel-toggles').innerHTML = LAYOUT.order.map(id=>
+    '<label class="flex items-center gap-2.5 px-2 py-1.5 rounded-md hover:bg-dodonai-700 cursor-pointer">'+
+      '<input type="checkbox" class="scheck" '+(LAYOUT.visible[id]?'checked':'')+' onchange="togglePanel(\''+id+'\',this.checked)">'+
+      '<i data-lucide="'+PANELS[id].icon+'" class="w-4 h-4 text-dodonai-300"></i>'+
+      '<span>'+PANELS[id].title+'</span>'+
+    '</label>').join('');
+  // density
+  document.getElementById('density-switch').innerHTML = [['comfortable','Comfortable'],['compact','Compact']].map(d=>
+    '<button onclick="setDensity(\''+d[0]+'\')" class="flex-1 text-xs rounded-md px-2 py-1.5 '+(density===d[0]?'bg-white text-dodonai-800 font-semibold':'text-dodonai-200 hover:bg-dodonai-700')+'">'+d[1]+'</button>').join('');
+  lucide.createIcons();
+}
+function togglePanel(id,on){ LAYOUT.visible[id]=on; renderCanvas(); }
+function hidePanel(id){ LAYOUT.visible[id]=false; renderSidebar(); renderCanvas(); }
+function cycleWidth(id){ LAYOUT.width[id] = LAYOUT.width[id]==='half'?'full':'half'; renderCanvas(); }
+function setDensity(d){ density=d; USERS[currentUser].density=d; renderSidebar(); renderCanvas(); }
+function switchUser(u){
+  currentUser=u; LAYOUT=USERS[u].layout; density=USERS[u].density;
+  document.getElementById('hdr-avatar').textContent=USERS[u].avatar;
+  document.getElementById('hdr-name').textContent=USERS[u].name;
+  renderSidebar(); renderCanvas();
+  toast('Loaded '+USERS[u].short+'’s workspace — different screens, sizing, and layout, saved per user.');
+}
+function resetLayout(){
+  USERS[currentUser].layout = currentUser==='austin'?austinLayout():defaultLayout();
+  LAYOUT = USERS[currentUser].layout;
+  renderSidebar(); renderCanvas();
+}
+
+// ============================================================================
+// Drag & drop reorder
+// ============================================================================
+function onDragStart(e,id){ dragId=id; e.dataTransfer.effectAllowed='move'; const el=e.currentTarget; setTimeout(()=>el.classList.add('dragging'),0); }
+function onDragEnd(e){ dragId=null; document.querySelectorAll('.panel').forEach(p=>p.classList.remove('dragging','drop-target')); }
+function onDragOver(e,id){ if(dragId&&dragId!==id){ e.preventDefault(); e.currentTarget.classList.add('drop-target'); } }
+function onDragLeave(e){ e.currentTarget.classList.remove('drop-target'); }
+function onDrop(e,id){
+  e.preventDefault();
+  if(!dragId||dragId===id) return;
+  const order=LAYOUT.order.slice();
+  order.splice(order.indexOf(dragId),1);
+  order.splice(order.indexOf(id),0,dragId);
+  LAYOUT.order=order;
+  renderSidebar(); renderCanvas();
+}
+
+// ============================================================================
+// Ticker filter
+// ============================================================================
+function setTicker(tk){ activeTicker=(tk||'').toUpperCase(); renderCanvas(); window.scrollTo&&document.getElementById('view').scrollTo({top:0,behavior:'smooth'}); }
+function applyTicker(){ const v=(document.getElementById('ticker-input').value||'').trim().toUpperCase(); activeTicker=v; renderCanvas(); }
+function clearTicker(){ activeTicker=''; renderCanvas(); }
+
+// ============================================================================
+// Sidebar collapse + modals
+// ============================================================================
+function toggleSidebar(){ document.body.classList.toggle('sidebar-collapsed'); }
+function openWelcome(){ document.getElementById('welcome').classList.remove('hidden'); document.getElementById('welcome').classList.add('flex'); lucide.createIcons(); }
+function closeWelcome(){ const w=document.getElementById('welcome'); w.classList.add('hidden'); w.classList.remove('flex'); }
+function openSources(){ document.getElementById('sources-body').innerHTML=sourcesHtml(); document.getElementById('sources-modal').classList.remove('hidden'); lucide.createIcons(); }
+function closeSources(){ document.getElementById('sources-modal').classList.add('hidden'); }
+
+// ============================================================================
+// Simulate next breaking headline
+// ============================================================================
+function simulateBreaking(){
+  const item=FEED_POOL[simI % FEED_POOL.length]; simI++;
+  NEWSFEED.unshift(item); renderCanvas();
+  setTimeout(()=>{ const c=document.getElementById('feed-stream'); if(c&&c.firstElementChild) c.firstElementChild.classList.add('flash'); },30);
+}
+
+// ============================================================================
+// Sources / roadmap content
+// ============================================================================
+function sourcesHtml(){
+  const ok='bg-emerald-100 text-emerald-800 border-emerald-200', warn='bg-amber-100 text-amber-800 border-amber-200', off='bg-slate-100 text-slate-600 border-slate-200';
+  const card=(name,icon,line,tone,status)=>
+    '<div class="bg-white border border-slate-200 rounded-lg p-4">'+
+      '<div class="flex items-center gap-2 mb-2"><div class="w-8 h-8 rounded-md bg-dodonai-100 text-dodonai-700 flex items-center justify-center"><i data-lucide="'+icon+'" class="w-4 h-4"></i></div><div class="font-semibold text-slate-800 text-sm leading-tight">'+name+'</div><span class="ml-auto inline-block text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border '+tone+'">'+status+'</span></div>'+
+      '<div class="text-sm text-slate-600 leading-snug">'+line+'</div></div>';
+  const phase=(n,title,when,items,now)=>
+    '<div class="bg-white border '+(now?'border-dodonai-400 ring-1 ring-dodonai-200':'border-slate-200')+' rounded-xl p-4">'+
+      '<div class="flex items-center gap-2 mb-2"><span class="w-7 h-6 rounded '+(now?'bg-dodonai-700 text-white':'bg-slate-200 text-slate-600')+' text-xs font-semibold flex items-center justify-center">'+n+'</span><div class="font-semibold text-slate-800 text-sm">'+title+'</div><span class="ml-auto text-xs text-slate-400">'+when+'</span></div>'+
+      '<ul class="space-y-1">'+items.map(i=>'<li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="'+(now?'circle-dot':'circle')+'" class="w-3 h-3 '+(now?'text-dodonai-500':'text-slate-300')+' flex-shrink-0 mt-1"></i><span>'+i+'</span></li>').join('')+'</ul></div>';
+  return ''+
+    '<div class="space-y-5">'+
+    '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Live in Phase 1 — no client dependency, building now</div>'+
+      '<div class="grid grid-cols-1 md:grid-cols-3 gap-3">'+
+        card('X (Twitter)','at-sign','Official API · filtered stream + credibility scoring. The core is already built and proven.',ok,'Live')+
+        card('Reddit / Discord / Substack','messages-square','Public APIs + server/newsletter ingestion. Catches the early CVNA/COIN-style threads.',ok,'Live')+
+        card('Mainstream wires (AP / RSS)','rss','Standard news riding alongside the chatter — the "combination of both" you asked for.',ok,'Live')+
+      '</div></div>'+
+    '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Broker intelligence — Phase 2 (the flagship feed)</div>'+
+      '<div class="grid grid-cols-1 md:grid-cols-2 gap-3">'+
+        card('Bloomberg Trade Adverts (live)','radio','Real-time per-advert stream: which firm, name, side, size, price. Powers the Broker Rank List. <strong>Gated per broker.</strong>',warn,'Pending entitlement')+
+        card('Bloomberg Trade Advert History','history','Historical advert store, queryable by broker, ticker, date. Powers today-vs-prior-days + the 5-day streak.',warn,'Pending entitlement')+
+      '</div></div>'+
+    '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Market &amp; reference — Phases 1, 3 &amp; 4</div>'+
+      '<div class="grid grid-cols-1 md:grid-cols-2 gap-3">'+
+        card('Bloomberg market data (B-PIPE)','line-chart','Real-time prices, volume, prints. Powers the block screens, imbalance, and relative performance.',off,'Phase 3')+
+        card('Bloomberg reference data (Data License)','database','GICS classification, peer sets, earnings calendar. Powers competitive-analysis peer groups.',off,'Phase 3')+
+        card('InsiderScore (VerityData)','file-text','Insider trades, 10b5-1 updates, ATM activity for the filing list. You already hold the subscription.',off,'Phase 4')+
+        card('Bloomberg News &amp; News Analytics','newspaper','Machine-readable news with per-company sentiment (optional Phase 1).',warn,'Optional · Phase 1')+
+      '</div></div>'+
+    '<div class="pt-2 border-t border-slate-200"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Roadmap — one feature at a time, matching the 2026-06-25 proposal</div>'+
+      '<div class="grid grid-cols-1 md:grid-cols-2 gap-3">'+
+        phase('0','Blueprint &amp; Foundation','~2 weeks',['Map the workflow + this exact workspace layout','Kick off the Bloomberg advert-access requests (longest lead)','Stand up the ingestion spine + event store'],true)+
+        phase('1','News Filter &amp; Watch-List','~4-6 weeks',['Ingestion spine: X + Reddit + wires, deduped, credibility-ranked','The unified Newsfeed + breaking alerts','Per-name lookup folded into the feed'],false)+
+        phase('2','Broker Activity Intelligence','~3-4 wks after access',['Bloomberg Trade Adverts (live) + history','Broker Rank List — broker-first, % vol, streak, 5-day volume'],false)+
+        phase('3','Market &amp; Competitive','after Phase 2',['Block screens + open/close imbalance','Competitive analysis — peers, RV, 1/5/30/YTD'],false)+
+        phase('4','Filings, Heat Map &amp; Layout','optional, after Phase 3',['Filing list via InsiderScore','Heat map across the broad universe','Saved per-user dashboards (this screen)'],false)+
+        '<div class="bg-slate-100 border border-slate-300 rounded-xl p-4 text-sm text-slate-600 flex items-start gap-2"><i data-lucide="pause" class="w-4 h-4 flex-shrink-0 mt-0.5 text-slate-500"></i><div><strong>Bloomberg Chat Filter — paused</strong> at your direction; revisited after the broker data and news filter ship.</div></div>'+
+      '</div></div>'+
+    '<div class="text-xs text-slate-400">Pass-through data and vendor costs are billed to Scoggin at cost, the same as your existing Bloomberg entitlements. We scope exactly which feeds and brokers you need during the Blueprint.</div>'+
+    '</div>';
+}
+
+// ============================================================================
+// Boot
+// ============================================================================
+window.addEventListener('DOMContentLoaded', ()=>{
+  renderSidebar();
+  renderCanvas();
+  lucide.createIcons();
+});
+</script>
+</body>
+</html>

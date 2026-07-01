@@ -1,0 +1,959 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dodonai — Scoggin News Filter POC v4</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  tailwind.config = { theme: { extend: {
+    fontFamily: { sans: ['-apple-system','BlinkMacSystemFont','"Helvetica Neue"','Arial','sans-serif'] },
+    colors: { dodonai: { 50:'#faf8fc',100:'#f2eff7',200:'#e4dff0',300:'#d8cfe8',400:'#8a7bb8',500:'#6d5fa6',600:'#5a4e82',700:'#3f3461',800:'#332954',900:'#2d2740' } }
+  } } };
+</script>
+<style>
+  html, body { height: 100%; }
+  body { background: #f5f3f9; }
+  .nav-link.active { background: #3f3461; color: white; }
+  .nav-link.active .icon { color: white; }
+  .toast { animation: toastIn .2s ease-out, toastOut .3s ease-in 5.7s forwards; }
+  @keyframes toastIn { from { opacity:0; transform:translateY(8px);} to { opacity:1; transform:translateY(0);} }
+  @keyframes toastOut { to { opacity:0; transform:translateY(8px);} }
+  .pulse-dot { animation: pulse 1.8s ease-in-out infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:.35;} }
+  ::-webkit-scrollbar { width:8px; height:8px; }
+  ::-webkit-scrollbar-thumb { background:#d8cfe8; border-radius:4px; }
+  .heat-tile { transition: transform .1s ease; cursor:pointer; }
+  .heat-tile:hover { transform: scale(1.05); z-index:5; }
+</style>
+</head>
+<body class="font-sans text-slate-800">
+
+<div class="flex h-screen overflow-hidden">
+
+  <!-- Sidebar -->
+  <aside class="w-60 bg-dodonai-900 text-dodonai-100 flex flex-col flex-shrink-0">
+    <div class="px-5 pt-5 pb-4 border-b border-dodonai-700">
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-md bg-gradient-to-br from-dodonai-400 to-dodonai-500 flex items-center justify-center text-white font-bold text-lg">D</div>
+        <div><div class="text-white font-semibold tracking-tight leading-tight">Dodonai</div><div class="text-xs text-dodonai-300 leading-tight">News Filter</div></div>
+      </div>
+    </div>
+    <nav class="flex-1 px-3 py-3 space-y-0.5 text-sm overflow-y-auto" id="sidebar-nav">
+      <a href="#/dashboard" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="layout-dashboard" class="icon w-4 h-4 text-dodonai-300"></i> Command Center</a>
+      <a href="#/macro"     class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="globe" class="icon w-4 h-4 text-dodonai-300"></i> Macro Monitor <span class="ml-auto text-[10px] bg-amber-400 text-dodonai-900 rounded-full px-1.5 py-0.5 font-semibold">New</span></a>
+      <div class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">v1 · building now</div>
+      <a href="#/news"      class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="filter" class="icon w-4 h-4 text-dodonai-300"></i> News &amp; Social Filter <span class="ml-auto text-[10px] bg-emerald-500 text-white rounded-full px-1.5 py-0.5 font-medium">First</span></a>
+      <a href="#/lookup"    class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="search" class="icon w-4 h-4 text-dodonai-300"></i> Ticker Lookup <span class="ml-auto text-[10px] bg-dodonai-500 text-white rounded-full px-1.5 py-0.5 font-medium">1</span></a>
+      <a href="#/alerts"    class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="bell-ring" class="icon w-4 h-4 text-dodonai-300"></i> Watch-List Alerts <span class="ml-auto text-[10px] bg-dodonai-500 text-white rounded-full px-1.5 py-0.5 font-medium">2</span></a>
+      <a href="#/heatmap"   class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="flame" class="icon w-4 h-4 text-dodonai-300"></i> Heat Map <span class="ml-auto text-[10px] bg-dodonai-500 text-white rounded-full px-1.5 py-0.5 font-medium">3</span></a>
+      <div class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">From the v2 concept</div>
+      <a href="#/chats"     class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="messages-square" class="icon w-4 h-4 text-dodonai-300"></i> Bloomberg Chat Filter</a>
+      <a href="#/watchlist" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="list" class="icon w-4 h-4 text-dodonai-300"></i> Watchlist</a>
+      <a href="#/menu"      class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="layout-grid" class="icon w-4 h-4 text-dodonai-300"></i> Future phases</a>
+      <div class="px-3 pt-3 pb-1 text-[10px] uppercase tracking-wider text-dodonai-400 font-semibold">Under the hood</div>
+      <a href="#/sources"   class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="plug" class="icon w-4 h-4 text-dodonai-300"></i> Data Sources</a>
+      <a href="#/roadmap"   class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-dodonai-700"><i data-lucide="route" class="icon w-4 h-4 text-dodonai-300"></i> Roadmap</a>
+    </nav>
+    <div class="px-3 pb-4 pt-2 border-t border-dodonai-700">
+      <div class="bg-dodonai-700 rounded-lg p-3">
+        <div class="flex items-center gap-2 mb-1"><i data-lucide="building-2" class="w-4 h-4 text-dodonai-300"></i><span class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Workspace</span></div>
+        <div class="text-white font-medium text-sm leading-tight">Scoggin Capital</div>
+        <div class="text-xs text-dodonai-300 mt-0.5">News filter · Demo v4</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- Main -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+    <header class="h-14 bg-white border-b border-slate-200 flex items-center px-6 gap-4 flex-shrink-0">
+      <div id="breadcrumb" class="text-sm text-slate-500 flex items-center gap-1.5"></div>
+      <div class="flex-1"></div>
+      <div class="flex items-center gap-1.5 text-xs text-slate-600 bg-slate-100 border border-slate-200 rounded-full px-2.5 py-1"><i data-lucide="eye" class="w-3.5 h-3.5"></i> Filter &amp; monitor only — never executes trades</div>
+      <div class="flex items-center gap-1.5 text-xs text-rose-700 bg-rose-50 border border-rose-200 rounded-full px-2.5 py-1"><span class="w-1.5 h-1.5 rounded-full bg-rose-500 pulse-dot"></span> Market open · macro tape heavy · Iran headlines</div>
+      <div class="flex items-center gap-2"><div class="w-8 h-8 rounded-full bg-gradient-to-br from-sky-300 to-indigo-400 text-white flex items-center justify-center font-semibold text-sm">PP</div><div class="text-sm leading-tight"><div class="font-medium text-slate-800">Pete Pasetsky</div><div class="text-xs text-slate-500">Scoggin desk</div></div></div>
+    </header>
+    <main id="view" class="flex-1 overflow-y-auto"></main>
+  </div>
+</div>
+
+<div id="toasts" class="fixed bottom-6 right-6 z-50 space-y-2"></div>
+
+<!-- Guided-tour FAB -->
+<button onclick="startTour()" id="tour-fab" class="fixed bottom-5 left-5 z-50 bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-full px-4 py-2.5 text-sm shadow-lg flex items-center gap-2"><i data-lucide="compass" class="w-4 h-4"></i> Guided tour</button>
+
+<!-- Welcome modal -->
+<div id="tour-welcome" class="fixed inset-0 z-[60] bg-slate-900/50 flex items-center justify-center p-4">
+  <div class="bg-white rounded-2xl max-w-lg w-full p-7 shadow-2xl">
+    <div class="flex items-center gap-2 mb-3"><div class="w-9 h-9 rounded-md bg-gradient-to-br from-dodonai-400 to-dodonai-500 flex items-center justify-center text-white font-bold">D</div><div class="font-semibold text-slate-800">Dodonai · Scoggin demo v4</div></div>
+    <h2 class="text-xl font-semibold text-slate-800">Hey team — built from your notes this morning.</h2>
+    <p class="text-sm text-slate-600 mt-2">Three things you asked for on the 17th are in: a <strong>Macro Monitor</strong> (four lanes of broad-market news across the top, nothing buried in a tab), <strong>live ticker entry</strong> (type any of your names, not just the demo set), and <strong>today's Iran headline replayed</strong> as a worked example of catching it in real time. The data is illustrative; everything <strong>surfaces information, it never trades.</strong></p>
+    <div class="flex flex-wrap gap-2 mt-5">
+      <button onclick="startTour()" class="bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-md px-4 py-2 text-sm font-medium flex items-center gap-2"><i data-lucide="play" class="w-4 h-4"></i> Take the 60-second tour</button>
+      <button onclick="closeWelcome()" class="border border-slate-300 hover:bg-slate-50 rounded-md px-4 py-2 text-sm">I'll explore on my own</button>
+    </div>
+  </div>
+</div>
+
+<!-- Tour bar -->
+<div id="tour-bar" class="hidden fixed bottom-5 left-1/2 -translate-x-1/2 z-[60] w-[540px] max-w-[92vw] bg-dodonai-900 text-white rounded-xl shadow-2xl p-4">
+  <div class="flex items-start gap-3">
+    <div class="w-7 h-7 rounded-full bg-white/10 flex items-center justify-center flex-shrink-0 text-xs font-semibold" id="tour-num">1</div>
+    <div class="flex-1 min-w-0"><div class="font-semibold text-sm" id="tour-title"></div><div class="text-dodonai-200 text-sm mt-0.5" id="tour-body"></div></div>
+    <button onclick="endTour()" class="text-dodonai-300 hover:text-white" title="Close tour"><i data-lucide="x" class="w-4 h-4"></i></button>
+  </div>
+  <div class="flex items-center justify-between mt-3">
+    <div class="text-xs text-dodonai-300" id="tour-progress"></div>
+    <div class="flex gap-2"><button onclick="tourPrev()" id="tour-prev" class="text-xs border border-white/20 hover:bg-white/10 rounded-md px-3 py-1.5">Back</button><button onclick="tourNext()" id="tour-next" class="text-xs bg-white text-dodonai-800 hover:bg-dodonai-100 rounded-md px-3 py-1.5 font-medium">Next</button></div>
+  </div>
+</div>
+
+<script>
+// ============================================================================
+// SIMULATED DATA — illustrative only. Tickers are real; every post, alert,
+// sentiment score, and latency number is made up to show the workflow.
+// Built from the 6/10 call (three screens: ticker lookup, watch-list alerts,
+// heat map) + the 6/17 team notes (v4: Macro Monitor, live ticker entry, and
+// today's real Iran headline replayed as a worked example). FILTERING, never trading.
+// ============================================================================
+
+const WATCHLIST = ['SPCX','NVDA','AMD','SMCI','COIN','MSTR','PLTR','RDDT','ARM','CRWD','CVNA','HOOD','AFRM','WULF','CORZ','IREN','RKLB','SOFI','TSLA','META','NBIS','CIFR'];
+
+// Per-ticker lookup data (Screen 1)
+const TICKERS = {
+  SPCX: { name:'SpaceX', sent:62, vol:'IPO day', summary:[
+      'Priced above the raised range last night; opened 11:02 ET well above the offer with the book reportedly 20× covered.',
+      'Retail chatter running ~9:1 positive, but two credible launch-industry accounts say institutional allocations were cut back hard — flippable float is smaller than the tape implies.',
+      'Watch the 1:30 ET management CNBC hit and any lockup-structure chatter; both are moving the conversation.'],
+    catalysts:[ {t:'1:30 ET today', x:'Management interview, CNBC'}, {t:'Mon 6/15', x:'First listed options chain'}, {t:'~7/12', x:'First Starlink subscriber print as a public co'} ],
+    items:[
+      { t:'11:34', src:'X', cred:'Verified · launch-industry · 3 corroborating', text:'Allocation desks confirming big cuts to fast-money accounts — float tighter than expected', sent:1 },
+      { t:'11:31', src:'Discord', cred:'Flow-traders server · high-signal channel', text:'Borrow already hard to locate at two primes; shorts waiting on options Monday', sent:1 },
+      { t:'11:27', src:'StreetAccount', cred:'Primary-source news', text:'SpaceX opens at premium in NYSE debut; indicated volume tracking to a top-5 IPO print', sent:1 },
+      { t:'11:19', src:'Reddit', cred:'r/spacexlounge · upvote velocity 4× normal', text:'Thread on Starship cadence implications for Starlink capacity — substantive, not memes', sent:1 },
+      { t:'11:02', src:'Wire', cred:'AP / mainstream', text:'SpaceX shares begin trading on the NYSE under ticker SPCX', sent:0 } ] },
+  NVDA: { name:'NVIDIA', sent:34, vol:'Elevated', summary:[
+      'Unusual call buying flagged by multiple desks ahead of the AI-summit keynote; chatter is anticipatory, not news-driven.',
+      'Two credible accounts reference a hyperscaler order pull-forward; nothing on wires yet — treat as unconfirmed but spreading.'],
+    catalysts:[ {t:'Today 2:00 ET', x:'AI summit keynote'}, {t:'6/18', x:'Conference: BofA Tech'} ],
+    items:[
+      { t:'11:30', src:'X', cred:'Buy-side · corroborated by 3 accounts', text:'Desks flagging unusual NVDA call buying into the keynote', sent:1 },
+      { t:'11:12', src:'X', cred:'Semis specialist · high credibility score', text:'Hyperscaler order pull-forward chatter — second credible mention this hour', sent:1 },
+      { t:'10:48', src:'StreetAccount', cred:'Primary-source news', text:'NVIDIA partners flag supply tightness into H2', sent:1 } ] },
+  SMCI: { name:'Super Micro', sent:48, vol:'Spiking', summary:[
+      'Pre-announced preliminary revenue above consensus before the open; the move is real and the chatter is chasing it.',
+      'Skeptic accounts already probing the margin mix — expect a fade-the-pop thesis to circulate within the hour.'],
+    catalysts:[ {t:'6/24', x:'Earnings (confirmed)'} ],
+    items:[
+      { t:'11:22', src:'StreetAccount', cred:'Primary-source news', text:'Super Micro guides preliminary revenue above consensus; pre-announce', sent:1 },
+      { t:'11:25', src:'X', cred:'Short-side account · credible', text:'Margin mix question on the SMCI pre-announce — watch the K when it files', sent:-1 } ] },
+  COIN: { name:'Coinbase', sent:-12, vol:'Elevated', summary:[
+      'Mixed tape: listing chatter (three credible accounts, same filing) against an intermittent-outage report spreading on Reddit.',
+      'Outage posts are outrunning the company status page — the negative side is currently winning the conversation.'],
+    catalysts:[ {t:'6/17', x:'Crypto policy hearing, Senate Banking'} ],
+    items:[
+      { t:'11:28', src:'Reddit', cred:'r/CoinBase · 40 reports/hr and climbing', text:'Users reporting intermittent order failures; status page still green', sent:-1 },
+      { t:'11:08', src:'X', cred:'3 credible accounts, same filing', text:'Coinbase listing chatter referencing the same SEC filing', sent:1 } ] },
+  CVNA: { name:'Carvana', sent:-41, vol:'Spiking', summary:[
+      'A short-report teaser hit a flow-traders Discord ~40 minutes before the first wire mention — classic early-chatter pattern.',
+      'Negative velocity is 6× the trailing hour; if you are involved, this is the "something is going on you don\'t know about" alert working as designed.'],
+    catalysts:[ {t:'6/19', x:'Lender conference presentation'} ],
+    items:[
+      { t:'11:33', src:'Wire', cred:'Mainstream pickup', text:'Activist short publishes on Carvana; shares move', sent:-1 },
+      { t:'10:52', src:'Discord', cred:'Flow server · first credible mention', text:'Teaser screenshot of a short report circulating — full piece dropping later today', sent:-1 } ] },
+  RDDT: { name:'Reddit', sent:21, vol:'Normal', summary:[
+      'Ad-load test leaking positive via two product-side accounts; Substack deep-dive argues monetization upside is under-modeled.'],
+    catalysts:[ {t:'7/30', x:'Earnings (est.)'} ],
+    items:[
+      { t:'10:40', src:'X', cred:'2 product accounts confirm', text:'Reddit ad-load test leaking positive', sent:1 },
+      { t:'09:15', src:'Substack', cred:'Paid newsletter · 18k subs', text:'Deep-dive: RDDT monetization still under-modeled by the Street', sent:1 } ] }
+};
+
+// Watch-list alert stream (Screen 2) — edge = seconds ahead of StreetAccount's pickup
+const ALERTS = [
+  { t:'11:34', tk:'CVNA', kind:'neg', edge:'2,460s', headline:'Short-report teaser hit Discord 41 min before the first wire mention', src:'Discord → Wire', note:'You are short — defensive alert; sentiment −41 and accelerating' },
+  { t:'11:31', tk:'SPCX', kind:'pos', edge:'—', headline:'Borrow hard to locate at two primes; shorts queuing for Monday options', src:'Discord', note:'IPO-day microstructure — not on wires at all yet' },
+  { t:'11:30', tk:'NVDA', kind:'pos', edge:'74s', headline:'Unusual call buying into the 2:00 keynote — 3 desks corroborate', src:'X', note:'Anticipatory chatter, no primary news yet' },
+  { t:'11:28', tk:'COIN', kind:'neg', edge:'190s', headline:'Outage reports climbing on Reddit; status page still green', src:'Reddit', note:'40 reports/hr — outrunning the company response' },
+  { t:'11:22', tk:'SMCI', kind:'pos', edge:'31s', headline:'Pre-announce: preliminary revenue above consensus', src:'StreetAccount', note:'Primary source — summary + sentiment attached automatically' },
+  { t:'11:04', tk:'WULF', kind:'pos', edge:'58s', headline:'Expanded AI-hosting lease; 8-K filed', src:'X → StreetAccount', note:'Caught on X first, confirmed by filing 58s later' },
+  { t:'10:48', tk:'HOOD', kind:'neg', edge:'112s', headline:'Payment-for-order-flow rule chatter resurfacing via two policy accounts', src:'X', note:'Low confidence — flagged, not pushed (below popup threshold)' },
+  { t:'10:31', tk:'PLTR', kind:'pos', edge:'66s', headline:'Gov-contract award larger than Street models — credible buy-side account', src:'X', note:'' }
+];
+
+// Heat map universe sample (Screen 3) — buzz = mentions/hr vs 20-day norm, sent −100..100
+const HEAT = [
+  {tk:'SPCX', buzz:9.8, sent:62},{tk:'CVNA', buzz:6.2, sent:-41},{tk:'SMCI', buzz:4.1, sent:48},
+  {tk:'LUNR', buzz:3.8, sent:35},{tk:'COIN', buzz:3.3, sent:-12},{tk:'DJT',  buzz:3.1, sent:-28},
+  {tk:'RKLB', buzz:2.9, sent:31},{tk:'NVDA', buzz:2.7, sent:34},{tk:'SAVA', buzz:2.6, sent:-55},
+  {tk:'IREN', buzz:2.4, sent:22},{tk:'KULR', buzz:2.2, sent:41},{tk:'NKLA', buzz:2.1, sent:-47},
+  {tk:'ASTS', buzz:2.0, sent:38},{tk:'WULF', buzz:1.9, sent:29},{tk:'CHPT', buzz:1.8, sent:-33},
+  {tk:'OKLO', buzz:1.7, sent:26},{tk:'PLUG', buzz:1.6, sent:-21},{tk:'RDDT', buzz:1.5, sent:21},
+  {tk:'SOUN', buzz:1.5, sent:18},{tk:'MARA', buzz:1.4, sent:-9},{tk:'ACHR', buzz:1.4, sent:24},
+  {tk:'HIMS', buzz:1.3, sent:-18},{tk:'TMC',  buzz:1.3, sent:15},{tk:'BBAI', buzz:1.2, sent:11},
+  {tk:'RUM',  buzz:1.2, sent:-14},{tk:'JOBY', buzz:1.1, sent:13},{tk:'CLSK', buzz:1.1, sent:-7},
+  {tk:'DNA',  buzz:1.0, sent:6},{tk:'LCID', buzz:1.0, sent:-11},{tk:'NNE',  buzz:1.0, sent:17},
+  {tk:'SES',  buzz:0.9, sent:4},{tk:'PL',   buzz:0.9, sent:9},{tk:'VRT',  buzz:0.8, sent:12},
+  {tk:'AI',   buzz:0.8, sent:-5},{tk:'QS',   buzz:0.7, sent:3},{tk:'RIVN', buzz:0.7, sent:-8},
+  {tk:'U',    buzz:0.6, sent:5},{tk:'DKNG', buzz:0.6, sent:7},{tk:'CHWY', buzz:0.5, sent:2},
+  {tk:'ROKU', buzz:0.5, sent:-3},{tk:'ETSY', buzz:0.4, sent:1},{tk:'PINS', buzz:0.4, sent:4}
+];
+
+// Sources (6/2 email + 6/10 call list)
+const SRC_LIVE = [
+  { name:'X (Twitter)',  icon:'at-sign',   line:'Official API · filtered stream + credibility scoring (followers, share patterns, corroboration). Core already built.' },
+  { name:'Reddit',       icon:'message-circle', line:'Public API · subreddit + upvote-velocity monitoring. Catches the CVNA/COIN-style early threads.' },
+  { name:'Wires / RSS',  icon:'rss',       line:'AP & mainstream feeds — the "combination of both" you asked for. Standard news rides alongside the chatter.' }
+];
+const SRC_SWITCH = [
+  { name:'StreetAccount', icon:'newspaper',   line:'FactSet News API — entitlement switch on your existing contract.' },
+  { name:'InsiderScore',  icon:'eye',         line:'VerityData REST API — add-on to your subscription.' },
+  { name:'PitchBook',     icon:'briefcase',   line:'"Direct Data" REST API — license add-on.' },
+  { name:'CMG',           icon:'trending-up', line:'Enterprise data feed — quick confirm with your rep.' }
+];
+const SRC_LIST = [
+  { name:'Discord',  icon:'messages-square', line:'Server-level ingestion — send the servers your guys watch and we wire them in.' },
+  { name:'Substack', icon:'mail',            line:'Newsletter ingestion — same: send the list, we subscribe the system.' }
+];
+
+// ============================================================================
+// MACRO MONITOR (new in v4) — the always-on, broad-market board Pete asked for
+// on 6/17: four boxes across the top so nothing hides in a tab. The lead story
+// is today's real Iran sequence (Jason's email), replayed below as the worked
+// example. Everything here is simulated to show the layout + the workflow.
+// ============================================================================
+const MACRO = [
+  { key:'geo', title:'Geopolitics & Policy', icon:'globe', items:[
+      { t:'10:37', src:'X → Wire', cred:'Axios · @MarketNews_Feed · 3 corroborating', text:'CIA’s Ratcliffe said to warn Trump he’s skeptical Iran will honor nuclear concessions; officials stay wary as questions grow over Tehran’s intentions', tone:'alert' },
+      { t:'10:31', src:'X', cred:'Two foreign-policy desks', text:'Chatter building that the 10:45 Trump remarks harden the Iran line', tone:'neg' },
+      { t:'09:48', src:'StreetAccount', cred:'Primary-source news', text:'State Dept briefing flags "active diplomacy" on Iran ahead of the President’s remarks', tone:'neutral' },
+      { t:'08:20', src:'Wire', cred:'Reuters', text:'Pre-market: oil bid on a Middle East risk premium; Brent +1.8%', tone:'neutral' } ] },
+  { key:'rates', title:'Macro & Rates', icon:'percent', items:[
+      { t:'10:42', src:'X', cred:'Rates desk · corroborated', text:'Bid to the long end on the risk-off impulse; 10Y yield −6bps off the headline', tone:'neg' },
+      { t:'10:05', src:'StreetAccount', cred:'Primary-source news', text:'Fed’s Williams: policy "well positioned," no urgency to move — limited reaction', tone:'neutral' },
+      { t:'08:32', src:'Wire', cred:'BLS', text:'Initial jobless claims 241k vs 235k est — slightly soft, faded fast', tone:'neutral' } ] },
+  { key:'tape', title:'Equities & Tape', icon:'activity', items:[
+      { t:'10:40', src:'Tape monitor', cred:'Internal · index + breadth', text:'S&P −0.7% off the 10:25 high; breadth 4:1 negative, VIX +1.9', tone:'neg' },
+      { t:'10:25', src:'Tape monitor', cred:'Internal · reversal detector', text:'Sharp reversal off the highs begins — nothing on the wires yet (see replay)', tone:'alert' },
+      { t:'10:12', src:'X', cred:'Index-flow account', text:'Defensives bid, semis lagging; rotation out of high-beta into staples', tone:'neutral' } ] },
+  { key:'cal', title:'Scheduled Catalysts', icon:'calendar-clock', cal:true, items:[
+      { t:'10:45 ET', src:'Geopolitics', cred:'Flagged at the open', text:'President Trump remarks — foreign policy / Iran. High event-risk; desk watching.', tone:'alert' },
+      { t:'13:30 ET', src:'Treasury', cred:'Auction', text:'20-year bond auction', tone:'cal' },
+      { t:'14:00 ET', src:'NVDA', cred:'From your names', text:'NVIDIA AI-summit keynote', tone:'cal' },
+      { t:'Tmrw 08:30', src:'Macro data', cred:'Scheduled', text:'Housing starts + building permits', tone:'cal' } ] }
+];
+
+// Today's Iran sequence — the worked example Nick promised in the 6/17 reply.
+const IRAN_REPLAY = [
+  { t:'Pre-open', tag:'Pre-flagged', tone:'flag', title:'The 10:45 Trump remarks were already on the catalyst board', body:'Logged at the open as high event-risk on Iran / foreign policy. The desk is watching the theme before anything prints — the first edge.' },
+  { t:'10:25 ET', tag:'Tape', tone:'alert', title:'S&P reverses hard off the highs', body:'The selloff starts with nothing on the wires yet. On the old workflow this is the "why are we down?" scramble.' },
+  { t:'10:37 ET', tag:'Headline', tone:'neg', title:'Axios / Ratcliffe headline crosses', body:'"CIA’s Ratcliffe skeptical Iran will honor nuclear concessions" hits a wire and amplifies on X (@MarketNews_Feed). Scored high-impact geopolitical, matched to the Iran theme, pushed as a macro alert the second it crosses — the second edge.' },
+  { t:'10:45 ET', tag:'Catalyst', tone:'flag', title:'Trump speaks — exactly the flagged event', body:'The desk goes into the remarks already briefed on the catalyst and the headline that front-ran it, instead of reverse-engineering the move from price.' }
+];
+
+// ============================================================================
+// Router
+// ============================================================================
+function parseRoute(){ const h=location.hash||'#/dashboard'; const parts=h.replace(/^#\//,'').split('/'); return { view:parts[0], arg:parts[1]||'' }; }
+function setActiveNav(){ const r=parseRoute(); document.querySelectorAll('.nav-link').forEach(a=>a.classList.toggle('active', a.getAttribute('href').replace(/^#\//,'').split('/')[0]===r.view)); }
+function setBreadcrumb(items){ document.getElementById('breadcrumb').innerHTML = items.map((it,i)=>{ const sep=i>0?'<i data-lucide="chevron-right" class="w-3.5 h-3.5"></i>':''; const cls=i===items.length-1?'text-slate-700 font-medium':'text-slate-500'; return sep+'<span class="'+cls+'">'+it+'</span>'; }).join(''); }
+function render(){
+  setActiveNav();
+  const v=document.getElementById('view'); let html='';
+  switch(parseRoute().view){
+    case 'dashboard': html=renderDashboard(); break;
+    case 'macro':     html=renderMacro();     break;
+    case 'lookup':    html=renderLookup();    break;
+    case 'alerts':    html=renderAlerts();    break;
+    case 'heatmap':   html=renderHeatmap();   break;
+    case 'chats':     html=renderChats();     break;
+    case 'news':      html=renderNews();      break;
+    case 'watchlist': html=renderWatchlist(); break;
+    case 'menu':      html=renderMenu();      break;
+    case 'sources':   html=renderSources();   break;
+    case 'roadmap':   html=renderRoadmap();   break;
+    default:          html=renderDashboard();
+  }
+  v.innerHTML=html; v.scrollTop=0; lucide.createIcons(); attachHandlers();
+}
+window.addEventListener('hashchange', render);
+window.addEventListener('DOMContentLoaded', ()=>{ if(!location.hash) location.hash='#/dashboard'; render(); lucide.createIcons(); });
+
+// ============================================================================
+// Guided walkthrough
+// ============================================================================
+const tourSteps = [
+  { hash:'#/dashboard',   title:'Start here', body:'Your three screens, plus the new Macro tape riding across the top — four lanes always in view, like you asked on the 17th. Click anything, anytime.' },
+  { hash:'#/macro',       title:'New · Macro Monitor', body:'The broad-market board: Geopolitics, Macro & Rates, Equities & Tape, and the Scheduled-Catalysts calendar. Up top is today\'s Iran headline replayed — the 10:25 selloff, the 10:37 Axios print, the 10:45 Trump remarks we\'d already flagged. Jason\'s question, worked through.' },
+  { hash:'#/lookup/NVDA', title:'1 · Ticker Lookup — now live', body:'Type ANY of your names, not just the demo set. NVDA, CVNA, and SPCX are hand-built; type something else (try your own) and it generates a live-style read on the spot — so you can pull a name as you trade.' },
+  { hash:'#/alerts',      title:'2 · Watch-List Alerts', body:'Your ~100 names. News breaks anywhere → popup → click through. The Δ column is the whole pitch: seconds (sometimes minutes) ahead of StreetAccount. Hit "Simulate the next alert" to feel the popup.' },
+  { hash:'#/heatmap',     title:'3 · Heat Map', body:'The ~30,000 names you\'re NOT in — your MOST screen, but built on chatter instead of volume. Tile size = buzz vs normal; color = sentiment. Toggle the most-positive / most-negative 50.' },
+  { hash:'#/sources',     title:'Data Sources', body:'Everything feeding the filter: live in v1, entitlement switches on contracts you already have, and the two (Discord, Substack) where I need your list.' },
+  { hash:'#/roadmap',     title:'Roadmap', body:'One thing at a time, like you said. Phase 2–3 add the heat-map tuning, market context (prints, advertisers, peers) and your widget dashboard. Bloomberg chats stay last, on purpose.' },
+  { hash:'#/dashboard',   title:'That\'s the tour', body:'This is the layout we refine at your screens — tell me what moves, what\'s missing, and where the popups should live. — Nick' }
+];
+let tourI = 0;
+function closeWelcome(){ const w=document.getElementById('tour-welcome'); if(w) w.remove(); }
+function startTour(){ closeWelcome(); tourI=0; document.getElementById('tour-bar').classList.remove('hidden'); showStep(); }
+function showStep(){
+  const s=tourSteps[tourI];
+  if(location.hash!==s.hash) location.hash=s.hash;
+  document.getElementById('tour-title').textContent=s.title;
+  document.getElementById('tour-body').textContent=s.body;
+  document.getElementById('tour-num').textContent=(tourI+1);
+  document.getElementById('tour-progress').textContent='Step '+(tourI+1)+' of '+tourSteps.length;
+  document.getElementById('tour-prev').style.visibility = tourI===0 ? 'hidden' : 'visible';
+  document.getElementById('tour-next').textContent = tourI===tourSteps.length-1 ? 'Done' : 'Next';
+  highlightNav(s.hash); lucide.createIcons();
+}
+function tourNext(){ if(tourI>=tourSteps.length-1){ endTour(); return; } tourI++; showStep(); }
+function tourPrev(){ if(tourI>0){ tourI--; showStep(); } }
+function endTour(){ document.getElementById('tour-bar').classList.add('hidden'); clearNavHighlight(); }
+function highlightNav(hash){ clearNavHighlight(); const base='#/'+hash.replace(/^#\//,'').split('/')[0]; const a=document.querySelector('.nav-link[href="'+base+'"]'); if(a) a.classList.add('ring-2','ring-dodonai-400'); }
+function clearNavHighlight(){ document.querySelectorAll('.nav-link').forEach(a=>a.classList.remove('ring-2','ring-dodonai-400')); }
+
+// ============================================================================
+// Helpers
+// ============================================================================
+function popupAlert(a){
+  const el=document.createElement('div');
+  el.className='toast bg-dodonai-900 text-white rounded-lg shadow-2xl px-4 py-3 flex items-start gap-3 min-w-[320px] max-w-md cursor-pointer';
+  el.onclick=()=>{ location.hash='#/lookup/'+a.tk; el.remove(); };
+  const tone = a.kind==='neg' ? 'bg-rose-500/20 text-rose-300' : 'bg-emerald-500/20 text-emerald-300';
+  const arrow = a.kind==='neg' ? 'trending-down' : 'trending-up';
+  el.innerHTML='<div class="w-8 h-8 rounded-full '+tone+' flex items-center justify-center flex-shrink-0"><i data-lucide="'+arrow+'" class="w-4 h-4"></i></div>'+
+    '<div class="text-sm leading-tight min-w-0"><div class="flex items-center gap-2"><span class="font-mono font-semibold">'+a.tk+'</span><span class="text-[10px] uppercase tracking-wider text-dodonai-300">watch-list alert</span>'+(a.edge!=='—'?'<span class="text-[10px] bg-white/10 rounded px-1.5 py-0.5">Δ '+a.edge+' ahead</span>':'')+'</div>'+
+    '<div class="font-medium mt-0.5">'+a.headline+'</div><div class="text-dodonai-300 text-xs mt-0.5">'+a.src+' · click to open the ticker</div></div>';
+  document.getElementById('toasts').appendChild(el); lucide.createIcons(); setTimeout(()=>el.remove(),6200);
+}
+let simI = 0;
+function simulateAlert(){ popupAlert(ALERTS[simI % ALERTS.length]); simI++; }
+function attachHandlers(){
+  const inp=document.getElementById('tk-input');
+  if(inp){ inp.addEventListener('keydown',e=>{ if(e.key==='Enter') goLookup(); }); inp.focus(); }
+}
+function goLookup(){ const v=(document.getElementById('tk-input').value||'').trim().toUpperCase(); if(!v) return; location.hash='#/lookup/'+v; }
+function sentMeter(s){
+  const pct=(s+100)/2; const col = s>15?'bg-emerald-500':(s<-15?'bg-rose-500':'bg-amber-400');
+  const lbl = s>15?'Positive':(s<-15?'Negative':'Mixed');
+  return '<div><div class="flex items-center justify-between text-xs mb-1"><span class="text-slate-500 uppercase tracking-wider font-semibold">Sentiment</span><span class="font-semibold '+(s>15?'text-emerald-600':(s<-15?'text-rose-600':'text-amber-600'))+'">'+lbl+' · '+(s>0?'+':'')+s+'</span></div>'+
+    '<div class="relative h-2 rounded-full bg-gradient-to-r from-rose-200 via-amber-100 to-emerald-200"><div class="absolute top-1/2 -translate-y-1/2 w-3.5 h-3.5 rounded-full border-2 border-white shadow '+col+'" style="left:calc('+pct+'% - 7px)"></div></div>'+
+    '<div class="flex justify-between text-[10px] text-slate-400 mt-0.5"><span>−100</span><span>0</span><span>+100</span></div></div>';
+}
+function srcChip(src){
+  const map={ 'X':'bg-violet-100 text-violet-700','Reddit':'bg-orange-100 text-orange-700','Discord':'bg-indigo-100 text-indigo-700','Substack':'bg-amber-100 text-amber-700','StreetAccount':'bg-sky-100 text-sky-700','Wire':'bg-slate-200 text-slate-700' };
+  const key=src.split(' ')[0].replace('→','').trim();
+  return '<span class="text-[10px] px-1.5 py-0.5 rounded '+(map[key]||'bg-slate-100 text-slate-600')+'">'+src+'</span>';
+}
+function sentDot(s){ return s>0?'<span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">+</span>':(s<0?'<span class="text-[10px] px-1.5 py-0.5 rounded bg-rose-100 text-rose-700">−</span>':''); }
+
+// ============================================================================
+// Command Center
+// ============================================================================
+function renderDashboard(){
+  setBreadcrumb(['Command Center']);
+  return ''+
+  '<div class="p-6 space-y-5">'+
+    '<div><h1 class="text-xl font-semibold text-slate-800">Good morning, Pete.</h1>'+
+    '<p class="text-sm text-slate-500 mt-0.5">The news filter, with this morning\'s asks built in: the macro tape across the top, live ticker entry on any name, and today\'s Iran sequence replayed. One database scraping everywhere, presented where you need it. Everything here <strong>surfaces information — it never trades.</strong></p></div>'+
+
+    '<div class="bg-amber-50 border border-amber-200 rounded-lg p-3 flex items-start gap-2 text-sm text-amber-900"><i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div><strong>Demo with simulated data.</strong> Tickers and today\'s Iran headline are real; every post, score, and timestamp is illustrative — built to show the workflow, not Scoggin\'s book.</div></div>'+
+
+    // Macro tape — Pete\'s 6/17 ask: four lanes across the top, always in view
+    '<div class="bg-white border border-slate-200 rounded-xl p-4">'+
+      '<div class="flex items-center justify-between mb-3">'+
+        '<div class="flex items-center gap-2"><i data-lucide="globe" class="w-4 h-4 text-dodonai-600"></i><h2 class="font-semibold text-slate-800 text-sm">Macro tape — four lanes, always up</h2><span class="text-[10px] uppercase tracking-wider bg-amber-100 text-amber-700 rounded-full px-2 py-0.5">New · your 6/17 ask</span></div>'+
+        '<a href="#/macro" class="text-xs text-dodonai-600 hover:underline flex items-center gap-1">Open Macro Monitor <i data-lucide="arrow-right" class="w-3 h-3"></i></a>'+
+      '</div>'+
+      macroBoard(2)+
+      '<a href="#/macro" class="mt-3 flex items-center gap-2 bg-rose-50 border border-rose-200 rounded-lg p-2.5 text-sm text-rose-900 hover:bg-rose-100 transition"><i data-lucide="history" class="w-4 h-4 flex-shrink-0"></i><span><strong>Today\'s Iran sequence, replayed</strong> — how the 10:37 headline reaches the desk. Jason\'s question, worked through. →</span></a>'+
+    '</div>'+
+
+    '<div class="grid grid-cols-3 gap-5">'+
+      '<a href="#/lookup/SPCX" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-dodonai-400 hover:shadow-sm transition">'+
+        '<div class="flex items-center gap-2 mb-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">1</span><h2 class="font-semibold text-slate-800">Ticker Lookup</h2><i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 ml-auto"></i></div>'+
+        '<div class="text-3xl font-semibold text-slate-800 my-2">Type a symbol</div>'+
+        '<p class="text-sm text-slate-500">What\'s up with that name today: 2–3 sentence read, sentiment meter, every source in one feed. SpaceX pre-loaded.</p>'+
+      '</a>'+
+      '<a href="#/alerts" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-dodonai-400 hover:shadow-sm transition">'+
+        '<div class="flex items-center gap-2 mb-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">2</span><h2 class="font-semibold text-slate-800">Watch-List Alerts</h2><i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 ml-auto"></i></div>'+
+        '<div class="flex items-end gap-3 my-2"><div class="text-3xl font-semibold text-slate-800">~100</div><div class="text-slate-400 text-lg mb-0.5">names →</div><div class="text-3xl font-semibold text-dodonai-700">popups</div></div>'+
+        '<p class="text-sm text-slate-500">Anything breaks on a name you\'re in → popup, seconds ahead of StreetAccount. The most important screen out of the gate.</p>'+
+      '</a>'+
+      '<a href="#/heatmap" class="block bg-white border border-slate-200 rounded-xl p-5 hover:border-dodonai-400 hover:shadow-sm transition">'+
+        '<div class="flex items-center gap-2 mb-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">3</span><h2 class="font-semibold text-slate-800">Heat Map</h2><i data-lucide="arrow-up-right" class="w-4 h-4 text-slate-300 ml-auto"></i></div>'+
+        '<div class="flex items-end gap-3 my-2"><div class="text-3xl font-semibold text-slate-800">30,124</div><div class="text-slate-400 text-lg mb-0.5">→</div><div class="text-3xl font-semibold text-dodonai-700">where it\'s hot</div></div>'+
+        '<p class="text-sm text-slate-500">The names you\'re NOT in. Chatter acceleration + sentiment across the whole universe — your MOST screen, but earlier.</p>'+
+      '</a>'+
+    '</div>'+
+
+    '<div class="grid grid-cols-4 gap-4">'+
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Scanned today</div><div class="text-2xl font-semibold text-slate-800">31,412</div><div class="text-xs text-slate-500">posts &amp; stories across all sources</div></div>'+
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Reached you</div><div class="text-2xl font-semibold text-dodonai-700">37</div><div class="text-xs text-slate-500">alerts + lookups — the noise never arrives</div></div>'+
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Median speed edge</div><div class="text-2xl font-semibold text-emerald-600">+71s</div><div class="text-xs text-slate-500">vs StreetAccount pickup, today (simulated)</div></div>'+
+      '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Sources live</div><div class="text-2xl font-semibold text-slate-800">3 + 4 + 2</div><div class="text-xs text-slate-500">live now · entitlement switch · need your list</div></div>'+
+    '</div>'+
+
+    '<div class="bg-gradient-to-br from-dodonai-700 to-dodonai-900 text-white rounded-lg p-5"><div class="flex items-start gap-4">'+
+      '<div class="w-10 h-10 rounded-md bg-white/10 flex items-center justify-center flex-shrink-0"><i data-lucide="route" class="w-5 h-5"></i></div>'+
+      '<div class="flex-1"><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">The plan — one thing at a time, like you said</div>'+
+        '<div class="text-lg font-semibold mt-0.5">News filter first → tune it at your screens → then the rest of the menu</div>'+
+        '<p class="text-sm text-dodonai-200 mt-1 max-w-2xl">v1 is these three screens on X + Reddit + wires (no Bloomberg dependency, building now). Phase 2 layers in StreetAccount, CMG, InsiderScore, PitchBook and tunes the heat map. The widget dashboard and the Bloomberg chat filter come after — see the <a href="#/roadmap" class="underline">roadmap</a>.</p></div>'+
+    '</div></div>'+
+  '</div>';
+}
+
+// ============================================================================
+// Live ticker entry (new in v4) — Pete on 6/17: "we can't type symbols in as
+// we use it." Any symbol now returns a believable read so he can pull his own
+// names live. Curated tickers (TICKERS) still win; everything else is generated
+// deterministically from the symbol so the same name reads the same each time.
+// ============================================================================
+function hashStr(s){ let h=2166136261; for(let i=0;i<s.length;i++){ h^=s.charCodeAt(i); h=Math.imul(h,16777619); } return h>>>0; }
+function mulberry(seed){ return function(){ seed|=0; seed=seed+0x6D2B79F5|0; let t=Math.imul(seed^seed>>>15,1|seed); t=t+Math.imul(t^t>>>7,61|t)^t; return ((t^t>>>14)>>>0)/4294967296; }; }
+function synthTicker(sym){
+  const rnd=mulberry(hashStr(sym)); const pick=a=>a[Math.floor(rnd()*a.length)];
+  const sent=Math.round((rnd()*2-1)*60);
+  const vol=pick(['Normal','Elevated','Spiking']);
+  const dir = sent>12?'leaning positive' : (sent<-12?'leaning negative':'mixed');
+  const summary=[
+    'Chatter on '+sym+' is running '+(vol==='Spiking'?'well above':vol==='Elevated'?'above':'near')+' its 20-day normal, '+dir+' across the sources we monitor.',
+    sent>12 ? 'Two credible accounts corroborate the positive read; nothing on the wires yet, so treat as early but spreading.'
+            : sent<-12 ? 'A skeptic thread is gaining velocity faster than the wires — the kind of early negative the watch-list alert is built to catch.'
+            : 'Mixed signal: positive product chatter against some pushback. No single catalyst is driving it yet.' ];
+  const cats=[ {t:pick(['6/24','7/01','7/30','8/06']), x:'Earnings (est.)'}, {t:pick(['6/19','6/26','7/10']), x:pick(['Sector conference','Analyst day','Product event'])} ];
+  const pool=[
+    {src:'X', cred:'Credible account · corroborated', pos:'Buy-side account flags an improving setup on '+sym, neg:'Short-side account circulating a bear thesis on '+sym, neu:sym+' mentioned alongside sector peers; no standalone catalyst'},
+    {src:'Reddit', cred:'Upvote velocity above normal', pos:'Retail thread on '+sym+' turning constructive — substance, not memes', neg:'Complaint thread on '+sym+' climbing — outrunning the company response', neu:'Routine '+sym+' discussion; nothing market-moving yet'},
+    {src:'StreetAccount', cred:'Primary-source news', pos:sym+' guidance tracking above the Street in a desk note', neg:'Cautious sell-side note on '+sym+' margins', neu:'Coverage recap on '+sym+'; in line with expectations'},
+    {src:'Wire', cred:'Mainstream pickup', pos:sym+' headline confirms the earlier chatter', neg:sym+' headline confirms the negative chatter', neu:sym+' appears in a broad sector wrap'} ];
+  let mm=34; const items=pool.map(p=>{ mm-=Math.floor(rnd()*7)+2; const t='11:'+String(mm).padStart(2,'0');
+    const s = sent>12?1:(sent<-12?-1:0); const text = s>0?p.pos:(s<0?p.neg:p.neu);
+    return { t, src:p.src, cred:p.cred, text, sent:s }; });
+  return { name:'', sent, vol, summary, catalysts:cats, items, __synth:true };
+}
+
+// ============================================================================
+// Macro Monitor (new in v4)
+// ============================================================================
+function macroDot(tone){ return tone==='flag'?'bg-amber-400':tone==='alert'?'bg-rose-500':tone==='neg'?'bg-rose-400':tone==='pos'?'bg-emerald-400':'bg-slate-300'; }
+function macroBorder(tone){ return tone==='alert'?'border-l-rose-500 bg-rose-50/50':tone==='neg'?'border-l-rose-300':tone==='pos'?'border-l-emerald-400':tone==='cal'?'border-l-amber-300':'border-l-slate-200'; }
+function macroItem(it){
+  return '<div class="border-l-2 '+macroBorder(it.tone)+' pl-2.5 py-1.5">'+
+    '<div class="flex items-center gap-1.5 mb-0.5">'+
+      '<span class="text-[10px] font-mono text-slate-400">'+it.t+'</span>'+srcChip(it.src)+
+      (it.tone==='alert'?'<span class="text-[9px] uppercase tracking-wider bg-rose-500 text-white rounded px-1 py-0.5 font-semibold ml-auto">Alert</span>':'')+
+    '</div>'+
+    '<div class="text-xs text-slate-700 leading-snug">'+it.text+'</div>'+
+    '<div class="text-[10px] text-slate-400 mt-0.5">'+it.cred+'</div>'+
+  '</div>';
+}
+function macroColumn(col,max){
+  const items = col.items.slice(0,max||col.items.length).map(macroItem).join('');
+  return '<div class="bg-white border border-slate-200 rounded-xl p-4 flex flex-col">'+
+    '<div class="flex items-center gap-2 mb-2.5">'+
+      '<div class="w-7 h-7 rounded-md bg-dodonai-100 text-dodonai-700 flex items-center justify-center"><i data-lucide="'+col.icon+'" class="w-4 h-4"></i></div>'+
+      '<div class="font-semibold text-slate-800 text-sm leading-tight">'+col.title+'</div>'+
+      (col.cal?'<span class="ml-auto text-[10px] text-amber-600 flex items-center gap-1"><i data-lucide="clock" class="w-3 h-3"></i>ahead</span>':'<span class="ml-auto flex items-center gap-1 text-[10px] text-emerald-600"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 pulse-dot"></span>live</span>')+
+    '</div>'+
+    '<div class="space-y-1.5">'+items+'</div>'+
+  '</div>';
+}
+function macroBoard(max){ return '<div class="grid grid-cols-4 gap-3">'+MACRO.map(c=>macroColumn(c,max)).join('')+'</div>'; }
+function renderMacro(){
+  setBreadcrumb(['Macro Monitor']);
+  const steps = IRAN_REPLAY.map((s,i)=>{
+    const last = i===IRAN_REPLAY.length-1;
+    const tagCls = s.tone==='flag'?'bg-amber-100 text-amber-800':s.tone==='alert'?'bg-rose-100 text-rose-700':s.tone==='neg'?'bg-rose-100 text-rose-700':'bg-slate-100 text-slate-600';
+    return '<div class="flex gap-3">'+
+      '<div class="flex flex-col items-center pt-1"><div class="w-2.5 h-2.5 rounded-full '+macroDot(s.tone)+'"></div>'+(last?'':'<div class="w-px flex-1 bg-slate-200 mt-1"></div>')+'</div>'+
+      '<div class="'+(last?'':'pb-4')+'">'+
+        '<div class="flex items-center gap-2"><span class="text-xs font-mono font-semibold text-slate-700">'+s.t+'</span><span class="text-[10px] uppercase tracking-wider px-1.5 py-0.5 rounded '+tagCls+'">'+s.tag+'</span></div>'+
+        '<div class="text-sm font-semibold text-slate-800 mt-0.5">'+s.title+'</div>'+
+        '<div class="text-xs text-slate-600 mt-0.5 max-w-2xl leading-snug">'+s.body+'</div>'+
+      '</div>'+
+    '</div>';
+  }).join('');
+  const edge = (n,title,body) => '<div class="bg-white border border-slate-200 rounded-lg p-4"><div class="flex items-center gap-2 mb-1"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">'+n+'</span><div class="font-semibold text-slate-800 text-sm">'+title+'</div></div><p class="text-sm text-slate-600 leading-snug">'+body+'</p></div>';
+  return ''+
+  '<div class="p-6 space-y-5">'+
+    '<div><h1 class="text-xl font-semibold text-slate-800">Macro Monitor</h1>'+
+    '<p class="text-sm text-slate-500 mt-0.5">The always-on board from your 6/17 note: broad-market news in four lanes across the top, so nothing hides in a tab. Same filter as your names — credibility-scored, noise stripped. It <strong>surfaces; it never trades.</strong></p></div>'+
+
+    '<div class="bg-amber-50 border border-amber-200 rounded-lg p-3 flex items-start gap-2 text-sm text-amber-900"><i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div><strong>Simulated data — built around today\'s real sequence.</strong> The Iran headline and timestamps are the ones from Jason\'s email; everything else is illustrative to show the layout and the workflow.</div></div>'+
+
+    // worked example — the Iran replay
+    '<div class="bg-white border border-slate-200 rounded-xl overflow-hidden">'+
+      '<div class="bg-gradient-to-br from-dodonai-700 to-dodonai-900 text-white p-5">'+
+        '<div class="flex items-center gap-2"><i data-lucide="history" class="w-4 h-4 text-dodonai-300"></i><span class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Worked example · today, June 17</span></div>'+
+        '<div class="text-lg font-semibold mt-1">The Iran headline, replayed — how it reaches the desk</div>'+
+        '<p class="text-sm text-dodonai-200 mt-1 max-w-3xl">Jason\'s question from this morning. The tape moved at 10:25; the Axios / Ratcliffe headline didn\'t circulate on X until 10:37. Two edges close that gap.</p>'+
+      '</div>'+
+      '<div class="p-5">'+steps+'</div>'+
+      '<div class="grid grid-cols-2 gap-3 px-5">'+
+        edge('1','Pre-flag the scheduled catalyst','Trump\'s 10:45 Iran remarks were on the catalyst board at the open. The desk watches the theme before the tape moves.')+
+        edge('2','Catch the first print','Surface the headline the second a credible source crosses, scored and mapped to your book — not after the selloff tells you something happened.')+
+      '</div>'+
+      '<div class="m-5 mt-3 bg-slate-50 border border-slate-200 rounded-lg p-3 text-sm text-slate-600 flex items-start gap-2"><i data-lucide="info" class="w-4 h-4 flex-shrink-0 mt-0.5 text-slate-400"></i><div>Straight version: today the price led the headline by about 12 minutes. The edge isn\'t predicting the tape — it\'s being first to the print, and never getting blindsided by a catalyst you could see coming.</div></div>'+
+    '</div>'+
+
+    // the four-box board
+    '<div><div class="flex items-center justify-between mb-2"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold">Today\'s board — four lanes, always up</div><a href="#/alerts" class="text-xs text-dodonai-600 hover:underline flex items-center gap-1">Watch-list alerts <i data-lucide="arrow-right" class="w-3 h-3"></i></a></div>'+
+      macroBoard()+'</div>'+
+
+    '<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 flex items-start gap-2 text-sm text-emerald-900"><i data-lucide="sparkles" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>This board lives next to the Command Center too — the four boxes ride across the top there so the macro tape is always in view while you work your names. Layout, lane order, and what counts as "alert-worthy" are all yours to tune at the screens.</div></div>'+
+  '</div>';
+}
+
+// ============================================================================
+// 1 · Ticker Lookup
+// ============================================================================
+function renderLookup(){
+  const arg = parseRoute().arg.toUpperCase();
+  setBreadcrumb(['Ticker Lookup'+(arg?(' · '+arg):'')]);
+  const isSynth = arg && !TICKERS[arg];
+  const known = TICKERS[arg] || (arg ? synthTicker(arg) : null);
+  const chips = Object.keys(TICKERS).map(k=>'<a href="#/lookup/'+k+'" class="text-xs font-mono border '+(k===arg?'border-dodonai-400 bg-dodonai-50 text-dodonai-700':'border-slate-200 text-slate-500 hover:border-dodonai-300')+' rounded-full px-2.5 py-1">'+k+'</a>').join(' ');
+  let body='';
+  if(arg && known){
+    const synthBanner = isSynth ? '<div class="bg-amber-50 border border-amber-200 rounded-lg p-3 flex items-start gap-2 text-sm text-amber-900"><i data-lucide="wand-2" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div><strong>Generated read for '+arg+'.</strong> You typed a name outside the hand-built demo set, so this is illustrative — production pulls the live feed for any US-listed symbol. The chips are the curated examples.</div></div>' : '';
+    const items = known.items.map(p=>
+      '<div class="flex items-start gap-3 py-3 border-b border-slate-100 last:border-0">'+
+        '<div class="text-xs font-mono text-slate-400 w-10 flex-shrink-0 pt-0.5">'+p.t+'</div>'+
+        '<div class="flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5">'+srcChip(p.src)+sentDot(p.sent)+'<span class="text-[10px] text-slate-400">'+p.cred+'</span></div>'+
+        '<div class="text-sm text-slate-800">'+p.text+'</div></div></div>').join('');
+    const cats = known.catalysts.map(c=>'<div class="flex items-center gap-3 py-2 border-b border-slate-100 last:border-0"><div class="text-xs font-mono text-slate-500 w-24 flex-shrink-0">'+c.t+'</div><div class="text-sm text-slate-700">'+c.x+'</div></div>').join('');
+    body = synthBanner+
+    '<div class="grid grid-cols-3 gap-4">'+
+      '<div class="col-span-2 space-y-4">'+
+        '<div class="bg-white border border-slate-200 rounded-xl p-5">'+
+          '<div class="flex items-center gap-3 mb-3"><div class="text-2xl font-mono font-bold text-slate-800">'+arg+'</div><div class="text-sm text-slate-500">'+(known.name||(isSynth?'<span class="text-[10px] uppercase tracking-wider bg-amber-100 text-amber-700 rounded px-1.5 py-0.5">generated</span>':''))+'</div><span class="ml-auto text-xs px-2 py-0.5 rounded-full border '+(known.vol==='Spiking'||known.vol==='IPO day'?'bg-rose-50 text-rose-700 border-rose-200':'bg-slate-100 text-slate-600 border-slate-200')+'">Chatter: '+known.vol+'</span></div>'+
+          '<div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">What\'s up today — the 10-second read</div>'+
+          '<ul class="space-y-2">'+known.summary.map(s=>'<li class="flex items-start gap-2 text-sm text-slate-700"><i data-lucide="corner-down-right" class="w-3.5 h-3.5 text-dodonai-400 flex-shrink-0 mt-0.5"></i><span>'+s+'</span></li>').join('')+'</ul>'+
+          '<div class="mt-4 pt-4 border-t border-slate-100">'+sentMeter(known.sent)+'</div>'+
+        '</div>'+
+        '<div class="bg-white border border-slate-200 rounded-xl p-5"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-1">Live feed — every source, one stream</div><div class="text-xs text-slate-400 mb-2">Sources are never filtered out — noise is. Credibility line under each item shows why it cleared.</div>'+items+'</div>'+
+      '</div>'+
+      '<div class="space-y-4">'+
+        '<div class="bg-white border border-slate-200 rounded-xl p-5"><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2 flex items-center gap-1.5"><i data-lucide="calendar" class="w-3.5 h-3.5"></i> Upcoming dates</div>'+cats+'</div>'+
+        '<div class="bg-slate-50 border border-dashed border-slate-300 rounded-xl p-5">'+
+          '<div class="text-xs uppercase tracking-wider text-slate-400 font-semibold mb-2 flex items-center gap-1.5"><i data-lucide="lock" class="w-3.5 h-3.5"></i> Phase 3 — market context</div>'+
+          '<ul class="space-y-1.5 text-sm text-slate-400"><li>· Largest prints in the name today</li><li>· Top advertisers of volume</li><li>· Relative performance vs peers</li><li>· Hedging options &amp; related ETFs</li></ul>'+
+          '<div class="text-xs text-slate-400 mt-3">These come from a market-data feed (Bloomberg SAPI or equivalent), not news scraping — slotted right after the filter is humming.</div>'+
+        '</div>'+
+      '</div>'+
+    '</div>';
+  } else if(arg){
+    body = '<div class="bg-white border border-slate-200 rounded-xl p-8 text-center"><div class="text-slate-400 text-sm">No simulated data for <span class="font-mono font-semibold text-slate-600">'+arg+'</span> in this demo — production covers the full US-listed universe. Try one of the chips above.</div></div>';
+  } else {
+    body = '<div class="bg-white border border-slate-200 rounded-xl p-10 text-center text-sm text-slate-400">The blank box, as requested. Type any symbol above — your names, not just the demo set. SPCX, NVDA, and CVNA are hand-built; everything else generates a live-style read so you can pull a name as you trade.</div>';
+  }
+  return ''+
+  '<div class="p-6 space-y-4">'+
+    '<div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">1</span><h1 class="text-xl font-semibold text-slate-800">Ticker Lookup</h1></div>'+
+    '<p class="text-sm text-slate-500 mt-1">Type <strong>any</strong> of your names as you trade — not just the demo set. Get the day: summary, sentiment, every source. No source picking; the filter removes noise, not inputs.</p></div>'+
+    '<div class="flex items-center gap-3">'+
+      '<div class="relative flex-1 max-w-md"><i data-lucide="search" class="w-4 h-4 text-slate-400 absolute left-3 top-1/2 -translate-y-1/2"></i>'+
+      '<input id="tk-input" value="'+(arg||'')+'" placeholder="Type any ticker — AAPL, NVDA, your names…" class="w-full border border-slate-300 rounded-lg pl-9 pr-3 py-2.5 text-sm font-mono uppercase focus:outline-none focus:ring-2 focus:ring-dodonai-400"></div>'+
+      '<button onclick="goLookup()" class="bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-lg px-4 py-2.5 text-sm font-medium">Look up</button>'+
+      '<div class="flex items-center gap-1.5 flex-wrap">'+chips+'</div>'+
+    '</div>'+
+    body+
+  '</div>';
+}
+
+// ============================================================================
+// 2 · Watch-List Alerts
+// ============================================================================
+function renderAlerts(){
+  setBreadcrumb(['Watch-List Alerts']);
+  const rows = ALERTS.map(a=>
+    '<tr class="hover:bg-dodonai-50 cursor-pointer" onclick="location.hash=\'#/lookup/'+a.tk+'\'">'+
+      '<td class="py-2.5 px-3 text-xs font-mono text-slate-400">'+a.t+'</td>'+
+      '<td class="py-2.5 px-3"><span class="font-mono text-sm font-semibold text-slate-800">'+a.tk+'</span></td>'+
+      '<td class="py-2.5 px-3"><span class="text-xs px-2 py-0.5 rounded border '+(a.kind==='neg'?'bg-rose-50 text-rose-700 border-rose-200':'bg-emerald-50 text-emerald-700 border-emerald-200')+'">'+(a.kind==='neg'?'Negative':'Positive')+'</span></td>'+
+      '<td class="py-2.5 px-3 text-sm text-slate-800">'+a.headline+(a.note?'<div class="text-xs text-slate-500 mt-0.5">'+a.note+'</div>':'')+'</td>'+
+      '<td class="py-2.5 px-3 text-xs">'+srcChip(a.src)+'</td>'+
+      '<td class="py-2.5 px-3 text-right"><span class="text-xs font-mono '+(a.edge==='—'?'text-slate-400':'text-emerald-600 font-semibold')+'">'+(a.edge==='—'?'not on wires':'+'+a.edge)+'</span></td>'+
+    '</tr>').join('');
+  return ''+
+  '<div class="p-6 space-y-4">'+
+    '<div class="flex items-start justify-between"><div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">2</span><h1 class="text-xl font-semibold text-slate-800">Watch-List Alerts</h1></div>'+
+      '<p class="text-sm text-slate-500 mt-1">Your ~100 names — anything breaks, you get a popup. The Δ column is the edge vs StreetAccount\'s pickup. Mostly defense: know about the name you\'re short <em>before</em> the tape tells you.</p></div>'+
+      '<button onclick="simulateAlert()" class="bg-dodonai-700 hover:bg-dodonai-800 text-white rounded-md px-4 py-2 text-sm font-medium flex items-center gap-2"><i data-lucide="bell-ring" class="w-4 h-4"></i> Simulate the next alert</button></div>'+
+    '<div class="bg-dodonai-50 border border-dodonai-200 rounded-lg p-3 flex items-start gap-2 text-sm text-dodonai-900"><i data-lucide="refresh-cw" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>The list mirrors the one Austin keeps — change a name there, it propagates here. v1 syncs via a quick upload; the live Bloomberg auto-sync lands with the market-data phase.</div></div>'+
+    '<div class="bg-white border border-slate-200 rounded-lg overflow-hidden">'+
+      '<div class="px-4 py-3 border-b border-slate-200 flex items-center justify-between"><h3 class="font-semibold text-slate-800 text-sm">Today\'s alerts <span class="text-xs text-slate-400 font-normal">(8 pushed · 31,412 scanned)</span></h3><span class="text-xs text-slate-500">popup threshold is yours to tune — credibility × velocity × your position</span></div>'+
+      '<table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr>'+
+        '<th class="py-2 px-3 text-left">Time</th><th class="py-2 px-3 text-left">Name</th><th class="py-2 px-3 text-left">Tone</th><th class="py-2 px-3 text-left">What broke</th><th class="py-2 px-3 text-left">Path</th><th class="py-2 px-3 text-right">Δ vs Street</th>'+
+      '</tr></thead><tbody class="divide-y divide-slate-100">'+rows+'</tbody></table>'+
+    '</div>'+
+    '<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 flex items-start gap-2 text-sm text-emerald-900"><i data-lucide="sparkles" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>The CVNA row is the defensive case from our call: a short-report teaser hit a Discord <strong>41 minutes</strong> before the wires. If you\'re trading that float, that\'s the popup that saves the day.</div></div>'+
+  '</div>';
+}
+
+// ============================================================================
+// 3 · Heat Map
+// ============================================================================
+let heatMode = 'buzz';
+function setHeat(m){ heatMode=m; render(); }
+function renderHeatmap(){
+  setBreadcrumb(['Heat Map']);
+  let tiles = [...HEAT];
+  if(heatMode==='pos') tiles.sort((a,b)=>b.sent-a.sent);
+  else if(heatMode==='neg') tiles.sort((a,b)=>a.sent-b.sent);
+  else tiles.sort((a,b)=>b.buzz-a.buzz);
+  const tile = h => {
+    const big = h.buzz>=4 ? 'col-span-2 row-span-2' : (h.buzz>=2 ? 'col-span-2' : '');
+    const bg = h.sent>15 ? 'bg-emerald-'+(h.sent>40?'500':'300') : (h.sent<-15 ? 'bg-rose-'+(h.sent<-40?'500':'300') : 'bg-slate-200');
+    const txt = Math.abs(h.sent)>40 ? 'text-white' : 'text-slate-700';
+    return '<a href="#/lookup/'+h.tk+'" class="heat-tile '+big+' '+bg+' '+txt+' rounded-md p-2 flex flex-col justify-between min-h-[56px]">'+
+      '<div class="font-mono font-semibold text-sm">'+h.tk+'</div>'+
+      '<div class="text-[10px] opacity-80 leading-tight">'+h.buzz+'× buzz · '+(h.sent>0?'+':'')+h.sent+'</div></a>';
+  };
+  const btn=(m,l)=>'<button onclick="setHeat(\''+m+'\')" class="text-xs rounded-md px-3 py-1.5 border '+(heatMode===m?'bg-dodonai-700 text-white border-dodonai-700':'border-slate-300 text-slate-600 hover:bg-slate-50')+'">'+l+'</button>';
+  return ''+
+  '<div class="p-6 space-y-4">'+
+    '<div class="flex items-start justify-between"><div><div class="flex items-center gap-2"><span class="w-6 h-6 rounded bg-dodonai-700 text-white text-xs font-semibold flex items-center justify-center">3</span><h1 class="text-xl font-semibold text-slate-800">Heat Map</h1></div>'+
+      '<p class="text-sm text-slate-500 mt-1">The ~30,000 names you\'re <strong>not</strong> involved in. Tile size = chatter vs that name\'s 20-day normal; color = sentiment. Your MOST screen — but built on conversation, so it moves before the volume does.</p></div>'+
+      '<div class="flex items-center gap-2">'+btn('buzz','Hottest')+btn('pos','Most positive 50')+btn('neg','Most negative 50')+'</div></div>'+
+    '<div class="bg-white border border-slate-200 rounded-xl p-4">'+
+      '<div class="grid grid-cols-8 auto-rows-min gap-1.5">'+tiles.map(tile).join('')+'</div>'+
+      '<div class="flex items-center gap-4 mt-3 pt-3 border-t border-slate-100 text-xs text-slate-500">'+
+        '<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-emerald-500 inline-block"></span> strongly positive</span>'+
+        '<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-emerald-300 inline-block"></span> positive</span>'+
+        '<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-slate-200 inline-block"></span> neutral</span>'+
+        '<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-rose-300 inline-block"></span> negative</span>'+
+        '<span class="flex items-center gap-1.5"><span class="w-3 h-3 rounded bg-rose-500 inline-block"></span> strongly negative</span>'+
+        '<span class="ml-auto">showing 43 of 30,124 monitored · click any tile → ticker lookup</span></div>'+
+    '</div>'+
+    '<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 flex items-start gap-2 text-sm text-emerald-900"><i data-lucide="sparkles" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>First couple of weeks we just watch this together and tune the thresholds — your idea: see where heat picks up, check whether the stock reacts, and decide what a real signal looks like before anyone trusts it.</div></div>'+
+  '</div>';
+}
+
+// ============================================================================
+// Data Sources
+// ============================================================================
+function renderSources(){
+  setBreadcrumb(['Data Sources']);
+  const card = (s,tone,status) =>
+    '<div class="bg-white border border-slate-200 rounded-lg p-4">'+
+      '<div class="flex items-center gap-2 mb-2"><div class="w-8 h-8 rounded-md bg-dodonai-100 text-dodonai-700 flex items-center justify-center"><i data-lucide="'+s.icon+'" class="w-4 h-4"></i></div><div class="font-semibold text-slate-800 text-sm leading-tight">'+s.name+'</div>'+
+      '<span class="ml-auto inline-block text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border '+tone+'">'+status+'</span></div>'+
+      '<div class="text-sm text-slate-600 leading-snug">'+s.line+'</div></div>';
+  const ok='bg-emerald-100 text-emerald-800 border-emerald-200', warn='bg-amber-100 text-amber-800 border-amber-200', off='bg-slate-100 text-slate-600 border-slate-200';
+  return ''+
+  '<div class="p-6 space-y-5">'+
+    '<div><h1 class="text-xl font-semibold text-slate-800">Data Sources</h1><p class="text-sm text-slate-500 mt-0.5">One database, scraping everywhere — mainstream wires <em>and</em> the underground. All of it feeds all three screens.</p></div>'+
+    '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Live in v1 — building now, zero dependencies</div>'+
+      '<div class="grid grid-cols-3 gap-3">'+SRC_LIVE.map(s=>card(s,ok,'Build now')).join('')+'</div></div>'+
+    '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Entitlement switch — contracts you already have; vendor flips it on</div>'+
+      '<div class="grid grid-cols-4 gap-3">'+SRC_SWITCH.map(s=>card(s,warn,'Phase 2')).join('')+'</div></div>'+
+    '<div><div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-2">Need your list — send the names, we wire them in</div>'+
+      '<div class="grid grid-cols-2 gap-3">'+SRC_LIST.map(s=>card(s,off,'Your list')).join('')+'</div></div>'+
+    '<div class="bg-white border border-slate-200 rounded-xl p-5">'+
+      '<div class="flex items-center gap-2 mb-2"><div class="w-8 h-8 rounded-md bg-slate-100 text-slate-600 flex items-center justify-center"><i data-lucide="database" class="w-4 h-4"></i></div><div class="font-semibold text-slate-800">Bloomberg — parked on purpose</div><span class="ml-auto inline-block text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full border '+off+'">Phase 4</span></div>'+
+      '<p class="text-sm text-slate-600">Per Wednesday: the chat filter waits. When we pick it up, it\'s a two-lane build — <strong>history</strong> via your existing Smarsh archive (no new Bloomberg paperwork; lets us build the 2,000→20 filter and the advertised-volume roll-ups on real chats), and <strong>live</strong> via IB Connect (On Demand $32K/yr · Feed $100K/yr · 4-month free trial — pending the by-account approval through Rene and Todd). The watch-list auto-sync rides a separate, simpler Terminal entitlement.</p>'+
+    '</div>'+
+  '</div>';
+}
+
+// ============================================================================
+// Roadmap
+// ============================================================================
+function renderRoadmap(){
+  setBreadcrumb(['Roadmap']);
+  const phase = (n,title,when,items,now) =>
+    '<div class="bg-white border '+(now?'border-dodonai-400 ring-1 ring-dodonai-200':'border-slate-200')+' rounded-xl p-5">'+
+      '<div class="flex items-center gap-2 mb-2"><span class="w-6 h-6 rounded '+(now?'bg-dodonai-700 text-white':'bg-slate-200 text-slate-600')+' text-xs font-semibold flex items-center justify-center">'+n+'</span><div class="font-semibold text-slate-800">'+title+'</div><span class="ml-auto text-xs text-slate-400">'+when+'</span></div>'+
+      '<ul class="space-y-1.5">'+items.map(i=>'<li class="flex items-start gap-2 text-sm text-slate-600"><i data-lucide="'+(now?'circle-dot':'circle')+'" class="w-3.5 h-3.5 '+(now?'text-dodonai-500':'text-slate-300')+' flex-shrink-0 mt-0.5"></i><span>'+i+'</span></li>').join('')+'</ul></div>';
+  return ''+
+  '<div class="p-6 space-y-4">'+
+    '<div><h1 class="text-xl font-semibold text-slate-800">Roadmap</h1><p class="text-sm text-slate-500 mt-0.5">One thing at a time — build it, get it perfect at your screens, then the next. Expect this list to change 100 times; that\'s the point.</p></div>'+
+    '<div class="grid grid-cols-2 gap-4">'+
+      phase(1,'News Filter v1','building now',[ 'The three screens on X + Reddit + wires','Credibility filter (follower thresholds, corroboration, share patterns)','2–3 sentence summaries + sentiment meter','Watch-list popups — threshold tuned with you live' ], true)+
+      phase(2,'Heat map tuning + source expansion','next',[ 'StreetAccount, CMG, InsiderScore, PitchBook switched on','Discord + Substack from your list','Heat-map thresholds tuned against real reactions','Most-positive / most-negative 50 rankings hardened' ], false)+
+      phase(3,'Your dashboard + market context','after',[ 'Movable-widget screen — start replacing Bloomberg real estate','Largest prints · top advertisers of volume · peers &amp; hedging ETFs','Earnings/conference calendar wired to the lookup','Watch-list auto-sync from Austin\'s Bloomberg list','Signal↔price correlation: did the alerts actually lead the moves?' ], false)+
+      phase(4,'Bloomberg chat filter','last, as agreed',[ '2,000–3,000 broker chats/day → the ~20 that matter','History lane first: your Smarsh archive, no new Bloomberg paperwork','Advertised-vs-traded-vs-prior-days roll-up per firm','Live lane via IB Connect when the entitlement clears (4 months free)' ], false)+
+    '</div>'+
+    '<div class="bg-gradient-to-br from-dodonai-700 to-dodonai-900 text-white rounded-lg p-5 flex items-start gap-4">'+
+      '<div class="w-10 h-10 rounded-md bg-white/10 flex items-center justify-center flex-shrink-0"><i data-lucide="handshake" class="w-5 h-5"></i></div>'+
+      '<div><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Before your NYC trip (June 20)</div>'+
+      '<div class="text-lg font-semibold mt-0.5">Lock the v1 scope + terms, then I build while you\'re away</div>'+
+      '<p class="text-sm text-dodonai-200 mt-1 max-w-2xl">Today at your screens we nail the layout and the popup behavior. Then a short written scope locks Phase 1, and the filter is live on your desk while you\'re in New York — we iterate remotely, exactly like hiring three or four more sets of eyes. — Nick</p></div>'+
+    '</div>'+
+  '</div>';
+}
+
+// ============================================================================
+// ============================================================================
+// PAGES CARRIED OVER FROM POC v2 — the original "two filters + watchlist + menu"
+// concept. Kept here so v3 has everything in one place. Same simulated data.
+// ============================================================================
+// ============================================================================
+
+// Bloomberg broker chat indications (sample of the 2–3k/day firehose)
+// size/traded/advertised in thousands of shares
+const chats = [
+  { t:'09:41', broker:'GS',        side:'Buy',  tk:'NVDA', adv:500, traded:60,  adverts:6, pctADV:4.2 },
+  { t:'09:40', broker:'Jefferies', side:'Buy',  tk:'SMCI', adv:300, traded:40,  adverts:4, pctADV:6.1 },
+  { t:'09:38', broker:'MS',        side:'Sell', tk:'CVNA', adv:250, traded:220, adverts:1, pctADV:1.1 },
+  { t:'09:37', broker:'Cowen',     side:'Buy',  tk:'RDDT', adv:400, traded:35,  adverts:5, pctADV:7.4 },
+  { t:'09:35', broker:'JPM',       side:'Buy',  tk:'AAPL', adv:80,  traded:75,  adverts:1, pctADV:0.3 },
+  { t:'09:34', broker:'Evercore',  side:'Sell', tk:'MSTR', adv:200, traded:30,  adverts:4, pctADV:3.3 },
+  { t:'09:32', broker:'BofA',      side:'Buy',  tk:'COIN', adv:350, traded:50,  adverts:5, pctADV:4.8 },
+  { t:'09:31', broker:'Citi',      side:'Buy',  tk:'F',    adv:120, traded:110, adverts:2, pctADV:0.2 },
+  { t:'09:29', broker:'Barclays',  side:'Buy',  tk:'PLTR', adv:500, traded:45,  adverts:7, pctADV:2.1 },
+  { t:'09:28', broker:'Stifel',    side:'Sell', tk:'AFRM', adv:180, traded:25,  adverts:3, pctADV:3.9 },
+  { t:'09:26', broker:'GS',        side:'Buy',  tk:'ARM',  adv:250, traded:30,  adverts:4, pctADV:5.0 },
+  { t:'09:25', broker:'Needham',   side:'Buy',  tk:'WULF', adv:600, traded:40,  adverts:6, pctADV:8.2 },
+  { t:'09:24', broker:'MS',        side:'Sell', tk:'KO',   adv:60,  traded:58,  adverts:1, pctADV:0.1 },
+  { t:'09:22', broker:'Cantor',    side:'Buy',  tk:'CORZ', adv:450, traded:38,  adverts:5, pctADV:6.6 },
+  { t:'09:21', broker:'JPM',       side:'Buy',  tk:'CRWD', adv:150, traded:120, adverts:2, pctADV:1.4 },
+  { t:'09:19', broker:'Jefferies', side:'Sell', tk:'HOOD', adv:300, traded:35,  adverts:4, pctADV:2.8 },
+  { t:'09:18', broker:'GS',        side:'Buy',  tk:'NVDA', adv:400, traded:55,  adverts:6, pctADV:3.4 },
+  { t:'09:16', broker:'Evercore',  side:'Buy',  tk:'MSFT', adv:90,  traded:85,  adverts:1, pctADV:0.2 },
+  { t:'09:15', broker:'BofA',      side:'Sell', tk:'DJT',  adv:220, traded:28,  adverts:5, pctADV:9.1 },
+  { t:'09:13', broker:'Citi',      side:'Buy',  tk:'IREN', adv:380, traded:42,  adverts:4, pctADV:5.5 },
+  { t:'09:12', broker:'MS',        side:'Buy',  tk:'RKLB', adv:260, traded:30,  adverts:4, pctADV:4.4 },
+  { t:'09:10', broker:'Stifel',    side:'Sell', tk:'SOFI', adv:140, traded:130, adverts:1, pctADV:0.6 },
+  { t:'09:09', broker:'GS',        side:'Buy',  tk:'TSLA', adv:300, traded:280, adverts:2, pctADV:0.4 },
+  { t:'09:07', broker:'Cowen',     side:'Buy',  tk:'SMCI', adv:350, traded:30,  adverts:6, pctADV:7.0 },
+  { t:'09:06', broker:'Barclays',  side:'Sell', tk:'META', adv:70,  traded:66,  adverts:1, pctADV:0.1 },
+  { t:'09:04', broker:'JPM',       side:'Buy',  tk:'AMD',  adv:280, traded:40,  adverts:5, pctADV:2.6 },
+  { t:'09:03', broker:'Needham',   side:'Buy',  tk:'NBIS', adv:240, traded:22,  adverts:4, pctADV:8.8 },
+  { t:'09:01', broker:'Cantor',    side:'Sell', tk:'CIFR', adv:200, traded:26,  adverts:3, pctADV:6.2 },
+  { t:'08:59', broker:'GS',        side:'Buy',  tk:'COIN', adv:300, traded:38,  adverts:5, pctADV:4.0 },
+  { t:'08:58', broker:'MS',        side:'Buy',  tk:'JNJ',  adv:50,  traded:49,  adverts:1, pctADV:0.1 },
+  { t:'08:56', broker:'Jefferies', side:'Buy',  tk:'MSTR', adv:420, traded:36,  adverts:6, pctADV:5.1 },
+  { t:'08:55', broker:'Evercore',  side:'Sell', tk:'CVNA', adv:240, traded:30,  adverts:4, pctADV:2.2 }
+];
+
+// News & social firehose sample
+const posts = [
+  { t:'09:42', src:'X',            tk:'NVDA', noise:false, text:'Multiple desks flagging unusual NVDA call buying into the AI summit keynote', rel:'On watchlist · corroborated by 3 accounts' },
+  { t:'09:41', src:'StreetAccount',tk:'SMCI', noise:false, text:'Super Micro guides preliminary revenue above consensus; pre-announce', rel:'On watchlist · primary-source news' },
+  { t:'09:40', src:'X',            tk:'GME',  noise:true,  text:'🚀🚀 $GME to the moon, diamond hands, this is the squeeze 💎', rel:'Meme / pump — filtered' },
+  { t:'09:39', src:'X',            tk:'COIN', noise:false, text:'Coinbase listing chatter — three credible accounts referencing the same filing', rel:'On watchlist · velocity spike' },
+  { t:'09:38', src:'X',            tk:'',     noise:true,  text:'Follow me for 10x options plays!!! link in bio', rel:'Spam — filtered' },
+  { t:'09:37', src:'StreetAccount',tk:'WULF', noise:false, text:'TeraWulf signs expanded AI-hosting lease; 8-K filed', rel:'On watchlist · primary-source news' },
+  { t:'09:36', src:'X',            tk:'PLTR', noise:false, text:'Reputable buy-side account: PLTR new gov contract larger than the Street models', rel:'On watchlist · credible source' },
+  { t:'09:35', src:'X',            tk:'TSLA', noise:true,  text:'TSLA going to 5000 trust me bro 🤡', rel:'Noise — filtered' },
+  { t:'09:34', src:'StreetAccount',tk:'CRWD', noise:false, text:'CrowdStrike upgraded at a major broker; PT raised', rel:'On watchlist · rating change' },
+  { t:'09:33', src:'X',            tk:'',     noise:true,  text:'gm frens what we buying today ☕', rel:'Noise — filtered' },
+  { t:'09:32', src:'X',            tk:'RDDT', noise:false, text:'Reddit ad-load test leaking positive; two product accounts confirm', rel:'On watchlist · early signal' }
+];
+
+// ~100-name watchlist; show a representative slice synced from Bloomberg
+const watchRows = [
+  { tk:'NVDA', name:'NVIDIA',           added:'2m ago',  by:'Austin', src:'Bloomberg', note:'fresh — call flow' },
+  { tk:'SMCI', name:'Super Micro',      added:'14m ago', by:'Austin', src:'Bloomberg', note:'pre-announce' },
+  { tk:'COIN', name:'Coinbase',         added:'31m ago', by:'Pete',   src:'Bloomberg', note:'' },
+  { tk:'WULF', name:'TeraWulf',         added:'1h ago',  by:'Austin', src:'Bloomberg', note:'8-K' },
+  { tk:'PLTR', name:'Palantir',         added:'1h ago',  by:'Austin', src:'Bloomberg', note:'' },
+  { tk:'RDDT', name:'Reddit',           added:'2h ago',  by:'Pete',   src:'Bloomberg', note:'' },
+  { tk:'MSTR', name:'MicroStrategy',    added:'2h ago',  by:'Austin', src:'Bloomberg', note:'' },
+  { tk:'CVNA', name:'Carvana',          added:'today',   by:'Austin', src:'Bloomberg', note:'' },
+  { tk:'ARM',  name:'Arm Holdings',     added:'today',   by:'Austin', src:'Bloomberg', note:'' },
+  { tk:'CORZ', name:'Core Scientific',  added:'today',   by:'Pete',   src:'Bloomberg', note:'' }
+];
+
+// The other original-8 topics, demoted to "the menu"
+const menu = [
+  { topic:'Signal mapping', icon:'activity', orig:'Reversion · volatility · momentum', reframe:'A monitor that flags when a watchlist name goes technically stretched — surfaced for you, never auto-traded.' },
+  { topic:'Trade detection', icon:'radar', orig:'Unusual flow', reframe:'Largely folded into the Chat Filter (broker indications) + News filter. Can extend to options/volume flags later.' },
+  { topic:'Intraday strategy', icon:'target', orig:'Plays / setups', reframe:'A saved-views + checklist layer over the filters — your discipline, captured. Not auto-execution.' },
+  { topic:'Hedging', icon:'shield', orig:'Event-driven hedges', reframe:'Exposure monitor + reminders by event type. You place the hedge; the system just makes sure nothing is missed.' },
+  { topic:'Research history & tracking', icon:'brain', orig:'Recall + thesis log', reframe:'Index notes for plain-English recall and keep a thesis log. Compounds the desk\'s memory.' },
+  { topic:'Regulatory support', icon:'scale', orig:'13D/SSR/restricted', reframe:'Threshold + restricted-list flags. Support only — a human (or compliance) always makes the call.' },
+  { topic:'Quant overlay', icon:'sigma', orig:'Factor X-ray', reframe:'Shows the factor tilt hiding in a discretionary book. Insight, never orders.' }
+];
+
+// ---- v2 helpers --------------------------------------------------------------
+const cfState = { side:'Both', watch:false, size:0, unfilled:false, repeat:false, adv:0 };
+function sideCls(s){ return s==='Buy'?'bg-emerald-50 text-emerald-700 border-emerald-200':'bg-rose-50 text-rose-700 border-rose-200'; }
+function chatSignals(c){
+  const unfilled = c.adv >= 3*c.traded;       // advertising far more than has traded
+  const persistent = c.adverts >= 3;          // repeatedly advertised today
+  const heavy = c.pctADV >= 3;                // large vs ADV
+  const onWatch = WATCHLIST.includes(c.tk);
+  const score = (unfilled?2:0)+(persistent?1:0)+(heavy?1:0)+(onWatch?1:0);
+  return { unfilled, persistent, heavy, onWatch, score };
+}
+function chatRead(c,s){
+  if(s.unfilled && s.persistent) return 'Real demand building — advertising '+c.adv+'k, only '+c.traded+'k traded on '+c.adverts+' adverts';
+  if(s.unfilled) return 'Advertising '+c.adv+'k vs '+c.traded+'k traded — largely unfilled';
+  if(s.persistent) return 'Persistent — '+c.adverts+' adverts today';
+  if(s.heavy) return 'Large vs ADV ('+c.pctADV+'%)';
+  return 'Routine indication';
+}
+
+// ============================================================================
+// Bloomberg Chat Filter (interactive)
+// ============================================================================
+function chatFiltered(){
+  return chats.filter(c=>{
+    if(cfState.side!=='Both' && c.side!==cfState.side) return false;
+    if(cfState.watch && !WATCHLIST.includes(c.tk)) return false;
+    if(c.adv < cfState.size) return false;
+    if(cfState.unfilled && !(c.adv >= 3*c.traded)) return false;
+    if(cfState.repeat && c.adverts < 3) return false;
+    if(c.pctADV < cfState.adv) return false;
+    return true;
+  });
+}
+function chatRowsHtml(){
+  const rows = chatFiltered().map(c=>{
+    const s=chatSignals(c); const hot=s.score>=3;
+    return '<tr class="'+(hot?'bg-dodonai-50/60':'')+' hover:bg-dodonai-50">'+
+      '<td class="py-2 px-3 text-xs font-mono text-slate-400">'+c.t+'</td>'+
+      '<td class="py-2 px-3 text-xs text-slate-600">'+c.broker+'</td>'+
+      '<td class="py-2 px-3"><span class="text-xs px-2 py-0.5 rounded border '+sideCls(c.side)+'">'+c.side+'</span></td>'+
+      '<td class="py-2 px-3"><span class="font-mono text-sm font-semibold text-slate-800">'+c.tk+'</span>'+(s.onWatch?' <span class="text-[10px] text-dodonai-500">●</span>':'')+'</td>'+
+      '<td class="py-2 px-3 text-sm text-right font-mono text-slate-800">'+c.adv+'k</td>'+
+      '<td class="py-2 px-3 text-sm text-right font-mono text-slate-500">'+c.traded+'k</td>'+
+      '<td class="py-2 px-3 text-sm text-center font-mono text-slate-500">'+c.adverts+'</td>'+
+      '<td class="py-2 px-3 text-sm text-right font-mono text-slate-500">'+c.pctADV+'%</td>'+
+      '<td class="py-2 px-3 text-xs text-slate-700">'+(hot?'<span class="inline-block w-1.5 h-1.5 rounded-full bg-dodonai-500 mr-1.5 align-middle"></span>':'')+chatRead(c,s)+'</td>'+
+    '</tr>';
+  }).join('');
+  return rows || '<tr><td colspan="9" class="py-6 text-center text-sm text-slate-400 italic">No indications match these filters.</td></tr>';
+}
+function applyChatFilters(){
+  cfState.side = document.getElementById('cf-side').value;
+  cfState.watch = document.getElementById('cf-watch').checked;
+  cfState.size = +document.getElementById('cf-size').value;
+  cfState.unfilled = document.getElementById('cf-unfilled').checked;
+  cfState.repeat = document.getElementById('cf-repeat').checked;
+  cfState.adv = +document.getElementById('cf-adv').value;
+  const n = chatFiltered().length;
+  document.getElementById('cf-results').innerHTML = chatRowsHtml();
+  document.getElementById('cf-count').textContent = n;
+  document.getElementById('cf-scaled').textContent = '≈ '+Math.max(1, Math.round(n/chats.length*2847)).toLocaleString();
+  lucide.createIcons();
+}
+function renderChats(){
+  setBreadcrumb(['Bloomberg Chat Filter']);
+  const opt=(v,l,cur)=>'<option value="'+v+'"'+(v==cur?' selected':'')+'>'+l+'</option>';
+  return ''+
+  '<div class="p-6 space-y-4">'+
+    '<div><div class="flex items-center gap-2"><i data-lucide="messages-square" class="w-5 h-5 text-dodonai-600"></i><h1 class="text-xl font-semibold text-slate-800">Bloomberg Chat Filter</h1><span class="text-[10px] uppercase tracking-wider bg-slate-100 text-slate-500 border border-slate-200 rounded-full px-2 py-0.5">v2 concept · Phase 4</span></div>'+
+      '<p class="text-sm text-slate-500 mt-1">Your 2,000–3,000 broker indications a day, triaged to the few that matter. Set the parameters; get the short list. <strong>It surfaces — you trade.</strong></p></div>'+
+
+    '<div class="grid grid-cols-4 gap-4">'+
+      // filter panel
+      '<div class="bg-white border border-slate-200 rounded-lg p-4 h-fit">'+
+        '<div class="text-xs uppercase tracking-wider text-slate-500 font-semibold mb-3">Filters</div>'+
+        '<div class="space-y-3 text-sm">'+
+          '<div><label class="block text-xs text-slate-500 mb-1">Side</label><select id="cf-side" onchange="applyChatFilters()" class="w-full border border-slate-200 rounded px-2 py-1.5">'+opt('Both','Both',cfState.side)+opt('Buy','Buy only',cfState.side)+opt('Sell','Sell only',cfState.side)+'</select></div>'+
+          '<div><label class="block text-xs text-slate-500 mb-1">Min advertised size</label><select id="cf-size" onchange="applyChatFilters()" class="w-full border border-slate-200 rounded px-2 py-1.5">'+opt(0,'Any',cfState.size)+opt(100,'≥ 100k',cfState.size)+opt(250,'≥ 250k',cfState.size)+opt(400,'≥ 400k',cfState.size)+'</select></div>'+
+          '<div><label class="block text-xs text-slate-500 mb-1">Min % of ADV</label><select id="cf-adv" onchange="applyChatFilters()" class="w-full border border-slate-200 rounded px-2 py-1.5">'+opt(0,'Any',cfState.adv)+opt(1,'≥ 1%',cfState.adv)+opt(3,'≥ 3%',cfState.adv)+opt(5,'≥ 5%',cfState.adv)+'</select></div>'+
+          '<label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="cf-watch" onchange="applyChatFilters()" '+(cfState.watch?'checked':'')+'> <span>On my watchlist only</span></label>'+
+          '<label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="cf-unfilled" onchange="applyChatFilters()" '+(cfState.unfilled?'checked':'')+'> <span>Unfilled demand <span class="text-slate-400">(adv ≥ 3× traded)</span></span></label>'+
+          '<label class="flex items-center gap-2 cursor-pointer"><input type="checkbox" id="cf-repeat" onchange="applyChatFilters()" '+(cfState.repeat?'checked':'')+'> <span>Repeat adverts <span class="text-slate-400">(≥ 3 today)</span></span></label>'+
+        '</div>'+
+        '<div class="mt-4 pt-3 border-t border-slate-100 text-xs text-slate-500">These six knobs are illustrative — the real set is yours to define. The cleanest data path (Bloomberg\'s IOI API) delivers advertised size, side, and security as structured fields — exactly these columns.</div>'+
+      '</div>'+
+
+      // results
+      '<div class="col-span-3 space-y-3">'+
+        '<div class="bg-dodonai-700 text-white rounded-lg p-4 flex items-center gap-4">'+
+          '<div><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Today\'s flow</div><div class="text-2xl font-semibold">2,847</div></div>'+
+          '<i data-lucide="arrow-right" class="w-5 h-5 text-dodonai-300"></i>'+
+          '<div><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Cleared your filters</div><div class="text-2xl font-semibold" id="cf-scaled">≈ 22</div></div>'+
+          '<div class="ml-auto text-right text-xs text-dodonai-200">showing <span id="cf-count" class="text-white font-semibold">'+chatFiltered().length+'</span> of this sample<br>(production runs the full 2–3k/day)</div>'+
+        '</div>'+
+        '<div class="bg-white border border-slate-200 rounded-lg overflow-hidden">'+
+          '<table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr>'+
+            '<th class="py-2 px-3 text-left">Time</th><th class="py-2 px-3 text-left">Broker</th><th class="py-2 px-3 text-left">Side</th><th class="py-2 px-3 text-left">Name</th>'+
+            '<th class="py-2 px-3 text-right">Advertised</th><th class="py-2 px-3 text-right">Traded today</th><th class="py-2 px-3 text-center">Adverts</th><th class="py-2 px-3 text-right">% ADV</th><th class="py-2 px-3 text-left">Read</th>'+
+          '</tr></thead><tbody id="cf-results" class="divide-y divide-slate-100">'+chatRowsHtml()+'</tbody></table>'+
+        '</div>'+
+        '<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 flex items-start gap-2 text-sm text-emerald-900"><i data-lucide="sparkles" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>Try <strong>Buy only + Unfilled demand + Repeat adverts</strong> — that\'s the "a broker keeps advertising size they can\'t fill" pattern you described, isolated in one click.</div></div>'+
+      '</div>'+
+    '</div>'+
+  '</div>';
+}
+
+// ============================================================================
+// News & Social Filter
+// ============================================================================
+function newsRowsHtml(){
+  const list = posts.filter(p=> window.__showNoise ? true : !p.noise);
+  return list.map(p=>
+    '<div class="flex items-start gap-3 py-3 border-b border-slate-100 last:border-0 '+(p.noise?'opacity-50':'')+'">'+
+      '<div class="text-xs font-mono text-slate-400 w-10 flex-shrink-0 pt-0.5">'+p.t+'</div>'+
+      '<div class="flex-1 min-w-0"><div class="flex items-center gap-2 mb-0.5">'+
+        '<span class="text-[10px] px-1.5 py-0.5 rounded '+(p.src==='X'?'bg-violet-100 text-violet-700':'bg-sky-100 text-sky-700')+'">'+p.src+'</span>'+
+        (p.tk?'<a href="#/lookup/'+p.tk+'" class="font-mono text-xs font-semibold text-dodonai-700 hover:underline">'+p.tk+'</a>':'')+
+        (p.noise?'<span class="text-[10px] px-1.5 py-0.5 rounded bg-rose-100 text-rose-700">noise</span>':'<span class="text-[10px] px-1.5 py-0.5 rounded bg-emerald-100 text-emerald-700">relevant</span>')+
+      '</div><div class="text-sm text-slate-800">'+p.text+'</div><div class="text-xs text-slate-500 mt-0.5">'+p.rel+'</div></div>'+
+    '</div>'
+  ).join('');
+}
+function toggleNoise(){ window.__showNoise = !window.__showNoise; document.getElementById('news-list').innerHTML = newsRowsHtml(); document.getElementById('noise-btn').textContent = window.__showNoise?'Hide the noise':'Show what was filtered out'; lucide.createIcons(); }
+function renderNews(){
+  setBreadcrumb(['News & Social Filter']);
+  const rel=posts.filter(p=>!p.noise).length;
+  return ''+
+  '<div class="p-6 space-y-4">'+
+    '<div class="flex items-start justify-between"><div><div class="flex items-center gap-2"><i data-lucide="filter" class="w-5 h-5 text-dodonai-600"></i><h1 class="text-xl font-semibold text-slate-800">News &amp; Social Filter</h1><span class="text-[10px] uppercase tracking-wider bg-emerald-100 text-emerald-700 border border-emerald-200 rounded-full px-2 py-0.5">v1 · building first</span></div>'+
+      '<p class="text-sm text-slate-500 mt-1">X + StreetAccount, filtered to what\'s relevant to your watchlist with the noise stripped. The no-Bloomberg-dependency wedge — and we\'ve already built the core. <span class="text-slate-400">(The v3 Ticker Lookup is the per-name view of this same stream.)</span></p></div>'+
+      '<button id="noise-btn" onclick="toggleNoise()" class="text-sm border border-slate-300 hover:bg-slate-50 rounded-md px-3 py-1.5">Show what was filtered out</button></div>'+
+    '<div class="bg-dodonai-700 text-white rounded-lg p-4 flex items-center gap-4"><div><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Scanned today</div><div class="text-2xl font-semibold">1,240</div></div><i data-lucide="arrow-right" class="w-5 h-5 text-dodonai-300"></i><div><div class="text-xs uppercase tracking-wider text-dodonai-300 font-semibold">Relevant to your book</div><div class="text-2xl font-semibold">'+rel+'</div></div><div class="ml-auto text-xs text-dodonai-200 text-right">memes, pumps, and spam removed automatically</div></div>'+
+    '<div class="bg-white border border-slate-200 rounded-lg p-4"><div id="news-list">'+newsRowsHtml()+'</div></div>'+
+    '<div class="bg-emerald-50 border border-emerald-200 rounded-lg p-3 flex items-start gap-2 text-sm text-emerald-900"><i data-lucide="sparkles" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>Toggle "show what was filtered out" to see the firehose — the meme/pump/spam posts that never reach you. Twitter is fast but noisy; this is the noise cut.</div></div>'+
+  '</div>';
+}
+
+// ============================================================================
+// Watchlist
+// ============================================================================
+function renderWatchlist(){
+  setBreadcrumb(['Watchlist']);
+  const rows = watchRows.map(w=>
+    '<tr class="hover:bg-dodonai-50"><td class="py-2.5 px-4"><a href="#/lookup/'+w.tk+'" class="font-mono font-semibold text-dodonai-700 hover:underline">'+w.tk+'</a></td><td class="py-2.5 px-4 text-sm text-slate-600">'+w.name+'</td><td class="py-2.5 px-4 text-xs text-slate-500">'+w.added+'</td><td class="py-2.5 px-4 text-xs text-slate-500">'+w.by+'</td><td class="py-2.5 px-4 text-xs"><span class="inline-flex items-center gap-1 text-emerald-700"><i data-lucide="check" class="w-3 h-3"></i> '+w.src+'</span></td><td class="py-2.5 px-4 text-xs text-slate-500">'+(w.note||'—')+'</td></tr>'
+  ).join('');
+  return ''+
+  '<div class="p-6 space-y-4">'+
+    '<div class="flex items-start justify-between"><div><div class="flex items-center gap-2"><i data-lucide="list" class="w-5 h-5 text-dodonai-600"></i><h1 class="text-xl font-semibold text-slate-800">Watchlist</h1><span class="text-[10px] uppercase tracking-wider bg-slate-100 text-slate-500 border border-slate-200 rounded-full px-2 py-0.5">v2 concept</span></div><p class="text-sm text-slate-500 mt-1">~100 fast-turnover names, mirrored live from the Bloomberg list Austin maintains. Change one name there → it shows up here. Every other module filters against this list.</p></div>'+
+      '<div class="flex items-center gap-1.5 text-xs text-emerald-700 bg-emerald-50 border border-emerald-200 rounded-full px-2.5 py-1"><span class="w-1.5 h-1.5 rounded-full bg-emerald-500 pulse-dot"></span> synced 4s ago</div></div>'+
+    '<div class="bg-dodonai-50 border border-dodonai-200 rounded-lg p-3 flex items-start gap-2 text-sm text-dodonai-900"><i data-lucide="refresh-cw" class="w-4 h-4 flex-shrink-0 mt-0.5"></i><div>Austin added <span class="font-mono font-semibold">NVDA</span> on Bloomberg 2 minutes ago — it propagated here automatically. This is the same ~100 names the Watch-List Alerts screen monitors. <span class="text-slate-500">(live auto-sync requires Bloomberg access — see Data Sources.)</span></div></div>'+
+    '<div class="grid grid-cols-3 gap-3">'+
+      '<div class="bg-white border border-slate-200 rounded-lg p-4 flex items-center gap-3"><div class="w-8 h-8 rounded-md bg-dodonai-100 text-dodonai-700 flex items-center justify-center"><i data-lucide="list" class="w-4 h-4"></i></div><div><div class="text-xl font-semibold text-slate-800 leading-tight">~100</div><div class="text-xs text-slate-500">names tracked</div></div></div>'+
+      '<div class="bg-white border border-slate-200 rounded-lg p-4 flex items-center gap-3"><div class="w-8 h-8 rounded-md bg-emerald-100 text-emerald-700 flex items-center justify-center"><i data-lucide="refresh-cw" class="w-4 h-4"></i></div><div><div class="text-xl font-semibold text-slate-800 leading-tight">Live</div><div class="text-xs text-slate-500">Bloomberg sync</div></div></div>'+
+      '<div class="bg-white border border-slate-200 rounded-lg p-4 flex items-center gap-3"><div class="w-8 h-8 rounded-md bg-dodonai-100 text-dodonai-700 flex items-center justify-center"><i data-lucide="users" class="w-4 h-4"></i></div><div><div class="text-xl font-semibold text-slate-800 leading-tight">2</div><div class="text-xs text-slate-500">contributors · Pete &amp; Austin</div></div></div>'+
+    '</div>'+
+    '<div class="bg-white border border-slate-200 rounded-lg overflow-hidden"><div class="px-4 py-3 border-b border-slate-200 flex items-center justify-between"><h3 class="font-semibold text-slate-800 text-sm">Recently changed <span class="text-xs text-slate-400 font-normal">(10 of ~100)</span></h3><span class="text-xs text-slate-500">high-turnover — "staticky," not core holdings</span></div>'+
+      '<table class="w-full text-sm"><thead class="bg-slate-50 text-xs uppercase tracking-wider text-slate-500"><tr><th class="py-2 px-4 text-left">Name</th><th class="py-2 px-4 text-left">Company</th><th class="py-2 px-4 text-left">Added</th><th class="py-2 px-4 text-left">By</th><th class="py-2 px-4 text-left">Source</th><th class="py-2 px-4 text-left">Note</th></tr></thead><tbody class="divide-y divide-slate-100">'+rows+'</tbody></table></div>'+
+  '</div>';
+}
+
+// ============================================================================
+// The menu (demoted topics)
+// ============================================================================
+function renderMenu(){
+  setBreadcrumb(['Future phases']);
+  const cards = menu.map(m=>
+    '<div class="bg-white border border-slate-200 rounded-lg p-4">'+
+      '<div class="flex items-center gap-2 mb-1.5">'+
+        '<div class="w-8 h-8 rounded-md bg-slate-100 text-slate-500 flex items-center justify-center"><i data-lucide="'+m.icon+'" class="w-4 h-4"></i></div>'+
+        '<div class="font-semibold text-slate-800 text-sm">'+m.topic+'</div>'+
+        '<span class="ml-auto text-[10px] uppercase tracking-wider px-2 py-0.5 rounded-full bg-slate-100 text-slate-500 border border-slate-200">Phase 2+</span>'+
+      '</div>'+
+      '<div class="text-[11px] text-slate-400 mb-2">from your list: '+m.orig+'</div>'+
+      '<div class="text-sm text-slate-700 leading-snug">'+m.reframe+'</div>'+
+    '</div>'
+  ).join('');
+  return ''+
+  '<div class="p-6 space-y-4">'+
+    '<div><div class="flex items-center gap-2"><i data-lucide="layout-grid" class="w-5 h-5 text-dodonai-600"></i><h1 class="text-xl font-semibold text-slate-800">The menu — later phases</h1><span class="text-[10px] uppercase tracking-wider bg-slate-100 text-slate-500 border border-slate-200 rounded-full px-2 py-0.5">v2 concept</span></div><p class="text-sm text-slate-500 mt-1">The rest of your original eight. All still on the table, all reframed the same way: <strong>they filter and surface; you decide. Nothing auto-executes.</strong> We add these once the first build is proving its worth.</p></div>'+
+    '<div class="grid grid-cols-2 gap-3">'+cards+'</div>'+
+    '<div class="bg-dodonai-50 border border-dodonai-200 rounded-lg p-4 text-sm text-dodonai-900 flex items-start gap-3"><i data-lucide="info" class="w-5 h-5 flex-shrink-0 mt-0.5"></i><div>You said it best on the call — focus on one, see how it works, then expand. This page just keeps the rest visible so nothing gets lost.</div></div>'+
+  '</div>';
+}
+</script>
+</body>
+</html>

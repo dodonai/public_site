@@ -1,0 +1,737 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Johnson &amp; Oshan Law — Firm OS Architecture Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+/* SCROLL REVEAL */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* HERO */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:60px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+.brandbar .tag{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:56px;line-height:1.02;letter-spacing:-.025em;margin:0 0 18px;max-width:17ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:20px;line-height:1.45;color:var(--purple-soft);max-width:60ch;margin:0 0 38px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+
+/* SECTIONS */
+section{padding:54px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:66ch;margin:0 0 30px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+.ink .eyebrow{color:var(--purple-soft)}
+
+/* PULL QUOTE */
+.pull{position:relative;background:#fff;border-radius:14px;padding:36px 42px 32px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:22px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+.os-def{margin-top:24px;font-size:18px;line-height:1.6;max-width:76ch}
+.os-def strong{color:var(--purple-bold)}
+
+/* TRANSFORMATION ANIMATION */
+.xform{display:grid;grid-template-columns:1fr 64px 1fr;gap:8px;align-items:stretch;margin-top:10px}
+.xcol{background:rgba(255,255,255,.04);border:1px solid rgba(181,168,230,.22);border-radius:16px;padding:24px 22px 26px;position:relative;overflow:hidden}
+.xcol .xlabel{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.xcol.today .xlabel{color:var(--purple-soft)}
+.xcol.os .xlabel{color:#fff}
+.xcol.os{border-color:rgba(124,58,237,.6);background:radial-gradient(420px 240px at 70% 0%,rgba(124,58,237,.22),transparent 60%),rgba(124,58,237,.06)}
+/* scattered today */
+.scatter{position:relative;height:300px}
+.tool-chip{position:absolute;font-family:var(--mono);font-size:11px;font-weight:600;background:var(--midnight-soft);color:var(--purple-soft);border:1px solid rgba(181,168,230,.3);border-radius:9px;padding:7px 10px;white-space:nowrap;opacity:0;transform:scale(.85)}
+.play .tool-chip{animation:chipIn .5s ease forwards}
+.tool-chip:nth-child(1){top:6%;left:4%}
+.tool-chip:nth-child(2){top:2%;left:54%}
+.tool-chip:nth-child(3){top:26%;left:30%}
+.tool-chip:nth-child(4){top:30%;left:66%}
+.tool-chip:nth-child(5){top:50%;left:8%}
+.tool-chip:nth-child(6){top:54%;left:44%}
+.tool-chip:nth-child(7){top:74%;left:22%}
+.tool-chip:nth-child(8){top:78%;left:60%}
+.play .tool-chip:nth-child(1){animation-delay:.05s}
+.play .tool-chip:nth-child(2){animation-delay:.13s}
+.play .tool-chip:nth-child(3){animation-delay:.21s}
+.play .tool-chip:nth-child(4){animation-delay:.29s}
+.play .tool-chip:nth-child(5){animation-delay:.37s}
+.play .tool-chip:nth-child(6){animation-delay:.45s}
+.play .tool-chip:nth-child(7){animation-delay:.53s}
+.play .tool-chip:nth-child(8){animation-delay:.61s}
+.scatter .runner{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px rgba(199,125,46,.22);opacity:0}
+.play .scatter .runner{animation:runnerFade .6s .7s ease forwards,runAround 6s 1.3s ease-in-out infinite}
+.scatter .handlabel{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--amber);font-weight:700;opacity:0;text-align:center;width:90%}
+.play .scatter .handlabel{animation:runnerFade .5s 1s ease forwards}
+@keyframes chipIn{to{opacity:1;transform:scale(1)}}
+@keyframes runnerFade{to{opacity:1}}
+@keyframes runAround{
+  0%{top:8%;left:8%}12%{top:6%;left:56%}25%{top:28%;left:32%}38%{top:32%;left:66%}
+  50%{top:52%;left:10%}62%{top:56%;left:46%}75%{top:76%;left:24%}88%{top:80%;left:60%}100%{top:8%;left:8%}}
+/* OS hub */
+.hub{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+.hub-core{width:120px;height:120px;border-radius:24px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 0 rgba(124,58,237,.5);position:relative;z-index:3;opacity:0;transform:scale(.8)}
+.play .hub-core{animation:hubIn .6s 1.2s cubic-bezier(.2,1.3,.4,1) forwards,hubPulse 2.8s 1.9s ease-in-out infinite}
+.hub-core .hw{font-weight:800;font-size:15px;letter-spacing:-.01em}
+.hub-core .hs{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-soft);margin-top:4px}
+.spoke{position:absolute;font-family:var(--mono);font-size:10.5px;font-weight:600;background:var(--midnight-soft);color:#fff;border:1px solid rgba(181,168,230,.4);border-radius:8px;padding:6px 9px;white-space:nowrap;opacity:0;z-index:2}
+.play .spoke{animation:spokeIn .5s ease forwards}
+.spoke:nth-of-type(1){top:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(2){top:24%;right:2%}
+.spoke:nth-of-type(3){bottom:24%;right:0%}
+.spoke:nth-of-type(4){bottom:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(5){bottom:24%;left:0%}
+.spoke:nth-of-type(6){top:24%;left:2%}
+.play .spoke:nth-of-type(1){animation-delay:1.7s}
+.play .spoke:nth-of-type(2){animation-delay:1.85s}
+.play .spoke:nth-of-type(3){animation-delay:2.0s}
+.play .spoke:nth-of-type(4){animation-delay:2.15s}
+.play .spoke:nth-of-type(5){animation-delay:2.3s}
+.play .spoke:nth-of-type(6){animation-delay:2.45s}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:0}
+.play .hub svg.links{animation:runnerFade .6s 2.5s ease forwards}
+.hub svg.links line{stroke:rgba(181,168,230,.45);stroke-width:1.5;stroke-dasharray:4 5}
+.play .hub svg.links line{animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-18}}
+@keyframes hubIn{to{opacity:1;transform:scale(1)}}
+@keyframes spokeIn{from{opacity:0;transform:scale(.8) translateY(6px)}to{opacity:1}}
+@keyframes hubPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.45)}50%{box-shadow:0 0 0 14px rgba(124,58,237,0)}}
+.xarrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--purple-soft)}
+.xarrow .ah{font-size:30px;font-weight:800;line-height:1}
+.xarrow .at{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--purple-soft)}
+.xcaption{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+.xcaption .xc{font-size:14.5px;line-height:1.55}
+.xcaption .xc .h{font-weight:800;color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.xcaption .xc .h .pin{width:9px;height:9px;border-radius:50%}
+.xcaption .xc.l .h .pin{background:var(--amber)}
+.xcaption .xc.r .h .pin{background:var(--purple-vivid)}
+.xcaption .xc p{margin:0;color:var(--purple-soft)}
+
+/* PIPELINE (self-running workflow) */
+.pipe-wrap{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:30px 26px 26px;position:relative;overflow:hidden}
+.pipe{display:flex;align-items:stretch;gap:0;position:relative}
+.pnode{flex:1;text-align:center;position:relative;padding:0 6px}
+.pnode .pdot{width:54px;height:54px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--cream-deep);border:2px solid var(--cream-line);position:relative;z-index:2;transition:all .4s}
+.pnode .pttl{font-weight:700;font-size:13.5px;letter-spacing:-.01em;margin-bottom:4px}
+.pnode .pwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-bold)}
+.pnode.gate .pwho{color:var(--teal)}
+.pnode .pstatus{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:7px;padding:2px 8px;border-radius:10px;display:inline-block;background:var(--cream-deep);color:var(--gray-meta-light)}
+.pline{position:absolute;top:27px;height:3px;background:var(--cream-line);z-index:0;left:0;right:0}
+.pline .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft))}
+.play .pline .pfill{animation:fill 9s linear infinite}
+@keyframes fill{0%{width:0}90%,100%{width:100%}}
+/* node activation cascade */
+.play .pnode .pdot{animation:nodeActivate 9s linear infinite}
+.play .pnode:nth-child(2) .pdot{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot{animation-delay:6.4s}
+@keyframes nodeActivate{0%,8%{background:var(--cream-deep);border-color:var(--cream-line);transform:scale(1)}
+  10%{background:rgba(124,58,237,.15);border-color:var(--purple-vivid);transform:scale(1.08)}
+  16%,100%{background:var(--purple-vivid);border-color:var(--purple-vivid)}}
+.play .pnode .pstatus{animation:statusFlip 9s linear infinite}
+.play .pnode:nth-child(2) .pstatus{animation-delay:0s}
+.play .pnode:nth-child(3) .pstatus{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pstatus{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pstatus{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pstatus{animation-delay:6.4s}
+@keyframes statusFlip{0%,8%{background:var(--cream-deep);color:var(--gray-meta-light)}
+  16%,100%{background:rgba(46,158,107,.14);color:var(--green)}}
+.pnode .pdot .ic-done{position:absolute;opacity:0}
+.play .pnode .pdot .ic-done{animation:doneShow 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-done{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-done{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-done{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-done{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-done{animation-delay:6.4s}
+@keyframes doneShow{0%,12%{opacity:0}16%,100%{opacity:1}}
+.play .pnode .pdot .ic-base{animation:baseHide 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-base{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-base{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-base{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-base{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-base{animation-delay:6.4s}
+@keyframes baseHide{0%,12%{opacity:1}16%,100%{opacity:0;color:#fff}}
+.pipe-foot{margin-top:22px;font-size:14px;color:var(--gray-meta-light);text-align:center;line-height:1.5}
+.pipe-foot b{color:var(--teal)}
+
+/* COCKPIT DASHBOARD MOCKUP */
+.dash{background:#0F0F2E;border-radius:18px;padding:0;overflow:hidden;border:1px solid rgba(181,168,230,.25);box-shadow:0 40px 80px -50px rgba(0,0,0,.7)}
+.dash-bar{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(181,168,230,.18)}
+.dash-bar .dots{display:flex;gap:6px}
+.dash-bar .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dash-bar .dots i:nth-child(1){background:#ff5f57}.dash-bar .dots i:nth-child(2){background:#febc2e}.dash-bar .dots i:nth-child(3){background:#28c840}
+.dash-bar .dtitle{font-family:var(--mono);font-size:12px;color:var(--purple-soft);letter-spacing:.06em;font-weight:600}
+.dash-bar .dlive{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:7px}
+.dash-bar .dlive::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dash-body{display:grid;grid-template-columns:1.35fr 1fr;gap:0}
+.dash-col{padding:20px 22px}
+.dash-col.left{border-right:1px solid rgba(181,168,230,.14)}
+.dash-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:14px;display:flex;justify-content:space-between}
+.dash-h .cnt{color:#fff}
+/* KPI tiles */
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.16);border-radius:11px;padding:12px 13px}
+.kpi .kn{font-weight:800;font-size:24px;color:#fff;letter-spacing:-.02em;line-height:1}
+.kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta);margin-top:6px;line-height:1.3}
+/* matter rows */
+.mrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 13px;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;margin-bottom:8px}
+.mrow .mname{font-size:13px;color:#fff;font-weight:600}
+.mrow .mphase{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--purple-soft);margin-top:3px}
+.mrow .mpill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.mpill.run{background:rgba(124,58,237,.22);color:var(--purple-soft)}
+.mpill.wait{background:rgba(199,125,46,.2);color:#F0B366}
+.mpill.done{background:rgba(46,158,107,.18);color:#5FD6A0}
+/* agent feed */
+.feed{position:relative;height:268px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent)}
+.feed-track{display:flex;flex-direction:column;gap:9px}
+.play .feed-track{animation:scrollfeed 16s linear infinite}
+@keyframes scrollfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.aevent{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;padding:10px 12px}
+.aevent .aic{flex:0 0 26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(124,58,237,.18)}
+.aevent.ok .aic{background:rgba(46,158,107,.18)}
+.aevent.gate .aic{background:rgba(14,116,137,.2)}
+.aevent .atx{font-size:12px;line-height:1.4;color:#E7E4F5}
+.aevent .atx b{color:#fff;font-weight:700}
+.aevent .atime{font-family:var(--mono);font-size:9px;color:var(--gray-meta);margin-top:3px;letter-spacing:.04em}
+.aevent .atx .agent{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple-soft);letter-spacing:.03em}
+.dash-cap{font-size:14px;color:var(--purple-soft);line-height:1.6;margin-top:26px;text-align:center;max-width:74ch;margin-left:auto;margin-right:auto}
+.dash-cap b{color:#fff}
+
+/* KEEP / REPLACE */
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.int{background:var(--green)} .dot.rep{background:var(--purple-vivid)} .dot.add{background:var(--amber)} .dot.skip{background:var(--gray-meta)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 19px 16px;position:relative;overflow:hidden}
+.card.replace{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.card.add{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.card.skip{border:1.5px dashed var(--gray-meta)}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px}
+.card .name{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.badge.int{background:rgba(46,158,107,.13);color:var(--green)}
+.badge.rep{background:var(--purple-vivid);color:#fff}
+.badge.add{background:var(--amber);color:#fff}
+.badge.skip{background:var(--cream-deep);color:var(--gray-meta-light)}
+.card .why{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.card.replace .why,.card.add .why{color:var(--midnight)}
+.flag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--green);color:#fff;padding:3px 8px;border-bottom-left-radius:8px}
+.flag.tbc{background:var(--amber)}
+
+/* PILLARS */
+.pillars{display:flex;flex-direction:column;gap:18px}
+.pillar{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;position:relative}
+.pillar .phead{display:flex;align-items:center;gap:14px;margin-bottom:10px}
+.pillar .pnum{flex:0 0 36px;height:36px;border-radius:10px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.pillar .ptitle{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.pillar .ptag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:14px;margin-left:auto}
+.ptag.rev{background:rgba(46,158,107,.14);color:var(--green)}
+.ptag.cost{background:rgba(124,58,237,.12);color:var(--purple-bold)}
+.pillar p{font-size:14.5px;line-height:1.55;margin:.4em 0 0;color:var(--midnight)}
+.feat{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.feat .f{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.feat .f .fm{color:var(--purple-vivid);font-weight:800;flex:0 0 auto}
+.feat .f b{color:var(--midnight)}
+.enabler{margin-top:18px;background:rgba(199,125,46,.08);border:1px solid rgba(199,125,46,.28);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.enabler b{color:var(--amber)}
+
+/* OUTCOME */
+.ocards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ocard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-vivid)}
+.ocard .ostat{font-weight:800;font-size:30px;letter-spacing:-.02em;color:var(--purple-bold);line-height:1;margin-bottom:12px}
+.ocard .ostat .to{color:var(--purple-soft);font-weight:700;margin:0 2px}
+.ocard h4{font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin:0 0 7px;color:var(--midnight)}
+.ocard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--gray-meta-light)}
+.ocaveat{font-size:12.5px;color:var(--gray-meta-light);line-height:1.55;margin-top:18px;max-width:90ch}
+
+/* GATE / HUMAN */
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gatecard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--teal)}
+.gatecard .gi{font-size:20px;margin-bottom:8px}
+.gatecard h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:0 0 7px;color:var(--teal)}
+.gatecard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+
+/* COMPLIANCE + SECURITY */
+.compliance{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--midnight);color:#fff;padding:8px 16px;border-radius:24px;display:inline-flex;align-items:center;gap:8px}
+.pill .pk{color:var(--purple-soft)}
+.sec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.seccard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-bold)}
+.seccard .ic{font-size:22px;margin-bottom:10px}
+.seccard h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 8px;color:var(--purple-bold)}
+.seccard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.seccard p b{color:var(--midnight-deep)}
+
+/* NUMBERS */
+.numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.numcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:26px 28px}
+.numcard h3{font-weight:800;font-size:18px;margin:0 0 4px}
+.numcard .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:14px}
+.paysplit{display:flex;gap:10px;margin:14px 0}
+.paysplit .half{flex:1;background:var(--cream-deep);border-radius:9px;padding:13px 15px;text-align:center}
+.paysplit .half .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.paysplit .half .v{font-weight:800;font-size:15px;color:var(--purple-bold)}
+.paysplit .arr{align-self:center;color:var(--purple-vivid);font-weight:800;font-size:18px}
+.numnote{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin-top:10px}
+.opex-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--cream-line)}
+.opex-row:last-of-type{border-bottom:none}
+.opex-row .ol .ot{font-weight:700;font-size:14.5px}
+.opex-row .ol .od{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin-top:3px}
+.opex-row .oa{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--purple-bold);white-space:nowrap;text-align:right;padding-top:2px}
+.value-anchor{margin-top:16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.value-anchor b{color:var(--purple-bold)}
+
+/* QUESTIONS */
+.qcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start}
+.qc .qcn{flex:0 0 34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qc .qct{font-weight:800;font-size:15px;margin:0 0 4px}
+.qc .qcd{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+
+/* TIMELINE */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.tl-line{position:absolute;top:21px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));z-index:0}
+.phase-t{position:relative;z-index:1;padding:0 12px;text-align:center}
+.phase-t .pnode2{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;background:var(--purple-vivid);border:4px solid var(--cream)}
+.phase-t.future .pnode2{background:var(--midnight);color:var(--purple-soft)}
+.phase-t .ptagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phase-t .ph2{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+.phase-t .pd2{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5}
+
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
+
+@media(max-width:880px){
+  .hero h1{font-size:38px}
+  .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .cards,.gates,.ocards,.sec-grid,.numbers-grid,.qcards{grid-template-columns:1fr}
+  .xform{grid-template-columns:1fr;gap:18px}.xarrow{flex-direction:row}.xarrow .at{writing-mode:horizontal-tb}.xcaption{grid-template-columns:1fr}
+  .pipe{flex-direction:column;gap:14px}.pline{display:none}
+  .dash-body{grid-template-columns:1fr}.dash-col.left{border-right:none;border-bottom:1px solid rgba(181,168,230,.14)}
+  .timeline{grid-template-columns:1fr;gap:26px}.tl-line{display:none}
+}
+@media print{.hero{padding:40px 0}section{padding:28px 0;page-break-inside:avoid}.reveal{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Firm OS Architecture Brief</span>
+      <span class="tag">For Rachel · J&amp;O Law</span>
+    </div>
+    <span class="eyebrow">Prepared for Johnson &amp; Oshan Law</span>
+    <h1>Your team runs the deals. <span class="soft">The system runs the rest.</span></h1>
+    <p class="lede">Picture the firm on one system you own, wired into the tools you already use, with an attorney on every judgment call. The routine drafting, review, filing, and follow-ups run themselves. This brief is the shape of what we'd build, and the map for our first conversation.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Call</div><div class="value">Intro — booking this week</div></div>
+      <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai — Nick Chapleau</div></div>
+      <div class="meta"><div class="label">Goal today</div><div class="value">Find where AI adds real value in your work</div></div>
+      <div class="meta"><div class="label">The principle</div><div class="value">You own the system, not another subscription</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- OUTCOME -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Where this goes</span><h2>What changes <span class="soft">for the firm</span></h2>
+      <p class="sec-sub">Josh framed it simply: decrease cost, increase revenue. For a billable boutique, those are the same lever pulled from two ends, fewer hours on repeatable work, and that freed capacity billed elsewhere.</p></div>
+    <div class="ocards">
+      <div class="ocard reveal d1"><div class="ostat">One system</div><h4>The stack, consolidated</h4><p>Your point tools collapse into a single OS you own, wired into the ones worth keeping. One place to run the firm from.</p></div>
+      <div class="ocard reveal d2"><div class="ostat">Every matter</div><h4>The routine runs the same way</h4><p>Drafting, review, filing, and follow-ups run the same way each time. What reaches a lawyer is the judgment call, and nothing else.</p></div>
+      <div class="ocard reveal d3"><div class="ostat">Unbilled <span class="to">&rarr;</span> billed</div><h4>Time capture recaptures revenue</h4><p>Work product and calendar activity become draft time entries with clean narratives. The leaked minutes turn into captured revenue.</p></div>
+      <div class="ocard reveal d4"><div class="ostat">Watched</div><h4>Deadlines surface early</h4><p>Entity filings, franchise tax, and bar or CLE deadlines get watched across the whole portfolio and surfaced weeks ahead.</p></div>
+    </div>
+    <p class="ocaveat reveal d2">The magnitudes here are firm-specific and depend on your matter mix and where the hours actually go. We baseline the real numbers against your matters in discovery before anyone commits to a figure. Everything below is a candidate to validate on the call, not locked scope.</p>
+  </div>
+</section>
+
+<!-- DESTINATION -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The destination</span><h2>One place, <span class="soft">not a pile of tools</span></h2></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">How they might be able to use AI to decrease cost and increase revenue.</p>
+      <div class="qa">— Josh Gibson, on the intro</div>
+    </div>
+    <p class="os-def reveal d2">A <strong>Firm OS</strong> is one coherent system your firm runs on, instead of a stack of disconnected SaaS tools stitched together by hand. The OS is the brain: your <strong>source of truth</strong> plus a <strong>dashboard</strong> where you watch every matter and every agent run. It keeps the tools that earn their place (Front, your DMS, billing) and runs the coordination that lives in people's heads today.</p>
+  </div>
+</section>
+
+<!-- TRANSFORMATION (animated) -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The transformation</span><h2>From people clicking between tools <span class="soft">to a system that runs the path</span></h2>
+      <p class="sec-sub">Same tools, same steps. The difference is what holds them together: today it's a person's attention, matter by matter. After, it's the OS.</p></div>
+
+    <div class="xform reveal d1" id="xform">
+      <div class="xcol today">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber);display:inline-block"></span> Today</div>
+        <div class="scatter">
+          <span class="tool-chip">Front</span>
+          <span class="tool-chip">DMS</span>
+          <span class="tool-chip">Billing / time</span>
+          <span class="tool-chip">Cap-table</span>
+          <span class="tool-chip">E-sign</span>
+          <span class="tool-chip">Precedent docs</span>
+          <span class="tool-chip">Email</span>
+          <span class="tool-chip">Spreadsheets</span>
+          <span class="runner"></span>
+          <span class="handlabel">people clicking between them, matter by matter</span>
+        </div>
+      </div>
+
+      <div class="xarrow"><span class="at">Build &amp; own</span><span class="ah">→</span></div>
+
+      <div class="xcol os">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--purple-vivid);display:inline-block"></span> Firm OS</div>
+        <div class="hub">
+          <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="92" y2="28"/>
+            <line x1="50" y1="50" x2="92" y2="72"/><line x1="50" y1="50" x2="50" y2="92"/>
+            <line x1="50" y1="50" x2="8" y2="72"/><line x1="50" y1="50" x2="8" y2="28"/>
+          </svg>
+          <div class="hub-core"><span class="hw">Firm OS</span><span class="hs">the brain</span></div>
+          <span class="spoke">Front</span>
+          <span class="spoke">DMS</span>
+          <span class="spoke">Billing</span>
+          <span class="spoke">Cap-table</span>
+          <span class="spoke">E-sign</span>
+          <span class="spoke">Precedents</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="xcaption reveal d2">
+      <div class="xc l"><div class="h"><span class="pin"></span>Today</div><p>Every tool is an island. The glue is someone's memory and attention, repeated on every matter. When that person is busy, the work waits.</p></div>
+      <div class="xc r"><div class="h"><span class="pin"></span>Firm OS</div><p>The OS holds the sequence. It reads, files, drafts, redlines, and captures time across the same tools, then surfaces the few steps that need a lawyer. The knowledge lives in the system.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SELF-RUNNING PIPELINE (animated) -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How a matter moves</span><h2>The pipeline <span class="soft">runs itself</span></h2>
+      <p class="sec-sub">A financing request lands. Watch what the OS does before it ever reaches an attorney's desk, and where it stops and waits for the judgment call.</p></div>
+    <div class="pipe-wrap reveal d1" id="pipe">
+      <div class="pipe">
+        <div class="pline"><div class="pfill"></div></div>
+        <div class="pnode">
+          <div class="pdot"><span class="ic-base">📨</span><span class="ic-done">✓</span></div>
+          <div class="pttl">Request lands</div><div class="pwho">Agent</div>
+          <div class="pstatus">intake + conflict check</div>
+        </div>
+        <div class="pnode">
+          <div class="pdot"><span class="ic-base">📝</span><span class="ic-done">✓</span></div>
+          <div class="pttl">Draft assembled</div><div class="pwho">Agent</div>
+          <div class="pstatus">built from firm precedent</div>
+        </div>
+        <div class="pnode">
+          <div class="pdot"><span class="ic-base">🔍</span><span class="ic-done">✓</span></div>
+          <div class="pttl">Markup redlined</div><div class="pwho">Agent</div>
+          <div class="pstatus">off-market terms flagged</div>
+        </div>
+        <div class="pnode gate">
+          <div class="pdot"><span class="ic-base">👤</span><span class="ic-done">✓</span></div>
+          <div class="pttl">Attorney sign-off</div><div class="pwho">You</div>
+          <div class="pstatus">queued for one-look approval</div>
+        </div>
+        <div class="pnode">
+          <div class="pdot"><span class="ic-base">💸</span><span class="ic-done">✓</span></div>
+          <div class="pttl">Signed + captured</div><div class="pwho">Agent</div>
+          <div class="pstatus">e-signed → filed → time logged</div>
+        </div>
+      </div>
+      <div class="pipe-foot">The agents do the four routine steps. <b>An attorney does one: the judgment call.</b> Same control you have today, none of the clicking.</div>
+    </div>
+  </div>
+</section>
+
+<!-- COCKPIT DASHBOARD (animated) -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The cockpit</span><h2>One dashboard, <span class="soft">every matter and every agent</span></h2>
+      <p class="sec-sub">What a partner opens each morning. Live status on every active matter, and a running feed of what the agents did overnight, so nothing sits in an inbox waiting to be noticed.</p></div>
+
+    <div class="dash reveal d1" id="dash">
+      <div class="dash-bar">
+        <span class="dots"><i></i><i></i><i></i></span>
+        <span class="dtitle">Johnson &amp; Oshan Law · Firm OS</span>
+        <span class="dlive">Live</span>
+      </div>
+      <div class="dash-body">
+        <div class="dash-col left">
+          <div class="kpis">
+            <div class="kpi"><div class="kn">9</div><div class="kl">Active matters</div></div>
+            <div class="kpi"><div class="kn">3</div><div class="kl">Need your sign-off</div></div>
+            <div class="kpi"><div class="kn">27</div><div class="kl">Agent runs today</div></div>
+          </div>
+          <div class="dash-h">Active matters <span class="cnt">9</span></div>
+          <div class="mrow"><div><div class="mname">Northwind — Series A financing</div><div class="mphase">Financing · docs</div></div><span class="mpill wait">Your sign-off</span></div>
+          <div class="mrow"><div><div class="mname">Kestrel Robotics — SaaS MSA</div><div class="mphase">Commercial · redline</div></div><span class="mpill done">Redline ready</span></div>
+          <div class="mrow"><div><div class="mname">Aperture — M&amp;A diligence</div><div class="mphase">Diligence · data room</div></div><span class="mpill run">Agent: checklist</span></div>
+          <div class="mrow"><div><div class="mname">Halcyon Bio — SAFE round</div><div class="mphase">Financing · intake</div></div><span class="mpill run">Agent: drafting</span></div>
+          <div class="mrow"><div><div class="mname">Portfolio — annual maintenance</div><div class="mphase">Governance · filings</div></div><span class="mpill wait">Your sign-off</span></div>
+        </div>
+        <div class="dash-col right">
+          <div class="dash-h">Agent activity <span class="cnt">live</span></div>
+          <div class="feed">
+            <div class="feed-track" id="feed">
+              <!-- set A -->
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>NDA redlined</b> vs firm playbook for Kestrel. 4 off-market terms flagged. <span class="agent">[ contract-agent ]</span></div><div class="atime">07:38</div></div></div>
+              <div class="aevent ok"><span class="aic">📝</span><div><div class="atx"><b>SAFE drafted</b> from precedent for Halcyon Bio, terms merged from the term sheet. <span class="agent">[ drafting-agent ]</span></div><div class="atime">07:52</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Northwind Series A docs</b> ready for your sign-off. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:04</div></div></div>
+              <div class="aevent ok"><span class="aic">⏱️</span><div><div class="atx"><b>Time entries drafted</b> for yesterday, 6.4 hrs with narratives, queued for approval. <span class="agent">[ billing-agent ]</span></div><div class="atime">08:11</div></div></div>
+              <div class="aevent ok"><span class="aic">🗂️</span><div><div class="atx"><b>Diligence checklist updated</b> for Aperture, 3 change-of-control clauses extracted. <span class="agent">[ diligence-agent ]</span></div><div class="atime">08:19</div></div></div>
+              <div class="aevent gate"><span class="aic">⚠️</span><div><div class="atx"><b>Delaware annual report</b> due in 21 days across 6 portfolio entities. Drafts prepared. <span class="agent">[ entity-monitor ]</span></div><div class="atime">08:26</div></div></div>
+              <div class="aevent ok"><span class="aic">📨</span><div><div class="atx"><b>New engagement email</b> in Front from a founder referral, intake + conflict check started. <span class="agent">[ intake-agent ]</span></div><div class="atime">08:33</div></div></div>
+              <!-- set B (duplicate for seamless loop) -->
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>NDA redlined</b> vs firm playbook for Kestrel. 4 off-market terms flagged. <span class="agent">[ contract-agent ]</span></div><div class="atime">07:38</div></div></div>
+              <div class="aevent ok"><span class="aic">📝</span><div><div class="atx"><b>SAFE drafted</b> from precedent for Halcyon Bio, terms merged from the term sheet. <span class="agent">[ drafting-agent ]</span></div><div class="atime">07:52</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Northwind Series A docs</b> ready for your sign-off. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:04</div></div></div>
+              <div class="aevent ok"><span class="aic">⏱️</span><div><div class="atx"><b>Time entries drafted</b> for yesterday, 6.4 hrs with narratives, queued for approval. <span class="agent">[ billing-agent ]</span></div><div class="atime">08:11</div></div></div>
+              <div class="aevent ok"><span class="aic">🗂️</span><div><div class="atx"><b>Diligence checklist updated</b> for Aperture, 3 change-of-control clauses extracted. <span class="agent">[ diligence-agent ]</span></div><div class="atime">08:19</div></div></div>
+              <div class="aevent gate"><span class="aic">⚠️</span><div><div class="atx"><b>Delaware annual report</b> due in 21 days across 6 portfolio entities. Drafts prepared. <span class="agent">[ entity-monitor ]</span></div><div class="atime">08:26</div></div></div>
+              <div class="aevent ok"><span class="aic">📨</span><div><div class="atx"><b>New engagement email</b> in Front from a founder referral, intake + conflict check started. <span class="agent">[ intake-agent ]</span></div><div class="atime">08:33</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="dash-cap reveal d2">This is the one place to run the firm from. The layer above your tools, so a partner sees every matter on one screen, and the next hire inherits a system instead of a folder of instructions. <b>Illustrative, built on your real matters in discovery.</b></p>
+  </div>
+</section>
+
+<!-- CANDIDATE PILLARS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Where we'd start</span><h2>Five candidate builds, <span class="soft">ranked by ROI</span></h2>
+      <p class="sec-sub">These are hypotheses from a first look at a corporate boutique like yours. We cut to two or three on the call once we know where your hours actually go. The tag shows which lever each one pulls hardest.</p></div>
+    <div class="pillars">
+
+      <div class="pillar reveal d1">
+        <div class="phead"><span class="pnum">1</span><span class="ptitle">Time capture + billing narratives</span><span class="ptag rev">Revenue first</span></div>
+        <p>Work product and calendar or DMS activity become draft time entries with clean, client-ready narratives. An attorney edits and approves before anything bills. No legal judgment touched, and recaptured time is usually the single biggest ROI line in a billable boutique.</p>
+      </div>
+
+      <div class="pillar reveal d1">
+        <div class="phead"><span class="pnum">2</span><span class="ptitle">Contract review + playbook redlining</span><span class="ptag cost">Cost + throughput</span></div>
+        <p>Inbound MSAs, NDAs, and DPAs get reviewed against a firm negotiation playbook. The OS returns a redline plus an issues list ranked by risk; an attorney approves. High-volume, repeatable associate hours come back.</p>
+      </div>
+
+      <div class="pillar reveal d2">
+        <div class="phead"><span class="pnum">3</span><span class="ptitle">Financing + commercial drafting</span><span class="ptag cost">Cost + speed</span></div>
+        <p>Draft SAFEs, notes, priced-round docs, and standard agreements off your own precedent, then redline the counterparty markup and flag off-market terms. Core practice, heavy per-matter hours, faster turnaround.</p>
+      </div>
+
+      <div class="pillar reveal d2">
+        <div class="phead"><span class="pnum">4</span><span class="ptitle">Diligence + data-room triage</span><span class="ptag cost">Cost + risk-catch</span></div>
+        <p>Extract the terms that matter (change-of-control, assignment, MFN, exclusivity), build the diligence checklist status, and draft disclosure schedules. The single biggest grind when M&amp;A or a financing hits, with an attorney validating every finding.</p>
+      </div>
+
+      <div class="pillar reveal d3">
+        <div class="phead"><span class="pnum">5</span><span class="ptitle">Entity-maintenance agent</span><span class="ptag rev">Recurring revenue</span></div>
+        <p>A scheduled agent that watches annual reports, franchise tax, and minute-book upkeep across the client portfolio, drafts the filing, and flags what's due. A self-running agent is the real differentiator, and this one is a productizable recurring-revenue offering and a retention hook.</p>
+      </div>
+
+    </div>
+    <div class="enabler reveal d3"><b>The enabling layer:</b> a precedent and clause library mined from your closed matters. It's what the drafting and redlining agents run on, and often the first foundation worth building. On the call we'll learn whether that library exists as a firm asset or lives in senior lawyers' heads.</div>
+  </div>
+</section>
+
+<!-- INVENTORY -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The inventory</span><h2>Keep, integrate, <span class="soft">replace</span></h2>
+      <p class="sec-sub">We don't rip out what works. Everything best-in-class stays and gets connected. Front is the one piece we already know you run on; the rest we confirm together on the call.</p></div>
+    <div class="legend reveal d1">
+      <span class="lg"><span class="dot int"></span> Integrate — keep it, the OS reads/writes it</span>
+      <span class="lg"><span class="dot rep"></span> Replace &amp; Build — collapse into the OS</span>
+      <span class="lg"><span class="dot add"></span> Add — new capability</span>
+    </div>
+    <div class="cards">
+      <div class="card reveal d1"><span class="flag">confirmed</span><div class="top"><span class="name">Front</span><span class="badge int">Integrate</span></div><p class="why">Your shared inbox is where intake, triage, and client replies already happen. The OS reads it and drafts there, so agents work where the team works.</p></div>
+      <div class="card reveal d1"><span class="flag tbc">to confirm</span><div class="top"><span class="name">Document management</span><span class="badge int">Integrate</span></div><p class="why">iManage, NetDocuments, SharePoint, or Drive. Your matter files stay put; the OS files and retrieves automatically.</p></div>
+      <div class="card reveal d2"><span class="flag tbc">to confirm</span><div class="top"><span class="name">Billing / time</span><span class="badge int">Integrate</span></div><p class="why">The OS drafts time entries and narratives straight into your billing system for approval.</p></div>
+      <div class="card reveal d2"><span class="flag tbc">to confirm</span><div class="top"><span class="name">Cap-table (Carta / Pulley?)</span><span class="badge int">Integrate</span></div><p class="why">Read for financings and governance, so drafts pull accurate ownership and grant data.</p></div>
+      <div class="card reveal d3"><span class="flag tbc">to confirm</span><div class="top"><span class="name">E-sign (DocuSign?)</span><span class="badge int">Integrate</span></div><p class="why">Powers the sign step at the end of the pipeline, triggered off matter status.</p></div>
+      <div class="card replace reveal d1"><div class="top"><span class="name">Manual coordination + hand-tracking</span><span class="badge rep">Replace</span></div><p class="why">The clicking, filing, and follow-up chasing that lives in people's heads becomes the OS itself.</p></div>
+      <div class="card add reveal d2"><div class="top"><span class="name">Precedent / clause library</span><span class="badge add">Add</span></div><p class="why">Mined from your closed matters. The firm asset the drafting and redlining agents run on.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- HUMAN GATES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>The OS removes the typing, <span class="soft">not the lawyering</span></h2>
+      <p class="sec-sub">Automation stops where judgment starts. These stay with your attorneys by design; the OS just hands them the work clean and on time.</p></div>
+    <div class="gates">
+      <div class="gatecard reveal d1"><div class="gi">⚖️</div><h4>Legal judgment</h4><p>The advice, the negotiation, the risk call. The OS assembles the inputs; the opinion is the attorney's.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">✍️</div><h4>Every sign-off</h4><p>Nothing goes to a client or counterparty without an attorney's one-look approval. You stay in the loop, out of the busywork.</p></div>
+      <div class="gatecard reveal d3"><div class="gi">🔒</div><h4>Client confidentiality</h4><p>Tenant-resident processing, zero-data-retention LLM vendors, US data residency. Your clients' venture data never trains a model.</p></div>
+      <div class="gatecard reveal d4"><div class="gi">⌨️</div><h4>You own the system</h4><p>The code is yours. Connect your own models and tweak it; no subscription that turns into a pumpkin.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE + SECURITY -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The trust gate</span><h2>Built for a firm your <span class="soft">clients trust</span></h2>
+      <p class="sec-sub">Venture clients ask about AI and third-party processing early. The security posture is a starting strength, not a scramble later.</p></div>
+    <div class="compliance reveal d1">
+      <span class="pill"><span class="pk">✓</span> SOC 2 certified</span>
+      <span class="pill"><span class="pk">✓</span> HIPAA compliant</span>
+      <span class="pill"><span class="pk">✓</span> Zero data retention</span>
+      <span class="pill"><span class="pk">✓</span> US data residency</span>
+    </div>
+    <div class="sec-grid">
+      <div class="seccard reveal d1"><div class="ic">🛡️</div><h4>Security</h4><p>Encrypted in transit and at rest, least-privilege access, and a platform that is <b>SOC 2 certified</b>. The same posture we run for firms handling sensitive records.</p></div>
+      <div class="seccard reveal d2"><div class="ic">🤐</div><h4>Confidentiality</h4><p>We use <b>zero-data-retention</b> LLM vendors that don't train on your data and don't keep it. Your clients' deal terms stay your clients'.</p></div>
+      <div class="seccard reveal d3"><div class="ic">🌎</div><h4>Residency</h4><p>Processing stays in-region under <b>US data residency</b>, so where the data lives is never an open question in a client review.</p></div>
+      <div class="seccard reveal d4"><div class="ic">🔑</div><h4>Ownership</h4><p>You hold the keys. The OS is yours to run, audit, and connect to your own models, so control never sits with a vendor.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How it's priced</span><h2>The <span class="soft">shape of the numbers</span></h2>
+      <p class="sec-sub">No surprise lump sum, and nothing you don't approve. Here's the structure; we size the first phase together on the call, once we agree what to build first.</p></div>
+    <div class="numbers-grid">
+      <div class="numcard reveal d1">
+        <div class="nlabel">Build · phased</div>
+        <h3>Pay per phase, not up front</h3>
+        <p style="font-size:14px;color:var(--gray-meta-light);margin:.4em 0 0;line-height:1.5">Work breaks into small phases. Each phase splits in half:</p>
+        <div class="paysplit">
+          <div class="half"><div class="h">Phase start</div><div class="v">50%</div></div>
+          <div class="arr">→</div>
+          <div class="half"><div class="h">Your approval</div><div class="v">50%</div></div>
+        </div>
+        <p class="numnote">Cash tracks completion. You see a working result before you pay the back half. We start with the smallest high-value piece so the first cheque buys something you can feel, likely time capture or contract review.</p>
+      </div>
+      <div class="numcard reveal d2">
+        <div class="nlabel">Ongoing · two layers</div>
+        <h3>Hosting + optional support</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Hosting / infrastructure</div><div class="od">Cloud hosting + storage for your OS, US residency; scales with how much the agents run</div></div><div class="oa">base layer<br>monthly</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Support retainer <span style="color:var(--gray-meta);font-weight:400">(optional)</span></div><div class="od">Access to Nick + the team; a-la-carte → as-needed → white-glove</div></div><div class="oa">tiered<br>you pick</div></div>
+        <div class="value-anchor">We walk real ballpark numbers live and <b>split hosting from support</b> so you size each independently. The frame that matters: the hours you get back, and the time you recapture and bill, are what the OS pays for.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">To explore on the call</span><h2>What we'll <span class="soft">pin down together</span></h2></div>
+    <div class="qcards">
+      <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">Where the hours go</p><p class="qcd">What eats the day, and what you write off? That points straight at the first build.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">2</span><div><p class="qct">Highest-volume doc types</p><p class="qcd">Financings, commercial contracts, formations, or M&amp;A, which repeat the most?</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">3</span><div><p class="qct">Precedent library</p><p class="qcd">Is there a firm clause library as an asset, or does it live in senior lawyers' heads?</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">4</span><div><p class="qct">The stack</p><p class="qcd">DMS, billing/time, CLM, e-sign, cap-table, and how central Front is to the day.</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">5</span><div><p class="qct">Client + ethics constraints</p><p class="qcd">Any client-contractual or bar rules on AI and third-party processing to design around.</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">6</span><div><p class="qct">A 90-day win</p><p class="qcd">What would a clear, felt win look like a quarter from now?</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Suggested <span class="soft">phasing</span></h2></div>
+    <div class="timeline reveal d1">
+      <div class="tl-line"></div>
+      <div class="phase-t"><div class="pnode2">0</div><div class="ptagline">This call</div><div class="ph2">Explore fit</div><div class="pd2">Where AI adds the most value first, and whether there's a build worth scoping.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Next</div><div class="ph2">Discovery / architecture</div><div class="pd2">Map the workflow, pick the first build, and size Phase 1 against your real matters.</div></div>
+      <div class="phase-t future"><div class="pnode2">2</div><div class="ptagline">Build</div><div class="ph2">Phase 1 OS</div><div class="pd2">The highest-ROI candidate, likely time capture or contract review, with an attorney in the loop.</div></div>
+      <div class="phase-t future"><div class="pnode2">3</div><div class="ptagline">Ongoing</div><div class="ph2">Scale the OS</div><div class="pd2">Add pillars, stand up the cockpit, and expand the system as it proves out.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for Johnson &amp; Oshan Law PLLC · Confidential
+  </div>
+</footer>
+
+<script>
+// Scroll-reveal + play animations when a block scrolls into view.
+(function(){
+  var io = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){
+      if(e.isIntersecting){ e.target.classList.add('in'); }
+    });
+  }, {threshold:0.14, rootMargin:'0px 0px -8% 0px'});
+  document.querySelectorAll('.reveal').forEach(function(el){ io.observe(el); });
+
+  // Animated blocks: add .play once visible (keeps CSS animations idle until seen).
+  var playIO = new IntersectionObserver(function(entries){
+    entries.forEach(function(e){ if(e.isIntersecting){ e.target.classList.add('play'); } });
+  }, {threshold:0.2});
+  ['xform','pipe','dash'].forEach(function(id){
+    var el = document.getElementById(id);
+    if(el) playIO.observe(el);
+  });
+})();
+</script>
+
+</body>
+</html>

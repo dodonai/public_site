@@ -10,11 +10,13 @@
    Pair with brief-reveal.js for scroll-reveal + the animated trio.
 
    USAGE
-   - Standalone mode (email/attachment): inline this file inside <style>...</style>.
-   - Published mode (public_site stage): <link rel="stylesheet" href="/clients/_assets/brief.css">
-     and <script src="/clients/_assets/brief-reveal.js" defer></script>.
-   Fonts (load in <head> either way):
-     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+   - Standalone mode (email/attachment): inline this file inside a style element.
+   - Published mode (public_site stage): link this file with a stylesheet link tag
+     (href="/clients/_assets/brief.css") and load brief-reveal.js with a deferred script tag.
+   NOTE: keep this comment free of literal HTML close-tag sequences (style/script). When
+   this file is inlined into a style element, a literal close-tag here would terminate the
+   block early and the rest of the CSS would not apply. Describe tags in prose, do not write them.
+   Fonts (load in the head either way): the Plus Jakarta Sans + Source Code Pro Google Fonts link.
 
    Block families (see assets/blocks.html for copy-paste markup):
      1. Chrome + hero + bands   — hero, brandbar, meta-grid, sec-head, pull-quote,
@@ -23,7 +25,11 @@
                                    + roadblock), flow-mini, scope-box, workflow lanes
      3. Animated trio + value   — xform (scatter→hub), pipe (self-running pipeline),
                                    dash (cockpit feed), outcome, gates, ROI, numbers
-     4. Catalog + conversion    — alternatives, compliance pills, questions, timeline
+     4. Catalog + conversion    — alternatives, compliance pills, questions,
+                                   timeline, package grid, software-stack
+                                   before/after, productized agent cards,
+                                   layered architecture SVG, by-role grid,
+                                   proof cards
    ============================================================================ */
 
 :root{
@@ -447,6 +453,119 @@ h2 .soft{color:var(--purple-bold)}
 .phase-t .ph2{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
 .phase-t .pd2{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5}
 
+/* ============================================================================
+   FAMILY 4 (extended) — CATALOG BLOCKS
+   ----------------------------------------------------------------------------
+   Ported from the Dodonai capabilities decks (capabilities.html / overview-
+   client.html). These are the catalog / conversion components the cold + post-
+   discovery briefs need: a productized package grid, a before/after software-
+   stack comparison, productized agent cards, a layered architecture SVG, a
+   by-role function grid, and proof cards. Continuous decorative animations are
+   guarded under prefers-reduced-motion at the bottom of this file.
+   ============================================================================ */
+
+/* ===== PACKAGE GRID (productized offerings, optionally categorized) ===== */
+.pkg-intro{display:grid;grid-template-columns:1.2fr 0.8fr;gap:32px;align-items:center;margin:24px 0 36px;padding:28px;background:linear-gradient(135deg,#fff 0%,var(--cream-deep) 100%);border:1px solid var(--cream-line);border-radius:14px}
+.pkg-intro .pi-copy h3{font-weight:800;font-size:22px;color:var(--midnight);margin:0 0 10px;letter-spacing:-.01em}
+.pkg-intro .pi-copy p{font-size:14.5px;line-height:1.6;color:var(--gray-meta-light);margin:0 0 8px}
+.pkg-intro .pi-copy p strong{color:var(--midnight-deep)}
+.pkg-category{margin:32px 0 12px}
+.pkg-category .cat-label{font-family:var(--mono);font-size:11px;color:var(--purple-bold);letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}
+.pkg-category .cat-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--purple-bold) 0%,transparent 100%)}
+.pkg-category.teal .cat-label{color:var(--teal)}
+.pkg-category.teal .cat-label::after{background:linear-gradient(90deg,var(--teal) 0%,transparent 100%)}
+.pkg-category.amber .cat-label{color:var(--amber)}
+.pkg-category.amber .cat-label::after{background:linear-gradient(90deg,var(--amber) 0%,transparent 100%)}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin:14px 0 24px}
+.pkg-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;display:flex;flex-direction:column}
+.pkg-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple-bold),var(--purple-vivid));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.pkg-card.teal::before{background:linear-gradient(90deg,var(--teal),var(--teal-bright))}
+.pkg-card.amber::before{background:linear-gradient(90deg,var(--amber),#f59e0b)}
+.pkg-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(20,20,58,.10);border-color:var(--purple-soft)}
+.pkg-card:hover::before{transform:scaleX(1)}
+.pkg-card .pkg-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.pkg-card .pkg-name{font-weight:800;font-size:17px;color:var(--midnight-deep);line-height:1.3;letter-spacing:-.01em;margin:0;flex:1}
+.pkg-card .pkg-dur{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.10em;text-transform:uppercase;font-weight:700;background:rgba(124,58,237,.08);padding:4px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.pkg-card.teal .pkg-dur{color:var(--teal);background:rgba(14,116,144,.08)}
+.pkg-card.amber .pkg-dur{color:var(--amber);background:rgba(180,83,9,.08)}
+.pkg-card .pkg-desc{font-size:13.5px;line-height:1.55;color:var(--gray-meta-light);margin:0;flex:1}
+.pkg-card .pkg-desc strong{color:var(--midnight-deep)}
+.pkg-card .pkg-desc em{color:var(--purple-bold)}
+.pkg-card.featured{border-color:var(--purple-vivid);background:linear-gradient(135deg,#fff 0%,rgba(124,58,237,.04) 100%)}
+.pkg-card.featured .pkg-dur{background:var(--purple-vivid);color:#fff}
+.pkg-card .pkg-tag{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9px;color:#fff;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:var(--purple-vivid);padding:3px 8px;border-radius:3px}
+
+/* ===== SOFTWARE-STACK BEFORE/AFTER (build-vs-buy / consolidation) ===== */
+.stack-compare{display:grid;grid-template-columns:1fr 80px 1fr;gap:0;align-items:stretch;margin:24px 0 8px}
+.stack-side{padding:24px;border-radius:12px;position:relative;overflow:hidden}
+.stack-before{background:linear-gradient(135deg,rgba(225,29,72,.06) 0%,rgba(225,29,72,.02) 100%);border:1px solid rgba(225,29,72,.2)}
+.stack-after{background:linear-gradient(135deg,rgba(14,116,144,.06) 0%,rgba(124,58,237,.04) 100%);border:1px solid var(--purple-soft)}
+.stack-side h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:0 0 4px}
+.stack-before h4{color:var(--rose)}
+.stack-after h4{color:var(--purple-bold)}
+.stack-side .stack-title{font-weight:800;font-size:18px;color:var(--midnight-deep);margin:0 0 16px;line-height:1.3}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.stack-chip{background:#fff;border:1px solid var(--cream-line);border-radius:6px;padding:8px 6px;text-align:center;font-size:10px;font-weight:600;color:var(--midnight-deep);font-family:var(--mono);line-height:1.2;letter-spacing:.02em;position:relative;transition:transform .3s ease}
+.stack-before .stack-chip{opacity:.85;animation:disconnected 4s ease-in-out infinite}
+@keyframes disconnected{0%,100%{transform:translate(0,0)}25%{transform:translate(-1px,2px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-2px,1px)}}
+.stack-after .stack-layer{background:#fff;border:1px solid var(--purple-soft);border-radius:6px;padding:10px 14px;margin-bottom:4px;font-size:11px;font-weight:700;color:var(--midnight-deep);font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.stack-after .stack-layer.l1{background:linear-gradient(90deg,rgba(124,58,237,.10),rgba(124,58,237,.02))}
+.stack-after .stack-layer.l2{background:linear-gradient(90deg,rgba(14,116,144,.10),rgba(14,116,144,.02));margin-left:10px}
+.stack-after .stack-layer.l3{background:linear-gradient(90deg,rgba(22,163,74,.10),rgba(22,163,74,.02));margin-left:20px}
+.stack-after .stack-layer .ln{color:var(--purple-bold);font-size:9px}
+.stack-after .stack-layer.l2 .ln{color:var(--teal)}
+.stack-after .stack-layer.l3 .ln{color:var(--good)}
+.stack-side .stack-meta{font-size:12px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.stack-before .stack-meta strong{color:var(--rose)}
+.stack-after .stack-meta strong{color:var(--purple-bold)}
+.stack-arrow{display:flex;align-items:center;justify-content:center;position:relative}
+.stack-arrow svg{width:60px;height:60px}
+
+/* ===== PRODUCTIZED AGENT CARDS (roster items) ===== */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:14px 0 28px}
+.agent-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 20px;transition:transform .3s ease,box-shadow .3s ease;display:flex;gap:14px;align-items:flex-start}
+.agent-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(20,20,58,.08)}
+.agent-icon{flex-shrink:0;width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;background:linear-gradient(135deg,var(--purple-bold),var(--purple-vivid))}
+.agent-grid.teal .agent-icon{background:linear-gradient(135deg,var(--teal),var(--teal-bright))}
+.agent-grid.amber .agent-icon{background:linear-gradient(135deg,var(--amber),#f59e0b)}
+.agent-body{flex:1;min-width:0}
+.agent-body .agent-name{font-weight:700;font-size:15px;color:var(--midnight-deep);margin:0 0 6px;line-height:1.3;letter-spacing:-.005em}
+.agent-body .agent-desc{font-size:12.5px;line-height:1.55;color:var(--gray-meta-light);margin:0}
+.agent-body .agent-desc strong{color:var(--midnight-deep)}
+/* agent-card meta line: watch / do / write / fire / human-gate badges */
+.agent-body .agent-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.agent-body .agent-meta .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.agent-body .agent-meta .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.agent-body .agent-meta .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.agent-body .agent-meta .am.phase{background:rgba(199,125,46,.16);color:var(--amber)}
+
+/* ===== LAYERED ARCHITECTURE SVG ===== */
+.arch-diagram{margin:24px 0 8px}
+.arch-diagram svg{width:100%;height:auto;max-height:380px}
+
+/* ===== BY-ROLE FUNCTION GRID ===== */
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0}
+.role-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 22px;box-shadow:0 1px 2px rgba(20,20,58,.04);transition:transform .3s ease,box-shadow .3s ease}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,20,58,.08)}
+.role-card h3{font-weight:700;font-size:17px;color:var(--midnight);margin:0 0 4px;letter-spacing:-.01em}
+.role-card .sub{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.role-card ul{margin:0;padding-left:18px}
+.role-card ul li{font-size:13.5px;line-height:1.55;margin:4px 0}
+.role-card ul li::marker{color:var(--purple-vivid)}
+.role-card ul li em{color:var(--purple-bold);font-style:italic}
+
+/* ===== PROOF CARDS (named result + stat footer) ===== */
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:8px 0}
+.proof-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(20,20,58,.04);display:flex;flex-direction:column}
+.proof-card .p-head{padding:18px 24px;background:var(--cream-deep);border-bottom:1px solid var(--cream-line)}
+.proof-card .p-tag{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.proof-card .p-title{font-weight:700;font-size:17px;color:var(--midnight-deep);line-height:1.3;margin:0}
+.proof-card .p-body{padding:20px 24px;font-size:14px;line-height:1.6;flex:1}
+.proof-card .p-stats{display:flex;gap:18px;padding:14px 24px;background:var(--midnight);color:#fff;border-top:1px solid var(--midnight-soft)}
+.proof-card .p-stat{flex:1}
+.proof-card .p-stat .pn{font-weight:800;font-size:22px;color:#fff;line-height:1;letter-spacing:-.01em;background:linear-gradient(135deg,#fff 0%,var(--purple-soft) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.proof-card .p-stat .pl{font-family:var(--mono);font-size:9.5px;color:var(--purple-soft);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:4px;line-height:1.3}
+
 /* ===== FOOTER ===== */
 footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
@@ -464,9 +583,22 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
   .rblock{grid-template-columns:1fr;gap:12px}.rb-arrow{transform:rotate(90deg)}
   .roi .rgrid{grid-template-columns:1fr;gap:18px}
   .timeline{grid-template-columns:1fr;gap:26px}.tl-line{display:none}
+  /* family 4 — catalog blocks */
+  .pkg-intro{grid-template-columns:1fr}
+  .pkg-grid{grid-template-columns:1fr}
+  .stack-compare{grid-template-columns:1fr;gap:14px}.stack-arrow{transform:rotate(90deg)}
+  .agent-grid,.role-grid,.proof-grid{grid-template-columns:1fr}
+}
+/* keep continuous catalog animations off for reduced-motion users */
+@media(prefers-reduced-motion:reduce){
+  .stack-before .stack-chip{animation:none}
+  .pkg-card,.agent-card,.role-card,.stack-chip{transition:none}
+  .arch-diagram svg animate,.stack-arrow svg animate{display:none}
 }
 @media print{
   .hero{padding:40px 0}section{padding:28px 0;page-break-inside:avoid}
   .reveal{opacity:1;transform:none}
   .roi,.flow-mini,.dash{box-shadow:none}
+  .pkg-card,.agent-card,.role-card,.proof-card,.stack-side{page-break-inside:avoid}
+  .stack-before .stack-chip{animation:none}
 }
