@@ -38,11 +38,8 @@
 				name: data.seo.title,
 				description: data.seo.description,
 				url: `https://www.dodon.ai${data.seo.canonical}`,
-				publisher: {
-					'@type': 'Organization',
-					name: 'Dodonai',
-					url: 'https://www.dodon.ai'
-				}
+				author: { '@id': 'https://www.dodon.ai/#nick-chapleau' },
+				publisher: { '@id': 'https://www.dodon.ai/#organization' }
 			}
 		];
 

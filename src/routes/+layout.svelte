@@ -70,16 +70,67 @@
 		'@type': 'WebSite',
 		name: 'Dodonai',
 		url: 'https://www.dodon.ai',
-		publisher: {
-			'@type': 'Organization',
-			name: 'Dodonai, Inc.',
-			url: 'https://www.dodon.ai'
+		publisher: { '@id': 'https://www.dodon.ai/#organization' }
+	};
+
+	// Site-wide Organization schema — emitted once, referenced by @id on every page.
+	// E-E-A-T signal: identifies the publishing entity behind every page of dodon.ai.
+	const organizationSchema = {
+		'@context': 'https://schema.org',
+		'@type': 'Organization',
+		'@id': 'https://www.dodon.ai/#organization',
+		name: 'Dodonai, Inc.',
+		url: 'https://www.dodon.ai',
+		logo: 'https://www.dodon.ai/images/brand/logo-main.webp',
+		description:
+			'AI-powered document processing platform built for legal professionals. Summarize depositions, medical records, and legal documents in minutes.',
+		founder: { '@id': 'https://www.dodon.ai/#nick-chapleau' },
+		sameAs: [
+			'https://www.linkedin.com/company/dodon-ai',
+			'https://twitter.com/Dodon_ai',
+			'https://www.youtube.com/@dodon-ai'
+		],
+		areaServed: 'US',
+		knowsAbout: [
+			'Deposition Summaries',
+			'Medical Record Summaries',
+			'Medical Chronologies',
+			'Legal Document Processing',
+			'AI OCR',
+			'E-Discovery',
+			'Legal AI Tools'
+		],
+		contactPoint: {
+			'@type': 'ContactPoint',
+			email: 'hello@dodon.ai',
+			contactType: 'customer support'
 		}
+	};
+
+	// Site-wide Person schema for the founder — establishes authoritative human
+	// entity behind Dodonai for E-E-A-T (Experience + Expertise signals to LLMs
+	// and Google's helpful-content system).
+	const founderSchema = {
+		'@context': 'https://schema.org',
+		'@type': 'Person',
+		'@id': 'https://www.dodon.ai/#nick-chapleau',
+		name: 'Nick Chapleau',
+		jobTitle: 'Founder & CEO',
+		worksFor: { '@id': 'https://www.dodon.ai/#organization' },
+		knowsAbout: [
+			'Legal Technology',
+			'Artificial Intelligence',
+			'Medical Record Analysis',
+			'Document Automation',
+			'Litigation Support'
+		]
 	};
 </script>
 
 <svelte:head>
 	{@html `<script type="application/ld+json">${JSON.stringify(websiteSchema)}</script>`}
+	{@html `<script type="application/ld+json">${JSON.stringify(organizationSchema)}</script>`}
+	{@html `<script type="application/ld+json">${JSON.stringify(founderSchema)}</script>`}
 </svelte:head>
 
 <a
