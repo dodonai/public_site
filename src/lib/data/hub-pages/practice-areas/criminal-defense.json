@@ -1,0 +1,142 @@
+{
+	"seo": {
+		"title": "Criminal Defense: AI Discovery & Medical Record Review | Dodonai",
+		"description": "Criminal defense attorneys use Dodonai to speed discovery review: medical, autopsy, toxicology, and custody records organized into cited chronologies in minutes.",
+		"canonical": "/practice-areas/criminal-defense/"
+	},
+	"breadcrumbs": [
+		{ "name": "Home", "href": "/" },
+		{ "name": "Practice Areas", "href": null },
+		{ "name": "Criminal Defense" }
+	],
+	"hero": {
+		"headline": "AI Document Review Built for the Discovery Weight of a Serious Criminal Case",
+		"subheadline": "Homicide, vehicular manslaughter, and aggravated assault cases turn on the medical, autopsy, and custody records buried in discovery. Dodonai reads the file, builds the chronology, and cites every page so you can spend your time on defense theory instead of triage.",
+		"ctaText": "Try It With a Discovery File",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=criminal-defense",
+		"secondaryCtaText": "See Pricing",
+		"secondaryCtaUrl": "/pricing/"
+	},
+	"sections": [
+		{
+			"type": "content",
+			"heading": "How Criminal Defense Firms Use AI on Document-Heavy Cases",
+			"paragraphs": [
+				"Serious criminal cases are discovery cases. A homicide file arrives with autopsy and toxicology reports, ER records for the decedent, medical history for your client, prior psychiatric evaluations, jail medical logs, body-cam transcripts, and police reports across multiple agencies. A DUI-vehicular file is smaller only in name. An aggravated assault file with a self-defense or mental-health theory can easily run into thousands of pages.",
+				"The work isn't glamorous but it's decisive. Competency and mens rea defenses live or die on a defensible mental health chronology. Causation arguments in vehicular cases depend on autopsy findings, toxicology levels, and ER treatment sequence read in order. Suppression motions need the timeline of custody events reconstructed from jail records and medical intake logs. Miss a prior hospitalization, a documented head injury, a medication that alters cognition, and you've missed the defense.",
+				"Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI chronologies}} and {{link:/deposition-summary-software/|deposition summaries}} were built for this kind of document weight. Upload discovery — medical records, autopsy and toxicology reports, jail medical logs, prior psychiatric evaluations, deposition transcripts of state witnesses — and Dodonai returns a cited chronology and summaries you can build the defense theory on. Every finding links back to the source page so you cite the record, not the AI, in your motion or at trial.",
+				"Discovery documents stay protected: HIPAA compliant with signed BAAs on every account, SOC 2 certified, AES-256 encrypted, and never used to train models."
+			]
+		},
+		{
+			"type": "features",
+			"heading": "Dodonai for Criminal Defense Attorneys",
+			"cards": [
+				{
+					"icon": "document",
+					"title": "Autopsy and Toxicology Extraction",
+					"description": "Cause and manner of death, injury patterns, toxicology levels, and pathologist findings pulled from autopsy and lab reports with source citations. The factual spine of causation defense in a homicide or vehicular case, ready to cross-reference against ER and EMS records."
+				},
+				{
+					"icon": "heart",
+					"title": "Medical and Psychiatric History Chronologies",
+					"description": "Client medical and psychiatric records organized into a dated timeline: prior head injuries, hospitalizations, medications, and diagnoses relevant to competency, mens rea, and mitigation. The evidentiary foundation for a mental-health defense or a sentencing memo."
+				},
+				{
+					"icon": "calendar",
+					"title": "Custody and Jail Medical Timelines",
+					"description": "Booking records, intake medical screens, jail medical logs, and grievance history reconstructed on a timeline. Feeds suppression motions, conditions-of-confinement claims, and use-of-force defenses with dated, cited events."
+				},
+				{
+					"icon": "clock",
+					"title": "Deposition and Interview Summaries",
+					"description": "Upload preliminary hearing transcripts, expert depositions, or recorded witness interviews and get a page-line or narrative summary in minutes. Flag causation testimony, prior inconsistent statements, or identification evidence."
+				},
+				{
+					"icon": "shield",
+					"title": "HIPAA Compliant and Secure",
+					"description": "Client medical PHI and third-party records are handled under signed BAAs, SOC 2 certified infrastructure, and AES-256 encryption. Nothing trains the models, and deletion runs on your schedule."
+				},
+				{
+					"icon": "dollar",
+					"title": "Cost-Efficient Review for Court-Appointed Work",
+					"description": "Vendor chronologies run $5 to $15 per page and CJA or public-defender budgets don't accommodate that. Dodonai processes pages for as little as $0.02 each, keeping expert-work budget available for the experts you actually need to hire."
+				}
+			]
+		},
+		{
+			"type": "howItWorks",
+			"items": [
+				{
+					"title": "Upload the Discovery",
+					"description": "Upload medical records, autopsy and toxicology reports, jail medical logs, prior psychiatric evaluations, and deposition or hearing transcripts. PDFs of any size, including scanned and faxed records, with built-in AI OCR."
+				},
+				{
+					"title": "AI Extracts, Organizes, and Cites Every Finding",
+					"description": "Dodonai reads the file, extracts diagnoses, medications, procedures, toxicology levels, custody events, and testimony, and organizes them into structured chronologies and summaries. Add key topics — competency, causation, self-defense — to tailor the output to your defense theory."
+				},
+				{
+					"title": "Build the Motion, Defense Theory, or Trial Binder",
+					"description": "Review outputs in the interactive viewer with side-by-side source linking. Export as PDF, Word, or Excel for motions to suppress, competency filings, expert referrals, cross-examination outlines, and trial binders."
+				}
+			]
+		}
+	],
+	"faq": [
+		{
+			"question": "How does Dodonai help build a competency or mens rea defense?",
+			"answer": "Competency and mens rea defenses rest on a defensible psychiatric and medical history: prior diagnoses, hospitalizations, head injuries, and medications documented over time. Dodonai chronologizes those records with source citations for every finding, giving your expert a cited timeline to work from and giving you an evidentiary foundation for the motion or the trial testimony."
+		},
+		{
+			"question": "Can Dodonai process autopsy and toxicology reports for causation defense?",
+			"answer": "Yes. Autopsy findings, injury patterns, cause and manner of death, and toxicology levels are extracted with page citations back to the original report. Cross-reference against ER and EMS records to build causation, intervening-cause, or medical-explanation defenses in homicide and vehicular cases."
+		},
+		{
+			"question": "Does Dodonai handle deposition and preliminary hearing transcripts?",
+			"answer": "Yes. Upload a transcript and get a page-line or narrative {{link:/deposition-summary-software/|deposition summary}} back in minutes. Flag identification testimony, prior inconsistent statements, causation opinions, or Brady-implicating material to focus the summary around your defense theory."
+		},
+		{
+			"question": "Is it secure enough for defense discovery, including client PHI?",
+			"answer": "Yes. Client medical PHI and third-party records are handled under signed BAAs, SOC 2 certified infrastructure, and AES-256 encryption. Nothing trains the models, deletion runs on your schedule, and access is limited to the users on your account."
+		},
+		{
+			"question": "What does it cost on a court-appointed or CJA case?",
+			"answer": "Per-page pricing at rates as low as $0.02 per page with no seat fees or minimums. On a document-heavy homicide file that would otherwise require thousands of dollars in vendor chronology fees, this preserves budget for the experts you need to actually retain. See the {{link:/pricing/|pricing page}} for current rates."
+		},
+		{
+			"question": "Can Dodonai handle scanned jail medical logs and older paper records?",
+			"answer": "Yes. Dodonai's {{link:/ai-pdf-ocr/|AI OCR engine}} processes scanned jail medical logs, faxed records, and older paper files including handwritten physician and intake notes without a separate OCR step."
+		}
+	],
+	"relatedPages": [
+		{
+			"title": "AI Medical Record Summaries & Chronologies",
+			"href": "/ai-medical-record-summaries-chronologies/",
+			"description": "Organized chronologies with page-level source citations. Verify any finding in seconds."
+		},
+		{
+			"title": "AI Deposition Summary Software",
+			"href": "/deposition-summary-software/",
+			"description": "Page-line and narrative deposition summaries in minutes, not days."
+		},
+		{
+			"title": "Electronic Discovery Software",
+			"href": "/electronic-discovery-software/",
+			"description": "Semantic search and AI review for document-heavy discovery files."
+		},
+		{
+			"title": "Expert Witness Preparation",
+			"href": "/use-cases/expert-witness-preparation/",
+			"description": "Chronologies, summaries, and issue lists to prepare your defense experts."
+		}
+	],
+	"relatedBlogPosts": [
+		"/blog/ai-tools-every-paralegal-should-know-for-case-preparation/",
+		"/blog/6-ways-deposition-summaries-provide-value-in-litigation/",
+		"/blog/find-contradictions-in-deposition-transcripts-without-re-reading-the-transcript/"
+	],
+	"ctaOverride": {
+		"headline": "Turn a Discovery Stack Into a Defense Theory Faster",
+		"description": "Upload discovery documents and get cited chronologies and summaries in minutes. No credit card required to start."
+	}
+}
