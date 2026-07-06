@@ -1,0 +1,448 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Juge Firm · Drafting on Your Own Templates · Dodonai</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&family=Source+Serif+4:opsz,wght@8..60,400;8..60,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --midnight:#16142a; --midnight-2:#1f1c3a; --midnight-3:#2c2550;
+    --purple:#6c5ce7; --purple-soft:#a99cf5; --purple-dim:#7a6fd0;
+    --cream:#f6f3ec; --cream-2:#efeadf;
+    --ink:#23202f; --muted:#6b6880; --line:#e2dccd;
+    --good:#2e9e6b; --good-soft:#7fd3ab; --amber:#d98a10; --amber-soft:#f4c879;
+    --rose:#d1466a;
+    --shadow:0 18px 60px rgba(22,20,42,.28);
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0;font-family:'Plus Jakarta Sans',system-ui,sans-serif;
+    color:var(--cream);background:var(--midnight);line-height:1.55;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{max-width:960px;margin:0 auto;padding:0 22px}
+
+  /* ---------- Hero ---------- */
+  header{
+    background:radial-gradient(120% 140% at 80% -10%,#2c2550 0%,var(--midnight-2) 42%,var(--midnight) 100%);
+    padding:60px 0 46px;border-bottom:1px solid #2a2450;position:relative;overflow:hidden;
+  }
+  header::after{content:"";position:absolute;inset:0;background:
+    radial-gradient(600px 300px at 15% 120%,rgba(108,92,231,.16),transparent 70%);pointer-events:none}
+  .brandrow{display:flex;align-items:center;gap:10px;margin-bottom:26px}
+  .logo{width:26px;height:26px;border-radius:7px;background:linear-gradient(135deg,var(--purple),var(--purple-soft));
+    display:inline-flex;align-items:center;justify-content:center;font-weight:800;color:#fff;font-size:.9rem}
+  .brandrow .bn{font-family:'Source Code Pro',monospace;font-size:.78rem;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft)}
+  .eyebrow{font-family:'Source Code Pro',monospace;font-size:.72rem;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);margin:0 0 14px}
+  h1{font-size:2.5rem;line-height:1.1;margin:0 0 16px;font-weight:800;letter-spacing:-.02em;color:#fff;max-width:15ch}
+  h1 .accent{background:linear-gradient(120deg,var(--purple-soft),#d9cffb);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+  .lede{color:#cfc9e6;font-size:1.12rem;margin:0 0 26px;max-width:60ch;font-weight:400}
+  .lede b{color:#fff;font-weight:600}
+  .metastrip{display:flex;flex-wrap:wrap;gap:9px}
+  .pill{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:999px;padding:7px 14px;font-size:.82rem;color:#e7e3f7}
+  .pill b{color:#fff;font-weight:600}
+
+  /* ---------- Stat strip ---------- */
+  .stats{display:flex;flex-wrap:wrap;gap:12px;margin:-26px auto 0;position:relative;z-index:3}
+  .stat{flex:1 1 150px;background:linear-gradient(160deg,#211d40,#191634);border:1px solid #322b56;border-radius:14px;padding:18px 18px}
+  .stat b{display:block;font-size:2rem;font-weight:800;color:#fff;font-family:'Source Code Pro',monospace;line-height:1}
+  .stat span{font-size:.76rem;color:#bdb6e6;text-transform:uppercase;letter-spacing:.05em;margin-top:7px;display:block}
+
+  section{padding:44px 0}
+  .sec-head{margin-bottom:8px}
+  .kicker{font-family:'Source Code Pro',monospace;font-size:.72rem;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);margin:0 0 8px}
+  h2{font-size:1.5rem;margin:0 0 8px;font-weight:800;letter-spacing:-.01em;color:#fff}
+  .sub{color:#bdb6e6;font-size:1rem;margin:0 0 22px;max-width:66ch}
+
+  /* ---------- Clickable step rail ---------- */
+  .steps{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:8px}
+  @media(max-width:720px){.steps{grid-template-columns:repeat(2,1fr)}}
+  .step{
+    text-align:left;background:rgba(255,255,255,.04);border:1px solid rgba(169,156,245,.2);
+    border-radius:14px;padding:16px 16px 15px;cursor:pointer;color:inherit;font-family:inherit;
+    position:relative;transition:transform .16s,border-color .16s,background .16s;
+  }
+  .step:hover{transform:translateY(-3px);border-color:var(--purple-soft)}
+  .step .sn{font-family:'Source Code Pro',monospace;font-size:.72rem;color:var(--purple-soft);letter-spacing:.1em}
+  .step .si{font-size:1.5rem;display:block;margin:8px 0 8px}
+  .step .st{font-weight:700;font-size:.98rem;color:#fff;margin-bottom:3px}
+  .step .sd{font-size:.8rem;color:#bdb6e6;line-height:1.4}
+  .step.gate{background:rgba(217,138,16,.1);border-color:rgba(238,176,84,.34)}
+  .step.gate .sn,.step.gate .st{color:var(--amber-soft)}
+  .step.active{background:linear-gradient(160deg,#2c2550,#241f44);border-color:var(--purple);box-shadow:0 10px 30px rgba(108,92,231,.25)}
+  .step.active.gate{border-color:var(--amber)}
+  .step .tick{position:absolute;top:12px;right:13px;width:18px;height:18px;border-radius:50%;border:1.6px solid rgba(169,156,245,.4);display:flex;align-items:center;justify-content:center}
+  .step.active .tick{background:var(--purple);border-color:var(--purple)}
+  .step.active.gate .tick{background:var(--amber);border-color:var(--amber)}
+  .step.active .tick::after{content:"";width:4px;height:8px;border:solid #fff;border-width:0 2px 2px 0;transform:rotate(45deg);margin-top:-2px}
+  .progress{height:3px;background:rgba(169,156,245,.16);border-radius:3px;margin:14px 0 26px;overflow:hidden}
+  .progress i{display:block;height:100%;background:linear-gradient(90deg,var(--purple),var(--purple-soft));border-radius:3px;transition:width .3s ease;width:25%}
+
+  /* ---------- Panels ---------- */
+  .panel{display:none;animation:fade .3s ease}
+  .panel.active{display:block}
+  @keyframes fade{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+  .panel-note{background:rgba(169,156,245,.09);border-left:3px solid var(--purple-soft);border-radius:0 10px 10px 0;padding:13px 16px;color:#d8d3f2;font-size:.9rem;margin-top:18px}
+  .panel-note.amber{background:rgba(217,138,16,.1);border-left-color:var(--amber-soft);color:#f0dcb4}
+
+  /* email card */
+  .email{background:#fbfaf6;color:var(--ink);border-radius:14px;overflow:hidden;border:1px solid #d9d3c4}
+  .email .eh{padding:14px 18px;border-bottom:1px solid #ece7da;font-family:'Source Code Pro',monospace;font-size:.78rem;color:#4a4763;line-height:1.9}
+  .email .eh .lk{color:var(--muted)}
+  .email .eb{padding:16px 18px;font-size:.92rem}
+  .email .att{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+  .email .att span{background:#efeae0;border:1px solid #ded7c6;border-radius:8px;padding:4px 11px;font-size:.78rem;color:#5a5670}
+
+  /* field extraction: two systems */
+  .sysgrid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+  @media(max-width:680px){.sysgrid{grid-template-columns:1fr}}
+  .sys{background:rgba(255,255,255,.035);border:1px solid rgba(169,156,245,.2);border-radius:14px;padding:18px 18px 8px}
+  .sys h3{font-family:'Source Code Pro',monospace;font-size:.72rem;text-transform:uppercase;letter-spacing:.08em;color:var(--purple-soft);margin:0 0 4px;display:flex;justify-content:space-between}
+  .sys h3 .cnt{color:#8b83c0}
+  .frow{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-bottom:1px solid rgba(169,156,245,.1);font-size:.86rem}
+  .frow:last-child{border-bottom:0}
+  .frow .k{color:#9992c2;font-family:'Source Code Pro',monospace;font-size:.76rem}
+  .frow .v{color:#fff;font-weight:600;text-align:right}
+  .frow .v.lock::after{content:" 🔒";font-size:.72rem}
+
+  /* decisions table */
+  .decns{width:100%;border-collapse:collapse;font-size:.9rem;background:rgba(255,255,255,.025);border-radius:14px;overflow:hidden}
+  .decns th{text-align:left;padding:12px 14px;font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:#9992c2;font-weight:600;background:rgba(255,255,255,.03)}
+  .decns td{padding:13px 14px;border-top:1px solid rgba(169,156,245,.12);vertical-align:top;color:#e7e3f7}
+  .decns .dpoint{font-weight:600;color:#fff}
+  .chip{display:inline-block;font-family:'Source Code Pro',monospace;font-weight:600;font-size:.76rem;padding:4px 12px;border-radius:7px;letter-spacing:.03em;white-space:nowrap}
+  .chip.deny{background:rgba(209,70,106,.16);color:#f0879f;border:1px solid rgba(209,70,106,.4)}
+  .chip.admit{background:rgba(46,158,107,.16);color:var(--good-soft);border:1px solid rgba(46,158,107,.4)}
+  .chip.pick{background:rgba(217,138,16,.16);color:var(--amber-soft);border:1px solid rgba(217,138,16,.4)}
+  .basis{color:#a9a2cc;font-size:.82rem;margin-top:2px}
+  .tbl-scroll{overflow-x:auto}
+
+  /* ---------- Document viewer ---------- */
+  .viewer{background:#fff;color:#1d1b2e;border-radius:14px;overflow:hidden;border:1px solid #d9d3c4}
+  .tabs{display:flex;background:#f3efe4;border-bottom:1px solid #e2dccd}
+  .tab{flex:1;padding:12px 8px;font-size:.84rem;font-weight:600;color:var(--muted);background:transparent;border:0;cursor:pointer;border-bottom:2.5px solid transparent;transition:all .12s;font-family:inherit}
+  .tab:hover{color:var(--ink)}
+  .tab.active{color:var(--purple);border-bottom-color:var(--purple);background:#fff}
+  .vtoolbar{display:flex;align-items:center;justify-content:space-between;padding:10px 16px;background:#faf8ff;border-bottom:1px solid #ece7da;flex-wrap:wrap;gap:8px}
+  .legend{display:flex;gap:14px;font-size:.74rem;color:var(--muted);flex-wrap:wrap}
+  .legend span{display:inline-flex;align-items:center;gap:5px}
+  .swatch{width:12px;height:12px;border-radius:3px;display:inline-block}
+  .swatch.m{background:#e7e0ff;border:1px solid #b9a9f5}
+  .swatch.d{background:#ffe7c2;border:1px solid #eab054}
+  .toggle{font-family:inherit;font-size:.74rem;font-weight:600;border:1px solid var(--purple);color:var(--purple);background:#fff;border-radius:7px;padding:6px 11px;cursor:pointer}
+  .toggle.on{background:var(--purple);color:#fff}
+  .doc{font-family:'Source Serif 4',Georgia,serif;font-size:.88rem;line-height:1.66;color:#23202f;padding:26px 30px;max-height:600px;overflow-y:auto}
+  .doc .caption{font-size:.8rem;white-space:pre;font-family:'Source Code Pro',monospace;line-height:1.5;border:1px solid #e2dccd;border-radius:8px;padding:13px;background:#fcfbf7;overflow-x:auto;margin-bottom:16px}
+  .doc h4{font-weight:700;text-align:center;letter-spacing:.04em;margin:18px 0 10px;font-family:'Plus Jakarta Sans'}
+  .doc .sub-h{font-weight:700;margin:15px 0 6px;font-family:'Plus Jakarta Sans';font-size:.85rem}
+  .doc p{margin:0 0 11px;text-align:justify}
+  .doc .docpage{display:none}
+  .doc .docpage.active{display:block;animation:fade .25s ease}
+  .doc .sig{margin-top:16px;white-space:pre-line;font-family:'Source Code Pro',monospace;font-size:.79rem;color:#3a3650}
+  .doc .excerpt-note{font-style:italic;color:var(--muted);font-size:.79rem;text-align:center;margin-top:16px;font-family:'Plus Jakarta Sans'}
+  .mf,.dp{border-radius:3px;padding:0 2px}
+  .viewer.annot .mf{background:#e7e0ff;box-shadow:inset 0 -1px 0 #b9a9f5}
+  .viewer.annot .dp{background:#ffe7c2;box-shadow:inset 0 -1px 0 #eab054;font-weight:600}
+  .dp{font-weight:600}
+  .doclist{display:grid;grid-template-columns:repeat(auto-fit,minmax(200px,1fr));gap:12px;margin-top:18px}
+  .dcard{background:rgba(255,255,255,.035);border:1px solid rgba(169,156,245,.2);border-radius:12px;padding:14px 16px}
+  .dcard b{display:block;font-size:.9rem;color:#fff;margin-bottom:4px}
+  .dcard span{color:#a9a2cc;font-size:.78rem;line-height:1.4}
+
+  /* ---------- Closing ---------- */
+  .close{background:linear-gradient(160deg,#211d40,#191634);border:1px solid #322b56;border-radius:20px;padding:32px 30px;text-align:center;margin:10px 0 44px}
+  .close h2{font-size:1.4rem;margin:0 0 10px}
+  .close p{color:#cfc9e6;max-width:60ch;margin:0 auto 6px;font-size:1rem}
+  .trust{margin-top:18px;font-family:'Source Code Pro',monospace;font-size:.76rem;letter-spacing:.05em;color:var(--purple-soft)}
+  .trust b{color:#fff}
+  footer{text-align:center;color:#6b6880;font-size:.76rem;padding:0 0 40px;font-family:'Source Code Pro',monospace}
+
+  @media (max-width:560px){
+    h1{font-size:1.9rem}
+    .doc{padding:18px 16px}
+    section{padding:34px 0}
+  }
+  @media print{
+    body{background:#fff;color:#000}
+    header,.stat,.step,.close{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    .panel{display:block !important}
+    .docpage{display:block !important}
+    .doc{max-height:none;overflow:visible}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <div class="brandrow"><span class="logo">D</span><span class="bn">Dodonai · for The Juge Firm</span></div>
+    <p class="eyebrow">Litigation drafting · workers' comp defense</p>
+    <h1>A new file, <span class="accent">answered the moment it lands.</span></h1>
+    <p class="lede">We took the three Practice Master forms your team uses every day and ran a live workers' comp assignment through them. <b>One intake email goes in;</b> a filing-ready Answer package, transmittal letter, and employer wage-request letter come out. Your attorneys still make every legal call; the assembly disappears.</p>
+    <div class="metastrip">
+      <span class="pill"><b>Your own templates</b> · nothing to re-learn</span>
+      <span class="pill"><b>~30 fields</b> merged, zero re-keyed</span>
+      <span class="pill"><b>Neutral</b> · you decide every position</span>
+    </div>
+  </div>
+</header>
+
+<div class="wrap">
+  <div class="stats">
+    <div class="stat"><b>1</b><span>input: the assignment email</span></div>
+    <div class="stat"><b>31</b><span>fields captured once</span></div>
+    <div class="stat"><b>3</b><span>documents drafted at once</span></div>
+    <div class="stat"><b>6</b><span>calls surfaced to the attorney</span></div>
+  </div>
+
+  <section>
+    <div class="sec-head">
+      <p class="kicker">Walk the flow · tap each step</p>
+      <h2>From inbox to filing-ready, in four moves</h2>
+      <p class="sub">This is a real assignment run end to end. Click through each step to see exactly what happens, and where the work stays yours.</p>
+    </div>
+
+    <div class="steps">
+      <button class="step active" data-step="1">
+        <span class="tick"></span>
+        <span class="sn">01</span><span class="si">📥</span>
+        <span class="st">The file arrives</span>
+        <span class="sd">An assignment email from the carrier, the way every matter starts today.</span>
+      </button>
+      <button class="step" data-step="2">
+        <span class="tick"></span>
+        <span class="sn">02</span><span class="si">🗂️</span>
+        <span class="st">Every field captured</span>
+        <span class="sd">31 data points read from the file, across both of your systems.</span>
+      </button>
+      <button class="step gate" data-step="3">
+        <span class="tick"></span>
+        <span class="sn">03</span><span class="si">⚖️</span>
+        <span class="st">You make the calls</span>
+        <span class="sd">The judgment decisions are surfaced with the evidence behind each.</span>
+      </button>
+      <button class="step" data-step="4">
+        <span class="tick"></span>
+        <span class="sn">04</span><span class="si">📄</span>
+        <span class="st">Drafted &amp; ready</span>
+        <span class="sd">Answer, transmittal, and employer letter, on your own forms.</span>
+      </button>
+    </div>
+    <div class="progress"><i id="progbar"></i></div>
+
+    <!-- STEP 1 -->
+    <div class="panel active" data-step="1">
+      <div class="email">
+        <div class="eh">
+          <span class="lk">From:</span> Monica Herbert &lt;claims@greatamerican.example&gt;<br>
+          <span class="lk">To:</span> jquaglino@jugefirm.com<br>
+          <span class="lk">Subject:</span> New Assignment — Boudreaux v. Pelican Industrial Services, LLC — Claim WC-2026-118764
+        </div>
+        <div class="eb">
+          John — assigning the captioned disputed claim. Claimant alleges a lower-back injury lifting a pipe skid on 3/19/26. TTD initiated 4/2, terminated 6/5 after the IME released him to medium duty. Form 1008 filed with the OWC, District 08, Docket 26-04832. Please answer and open discovery.
+          <div class="att">
+            <span>📎 Form 1008 (petition)</span>
+            <span>📎 FROI</span>
+            <span>📎 Payroll summary (26 wk)</span>
+            <span>📎 Adjuster claim notes</span>
+          </div>
+        </div>
+      </div>
+      <div class="panel-note">Today this email kicks off hours of manual work: opening the file, keying fields into Practice Master, building the folder tree and calendar plan. Here, it is the <b>only</b> thing anyone types.</div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div class="panel" data-step="2">
+      <div class="sysgrid">
+        <div class="sys">
+          <h3><span>Case management</span><span class="cnt">25 fields</span></h3>
+          <div class="frow"><span class="k">Client_ID</span><span class="v">GAIC-10247</span></div>
+          <div class="frow"><span class="k">Claim_Numb</span><span class="v">WC-2026-118764</span></div>
+          <div class="frow"><span class="k">Dock_Numb</span><span class="v">26-04832 · Dist. 08</span></div>
+          <div class="frow"><span class="k">Claimant</span><span class="v">Darryl T. Boudreaux</span></div>
+          <div class="frow"><span class="k">Employer</span><span class="v">Pelican Industrial Services, LLC</span></div>
+          <div class="frow"><span class="k">Emp. contact</span><span class="v">Karen Melancon (HR)</span></div>
+          <div class="frow"><span class="k">Adjuster</span><span class="v">Monica Herbert</span></div>
+          <div class="frow"><span class="k">Opp. counsel</span><span class="v">Marcus J. Thibodeaux</span></div>
+          <div class="frow"><span class="k">Primary atty</span><span class="v">John Quaglino + block</span></div>
+        </div>
+        <div class="sys">
+          <h3><span>WC claimant database</span><span class="cnt">6 fields</span></h3>
+          <div class="frow"><span class="k">Social_Sec</span><span class="v lock">***-**-4821</span></div>
+          <div class="frow"><span class="k">Dob</span><span class="v lock">09/14/1987</span></div>
+          <div class="frow"><span class="k">Street_Adr</span><span class="v">1436 Cypress Street</span></div>
+          <div class="frow"><span class="k">City_Sz</span><span class="v">Westwego, LA 70094</span></div>
+          <div class="frow"><span class="k">Insurer</span><span class="v">Great American Ins. Co.</span></div>
+          <div class="frow"><span class="k">District_N</span><span class="v">08 (New Orleans)</span></div>
+        </div>
+      </div>
+      <div class="panel-note">Your forms already pull from <b>two systems</b>: case management plus a separate workers' comp claimant database. The draft assembles across both, and the field-level access control on SSN and DOB (🔒) is carried through exactly as your templates enforce it today.</div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div class="panel" data-step="3">
+      <div class="tbl-scroll">
+      <table class="decns">
+        <thead><tr><th>The position to take</th><th>Recommended</th><th>What it's based on</th></tr></thead>
+        <tbody>
+          <tr><td class="dpoint">Average weekly wage / comp rate</td><td><span class="chip deny">DENY</span></td><td>Payroll computes AWW at $1,142.30; the petition alleges $1,300.00.</td></tr>
+          <tr><td class="dpoint">Accident in course &amp; scope</td><td><span class="chip admit">ADMIT</span></td><td>Witnessed by two co-workers, reported same day, FROI on file.</td></tr>
+          <tr><td class="dpoint">Injury in course &amp; scope</td><td><span class="chip deny">DENY</span></td><td>2023 lumbar MRI shows pre-existing degenerative disc disease at L4-L5.</td></tr>
+          <tr><td class="dpoint">Employee of defendant</td><td><span class="chip admit">ADMIT</span></td><td>Hired 11/2023, full-time hourly, confirmed by payroll records.</td></tr>
+          <tr><td class="dpoint">Penalty defense framing</td><td><span class="chip pick">TERMINATING</span></td><td>TTD was paid 4/2–6/5, then terminated on the IME release.</td></tr>
+          <tr><td class="dpoint">Carrier vs. TPA (intake letter)</td><td><span class="chip pick">CARRIER</span></td><td>Great American is the direct carrier on this policy.</td></tr>
+        </tbody>
+      </table>
+      </div>
+      <div class="panel-note amber">These six are the only decisions that reach you. Everything else in the package is your unchanged statutory boilerplate: the §1221(1)–(4) denials, prescription exception, §1208.1 forfeiture, offsets and credits. Each recommendation is one click to accept or flip. <b>The law stays with the lawyer; the typing goes away.</b></div>
+    </div>
+
+    <!-- STEP 4 -->
+    <div class="panel" data-step="4">
+      <div class="viewer annot" id="viewer">
+        <div class="tabs">
+          <button class="tab active" data-doc="answer">Exception &amp; Answer</button>
+          <button class="tab" data-doc="letter">Transmittal Letter</button>
+          <button class="tab" data-doc="wage">Employer Letter</button>
+        </div>
+        <div class="vtoolbar">
+          <div class="legend">
+            <span><i class="swatch m"></i> Auto-merged from the file</span>
+            <span><i class="swatch d"></i> Your decision</span>
+          </div>
+          <button class="toggle on" id="annotToggle">Highlights: ON</button>
+        </div>
+        <div class="doc">
+
+          <!-- ANSWER -->
+          <div class="docpage active" data-doc="answer">
+            <div class="caption"><span class="mf">DARRYL T. BOUDREAUX</span>          *   NUMBER <span class="mf">26-04832</span>   DISTRICT <span class="mf">08</span>
+                              *
+versus                        *   OFFICE OF WORKERS' COMPENSATION
+                              *
+<span class="mf">PELICAN INDUSTRIAL SERVICES, LLC</span>  *   STATE OF LOUISIANA
+* * * * * * * * * * * * * * * * * * * * * * * * * *</div>
+            <h4>EXCEPTION AND ANSWER</h4>
+            <p><span class="mf">Pelican Industrial Services, LLC</span> and <span class="mf">Great American Insurance Company</span>, sought to be made defendants herein, through undersigned counsel, respond to the Petition of <span class="mf">Darryl T. Boudreaux</span> upon information and belief, aver as follows:</p>
+            <div class="sub-h">EXCEPTION</div>
+            <p>Plaintiff's claim for weekly compensation benefits has prescribed in whole or in part.</p>
+            <div class="sub-h">ANSWER TO PETITION</div>
+            <p>Defendants deny that plaintiff is entitled to any additional weekly benefits or medical care. On the contrary, plaintiff has received all benefits to which <span class="mf">he</span> is entitled under the Louisiana Workers' Compensation Law.</p>
+            <p>Defendants <span class="dp">DENY</span> plaintiff's allegations regarding <span class="mf">his</span> average weekly wage and weekly compensation rate.</p>
+            <p>Defendants <span class="dp">ADMIT</span> that plaintiff had an accident within the course and scope of employment.</p>
+            <p>Defendants <span class="dp">DENY</span> that plaintiff sustained an injury within the course and scope of employment with defendant.</p>
+            <p>Defendants <span class="dp">ADMIT</span> that plaintiff was an employee of defendant, <span class="mf">Pelican Industrial Services, LLC</span>, at the time of the alleged work-related accident.</p>
+            <p>Defendants deny that plaintiff is entitled to temporary total disability benefits under LSA-R.S. 23:1221(1), permanent and total disability under 23:1221(2), Supplemental Earnings Benefits under 23:1221(3), or any Schedule Benefits under 23:1221(4).</p>
+            <p>Defendants dispute that they unreasonably delayed or denied payment of any benefits and deny that they acted in an arbitrary and capricious manner in <span class="dp">TERMINATING</span> benefits; therefore, plaintiff is not entitled to penalties and attorney's fees.</p>
+            <p>WHEREFORE, defendants pray that this Answer be deemed good and sufficient, and that there be an order rendered in favor of defendants and against the plaintiff, dismissing plaintiff's Petition at plaintiff's costs.</p>
+            <div class="sig">Respectfully submitted,
+JUGE, NAPOLITANO, RULI, PUTFARK &amp; PITTMAN
+
+BY: ____________________________
+    <span class="mf">John Quaglino</span> -- <span class="mf">#2XXXX</span>
+    <span class="mf">3320 West Esplanade Ave. North</span>
+    <span class="mf">Metairie, LA 70002</span>
+    Telephone: <span class="mf">(504) 831-7270</span>
+    Email: <span class="mf">jquaglino@jugefirm.com</span>
+    Attorneys for Defendants</div>
+            <p class="excerpt-note">Excerpt. The full Answer runs several pages and assembles automatically: Request for Preliminary Determination Hearing, §1208.1 forfeiture, §1081/§1225 affirmative defenses, proposed Order, Request for Written Notice, Interrogatories, Request for Production, HIPAA and records authorizations, and Certificate of Service.</p>
+          </div>
+
+          <!-- TRANSMITTAL -->
+          <div class="docpage" data-doc="letter">
+            <p style="text-align:right;color:#6b6880;font-size:.82rem">July 6, 2026</p>
+            <p><b>CERTIFIED MAIL<br>RETURN RECEIPT REQUESTED</b></p>
+            <p><span class="mf">Marcus J. Thibodeaux</span>, Esq.<br>Attorney at Law<br><span class="mf">909 Poydras Street, Suite 1800</span><br><span class="mf">New Orleans, LA 70112</span></p>
+            <p>Re: &nbsp;<span class="mf">Darryl T. Boudreaux</span> v. <span class="mf">Pelican Industrial Services, LLC</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;OWCA No. <span class="mf">26-04832</span>, District <span class="mf">08</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Our File: <span class="mf">GAIC-10247</span></p>
+            <p>Dear <span class="mf">Marcus</span>:</p>
+            <p>Enclosed are copies of the Answer and Request for Written Notice which we have filed on behalf of <span class="mf">Pelican Industrial Services, LLC</span> and <span class="mf">Great American Insurance Company</span> in the above matter with the Office of Workers' Compensation.</p>
+            <p>Also enclosed are Interrogatories and a Request for Production of Documents. In accordance with Article 1474 of the Code of Civil Procedure, we have retained the original discovery pleadings in our file and will not file copies with the court until or unless it is necessary to file a motion to compel. Should you need additional time to respond to these discovery requests, please advise the undersigned at your earliest convenience.</p>
+            <div class="sig">Very truly yours,
+<span class="mf">John Quaglino</span>
+
+Enclosures
+cc: <span class="mf">Great American Insurance Company</span> — Claim No. <span class="mf">WC-2026-118764</span>
+    <span class="mf">Ms. Karen Melancon, Pelican Industrial Services, LLC</span></div>
+          </div>
+
+          <!-- WAGE -->
+          <div class="docpage" data-doc="wage">
+            <p style="text-align:right;color:#6b6880;font-size:.82rem">July 6, 2026</p>
+            <p><span class="mf">Ms. Karen Melancon</span><br><span class="mf">Pelican Industrial Services, LLC</span><br><span class="mf">2200 Engineers Road</span><br><span class="mf">Belle Chasse, LA 70037</span></p>
+            <p>Re: &nbsp;Employee: <span class="mf">Darryl T. Boudreaux</span> · Employer: <span class="mf">Pelican Industrial Services, LLC</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;SSN: <span class="mf">***-**-4821</span> · DOB: <span class="mf">09/14/1987</span><br>
+            &nbsp;&nbsp;&nbsp;&nbsp;Our File: <span class="mf">GAIC-10247</span></p>
+            <p>Dear <span class="mf">Ms. Melancon</span>:</p>
+            <p>Your workers' compensation <span class="dp">insurance carrier</span>, <span class="mf">Great American Insurance Company</span>, has asked us to represent <span class="mf">Pelican Industrial Services, LLC</span> in the above workers' compensation claim. We will be working closely with <span class="mf">Great American Insurance Company</span> in handling the defense of this case. <span class="mf">Monica Herbert</span> is the representative with whom we are dealing.</p>
+            <div class="sub-h">DOCUMENTS REQUIRED FROM YOU</div>
+            <p>Please send us the following as soon as possible: a complete copy of the employee's personnel records (employment application, pre-employment physical, history of any job-related accidents, evaluations, and written drug-testing policy); and <span class="mf">his</span> payroll records for the six months prior to the job accident, including total wages and hours, rate of pay, and full- or part-time status.</p>
+            <p>Please also identify <span class="mf">Darryl T. Boudreaux</span>'s direct supervisor and any eyewitnesses or co-workers with knowledge of the alleged accident, and provide any notes, logs, or memoranda regarding <span class="mf">his</span> claim.</p>
+            <div class="sig">Your kind attention and assistance is greatly appreciated.
+
+<span class="mf">John Quaglino</span>
+cc: <span class="mf">Monica Herbert</span> — Claim No. <span class="mf">WC-2026-118764</span></div>
+            <p class="excerpt-note">Condensed. The full letter also walks the employer through mediation, the Answer, discovery, depositions, and trial prep, the same boilerplate you send on every file, assembled every time.</p>
+          </div>
+
+        </div>
+      </div>
+
+      <div class="doclist">
+        <div class="dcard"><b>Exception &amp; Answer package</b><span>Answer · Order · Request for Written Notice · RFP · Interrogatories · HIPAA + records authorizations</span></div>
+        <div class="dcard"><b>Transmittal letter</b><span>To opposing counsel · certified-mail block · cc to carrier with claim number</span></div>
+        <div class="dcard"><b>Employer letter</b><span>Wage &amp; personnel records request to the employer's HR contact</span></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="close">
+    <h2>The assembly disappears. The law stays yours.</h2>
+    <p>Everything highlighted in purple was pulled from one file, captured once. Everything in amber is a decision only your attorneys can make. That is the Practice Master workflow, running on your own forms, without the re-keying.</p>
+    <p class="trust"><b>SOC 2 certified</b> · <b>HIPAA compliant</b> · your data is never used to train models</p>
+  </div>
+</div>
+
+<footer>Dodonai · The Juge Firm · illustrative matter · all names and data are fictional · July 2026</footer>
+
+<script>
+  // ---- clickable steps drive panels ----
+  var steps = document.querySelectorAll('.step');
+  var panels = document.querySelectorAll('.panel');
+  var bar = document.getElementById('progbar');
+  function showStep(n){
+    steps.forEach(function(s){ s.classList.toggle('active', s.getAttribute('data-step')===n); });
+    panels.forEach(function(p){ p.classList.toggle('active', p.getAttribute('data-step')===n); });
+    bar.style.width = (parseInt(n,10)*25) + '%';
+  }
+  steps.forEach(function(s){
+    s.addEventListener('click', function(){ showStep(s.getAttribute('data-step')); });
+  });
+
+  // ---- document tabs ----
+  document.querySelectorAll('.tab').forEach(function(tab){
+    tab.addEventListener('click', function(){
+      var doc = tab.getAttribute('data-doc');
+      document.querySelectorAll('.tab').forEach(function(t){ t.classList.toggle('active', t===tab); });
+      document.querySelectorAll('.docpage').forEach(function(p){
+        p.classList.toggle('active', p.getAttribute('data-doc')===doc);
+      });
+    });
+  });
+
+  // ---- highlight toggle ----
+  var viewer = document.getElementById('viewer');
+  var tgl = document.getElementById('annotToggle');
+  tgl.addEventListener('click', function(){
+    var on = viewer.classList.toggle('annot');
+    tgl.classList.toggle('on', on);
+    tgl.textContent = 'Highlights: ' + (on ? 'ON' : 'OFF');
+  });
+</script>
+</body>
+</html>
