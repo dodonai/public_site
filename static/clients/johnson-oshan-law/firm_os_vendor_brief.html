@@ -611,6 +611,65 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
   .stack-before .stack-chip{animation:none}
 }
 
+/* ===== CLICKABLE AGENT CARDS -> ANIMATED WORKFLOW MODAL ===== */
+.agent-card.clickable{cursor:pointer}
+.agent-card.clickable:hover{border-color:var(--purple-soft);box-shadow:0 8px 24px rgba(20,20,58,.10)}
+.agent-card.clickable:focus-visible{outline:2px solid var(--purple-vivid);outline-offset:3px}
+.agent-more{display:inline-flex;align-items:center;gap:6px;margin-top:11px;font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.07em;text-transform:uppercase;color:var(--purple-bold)}
+.agent-more .arr{transition:transform .3s ease}
+.agent-card.clickable:hover .agent-more .arr,.agent-card.clickable:focus-visible .agent-more .arr{transform:translateX(4px)}
+
+.fx-modal{position:fixed;inset:0;z-index:120;display:none;align-items:center;justify-content:center;padding:24px}
+.fx-modal.open{display:flex}
+.fx-backdrop{position:absolute;inset:0;background:rgba(16,16,40,.62);-webkit-backdrop-filter:blur(4px);backdrop-filter:blur(4px);animation:fxFade .25s ease}
+.fx-panel{position:relative;z-index:1;width:min(760px,100%);max-height:88vh;overflow-y:auto;background:var(--cream);border-radius:16px;box-shadow:0 30px 80px -20px rgba(10,10,30,.7);animation:fxRise .35s cubic-bezier(.2,.8,.2,1)}
+@keyframes fxFade{from{opacity:0}to{opacity:1}}
+@keyframes fxRise{from{opacity:0;transform:translateY(24px) scale(.985)}to{opacity:1;transform:none}}
+.fx-head{display:flex;align-items:center;gap:14px;padding:22px 24px;background:linear-gradient(150deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff;border-radius:16px 16px 0 0;position:sticky;top:0;z-index:2}
+.fx-ic{flex-shrink:0;width:44px;height:44px;border-radius:9px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:17px;color:#fff;background:linear-gradient(135deg,var(--purple-bold),var(--purple-vivid))}
+.fx-htext{flex:1;min-width:0}
+.fx-cat{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:3px}
+.fx-name{font-weight:800;font-size:19px;letter-spacing:-.01em;line-height:1.2}
+.fx-close{flex-shrink:0;width:34px;height:34px;border-radius:8px;border:1px solid rgba(255,255,255,.22);background:rgba(255,255,255,.06);color:#fff;font-size:17px;line-height:1;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:background .2s}
+.fx-close:hover{background:rgba(255,255,255,.16)}
+.fx-body{padding:26px 24px 26px}
+.fx-desc{font-size:14px;line-height:1.6;color:var(--gray-meta-light);margin:0 0 24px}
+.fx-desc strong{color:var(--midnight-deep)}
+
+.fx-flow{display:flex;align-items:flex-start;gap:0;position:relative;margin:4px 0 2px}
+.fx-track{position:absolute;top:26px;left:6%;right:6%;height:3px;background:var(--cream-line);border-radius:2px;z-index:0;overflow:hidden}
+.fx-track .fx-fill{position:absolute;left:0;top:0;height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));border-radius:2px;transition:width .5s cubic-bezier(.4,.7,.3,1)}
+.fx-step{flex:1;text-align:center;position:relative;padding:0 4px;z-index:1}
+.fx-dot{width:54px;height:54px;border-radius:15px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:23px;background:#fff;border:2px solid var(--cream-line);position:relative;transition:transform .35s cubic-bezier(.2,1.3,.4,1),border-color .35s ease,box-shadow .35s ease,background .35s ease}
+.fx-step.active .fx-dot{transform:scale(1.14);border-color:var(--purple-vivid);box-shadow:0 0 0 6px rgba(124,58,237,.14),0 12px 24px -8px rgba(124,58,237,.55)}
+.fx-step.done .fx-dot{border-color:var(--purple-soft);background:linear-gradient(135deg,rgba(124,58,237,.10),rgba(124,58,237,.03))}
+.fx-step.gate.active .fx-dot{border-color:var(--teal);box-shadow:0 0 0 6px rgba(14,116,144,.16),0 12px 24px -8px rgba(14,116,144,.55)}
+.fx-step.gate.done .fx-dot{border-color:var(--teal);background:linear-gradient(135deg,rgba(14,116,144,.10),rgba(14,116,144,.03))}
+.fx-step.write.done .fx-dot{border-color:var(--green);background:linear-gradient(135deg,rgba(46,158,107,.12),rgba(46,158,107,.03))}
+.fx-txt{display:block}
+.fx-lbl{font-weight:700;font-size:12.5px;line-height:1.25;letter-spacing:-.01em;color:var(--midnight-deep);margin-bottom:5px}
+.fx-role{font-family:var(--mono);font-size:8.5px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-bold);background:rgba(124,58,237,.09);padding:2px 7px;border-radius:9px;display:inline-block}
+.fx-step.gate .fx-role{color:var(--teal);background:rgba(14,116,144,.12)}
+.fx-step.write .fx-role{color:var(--green);background:rgba(46,158,107,.12)}
+.fx-foot{margin-top:24px;padding-top:18px;border-top:1px solid var(--cream-line);display:flex;flex-wrap:wrap;gap:7px}
+.fx-foot .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.fx-foot .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.fx-foot .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.fx-foot .am.phase{background:rgba(199,125,46,.16);color:var(--amber)}
+
+@media(max-width:640px){
+  .fx-flow{flex-direction:column;gap:4px}
+  .fx-track{display:none}
+  .fx-step{display:flex;align-items:center;gap:14px;text-align:left;width:100%;padding:5px 0}
+  .fx-dot{margin:0;width:46px;height:46px;font-size:20px;flex-shrink:0}
+  .fx-txt{flex:1}
+}
+@media(prefers-reduced-motion:reduce){
+  .fx-panel,.fx-backdrop{animation:none}
+  .fx-dot{transition:none}
+  .fx-track .fx-fill{transition:none}
+}
+
 </style>
 </head>
 <body>
@@ -736,7 +795,7 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 <section class="alt">
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">Your 13 categories, mapped</span><h2>The agents that already <span class="soft">run this</span></h2>
-      <p class="sec-sub">Each card is one of your wishlist items, matched to the agent we operate in our own firm. The badges show what it watches, when it fires, and where a human signs off.</p></div>
+      <p class="sec-sub">Each card is one of your wishlist items, matched to the agent we operate in our own firm. The badges show what it watches, when it fires, and where a human signs off. <strong style="color:var(--purple-bold)">Click any agent to watch its workflow run.</strong></p></div>
 
     <div class="pkg-category reveal"><div class="cat-label">Meeting &amp; call intelligence · your categories 1 and 2</div></div>
     <div class="agent-grid">
@@ -1086,6 +1145,253 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
     observe();
   }
 })();
+</script>
 
+<script>
+/* ============================================================================
+   Agent-card workflow modals
+   ----------------------------------------------------------------------------
+   Each .agent-card in "Your 13 categories, mapped" becomes clickable and opens a
+   modal with an animated, step-by-step flow of how that agent runs. Cards are
+   keyed by the number/glyph in their .agent-icon (01..11, +). No per-card HTML
+   is required beyond that icon. The flow loops while the modal is open and stops
+   when it closes. Honors prefers-reduced-motion (shows the completed flow, static).
+   ============================================================================ */
+(function () {
+  var FLOWS = {
+    "01": { name: "Pre-call briefing agent", cat: "Meeting & call intelligence", steps: [
+      { ic: "📅", lbl: "Call on the calendar", role: "watch" },
+      { ic: "🔎", lbl: "Enrich who, firm, and history", role: "do" },
+      { ic: "🧠", lbl: "Assemble the brief", role: "do" },
+      { ic: "💬", lbl: "Post to Slack, 15 to 30 min before", role: "write" } ] },
+    "02": { name: "Post-call follow-up agent", cat: "Meeting & call intelligence", steps: [
+      { ic: "🎙️", lbl: "Call ends", role: "trigger" },
+      { ic: "✍️", lbl: "Draft follow-up + commitments", role: "do" },
+      { ic: "📂", lbl: "File notes, make tasks", role: "do" },
+      { ic: "👤", lbl: "Your sign-off", role: "gate" },
+      { ic: "✉️", lbl: "Sent + logged", role: "write" } ] },
+    "03": { name: "Inbox triage agent", cat: "Inbox & email intelligence", steps: [
+      { ic: "📥", lbl: "Scan inbox every 2 hours", role: "trigger" },
+      { ic: "🗂️", lbl: "Sort: action / cc / called-out", role: "do" },
+      { ic: "🔔", lbl: "Flag threads gone quiet", role: "do" },
+      { ic: "📋", lbl: "Prioritized list for you", role: "write" },
+      { ic: "👤", lbl: "You reply", role: "gate" } ] },
+    "04": { name: "Email-to-task & routing agent", cat: "Inbox & email intelligence", steps: [
+      { ic: "📨", lbl: "New client mail lands", role: "trigger" },
+      { ic: "✅", lbl: "Auto-receipt + flag checklist gaps", role: "do" },
+      { ic: "📌", lbl: "Push tasks out of threads", role: "do" },
+      { ic: "👤", lbl: "Approve auto-replies", role: "gate" },
+      { ic: "🔁", lbl: "Close task when a sent mail fulfills it", role: "write" } ] },
+    "05": { name: "Daily briefing agent", cat: "Digests, tasks & status", steps: [
+      { ic: "🌅", lbl: "Morning + end of day", role: "trigger" },
+      { ic: "🧮", lbl: "Read inboxes, tasks, calendar", role: "do" },
+      { ic: "📋", lbl: "What's due + overnight arrivals", role: "write" },
+      { ic: "🌙", lbl: "EOD recap + order of attack", role: "write" } ] },
+    "06": { name: "Status reconciliation agent", cat: "Digests, tasks & status", steps: [
+      { ic: "👀", lbl: "Watch Slack, email, tasks", role: "watch" },
+      { ic: "🧩", lbl: "Pull status into one view", role: "do" },
+      { ic: "✅", lbl: "Mark done when activity shows it", role: "do" },
+      { ic: "🗂️", lbl: "Consolidated matter status", role: "write" } ] },
+    "07": { name: "Relationship CRM agent", cat: "CRM & relationships", steps: [
+      { ic: "📆", lbl: "New contact in calendar/email", role: "trigger" },
+      { ic: "🔎", lbl: "Enrich title, company, how you met", role: "do" },
+      { ic: "🧠", lbl: "Add to the firm brain", role: "write" },
+      { ic: "❓", lbl: "“Who do I know in LA?”", role: "query" } ] },
+    "08": { name: "Pipeline & resurface agent", cat: "CRM & relationships", steps: [
+      { ic: "📊", lbl: "Track live opportunities", role: "watch" },
+      { ic: "🏷️", lbl: "Log outcome: passed / lost / ghosted", role: "do" },
+      { ic: "⏰", lbl: "Right-moment trigger", role: "trigger" },
+      { ic: "🔁", lbl: "Resurface the old connection", role: "write" } ] },
+    "09": { name: "Client-context agent", cat: "CRM & relationships", steps: [
+      { ic: "🆕", lbl: "New task, matter, or handoff", role: "trigger" },
+      { ic: "🔎", lbl: "Pull Box + tasks + email", role: "do" },
+      { ic: "⚠️", lbl: "Flag red flags from prior matters", role: "do" },
+      { ic: "🧾", lbl: "Instant client picture", role: "write" } ] },
+    "10": { name: "Firm cockpit", cat: "Management & legal work", steps: [
+      { ic: "🛰️", lbl: "Read the whole OS", role: "watch" },
+      { ic: "📈", lbl: "Every task, matter, owner", role: "do" },
+      { ic: "⏳", lbl: "Flag work sitting too long", role: "do" },
+      { ic: "🖥️", lbl: "Live dashboard + client portal", role: "write" } ] },
+    "11": { name: "Document & playbook agent", cat: "Management & legal work", steps: [
+      { ic: "📄", lbl: "Counterparty markup lands", role: "trigger" },
+      { ic: "⚖️", lbl: "Review against your playbook", role: "do" },
+      { ic: "🎫", lbl: "Flag lawyer-needed as a ticket", role: "do" },
+      { ic: "👤", lbl: "Attorney review", role: "gate" },
+      { ic: "✅", lbl: "Cleared + turned around", role: "write" } ] },
+    "+": { name: "The remaining three", cat: "Buildable in Phase 1", steps: [
+      { ic: "📝", lbl: "Enter a new client once", role: "trigger" },
+      { ic: "🔀", lbl: "Cascade to every sheet + log", role: "do" },
+      { ic: "⚙️", lbl: "One-click onboarding sequence", role: "do" },
+      { ic: "💬", lbl: "Plain-language client coaching", role: "write" } ] }
+  };
+
+  var ROLE_LABEL = { watch: "watches", trigger: "trigger", do: "does", gate: "you", write: "writes", query: "answers" };
+  var REDUCED = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+  var modal, panel, elIc, elCat, elName, elDesc, elFlow, elFoot;
+  var timer = null, lastFocus = null;
+
+  function buildModal() {
+    modal = document.createElement('div');
+    modal.className = 'fx-modal';
+    modal.setAttribute('role', 'dialog');
+    modal.setAttribute('aria-modal', 'true');
+    modal.setAttribute('aria-hidden', 'true');
+    modal.innerHTML =
+      '<div class="fx-backdrop" data-close></div>' +
+      '<div class="fx-panel" role="document">' +
+        '<div class="fx-head">' +
+          '<div class="fx-ic"></div>' +
+          '<div class="fx-htext"><div class="fx-cat"></div><div class="fx-name"></div></div>' +
+          '<button class="fx-close" type="button" aria-label="Close" data-close>✕</button>' +
+        '</div>' +
+        '<div class="fx-body">' +
+          '<p class="fx-desc"></p>' +
+          '<div class="fx-flow"><div class="fx-track"><div class="fx-fill"></div></div></div>' +
+          '<div class="fx-foot"></div>' +
+        '</div>' +
+      '</div>';
+    document.body.appendChild(modal);
+    panel  = modal.querySelector('.fx-panel');
+    elIc   = modal.querySelector('.fx-ic');
+    elCat  = modal.querySelector('.fx-cat');
+    elName = modal.querySelector('.fx-name');
+    elDesc = modal.querySelector('.fx-desc');
+    elFlow = modal.querySelector('.fx-flow');
+    elFoot = modal.querySelector('.fx-foot');
+
+    modal.addEventListener('click', function (e) {
+      if (e.target.hasAttribute('data-close')) close();
+    });
+    document.addEventListener('keydown', function (e) {
+      if (e.key === 'Escape' && modal.classList.contains('open')) close();
+    });
+  }
+
+  function renderFlow(steps) {
+    // wipe old steps but keep the track
+    Array.prototype.slice.call(elFlow.querySelectorAll('.fx-step')).forEach(function (s) { s.remove(); });
+    steps.forEach(function (st) {
+      var div = document.createElement('div');
+      div.className = 'fx-step ' + st.role;
+      div.innerHTML =
+        '<div class="fx-dot">' + st.ic + '</div>' +
+        '<div class="fx-txt"><div class="fx-lbl">' + st.lbl + '</div>' +
+        '<div class="fx-role">' + (ROLE_LABEL[st.role] || st.role) + '</div></div>';
+      elFlow.appendChild(div);
+    });
+  }
+
+  function animate() {
+    var steps = Array.prototype.slice.call(elFlow.querySelectorAll('.fx-step'));
+    var fill = elFlow.querySelector('.fx-fill');
+    var N = steps.length;
+    if (!N) return;
+
+    if (REDUCED) {
+      steps.forEach(function (s) { s.classList.add('done'); });
+      fill.style.width = '100%';
+      return;
+    }
+
+    var i = 0;
+    function frame() {
+      if (i < N) {
+        steps.forEach(function (s, k) {
+          s.classList.toggle('active', k === i);
+          s.classList.toggle('done', k < i);
+        });
+        fill.style.width = (N <= 1 ? 100 : (i / (N - 1)) * 100) + '%';
+        i++;
+        timer = setTimeout(frame, 1000);
+      } else {
+        // completed frame: everything done, hold, then reset + loop
+        steps.forEach(function (s) { s.classList.remove('active'); s.classList.add('done'); });
+        fill.style.width = '100%';
+        timer = setTimeout(function () {
+          steps.forEach(function (s) { s.classList.remove('active', 'done'); });
+          fill.style.width = '0%';
+          i = 0;
+          timer = setTimeout(frame, 480);
+        }, 1600);
+      }
+    }
+    frame();
+  }
+
+  function stop() { if (timer) { clearTimeout(timer); timer = null; } }
+
+  function open(card, key) {
+    var flow = FLOWS[key];
+    if (!flow) return;
+    var icon = card.querySelector('.agent-icon');
+    var name = card.querySelector('.agent-name');
+    var desc = card.querySelector('.agent-desc');
+    var meta = card.querySelector('.agent-meta');
+
+    elIc.textContent = icon ? icon.textContent : key;
+    elCat.textContent = flow.cat;
+    elName.textContent = (name && name.textContent) || flow.name;
+    elDesc.innerHTML = desc ? desc.innerHTML : '';
+
+    // reuse the card's real watch/fire/gate/phase badges as the footer
+    elFoot.innerHTML = meta ? meta.innerHTML : '';
+
+    renderFlow(flow.steps);
+
+    lastFocus = document.activeElement;
+    modal.classList.add('open');
+    modal.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+    panel.scrollTop = 0;
+    modal.querySelector('.fx-close').focus();
+
+    stop();
+    // small delay so the panel is painted before the flow starts
+    setTimeout(animate, 260);
+  }
+
+  function close() {
+    stop();
+    modal.classList.remove('open');
+    modal.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    if (lastFocus && lastFocus.focus) lastFocus.focus();
+  }
+
+  function wireCards() {
+    document.querySelectorAll('.agent-grid .agent-card').forEach(function (card) {
+      var icon = card.querySelector('.agent-icon');
+      if (!icon) return;
+      var key = icon.textContent.trim();
+      if (!FLOWS[key]) return;
+
+      card.classList.add('clickable');
+      card.setAttribute('role', 'button');
+      card.setAttribute('tabindex', '0');
+      card.setAttribute('aria-label', ((card.querySelector('.agent-name') || {}).textContent || 'Agent') + ' — see the animated workflow');
+
+      // affordance hint
+      var body = card.querySelector('.agent-body') || card;
+      var hint = document.createElement('div');
+      hint.className = 'agent-more';
+      hint.innerHTML = 'See how it runs <span class="arr">→</span>';
+      body.appendChild(hint);
+
+      card.addEventListener('click', function () { open(card, key); });
+      card.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' || e.key === ' ') { e.preventDefault(); open(card, key); }
+      });
+    });
+  }
+
+  function init() { buildModal(); wireCards(); }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', init);
+  } else {
+    init();
+  }
+})();
 </script>
 </body></html>
