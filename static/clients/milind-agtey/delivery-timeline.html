@@ -149,8 +149,10 @@ July 9, 2026
       <ul>
         <li>The service scaffold is built and passing its full automated test suite: report ingestion, template mapping and fill, the metrics engine, the AI analysis writer, and grounded chat.</li>
         <li>Your Yardi Excel exports arrived July 8. We checked them line by line against the PDF packages and every figure matches, so the Excel route is confirmed and the PDF reader moves to later.</li>
-        <li>Now building the Yardi report reader for the Budget Comparison, Income Statement, and Balance Sheet, working against your real March through May numbers.</li>
-        <li>The analysis and chat engines were pulled forward out of August. They run today on test data and switch to your numbers as soon as the reader lands.</li>
+        <li>The Yardi reader is finished, and it now covers all five of your target reports. The Budget Comparison, Income Statement, and Balance Sheet read as monthly columns. The Aging Detail and Expense Distribution read as monthly snapshots, which is what they actually are.</li>
+        <li>The analysis engine now computes on your real March through May figures rather than test data. Every number it produces traces back to the exact cell it came from. The AI writer and the chat layer turn on once the cloud accounts are in place.</li>
+        <li>The reports now check each other. We built 791 automatic cross-checks from identities your own reports assert, for example that each month's year to date figure minus last month's equals this month's. All of them pass. This is not a substitute for the hand-built comparison below, but it does prove we are reading your sheets correctly.</li>
+        <li>One design finding worth flagging: a new month can add rows, not only a column. Yardi leaves out any line with no activity in the period, so March shows 56 accounts, April 64, and May 67. April is the first month with Professional Services, and May the first with Real Estate Taxes. The template has to be built from the union of the months, not from any single one. The Balance Sheet is unaffected.</li>
       </ul>
     </div>
 
@@ -161,7 +163,7 @@ July 9, 2026
 
     <div class="stats">
       <div class="stat"><div class="n">226</div><div class="l">Figures cross-checked against your source reports, zero mismatches</div></div>
-      <div class="stat"><div class="n">43</div><div class="l">Automated tests passing on the engine today</div></div>
+      <div class="stat"><div class="n">166</div><div class="l">Automated tests passing on the engine today</div></div>
       <div class="stat"><div class="n">4</div><div class="l">Months of real Yardi data now in hand (Mar to Jun)</div></div>
     </div>
   </div>
@@ -227,8 +229,12 @@ July 9, 2026
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Yardi report reader <em>Budget Comparison, Income Statement, and Balance Sheet, read straight from your bookkeeper's Excel exports</em></div>
-              <span class="spill s-prog">Building now</span>
+              <div class="lbl">Yardi report reader <em>All five reports, read straight from your bookkeeper's Excel exports. The three statements stack a column per month; the Aging Detail and Expense Distribution stack as monthly snapshots</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Cross-report accuracy checks <em>791 checks run your reports against each other and against themselves, so a misread sheet cannot pass quietly while we wait on the hand-built comparison</em></div>
+              <span class="spill s-built">Built</span>
             </div>
           </div>
         </div>
@@ -295,8 +301,8 @@ July 9, 2026
 <section style="padding-top:8px">
   <div class="wrap">
     <div class="kicker">What we need from you</div>
-    <h2>Six open items, one of them urgent</h2>
-    <p class="sub">Everything below feeds a specific phase. The first one is the only thing standing between us and the accuracy gate.</p>
+    <h2>Everything still open, and only the first one is blocking</h2>
+    <p class="sub">Each item below feeds a specific phase. The first one is the only thing standing between us and the accuracy gate. Nothing else is urgent this week.</p>
 
     <div class="check-list">
       <!-- GEN:client-asks -->
@@ -312,7 +318,7 @@ July 9, 2026
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">Sample exports from one real QuickBooks firm <em>The Yardi side now has real data. The QuickBooks side is still running on synthetic exports, so the reader there is unproven.</em></span>
+        <span class="ctext">Sample exports from one real QuickBooks firm <em>The Yardi side now has real data. The QuickBooks side is still running on synthetic exports, so the reader there is unproven. If sourcing this is slow, we can produce a real export ourselves from an Intuit sandbox company and start without it.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
@@ -322,7 +328,7 @@ July 9, 2026
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">A decision on the aging and expense reports <em>The Budget Comparison, Income Statement, and Balance Sheet gain a column each month. The Aging Detail and Expense Distribution do not work that way: aging restates the same open charges into new buckets every month, and the expense report is a fresh set of invoices. Do you want the latest snapshot, or every month kept so you can trend them?</em></span>
+        <span class="ctext">Your preference on the aging and expense reports <em>No longer blocking. We built both ways rather than wait. Every month is kept as a snapshot, so the latest view and the month over month trend are each a single read. As an example of why trending is worth having: the ESK charge for $3,248.53 sits in 31 to 60 days at the end of March, 61 to 90 at the end of April, and over 90 in May and June. The charge never changed, only its age did. Tell us which you want as the default view and we will set it.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
@@ -332,7 +338,7 @@ July 9, 2026
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">A free Intuit developer account <em>Not urgent, needed for September. The free tier includes sandbox companies, so no paid QuickBooks subscription is required for the build.</em></span>
+        <span class="ctext">A free Intuit developer account <em>Not urgent, needed for September. The free tier includes sandbox companies, so no paid QuickBooks subscription is required for the build. We can stand one up on our side now to get moving, and move it to your account before go-live.</em></span>
         <span class="ctag t-open">JBY</span>
       </div>
       <div class="check-item">
