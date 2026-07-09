@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>JBY Ventures: Accounting AI Delivery Timeline</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --midnight:#1a1535; --midnight-2:#241d49; --purple:#6d5fa6; --purple-lite:#8a7bb8;
+    --cream:#f7f4ef; --ink:#2d2740; --muted:#6b6580; --line:#e4dff0;
+    --green:#2f9e6f; --amber:#d8943a; --slate:#9a93ad; --red:#c2554d;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html{scroll-behavior:smooth}
+  body{font-family:'Plus Jakarta Sans',system-ui,sans-serif;color:var(--ink);background:var(--cream);line-height:1.55;-webkit-font-smoothing:antialiased}
+  .mono{font-family:'Source Code Pro',monospace}
+  .wrap{max-width:880px;margin:0 auto;padding:0 24px}
+
+  /* Hero */
+  .hero{background:linear-gradient(155deg,var(--midnight),var(--midnight-2));color:#fff;padding:64px 0 56px}
+  .hero .wrap{max-width:880px}
+  .eyebrow{font-family:'Source Code Pro',monospace;font-size:12px;letter-spacing:.18em;text-transform:uppercase;color:var(--purple-lite);margin-bottom:18px}
+  .hero h1{font-size:34px;line-height:1.18;font-weight:800;letter-spacing:-.01em;margin-bottom:16px}
+  .hero h1 span{color:var(--purple-lite)}
+  .hero p.lede{font-size:17px;color:#d8d3ea;max-width:640px}
+  .hero .meta{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 28px;font-size:14px;color:#bcb6d6}
+  .hero .meta b{color:#fff;font-weight:600}
+
+  /* Section */
+  section{padding:48px 0}
+  .kicker{font-family:'Source Code Pro',monospace;font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple);margin-bottom:10px}
+  h2{font-size:23px;font-weight:700;letter-spacing:-.01em;margin-bottom:6px}
+  .sub{color:var(--muted);font-size:15px;margin-bottom:26px}
+
+  /* Now-card */
+  .now{background:#fff;border:1px solid var(--line);border-left:4px solid var(--purple);border-radius:14px;padding:24px 26px;box-shadow:0 8px 30px rgba(45,39,64,.05)}
+  .now h3{font-size:16px;font-weight:700;margin-bottom:14px;display:flex;align-items:center;gap:10px}
+  .pulse{width:9px;height:9px;border-radius:50%;background:var(--green);box-shadow:0 0 0 0 rgba(47,158,111,.5);animation:p 2s infinite}
+  @keyframes p{0%{box-shadow:0 0 0 0 rgba(47,158,111,.45)}70%{box-shadow:0 0 0 8px rgba(47,158,111,0)}100%{box-shadow:0 0 0 0 rgba(47,158,111,0)}}
+  .now ul{list-style:none}
+  .now li{position:relative;padding-left:22px;margin-bottom:9px;font-size:15px}
+  .now li:before{content:"";position:absolute;left:0;top:9px;width:7px;height:7px;border-radius:50%;background:var(--purple-lite)}
+  .now li:last-child{margin-bottom:0}
+
+  /* Blocker callout */
+  .blocker{background:#fff;border:1px solid #f0d9c4;border-left:4px solid var(--amber);border-radius:14px;padding:22px 26px;margin-top:18px}
+  .blocker h3{font-size:15px;font-weight:700;margin-bottom:8px;color:var(--ink);display:flex;align-items:center;gap:9px}
+  .blocker .tagline{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;background:rgba(216,148,58,.16);color:var(--amber);padding:3px 9px;border-radius:20px}
+  .blocker p{font-size:14.5px;color:var(--muted)}
+  .blocker p b{color:var(--ink)}
+
+  /* Stat strip */
+  .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:18px}
+  .stat{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 18px;text-align:center}
+  .stat .n{font-family:'Source Code Pro',monospace;font-size:24px;font-weight:600;color:var(--purple);letter-spacing:-.02em}
+  .stat .l{font-size:12.5px;color:var(--muted);margin-top:3px;line-height:1.35}
+
+  /* Timeline */
+  .tl{position:relative;margin-top:8px}
+  .tl:before{content:"";position:absolute;left:19px;top:8px;bottom:8px;width:2px;background:var(--line)}
+  .phase{position:relative;padding:0 0 26px 56px}
+  .phase:last-child{padding-bottom:0}
+  .dot{position:absolute;left:8px;top:2px;width:24px;height:24px;border-radius:50%;background:#fff;border:2px solid var(--line);display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:700;color:var(--muted);z-index:1}
+  .phase.done .dot{background:var(--green);border-color:var(--green);color:#fff}
+  .phase.active .dot{background:var(--purple);border-color:var(--purple);color:#fff;box-shadow:0 0 0 5px rgba(109,95,166,.16)}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:12px;padding:16px 20px}
+  .phase.active .pcard{border-color:#cdc2e8;box-shadow:0 6px 22px rgba(45,39,64,.06)}
+  .prow{display:flex;justify-content:space-between;align-items:baseline;gap:12px;flex-wrap:wrap}
+  .ptitle{font-size:16px;font-weight:700}
+  .ptitle small{font-weight:600;color:var(--purple);font-family:'Source Code Pro',monospace;font-size:12px;margin-right:8px}
+  .pwhen{font-size:13px;color:var(--muted);font-family:'Source Code Pro',monospace;white-space:nowrap}
+  .pdesc{font-size:14px;color:var(--muted);margin-top:7px}
+  .badge{display:inline-block;font-family:'Source Code Pro',monospace;font-size:11px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:20px;margin-top:11px}
+  .b-done{background:rgba(47,158,111,.12);color:var(--green)}
+  .b-active{background:rgba(109,95,166,.13);color:var(--purple)}
+  .b-next{background:rgba(216,148,58,.14);color:var(--amber)}
+  .b-planned{background:#f0eef5;color:var(--slate)}
+
+  /* Sub-deliverable checklist inside a phase card */
+  .sub-intro{font-size:13px;color:var(--muted);margin-top:12px;padding-top:12px;border-top:1px solid var(--line)}
+  .sub-list{margin-top:8px}
+  .sub-item{display:flex;justify-content:space-between;gap:14px;align-items:baseline;padding:8px 0;border-bottom:1px dashed var(--line)}
+  .sub-item:last-child{border-bottom:none;padding-bottom:0}
+  .sub-item .lbl{font-size:13.5px;color:var(--ink);font-weight:500}
+  .sub-item .lbl em{display:block;font-style:normal;font-weight:400;color:var(--muted);font-size:12.5px;margin-top:2px;line-height:1.4}
+  .spill{font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:.04em;text-transform:uppercase;padding:3px 9px;border-radius:20px;white-space:nowrap;flex-shrink:0;margin-top:1px}
+  .s-built{background:rgba(47,158,111,.13);color:var(--green)}
+  .s-tune{background:rgba(109,95,166,.14);color:var(--purple)}
+  .s-prog{background:rgba(216,148,58,.15);color:var(--amber)}
+  .s-plan{background:#f0eef5;color:var(--slate)}
+  .s-block{background:rgba(194,85,77,.12);color:var(--red)}
+
+  /* Checklist: what we need from JBY */
+  .check-list{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 24px;box-shadow:0 8px 30px rgba(45,39,64,.05)}
+  .check-item{display:flex;gap:15px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--line)}
+  .check-item:last-child{border-bottom:none}
+  .check-item.critical{background:linear-gradient(90deg,rgba(216,148,58,.07),transparent 70%);margin:0 -24px;padding-left:24px;padding-right:24px}
+  .cbox{width:23px;height:23px;border-radius:7px;flex-shrink:0;display:flex;align-items:center;justify-content:center;font-size:14px;font-weight:800;margin-top:1px}
+  .cbox.done{background:var(--green);color:#fff}
+  .cbox.open{background:#faf8fc;border:2px solid #d8cfe8}
+  .cbox.hot{background:#fff;border:2px solid var(--amber);color:var(--amber)}
+  .ctext{font-size:14.5px;font-weight:600}
+  .ctext em{display:block;font-style:normal;font-weight:400;color:var(--muted);font-size:13px;margin-top:3px;line-height:1.45}
+  .ctag{margin-left:auto;font-family:'Source Code Pro',monospace;font-size:10px;font-weight:600;letter-spacing:.05em;text-transform:uppercase;padding:3px 10px;border-radius:20px;white-space:nowrap;align-self:center}
+  .ctag.t-done{background:rgba(47,158,111,.12);color:var(--green)}
+  .ctag.t-open{background:rgba(216,148,58,.14);color:var(--amber)}
+  .ctag.t-hot{background:var(--amber);color:#fff}
+
+  /* note */
+  .note{font-size:13.5px;color:var(--muted);background:#fff;border:1px dashed var(--line);border-radius:12px;padding:16px 20px;margin-top:18px}
+  .note b{color:var(--ink)}
+
+  /* footer */
+  footer{background:var(--midnight);color:#bcb6d6;padding:34px 0;font-size:13px}
+  footer .wrap{display:flex;justify-content:space-between;gap:18px;flex-wrap:wrap;align-items:center}
+  footer .trust{font-family:'Source Code Pro',monospace;font-size:11.5px;letter-spacing:.04em;color:var(--purple-lite)}
+  footer a{color:#fff;text-decoration:none}
+  @media(max-width:620px){.stats{grid-template-columns:1fr}.hero h1{font-size:27px}.phase{padding-left:48px}}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Dodonai Consulting &nbsp;·&nbsp; Delivery Tracker</div>
+    <h1>Your accounting AI, working on real books by end of September.<br><span>Here is exactly where every phase stands.</span></h1>
+    <p class="lede">A live view of the JBY Ventures build: pull the numbers, fill your own template, analyze them, then ask questions of them. We update this as milestones move, and you hear from us before any date if something is trending late.</p>
+    <div class="meta">
+      <div><b>Prepared for</b> &nbsp;Milind Agtey &nbsp;·&nbsp; Sunjay Agtey</div>
+      <div><b>Status as of</b> &nbsp;<!-- GEN:status-date -->
+July 9, 2026
+<!-- /GEN:status-date --></div>
+      <div><b>Target</b> &nbsp;Working product on real data, end of September 2026</div>
+    </div>
+  </div>
+</header>
+
+<section>
+  <div class="wrap">
+    <div class="kicker">Where we are right now</div>
+    <h2>The engine is built. We are pointing it at your real numbers.</h2>
+    <p class="sub">Phase 0 came in ahead of plan, so the analysis and chat engines already exist. What remains is proving them against your actual reports.</p>
+    <div class="now">
+      <h3><span class="pulse"></span> In flight this week</h3>
+      <ul>
+        <li>The service scaffold is built and passing its full automated test suite: report ingestion, template mapping and fill, the metrics engine, the AI analysis writer, and grounded chat.</li>
+        <li>Your Yardi Excel exports arrived July 8. We checked them line by line against the PDF packages and every figure matches, so the Excel route is confirmed and the PDF reader moves to later.</li>
+        <li>Now building the Yardi report reader for the Budget Comparison, Income Statement, and Balance Sheet, working against your real March through May numbers.</li>
+        <li>The analysis and chat engines were pulled forward out of August. They run today on test data and switch to your numbers as soon as the reader lands.</li>
+      </ul>
+    </div>
+
+    <div class="blocker">
+      <h3>One thing is holding the critical path <span class="tagline">Needs Milind</span></h3>
+      <p><b>We need one hand-built report to check our work against.</b> Take any single month we already have, ideally March or April, and send the finished report your contact assembled by hand for that same month. We fill your template from the raw exports, then compare our output to hers cell by cell. Until that pair is in hand, the accuracy gate that everything else is built on top of cannot close.</p>
+    </div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">226</div><div class="l">Figures cross-checked against your source reports, zero mismatches</div></div>
+      <div class="stat"><div class="n">43</div><div class="l">Automated tests passing on the engine today</div></div>
+      <div class="stat"><div class="n">4</div><div class="l">Months of real Yardi data now in hand (Mar to Jun)</div></div>
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:8px">
+  <div class="wrap">
+    <div class="kicker">The road to end of September</div>
+    <h2>Excel first, QuickBooks second</h2>
+    <p class="sub">We prove the product on exported spreadsheets before wiring in the live QuickBooks connection. That keeps Intuit's approval process off the critical path and lets us build against real numbers immediately.</p>
+
+    <div class="tl">
+
+      <div class="phase done">
+        <div class="dot">✓</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>POC</small>Interactive proof of concept</div>
+            <div class="pwhen">June 23</div>
+          </div>
+          <div class="pdesc">All five stages shown working end to end on sample books: connect, map your template, fill it, analyze, then ask the numbers questions.</div>
+          <span class="badge b-done">Done</span>
+        </div>
+      </div>
+
+      <div class="phase done">
+        <div class="dot">✓</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>AGREEMENT</small>Scope and commercials</div>
+            <div class="pwhen">July 2</div>
+          </div>
+          <div class="pdesc">Statement of work executed. Fixed fee, half at signing and half at go-live. The code, the cloud accounts, and the intellectual property are yours. First payment received.</div>
+          <span class="badge b-done">Done</span>
+        </div>
+      </div>
+
+      <div class="phase active">
+        <div class="dot">●</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASE 0</small>Foundation and scaffold</div>
+            <div class="pwhen">July, week 1</div>
+          </div>
+          <div class="pdesc">The service, the internal financial model every report normalizes into, and the accuracy test harness. Built and green on test data; now being validated against your real exports.</div>
+          <span class="badge b-active">In progress</span>
+          <p class="sub-intro">The build pieces, and where each stands today:</p>
+          <div class="sub-list">
+            <div class="sub-item">
+              <div class="lbl">Internal financial model <em>One shape every report normalizes into, so the analysis never cares whether a number came from QuickBooks, Yardi, or a spreadsheet</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Template mapping review <em>We propose which of your template's cells map to which accounts, you correct anything we got wrong, and it fills from then on</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Accuracy test harness <em>Compares our filled template against a hand-built report, cell by cell, within rounding tolerance</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Metrics engine <em>Every figure is computed in code, never guessed by the AI. Variance, period over period, margins</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Yardi report reader <em>Budget Comparison, Income Statement, and Balance Sheet, read straight from your bookkeeper's Excel exports</em></div>
+              <span class="spill s-prog">Building now</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="dot">2</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASE 1</small>Fill your template, prove it is right</div>
+            <div class="pwhen">July, weeks 2 to 4</div>
+          </div>
+          <div class="pdesc">Your own spreadsheet, filled from the raw exports, matching a hand-built report cell for cell. This is the gate. Nothing gets built on top of it until it passes.</div>
+          <span class="badge b-next">Next</span>
+          <div class="sub-list" style="margin-top:12px">
+            <div class="sub-item">
+              <div class="lbl">Accuracy gate on one month <em>Blocked until we have the matching hand-built report to compare against</em></div>
+              <span class="spill s-block">Waiting on you</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Add a month, keep the history <em>June becomes the first new column on top of the March to May base</em></div>
+              <span class="spill s-plan">Planned</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Second-source merge <em>Your margin analysis case: per-invoice columns pulled in from a separate spreadsheet</em></div>
+              <span class="spill s-block">Needs a sample</span>
+            </div>
+            <div class="sub-item">
+              <div class="lbl">Cover the full report set <em>The five Yardi reports plus your six standard QuickBooks reports</em></div>
+              <span class="spill s-block">Needs the locked list</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="dot">3</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASES 2 &amp; 3</small>Analysis and chat</div>
+            <div class="pwhen">August</div>
+          </div>
+          <div class="pdesc">The AI writes the commentary over figures the metrics engine already computed and verified, so it cannot invent a number. Chat answers questions by calling those same calculations. Both engines are already built ahead of schedule; August is for tuning them on your real reports.</div>
+          <span class="badge b-planned">Engines built, tuning ahead</span>
+        </div>
+      </div>
+
+      <div class="phase">
+        <div class="dot">4</div>
+        <div class="pcard">
+          <div class="prow">
+            <div class="ptitle"><small>PHASES 4 &amp; 5</small>QuickBooks connection and go-live</div>
+            <div class="pwhen">September</div>
+          </div>
+          <div class="pdesc">The live QuickBooks connection, held to the same standard: a live pull must reproduce the exported spreadsheet exactly. Then the dashboard, the scheduled monthly run, your production environment, and handover of the cloud accounts, the code, and the keys.</div>
+          <span class="badge b-planned">Planned</span>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section style="padding-top:8px">
+  <div class="wrap">
+    <div class="kicker">What we need from you</div>
+    <h2>Six open items, one of them urgent</h2>
+    <p class="sub">Everything below feeds a specific phase. The first one is the only thing standing between us and the accuracy gate.</p>
+
+    <div class="check-list">
+      <!-- GEN:client-asks -->
+      <div class="check-item critical">
+        <span class="cbox hot">!</span>
+        <span class="ctext">The hand-built report for one month <em>Pick March or April, whichever is easier, and send the finished report your contact assembles by hand for that month. We fill your template from the raw exports and compare against hers. This is the accuracy gate, and it is the single thing holding the critical path.</em></span>
+        <span class="ctag t-hot">Blocking</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Your six standard QuickBooks report names <em>The locked list you mentioned pinning. Each one becomes a template mapping, so this sets the scope of the QuickBooks side.</em></span>
+        <span class="ctag t-open">Milind</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Sample exports from one real QuickBooks firm <em>The Yardi side now has real data. The QuickBooks side is still running on synthetic exports, so the reader there is unproven.</em></span>
+        <span class="ctag t-open">Milind</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">One spreadsheet from a different system <em>For the margin analysis case, where per-invoice columns get merged in from a second source.</em></span>
+        <span class="ctag t-open">Milind</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">A decision on the aging and expense reports <em>The Budget Comparison, Income Statement, and Balance Sheet gain a column each month. The Aging Detail and Expense Distribution do not work that way: aging restates the same open charges into new buckets every month, and the expense report is a fresh set of invoices. Do you want the latest snapshot, or every month kept so you can trend them?</em></span>
+        <span class="ctag t-open">Milind</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">January and February in Excel, if easy <em>Optional. Your bookkeeper sent March through June. Two more months would widen the base we build the template on, but we can start without them.</em></span>
+        <span class="ctag t-open">Meredith</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">A free Intuit developer account <em>Not urgent, needed for September. The free tier includes sandbox companies, so no paid QuickBooks subscription is required for the build.</em></span>
+        <span class="ctag t-open">JBY</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Your cloud and AI accounts <em>Needed near go-live. We stand them up with you, and everything transfers to JBY at final handover.</em></span>
+        <span class="ctag t-open">Sunjay</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">✓</span>
+        <span class="ctext">Yardi Excel exports <em>Received July 8. March through June, all five target reports, verified against the PDF packages with zero mismatches.</em></span>
+        <span class="ctag t-done">Done</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">✓</span>
+        <span class="ctext">Confirm the same reports export from Yardi <em>Confirmed. The Excel route carries everything the PDF packages carried, so the PDF reader is deferred and comes off the critical path.</em></span>
+        <span class="ctag t-done">Done</span>
+      </div>
+<!-- /GEN:client-asks -->
+    </div>
+    <div class="note">
+      <b>How dates work.</b> The windows above are targets, re-baselined at each phase boundary. If any milestone starts trending late, you hear it from us before the date, with the cause and the trade-offs, never after the fact. That delivery-visibility commitment is built into the engagement.
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div>
+      <div style="color:#fff;font-weight:700;font-size:15px;margin-bottom:4px">Dodonai Consulting</div>
+      <div>Prepared by Nick Chapleau &nbsp;·&nbsp; <a href="mailto:nick@dodon.ai">nick@dodon.ai</a></div>
+    </div>
+    <div class="trust">SOC 2 certified &nbsp;·&nbsp; Built in your cloud, owned by you</div>
+  </div>
+</footer>
+
+</body>
+</html>
