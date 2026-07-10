@@ -153,17 +153,18 @@ July 9, 2026
         <li>The analysis engine now computes on your real March through May figures rather than test data. Every number it produces traces back to the exact cell it came from. The AI writer and the chat layer turn on once the cloud accounts are in place.</li>
         <li>The reports now check each other. We built 791 automatic cross-checks from identities your own reports assert, for example that each month's year to date figure minus last month's equals this month's. All of them pass. This is not a substitute for the hand-built comparison below, but it does prove we are reading your sheets correctly.</li>
         <li>One design finding worth flagging: a new month can add rows, not only a column. Yardi leaves out any line with no activity in the period, so March shows 56 accounts, April 64, and May 67. April is the first month with Professional Services, and May the first with Real Estate Taxes. The template has to be built from the union of the months, not from any single one. The Balance Sheet is unaffected.</li>
+        <li>Rent Roll is now read too, which makes six of six reports. It carries the lease data behind your "expiring within six months" view, and we have folded it into the existing scope at no change in price.</li>
       </ul>
     </div>
 
     <div class="blocker">
-      <h3>One thing is holding the critical path <span class="tagline">Needs Milind</span></h3>
-      <p><b>We need one hand-built report to check our work against.</b> Take any single month we already have, ideally March or April, and send the finished report your contact assembled by hand for that same month. We fill your template from the raw exports, then compare our output to hers cell by cell. Until that pair is in hand, the accuracy gate that everything else is built on top of cannot close.</p>
+      <h3>The critical path is clear <span class="tagline">Updated July 9</span></h3>
+      <p><b>We were waiting on a report that does not exist.</b> You told us Meredith sends a prose package to management rather than a finished numeric report, so there is nothing to compare our output against cell by cell. That check was the gate the plan was built on, and it is now replaced by two things: the 831 automatic cross-checks that prove we read your sheets correctly, and a single review by you of the first generated package against what Meredith actually sends. Nothing is blocking us today.</p>
     </div>
 
     <div class="stats">
-      <div class="stat"><div class="n">226</div><div class="l">Figures cross-checked against your source reports, zero mismatches</div></div>
-      <div class="stat"><div class="n">166</div><div class="l">Automated tests passing on the engine today</div></div>
+      <div class="stat"><div class="n">831</div><div class="l">Cross-checks your reports now run against each other, all passing</div></div>
+      <div class="stat"><div class="n">182</div><div class="l">Automated tests passing on the engine today</div></div>
       <div class="stat"><div class="n">4</div><div class="l">Months of real Yardi data now in hand (Mar to Jun)</div></div>
     </div>
   </div>
@@ -229,11 +230,11 @@ July 9, 2026
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Yardi report reader <em>All five reports, read straight from your bookkeeper's Excel exports. The three statements stack a column per month; the Aging Detail and Expense Distribution stack as monthly snapshots</em></div>
+              <div class="lbl">Yardi report reader <em>All six reports, read straight from your bookkeeper's Excel exports. The three statements stack a column per month; the Aging Detail, Expense Distribution, and Rent Roll stack as monthly snapshots</em></div>
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Cross-report accuracy checks <em>791 checks run your reports against each other and against themselves, so a misread sheet cannot pass quietly while we wait on the hand-built comparison</em></div>
+              <div class="lbl">Cross-report accuracy checks <em>831 checks run your reports against each other and against themselves, so a misread sheet cannot pass quietly. This is now the primary accuracy gate</em></div>
               <span class="spill s-built">Built</span>
             </div>
           </div>
@@ -301,15 +302,20 @@ July 9, 2026
 <section style="padding-top:8px">
   <div class="wrap">
     <div class="kicker">What we need from you</div>
-    <h2>Everything still open, and only the first one is blocking</h2>
-    <p class="sub">Each item below feeds a specific phase. The first one is the only thing standing between us and the accuracy gate. Nothing else is urgent this week.</p>
+    <h2>Nothing is blocking us this week</h2>
+    <p class="sub">Each item below feeds a specific phase. The item that was blocking the critical path has been withdrawn, because the report it asked for does not exist.</p>
 
     <div class="check-list">
       <!-- GEN:client-asks -->
-      <div class="check-item critical">
-        <span class="cbox hot">!</span>
-        <span class="ctext">The hand-built report for one month <em>Pick March or April, whichever is easier, and send the finished report your contact assembles by hand for that month. We fill your template from the raw exports and compare against hers. This is the accuracy gate, and it is the single thing holding the critical path.</em></span>
-        <span class="ctag t-hot">Blocking</span>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">A read of the first generated package <em>Not blocking, and nothing to prepare. Once we generate a month's package we will send it over, and you compare it against what Meredith sends. That review replaces the hand-built comparison we had planned, since no such report exists.</em></span>
+        <span class="ctag t-open">Milind</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">✓</span>
+        <span class="ctext">The hand-built report for one month <em>Withdrawn July 9. You told us Meredith does not send a finished numeric report, so there was never anything to ask for. The accuracy gate is now the automatic cross-checks plus your review above.</em></span>
+        <span class="ctag t-done">Closed</span>
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
@@ -329,6 +335,11 @@ July 9, 2026
       <div class="check-item">
         <span class="cbox open"></span>
         <span class="ctext">Your preference on the aging and expense reports <em>No longer blocking. We built both ways rather than wait. Every month is kept as a snapshot, so the latest view and the month over month trend are each a single read. As an example of why trending is worth having: the ESK charge for $3,248.53 sits in 31 to 60 days at the end of March, 61 to 90 at the end of April, and over 90 in May and June. The charge never changed, only its age did. Tell us which you want as the default view and we will set it.</em></span>
+        <span class="ctag t-open">Milind</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Your read on the cash-flow block <em>The section under the ADJUSTMENTS banner in the Budget Comparison holds each account's movement for the month as a cash effect, not a balance, even though the row reads TOTAL ASSETS. It ties to your balance sheets on all 40 lines. Confirm that squares with how you read it.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
