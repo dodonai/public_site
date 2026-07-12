@@ -132,7 +132,7 @@
     <div class="meta">
       <div><b>Prepared for</b> &nbsp;Milind Agtey &nbsp;·&nbsp; Sunjay Agtey</div>
       <div><b>Status as of</b> &nbsp;<!-- GEN:status-date -->
-July 9, 2026
+July 12, 2026
 <!-- /GEN:status-date --></div>
       <div><b>Target</b> &nbsp;Working product on real data, end of September 2026</div>
     </div>
@@ -142,30 +142,30 @@ July 9, 2026
 <section>
   <div class="wrap">
     <div class="kicker">Where we are right now</div>
-    <h2>The engine is built. We are pointing it at your real numbers.</h2>
-    <p class="sub">Phase 0 came in ahead of plan, so the analysis and chat engines already exist. What remains is proving them against your actual reports.</p>
+    <h2>The core product is built and working on the real reports.</h2>
+    <p class="sub">The Yardi package now reflects your presentation decisions, and the first five QuickBooks reports have each passed an Excel-to-API comparison with zero differences.</p>
     <div class="now">
       <h3><span class="pulse"></span> In flight this week</h3>
       <ul>
-        <li>The service scaffold is built and passing its full automated test suite: report ingestion, template mapping and fill, the metrics engine, the AI analysis writer, and grounded chat.</li>
-        <li>Your Yardi Excel exports arrived July 8. We checked them line by line against the PDF packages and every figure matches, so the Excel route is confirmed and the PDF reader moves to later.</li>
-        <li>The Yardi reader is finished, and it now covers all five of your target reports. The Budget Comparison, Income Statement, and Balance Sheet read as monthly columns. The Aging Detail and Expense Distribution read as monthly snapshots, which is what they actually are.</li>
-        <li>The analysis engine now computes on your real March through May figures rather than test data. Every number it produces traces back to the exact cell it came from. The AI writer and the chat layer turn on once the cloud accounts are in place.</li>
-        <li>The reports now check each other. We built 791 automatic cross-checks from identities your own reports assert, for example that each month's year to date figure minus last month's equals this month's. All of them pass. This is not a substitute for the hand-built comparison below, but it does prove we are reading your sheets correctly.</li>
-        <li>One design finding worth flagging: a new month can add rows, not only a column. Yardi leaves out any line with no activity in the period, so March shows 56 accounts, April 64, and May 67. April is the first month with Professional Services, and May the first with Real Estate Taxes. The template has to be built from the union of the months, not from any single one. The Balance Sheet is unaffected.</li>
-        <li>Rent Roll is now read too, which makes six of six reports. It carries the lease data behind your "expiring within six months" view, and we have folded it into the existing scope at no change in price.</li>
+        <li>The complete build is passing 249 automated tests. That covers report ingestion, template mapping and fill, the metrics and commentary engines, grounded chat, saved history, monthly execution, and the dashboard.</li>
+        <li>All six Yardi reports are read directly from Excel: Budget Comparison, Income Statement, Balance Sheet, Aging Detail, Expense Distribution, and Rent Roll. The PDF reader remains deferred, as agreed.</li>
+        <li>Your July 12 presentation decisions are built. Aging opens on the latest snapshot, follows the slimmer Presentation-tab layout, leaves zero-value cells blank, and removes the redundant history column.</li>
+        <li>The cash section now shows Actual, Budget, and Variance together. Mortgage, operating-cash uses, and partner distributions appear as negative amounts in parentheses.</li>
+        <li>The May management package passes 831 cross-report checks before it can be saved. It contains the lease view, current open-charge delinquency detail, budget variance, cash flow, source references, and validated commentary.</li>
+        <li>The new-account guard is built. If a later month introduces or renames an account that was not part of the approved mapping, the fill stops and names the accounts requiring review rather than dropping them silently.</li>
+        <li>The QuickBooks development connection is live. Profit &amp; Loss, Balance Sheet, Cash Flow, Trial Balance, and General Ledger each match their Excel export exactly through the API, and all five run through the dashboard with saved report history.</li>
       </ul>
     </div>
 
     <div class="blocker">
-      <h3>The critical path is clear <span class="tagline">Updated July 9</span></h3>
-      <p><b>We were waiting on a report that does not exist.</b> You told us Meredith sends a prose package to management rather than a finished numeric report, so there is nothing to compare our output against cell by cell. That check was the gate the plan was built on, and it is now replaced by two things: the 831 automatic cross-checks that prove we read your sheets correctly, and a single review by you of the first generated package against what Meredith actually sends. Nothing is blocking us today.</p>
+      <h3>The next gates need JBY inputs <span class="tagline">Updated July 12</span></h3>
+      <p><b>The unblocked engineering work is complete.</b> The revised May package is ready for your confirmation. The next data cycle needs the remaining June statements after the bank reconciliations, while the margin-analysis use case needs the second-source per-invoice Excel and the real JBY template. The QuickBooks menu also needs its sixth report named.</p>
     </div>
 
     <div class="stats">
       <div class="stat"><div class="n">831</div><div class="l">Cross-checks your reports now run against each other, all passing</div></div>
-      <div class="stat"><div class="n">182</div><div class="l">Automated tests passing on the engine today</div></div>
-      <div class="stat"><div class="n">4</div><div class="l">Months of real Yardi data now in hand (Mar to Jun)</div></div>
+      <div class="stat"><div class="n">249</div><div class="l">Automated tests passing across the product today</div></div>
+      <div class="stat"><div class="n">5</div><div class="l">QuickBooks reports matching Excel and API with zero differences</div></div>
     </div>
   </div>
 </section>
@@ -173,8 +173,8 @@ July 9, 2026
 <section style="padding-top:8px">
   <div class="wrap">
     <div class="kicker">The road to end of September</div>
-    <h2>Excel first, QuickBooks second</h2>
-    <p class="sub">We prove the product on exported spreadsheets before wiring in the live QuickBooks connection. That keeps Intuit's approval process off the critical path and lets us build against real numbers immediately.</p>
+    <h2>Excel established the baseline; the QuickBooks connection now matches it</h2>
+    <p class="sub">Each live QuickBooks report earns coverage by matching its corresponding Excel export. Five report types have passed that gate, while the Yardi package continues to run directly from the bookkeeper's workbooks.</p>
 
     <div class="tl">
 
@@ -202,15 +202,15 @@ July 9, 2026
         </div>
       </div>
 
-      <div class="phase active">
-        <div class="dot">●</div>
+      <div class="phase done">
+        <div class="dot">✓</div>
         <div class="pcard">
           <div class="prow">
             <div class="ptitle"><small>PHASE 0</small>Foundation and scaffold</div>
             <div class="pwhen">July, week 1</div>
           </div>
-          <div class="pdesc">The service, the internal financial model every report normalizes into, and the accuracy test harness. Built and green on test data; now being validated against your real exports.</div>
-          <span class="badge b-active">In progress</span>
+          <div class="pdesc">The service, the internal financial model every report normalizes into, and the accuracy test harness. Built and green on the real Yardi exports and matching QuickBooks Excel/API pairs.</div>
+          <span class="badge b-done">Done</span>
           <p class="sub-intro">The build pieces, and where each stands today:</p>
           <div class="sub-list">
             <div class="sub-item">
@@ -218,11 +218,11 @@ July 9, 2026
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Template mapping review <em>We propose which of your template's cells map to which accounts, you correct anything we got wrong, and it fills from then on</em></div>
+              <div class="lbl">Template mapping review <em>We propose which template cells map to which accounts, you correct anything we got wrong, and each later fill checks that the source chart has not changed</em></div>
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Accuracy test harness <em>Compares our filled template against a hand-built report, cell by cell, within rounding tolerance</em></div>
+              <div class="lbl">Accuracy test harness <em>Uses 831 cross-report checks for the Yardi package and retains cell-by-cell comparison for JBY templates where a real hand-built target exists</em></div>
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
@@ -237,61 +237,65 @@ July 9, 2026
               <div class="lbl">Cross-report accuracy checks <em>831 checks run your reports against each other and against themselves, so a misread sheet cannot pass quietly. This is now the primary accuracy gate</em></div>
               <span class="spill s-built">Built</span>
             </div>
+            <div class="sub-item">
+              <div class="lbl">New-account protection <em>Every mapping stores the reviewed source chart. A new or renamed account stops the fill and returns to mapping review instead of disappearing from the report</em></div>
+              <span class="spill s-built">Built</span>
+            </div>
           </div>
         </div>
       </div>
 
-      <div class="phase">
-        <div class="dot">2</div>
+      <div class="phase active">
+        <div class="dot">●</div>
         <div class="pcard">
           <div class="prow">
             <div class="ptitle"><small>PHASE 1</small>Fill your template, prove it is right</div>
             <div class="pwhen">July, weeks 2 to 4</div>
           </div>
-          <div class="pdesc">Your own spreadsheet, filled from the raw exports, matching a hand-built report cell for cell. This is the gate. Nothing gets built on top of it until it passes.</div>
-          <span class="badge b-next">Next</span>
+          <div class="pdesc">The Yardi package is generated and revised from your feedback. The remaining work in this phase is the first complete June add-a-month run and the separate JBY margin-analysis template.</div>
+          <span class="badge b-active">Waiting on inputs</span>
           <div class="sub-list" style="margin-top:12px">
             <div class="sub-item">
-              <div class="lbl">Accuracy gate on one month <em>Blocked until we have the matching hand-built report to compare against</em></div>
-              <span class="spill s-block">Waiting on you</span>
+              <div class="lbl">Yardi acceptance package <em>The May package passes all 831 checks, and the revised presentation reflects your July 12 comments</em></div>
+              <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Add a month, keep the history <em>June becomes the first new column on top of the March to May base</em></div>
-              <span class="spill s-plan">Planned</span>
+              <div class="lbl">Add a month, keep the history <em>June is ready to become the first complete new period once the remaining statements arrive after bank reconciliation</em></div>
+              <span class="spill s-block">Needs June files</span>
             </div>
             <div class="sub-item">
               <div class="lbl">Second-source merge <em>Your margin analysis case: per-invoice columns pulled in from a separate spreadsheet</em></div>
               <span class="spill s-block">Needs a sample</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Cover the full report set <em>The five Yardi reports plus your six standard QuickBooks reports</em></div>
-              <span class="spill s-block">Needs the locked list</span>
+              <div class="lbl">Cover the full report set <em>All six Yardi reports and five seeded QuickBooks reports are live-proven. The sixth QuickBooks report remains to be named</em></div>
+              <span class="spill s-prog">11 reports built</span>
             </div>
           </div>
         </div>
       </div>
 
-      <div class="phase">
-        <div class="dot">3</div>
+      <div class="phase done">
+        <div class="dot">✓</div>
         <div class="pcard">
           <div class="prow">
             <div class="ptitle"><small>PHASES 2 &amp; 3</small>Analysis and chat</div>
             <div class="pwhen">August</div>
           </div>
-          <div class="pdesc">The AI writes the commentary over figures the metrics engine already computed and verified, so it cannot invent a number. Chat answers questions by calling those same calculations. Both engines are already built ahead of schedule; August is for tuning them on your real reports.</div>
-          <span class="badge b-planned">Engines built, tuning ahead</span>
+          <div class="pdesc">The commentary engine writes only over figures computed and verified in code, and the package is withheld if a narrative number fails validation. Grounded chat calls those same calculations. Both product paths are built.</div>
+          <span class="badge b-done">Built ahead of schedule</span>
         </div>
       </div>
 
-      <div class="phase">
-        <div class="dot">4</div>
+      <div class="phase active">
+        <div class="dot">●</div>
         <div class="pcard">
           <div class="prow">
             <div class="ptitle"><small>PHASES 4 &amp; 5</small>QuickBooks connection and go-live</div>
             <div class="pwhen">September</div>
           </div>
-          <div class="pdesc">The live QuickBooks connection, held to the same standard: a live pull must reproduce the exported spreadsheet exactly. Then the dashboard, the scheduled monthly run, your production environment, and handover of the cloud accounts, the code, and the keys.</div>
-          <span class="badge b-planned">Planned</span>
+          <div class="pdesc">The QuickBooks development connection, five Excel/API parity gates, dashboard report selector, saved history, and durable monthly execution are built. Production scheduling and handover wait on JBY's cloud project and credentials.</div>
+          <span class="badge b-active">Development built · production setup remains</span>
         </div>
       </div>
 
@@ -302,69 +306,69 @@ July 9, 2026
 <section style="padding-top:8px">
   <div class="wrap">
     <div class="kicker">What we need from you</div>
-    <h2>Nothing is blocking us this week</h2>
-    <p class="sub">Each item below feeds a specific phase. The item that was blocking the critical path has been withdrawn, because the report it asked for does not exist.</p>
+    <h2>The next steps are specific and ready when the inputs arrive</h2>
+    <p class="sub">The core build has moved as far as it can without the remaining reports, template, menu decision, and production environment.</p>
 
     <div class="check-list">
       <!-- GEN:client-asks -->
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">A read of the first generated package <em>Not blocking, and nothing to prepare. Once we generate a month's package we will send it over, and you compare it against what Meredith sends. That review replaces the hand-built comparison we had planned, since no such report exists.</em></span>
-        <span class="ctag t-open">Milind</span>
-      </div>
-      <div class="check-item">
-        <span class="cbox done">✓</span>
-        <span class="ctext">The hand-built report for one month <em>Withdrawn July 9. You told us Meredith does not send a finished numeric report, so there was never anything to ask for. The accuracy gate is now the automatic cross-checks plus your review above.</em></span>
-        <span class="ctag t-done">Closed</span>
-      </div>
-      <div class="check-item">
-        <span class="cbox open"></span>
-        <span class="ctext">Your six standard QuickBooks report names <em>The locked list you mentioned pinning. Each one becomes a template mapping, so this sets the scope of the QuickBooks side.</em></span>
+        <span class="ctext">Confirm the revised May management package <em>Your July 12 presentation comments are implemented: latest Aging snapshot by default, the slimmer Presentation-tab columns, blank zero cells, no redundant history column, and Actual/Budget/Variance cash presentation. The revised package is ready for your review.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">Sample exports from one real QuickBooks firm <em>The Yardi side now has real data. The QuickBooks side is still running on synthetic exports, so the reader there is unproven. If sourcing this is slow, we can produce a real export ourselves from an Intuit sandbox company and start without it.</em></span>
+        <span class="ctext">The remaining June financial statements <em>We have the updated June Aging Detail. Once the bank reconciliations are finished, send the remaining June statements and we will run the first complete add-a-month cycle.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">One spreadsheet from a different system <em>For the margin analysis case, where per-invoice columns get merged in from a second source.</em></span>
+        <span class="ctext">The UC1 second-source per-invoice Excel <em>The separate workbook whose invoice-level columns merge into the primary report for the margin-analysis use case.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">Your preference on the aging and expense reports <em>No longer blocking. We built both ways rather than wait. Every month is kept as a snapshot, so the latest view and the month over month trend are each a single read. As an example of why trending is worth having: the ESK charge for $3,248.53 sits in 31 to 60 days at the end of March, 61 to 90 at the end of April, and over 90 in May and June. The charge never changed, only its age did. Tell us which you want as the default view and we will set it.</em></span>
+        <span class="ctext">The real JBY template and hand-built target for UC1 <em>This pair lets us author the firm-specific mapping and run the cell-by-cell golden-file gate. The generic mapping and new-account guard are already built.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">Your read on the cash-flow block <em>The section under the ADJUSTMENTS banner in the Budget Comparison holds each account's movement for the month as a cash effect, not a balance, even though the row reads TOTAL ASSETS. It ties to your balance sheets on all 40 lines. Confirm that squares with how you read it.</em></span>
+        <span class="ctext">Name the sixth QuickBooks report <em>Profit &amp; Loss, Balance Sheet, Cash Flow, Trial Balance, and General Ledger are already live-proven. One report remains to complete the planned six-report menu.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">January and February in Excel, if easy <em>Optional. Your bookkeeper sent March through June. Two more months would widen the base we build the template on, but we can start without them.</em></span>
-        <span class="ctag t-open">Meredith</span>
+        <span class="ctext">A real QuickBooks export from a JBY firm <em>The generic readers and API comparisons are proven in the Intuit sandbox. A firm export is still needed later to confirm JBY-specific chart settings and account identifiers.</em></span>
+        <span class="ctag t-open">Later</span>
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">A free Intuit developer account <em>Not urgent, needed for September. The free tier includes sandbox companies, so no paid QuickBooks subscription is required for the build. We can stand one up on our side now to get moving, and move it to your account before go-live.</em></span>
-        <span class="ctag t-open">JBY</span>
-      </div>
-      <div class="check-item">
-        <span class="cbox open"></span>
-        <span class="ctext">Your cloud and AI accounts <em>Needed near go-live. We stand them up with you, and everything transfers to JBY at final handover.</em></span>
+        <span class="ctext">JBY cloud project and production credentials <em>Needed near go-live for production hosting, the wall-clock monthly trigger, and handover onto JBY's own billing and AI account.</em></span>
         <span class="ctag t-open">Sunjay</span>
       </div>
       <div class="check-item">
         <span class="cbox done">✓</span>
-        <span class="ctext">Yardi Excel exports <em>Received July 8. March through June, all five target reports, verified against the PDF packages with zero mismatches.</em></span>
+        <span class="ctext">Aging default and presentation <em>Settled July 12. Latest opens by default, trend remains available, and the dashboard mirrors the attached Presentation tab with zero amounts left blank.</em></span>
+        <span class="ctag t-done">Closed</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">✓</span>
+        <span class="ctext">Cash-flow presentation <em>Settled July 12. The report shows Actual, Budget, and Variance together, with mortgage, operating cash, and partner distributions shown as negative amounts in parentheses.</em></span>
+        <span class="ctag t-done">Closed</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">✓</span>
+        <span class="ctext">Intuit development connection and sandbox <em>Completed July 11. Five report types now pass matching Excel/API gates with zero differences and run through one dashboard selector.</em></span>
         <span class="ctag t-done">Done</span>
       </div>
       <div class="check-item">
         <span class="cbox done">✓</span>
-        <span class="ctext">Confirm the same reports export from Yardi <em>Confirmed. The Excel route carries everything the PDF packages carried, so the PDF reader is deferred and comes off the critical path.</em></span>
+        <span class="ctext">The hand-built Yardi report for one month <em>Withdrawn July 9. Meredith does not send a finished numeric report, so the Yardi accuracy gate is the 831 automatic checks plus your package review.</em></span>
+        <span class="ctag t-done">Closed</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox done">✓</span>
+        <span class="ctext">Yardi Excel exports <em>Received July 8. March through June across all six in-scope reports. The Excel route is complete, and PDF ingestion remains deferred.</em></span>
         <span class="ctag t-done">Done</span>
       </div>
 <!-- /GEN:client-asks -->
