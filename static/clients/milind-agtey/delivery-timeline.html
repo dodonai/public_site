@@ -142,16 +142,17 @@ July 12, 2026
 <section>
   <div class="wrap">
     <div class="kicker">Where we are right now</div>
-    <h2>The core product is built and working on the real reports.</h2>
-    <p class="sub">The Yardi package now reflects your presentation decisions, and the first five QuickBooks reports have each passed an Excel-to-API comparison with zero differences.</p>
+    <h2>The quality gate caught the May Balance Sheet issue before publication.</h2>
+    <p class="sub">Your latest report and query requests are built. The refreshed May package is paused until Meredith corrects the $675,000 Balance Sheet imbalance you identified.</p>
     <div class="now">
       <h3><span class="pulse"></span> In flight this week</h3>
       <ul>
-        <li>The complete build is passing 249 automated tests. That covers report ingestion, template mapping and fill, the metrics and commentary engines, grounded chat, saved history, monthly execution, and the dashboard.</li>
+        <li>The complete build is passing 256 automated tests. That covers report ingestion, template mapping and fill, the metrics and commentary engines, grounded chat, saved history, monthly execution, management queries, and the dashboard.</li>
         <li>All six Yardi reports are read directly from Excel: Budget Comparison, Income Statement, Balance Sheet, Aging Detail, Expense Distribution, and Rent Roll. The PDF reader remains deferred, as agreed.</li>
-        <li>Your July 12 presentation decisions are built. Aging opens on the latest snapshot, follows the slimmer Presentation-tab layout, leaves zero-value cells blank, and removes the redundant history column.</li>
-        <li>The cash section now shows Actual, Budget, and Variance together. Mortgage, operating-cash uses, and partner distributions appear as negative amounts in parentheses.</li>
-        <li>The May management package passes 831 cross-report checks before it can be saved. It contains the lease view, current open-charge delinquency detail, budget variance, cash flow, source references, and validated commentary.</li>
+        <li>Your July 12 presentation decisions are built: the legal company name, revised delinquency note, unfavorable dollars and percentages in parentheses, and separate income, expense, and Balance Sheet variance drivers.</li>
+        <li>Favorable and Unfavorable status badges now expand into the next-level variance detail, with the detail tied back to the reported total.</li>
+        <li>Management can search paid invoices across months by the Expense Distribution reason/Remarks field and compare monthly Balance Sheet ending balances or Income Statement activity.</li>
+        <li>The first 10 reconciliation checks still pass all 831 assertions. A new 11th check verifies that every Balance Sheet balances. It correctly holds May because $1,750,631 of Assets does not equal $1,075,631 of Liabilities &amp; Equity.</li>
         <li>The new-account guard is built. If a later month introduces or renames an account that was not part of the approved mapping, the fill stops and names the accounts requiring review rather than dropping them silently.</li>
         <li>The QuickBooks development connection is live. Profit &amp; Loss, Balance Sheet, Cash Flow, Trial Balance, and General Ledger each match their Excel export exactly through the API, and all five run through the dashboard with saved report history.</li>
       </ul>
@@ -159,12 +160,12 @@ July 12, 2026
 
     <div class="blocker">
       <h3>The next gates need JBY inputs <span class="tagline">Updated July 12</span></h3>
-      <p><b>The unblocked engineering work is complete.</b> The revised May package is ready for your confirmation. The next data cycle needs the remaining June statements after the bank reconciliations, while the margin-analysis use case needs the second-source per-invoice Excel and the real JBY template. The QuickBooks menu also needs its sixth report named.</p>
+      <p><b>The immediate next input is Meredith's corrected May Balance Sheet.</b> Once it arrives, the system will rerun all 834 assertions across 11 checks and generate the refreshed package and commentary for your confirmation. The next data cycle still needs the remaining June statements, while the margin-analysis use case needs the second-source per-invoice Excel and the real JBY template. The QuickBooks menu also needs its sixth report named.</p>
     </div>
 
     <div class="stats">
-      <div class="stat"><div class="n">831</div><div class="l">Cross-checks your reports now run against each other, all passing</div></div>
-      <div class="stat"><div class="n">249</div><div class="l">Automated tests passing across the product today</div></div>
+      <div class="stat"><div class="n">834</div><div class="l">Reconciliation assertions across 11 checks; the new Balance Sheet check flags May</div></div>
+      <div class="stat"><div class="n">256</div><div class="l">Automated tests passing across the product today</div></div>
       <div class="stat"><div class="n">5</div><div class="l">QuickBooks reports matching Excel and API with zero differences</div></div>
     </div>
   </div>
@@ -209,7 +210,7 @@ July 12, 2026
             <div class="ptitle"><small>PHASE 0</small>Foundation and scaffold</div>
             <div class="pwhen">July, week 1</div>
           </div>
-          <div class="pdesc">The service, the internal financial model every report normalizes into, and the accuracy test harness. Built and green on the real Yardi exports and matching QuickBooks Excel/API pairs.</div>
+          <div class="pdesc">The service, internal financial model, and accuracy harness are built. The harness is doing its job on the real Yardi exports: 10 checks pass and the new Balance Sheet equation check catches May's source error.</div>
           <span class="badge b-done">Done</span>
           <p class="sub-intro">The build pieces, and where each stands today:</p>
           <div class="sub-list">
@@ -222,7 +223,7 @@ July 12, 2026
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Accuracy test harness <em>Uses 831 cross-report checks for the Yardi package and retains cell-by-cell comparison for JBY templates where a real hand-built target exists</em></div>
+              <div class="lbl">Accuracy test harness <em>Runs 834 assertions across 11 checks for the Yardi package and retains cell-by-cell comparison for JBY templates where a real hand-built target exists</em></div>
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
@@ -234,7 +235,7 @@ July 12, 2026
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Cross-report accuracy checks <em>831 checks run your reports against each other and against themselves, so a misread sheet cannot pass quietly. This is now the primary accuracy gate</em></div>
+              <div class="lbl">Cross-report accuracy checks <em>The original 831 assertions remain green. The added accounting-equation check blocks May's $675,000 imbalance, so a polished report cannot hide an invalid source statement</em></div>
               <span class="spill s-built">Built</span>
             </div>
             <div class="sub-item">
@@ -252,12 +253,12 @@ July 12, 2026
             <div class="ptitle"><small>PHASE 1</small>Fill your template, prove it is right</div>
             <div class="pwhen">July, weeks 2 to 4</div>
           </div>
-          <div class="pdesc">The Yardi package is generated and revised from your feedback. The remaining work in this phase is the first complete June add-a-month run and the separate JBY margin-analysis template.</div>
+          <div class="pdesc">The Yardi report changes and management queries are built. The refreshed May package waits on the corrected Balance Sheet, followed by the first complete June add-a-month run and the separate JBY margin-analysis template.</div>
           <span class="badge b-active">Waiting on inputs</span>
           <div class="sub-list" style="margin-top:12px">
             <div class="sub-item">
-              <div class="lbl">Yardi acceptance package <em>The May package passes all 831 checks, and the revised presentation reflects your July 12 comments</em></div>
-              <span class="spill s-built">Built</span>
+              <div class="lbl">Yardi acceptance package <em>Your July 12 changes are built. Publication is held until Meredith's corrected May Balance Sheet passes all 11 checks</em></div>
+              <span class="spill s-block">Needs corrected May BS</span>
             </div>
             <div class="sub-item">
               <div class="lbl">Add a month, keep the history <em>June is ready to become the first complete new period once the remaining statements arrive after bank reconciliation</em></div>
@@ -313,7 +314,12 @@ July 12, 2026
       <!-- GEN:client-asks -->
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">Confirm the revised May management package <em>Your July 12 presentation comments are implemented: latest Aging snapshot by default, the slimmer Presentation-tab columns, blank zero cells, no redundant history column, and Actual/Budget/Variance cash presentation. The revised package is ready for your review.</em></span>
+        <span class="ctext">Send Meredith's corrected May Balance Sheet <em>The current export reports Assets of $1,750,631 and Liabilities &amp; Equity of $1,075,631. The package is intentionally blocked until the replacement statement passes the accounting equation.</em></span>
+        <span class="ctag t-open">Milind</span>
+      </div>
+      <div class="check-item">
+        <span class="cbox open"></span>
+        <span class="ctext">Confirm the refreshed May management package <em>After the corrected Balance Sheet passes, we will regenerate the package with your July 12 wording, variance presentation, click-through detail, and validated commentary.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
@@ -363,7 +369,7 @@ July 12, 2026
       </div>
       <div class="check-item">
         <span class="cbox done">✓</span>
-        <span class="ctext">The hand-built Yardi report for one month <em>Withdrawn July 9. Meredith does not send a finished numeric report, so the Yardi accuracy gate is the 831 automatic checks plus your package review.</em></span>
+        <span class="ctext">The hand-built Yardi report for one month <em>Withdrawn July 9. Meredith does not send a finished numeric report, so the Yardi accuracy gate is now 834 assertions across 11 automatic checks plus your package review.</em></span>
         <span class="ctag t-done">Closed</span>
       </div>
       <div class="check-item">
