@@ -51,8 +51,73 @@
 	// First paint: decorate links before any internal nav happens, so a user who
 	// lands with paid UTMs and clicks the promo banner/header CTA on the same page
 	// still gets attribution forwarded.
+	// --- Calendly: open booking in an on-site popup instead of navigating away.
+	// A plain link-out to calendly.com cannot fire a conversion (the booking
+	// completes off-domain, so no event reaches our page). The popup keeps the
+	// user on-site so we can fire the booked-call conversion. Applies site-wide to
+	// every calendly.com CTA (managed-services, pricing, agent pages).
+	function loadCalendlyAssets() {
+		if (document.getElementById('calendly-widget-css')) return;
+		const css = document.createElement('link');
+		css.id = 'calendly-widget-css';
+		css.rel = 'stylesheet';
+		css.href = 'https://assets.calendly.com/assets/external/widget.css';
+		document.head.appendChild(css);
+		const js = document.createElement('script');
+		js.src = 'https://assets.calendly.com/assets/external/widget.js';
+		js.async = true;
+		document.body.appendChild(js);
+	}
+
+	// Forward captured paid params to Calendly so the booking carries attribution.
+	function calendlyUtms() {
+		const map = {
+			utm_source: 'utmSource',
+			utm_medium: 'utmMedium',
+			utm_campaign: 'utmCampaign',
+			utm_term: 'utmTerm',
+			utm_content: 'utmContent'
+		};
+		const utm = {};
+		for (const [k, calKey] of Object.entries(map)) {
+			const v = sessionStorage.getItem(`_ad_${k}`);
+			if (v) utm[calKey] = v;
+		}
+		return utm;
+	}
+
+	function handleCalendlyClick(e) {
+		const link = e.target.closest?.('a[href]');
+		if (!link) return;
+		let url;
+		try {
+			url = new URL(link.href);
+		} catch {
+			return;
+		}
+		if (url.hostname !== 'calendly.com') return;
+		if (!window.Calendly) return; // script not ready → fall back to normal navigation
+		e.preventDefault();
+		window.Calendly.initPopupWidget({ url: link.href, utm: calendlyUtms() });
+	}
+
+	function handleCalendlyMessage(e) {
+		if (e.origin !== 'https://calendly.com') return;
+		if (e.data && e.data.event === 'calendly.event_scheduled' && window.gtag) {
+			// GA4 key event → imported into Google Ads as the booked-call conversion.
+			window.gtag('event', 'enterprise_call_booked', { event_category: 'lead' });
+		}
+	}
+
 	onMount(() => {
 		decorateAppLinks();
+		loadCalendlyAssets();
+		document.addEventListener('click', handleCalendlyClick);
+		window.addEventListener('message', handleCalendlyMessage);
+		return () => {
+			document.removeEventListener('click', handleCalendlyClick);
+			window.removeEventListener('message', handleCalendlyMessage);
+		};
 	});
 
 	afterNavigate(({ from, to }) => {
