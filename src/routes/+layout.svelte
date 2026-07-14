@@ -104,8 +104,12 @@
 	function handleCalendlyMessage(e) {
 		if (e.origin !== 'https://calendly.com') return;
 		if (e.data && e.data.event === 'calendly.event_scheduled' && window.gtag) {
-			// GA4 key event → imported into Google Ads as the booked-call conversion.
+			// GA4 event (reporting)
 			window.gtag('event', 'enterprise_call_booked', { event_category: 'lead' });
+			// Google Ads conversion — "Booked Enterprise Call" (action id 7683935723)
+			window.gtag('event', 'conversion', {
+				send_to: 'AW-17511150141/HRCVCOub_s8cEL3k-51B'
+			});
 		}
 	}
 
