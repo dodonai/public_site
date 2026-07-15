@@ -1,0 +1,136 @@
+{
+	"seo": {
+		"title": "Dodonai vs Filevine: Purpose-Built Legal AI vs Case Management | Dodonai",
+		"description": "Filevine manages your cases; Dodonai is purpose-built AI for the heavy document work — deposition summaries and medical-record chronologies. Compare, and see how they work together.",
+		"canonical": "/compare/dodon-vs-filevine/"
+	},
+	"breadcrumbs": [
+		{ "name": "Home", "href": "/" },
+		{ "name": "Compare", "href": null },
+		{ "name": "Dodonai vs Filevine" }
+	],
+	"hero": {
+		"headline": "Dodonai vs Filevine: Purpose-Built Legal AI, Alongside Your Case Management",
+		"subheadline": "Filevine is where you run your cases — matters, documents, deadlines, workflows. It has added AI features along the way. But the deepest document work — page-line deposition summaries and medical-record chronologies from thousands of pages — needs AI built for exactly that. Here's where Dodonai fits, and how it works alongside Filevine.",
+		"ctaText": "Try Dodonai Free",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=dodon-vs-filevine",
+		"secondaryCtaText": "Book an intro call",
+		"secondaryCtaUrl": "https://calendly.com/nick-dodonai"
+	},
+	"sections": [
+		{
+			"type": "content",
+			"heading": "What Filevine Does — and Where Purpose-Built AI Goes Deeper",
+			"paragraphs": [
+				"Filevine is a strong case-management platform, especially for litigation, personal injury, and mass-tort firms: case and document management, workflow automation, deadline tracking, and client communication in one system. It has layered in AI features to extract data into case fields and assist inside that workflow.",
+				"Where a purpose-built tool earns its place is the document-heavy work itself: converting a 6,000-page medical record into a clean, cited chronology, or a full deposition into a page-line summary you can rely on in prep. That's a different problem from running the case — and it's exactly what Dodonai is designed for.",
+				"So this isn't 'rip out Filevine.' It's: what handles the deepest document processing, and any custom AI your firm needs, alongside the case system you already run on?"
+			]
+		},
+		{
+			"type": "comparison",
+			"heading": "Filevine vs Purpose-Built Legal AI",
+			"columns": ["Capability", "Dodonai", "Filevine"],
+			"rows": [
+				["Primary purpose", "Purpose-built AI for legal document work", "Case & matter management"],
+				["Deposition summaries with page-line citations", true, "Not its core focus"],
+				[
+					"Medical-record summaries & chronologies",
+					true,
+					"Field extraction, not full chronologies"
+				],
+				["Processing speed per 100 pages", "~3 minutes", "Varies"],
+				["Multiple summary formats from one upload", true, false],
+				["Custom AI agents built for your firm", true, "Within its platform"],
+				["You own the custom code we build for you", true, "SaaS — you license access"],
+				[
+					"Works alongside your existing case system",
+					"Yes — orchestrates around it",
+					"It is the case system"
+				],
+				["SOC 2 certified", true, true],
+				["HIPAA compliant + BAA available", true, "Varies by plan"],
+				["Your files never used to train AI", true, "Per Filevine's terms"],
+				["Free trial", true, false]
+			]
+		},
+		{
+			"type": "features",
+			"heading": "Where Dodonai Fits Alongside Filevine",
+			"cards": [
+				{
+					"icon": "document",
+					"title": "The Deepest Document Work",
+					"description": "Full medical-record chronologies and page-line deposition summaries from thousands of pages — with citations that link back to the source. Built for the documents, not bolted onto a case tracker."
+				},
+				{
+					"icon": "search",
+					"title": "Works With Your Stack, Not Against It",
+					"description": "Keep Filevine as your system of record for cases and deadlines. Dodonai runs the AI document layer around it — nothing to rip out, no new system for your team to run cases in."
+				},
+				{
+					"icon": "clock",
+					"title": "Custom AI Agents You Own",
+					"description": "Our managed-services team builds custom AI agents around your firm's real workflows — and the code is yours, not just a subscription. {{link:/ai-managed-services/|See managed services}}."
+				},
+				{
+					"icon": "shield",
+					"title": "Security That Meets the Bar",
+					"description": "SOC 2 certified, HIPAA compliant, AES-256 encryption, signed BAAs. Your privileged files stay out of training pipelines and get deleted on your schedule, not ours."
+				}
+			]
+		},
+		{
+			"type": "content",
+			"heading": "Filevine + Dodonai, Together",
+			"paragraphs": [
+				"For most litigation and PI firms, the best setup is Filevine running the cases and Dodonai handling the AI-heavy document work and any custom automation. You keep the case system your team already knows, and you add purpose-built AI for the work that eats the most associate and paralegal hours — record review, chronologies, deposition prep.",
+				"If you're weighing whether Filevine's built-in AI covers your medical-record and deposition work, run a real file through both and compare the output. Purpose-built shows up fast on the documents that matter."
+			]
+		}
+	],
+	"faq": [
+		{
+			"question": "Does Dodonai replace Filevine?",
+			"answer": "No. Filevine is your case-management system — matters, documents, deadlines, workflows. Dodonai is purpose-built AI for the document-heavy work (medical-record chronologies, deposition summaries) and custom AI agents. Most firms run both: Filevine for the cases, Dodonai for the AI document layer around it."
+		},
+		{
+			"question": "Isn't Filevine already adding AI? Why add another tool?",
+			"answer": "Filevine has added useful AI inside its case workflow, like extracting data into fields. Dodonai is built specifically for the deepest document processing — full chronologies and page-line summaries from thousands of pages, in multiple formats. The two solve different parts of the job; many firms use both."
+		},
+		{
+			"question": "Can Dodonai work alongside Filevine?",
+			"answer": "Yes. Dodonai is designed to run around the tools you already use, not replace them. You keep Filevine as your case system and use Dodonai for the AI document work and any custom workflows."
+		},
+		{
+			"question": "Is my client data secure with Dodonai?",
+			"answer": "Privileged files need SOC 2, HIPAA, and encryption at minimum. Dodonai is SOC 2 certified, HIPAA compliant, and AES-256 encrypted, with BAAs on every account. Your files are never used to train AI, and you control when they're deleted."
+		},
+		{
+			"question": "What does 'you own the code' mean?",
+			"answer": "For custom AI agents our {{link:/ai-managed-services/|managed-services team}} builds for your firm, the resulting workflows are yours — you're not locked into leasing access forever. It's a different model from standard SaaS."
+		}
+	],
+	"relatedPages": [
+		{
+			"title": "AI Medical Record Summaries & Chronologies",
+			"href": "/ai-medical-record-summaries-chronologies/",
+			"description": "Turn thousands of pages of records into clear, cited chronologies in minutes."
+		},
+		{
+			"title": "AI Deposition Summary Software",
+			"href": "/deposition-summary-software/",
+			"description": "Page-line and narrative summaries in about 3 minutes per 100 pages."
+		},
+		{
+			"title": "AI Managed Services",
+			"href": "/ai-managed-services/",
+			"description": "Custom AI agents built around your firm's workflows — and you own the code."
+		}
+	],
+	"relatedBlogPosts": [],
+	"ctaOverride": {
+		"headline": "Keep Filevine. Add the AI Built for the Documents.",
+		"description": "Upload a real deposition or medical record and see what purpose-built legal AI does with it. No credit card, no commitment."
+	}
+}

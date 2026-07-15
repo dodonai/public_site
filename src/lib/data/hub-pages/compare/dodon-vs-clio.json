@@ -1,0 +1,139 @@
+{
+	"seo": {
+		"title": "Dodonai vs Clio: Purpose-Built Legal AI vs Practice Management | Dodonai",
+		"description": "Clio runs your firm; Dodonai does the AI-heavy document work its built-in AI wasn't built for. Compare Clio Duo and purpose-built legal AI, and see how they work together.",
+		"canonical": "/compare/dodon-vs-clio/"
+	},
+	"breadcrumbs": [
+		{ "name": "Home", "href": "/" },
+		{ "name": "Compare", "href": null },
+		{ "name": "Dodonai vs Clio" }
+	],
+	"hero": {
+		"headline": "Dodonai vs Clio: Purpose-Built Legal AI, Alongside Your Practice Management",
+		"subheadline": "Clio is where you run your firm — matters, billing, intake. Its assistant, Clio Duo, adds AI on top. But the heavy document work — deposition summaries, medical-record chronologies, custom workflows — needs AI built for it. Here's where Dodonai fits, and how it works alongside Clio, not instead of it.",
+		"ctaText": "Try Dodonai Free",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=dodon-vs-clio",
+		"secondaryCtaText": "Book an intro call",
+		"secondaryCtaUrl": "https://calendly.com/nick-dodonai"
+	},
+	"sections": [
+		{
+			"type": "content",
+			"heading": "What Clio Does — and Where a Different Tool Earns Its Keep",
+			"paragraphs": [
+				"Clio is the practice-management backbone for tens of thousands of firms: matter management, time tracking, billing, client intake, and calendaring in one place. Clio Duo layers a general AI assistant on top — it can summarize a matter, surface information, and help draft routine messages inside the platform.",
+				"That's a genuinely useful assistant for running the practice. It is not, however, purpose-built for the document-heavy legal work: turning a 200-page deposition into a page-line summary with accurate citations, building a medical-record chronology from thousands of pages, or running a custom workflow tuned to how your firm actually works. For that, firms reach for AI designed specifically for the job.",
+				"This isn't a question of replacing Clio. It's a question of what handles the document work your matter-management system was never built to do."
+			]
+		},
+		{
+			"type": "comparison",
+			"heading": "Clio Duo vs Purpose-Built Legal AI",
+			"columns": ["Capability", "Dodonai", "Clio (Clio Duo)"],
+			"rows": [
+				[
+					"Primary purpose",
+					"Purpose-built AI for legal document work",
+					"Practice management (matters, billing, intake)"
+				],
+				[
+					"Deposition summaries with page-line citations",
+					true,
+					"General assistant, not purpose-built"
+				],
+				["Medical-record summaries & chronologies", true, "Not a core capability"],
+				["Processing speed per 100 pages", "~3 minutes", "N/A"],
+				["Custom AI agents built for your firm", true, false],
+				["You own the custom code we build for you", true, "SaaS — you license access"],
+				[
+					"Works alongside your existing practice system",
+					"Yes — orchestrates around it",
+					"It is the system"
+				],
+				["SOC 2 certified", true, true],
+				["HIPAA compliant + BAA available", true, "Varies by plan"],
+				["Your files never used to train AI", true, "Per Clio's terms"],
+				["Free trial", true, true]
+			]
+		},
+		{
+			"type": "features",
+			"heading": "Where Dodonai Fits Alongside Clio",
+			"cards": [
+				{
+					"icon": "document",
+					"title": "The Document Work, Done Right",
+					"description": "Deposition summaries, medical-record chronologies, and transcript search — purpose-built, with page-line citations your team can rely on. The heavy lifting Clio Duo wasn't designed for."
+				},
+				{
+					"icon": "search",
+					"title": "Works With Your Stack, Not Against It",
+					"description": "Keep Clio for what it's great at. Dodonai runs the AI layer around it — you don't rip anything out, and your team doesn't relearn a new system to run the firm."
+				},
+				{
+					"icon": "clock",
+					"title": "Custom AI Agents You Own",
+					"description": "Beyond off-the-shelf, our managed-services team builds custom AI agents around your firm's real workflows — and you own the code, not just a subscription. {{link:/ai-managed-services/|See managed services}}."
+				},
+				{
+					"icon": "shield",
+					"title": "Security That Meets the Bar",
+					"description": "SOC 2 certified, HIPAA compliant, AES-256 encryption, signed BAAs. Your privileged files stay out of training pipelines and get deleted when you say so."
+				}
+			]
+		},
+		{
+			"type": "content",
+			"heading": "Clio + Dodonai, Together",
+			"paragraphs": [
+				"The strongest setup for most firms isn't one tool or the other. It's Clio running the practice — matters, billing, deadlines — with Dodonai handling the AI-heavy document work and any custom automation your team needs. You get the system of record you already trust and purpose-built AI for the work that actually eats your associates' hours.",
+				"If you're weighing whether Clio Duo is enough for your deposition and medical-record work, the honest answer is: it's a solid assistant for the platform, and Dodonai is built for the documents. Try both against a real file and see the difference for yourself."
+			]
+		}
+	],
+	"faq": [
+		{
+			"question": "Does Dodonai replace Clio?",
+			"answer": "No. Clio is your practice-management system — matters, billing, intake. Dodonai is purpose-built AI for the document-heavy work (deposition summaries, medical-record chronologies) and custom AI agents. Most firms run both: Clio for the practice, Dodonai for the AI layer around it."
+		},
+		{
+			"question": "Is Clio Duo enough for deposition or medical-record summaries?",
+			"answer": "Clio Duo is a general assistant built into the platform — useful for summarizing matters and drafting routine messages. It isn't purpose-built for producing page-line deposition summaries with reliable citations or medical-record chronologies from thousands of pages. That's what Dodonai is designed for."
+		},
+		{
+			"question": "Can Dodonai work alongside Clio?",
+			"answer": "Yes. Dodonai is designed to run around the tools you already use rather than replace them. You keep Clio as your system of record and use Dodonai for the AI document work and any custom workflows."
+		},
+		{
+			"question": "Is my client data secure with Dodonai?",
+			"answer": "Privileged files need SOC 2, HIPAA, and encryption at minimum. Dodonai is SOC 2 certified, HIPAA compliant, and AES-256 encrypted, with BAAs on every account. Your files are never used to train AI, and you control when they're deleted."
+		},
+		{
+			"question": "What does 'you own the code' mean?",
+			"answer": "For custom AI agents our {{link:/ai-managed-services/|managed-services team}} builds for your firm, the resulting workflows are yours — you're not locked into leasing access forever. It's a different model from standard SaaS."
+		}
+	],
+	"relatedPages": [
+		{
+			"title": "AI Medical Record Summaries & Chronologies",
+			"href": "/ai-medical-record-summaries-chronologies/",
+			"description": "Turn thousands of pages of records into clear, cited chronologies in minutes."
+		},
+		{
+			"title": "AI Deposition Summary Software",
+			"href": "/deposition-summary-software/",
+			"description": "Page-line and narrative summaries in about 3 minutes per 100 pages."
+		},
+		{
+			"title": "AI Managed Services",
+			"href": "/ai-managed-services/",
+			"description": "Custom AI agents built around your firm's workflows — and you own the code."
+		}
+	],
+	"relatedBlogPosts": [],
+	"ctaOverride": {
+		"headline": "Keep Clio. Add the AI Built for the Documents.",
+		"description": "Upload a real deposition or medical record and see what purpose-built legal AI does with it. No credit card, no commitment."
+	}
+}
