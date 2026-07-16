@@ -132,7 +132,7 @@
     <div class="meta">
       <div><b>Prepared for</b> &nbsp;Milind Agtey &nbsp;·&nbsp; Sunjay Agtey</div>
       <div><b>Status as of</b> &nbsp;<!-- GEN:status-date -->
-July 13, 2026
+July 16, 2026
 <!-- /GEN:status-date --></div>
       <div><b>Target</b> &nbsp;Working product on real data, end of September 2026</div>
     </div>
@@ -142,18 +142,20 @@ July 13, 2026
 <section>
   <div class="wrap">
     <div class="kicker">Where we are right now</div>
-    <h2>The rebuilt May Yardi source now passes the full quality gate.</h2>
-    <p class="sub">Meredith's rebuilt export includes the missing $675,000 JBY promissory note, balances at $1,750,631 on both sides, and now serves as the official source for the refreshed package.</p>
+    <h2>The consolidated Conaught acceptance release is live.</h2>
+    <p class="sub">Milind's July 16 review feedback is implemented in one private release, while Meredith's corrected May source remains pinned behind all 836 reconciliation assertions.</p>
     <div class="now">
       <h3><span class="pulse"></span> In flight this week</h3>
       <ul>
-        <li>The complete build is passing 266 automated tests. That covers report ingestion, template mapping and fill, the metrics and commentary engines, grounded chat, saved history, monthly execution, management queries, password-only review access, seeded review data, and the dashboard.</li>
+        <li>The complete build is passing 270 automated tests. That covers report ingestion, template mapping and fill, the metrics and commentary engines, cross-report verified Q&amp;A, saved history, monthly execution, management queries, password-only review access, seeded review data, and the dashboard.</li>
         <li>All six Yardi reports are read directly from Excel: Budget Comparison, Income Statement, Balance Sheet, Aging Detail, Expense Distribution, and Rent Roll. The PDF reader remains deferred, as agreed.</li>
         <li>Your July 12 presentation decisions are built: the legal company name, revised delinquency note, unfavorable dollars and percentages in parentheses, and separate income, expense, and Balance Sheet variance drivers.</li>
         <li>Favorable and Unfavorable status badges now expand into the next-level variance detail, with the detail tied back to the reported total.</li>
         <li>Management can search paid invoices across months by the Expense Distribution reason/Remarks field and compare monthly Balance Sheet ending balances or Income Statement activity.</li>
+        <li>Source Reports now shows only the latest month by default, keeps prior months expandable, hides the requested processing columns, stops Rent Roll at Annual Rent, and gives each investigation result the full page width plus a Close control.</li>
+        <li>Ask the Numbers now searches all saved Conaught Income Statements and Balance Sheets together, so a reviewer does not need to know which report contains the answer.</li>
         <li>The official rebuilt source passes 836 assertions across 11 reconciliation checks. Assets and Liabilities &amp; Equity both equal $1,750,631, and 2364-0000 JBY Ventures, Inc - Promissory Note is explicitly covered by the month-over-month gate.</li>
-        <li>A dedicated password-protected staging environment is running with 9 March-May statements, 12 available March-June transactional snapshots, and the official May package. The client review UI has been rebuilt around the Conaught acceptance workflow and passed internal scope-alignment QA; private access is held for final Dodonai approval.</li>
+        <li>A dedicated password-protected staging environment is running with 9 March-May statements, 12 available March-June transactional snapshots, and the official May package. The saved password-only credential is verified and private access is released for Milind's acceptance review.</li>
         <li>The mortgage-note decrease and the new $675,000 JBY note are presented together as an offsetting financing transfer. The report no longer describes the mortgage movement as a $675,000 cash payoff.</li>
         <li>The new-account guard is built. If a later month introduces or renames an account that was not part of the approved mapping, the fill stops and names the accounts requiring review rather than dropping them silently.</li>
         <li>The QuickBooks development connection is live. Profit &amp; Loss, Balance Sheet, Cash Flow, Trial Balance, and General Ledger each match their Excel export exactly through the API, and all five run through the dashboard with saved report history.</li>
@@ -161,13 +163,13 @@ July 13, 2026
     </div>
 
     <div class="blocker">
-      <h3>The next gates follow the three-track plan <span class="tagline">Updated July 13</span></h3>
-      <p><b>Conaught comes first:</b> review the refreshed package once Dodonai releases private access, then use the product through May and send June for the first add-a-month acceptance run. For Nimbello, send the sanitized Dec-Feb workbook with formulas and sheet relationships preserved plus the metric list. After the Conaught screen share, one owner-approved Anil property can become the first real-estate QuickBooks pilot.</p>
+      <h3>The next gates follow the three-track plan <span class="tagline">Updated July 16</span></h3>
+      <p><b>Conaught comes first:</b> review the consolidated private release and confirm the fixed report sections, source-report presentation, uploads, and Ask the Numbers flow. Then send June for the first add-a-month acceptance run. For Nimbello, send the sanitized Dec-Feb workbook with formulas and sheet relationships preserved plus the metric list. After the Conaught screen share, one owner-approved Anil property can become the first real-estate QuickBooks pilot.</p>
     </div>
 
     <div class="stats">
       <div class="stat"><div class="n">836</div><div class="l">Reconciliation assertions across 11 checks on the corrected May source set</div></div>
-      <div class="stat"><div class="n">266</div><div class="l">Automated tests passing across the product today</div></div>
+      <div class="stat"><div class="n">270</div><div class="l">Automated tests passing across the product today</div></div>
       <div class="stat"><div class="n">5</div><div class="l">QuickBooks reports matching Excel and API with zero differences</div></div>
     </div>
   </div>
@@ -255,11 +257,11 @@ July 13, 2026
             <div class="ptitle"><small>PHASE 1</small>Fill your template, prove it is right</div>
             <div class="pwhen">July, weeks 2 to 4</div>
           </div>
-          <div class="pdesc">The official May package and management queries are built and ready for review. The next data work is the first complete June add-a-month run and Nimbello's three-period QBO-plus-billing workbook.</div>
+          <div class="pdesc">The official May package and consolidated acceptance release are live for review. The next data work is the first complete June add-a-month run and Nimbello's three-period QBO-plus-billing workbook.</div>
           <span class="badge b-active">Waiting on inputs</span>
           <div class="sub-list" style="margin-top:12px">
             <div class="sub-item">
-              <div class="lbl">Yardi acceptance package <em>Your July 12 presentation changes and Meredith's July 13 rebuilt source pass 836 assertions. The Conaught acceptance UI passed internal scope-alignment QA; private access is held for final Dodonai approval</em></div>
+              <div class="lbl">Yardi acceptance package <em>Your July 12 and July 16 presentation changes are implemented, Meredith's corrected source passes 836 assertions, and the consolidated private release is live for your review</em></div>
               <span class="spill s-prog">Ready for review</span>
             </div>
             <div class="sub-item">
@@ -285,7 +287,7 @@ July 13, 2026
             <div class="ptitle"><small>PHASES 2 &amp; 3</small>Analysis and chat</div>
             <div class="pwhen">August</div>
           </div>
-          <div class="pdesc">The commentary engine writes only over figures computed and verified in code, and the package is withheld if a narrative number fails validation. Grounded chat calls those same calculations. Both product paths are built.</div>
+          <div class="pdesc">The commentary engine writes only over figures computed and verified in code, and the package is withheld if a narrative number fails validation. Ask the Numbers calls those same calculations across all saved Income Statements and Balance Sheets. Both product paths are built.</div>
           <span class="badge b-done">Built ahead of schedule</span>
         </div>
       </div>
@@ -321,7 +323,7 @@ July 13, 2026
       </div>
       <div class="check-item">
         <span class="cbox open"></span>
-        <span class="ctext">Review the official May package and product <em>The rebuilt-source package and three-page PDF pass 836 assertions. Product review includes source statements and snapshots, variance drilldowns, payment-Remarks search, and monthly Balance Sheet/Income Statement comparisons. Conversational queries currently cover canonical statements.</em></span>
+        <span class="ctext">Review the consolidated Conaught release <em>The rebuilt-source package passes 836 assertions. The July 16 release includes latest-month Source Reports, the requested hidden columns, full-width investigation results, clarified uploads, GL-sorted variance rows, Cash Flow terminology, and Ask the Numbers across all saved Income Statements and Balance Sheets.</em></span>
         <span class="ctag t-open">Milind</span>
       </div>
       <div class="check-item">
@@ -365,9 +367,9 @@ July 13, 2026
         <span class="ctag t-open">Sunjay</span>
       </div>
       <div class="check-item">
-        <span class="cbox open"></span>
-        <span class="ctext">Private product review URL <em>The dedicated password-protected environment, verified review data, and scope-aligned Conaught acceptance UI are running. Access is held for final Dodonai approval before delivery.</em></span>
-        <span class="ctag t-open">Dodonai</span>
+        <span class="cbox done">✓</span>
+        <span class="ctext">Private product review URL <em>Released July 16 from the dedicated JBY staging project. The saved password-only credential is verified, wrong or missing credentials remain fail-closed, and revision accounting-ai-staging-00008-k4m is serving the consolidated acceptance build.</em></span>
+        <span class="ctag t-done">Done</span>
       </div>
       <div class="check-item">
         <span class="cbox done">✓</span>
