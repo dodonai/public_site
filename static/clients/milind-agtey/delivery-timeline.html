@@ -155,7 +155,7 @@ July 16, 2026
         <li>Source Reports now shows only the latest month by default, keeps prior months expandable, hides the requested processing columns, stops Rent Roll at Annual Rent, and gives each investigation result the full page width plus a Close control.</li>
         <li>Ask the Numbers now searches all saved Conaught Income Statements and Balance Sheets together, so a reviewer does not need to know which report contains the answer.</li>
         <li>The official rebuilt source passes 836 assertions across 11 reconciliation checks. Assets and Liabilities &amp; Equity both equal $1,750,631, and 2364-0000 JBY Ventures, Inc - Promissory Note is explicitly covered by the month-over-month gate.</li>
-        <li>A dedicated password-protected staging environment is running with 9 March-May statements, 12 available March-June transactional snapshots, and the official May package. The saved password-only credential is verified and private access is released for Milind's acceptance review.</li>
+        <li>A dedicated password-protected staging environment is running with 9 March-May statements, 12 available March-June transactional snapshots, and the official May package. The saved password and post-login application load are verified, and a new bundle-consistency gate prevents mixed frontend build assets from reaching staging.</li>
         <li>The mortgage-note decrease and the new $675,000 JBY note are presented together as an offsetting financing transfer. The report no longer describes the mortgage movement as a $675,000 cash payoff.</li>
         <li>The new-account guard is built. If a later month introduces or renames an account that was not part of the approved mapping, the fill stops and names the accounts requiring review rather than dropping them silently.</li>
         <li>The QuickBooks development connection is live. Profit &amp; Loss, Balance Sheet, Cash Flow, Trial Balance, and General Ledger each match their Excel export exactly through the API, and all five run through the dashboard with saved report history.</li>
@@ -368,7 +368,7 @@ July 16, 2026
       </div>
       <div class="check-item">
         <span class="cbox done">✓</span>
-        <span class="ctext">Private product review URL <em>Released July 16 from the dedicated JBY staging project. The saved password-only credential is verified, wrong or missing credentials remain fail-closed, and revision accounting-ai-staging-00008-k4m is serving the consolidated acceptance build.</em></span>
+        <span class="ctext">Private product review URL <em>Released July 16 from the dedicated JBY staging project. The saved password-only credential and post-login application load are verified, wrong or missing credentials remain fail-closed, and revision accounting-ai-staging-00009-9v9 is serving the consolidated acceptance build.</em></span>
         <span class="ctag t-done">Done</span>
       </div>
       <div class="check-item">
