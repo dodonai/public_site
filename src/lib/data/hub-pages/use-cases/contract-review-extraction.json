@@ -1,13 +1,21 @@
 {
 	"seo": {
-		"title": "AI Contract Review and Clause Extraction | Dodonai",
-		"description": "Upload contracts. Pull termination, indemnity, and renewal clauses with page citations. Built for legal due diligence at scale. Try free.",
+		"title": "AI Contract Review: Pull Key Clauses, with Citations",
+		"description": "Upload a stack of contracts and pull termination, indemnity, and renewal clauses in minutes, each with a page citation. Built for legal due diligence. Try free.",
 		"canonical": "/use-cases/contract-review-extraction/"
 	},
 	"breadcrumbs": [
-		{ "name": "Home", "href": "/" },
-		{ "name": "Use Cases", "href": null },
-		{ "name": "Contract Review & Extraction" }
+		{
+			"name": "Home",
+			"href": "/"
+		},
+		{
+			"name": "Use Cases",
+			"href": null
+		},
+		{
+			"name": "Contract Review & Extraction"
+		}
 	],
 	"hero": {
 		"headline": "AI Contract Review: Extract Key Terms and Clauses Automatically",
