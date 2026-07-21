@@ -1,0 +1,1269 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Red Hen Turf Farm — The Red Hen Operating System</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>/* ============================================================================
+   Dodonai Brief Engine — canonical stylesheet
+   ----------------------------------------------------------------------------
+   Single source of truth for the visual language behind every Dodonai client
+   brief (Firm OS Brief, AI Readiness Diagnostic, ROI Business Case, Workflow
+   Teardown, etc.). Extracted + merged from the two gold-standard exemplars:
+     - clients/rupprecht_law_pa/firm_os_brief_v2.html  (tight, CSS-only)
+     - clients/greenspoon_consulting/firm_os_brief.html (animated superset)
+
+   Pair with brief-reveal.js for scroll-reveal + the animated trio.
+
+   USAGE
+   - Standalone mode (email/attachment): inline this file inside a style element.
+   - Published mode (public_site stage): link this file with a stylesheet link tag
+     (href="/clients/_assets/brief.css") and load brief-reveal.js with a deferred script tag.
+   NOTE: keep this comment free of literal HTML close-tag sequences (style/script). When
+   this file is inlined into a style element, a literal close-tag here would terminate the
+   block early and the rest of the CSS would not apply. Describe tags in prose, do not write them.
+   Fonts (load in the head either way): the Plus Jakarta Sans + Source Code Pro Google Fonts link.
+
+   Block families (see assets/blocks.html for copy-paste markup):
+     1. Chrome + hero + bands   — hero, brandbar, meta-grid, sec-head, pull-quote,
+                                   changed/cliff strips
+     2. Inventory + pillars + scope — keep/integrate/replace cards, pillars (numbered
+                                   + roadblock), flow-mini, scope-box, workflow lanes
+     3. Animated trio + value   — xform (scatter→hub), pipe (self-running pipeline),
+                                   dash (cockpit feed), outcome, gates, ROI, numbers
+     4. Catalog + conversion    — alternatives, compliance pills, questions,
+                                   timeline, package grid, software-stack
+                                   before/after, productized agent cards,
+                                   layered architecture SVG, by-role grid,
+                                   proof cards
+   ============================================================================ */
+
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  /* extended palette for catalog/conversion blocks */
+  --teal-bright:#06B6D4; --rose:#E11D48; --good:#16A34A;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+/* ===== SCROLL REVEAL (brief-reveal.js adds .in / .play) ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ===== HERO ===== */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:60px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+/* version/status pill at the end of the brandbar (.tag or .v2) */
+.brandbar .tag,.brandbar .v2{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:56px;line-height:1.02;letter-spacing:-.025em;margin:0 0 18px;max-width:17ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:20px;line-height:1.45;color:var(--purple-soft);max-width:60ch;margin:0 0 38px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+
+/* ===== SECTIONS ===== */
+section{padding:54px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:66ch;margin:0 0 30px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+.ink .eyebrow{color:var(--purple-soft)}
+
+/* ===== CHANGED STRIP (Rupprecht: 2-col tick list of deltas) ===== */
+.changed{background:var(--midnight);color:#fff;padding:30px 0}
+.changed .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.changed .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:130px;line-height:1.4}
+.changed .clist{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.changed .ci{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4}
+.changed .ci .tick{color:var(--purple-soft);font-weight:800;flex:0 0 auto}
+.changed .ci b{color:#fff}
+.changed .ci span{color:var(--purple-soft)}
+
+/* ===== CLIFF STRIP (Greenspoon: big-number framing band) ===== */
+.cliff{background:var(--midnight);color:#fff;padding:30px 0}
+.cliff .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.cliff .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:150px;line-height:1.5}
+.cliff .ctitle .big{display:block;font-family:var(--sans);font-size:34px;letter-spacing:-.02em;color:#fff;margin-top:8px}
+.cliff .cbody{font-size:16px;line-height:1.55;color:var(--purple-soft)}
+.cliff .cbody b{color:#fff}
+
+/* ===== PULL QUOTE + definition ===== */
+.pull{position:relative;background:#fff;border-radius:14px;padding:36px 42px 32px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:22px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+.os-def{margin-top:24px;font-size:18px;line-height:1.6;max-width:76ch}
+.os-def strong{color:var(--purple-bold)}
+
+/* ===== WORKFLOW LANES (current-state phase flow charts) ===== */
+.phasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.phasecard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:20px 22px;position:relative}
+.phasecard .ph-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.phasecard .ph-n{flex:0 0 30px;height:30px;border-radius:9px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.phasecard .ph-name{font-weight:800;font-size:17px;letter-spacing:-.01em}
+.phasecard .ph-meta{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light)}
+.flow{display:flex;flex-direction:column;gap:7px}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4;position:relative;padding-left:2px}
+.step .sb{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:6px;background:var(--gray-meta)}
+.step.man .sb{background:var(--amber)}
+.step.gate .sb{background:var(--teal)}
+.step .stx{color:var(--midnight)}
+.step .stx .who{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.who.w-man{background:rgba(199,125,46,.14);color:var(--amber)}
+.who.w-gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.flow-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.flow-legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.flow-legend .dot{width:10px;height:10px;border-radius:50%}
+.tally{margin-top:26px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15px;line-height:1.6}
+.tally b{color:var(--amber)}
+
+/* ===== TRANSFORMATION ANIMATION (scatter today → OS hub) ===== */
+.xform{display:grid;grid-template-columns:1fr 64px 1fr;gap:8px;align-items:stretch;margin-top:10px}
+.xcol{background:rgba(255,255,255,.04);border:1px solid rgba(181,168,230,.22);border-radius:16px;padding:24px 22px 26px;position:relative;overflow:hidden}
+.xcol .xlabel{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.xcol.today .xlabel{color:var(--purple-soft)}
+.xcol.os .xlabel{color:#fff}
+.xcol.os{border-color:rgba(124,58,237,.6);background:radial-gradient(420px 240px at 70% 0%,rgba(124,58,237,.22),transparent 60%),rgba(124,58,237,.06)}
+.scatter{position:relative;height:300px}
+.tool-chip{position:absolute;font-family:var(--mono);font-size:11px;font-weight:600;background:var(--midnight-soft);color:var(--purple-soft);border:1px solid rgba(181,168,230,.3);border-radius:9px;padding:7px 10px;white-space:nowrap;opacity:0;transform:scale(.85)}
+.play .tool-chip{animation:chipIn .5s ease forwards}
+.tool-chip:nth-child(1){top:6%;left:4%}
+.tool-chip:nth-child(2){top:2%;left:54%}
+.tool-chip:nth-child(3){top:26%;left:30%}
+.tool-chip:nth-child(4){top:30%;left:66%}
+.tool-chip:nth-child(5){top:50%;left:8%}
+.tool-chip:nth-child(6){top:54%;left:44%}
+.tool-chip:nth-child(7){top:74%;left:22%}
+.tool-chip:nth-child(8){top:78%;left:60%}
+.play .tool-chip:nth-child(1){animation-delay:.05s}
+.play .tool-chip:nth-child(2){animation-delay:.13s}
+.play .tool-chip:nth-child(3){animation-delay:.21s}
+.play .tool-chip:nth-child(4){animation-delay:.29s}
+.play .tool-chip:nth-child(5){animation-delay:.37s}
+.play .tool-chip:nth-child(6){animation-delay:.45s}
+.play .tool-chip:nth-child(7){animation-delay:.53s}
+.play .tool-chip:nth-child(8){animation-delay:.61s}
+.scatter .runner{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px rgba(199,125,46,.22);opacity:0}
+.play .scatter .runner{animation:runnerFade .6s .7s ease forwards,runAround 6s 1.3s ease-in-out infinite}
+.scatter .handlabel{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--amber);font-weight:700;opacity:0;text-align:center;width:90%}
+.play .scatter .handlabel{animation:runnerFade .5s 1s ease forwards}
+@keyframes chipIn{to{opacity:1;transform:scale(1)}}
+@keyframes runnerFade{to{opacity:1}}
+@keyframes runAround{
+  0%{top:8%;left:8%}12%{top:6%;left:56%}25%{top:28%;left:32%}38%{top:32%;left:66%}
+  50%{top:52%;left:10%}62%{top:56%;left:46%}75%{top:76%;left:24%}88%{top:80%;left:60%}100%{top:8%;left:8%}}
+.hub{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+.hub-core{width:120px;height:120px;border-radius:24px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 0 rgba(124,58,237,.5);position:relative;z-index:3;opacity:0;transform:scale(.8)}
+.play .hub-core{animation:hubIn .6s 1.2s cubic-bezier(.2,1.3,.4,1) forwards,hubPulse 2.8s 1.9s ease-in-out infinite}
+.hub-core .hw{font-weight:800;font-size:15px;letter-spacing:-.01em}
+.hub-core .hs{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-soft);margin-top:4px}
+.spoke{position:absolute;font-family:var(--mono);font-size:10.5px;font-weight:600;background:var(--midnight-soft);color:#fff;border:1px solid rgba(181,168,230,.4);border-radius:8px;padding:6px 9px;white-space:nowrap;opacity:0;z-index:2}
+.play .spoke{animation:spokeIn .5s ease forwards}
+.spoke:nth-of-type(1){top:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(2){top:24%;right:2%}
+.spoke:nth-of-type(3){bottom:24%;right:0%}
+.spoke:nth-of-type(4){bottom:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(5){bottom:24%;left:0%}
+.spoke:nth-of-type(6){top:24%;left:2%}
+.play .spoke:nth-of-type(1){animation-delay:1.7s}
+.play .spoke:nth-of-type(2){animation-delay:1.85s}
+.play .spoke:nth-of-type(3){animation-delay:2.0s}
+.play .spoke:nth-of-type(4){animation-delay:2.15s}
+.play .spoke:nth-of-type(5){animation-delay:2.3s}
+.play .spoke:nth-of-type(6){animation-delay:2.45s}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:0}
+.play .hub svg.links{animation:runnerFade .6s 2.5s ease forwards}
+.hub svg.links line{stroke:rgba(181,168,230,.45);stroke-width:1.5;stroke-dasharray:4 5}
+.play .hub svg.links line{animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-18}}
+@keyframes hubIn{to{opacity:1;transform:scale(1)}}
+@keyframes spokeIn{from{opacity:0;transform:scale(.8) translateY(6px)}to{opacity:1}}
+@keyframes hubPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.45)}50%{box-shadow:0 0 0 14px rgba(124,58,237,0)}}
+.xarrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--purple-soft)}
+.xarrow .ah{font-size:30px;font-weight:800;line-height:1}
+.xarrow .at{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--purple-soft)}
+.xcaption{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+.xcaption .xc{font-size:14.5px;line-height:1.55}
+.xcaption .xc .h{font-weight:800;color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.xcaption .xc .h .pin{width:9px;height:9px;border-radius:50%}
+.xcaption .xc.l .h .pin{background:var(--amber)}
+.xcaption .xc.r .h .pin{background:var(--purple-vivid)}
+.xcaption .xc p{margin:0;color:var(--purple-soft)}
+
+/* ===== PIPELINE (self-running workflow) ===== */
+.pipe-wrap{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:30px 26px 26px;position:relative;overflow:hidden}
+.pipe{display:flex;align-items:stretch;gap:0;position:relative}
+.pnode{flex:1;text-align:center;position:relative;padding:0 6px}
+.pnode .pdot{width:54px;height:54px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--cream-deep);border:2px solid var(--cream-line);position:relative;z-index:2;transition:all .4s}
+.pnode .pttl{font-weight:700;font-size:13.5px;letter-spacing:-.01em;margin-bottom:4px}
+.pnode .pwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-bold)}
+.pnode.gate .pwho{color:var(--teal)}
+.pnode .pstatus{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:7px;padding:2px 8px;border-radius:10px;display:inline-block;background:var(--cream-deep);color:var(--gray-meta-light)}
+.pline{position:absolute;top:27px;height:3px;background:var(--cream-line);z-index:0;left:0;right:0}
+.pline .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft))}
+.play .pline .pfill{animation:fill 9s linear infinite}
+@keyframes fill{0%{width:0}90%,100%{width:100%}}
+.play .pnode .pdot{animation:nodeActivate 9s linear infinite}
+.play .pnode:nth-child(2) .pdot{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot{animation-delay:6.4s}
+@keyframes nodeActivate{0%,8%{background:var(--cream-deep);border-color:var(--cream-line);transform:scale(1)}
+  10%{background:rgba(124,58,237,.15);border-color:var(--purple-vivid);transform:scale(1.08)}
+  16%,100%{background:var(--purple-vivid);border-color:var(--purple-vivid)}}
+.play .pnode .pstatus{animation:statusFlip 9s linear infinite}
+.play .pnode:nth-child(2) .pstatus{animation-delay:0s}
+.play .pnode:nth-child(3) .pstatus{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pstatus{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pstatus{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pstatus{animation-delay:6.4s}
+@keyframes statusFlip{0%,8%{background:var(--cream-deep);color:var(--gray-meta-light)}
+  16%,100%{background:rgba(46,158,107,.14);color:var(--green)}}
+.pnode .pdot .ic-done{position:absolute;opacity:0}
+.play .pnode .pdot .ic-done{animation:doneShow 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-done{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-done{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-done{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-done{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-done{animation-delay:6.4s}
+@keyframes doneShow{0%,12%{opacity:0}16%,100%{opacity:1}}
+.play .pnode .pdot .ic-base{animation:baseHide 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-base{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-base{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-base{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-base{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-base{animation-delay:6.4s}
+@keyframes baseHide{0%,12%{opacity:1}16%,100%{opacity:0;color:#fff}}
+.pipe-foot{margin-top:22px;font-size:14px;color:var(--gray-meta-light);text-align:center;line-height:1.5}
+.pipe-foot b{color:var(--teal)}
+
+/* ===== COCKPIT DASHBOARD MOCKUP ===== */
+.dash{background:#0F0F2E;border-radius:18px;padding:0;overflow:hidden;border:1px solid rgba(181,168,230,.25);box-shadow:0 40px 80px -50px rgba(0,0,0,.7)}
+.dash-bar{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(181,168,230,.18)}
+.dash-bar .dots{display:flex;gap:6px}
+.dash-bar .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dash-bar .dots i:nth-child(1){background:#ff5f57}.dash-bar .dots i:nth-child(2){background:#febc2e}.dash-bar .dots i:nth-child(3){background:#28c840}
+.dash-bar .dtitle{font-family:var(--mono);font-size:12px;color:var(--purple-soft);letter-spacing:.06em;font-weight:600}
+.dash-bar .dlive{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:7px}
+.dash-bar .dlive::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dash-body{display:grid;grid-template-columns:1.35fr 1fr;gap:0}
+.dash-col{padding:20px 22px}
+.dash-col.left{border-right:1px solid rgba(181,168,230,.14)}
+.dash-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:14px;display:flex;justify-content:space-between}
+.dash-h .cnt{color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.16);border-radius:11px;padding:12px 13px}
+.kpi .kn{font-weight:800;font-size:24px;color:#fff;letter-spacing:-.02em;line-height:1}
+.kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta);margin-top:6px;line-height:1.3}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 13px;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;margin-bottom:8px}
+.mrow .mname{font-size:13px;color:#fff;font-weight:600}
+.mrow .mphase{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--purple-soft);margin-top:3px}
+.mrow .mpill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.mpill.run{background:rgba(124,58,237,.22);color:var(--purple-soft)}
+.mpill.wait{background:rgba(199,125,46,.2);color:#F0B366}
+.mpill.done{background:rgba(46,158,107,.18);color:#5FD6A0}
+.feed{position:relative;height:268px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent)}
+.feed-track{display:flex;flex-direction:column;gap:9px}
+.play .feed-track{animation:scrollfeed 16s linear infinite}
+@keyframes scrollfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.aevent{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;padding:10px 12px}
+.aevent .aic{flex:0 0 26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(124,58,237,.18)}
+.aevent.ok .aic{background:rgba(46,158,107,.18)}
+.aevent.gate .aic{background:rgba(14,116,137,.2)}
+.aevent .atx{font-size:12px;line-height:1.4;color:#E7E4F5}
+.aevent .atx b{color:#fff;font-weight:700}
+.aevent .atime{font-family:var(--mono);font-size:9px;color:var(--gray-meta);margin-top:3px;letter-spacing:.04em}
+.aevent .atx .agent{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple-soft);letter-spacing:.03em}
+.dash-cap{font-size:14px;color:var(--purple-soft);line-height:1.6;margin-top:26px;text-align:center;max-width:74ch;margin-left:auto;margin-right:auto}
+.dash-cap b{color:#fff}
+
+/* ===== KEEP / INTEGRATE / REPLACE inventory ===== */
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.int{background:var(--green)} .dot.rep{background:var(--purple-vivid)} .dot.add{background:var(--amber)} .dot.skip{background:var(--gray-meta)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 19px 16px;position:relative;overflow:hidden}
+.card.replace{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.card.add{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.card.skip{border:1.5px dashed var(--gray-meta)}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px}
+.card .name{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.badge.int{background:rgba(46,158,107,.13);color:var(--green)}
+.badge.rep{background:var(--purple-vivid);color:#fff}
+.badge.add{background:var(--amber);color:#fff}
+.badge.skip{background:var(--cream-deep);color:var(--gray-meta-light)}
+.card .why{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.card.replace .why,.card.add .why{color:var(--midnight)}
+.flag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--purple-vivid);color:#fff;padding:3px 8px;border-bottom-left-radius:8px}
+
+/* ===== PILLARS — numbered (Rupprecht) ===== */
+.pillars{display:flex;flex-direction:column;gap:18px}
+.pillar{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;position:relative}
+.pillar.hot{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.04))}
+.pillar .phead{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.pillar .pnum{flex:0 0 36px;height:36px;border-radius:10px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.pillar .picon{flex:0 0 40px;height:40px;border-radius:11px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center}
+.pillar .ptitle{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.pillar .ptag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:14px;margin-left:auto;background:var(--purple-vivid);color:#fff}
+.ptag.moved{background:rgba(124,58,237,.12);color:var(--purple-bold)}
+.ptag.new{background:var(--amber);color:#fff}
+.pillar p{font-size:14.5px;line-height:1.55;margin:.5em 0;color:var(--midnight)}
+.pillar .pbody{margin-top:6px}
+.flow-mini{font-family:var(--mono);font-size:11.5px;line-height:1.7;background:var(--midnight);color:var(--purple-soft);border-radius:10px;padding:16px 18px;margin:12px 0;overflow-x:auto;white-space:pre;display:block}
+.flow-mini b{color:#fff;font-weight:700}
+.flow-mini .ar{color:var(--purple-vivid);font-weight:700}
+.kills-line{font-size:13.5px;color:var(--purple-bold);font-weight:600;margin-top:6px}
+.feat{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.feat .f{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.feat .f .fm{color:var(--purple-vivid);font-weight:800;flex:0 0 auto}
+.feat .f b{color:var(--midnight)}
+
+/* ===== ROADBLOCK (now vs fix, inside a .pillar) ===== */
+.rblock{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:6px}
+.rb{background:var(--cream-deep);border-radius:11px;padding:16px 18px}
+.rb.fix{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.25)}
+.rb .rh{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:9px}
+.rb.now .rh{color:var(--red)} .rb.fix .rh{color:var(--purple-bold)}
+.rb ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6}
+.rb li{margin-bottom:4px}
+.rb-arrow{font-size:26px;font-weight:800;color:var(--purple-vivid)}
+
+/* ===== OUTCOME stat cards ===== */
+.ocards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ocard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-vivid)}
+.ocard .ostat{font-weight:800;font-size:32px;letter-spacing:-.02em;color:var(--purple-bold);line-height:1;margin-bottom:12px}
+.ocard .ostat .to{color:var(--purple-soft);font-weight:700;margin:0 2px}
+.ocard h4{font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin:0 0 7px;color:var(--midnight)}
+.ocard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--gray-meta-light)}
+.ocaveat{font-size:12.5px;color:var(--gray-meta-light);line-height:1.55;margin-top:18px;max-width:90ch}
+
+/* ===== HUMAN GATES ===== */
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gatecard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--teal)}
+.gatecard .gi{font-size:20px;margin-bottom:8px}
+.gatecard h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:0 0 7px;color:var(--teal)}
+.gatecard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+
+/* ===== SECURITY cards (top-bordered) ===== */
+.sec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.seccard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-bold)}
+.seccard .ic{font-size:22px;margin-bottom:10px}
+.seccard h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 8px;color:var(--purple-bold)}
+.seccard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.seccard p b{color:var(--midnight-deep)}
+
+/* ===== COMPLIANCE PILLS ===== */
+.compliance{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--midnight);color:#fff;padding:8px 16px;border-radius:24px;display:inline-flex;align-items:center;gap:8px}
+.pill .pk{color:var(--purple-soft)}
+
+/* ===== ALTERNATIVES (build-vs-buy comparison) ===== */
+.alt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.altc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 21px}
+.altc.us{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.altc .an{font-weight:800;font-size:16px;margin-bottom:3px}
+.altc .ashape{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:12px}
+.altc .agreat{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0 0 10px}
+.altc .agreat b{color:var(--green)}
+.altc .afit{font-size:13px;line-height:1.5;color:var(--midnight);margin:0;padding-top:10px;border-top:1px solid var(--cream-line)}
+.altc .afit b{color:var(--purple-bold)}
+
+/* ===== NUMBERS (CapEx phases + OpEx layers) ===== */
+.numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.numcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:26px 28px}
+.numcard h3{font-weight:800;font-size:18px;margin:0 0 4px}
+.numcard .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:14px}
+.paysplit{display:flex;gap:10px;margin:14px 0}
+.paysplit .half{flex:1;background:var(--cream-deep);border-radius:9px;padding:13px 15px;text-align:center}
+.paysplit .half .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.paysplit .half .v{font-weight:800;font-size:15px;color:var(--purple-bold)}
+.paysplit .arr{align-self:center;color:var(--purple-vivid);font-weight:800;font-size:18px}
+.numnote{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin-top:10px}
+.opex-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--cream-line)}
+.opex-row:last-of-type{border-bottom:none}
+.opex-row .ol .ot{font-weight:700;font-size:14.5px}
+.opex-row .ol .od{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin-top:3px}
+.opex-row .oa{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--purple-bold);white-space:nowrap;text-align:right;padding-top:2px}
+/* anchor callout under numbers — .value-anchor (Greenspoon) / .opex-anchor (Rupprecht) are aliases */
+.value-anchor,.opex-anchor{margin-top:16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.value-anchor b,.opex-anchor b{color:var(--purple-bold)}
+
+/* ===== ROI stat strip (dark) ===== */
+.roi{margin-top:22px;background:linear-gradient(165deg,var(--midnight),var(--midnight-soft));border-radius:14px;padding:26px 30px;color:#fff}
+.roi .rlabel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:16px}
+.roi .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.roi .rstat .rn{font-weight:800;font-size:30px;letter-spacing:-.02em;color:#fff;line-height:1}
+.roi .rstat .rn small{font-size:16px;color:var(--purple-soft);font-weight:700}
+.roi .rstat .rd{font-size:13px;color:var(--purple-soft);line-height:1.4;margin-top:8px}
+.why-now{margin-top:18px;font-size:14px;color:var(--midnight);background:#fff;border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 18px;line-height:1.55}
+.why-now b{color:var(--red)}
+
+/* ===== OUT OF SCOPE ===== */
+.scope-box{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 26px;border-top:4px solid var(--gray-meta)}
+.scope-box h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 14px;color:var(--gray-meta-light)}
+.chips{display:flex;flex-direction:column;gap:11px}
+.chip{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.chip .mk{flex:0 0 auto;font-weight:800;font-family:var(--mono);color:var(--gray-meta)}
+.chip b{color:var(--midnight)}
+
+/* ===== QUESTIONS ===== */
+.answered{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.ans{font-size:13px;background:rgba(46,158,107,.1);border:1px solid rgba(46,158,107,.3);color:var(--green);border-radius:20px;padding:7px 14px;font-weight:600}
+.ans b{color:var(--green)}
+.qcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start}
+.qc .qcn{flex:0 0 34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qc .qct{font-weight:800;font-size:15px;margin:0 0 4px}
+.qc .qcd{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+
+/* ===== TIMELINE / PHASING ===== */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.tl-line{position:absolute;top:21px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));z-index:0}
+.phase-t{position:relative;z-index:1;padding:0 12px;text-align:center}
+.phase-t .pnode2{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;background:var(--purple-vivid);border:4px solid var(--cream)}
+.phase-t.future .pnode2{background:var(--midnight);color:var(--purple-soft)}
+.phase-t .ptagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phase-t .ph2{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+.phase-t .pd2{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5}
+
+/* ============================================================================
+   FAMILY 4 (extended) — CATALOG BLOCKS
+   ----------------------------------------------------------------------------
+   Ported from the Dodonai capabilities decks (capabilities.html / overview-
+   client.html). These are the catalog / conversion components the cold + post-
+   discovery briefs need: a productized package grid, a before/after software-
+   stack comparison, productized agent cards, a layered architecture SVG, a
+   by-role function grid, and proof cards. Continuous decorative animations are
+   guarded under prefers-reduced-motion at the bottom of this file.
+   ============================================================================ */
+
+/* ===== PACKAGE GRID (productized offerings, optionally categorized) ===== */
+.pkg-intro{display:grid;grid-template-columns:1.2fr 0.8fr;gap:32px;align-items:center;margin:24px 0 36px;padding:28px;background:linear-gradient(135deg,#fff 0%,var(--cream-deep) 100%);border:1px solid var(--cream-line);border-radius:14px}
+.pkg-intro .pi-copy h3{font-weight:800;font-size:22px;color:var(--midnight);margin:0 0 10px;letter-spacing:-.01em}
+.pkg-intro .pi-copy p{font-size:14.5px;line-height:1.6;color:var(--gray-meta-light);margin:0 0 8px}
+.pkg-intro .pi-copy p strong{color:var(--midnight-deep)}
+.pkg-category{margin:32px 0 12px}
+.pkg-category .cat-label{font-family:var(--mono);font-size:11px;color:var(--purple-bold);letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}
+.pkg-category .cat-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--purple-bold) 0%,transparent 100%)}
+.pkg-category.teal .cat-label{color:var(--teal)}
+.pkg-category.teal .cat-label::after{background:linear-gradient(90deg,var(--teal) 0%,transparent 100%)}
+.pkg-category.amber .cat-label{color:var(--amber)}
+.pkg-category.amber .cat-label::after{background:linear-gradient(90deg,var(--amber) 0%,transparent 100%)}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin:14px 0 24px}
+.pkg-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;display:flex;flex-direction:column}
+.pkg-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple-bold),var(--purple-vivid));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.pkg-card.teal::before{background:linear-gradient(90deg,var(--teal),var(--teal-bright))}
+.pkg-card.amber::before{background:linear-gradient(90deg,var(--amber),#f59e0b)}
+.pkg-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(20,20,58,.10);border-color:var(--purple-soft)}
+.pkg-card:hover::before{transform:scaleX(1)}
+.pkg-card .pkg-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.pkg-card .pkg-name{font-weight:800;font-size:17px;color:var(--midnight-deep);line-height:1.3;letter-spacing:-.01em;margin:0;flex:1}
+.pkg-card .pkg-dur{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.10em;text-transform:uppercase;font-weight:700;background:rgba(124,58,237,.08);padding:4px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.pkg-card.teal .pkg-dur{color:var(--teal);background:rgba(14,116,144,.08)}
+.pkg-card.amber .pkg-dur{color:var(--amber);background:rgba(180,83,9,.08)}
+.pkg-card .pkg-desc{font-size:13.5px;line-height:1.55;color:var(--gray-meta-light);margin:0;flex:1}
+.pkg-card .pkg-desc strong{color:var(--midnight-deep)}
+.pkg-card .pkg-desc em{color:var(--purple-bold)}
+.pkg-card.featured{border-color:var(--purple-vivid);background:linear-gradient(135deg,#fff 0%,rgba(124,58,237,.04) 100%)}
+.pkg-card.featured .pkg-dur{background:var(--purple-vivid);color:#fff}
+.pkg-card .pkg-tag{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9px;color:#fff;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:var(--purple-vivid);padding:3px 8px;border-radius:3px}
+
+/* ===== SOFTWARE-STACK BEFORE/AFTER (build-vs-buy / consolidation) ===== */
+.stack-compare{display:grid;grid-template-columns:1fr 80px 1fr;gap:0;align-items:stretch;margin:24px 0 8px}
+.stack-side{padding:24px;border-radius:12px;position:relative;overflow:hidden}
+.stack-before{background:linear-gradient(135deg,rgba(225,29,72,.06) 0%,rgba(225,29,72,.02) 100%);border:1px solid rgba(225,29,72,.2)}
+.stack-after{background:linear-gradient(135deg,rgba(14,116,144,.06) 0%,rgba(124,58,237,.04) 100%);border:1px solid var(--purple-soft)}
+.stack-side h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:0 0 4px}
+.stack-before h4{color:var(--rose)}
+.stack-after h4{color:var(--purple-bold)}
+.stack-side .stack-title{font-weight:800;font-size:18px;color:var(--midnight-deep);margin:0 0 16px;line-height:1.3}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.stack-chip{background:#fff;border:1px solid var(--cream-line);border-radius:6px;padding:8px 6px;text-align:center;font-size:10px;font-weight:600;color:var(--midnight-deep);font-family:var(--mono);line-height:1.2;letter-spacing:.02em;position:relative;transition:transform .3s ease}
+.stack-before .stack-chip{opacity:.85;animation:disconnected 4s ease-in-out infinite}
+@keyframes disconnected{0%,100%{transform:translate(0,0)}25%{transform:translate(-1px,2px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-2px,1px)}}
+.stack-after .stack-layer{background:#fff;border:1px solid var(--purple-soft);border-radius:6px;padding:10px 14px;margin-bottom:4px;font-size:11px;font-weight:700;color:var(--midnight-deep);font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.stack-after .stack-layer.l1{background:linear-gradient(90deg,rgba(124,58,237,.10),rgba(124,58,237,.02))}
+.stack-after .stack-layer.l2{background:linear-gradient(90deg,rgba(14,116,144,.10),rgba(14,116,144,.02));margin-left:10px}
+.stack-after .stack-layer.l3{background:linear-gradient(90deg,rgba(22,163,74,.10),rgba(22,163,74,.02));margin-left:20px}
+.stack-after .stack-layer .ln{color:var(--purple-bold);font-size:9px}
+.stack-after .stack-layer.l2 .ln{color:var(--teal)}
+.stack-after .stack-layer.l3 .ln{color:var(--good)}
+.stack-side .stack-meta{font-size:12px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.stack-before .stack-meta strong{color:var(--rose)}
+.stack-after .stack-meta strong{color:var(--purple-bold)}
+.stack-arrow{display:flex;align-items:center;justify-content:center;position:relative}
+.stack-arrow svg{width:60px;height:60px}
+
+/* ===== PRODUCTIZED AGENT CARDS (roster items) ===== */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:14px 0 28px}
+.agent-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 20px;transition:transform .3s ease,box-shadow .3s ease;display:flex;gap:14px;align-items:flex-start}
+.agent-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(20,20,58,.08)}
+.agent-icon{flex-shrink:0;width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;background:linear-gradient(135deg,var(--purple-bold),var(--purple-vivid))}
+.agent-grid.teal .agent-icon{background:linear-gradient(135deg,var(--teal),var(--teal-bright))}
+.agent-grid.amber .agent-icon{background:linear-gradient(135deg,var(--amber),#f59e0b)}
+.agent-body{flex:1;min-width:0}
+.agent-body .agent-name{font-weight:700;font-size:15px;color:var(--midnight-deep);margin:0 0 6px;line-height:1.3;letter-spacing:-.005em}
+.agent-body .agent-desc{font-size:12.5px;line-height:1.55;color:var(--gray-meta-light);margin:0}
+.agent-body .agent-desc strong{color:var(--midnight-deep)}
+/* agent-card meta line: watch / do / write / fire / human-gate badges */
+.agent-body .agent-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.agent-body .agent-meta .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.agent-body .agent-meta .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.agent-body .agent-meta .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.agent-body .agent-meta .am.phase{background:rgba(199,125,46,.16);color:var(--amber)}
+
+/* ===== LAYERED ARCHITECTURE SVG ===== */
+.arch-diagram{margin:24px 0 8px}
+.arch-diagram svg{width:100%;height:auto;max-height:380px}
+
+/* ===== BY-ROLE FUNCTION GRID ===== */
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0}
+.role-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 22px;box-shadow:0 1px 2px rgba(20,20,58,.04);transition:transform .3s ease,box-shadow .3s ease}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,20,58,.08)}
+.role-card h3{font-weight:700;font-size:17px;color:var(--midnight);margin:0 0 4px;letter-spacing:-.01em}
+.role-card .sub{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.role-card ul{margin:0;padding-left:18px}
+.role-card ul li{font-size:13.5px;line-height:1.55;margin:4px 0}
+.role-card ul li::marker{color:var(--purple-vivid)}
+.role-card ul li em{color:var(--purple-bold);font-style:italic}
+
+/* ===== PROOF CARDS (named result + stat footer) ===== */
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:8px 0}
+.proof-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(20,20,58,.04);display:flex;flex-direction:column}
+.proof-card .p-head{padding:18px 24px;background:var(--cream-deep);border-bottom:1px solid var(--cream-line)}
+.proof-card .p-tag{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.proof-card .p-title{font-weight:700;font-size:17px;color:var(--midnight-deep);line-height:1.3;margin:0}
+.proof-card .p-body{padding:20px 24px;font-size:14px;line-height:1.6;flex:1}
+.proof-card .p-stats{display:flex;gap:18px;padding:14px 24px;background:var(--midnight);color:#fff;border-top:1px solid var(--midnight-soft)}
+.proof-card .p-stat{flex:1}
+.proof-card .p-stat .pn{font-weight:800;font-size:22px;color:#fff;line-height:1;letter-spacing:-.01em;background:linear-gradient(135deg,#fff 0%,var(--purple-soft) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.proof-card .p-stat .pl{font-family:var(--mono);font-size:9.5px;color:var(--purple-soft);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:4px;line-height:1.3}
+
+/* ===== FOOTER ===== */
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:880px){
+  .hero h1{font-size:38px}
+  .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .changed .wrap,.cliff .wrap{grid-template-columns:1fr;gap:16px}
+  .changed .clist{grid-template-columns:1fr}
+  .phasegrid,.cards,.alt-grid,.gates,.ocards,.sec-grid,.numbers-grid,.qcards{grid-template-columns:1fr}
+  .xform{grid-template-columns:1fr;gap:18px}.xarrow{flex-direction:row}.xarrow .at{writing-mode:horizontal-tb}.xcaption{grid-template-columns:1fr}
+  .pipe{flex-direction:column;gap:14px}.pline{display:none}
+  .dash-body{grid-template-columns:1fr}.dash-col.left{border-right:none;border-bottom:1px solid rgba(181,168,230,.14)}
+  .rblock{grid-template-columns:1fr;gap:12px}.rb-arrow{transform:rotate(90deg)}
+  .roi .rgrid{grid-template-columns:1fr;gap:18px}
+  .timeline{grid-template-columns:1fr;gap:26px}.tl-line{display:none}
+  /* family 4 — catalog blocks */
+  .pkg-intro{grid-template-columns:1fr}
+  .pkg-grid{grid-template-columns:1fr}
+  .stack-compare{grid-template-columns:1fr;gap:14px}.stack-arrow{transform:rotate(90deg)}
+  .agent-grid,.role-grid,.proof-grid{grid-template-columns:1fr}
+}
+/* keep continuous catalog animations off for reduced-motion users */
+@media(prefers-reduced-motion:reduce){
+  .stack-before .stack-chip{animation:none}
+  .pkg-card,.agent-card,.role-card,.stack-chip{transition:none}
+  .arch-diagram svg animate,.stack-arrow svg animate{display:none}
+}
+@media print{
+  .hero{padding:40px 0}section{padding:28px 0;page-break-inside:avoid}
+  .reveal{opacity:1;transform:none}
+  .roi,.flow-mini,.dash{box-shadow:none}
+  .pkg-card,.agent-card,.role-card,.proof-card,.stack-side{page-break-inside:avoid}
+  .stack-before .stack-chip{animation:none}
+}
+</style>
+</head><body>
+
+<!-- ===== HERO ===== -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Red Hen Operating System · Architecture Brief</span>
+      <span class="tag">v1 · companion to the July 17 proposal</span>
+    </div>
+    <span class="eyebrow">Prepared for Red Hen Turf Farm</span>
+    <h1>Stop being the database.<br><span class="soft">Run the farm instead.</span></h1>
+    <p class="lede">A roughly $6M, five-entity operation currently runs on 50 to 60 tab workbooks, five storage systems, and one person's memory. This brief maps every workflow Red Hen can automate: a roster of named agents working on one structured store the farm owns outright, with Gordon and Lisa keeping every judgment call.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Prepared for</div><div class="value">Gordon Millar · Lisa Courtney</div></div>
+      <div class="meta"><div class="label">Prepared by</div><div class="value">Nick Chapleau · Dodonai</div></div>
+      <div class="meta"><div class="label">Companion to</div><div class="value">Proposal of July 17, 2026</div></div>
+      <div class="meta"><div class="label">The decision</div><div class="value">Green-light Phase 1 · pick the first wedge</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ===== CLIFF: the number 12 ===== -->
+<div class="cliff">
+  <div class="wrap">
+    <div class="ctitle">The number that matters<span class="big">1 → 12</span></div>
+    <div class="cbody">One vendor invoice feeds roughly twelve consumers at Red Hen: AP entry, equipment history, chemical inventory, per-field cost, sales and use tax, insurance schedules, SDS records, cost of production, financials, audit files, statement reconciliation, 1099 prep. That count is Lisa's, not ours. Today each consumer re-derives the data by hand. <b>Capture it once, and every one of them becomes a query.</b></div>
+  </div>
+</div>
+
+<!-- ===== DESTINATION ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The destination</span><h2>You both already <span class="soft">wrote the spec</span></h2></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">If I could get manually processing down to being the minority of things rather than the majority of things, I call that a win for phase one, with room to grow.</p>
+      <div class="qa">— Gordon Millar, discovery call, July 9</div>
+    </div>
+    <p class="os-def reveal d2">Gordon's Red Hen Operating System project defines four layers: systems of record that stay, a knowledge repository, structured data, and AI as the interface. Lisa's automation roadmap arrives at the same destination from the AP side: <em>"how does trusted information move through Red Hen,"</em> so that software can come and go without the business reinventing itself. That shared idea has a name: an <strong>operating system for the farm</strong>. One structured, queryable store beneath the tools you keep, agents doing the routine work, and every approval staying human. This brief shows what it looks like built.</p>
+  </div>
+</section>
+
+<!-- ===== WORKFLOW LANES: the life of one invoice ===== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What we mapped</span><h2>The life of one invoice <span class="soft">today</span></h2>
+      <p class="sec-sub">Assembled from Lisa's ten documented AP processes and the systems walkthroughs.</p></div>
+    <div class="flow-legend reveal d1">
+      <span class="lg"><span class="dot" style="background:var(--gray-meta)"></span> Handled by the OS</span>
+      <span class="lg"><span class="dot" style="background:var(--amber)"></span> Manual today</span>
+      <span class="lg"><span class="dot" style="background:var(--teal)"></span> Human judgment (stays yours)</span>
+    </div>
+    <div class="phasegrid">
+      <div class="phasecard reveal d1">
+        <div class="ph-top"><span class="ph-n">1</span><span class="ph-name">Arrive</span><span class="ph-meta">daily</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Email, mail, portal, or scanner<span class="who w-man">collected by hand</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Saved into Dropbox or SharePoint<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Some PDFs OCR'd, some not<span class="who w-man">manual</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d2">
+        <div class="ph-top"><span class="ph-n">2</span><span class="ph-name">Rename</span><span class="ph-meta">per doc</span></div>
+        <div class="flow">
+          <div class="step"><span class="sb"></span><span class="stx">Renamed.to suggests date, vendor, invoice #, EID</span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">It misreads Red Hen as the vendor<span class="who w-man">corrected, again</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Same corrections re-made forever<span class="who w-man">it never learns</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d3">
+        <div class="ph-top"><span class="ph-n">3</span><span class="ph-name">Code</span><span class="ph-meta">per doc</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Vendor, GL, class, entity keyed in<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Equipment ID hunted from the PO<span class="who w-man">manual</span></span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Taxable or not: judgment<span class="who w-gate">Gordon / Lisa</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d4">
+        <div class="ph-top"><span class="ph-n">4</span><span class="ph-name">File &amp; pay</span><span class="ph-meta">weekly</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Filename becomes the database<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Positive Pay CSV hand-formatted<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Vendor statements reconciled<span class="who w-man">manual</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d5">
+        <div class="ph-top"><span class="ph-n">5</span><span class="ph-name">Re-derive</span><span class="ph-meta">forever</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Use tax, W-9s, 1099 prep<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Equipment + per-field cost rollups<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Insurance + audit data on request<span class="who w-man">scramble</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tally reveal d2"><b>10 AP processes</b>, spread across 5 storage systems, with one person's memory as the query layer. Lisa has documented every process, and every one ends with her own automation wish list. That wish list is this brief.</div>
+  </div>
+</section>
+
+<!-- ===== ROADBLOCK: the weekly spray loop ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The other stuck point</span><h2>The weekly spray loop, <span class="soft">from the screen recording</span></h2>
+      <p class="sec-sub">Gordon recorded his actual weekly cycle on July 11. It is the functional spec for the chemical build, failure demos included.</p></div>
+    <div class="pillar hot reveal d1">
+      <div class="phead"><span class="picon">🧪</span><span class="ptitle">Chemicals &amp; spray records · ~$750k/yr</span><span class="ptag">phase 3</span></div>
+      <div class="rblock">
+        <div class="rb now"><div class="rh">Today</div><ul>
+          <li>Handwritten rig records re-typed into Excel, then copy, paste, paste-values to break formulas. One formula has been broken for years.</li>
+          <li>The rig logs "Tomato 9," never the actual products. GPS coverage and chemical identity never meet.</li>
+          <li>Chemistry rules hand-noted on every work order; mid-flight rate changes scribbled in the margin.</li>
+          <li>Cost per field or per variety: "tying dollars to this has been a challenge."</li>
+          <li>SDS lives in a paper binder; label PPE requirements go unread.</li>
+        </ul></div>
+        <div class="rb-arrow">→</div>
+        <div class="rb fix"><div class="rh">With the OS</div><ul>
+          <li>The operator taps actual rates once, from the cab. Effective-rate math (shut-off nozzles, tank rounding) is computed, not lore.</li>
+          <li>JD Ops as-applied coverage joins to real product identity and cost, per field, per variety, per block.</li>
+          <li>Tank-mix bans, the 5-day herbicide window, 48-hour re-entry, and 30-day listings checked automatically on every plan.</li>
+          <li>Pick sheets, tank batches, and Red Gold reports are generated, not assembled.</li>
+          <li>Every SDS and label PPE requirement one tap away for any employee.</li>
+        </ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== XFORM: tool pile → hub ===== -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The transformation</span><h2>From twelve tools <span class="soft">to one system that joins them</span></h2></div>
+    <div class="xform reveal d1" id="xform">
+      <div class="xcol today">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber);display:inline-block"></span> Today</div>
+        <div class="scatter">
+          <span class="tool-chip">QuickBooks ×6</span><span class="tool-chip">Asana</span><span class="tool-chip">Dropbox</span><span class="tool-chip">SharePoint</span>
+          <span class="tool-chip">Box</span><span class="tool-chip">Excel · 50-60 tabs</span><span class="tool-chip">TSheets</span><span class="tool-chip">JD Ops Center</span>
+          <span class="tool-chip">Ag Leader</span><span class="tool-chip">Renamed.to</span><span class="tool-chip">CDMS</span><span class="tool-chip">Paper + memory</span>
+          <span class="runner"></span>
+          <span class="handlabel">Gordon, clicking between all of them</span>
+        </div>
+      </div>
+      <div class="xarrow"><span class="at">Build &amp; own</span><span class="ah">→</span></div>
+      <div class="xcol os">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--purple-vivid);display:inline-block"></span> Red Hen OS</div>
+        <div class="hub">
+          <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="92" y2="28"/>
+            <line x1="50" y1="50" x2="92" y2="72"/><line x1="50" y1="50" x2="50" y2="92"/>
+            <line x1="50" y1="50" x2="8" y2="72"/><line x1="50" y1="50" x2="8" y2="28"/>
+          </svg>
+          <div class="hub-core"><span class="hw">Red Hen OS</span><span class="hs">the brain</span></div>
+          <span class="spoke">QuickBooks</span><span class="spoke">Asana forms</span><span class="spoke">JD Ops Center</span>
+          <span class="spoke">Dropbox / SharePoint</span><span class="spoke">CDMS labels</span><span class="spoke">Red Gold + FSA</span>
+        </div>
+      </div>
+    </div>
+    <div class="xcaption reveal d2">
+      <div class="xc l"><div class="h"><span class="pin"></span>Today</div><p>Each tool holds a sliver. Nothing joins them, so the joining happens in one person's head, evenings included.</p></div>
+      <div class="xc r"><div class="h"><span class="pin"></span>Red Hen OS</div><p>One structured store reads and writes the tools you keep. Anyone can ask it a question. It answers with the farm's own data.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== INVENTORY ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The inventory</span><h2>Keep, integrate, <span class="soft">replace</span></h2>
+      <p class="sec-sub">Very little actually changes for the people using these tools. That is the point.</p></div>
+    <div class="legend reveal d1">
+      <span class="lg"><span class="dot int"></span> Integrate — keep it, the OS reads/writes it</span>
+      <span class="lg"><span class="dot rep"></span> Replace &amp; Build — collapse into the OS</span>
+      <span class="lg"><span class="dot add"></span> Add — new to the stack</span>
+      <span class="lg"><span class="dot skip"></span> Out of flow — untouched</span>
+    </div>
+    <div class="cards reveal d2">
+      <div class="card"><div class="top"><span class="name">QuickBooks Online ×5-6</span><span class="badge int">Integrate</span></div><p class="why">Stays the finance system of record. The OS delivers correctly coded entries into it, per entity.</p></div>
+      <div class="card"><div class="top"><span class="name">Asana crew forms</span><span class="badge int">Integrate</span></div><p class="why">Crews keep the forms and landing page they already know. We replace the storage behind them via the API.</p></div>
+      <div class="card"><div class="top"><span class="name">JD Operations Center</span><span class="badge int">Integrate</span></div><p class="why">The field and spray data hub. A Dodonai OAuth app reads as-applied coverage; Ag Leader flows in upstream.</p></div>
+      <div class="card"><div class="top"><span class="name">Dropbox · SharePoint · Box</span><span class="badge int">Integrate</span></div><p class="why">Stay as document homes. The OS ingests and indexes their contents instead of relying on filenames.</p></div>
+      <div class="card"><div class="top"><span class="name">CDMS labels</span><span class="badge int">Integrate</span></div><p class="why">Label and SDS data (REI, PHI, rainfast, PPE) pulled automatically for every product on hand.</p></div>
+      <div class="card replace"><span class="flag">changed</span><div class="top"><span class="name">Excel workbooks · 50-60 tabs</span><span class="badge rep">Replace</span></div><p class="why">The contents become real tables: chemicals, equipment, fields, spray records. Queryable by anyone, not just the author.</p></div>
+      <div class="card replace"><span class="flag">changed</span><div class="top"><span class="name">Renamed.to</span><span class="badge rep">Replace</span></div><p class="why">Superseded by an extraction layer that permanently learns Red Hen's rules instead of forgetting every correction.</p></div>
+      <div class="card add"><div class="top"><span class="name">Red Hen OS · store + agents</span><span class="badge add">Add</span></div><p class="why">SQL database on Google Cloud, custom backend, mobile web front end, voice input. Owned by the farm.</p></div>
+      <div class="card"><div class="top"><span class="name">Ag Leader SMS / AgFiniti</span><span class="badge skip" style="background:var(--gray-meta);color:#fff">Out of flow</span></div><p class="why">Reaches the OS through JD Ops Center. No direct integration needed.</p></div>
+      <div class="card"><div class="top"><span class="name">TSheets · BILL</span><span class="badge skip" style="background:var(--gray-meta);color:#fff">Out of flow</span></div><p class="why">H-2A time tracking stays put for now. Payment rails are a separate, later decision that clean upstream data keeps easy.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== AGENT GRID: the roster ===== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The roster</span><h2>Every workflow, <span class="soft">as an agent you hire once</span></h2>
+      <p class="sec-sub">Seven of these agents already appear, by name, in Gordon's RHOS project. The rest fall straight out of Lisa's workflow documents. Nothing here is speculative: every agent maps to a documented, recurring piece of work at Red Hen.</p></div>
+
+    <div class="pkg-category reveal"><div class="cat-label">The paperwork engine · money and documents</div></div>
+    <div class="agent-grid">
+      <div class="agent-card reveal">
+        <div class="agent-icon">IP</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Invoice Processing Agent</h3>
+          <p class="agent-desc">Watches every intake path, extracts vendor, date, invoice #, amount, and line items, proposes GL, class, entity, Equipment ID, and tax status, and files the document. Learns permanently from every correction Lisa makes. <strong>Replaces the Renamed.to step with a layer that never re-makes the same mistake.</strong></p>
+          <div class="agent-meta"><span class="am">reads email · Dropbox · portals</span><span class="am fire">fires on arrival</span><span class="am gate">gate: Lisa approves coding</span><span class="am phase">phase 2 · the first build</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">PO</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Purchase Order Agent</h3>
+          <p class="agent-desc">Captures POs from the 5 to 6 people who order parts, so the Equipment ID and entity ride along to the invoice. Flags invoice-to-PO mismatches before they become coding mysteries.</p>
+          <div class="agent-meta"><span class="am">reads POs · vendors</span><span class="am fire">fires on order</span><span class="am gate">gate: exceptions to Lisa</span><span class="am phase">phase 2 fast-follow</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">ID</div>
+        <div class="agent-body">
+          <h3 class="agent-name">EID Resolver</h3>
+          <p class="agent-desc">Chases every transaction stuck in "Needs EID": suggests matches from the equipment registry, drafts the follow-up, and keeps a clean queue instead of a lingering pile.</p>
+          <div class="agent-meta"><span class="am">reads QBO · equipment registry</span><span class="am fire">fires daily</span><span class="am gate">gate: Lisa confirms</span><span class="am phase">phase 2 fast-follow</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">W9</div>
+        <div class="agent-body">
+          <h3 class="agent-name">W-9 &amp; ST-105 Tracker</h3>
+          <p class="agent-desc">Knows which vendors have a current W-9 and which hold Red Hen's exemption certificate. Flags payments to vendors missing one, flags inconsistent tax treatment across the IN and MI rules, and feeds 1099 prep.</p>
+          <div class="agent-meta"><span class="am">reads vendor files · QBO</span><span class="am fire">fires weekly</span><span class="am gate">gate: Lisa reviews flags</span><span class="am phase">phase 2 fast-follow</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">SR</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Statement Reconciler</h3>
+          <p class="agent-desc">Compares vendor statements against QuickBooks, surfaces unexplained differences, and drafts the document requests so Lisa reviews exceptions instead of hunting them.</p>
+          <div class="agent-meta"><span class="am">reads statements · QBO</span><span class="am fire">fires monthly</span><span class="am gate">gate: Lisa sends requests</span><span class="am phase">phase 2 fast-follow</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">MR</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Missing Receipt Chaser</h3>
+          <p class="agent-desc">Spots card transactions with no supporting document, generates the follow-up request, and tracks it to done. Positive Pay export formatting goes with it: generated, not hand-massaged.</p>
+          <div class="agent-meta"><span class="am">reads QBO bank feed</span><span class="am fire">fires weekly</span><span class="am gate">gate: Lisa reviews list</span><span class="am phase">phase 2 fast-follow</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-category teal reveal"><div class="cat-label">The field and chemical brain · $750k a year, finally per field</div></div>
+    <div class="agent-grid teal">
+      <div class="agent-card reveal">
+        <div class="agent-icon">CH</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Chemical Inventory &amp; Cost Agent</h3>
+          <p class="agent-desc">Every product on hand with its label attributes and live cost, fed automatically from invoices. Tracks the corn-label vs turf-label price arbitrage Gordon already plays, and makes it visible instead of remembered.</p>
+          <div class="agent-meta"><span class="am">reads invoices · CDMS</span><span class="am fire">fires on receipt</span><span class="am phase">phase 3</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">WO</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Spray Work-Order Agent</h3>
+          <p class="agent-desc">Builds the weekly work order from the Red Gold program, computes effective rates explicitly (shut-off nozzles, whole-tank rounding), and generates the pick sheet and tank batches. Mid-flight changes get recorded, not scribbled.</p>
+          <div class="agent-meta"><span class="am">reads programs · fields · inventory</span><span class="am fire">fires weekly, in season</span><span class="am gate">gate: Gordon approves the plan</span><span class="am phase">phase 3</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">RG</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Chemistry Rules Guardian</h3>
+          <p class="agent-desc">Enforces the rules Gordon currently hand-writes on every sheet: tank-mix bans, the 5-day herbicide window, 48-hour re-entry, the 30-day applied-chemical listing. Operators self-serve rate and rule lookups instead of texting Gordon mid-spray.</p>
+          <div class="agent-meta"><span class="am">reads every plan + record</span><span class="am fire">fires on every plan</span><span class="am phase">phase 3</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">SD</div>
+        <div class="agent-body">
+          <h3 class="agent-name">SDS Librarian</h3>
+          <p class="agent-desc">Every on-hand product's SDS and label PPE requirements one tap away for any employee. If a rig tips over, the tank contents and rates are answerable in seconds, not in a paper binder somewhere.</p>
+          <div class="agent-meta"><span class="am">reads CDMS · inventory</span><span class="am fire">fires on new product</span><span class="am phase">phase 3</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">RR</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Red Gold Reporter</h3>
+          <p class="agent-desc">Assembles the per-block spray reports Red Gold requires (after planting, before first harvest, end of season) from live records. The copy-paste-print cycle disappears.</p>
+          <div class="agent-meta"><span class="am">reads spray records · blocks</span><span class="am fire">fires on schedule</span><span class="am gate">gate: Gordon sends</span><span class="am phase">phase 3</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">FS</div>
+        <div class="agent-body">
+          <h3 class="agent-name">FSA Crop Reporter</h3>
+          <p class="agent-desc">Cross-walks plantings to CLU boundaries and drafts the July 15 certification package, maps included. Positioned for the 2027 path where FSA accepts plant maps straight from equipment GPS: data JD Ops already holds.</p>
+          <div class="agent-meta"><span class="am">reads JD Ops · field tables</span><span class="am fire">fires annually, June</span><span class="am gate">gate: Gordon certifies</span><span class="am phase">later phase</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">AG</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Agronomy Advisor</h3>
+          <p class="agent-desc">Gordon's name for it. Every field a searchable historical timeline: soil and tissue tests, crop plans, scouting notes, yields, and the lessons-learned section he calls the most valuable part.</p>
+          <div class="agent-meta"><span class="am">reads field tables · labs</span><span class="am fire">on demand</span><span class="am phase">later phase</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">HC</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Harvest Coordinator</h3>
+          <p class="agent-desc">Gordon's tomato load board, kept, with the missing half filled in: scale tickets and actuals land back on each load, so Weight, Usable, and A/B % stop being empty columns at season's end.</p>
+          <div class="agent-meta"><span class="am">reads load board · tickets</span><span class="am fire">fires in season</span><span class="am phase">later phase</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-category amber reveal"><div class="cat-label">The shop and fleet · one registry, real costs</div></div>
+    <div class="agent-grid amber">
+      <div class="agent-card reveal">
+        <div class="agent-icon">EM</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Equipment Maintenance Agent</h3>
+          <p class="agent-desc">One structured registry, seeded from the Equipment List master and the VIN, plate, and entity data currently trapped in Asana task titles. Every repair, inspection, and work order linked to the machine, billing documents attached. And it verifies the promise the current system can't: when an inspection says "a repair request is coming," it checks that one actually exists.</p>
+          <div class="agent-meta"><span class="am">reads Asana API · registry</span><span class="am fire">fires on submission</span><span class="am gate">gate: Josh triages</span><span class="am phase">phase 2 fast-follow</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">EC</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Equipment Cost &amp; Valuation Agent</h3>
+          <p class="agent-desc">Cost per hour, cost per mile, and per-field allocation across roughly $500k of purchases and $800k of repairs a year. Serials, values, and insurance data on demand, with an annual valuation pass against market comps instead of a four-hour manual sweep.</p>
+          <div class="agent-meta"><span class="am">reads registry · QBO · JD Ops</span><span class="am fire">fires monthly</span><span class="am phase">later phase</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-category reveal"><div class="cat-label">People and payroll · audit-grade by default</div></div>
+    <div class="agent-grid">
+      <div class="agent-card reveal">
+        <div class="agent-icon">PQ</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Payroll QC Auditor</h3>
+          <p class="agent-desc">Automates the weekly audit memo Lisa already runs by hand through ChatGPT: pulls the reports, runs every check (gross-to-net, time vs payroll, overtime, 401(k) mapping, rate changes), writes the memo, and flags only the exceptions. The H-2A minimum-wage pass/fail table, cumulative hours, and WHD/MSPA documentation come standard.</p>
+          <div class="agent-meta"><span class="am">reads QBO Payroll · QBO Time</span><span class="am fire">fires weekly, after payroll</span><span class="am gate">gate: Lisa reviews exceptions</span><span class="am phase">later phase</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">NB</div>
+        <div class="agent-body">
+          <h3 class="agent-name">New-Hire &amp; Benefits Verifier</h3>
+          <p class="agent-desc">Verifies the automations Lisa doesn't trust: new-hire state reporting, 401(k) eligibility handoffs to AMP/Nova, Colonial Life deductions. Trust-but-verify, as a standing control instead of a memory burden.</p>
+          <div class="agent-meta"><span class="am">reads QBO Payroll · plans</span><span class="am fire">fires weekly</span><span class="am phase">later phase</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-category teal reveal"><div class="cat-label">The interface · how you use all of it</div></div>
+    <div class="agent-grid teal">
+      <div class="agent-card reveal">
+        <div class="agent-icon">DB</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Daily Operations Briefing</h3>
+          <p class="agent-desc">Gordon's name for it. Each morning: what arrived, what got coded, what needs a decision, what the crews completed over the weekend, and what is stuck. The report that today does not exist for unsupervised weekend work.</p>
+          <div class="agent-meta"><span class="am">reads everything</span><span class="am fire">fires weekdays, 6am</span><span class="am phase">phase 2, grows per module</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal">
+        <div class="agent-icon">EA</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Executive Assistant</h3>
+          <p class="agent-desc">Gordon's name for it. The ask-anything layer, voice-first, from the truck: "what did we spend on fungicide on Basewick week 1?" "Which trucks are due for inspection?" "Show me this quarter's use-tax exposure." It answers from the farm's own tables, with sources.</p>
+          <div class="agent-meta"><span class="am">reads everything</span><span class="am fire">on demand · voice</span><span class="am phase">phase 2, grows per module</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== ARCH DIAGRAM: his four layers ===== -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The architecture (yours)</span><h2>Your four layers, <span class="soft">built</span></h2>
+      <p class="sec-sub">This is the layer model from Gordon's RHOS project, unchanged. We are not proposing a different system. We are proposing to build yours.</p></div>
+    <div class="arch-diagram reveal">
+      <svg viewBox="0 0 1000 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lgA" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#b45309" stop-opacity=".95"/><stop offset="100%" stop-color="#f59e0b" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="lgB" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6B46C1" stop-opacity=".95"/><stop offset="100%" stop-color="#7C3AED" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="lgC" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0e7490" stop-opacity=".95"/><stop offset="100%" stop-color="#06b6d4" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="lgD" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#252556" stop-opacity=".95"/><stop offset="100%" stop-color="#1A1A45" stop-opacity=".95"/></linearGradient>
+          <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#7C3AED" opacity=".6"/></marker>
+        </defs>
+        <rect x="80" y="20" width="840" height="90" rx="12" fill="url(#lgA)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" repeatCount="indefinite"/></rect>
+        <text x="110" y="50" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 4 · AI AS THE INTERFACE</text>
+        <text x="110" y="77" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">Voice + chat queries · Dashboards · Daily briefing · The agent roster</text>
+        <rect x="80" y="130" width="840" height="90" rx="12" fill="url(#lgB)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" begin="1.5s" repeatCount="indefinite"/></rect>
+        <text x="110" y="160" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 3 · STRUCTURED DATA</text>
+        <text x="110" y="187" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">Equipment · Vendors · Chemicals · Fields · Spray records · People · Projects</text>
+        <rect x="80" y="240" width="840" height="90" rx="12" fill="url(#lgC)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" begin="3s" repeatCount="indefinite"/></rect>
+        <text x="110" y="270" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 2 · KNOWLEDGE REPOSITORY</text>
+        <text x="110" y="297" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">SOPs · Manuals · Labels + SDS · Contracts · Scanned documents, indexed</text>
+        <rect x="80" y="350" width="840" height="90" rx="12" fill="url(#lgD)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" begin="4.5s" repeatCount="indefinite"/></rect>
+        <text x="110" y="380" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 1 · SYSTEMS OF RECORD (KEPT, NOT REPLACED)</text>
+        <text x="110" y="407" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">QuickBooks · JD Ops Center · Asana forms · Banking · Weather · Labs</text>
+        <line x1="940" y1="350" x2="940" y2="330" stroke="#7C3AED" stroke-width="2" stroke-dasharray="4 3" opacity=".5" marker-end="url(#arrowhead)"/>
+        <line x1="940" y1="240" x2="940" y2="220" stroke="#7C3AED" stroke-width="2" stroke-dasharray="4 3" opacity=".5" marker-end="url(#arrowhead)"/>
+        <line x1="940" y1="130" x2="940" y2="110" stroke="#7C3AED" stroke-width="2" stroke-dasharray="4 3" opacity=".5" marker-end="url(#arrowhead)"/>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<!-- ===== PIPE: one invoice runs itself ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How a document moves</span><h2>One invoice, <span class="soft">running itself</span></h2></div>
+    <div class="pipe-wrap reveal d1" id="pipe">
+      <div class="pipe">
+        <div class="pline"><div class="pfill"></div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📨</span><span class="ic-done">✓</span></div><div class="pttl">Invoice arrives</div><div class="pwho">Agent</div><div class="pstatus">email from Keystone Coop, 6:07am</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">🔎</span><span class="ic-done">✓</span></div><div class="pttl">Extracted + coded</div><div class="pwho">Agent</div><div class="pstatus">vendor, GL, entity, EID 509N, non-taxable</div></div>
+        <div class="pnode gate"><div class="pdot"><span class="ic-base">👤</span><span class="ic-done">✓</span></div><div class="pttl">Lisa's review</div><div class="pwho">Lisa</div><div class="pstatus">approve or correct; it learns either way</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">💸</span><span class="ic-done">✓</span></div><div class="pttl">Posted + fanned out</div><div class="pwho">Agent</div><div class="pstatus">QuickBooks, plus all 12 consumers</div></div>
+      </div>
+      <div class="pipe-foot">The agents do the routine steps. <b>You do one: the judgment call.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== DASH: the cockpit ===== -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The cockpit</span><h2>The Monday morning <span class="soft">Red Hen checks with coffee</span></h2></div>
+    <div class="dash reveal d1" id="dash">
+      <div class="dash-bar"><span class="dots"><i></i><i></i><i></i></span><span class="dtitle">Red Hen · Operating System</span><span class="dlive">Live</span></div>
+      <div class="dash-body">
+        <div class="dash-col left">
+          <div class="kpis">
+            <div class="kpi"><div class="kn">14</div><div class="kl">Invoices coded overnight</div></div>
+            <div class="kpi"><div class="kn">3</div><div class="kl">Need Lisa's review</div></div>
+            <div class="kpi"><div class="kn">0</div><div class="kl">Chemistry rule violations</div></div>
+          </div>
+          <div class="dash-h">Active work <span class="cnt">4</span></div>
+          <div class="mrow"><div><div class="mname">Keystone Coop statement · June</div><div class="mphase">Reconciled, 2 differences found</div></div><span class="mpill wait">Lisa's review</span></div>
+          <div class="mrow"><div><div class="mname">Spray work order · week 29</div><div class="mphase">Tomato 9, Basewick wk 1, rules pass</div></div><span class="mpill done">Approved</span></div>
+          <div class="mrow"><div><div class="mname">H-2A payroll · week 28</div><div class="mphase">Minimum-wage table: all pass</div></div><span class="mpill done">Ready</span></div>
+          <div class="mrow"><div><div class="mname">EID 2150 · inspection follow-up</div><div class="mphase">Promised repair request</div></div><span class="mpill run">Agent: verifying</span></div>
+        </div>
+        <div class="dash-col right">
+          <div class="dash-h">Agent activity <span class="cnt">live</span></div>
+          <div class="feed">
+            <div class="feed-track" id="feed">
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Invoice coded</b> Greenmark 4412, EID 500N, non-taxable. <span class="agent">[ invoice-processing ]</span></div><div class="atime">06:42</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>3 codings</b> ready for sign-off. <span class="agent">[ awaiting Lisa ]</span></div><div class="atime">07:03</div></div></div>
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Pick sheet built</b> week 29, 4 blocks, no mix conflicts. <span class="agent">[ spray-workorder ]</span></div><div class="atime">07:10</div></div></div>
+              <div class="aevent"><span class="aic">📨</span><div><div class="atx"><b>SDS filed</b> new product: Prowl H2O, respirator PPE flagged. <span class="agent">[ sds-librarian ]</span></div><div class="atime">07:18</div></div></div>
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Payroll memo</b> week 28 checks pass, 1 rate change noted. <span class="agent">[ payroll-qc ]</span></div><div class="atime">07:25</div></div></div>
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Invoice coded</b> Greenmark 4412, EID 500N, non-taxable. <span class="agent">[ invoice-processing ]</span></div><div class="atime">06:42</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>3 codings</b> ready for sign-off. <span class="agent">[ awaiting Lisa ]</span></div><div class="atime">07:03</div></div></div>
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Pick sheet built</b> week 29, 4 blocks, no mix conflicts. <span class="agent">[ spray-workorder ]</span></div><div class="atime">07:10</div></div></div>
+              <div class="aevent"><span class="aic">📨</span><div><div class="atx"><b>SDS filed</b> new product: Prowl H2O, respirator PPE flagged. <span class="agent">[ sds-librarian ]</span></div><div class="atime">07:18</div></div></div>
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Payroll memo</b> week 28 checks pass, 1 rate change noted. <span class="agent">[ payroll-qc ]</span></div><div class="atime">07:25</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="dash-cap reveal d2">One screen above the tools: what ran, what needs a human, what the crews finished over the weekend. The system Gordon checks, instead of the system Gordon is.</p>
+  </div>
+</section>
+
+<!-- ===== GATES ===== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>The OS removes the typing, <span class="soft">not the judgment</span></h2></div>
+    <div class="gates">
+      <div class="gatecard reveal d1"><div class="gi">👤</div><h4>Lisa approves every coding</h4><p>The AI proposes vendor, GL, tax status, and EID. Nothing posts to QuickBooks without her click, and her corrections are exactly how the system learns.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">🧪</div><h4>Gordon approves every spray plan</h4><p>Work orders are drafts until he signs. Rate changes are his call, captured in the record instead of the margin.</p></div>
+      <div class="gatecard reveal d3"><div class="gi">⚖️</div><h4>AI never approves</h4><p>That rule comes from Gordon's own RHOS security module, and we adopt it verbatim. Every agent has a named human gate, role-based access, and an audit log.</p></div>
+      <div class="gatecard reveal d4"><div class="gi">🔑</div><h4>Owned, not rented</h4><p>Built on Red Hen's own Google Cloud project. The database, the code, and the data stay with the farm, whoever maintains it.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== OUTCOME ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">After the build</span><h2>What changes <span class="soft">for you</span></h2></div>
+    <div class="ocards">
+      <div class="ocard reveal d1"><div class="ostat">majority <span class="to">→</span> minority</div><h4>Manual processing flips</h4><p>Your stated phase-one win: manual work becomes the exception in the day, not the day itself.</p></div>
+      <div class="ocard reveal d2"><div class="ostat">10-15%</div><h4>Of Gordon's time back</h4><p>Your estimate for the chemical wedge alone, before the invoice engine and the shop registry add theirs.</p></div>
+      <div class="ocard reveal d3"><div class="ostat">1 <span class="to">→</span> 12</div><h4>One capture, every consumer</h4><p>A document entered once feeds AP, cost, tax, insurance, and audit without ever being re-keyed.</p></div>
+      <div class="ocard reveal d4"><div class="ostat">0</div><h4>Questions only Gordon can answer</h4><p>The real answer to the succession worry: the next person inherits a system, not a mystery.</p></div>
+    </div>
+    <p class="ocaveat reveal d2">These figures are estimates built from your own numbers on the calls, not measurements. The Phase 1 blueprint baselines the real hours and dollars so the build gets judged against facts.</p>
+  </div>
+</section>
+
+<!-- ===== ALTERNATIVES ===== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">You already ran this comparison</span><h2>The three paths <span class="soft">on the table</span></h2>
+      <p class="sec-sub">Both of you have live alternatives in your notes. Here is our honest read of each.</p></div>
+    <div class="alt-grid">
+      <div class="altc reveal d1"><div class="an">BILL.com</div><div class="ashape">AP payments platform</div><p class="agreat">Great at: <b>ACH payments, approval chains, Positive Pay</b></p><p class="afit">Where it breaks: <b>it sits at the payment end. The bottleneck Lisa documented is upstream: coding rules no tool retains. BILL still needs correctly coded bills flowing into it.</b></p></div>
+      <div class="altc reveal d2"><div class="an">ChatGPT + Zapier, DIY</div><div class="ashape">advisor + glue</div><p class="agreat">Great at: <b>architecture thinking. It got RHOS this far.</b></p><p class="afit">Where it breaks: <b>someone still has to build, integrate, and maintain it. Prior builds stalled exactly there, and left systems nobody dared touch.</b></p></div>
+      <div class="altc us reveal d3"><div class="an">Dodonai — build &amp; own</div><div class="ashape">implementation partner</div><p class="agreat">Great at: <b>building the store, the agents, and the integrations as one owned, maintainable system, with the learning rules layer no off-the-shelf tool offers</b></p><p class="afit">Best fit when: <b>the goal is a durable information architecture where software can come and go. Payment rails stay an open, later decision that clean data makes easy either way.</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== NUMBERS ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The decision input</span><h2>The <span class="soft">numbers</span></h2></div>
+    <div class="numbers-grid">
+      <div class="numcard reveal d1">
+        <div class="nlabel">Build · CapEx</div><h3>$24,000 to $34,000 · phased</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Phase 1 · Blueprint <span style="color:var(--gray-meta);font-weight:400">(credited toward the build)</span></div><div class="od">data audit with AI agents, relational data model, integration architecture, build plan</div></div><div class="oa">$4,000</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Phase 2 · Foundation + invoice engine</div><div class="od">GCP database, backend, mobile web front end, learning review queue, QBO + Asana integration</div></div><div class="oa">$10-15k</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Phase 3 · Chemical &amp; spray tracking <span style="color:var(--gray-meta);font-weight:400">(optional)</span></div><div class="od">inventory, per-field cost, rule enforcement, Red Gold reporting</div></div><div class="oa">$10-15k</div></div>
+        <div class="paysplit"><div class="half"><div class="h">Each phase: start</div><div class="v">50%</div></div><div class="arr">→</div><div class="half"><div class="h">On delivery</div><div class="v">50%</div></div></div>
+        <p class="numnote">Each phase gates the next. If the Phase 1 blueprint does not earn the build, you keep the blueprint and stop. If it does, the full $4,000 is credited against Phase 2, so the blueprint effectively costs nothing when the build goes forward.</p>
+      </div>
+      <div class="numcard reveal d2">
+        <div class="nlabel">Ongoing · hosting &amp; advisory</div><h3>Three tiers, not a phase</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Core</div><div class="od">managed hosting on Google Cloud, pipeline and integration monitoring, a small iteration block, monthly review call</div></div><div class="oa">$2,000/mo</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Growth</div><div class="od">Core, plus a larger iteration block (new fields, rules, refinements from real use) and priority support</div></div><div class="oa">$3,000/mo</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Partner</div><div class="od">Growth, plus ongoing development of new agents from the roster and quarterly planning</div></div><div class="oa">$4,000/mo</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Google Cloud infrastructure</div><div class="od">billed at cost, estimated during the blueprint</div></div><div class="oa">at cost</div></div>
+        <p class="numnote">Starts after Phase 2 go-live. Cancel or change tiers anytime on 30 days' notice; we recommend a tier at go-live based on real usage.</p>
+      </div>
+    </div>
+    <div class="roi reveal d3">
+      <div class="rlabel">The frame, in your numbers</div>
+      <div class="rgrid">
+        <div class="rstat"><div class="rn">$750k<small>/yr</small></div><div class="rd">chemical + fertilizer spend, finally visible per field and per variety</div></div>
+        <div class="rstat"><div class="rn">$1.3M<small>/yr</small></div><div class="rd">equipment purchases + repairs, getting cost-per-hour and cost-per-mile truth</div></div>
+        <div class="rstat"><div class="rn">10-15%</div><div class="rd">of Gordon's time back from the chemical wedge alone, his estimate</div></div>
+      </div>
+    </div>
+    <p class="why-now reveal d3"><b>Why now:</b> it is year two of the entity structure and cash flow is hard to see. FSA moves toward GPS-native crop reporting by 2027, which JD Ops data feeds directly. And the RHOS design is being written right now, alone, in ChatGPT. The gap between designing the system and running it is exactly the part we build.</p>
+  </div>
+</section>
+
+<!-- ===== TIMELINE ===== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Suggested <span class="soft">phasing</span></h2></div>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">This call</div><div class="ph2">Decide</div><div class="pd2">Review the proposal, pick the first wedge (invoice engine vs chemicals), green-light Phase 1.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Weeks 1-3</div><div class="ph2">Blueprint</div><div class="pd2">Data audit with AI agents, the relational model, integration architecture, build plan. Yours to keep either way.</div></div>
+      <div class="phase-t"><div class="pnode2">2</div><div class="ptagline">Weeks 4-13</div><div class="ph2">Foundation + first wedge</div><div class="pd2">GCP database, backend, mobile front end, the learning review queue, QBO + Asana integration, go-live.</div></div>
+      <div class="phase-t"><div class="pnode2">3</div><div class="ptagline">Weeks 14+</div><div class="ph2">The chemical brain</div><div class="pd2">Inventory, per-field cost, rule enforcement, operator self-serve, Red Gold reporting.</div></div>
+      <div class="phase-t future"><div class="pnode2">4</div><div class="ptagline">Ongoing</div><div class="ph2">Grow the roster</div><div class="pd2">Hosting, monitoring, iteration. Agents added one at a time, in the order the farm votes with its pain.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== QUESTIONS ===== -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">To agree on the call</span><h2>What we still need to <span class="soft">pin down</span></h2></div>
+    <div class="answered reveal d1">
+      <span class="ans"><b>Answered Jul 9:</b> John Deere Ops Center is the integration hub; Ag Leader flows in upstream via AgFiniti.</span>
+      <span class="ans"><b>Answered Jul 11:</b> the shared data folder is live and inventoried; Lisa's payroll doc surfaced a third wedge.</span>
+    </div>
+    <div class="qcards">
+      <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">The first wedge</p><p class="qcd">Invoice engine first (our recommendation: it gives the spray data its chemical meaning) or chemicals first (the higher-visibility win)?</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">2</span><div><p class="qct">BILL's timing</p><p class="qcd">Does the payment-rails decision wait for clean upstream data, or should the blueprint evaluate it alongside the build?</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">3</span><div><p class="qct">The invoice corpus</p><p class="qcd">The cleaned invoice and receipt set is not in the shared folder yet, and Phase 2 wants it early.</p></div></div>
+      <div class="qc reveal d4"><span class="qcn">4</span><div><p class="qct">The IT introduction</p><p class="qcd">A quick intro to your IT company before we touch SharePoint, so security review happens before access, not after.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== SCOPE ===== -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Discipline</span><h2>Out of scope for <span class="soft">v1</span></h2></div>
+    <div class="scope-box reveal d1">
+      <h4>Waits for later</h4>
+      <div class="chips">
+        <div class="chip"><span class="mk">—</span><span><b>Rig re-controllering</b> to make blue and red sprayers interoperate. Hardware, not software.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>QuickBooks Enterprise consolidation.</b> We integrate with QuickBooks as-is; the migration is a separate decision we can advise on.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Direct regulatory filing</b> (FSA, DOL, tax). The OS prepares and organizes; you review and submit.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Productizing for other farms.</b> Custom for Red Hen is the premise.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ===== FOOTER ===== -->
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for Red Hen Turf Farm · Red Hen Operating System Brief v1 · July 19, 2026 · Confidential
+  </div>
+</footer>
+
+<script>/* ============================================================================
+   Dodonai Brief Engine — scroll reveal + animation gating
+   ----------------------------------------------------------------------------
+   Pairs with brief.css. Two IntersectionObservers:
+     1. .reveal  -> adds .in when the element scrolls into view (fade + rise).
+     2. animated blocks (#xform, #pipe, #dash, or any [data-play]) -> adds .play
+        the first time they're visible, so the CSS keyframe animations stay idle
+        until seen (saves CPU + makes the reveal feel intentional).
+
+   No dependencies. Safe to load with `defer`. Honors prefers-reduced-motion via
+   brief.css (the .reveal rule no-ops; .play still applies but animations that
+   matter are decorative). To register a custom animated block, add the
+   `data-play` attribute to it OR push its id into PLAY_IDS below.
+   ============================================================================ */
+(function () {
+  var PLAY_IDS = ['xform', 'pipe', 'dash'];
+
+  function observe() {
+    // 1. Scroll-reveal
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealIO.unobserve(e.target); // reveal once, then stop watching
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+
+    // 2. Animation gating: add .play once visible.
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('play'); }
+      });
+    }, { threshold: 0.2 });
+
+    var targets = {};
+    PLAY_IDS.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) targets[id] = el;
+    });
+    document.querySelectorAll('[data-play]').forEach(function (el) {
+      targets[el.id || ('p' + Math.round(el.getBoundingClientRect().top))] = el;
+    });
+    Object.keys(targets).forEach(function (k) { playIO.observe(targets[k]); });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observe);
+  } else {
+    observe();
+  }
+})();
+</script>
+</body></html>
