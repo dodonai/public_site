@@ -48,25 +48,65 @@
 		});
 	}
 
-	// First paint: decorate links before any internal nav happens, so a user who
-	// lands with paid UTMs and clicks the promo banner/header CTA on the same page
-	// still gets attribution forwarded.
-	// --- Calendly: open booking in an on-site popup instead of navigating away.
+	// Calendly: open booking in an on-site popup instead of navigating away.
 	// A plain link-out to calendly.com cannot fire a conversion (the booking
 	// completes off-domain, so no event reaches our page). The popup keeps the
-	// user on-site so we can fire the booked-call conversion. Applies site-wide to
-	// every calendly.com CTA (managed-services, pricing, agent pages).
+	// user on-site so we can fire the booked-call conversion.
+	let calendlyLoadPromise;
+	let pendingCalendlyBooking;
+	let calendlyBookingTracked = false;
+
 	function loadCalendlyAssets() {
-		if (document.getElementById('calendly-widget-css')) return;
-		const css = document.createElement('link');
-		css.id = 'calendly-widget-css';
-		css.rel = 'stylesheet';
-		css.href = 'https://assets.calendly.com/assets/external/widget.css';
-		document.head.appendChild(css);
-		const js = document.createElement('script');
-		js.src = 'https://assets.calendly.com/assets/external/widget.js';
-		js.async = true;
-		document.body.appendChild(js);
+		if (window.Calendly) return Promise.resolve();
+		if (calendlyLoadPromise) return calendlyLoadPromise;
+
+		calendlyLoadPromise = new Promise((resolve, reject) => {
+			if (!document.getElementById('calendly-widget-css')) {
+				const css = document.createElement('link');
+				css.id = 'calendly-widget-css';
+				css.rel = 'stylesheet';
+				css.href = 'https://assets.calendly.com/assets/external/widget.css';
+				document.head.appendChild(css);
+			}
+
+			const timeout = window.setTimeout(() => {
+				js.remove();
+				calendlyLoadPromise = undefined;
+				reject(new Error('Calendly took too long to load'));
+			}, 10000);
+
+			const js = document.createElement('script');
+			js.id = 'calendly-widget-js';
+			js.src = 'https://assets.calendly.com/assets/external/widget.js';
+			js.async = true;
+			js.addEventListener(
+				'load',
+				() => {
+					window.clearTimeout(timeout);
+					if (window.Calendly) {
+						resolve();
+					} else {
+						js.remove();
+						calendlyLoadPromise = undefined;
+						reject(new Error('Calendly loaded without its widget API'));
+					}
+				},
+				{ once: true }
+			);
+			js.addEventListener(
+				'error',
+				() => {
+					window.clearTimeout(timeout);
+					js.remove();
+					calendlyLoadPromise = undefined;
+					reject(new Error('Calendly failed to load'));
+				},
+				{ once: true }
+			);
+			document.body.appendChild(js);
+		});
+
+		return calendlyLoadPromise;
 	}
 
 	// Forward captured paid params to Calendly so the booking carries attribution.
@@ -86,7 +126,7 @@
 		return utm;
 	}
 
-	function handleCalendlyClick(e) {
+	async function handleCalendlyClick(e) {
 		const link = e.target.closest?.('a[href]');
 		if (!link) return;
 		let url;
@@ -96,16 +136,46 @@
 			return;
 		}
 		if (url.hostname !== 'calendly.com') return;
-		if (!window.Calendly) return; // script not ready → fall back to normal navigation
+
 		e.preventDefault();
-		window.Calendly.initPopupWidget({ url: link.href, utm: calendlyUtms() });
+		const sourcePath = window.location.pathname;
+		pendingCalendlyBooking = {
+			sourcePath,
+			isEnterprise: sourcePath.startsWith('/ai-managed-services')
+		};
+		calendlyBookingTracked = false;
+
+		const utm = calendlyUtms();
+		if (!utm.utmContent) utm.utmContent = `site:${sourcePath}`;
+
+		try {
+			await loadCalendlyAssets();
+			window.Calendly.initPopupWidget({ url: link.href, utm });
+		} catch {
+			// Preserve a working booking path if Calendly's embed assets fail.
+			window.location.assign(link.href);
+		}
 	}
 
 	function handleCalendlyMessage(e) {
 		if (e.origin !== 'https://calendly.com') return;
-		if (e.data && e.data.event === 'calendly.event_scheduled' && window.gtag) {
-			// GA4 event (reporting)
-			window.gtag('event', 'enterprise_call_booked', { event_category: 'lead' });
+		if (
+			e.data?.event !== 'calendly.event_scheduled' ||
+			!window.gtag ||
+			!pendingCalendlyBooking ||
+			calendlyBookingTracked
+		) {
+			return;
+		}
+
+		calendlyBookingTracked = true;
+		const { sourcePath, isEnterprise } = pendingCalendlyBooking;
+		window.gtag('event', isEnterprise ? 'enterprise_call_booked' : 'intro_call_booked', {
+			event_category: 'lead',
+			booking_source: sourcePath
+		});
+
+		if (isEnterprise) {
 			// Google Ads conversion — "Booked Enterprise Call" (action id 7683935723)
 			window.gtag('event', 'conversion', {
 				send_to: 'AW-17511150141/HRCVCOub_s8cEL3k-51B'
@@ -114,8 +184,9 @@
 	}
 
 	onMount(() => {
+		// First paint: decorate app links before any internal navigation so paid
+		// attribution survives a same-page CTA click.
 		decorateAppLinks();
-		loadCalendlyAssets();
 		document.addEventListener('click', handleCalendlyClick);
 		window.addEventListener('message', handleCalendlyMessage);
 		return () => {
