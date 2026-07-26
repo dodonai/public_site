@@ -48,11 +48,151 @@
 		});
 	}
 
-	// First paint: decorate links before any internal nav happens, so a user who
-	// lands with paid UTMs and clicks the promo banner/header CTA on the same page
-	// still gets attribution forwarded.
+	// Calendly: open booking in an on-site popup instead of navigating away.
+	// A plain link-out to calendly.com cannot fire a conversion (the booking
+	// completes off-domain, so no event reaches our page). The popup keeps the
+	// user on-site so we can fire the booked-call conversion.
+	let calendlyLoadPromise;
+	let pendingCalendlyBooking;
+	let calendlyBookingTracked = false;
+
+	function loadCalendlyAssets() {
+		if (window.Calendly) return Promise.resolve();
+		if (calendlyLoadPromise) return calendlyLoadPromise;
+
+		calendlyLoadPromise = new Promise((resolve, reject) => {
+			if (!document.getElementById('calendly-widget-css')) {
+				const css = document.createElement('link');
+				css.id = 'calendly-widget-css';
+				css.rel = 'stylesheet';
+				css.href = 'https://assets.calendly.com/assets/external/widget.css';
+				document.head.appendChild(css);
+			}
+
+			const timeout = window.setTimeout(() => {
+				js.remove();
+				calendlyLoadPromise = undefined;
+				reject(new Error('Calendly took too long to load'));
+			}, 10000);
+
+			const js = document.createElement('script');
+			js.id = 'calendly-widget-js';
+			js.src = 'https://assets.calendly.com/assets/external/widget.js';
+			js.async = true;
+			js.addEventListener(
+				'load',
+				() => {
+					window.clearTimeout(timeout);
+					if (window.Calendly) {
+						resolve();
+					} else {
+						js.remove();
+						calendlyLoadPromise = undefined;
+						reject(new Error('Calendly loaded without its widget API'));
+					}
+				},
+				{ once: true }
+			);
+			js.addEventListener(
+				'error',
+				() => {
+					window.clearTimeout(timeout);
+					js.remove();
+					calendlyLoadPromise = undefined;
+					reject(new Error('Calendly failed to load'));
+				},
+				{ once: true }
+			);
+			document.body.appendChild(js);
+		});
+
+		return calendlyLoadPromise;
+	}
+
+	// Forward captured paid params to Calendly so the booking carries attribution.
+	function calendlyUtms() {
+		const map = {
+			utm_source: 'utmSource',
+			utm_medium: 'utmMedium',
+			utm_campaign: 'utmCampaign',
+			utm_term: 'utmTerm',
+			utm_content: 'utmContent'
+		};
+		const utm = {};
+		for (const [k, calKey] of Object.entries(map)) {
+			const v = sessionStorage.getItem(`_ad_${k}`);
+			if (v) utm[calKey] = v;
+		}
+		return utm;
+	}
+
+	async function handleCalendlyClick(e) {
+		const link = e.target.closest?.('a[href]');
+		if (!link) return;
+		let url;
+		try {
+			url = new URL(link.href);
+		} catch {
+			return;
+		}
+		if (url.hostname !== 'calendly.com') return;
+
+		e.preventDefault();
+		const sourcePath = window.location.pathname;
+		pendingCalendlyBooking = {
+			sourcePath,
+			isEnterprise: sourcePath.startsWith('/ai-managed-services')
+		};
+		calendlyBookingTracked = false;
+
+		const utm = calendlyUtms();
+		if (!utm.utmContent) utm.utmContent = `site:${sourcePath}`;
+
+		try {
+			await loadCalendlyAssets();
+			window.Calendly.initPopupWidget({ url: link.href, utm });
+		} catch {
+			// Preserve a working booking path if Calendly's embed assets fail.
+			window.location.assign(link.href);
+		}
+	}
+
+	function handleCalendlyMessage(e) {
+		if (e.origin !== 'https://calendly.com') return;
+		if (
+			e.data?.event !== 'calendly.event_scheduled' ||
+			!window.gtag ||
+			!pendingCalendlyBooking ||
+			calendlyBookingTracked
+		) {
+			return;
+		}
+
+		calendlyBookingTracked = true;
+		const { sourcePath, isEnterprise } = pendingCalendlyBooking;
+		window.gtag('event', isEnterprise ? 'enterprise_call_booked' : 'intro_call_booked', {
+			event_category: 'lead',
+			booking_source: sourcePath
+		});
+
+		if (isEnterprise) {
+			// Google Ads conversion — "Booked Enterprise Call" (action id 7683935723)
+			window.gtag('event', 'conversion', {
+				send_to: 'AW-17511150141/HRCVCOub_s8cEL3k-51B'
+			});
+		}
+	}
+
 	onMount(() => {
+		// First paint: decorate app links before any internal navigation so paid
+		// attribution survives a same-page CTA click.
 		decorateAppLinks();
+		document.addEventListener('click', handleCalendlyClick);
+		window.addEventListener('message', handleCalendlyMessage);
+		return () => {
+			document.removeEventListener('click', handleCalendlyClick);
+			window.removeEventListener('message', handleCalendlyMessage);
+		};
 	});
 
 	afterNavigate(({ from, to }) => {
