@@ -615,6 +615,22 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 }
 
 </style>
+<style>
+/* ===== Talenfeld agent-roster flourishes (scoped to this brief) ===== */
+.agents-section .pkg-category .cat-label{color:var(--purple-soft)}
+.agents-section .pkg-category.teal .cat-label{color:var(--teal-bright)}
+.agents-section .pkg-category.amber .cat-label{color:#f4b45f}
+.agents-section .agent-card{border-color:rgba(255,255,255,.10);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease}
+.agents-section .agent-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px -12px rgba(124,58,237,.55);border-color:var(--purple-soft)}
+.agents-section .agent-icon{transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease}
+.agents-section .agent-card:hover .agent-icon{transform:scale(1.1) rotate(-3deg);box-shadow:0 0 0 5px rgba(124,58,237,.20)}
+.agents-section .agent-meta .am.fire{position:relative;padding-left:17px}
+.agents-section .agent-meta .am.fire::before{content:"";position:absolute;left:7px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--purple-vivid);animation:agentPulse 2.2s ease-out infinite}
+@keyframes agentPulse{0%{box-shadow:0 0 0 0 rgba(124,58,237,.55)}70%{box-shadow:0 0 0 7px rgba(124,58,237,0)}100%{box-shadow:0 0 0 0 rgba(124,58,237,0)}}
+.agents-section .roster-cap{color:var(--purple-soft);font-size:14.5px;max-width:70ch;margin:18px auto 0;text-align:center}
+.agents-section .roster-cap b{color:#fff}
+@media (prefers-reduced-motion: reduce){.agents-section .agent-meta .am.fire::before{animation:none}}
+</style>
 </head>
 <body>
 
@@ -763,6 +779,124 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
         </div>
       </div>
     </div>
+  </div>
+</section>
+
+<!-- AGENT ROSTER (deepens the 3 pillars) -->
+<section class="ink agents-section">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The roster</span><h2>The three pillars, <span class="soft">as the agents you're hiring</span></h2>
+      <p class="sec-sub">Each agent watches something, does the routine work, writes an output, and stops at your gate. Grouped by the pillar it serves.</p></div>
+
+    <div class="pkg-category reveal"><div class="cat-label">Pillar 1 · Intake &amp; Qualification</div></div>
+    <div class="agent-grid">
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">IC</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Call Capture</h3>
+          <p class="agent-desc">Watches CallRail and your web forms, transcribes every intake call, and opens a structured case record the moment it lands. <strong>Nothing said on a call is ever lost again.</strong></p>
+          <div class="agent-meta"><span class="am">reads CallRail + forms</span><span class="am fire">on new call</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">PA</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Plaintiff Assessment</h3>
+          <p class="agent-desc">Reviews the recorded intake and runs open-web research on the caller, so you can weigh the thing that matters most: <strong>would a jury want to sit next to this plaintiff.</strong></p>
+          <div class="agent-meta"><span class="am">reads intake + web</span><span class="am gate">human gate: your read</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d3">
+        <div class="agent-icon">CS</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Criteria Scoring</h3>
+          <p class="agent-desc">Scores each case against your criteria library, case type, claimant age, statute of limitations, injury severity, abuse setting, and returns qualified, needs-more, or pass <strong>with its reasoning shown.</strong></p>
+          <div class="agent-meta"><span class="am">reads intake + docs</span><span class="am fire">on intake complete</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d4">
+        <div class="agent-icon">AP</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Alternate-Plaintiff Flagger</h3>
+          <p class="agent-desc">Catches the case you'd otherwise lose, strong claim, weak client, and surfaces a next friend or guardianship attorney <strong>who can sit in the client's place.</strong></p>
+          <div class="agent-meta"><span class="am">reads case file</span><span class="am gate">human gate: your call</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-category teal reveal"><div class="cat-label">Pillar 2 · Document Validation &amp; Gap Detection</div></div>
+    <div class="agent-grid teal">
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">DN</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Intake &amp; Normalize</h3>
+          <p class="agent-desc">Takes documents by email or share-file at any volume, from a single page to boxes, then OCRs, indexes, and Bates-stamps them into CaseMap. <strong>The file is ready before anyone opens it.</strong></p>
+          <div class="agent-meta"><span class="am">reads uploads</span><span class="am fire">on documents in</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">GD</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Gap Detection</h3>
+          <p class="agent-desc">Knows what a complete child-welfare file should hold and flags what's present, missing, or improperly redacted. <strong>The piece other firms can't do, because they don't know what they're not seeing.</strong></p>
+          <div class="agent-meta"><span class="am">reads file + 30-yr letters</span><span class="am gate">human gate: your confirm</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d3">
+        <div class="agent-icon">RR</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Records-Request Generator</h3>
+          <p class="agent-desc">For every gap, drafts the exact public-records request, and knows where child-welfare records are hidden and the legal basis to get them. <strong>The letters you've written hundreds of times, in seconds.</strong></p>
+          <div class="agent-meta"><span class="am">writes request letters</span><span class="am gate">human gate: approve before send</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d4">
+        <div class="agent-icon">SC</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Standard-of-Care Signal</h3>
+          <p class="agent-desc">Surfaces the deviation you read a case on: prior police visits, missed warnings, agency failures. <strong>The early "this is real" signal, on the record.</strong></p>
+          <div class="agent-meta"><span class="am">reads file</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-category amber reveal"><div class="cat-label">Pillar 3 · Referral Package Assembly</div></div>
+    <div class="agent-grid amber">
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">ST</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Strategy-Outline Drafter</h3>
+          <p class="agent-desc">From the validated facts, drafts the strategy outline you already build by hand: causes of action, including &sect;1983 civil rights, matched to the state. <strong>Trained on your own prior outlines.</strong></p>
+          <div class="agent-meta"><span class="am">reads facts + priors</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">IM</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Immunity &amp; Caps Map</h3>
+          <p class="agent-desc">For the target state, maps the sovereign-immunity posture, planning vs operational, the damage caps, and the recommended path: &sect;1983, claims bill, or negligence. <strong>The judgment receiving firms lack.</strong></p>
+          <div class="agent-meta"><span class="am">reads 50-state immunity memos</span><span class="am gate">human gate: you set the play</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d3">
+        <div class="agent-icon">DP</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Discovery Planner</h3>
+          <p class="agent-desc">Builds the first-round discovery plan, what to go after, tuned to the state and case type, so the receiving firm knows exactly where to start.</p>
+          <div class="agent-meta"><span class="am">writes discovery plan</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d4">
+        <div class="agent-icon">PK</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Package Assembler</h3>
+          <p class="agent-desc">Bundles summary, claims, defenses and workarounds, and the discovery plan into one referral package a plaintiff firm can run with, framed so they're not scared off. <strong>Your cases land in hands that won't create bad law.</strong></p>
+          <div class="agent-meta"><span class="am">writes referral package</span><span class="am gate">human gate: your sign-off + which firm</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="roster-cap reveal">Twelve agents, one shared brain: your criteria library, 5,000-plus prior filings, and the sovereign-immunity memo corpus. <b>Build the brain once; the pillars are lenses on it.</b></p>
   </div>
 </section>
 
