@@ -1,0 +1,2326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex,nofollow">
+<meta name="color-scheme" content="dark">
+<title>Dabdoub Appeals SOP Workflow Atlas</title>
+<style>
+  :root {
+    --bg: #0b0d1c;
+    --bg-2: #11142a;
+    --panel: #171a35;
+    --panel-2: #1d2142;
+    --panel-3: #22274c;
+    --text: #f5f2e9;
+    --muted: #9ea3c7;
+    --line: #30365f;
+    --line-bright: #454d7d;
+    --purple: #9b87ff;
+    --purple-2: #7658ff;
+    --purple-wash: rgba(155, 135, 255, .12);
+    --blue: #56c8ff;
+    --blue-wash: rgba(86, 200, 255, .11);
+    --green: #49d5a2;
+    --green-wash: rgba(73, 213, 162, .11);
+    --gold: #f2c75c;
+    --gold-wash: rgba(242, 199, 92, .11);
+    --pink: #ff7aa8;
+    --pink-wash: rgba(255, 122, 168, .11);
+    --orange: #ff9a68;
+    --orange-wash: rgba(255, 154, 104, .11);
+    --shadow: 0 24px 70px rgba(0, 0, 0, .34);
+    --radius-lg: 20px;
+    --radius-md: 13px;
+    --radius-sm: 9px;
+  }
+
+  * { box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    margin: 0;
+    color: var(--text);
+    background:
+      radial-gradient(900px 520px at 88% -8%, rgba(118, 88, 255, .22), transparent 62%),
+      radial-gradient(760px 480px at -6% 18%, rgba(86, 200, 255, .08), transparent 62%),
+      linear-gradient(180deg, #0d1021 0, var(--bg) 54%, #090b17 100%);
+    font-family: Inter, ui-sans-serif, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    line-height: 1.45;
+    min-height: 100vh;
+  }
+
+  button { font: inherit; }
+  button:focus-visible, summary:focus-visible {
+    outline: 2px solid var(--blue);
+    outline-offset: 3px;
+  }
+
+  .page {
+    width: min(1680px, 100%);
+    margin: 0 auto;
+    padding: 34px 28px 70px;
+  }
+
+  .hero {
+    position: relative;
+    overflow: hidden;
+    border: 1px solid var(--line);
+    border-radius: 26px;
+    padding: 30px 32px 28px;
+    background:
+      linear-gradient(125deg, rgba(155, 135, 255, .12), transparent 48%),
+      rgba(17, 20, 42, .84);
+    box-shadow: var(--shadow);
+  }
+
+  .hero::after {
+    content: "";
+    position: absolute;
+    right: -80px;
+    top: -110px;
+    width: 360px;
+    height: 360px;
+    border: 1px solid rgba(155, 135, 255, .16);
+    border-radius: 50%;
+    box-shadow:
+      0 0 0 38px rgba(155, 135, 255, .035),
+      0 0 0 86px rgba(155, 135, 255, .018);
+    pointer-events: none;
+  }
+
+  .eyebrow {
+    color: var(--purple);
+    font-size: 11px;
+    font-weight: 800;
+    letter-spacing: .2em;
+    text-transform: uppercase;
+  }
+
+  h1 {
+    max-width: 920px;
+    margin: 11px 0 10px;
+    font-size: clamp(30px, 4vw, 51px);
+    line-height: 1.04;
+    letter-spacing: -.04em;
+  }
+
+  .hero-copy {
+    max-width: 930px;
+    margin: 0;
+    color: #c7c9dc;
+    font-size: 15px;
+  }
+
+  .metrics {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    margin-top: 22px;
+  }
+
+  .metric {
+    display: flex;
+    align-items: baseline;
+    gap: 7px;
+    min-width: 152px;
+    padding: 9px 13px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: rgba(8, 10, 25, .34);
+    color: var(--muted);
+    font-size: 11px;
+  }
+
+  .metric strong {
+    color: var(--text);
+    font-size: 16px;
+    letter-spacing: -.02em;
+  }
+
+  .reading-key {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 10px;
+    margin-top: 14px;
+  }
+
+  .key-card {
+    display: flex;
+    align-items: center;
+    gap: 11px;
+    padding: 12px 14px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    background: rgba(17, 20, 42, .62);
+    color: #c9ccdf;
+    font-size: 12px;
+  }
+
+  .key-icon {
+    width: 31px;
+    height: 31px;
+    flex: 0 0 31px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    font-size: 15px;
+    font-weight: 900;
+  }
+
+  .key-input .key-icon { color: var(--blue); background: var(--blue-wash); }
+  .key-step .key-icon { color: var(--purple); background: var(--purple-wash); }
+  .key-output .key-icon { color: var(--green); background: var(--green-wash); }
+
+  .workspace {
+    display: grid;
+    grid-template-columns: 360px minmax(0, 1fr);
+    gap: 18px;
+    align-items: start;
+    margin-top: 18px;
+  }
+
+  .tree-panel {
+    position: sticky;
+    top: 16px;
+    max-height: calc(100vh - 32px);
+    overflow: auto;
+    scrollbar-width: thin;
+    scrollbar-color: var(--line-bright) transparent;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background: rgba(17, 20, 42, .9);
+    box-shadow: 0 20px 50px rgba(0, 0, 0, .2);
+  }
+
+  .tree-top {
+    position: sticky;
+    top: 0;
+    z-index: 4;
+    padding: 17px 17px 13px;
+    border-bottom: 1px solid var(--line);
+    background: rgba(17, 20, 42, .97);
+    backdrop-filter: blur(14px);
+  }
+
+  .tree-title-row {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .tree-title {
+    font-size: 13px;
+    font-weight: 800;
+    letter-spacing: .02em;
+  }
+
+  .tree-actions { display: flex; gap: 6px; }
+
+  .tree-action {
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    padding: 5px 8px;
+    color: var(--muted);
+    background: rgba(255, 255, 255, .025);
+    cursor: pointer;
+    font-size: 10px;
+    font-weight: 700;
+  }
+
+  .tree-action:hover { color: var(--text); border-color: var(--purple); }
+
+  .tree-caption {
+    margin-top: 7px;
+    color: var(--muted);
+    font-size: 10.5px;
+  }
+
+  #tree { padding: 8px 10px 13px; }
+
+  details.sop {
+    border-bottom: 1px solid rgba(48, 54, 95, .72);
+  }
+
+  details.sop:last-child { border-bottom: 0; }
+
+  details.sop > summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 7px;
+    border-radius: 10px;
+  }
+
+  details.sop > summary::-webkit-details-marker { display: none; }
+  details.sop > summary:hover { background: rgba(155, 135, 255, .055); }
+
+  .sop-number {
+    width: 31px;
+    height: 31px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    color: #0c0e1d;
+    background: linear-gradient(135deg, #b6a8ff, var(--purple-2));
+    font-weight: 900;
+    font-size: 12px;
+    box-shadow: 0 7px 18px rgba(118, 88, 255, .22);
+  }
+
+  .sop-label {
+    min-width: 0;
+    font-size: 11.5px;
+    font-weight: 760;
+    line-height: 1.25;
+  }
+
+  .sop-stage {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 9.5px;
+    font-weight: 600;
+  }
+
+  .sop-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 800;
+  }
+
+  .sop-count::after {
+    content: "›";
+    font-size: 18px;
+    line-height: 1;
+    transition: transform .18s ease;
+  }
+
+  details[open] .sop-count::after { transform: rotate(90deg); }
+
+  .workflow-list {
+    position: relative;
+    display: grid;
+    gap: 5px;
+    margin: -2px 0 10px 24px;
+    padding-left: 18px;
+  }
+
+  .workflow-list::before {
+    content: "";
+    position: absolute;
+    left: 4px;
+    top: 0;
+    bottom: 8px;
+    width: 1px;
+    background: linear-gradient(180deg, var(--purple), rgba(155, 135, 255, .05));
+    opacity: .55;
+  }
+
+  .workflow-btn {
+    position: relative;
+    width: 100%;
+    display: grid;
+    grid-template-columns: auto minmax(0, 1fr) auto;
+    gap: 8px;
+    align-items: center;
+    text-align: left;
+    border: 1px solid transparent;
+    border-radius: 9px;
+    padding: 8px 8px 8px 9px;
+    color: #cfd1e1;
+    background: transparent;
+    cursor: pointer;
+    font-size: 10.5px;
+  }
+
+  .workflow-btn::before {
+    content: "";
+    position: absolute;
+    left: -14px;
+    width: 10px;
+    height: 1px;
+    background: var(--purple);
+    opacity: .55;
+  }
+
+  .workflow-btn:hover {
+    color: var(--text);
+    background: rgba(255, 255, 255, .025);
+    border-color: var(--line);
+  }
+
+  .workflow-btn.is-active {
+    color: var(--text);
+    border-color: rgba(155, 135, 255, .48);
+    background: linear-gradient(90deg, rgba(155, 135, 255, .16), rgba(155, 135, 255, .04));
+    box-shadow: inset 3px 0 0 var(--purple);
+  }
+
+  .workflow-code {
+    color: var(--purple);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 9.5px;
+    font-weight: 800;
+  }
+
+  .workflow-name {
+    min-width: 0;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+  }
+
+  .mini-status {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    background: var(--muted);
+  }
+
+  .mini-status.live { background: var(--green); box-shadow: 0 0 0 3px rgba(73, 213, 162, .09); }
+  .mini-status.tuning { background: var(--gold); box-shadow: 0 0 0 3px rgba(242, 199, 92, .09); }
+  .mini-status.coded { background: var(--blue); box-shadow: 0 0 0 3px rgba(86, 200, 255, .09); }
+  .mini-status.shadow { background: var(--orange); box-shadow: 0 0 0 3px rgba(255, 154, 104, .09); }
+
+  .detail {
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-lg);
+    background:
+      linear-gradient(180deg, rgba(29, 33, 66, .94), rgba(17, 20, 42, .92));
+    box-shadow: var(--shadow);
+    overflow: hidden;
+  }
+
+  .detail-head {
+    padding: 24px 26px 21px;
+    border-bottom: 1px solid var(--line);
+    background:
+      radial-gradient(480px 220px at 96% -20%, rgba(155, 135, 255, .17), transparent 70%),
+      rgba(255, 255, 255, .012);
+  }
+
+  .breadcrumb {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 7px;
+    color: var(--muted);
+    font-size: 10.5px;
+  }
+
+  .breadcrumb .crumb-strong { color: var(--purple); font-weight: 800; }
+
+  .detail-title-row {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 18px;
+    margin-top: 10px;
+  }
+
+  .detail h2 {
+    margin: 0;
+    font-size: clamp(23px, 3vw, 35px);
+    line-height: 1.08;
+    letter-spacing: -.035em;
+  }
+
+  .workflow-id-large {
+    display: inline-block;
+    margin-right: 8px;
+    color: var(--purple);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: .63em;
+    letter-spacing: -.02em;
+    vertical-align: .16em;
+  }
+
+  .status {
+    flex: 0 0 auto;
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    padding: 6px 10px;
+    font-size: 9.5px;
+    font-weight: 900;
+    letter-spacing: .06em;
+    text-transform: uppercase;
+  }
+
+  .status::before {
+    content: "";
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+  }
+
+  .status.live { color: var(--green); background: var(--green-wash); border-color: rgba(73, 213, 162, .28); }
+  .status.live::before { background: var(--green); }
+  .status.tuning { color: var(--gold); background: var(--gold-wash); border-color: rgba(242, 199, 92, .28); }
+  .status.tuning::before { background: var(--gold); }
+  .status.coded { color: var(--blue); background: var(--blue-wash); border-color: rgba(86, 200, 255, .28); }
+  .status.coded::before { background: var(--blue); }
+  .status.shadow { color: var(--orange); background: var(--orange-wash); border-color: rgba(255, 154, 104, .28); }
+  .status.shadow::before { background: var(--orange); }
+
+  .detail-summary {
+    max-width: 930px;
+    margin: 11px 0 0;
+    color: #c7c9dc;
+    font-size: 13px;
+  }
+
+  .detail-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 16px;
+  }
+
+  .meta-chip {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    padding: 5px 9px;
+    border: 1px solid var(--line);
+    border-radius: 7px;
+    color: var(--muted);
+    background: rgba(10, 12, 28, .25);
+    font-size: 9.5px;
+    font-weight: 700;
+  }
+
+  .meta-chip strong { color: #dbdced; }
+
+  .trigger {
+    display: grid;
+    grid-template-columns: 36px minmax(0, 1fr);
+    gap: 11px;
+    align-items: center;
+    margin: 18px 26px 0;
+    padding: 12px 14px;
+    border: 1px solid rgba(242, 199, 92, .28);
+    border-radius: var(--radius-md);
+    background: linear-gradient(90deg, var(--gold-wash), rgba(242, 199, 92, .025));
+  }
+
+  .trigger-icon {
+    width: 34px;
+    height: 34px;
+    display: grid;
+    place-items: center;
+    border-radius: 10px;
+    color: var(--gold);
+    background: rgba(242, 199, 92, .1);
+    font-size: 17px;
+    font-weight: 900;
+  }
+
+  .trigger-label {
+    color: var(--gold);
+    font-size: 9px;
+    font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .trigger-text {
+    margin-top: 2px;
+    color: #ece6d3;
+    font-size: 12px;
+  }
+
+  .flow {
+    position: relative;
+    display: grid;
+    grid-template-columns: minmax(205px, .82fr) 48px minmax(360px, 1.5fr) 48px minmax(205px, .82fr);
+    gap: 0;
+    align-items: start;
+    padding: 22px 26px 25px;
+  }
+
+  .flow-col { min-width: 0; }
+
+  .flow-label {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 11px;
+    font-size: 9.5px;
+    font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .flow-label::after {
+    content: "";
+    height: 1px;
+    flex: 1;
+    background: currentColor;
+    opacity: .22;
+  }
+
+  .flow-label.inputs { color: var(--blue); }
+  .flow-label.steps { color: var(--purple); }
+  .flow-label.outputs { color: var(--green); }
+
+  .flow-arrow {
+    min-height: 330px;
+    display: grid;
+    place-items: center;
+    color: var(--line-bright);
+  }
+
+  .arrow-line {
+    position: relative;
+    width: 30px;
+    height: 1px;
+    background: linear-gradient(90deg, var(--line-bright), var(--purple));
+  }
+
+  .arrow-line::after {
+    content: "";
+    position: absolute;
+    right: -1px;
+    top: -4px;
+    width: 8px;
+    height: 8px;
+    border-top: 1px solid var(--purple);
+    border-right: 1px solid var(--purple);
+    transform: rotate(45deg);
+  }
+
+  .input-list, .output-list, .step-list { display: grid; gap: 9px; }
+
+  .io-card {
+    position: relative;
+    overflow: hidden;
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 12px 12px 11px;
+    background: rgba(10, 12, 28, .34);
+  }
+
+  .io-card::before {
+    content: "";
+    position: absolute;
+    inset: 0 auto 0 0;
+    width: 3px;
+  }
+
+  .io-card.input::before { background: var(--blue); }
+  .io-card.output::before { background: var(--green); }
+
+  .io-top {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 7px;
+  }
+
+  .io-name {
+    color: #ebeaf4;
+    font-size: 11.5px;
+    font-weight: 780;
+    line-height: 1.28;
+  }
+
+  .required, .conditional {
+    flex: 0 0 auto;
+    border-radius: 5px;
+    padding: 2px 5px;
+    font-size: 7.5px;
+    font-weight: 900;
+    letter-spacing: .07em;
+    text-transform: uppercase;
+  }
+
+  .required { color: var(--pink); background: var(--pink-wash); }
+  .conditional { color: var(--muted); background: rgba(158, 163, 199, .09); }
+
+  .io-detail {
+    margin-top: 5px;
+    color: #b6bad1;
+    font-size: 10.5px;
+    line-height: 1.38;
+  }
+
+  .io-source {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    margin-top: 8px;
+    padding-top: 7px;
+    border-top: 1px dashed rgba(69, 77, 125, .6);
+    color: var(--muted);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 8.5px;
+    overflow-wrap: anywhere;
+  }
+
+  .io-source::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    flex: 0 0 5px;
+    border-radius: 50%;
+    background: currentColor;
+    opacity: .65;
+  }
+
+  .step-card {
+    position: relative;
+    display: grid;
+    grid-template-columns: 32px minmax(0, 1fr);
+    gap: 11px;
+    min-width: 0;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    padding: 11px 12px 11px 10px;
+    background:
+      linear-gradient(100deg, rgba(155, 135, 255, .075), transparent 48%),
+      rgba(10, 12, 28, .28);
+  }
+
+  .step-card:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    left: 25px;
+    bottom: -10px;
+    width: 1px;
+    height: 10px;
+    background: var(--purple);
+    opacity: .48;
+  }
+
+  .step-num {
+    width: 29px;
+    height: 29px;
+    display: grid;
+    place-items: center;
+    border-radius: 50%;
+    color: #111326;
+    background: linear-gradient(135deg, #baaefe, #7558ff);
+    font-size: 10px;
+    font-weight: 900;
+    box-shadow: 0 5px 14px rgba(118, 88, 255, .22);
+  }
+
+  .step-main { min-width: 0; }
+
+  .step-owner {
+    display: inline-flex;
+    align-items: center;
+    gap: 5px;
+    border-radius: 5px;
+    padding: 2px 6px;
+    font-size: 8px;
+    font-weight: 900;
+    letter-spacing: .075em;
+    text-transform: uppercase;
+  }
+
+  .step-owner::before {
+    content: "";
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background: currentColor;
+  }
+
+  .owner-system { color: var(--blue); background: var(--blue-wash); }
+  .owner-assistant, .owner-coordinator { color: var(--gold); background: var(--gold-wash); }
+  .owner-attorney { color: var(--pink); background: var(--pink-wash); }
+  .owner-intake { color: var(--orange); background: var(--orange-wash); }
+  .owner-on-claims, .owner-litigation, .owner-marketing { color: var(--green); background: var(--green-wash); }
+  .owner-staff { color: #c6b9ff; background: rgba(198, 185, 255, .1); }
+
+  .step-action {
+    margin-top: 5px;
+    color: #e0dfeb;
+    font-size: 11.5px;
+    line-height: 1.38;
+  }
+
+  .step-where {
+    margin-top: 6px;
+    color: var(--muted);
+    font-size: 9.5px;
+  }
+
+  .gate {
+    display: grid;
+    grid-template-columns: 34px minmax(0, 1fr);
+    gap: 11px;
+    align-items: center;
+    margin: 0 26px 25px;
+    padding: 12px 14px;
+    border: 1px solid rgba(255, 122, 168, .29);
+    border-radius: var(--radius-md);
+    background: linear-gradient(90deg, var(--pink-wash), rgba(255, 122, 168, .025));
+  }
+
+  .gate-icon {
+    width: 32px;
+    height: 32px;
+    display: grid;
+    place-items: center;
+    border-radius: 9px;
+    color: var(--pink);
+    background: rgba(255, 122, 168, .1);
+    font-size: 14px;
+    font-weight: 900;
+  }
+
+  .gate-label {
+    color: var(--pink);
+    font-size: 8.5px;
+    font-weight: 900;
+    letter-spacing: .14em;
+    text-transform: uppercase;
+  }
+
+  .gate-text {
+    margin-top: 2px;
+    color: #eadde2;
+    font-size: 11px;
+  }
+
+  .legend-footer {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px 18px;
+    margin-top: 14px;
+    padding: 14px 18px;
+    border: 1px solid var(--line);
+    border-radius: var(--radius-md);
+    color: var(--muted);
+    background: rgba(17, 20, 42, .65);
+    font-size: 10px;
+  }
+
+  .legend-item { display: inline-flex; align-items: center; gap: 6px; }
+  .legend-dot { width: 7px; height: 7px; border-radius: 50%; }
+  .legend-dot.live { background: var(--green); }
+  .legend-dot.tuning { background: var(--gold); }
+  .legend-dot.coded { background: var(--blue); }
+  .legend-dot.shadow { background: var(--orange); }
+
+  .source-note {
+    margin: 13px 2px 0;
+    color: #777d9e;
+    font-size: 9px;
+    line-height: 1.5;
+  }
+
+  @media (max-width: 1400px) {
+    .workspace { grid-template-columns: 340px minmax(0, 1fr); }
+    .flow {
+      grid-template-columns: minmax(150px, .78fr) 24px minmax(260px, 1.32fr) 24px minmax(150px, .78fr);
+      padding-inline: 20px;
+    }
+    .arrow-line { width: 19px; }
+    .trigger, .gate { margin-inline: 20px; }
+    .detail-head { padding-inline: 20px; }
+  }
+
+  @media (max-width: 1180px) {
+    .workspace { grid-template-columns: 320px minmax(0, 1fr); }
+    .flow { grid-template-columns: minmax(135px, .75fr) 18px minmax(240px, 1.3fr) 18px minmax(135px, .75fr); }
+    .arrow-line { width: 14px; }
+  }
+
+  @media (max-width: 940px) {
+    .page { padding: 20px 16px 50px; }
+    .reading-key { grid-template-columns: 1fr; }
+    .workspace { grid-template-columns: 1fr; }
+    .tree-panel {
+      position: static;
+      max-height: none;
+    }
+    .tree-top { position: static; }
+    #tree {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 0 10px;
+    }
+    .flow {
+      grid-template-columns: 1fr;
+      gap: 13px;
+    }
+    .flow-arrow {
+      min-height: 18px;
+      transform: rotate(90deg);
+    }
+    .detail-title-row { align-items: flex-start; }
+  }
+
+  @media (max-width: 640px) {
+    .page { padding-inline: 11px; }
+    .hero { padding: 22px 19px; border-radius: 19px; }
+    .hero-copy { font-size: 13px; }
+    .metric { min-width: 0; }
+    #tree { grid-template-columns: 1fr; }
+    .detail-head { padding: 20px 16px 18px; }
+    .detail-title-row { display: grid; }
+    .status { justify-self: start; }
+    .trigger, .gate { margin-inline: 14px; }
+    .flow { padding: 20px 14px 22px; }
+    .detail h2 { font-size: 25px; }
+  }
+
+  @media print {
+    body { background: #fff; color: #111; }
+    .page { width: 100%; padding: 0; }
+    .hero, .tree-panel, .detail, .legend-footer {
+      box-shadow: none;
+      background: #fff;
+      color: #111;
+    }
+    .tree-panel { position: static; max-height: none; }
+    .workspace { grid-template-columns: 300px 1fr; }
+    .tree-action { display: none; }
+  }
+</style>
+</head>
+<body>
+<main class="page">
+  <section class="hero" aria-labelledby="page-title">
+    <div class="eyebrow">Dabdoub Law Firm · Appeals Department · Operating Map</div>
+    <h1 id="page-title">The Appeals SOP, from required data to owned action to destination</h1>
+    <p class="hero-copy">Open any of the 15 SOP steps, choose an individual workflow, and follow the complete data journey: what must exist before the workflow can fire, who or what owns every action, and exactly where the result lands.</p>
+    <div class="metrics" aria-label="Atlas summary">
+      <span class="metric"><strong>15</strong> Appeals SOP steps</span>
+      <span class="metric"><strong>41</strong> workflow views</span>
+      <span class="metric"><strong>3</strong> mapped layers per view</span>
+      <span class="metric"><strong>2026-07-30</strong> source refresh</span>
+    </div>
+    <div class="reading-key" aria-label="How to read the diagram">
+      <div class="key-card key-input"><span class="key-icon">↓</span><span><strong>Inputs</strong><br>Required data and its system of record</span></div>
+      <div class="key-card key-step"><span class="key-icon">→</span><span><strong>Owned workflow</strong><br>Each action labeled by system, staff, or attorney</span></div>
+      <div class="key-card key-output"><span class="key-icon">↗</span><span><strong>Outputs</strong><br>The artifact, field, task, or handoff and its destination</span></div>
+    </div>
+  </section>
+
+  <section class="workspace">
+    <aside class="tree-panel" aria-label="Appeals SOP hierarchy">
+      <div class="tree-top">
+        <div class="tree-title-row">
+          <div class="tree-title">Appeals SOP hierarchy</div>
+          <div class="tree-actions">
+            <button class="tree-action" type="button" id="expandAll">Expand all</button>
+            <button class="tree-action" type="button" id="collapseAll">Collapse</button>
+          </div>
+        </div>
+        <div class="tree-caption">SOP step → individual workflow → selected data-flow diagram</div>
+      </div>
+      <div id="tree"></div>
+    </aside>
+
+    <article class="detail" id="detail" aria-live="polite"></article>
+  </section>
+
+  <div class="legend-footer" aria-label="Status legend">
+    <span class="legend-item"><span class="legend-dot live"></span><strong>Live</strong> in firm production</span>
+    <span class="legend-item"><span class="legend-dot tuning"></span><strong>In tuning</strong> or firm acceptance</span>
+    <span class="legend-item"><span class="legend-dot coded"></span><strong>Coded</strong>, not yet enabled end to end</span>
+    <span class="legend-item"><span class="legend-dot shadow"></span><strong>Shadow</strong>, observing without downstream action</span>
+  </div>
+  <p class="source-note">Internal planning view. Compiled from <code>deliverables/staff-sops/appeals-department-sop-automated.md</code>, <code>delivery.yaml</code>, and <code>planning/appeals-automation-stage-map.md</code>. “Required” means the workflow fails closed without the value. A human approves every external send and every legal deadline.</p>
+</main>
+
+<script>
+  const SOPS = [
+    {
+      number: 1,
+      title: "Open the appeals matter",
+      stage: "Stage 1 · Intake handoff",
+      workflows: [
+        {
+          id: "I-14",
+          name: "Closed Won → create the Service",
+          status: "live",
+          phase: "LIVE",
+          primaryOwner: "System",
+          summary: "Turns the won Deal into the HubSpot Service that becomes the system of record for the appeal.",
+          trigger: "The associated HubSpot Deal reaches Closed Won.",
+          inputs: [
+            { name: "Deal stage", detail: "Closed Won", source: "HubSpot · Deal", required: true },
+            { name: "Client association", detail: "The correct Contact must be associated to the Deal.", source: "HubSpot · Deal → Contact", required: true },
+            { name: "Case status at intake", detail: "Determines the downstream Case Pipeline branch.", source: "HubSpot · Deal", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Detect the Deal entering Closed Won.", where: "HubSpot workflow" },
+            { owner: "System", action: "Create one Service record in the Case Pipeline and carry forward the matter associations.", where: "HubSpot · Service" },
+            { owner: "System", action: "Hold the Service at the staffing gate until a case assistant is assigned.", where: "HubSpot · Service owner fields" },
+            { owner: "Assistant", action: "Confirm the correct case assistant is assigned so the matter can advance.", where: "HubSpot · Service" }
+          ],
+          outputs: [
+            { name: "Appeals Service", detail: "The matter record used by every later Appeals workflow.", source: "HubSpot · Case Pipeline" },
+            { name: "Staffing gate", detail: "A visible unassigned state until a case assistant owns the matter.", source: "HubSpot · Service" }
+          ],
+          gate: "The system creates the record, but a named case assistant is still required before the case fully opens."
+        },
+        {
+          id: "I-15",
+          name: "Provision and activate the case folder",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System",
+          summary: "Creates the matter folder, moves the exact folder into Active after signature, and builds the governed Appeals folder set.",
+          trigger: "I-15a runs at Attorney Qualified; I-15b runs on the completed fee-agreement webhook that drives Closed Won.",
+          inputs: [
+            { name: "Exact Deal and client identity", detail: "One resolvable matter; ambiguous names are refused.", source: "HubSpot · Deal + Contact", required: true },
+            { name: "Case-value tier", detail: "A, B, C, or Pro Bono; blank defaults to B at intake.", source: "HubSpot · Deal", required: true },
+            { name: "SharePoint item locator", detail: "The exact folder ID is used for the move, never a name guess.", source: "HubSpot · sharepoint_folder_item_id", required: true },
+            { name: "Governed folder template", detail: "The ratified Appeals folder taxonomy.", source: "Dodonai · APPEAL_TEMPLATE", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Create the flat intake folder and stamp its exact item ID on the Deal.", where: "SharePoint + HubSpot" },
+            { owner: "System", action: "On signature completion, move that exact item into 1 - ACTIVE; refuse on collision.", where: "SharePoint" },
+            { owner: "System", action: "Scaffold the governed Appeals bins, including AI Output.", where: "SharePoint · matter/APPEAL" },
+            { owner: "Intake", action: "Work the exception task if the exact move or folder match is refused.", where: "HubSpot · task queue" }
+          ],
+          outputs: [
+            { name: "Active matter folder", detail: "One exact client folder under the active-matter root.", source: "SharePoint · 1 - ACTIVE" },
+            { name: "Governed Appeals folders", detail: "Pre-built evidence, control, and AI Output locations.", source: "SharePoint · matter/APPEAL" },
+            { name: "Persistent folder pointer", detail: "The exact item ID carried on the Deal for downstream writes.", source: "HubSpot · Deal" }
+          ],
+          gate: "Folder moves are exact-item operations. A collision or ambiguous matter fails closed and creates human work instead of guessing."
+        }
+      ]
+    },
+    {
+      number: 2,
+      title: "Assign the team and announce the case",
+      stage: "Stage 1 · Intake handoff",
+      workflows: [
+        {
+          id: "I-16",
+          name: "Assign the initial task set",
+          status: "live",
+          phase: "LIVE",
+          primaryOwner: "System",
+          summary: "Uses the case status at intake to place the correct starting work in front of the Appeals team.",
+          trigger: "The matter opens from the Closed Won handoff.",
+          inputs: [
+            { name: "Case status at intake", detail: "The branch that defines the initial work.", source: "HubSpot · Deal/Service", required: true },
+            { name: "Appeals Service", detail: "The Service that will own the tasks.", source: "HubSpot · Case Pipeline", required: true },
+            { name: "Assigned team", detail: "Attorney and assistant ownership when available.", source: "HubSpot · Service", required: false }
+          ],
+          steps: [
+            { owner: "System", action: "Read the case-status branch for the newly opened matter.", where: "HubSpot workflow" },
+            { owner: "System", action: "Select the matching initial task set.", where: "HubSpot workflow" },
+            { owner: "System", action: "Create and associate the starting tasks to the Service.", where: "HubSpot · Tasks" },
+            { owner: "Assistant", action: "Confirm the tasks, owners, and due dates match the matter.", where: "HubSpot · Appeals queue" }
+          ],
+          outputs: [
+            { name: "Request Claim File task", detail: "Starting carrier-record request work.", source: "HubSpot · Tasks" },
+            { name: "Request Policy task", detail: "Starting employer/plan-document request work.", source: "HubSpot · Tasks" },
+            { name: "Treating-provider task", detail: "Starting provider-information work.", source: "HubSpot · Tasks" }
+          ],
+          gate: "A person still confirms the correct team owns the work; task creation does not replace staffing."
+        },
+        {
+          id: "I-17",
+          name: "Notify the attorney and Appeals team",
+          status: "live",
+          phase: "LIVE",
+          primaryOwner: "System",
+          summary: "Sends the internal new-case notice with the contact sheet to the correct department branch.",
+          trigger: "The Service is created after the Deal reaches Start Case Pipeline.",
+          inputs: [
+            { name: "Service branch", detail: "Pre-Claim, Appeal, Litigation, or On Claim.", source: "HubSpot · Service", required: true },
+            { name: "Client contact sheet", detail: "Name, address, phone, DOB, email, insurer, and employer.", source: "HubSpot · associated Contact", required: true },
+            { name: "Branch recipients", detail: "The internal team for the selected case branch.", source: "HubSpot workflow configuration", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Select the internal notification branch from the Service stage.", where: "HubSpot flow 1678631845" },
+            { owner: "System", action: "Merge the available contact-sheet fields into the firm template.", where: "HubSpot workflow" },
+            { owner: "System", action: "Send one internal “Dear Team, we have a new case” email.", where: "Internal email" },
+            { owner: "Staff", action: "Open the Service and resolve any visibly missing or incorrect contact data.", where: "HubSpot" }
+          ],
+          outputs: [
+            { name: "New-case notification", detail: "Internal case announcement; never sent to the client.", source: "Attorney + Appeals team inboxes" },
+            { name: "Matter link", detail: "Direct path back to the Service and its initial work.", source: "HubSpot" }
+          ],
+          gate: "The notice is internal only. Staff remain responsible for correcting source data rather than relying on an incomplete email."
+        }
+      ]
+    },
+    {
+      number: 3,
+      title: "Calendar the appeal deadline",
+      stage: "Stage 2 · Deadline control",
+      workflows: [
+        {
+          id: "A-01",
+          name: "Read the denial and propose the deadline",
+          status: "tuning",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Extracts the denial date and key facts, computes the default 180-day appeal deadline, and holds it for human confirmation.",
+          trigger: "F-02 classifies an inbound carrier letter as a denial.",
+          inputs: [
+            { name: "Denial letter", detail: "Readable inbound carrier document.", source: "SharePoint/Outlook → F-02", required: true },
+            { name: "Exact matter association", detail: "The letter must resolve to one Appeals Service and folder.", source: "HubSpot + file-store locator", required: true },
+            { name: "Denial date text", detail: "The date stated in the carrier letter.", source: "Document OCR", required: true },
+            { name: "Deadline rule", detail: "Default denial date + 180 days.", source: "Dodonai rule set", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "OCR and parse the denial letter for date, carrier, claim facts, and denial rationale.", where: "Dodonai · denial parser" },
+            { owner: "System", action: "Calculate a proposed appeal deadline from the extracted denial date.", where: "Dodonai · deadline rule" },
+            { owner: "System", action: "Write the proposal and source context to the matter review path.", where: "HubSpot · Service" },
+            { owner: "Assistant", action: "Read the actual letter and confirm or correct the proposed date.", where: "HubSpot + source document" }
+          ],
+          outputs: [
+            { name: "Proposed appeal deadline", detail: "A reviewable date, not a final calendar entry.", source: "HubSpot · Service" },
+            { name: "Extracted denial facts", detail: "Structured facts used again by the drafting workflow.", source: "Dodonai · matter context" },
+            { name: "Confirmed anchor date", detail: "Human-approved input to A-02.", source: "HubSpot · appeal_deadline" }
+          ],
+          gate: "The assistant confirms the deadline from the carrier letter every time. The system never finalizes a legal deadline by itself."
+        },
+        {
+          id: "A-02",
+          name: "Create 14-day, 7-day, and day-of reminders",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Turns the confirmed appeal deadline into a visible Outlook reminder cadence for the responsible team.",
+          trigger: "A human confirms the appeal deadline on the Service.",
+          inputs: [
+            { name: "Confirmed appeal deadline", detail: "The human-approved anchor date.", source: "HubSpot · Service", required: true },
+            { name: "Assigned attorney", detail: "Calendar recipient.", source: "HubSpot · Service", required: true },
+            { name: "Assigned assistant", detail: "Calendar recipient.", source: "HubSpot · Service", required: true },
+            { name: "Eddie calendar", detail: "Required supervising-calendar recipient.", source: "Microsoft Graph", required: true },
+            { name: "Client name + case ID", detail: "Lead text that distinguishes each reminder.", source: "HubSpot", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Confirm the final deadline is correct and ready for calendaring.", where: "HubSpot · Service" },
+            { owner: "System", action: "Generate reminder dates at T−14, T−7, and T−0.", where: "Dodonai · calendar cadence" },
+            { owner: "System", action: "Check for existing matching reminders before writing.", where: "Microsoft Graph" },
+            { owner: "System", action: "Create the dated events on the attorney, Eddie, and assistant calendars.", where: "Outlook calendars" }
+          ],
+          outputs: [
+            { name: "Three deadline reminders", detail: "Each begins with client name and case ID.", source: "Outlook · attorney calendar" },
+            { name: "Shared visibility", detail: "The same cadence on Eddie and the assistant calendars.", source: "Outlook calendars" }
+          ],
+          gate: "The calendar engine only follows a human-confirmed anchor date. Any disputed date stays out of the calendar."
+        }
+      ]
+    },
+    {
+      number: 4,
+      title: "Organize the matter file",
+      stage: "Stage 3 · Evidence governance",
+      workflows: [
+        {
+          id: "A-03",
+          name: "Reconcile the governed folder template",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Compares an existing matter folder with the ratified Appeals taxonomy and adds only missing governed locations.",
+          trigger: "A matter opens or an existing matter is checked against the canonical template.",
+          inputs: [
+            { name: "Exact matter folder", detail: "One unambiguous SharePoint matter locator.", source: "HubSpot · folder item ID", required: true },
+            { name: "Canonical Appeals taxonomy", detail: "The ratified operational bins plus AI Output.", source: "Dodonai · APPEAL_TEMPLATE", required: true },
+            { name: "Current child folders", detail: "The folder set already present in the matter.", source: "SharePoint", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Read the current folder structure for the exact matter.", where: "Microsoft Graph" },
+            { owner: "System", action: "Compare the live structure with the canonical Appeals template.", where: "Dodonai · folder planner" },
+            { owner: "System", action: "Add only missing folders; never delete or rename existing content.", where: "SharePoint" },
+            { owner: "Assistant", action: "File each document into the correct governed bin and use _EXCLUDED when appropriate.", where: "SharePoint · matter/APPEAL" }
+          ],
+          outputs: [
+            { name: "Complete governed folder set", detail: "Evidence, control, and AI Output locations.", source: "SharePoint · matter/APPEAL" },
+            { name: "Stable drafting boundary", detail: "The folder location determines what downstream drafting sees.", source: "Dodonai · matter reader" }
+          ],
+          gate: "The system can add known folders; staff decide where each document belongs. It never moves evidence between bins on its own."
+        },
+        {
+          id: "F-02",
+          name: "Watch, classify, and suggest a file destination",
+          status: "shadow",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Observes inbound carrier material, classifies it, and proposes the correct downstream route and governed bin.",
+          trigger: "The scheduled folder/mail watcher detects a new document after its no-event baseline.",
+          inputs: [
+            { name: "Provider-qualified watch target", detail: "Exact matter folder and/or firm mailbox lane.", source: "SharePoint/Outlook", required: true },
+            { name: "Baseline state", detail: "Prevents historical files from becoming new events.", source: "Dodonai · durable state", required: true },
+            { name: "Inbound document", detail: "Carrier letter, medical review, approval, denial, extension, or other supported type.", source: "SharePoint/Outlook", required: true },
+            { name: "Exact matter resolver", detail: "One associated Service and Deal folder.", source: "HubSpot", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Diff the current target against the durable baseline and identify new arrivals.", where: "Dodonai · folder/mail watcher" },
+            { owner: "System", action: "OCR the document and classify it into the carrier-letter taxonomy.", where: "Dodonai · classifier" },
+            { owner: "System", action: "Resolve the document to one matter and propose its governed file bin and downstream workflow.", where: "Dodonai · router" },
+            { owner: "Assistant", action: "Confirm the document identity and final file location; correct uncertain classifications.", where: "SharePoint + HubSpot" }
+          ],
+          outputs: [
+            { name: "Classification event", detail: "Denial, medical review, approval, extension, information request, and more.", source: "Dodonai · routing event" },
+            { name: "Governed-bin suggestion", detail: "A proposed SharePoint destination for staff confirmation.", source: "Matter filing queue" },
+            { name: "Downstream trigger", detail: "Feeds A-01, A-22, or a resolution path after acceptance.", source: "HubSpot/Dodonai" }
+          ],
+          gate: "The file watcher remains shadow-first. Classification must prove an effectively zero denial false-negative rate before it is allowed to drive high-consequence actions."
+        }
+      ]
+    },
+    {
+      number: 5,
+      title: "Request and receive the Claim File",
+      stage: "Stage 4 · Claim file, policy & homework",
+      workflows: [
+        {
+          id: "A-04",
+          name: "Draft the Claim File request",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Waits for a complete, eligible Service, creates the firm-reviewed request as an editable Word draft, and leaves the send decision with staff.",
+          trigger: "A future data change makes every A-04 readiness field complete on an eligible Pre-Claim or In-Appeal Service.",
+          inputs: [
+            { name: "Eligible stage + claim type", detail: "Pre-Claim or In Appeal; ERISA LTD/STD.", source: "HubSpot · Service", required: true },
+            { name: "Assigned assistant + attorney", detail: "The responsible Appeals team.", source: "HubSpot · Service", required: true },
+            { name: "Claimant", detail: "Correct associated client identity.", source: "HubSpot · Contact", required: true },
+            { name: "Insurer + claim number", detail: "Carrier and claim identifiers.", source: "HubSpot · Service", required: true },
+            { name: "Claims representative address", detail: "Complete carrier mailing destination.", source: "HubSpot · Service", required: true },
+            { name: "Exact Deal folder", detail: "Exactly one resolvable matter output location.", source: "HubSpot → SharePoint", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Re-read the full Service when the last readiness field changes.", where: "HubSpot workflow 1856568603" },
+            { owner: "System", action: "Validate stage, claim type, team, claimant, carrier data, and exact folder.", where: "Dodonai · dispatch" },
+            { owner: "System", action: "Render the Claim File request and save the editable Word draft.", where: "SharePoint · matter/AI Output" },
+            { owner: "System", action: "Stamp the draft timestamp and URL for replay protection.", where: "HubSpot · Service" },
+            { owner: "Assistant", action: "Verify the letter, add the executed authorization and Direction of Payment when required, and obtain approval.", where: "Word draft + HubSpot task" },
+            { owner: "Assistant", action: "Send through the approved carrier channel and complete the task only after the request is made.", where: "Firm-approved carrier channel" }
+          ],
+          outputs: [
+            { name: "Claim File request .docx", detail: "Editable, human-reviewed draft.", source: "SharePoint · exact matter/AI Output" },
+            { name: "Replay/audit fields", detail: "Draft-created timestamp and document URL.", source: "HubSpot · Service" },
+            { name: "Carrier request", detail: "External only after staff approval and manual send.", source: "Carrier channel" }
+          ],
+          gate: "Missing or ambiguous data blocks the draft. A-04 never auto-sends and never substitutes a guessed value."
+        },
+        {
+          id: "A-08 · CF",
+          name: "Track Claim File receipt and follow up",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Creates the receive task and reminder cadence, then gives staff a clear received-versus-follow-up branch.",
+          trigger: "The Request Claim File task is completed.",
+          inputs: [
+            { name: "Completed request task", detail: "Confirms the request was actually made.", source: "HubSpot · Task", required: true },
+            { name: "Associated Service", detail: "The correct matter for the receive task.", source: "HubSpot", required: true },
+            { name: "Assigned assistant", detail: "Owner of the receipt/follow-up work.", source: "HubSpot · Service", required: true },
+            { name: "Claim File receipt state", detail: "Still blank until the material is verified.", source: "HubSpot · Service", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Create Receive & OCR Claim File due at +14 days with a +13-day reminder.", where: "HubSpot workflow 1708197803" },
+            { owner: "Assistant", action: "Check the matter folder, inbox, fax channel, and Service before contacting the carrier.", where: "SharePoint + Outlook + HubSpot" },
+            { owner: "Assistant", action: "If received, confirm the file belongs to the client, save/OCR it, update receipt, and complete the task.", where: "SharePoint · Claim File bin" },
+            { owner: "Assistant", action: "If missing, follow up manually through the approved channel and keep receipt tracking active.", where: "Carrier channel + case notes" },
+            { owner: "System", action: "Raise the existing timeout notice if the receive task remains incomplete after the configured wait.", where: "HubSpot · internal notification" }
+          ],
+          outputs: [
+            { name: "Receive & OCR task", detail: "Assistant-owned task and reminder.", source: "HubSpot · Appeals queue" },
+            { name: "Verified Claim File", detail: "Saved and OCR'd in the governed location.", source: "SharePoint · Claim File bin" },
+            { name: "Manual follow-up record", detail: "Communication and receipt status remain on the matter.", source: "HubSpot · notes/task history" }
+          ],
+          gate: "A due task does not mean the system contacted the carrier. Staff verify receipt first and perform any follow-up manually."
+        }
+      ]
+    },
+    {
+      number: 6,
+      title: "Request and receive the Policy",
+      stage: "Stage 4 · Claim file, policy & homework",
+      workflows: [
+        {
+          id: "A-05",
+          name: "Draft the Policy and Plan Documents request",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Runs a contact-aware readiness check and creates the policy/SPD request only when the employer and HR mailing data is complete.",
+          trigger: "The 15-minute readiness sweep sees a future false-to-true transition for every A-05 requirement.",
+          inputs: [
+            { name: "Eligible Service + assigned team", detail: "Pre-Claim or In Appeal with assistant, attorney, claimant, and carrier.", source: "HubSpot · Service", required: true },
+            { name: "Employer", detail: "Claimant's employer/plan sponsor.", source: "HubSpot · Contact", required: true },
+            { name: "Date of birth", detail: "Claimant DOB.", source: "HubSpot · Contact", required: true },
+            { name: "HR street address", detail: "Employer/HR mailing street.", source: "HubSpot · Contact", required: true },
+            { name: "HR city, state, and ZIP", detail: "Complete employer/HR locality.", source: "HubSpot · Contact", required: true },
+            { name: "Exact Deal folder", detail: "Exactly one resolvable matter output location.", source: "HubSpot → SharePoint", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Compare the current record with the readiness baseline every 15 minutes.", where: "Cloud Scheduler + readiness sweep" },
+            { owner: "System", action: "On a new ready transition, validate the Service, Contact, team, carrier, and exact folder.", where: "Dodonai · dispatch" },
+            { owner: "System", action: "Render the Policy and Plan Documents request and save the Word draft.", where: "SharePoint · matter/AI Output" },
+            { owner: "System", action: "Stamp the A-05 draft timestamp and URL.", where: "HubSpot · Service" },
+            { owner: "Assistant", action: "Verify claimant, employer/plan administrator, DOB, plan type, address, and attorney; add only known HR contact details.", where: "Word draft + HubSpot task" },
+            { owner: "Assistant", action: "Approve, send through the firm channel, record the communication, and complete the request task.", where: "Employer/plan-administrator channel" }
+          ],
+          outputs: [
+            { name: "Policy request .docx", detail: "Editable firm-reviewed request.", source: "SharePoint · exact matter/AI Output" },
+            { name: "Replay/audit fields", detail: "A-05 timestamp and document URL.", source: "HubSpot · Service" },
+            { name: "Employer/plan request", detail: "External only after human review and send.", source: "Approved employer channel" }
+          ],
+          gate: "All four Contact inputs are load-bearing. Missing values block generation; the workflow does not guess or leave a hidden placeholder."
+        },
+        {
+          id: "A-08 · Policy",
+          name: "Track Policy receipt and follow up",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Creates the policy receive task, lets staff verify the matter first, and preserves a manual follow-up boundary.",
+          trigger: "The Request Policy task is completed.",
+          inputs: [
+            { name: "Completed Request Policy task", detail: "Confirms the request was actually sent.", source: "HubSpot · Task", required: true },
+            { name: "Associated Service", detail: "The correct matter for the receive task.", source: "HubSpot", required: true },
+            { name: "Assigned assistant", detail: "Owner of the receipt/follow-up work.", source: "HubSpot · Service", required: true },
+            { name: "Policy receipt state", detail: "Still open until staff confirms the documents.", source: "HubSpot · Service", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Create Receive Policy due at +14 days with a +13-day reminder.", where: "HubSpot workflow 1708197803" },
+            { owner: "Assistant", action: "Check the matter folder and communication channels before following up.", where: "SharePoint + Outlook + HubSpot" },
+            { owner: "Assistant", action: "If received, verify the document set, file it in the governed Policy location, update the Service, and complete the task.", where: "SharePoint · Policy bin" },
+            { owner: "Assistant", action: "If missing, follow up manually and keep the receive task active.", where: "Employer/plan channel + case notes" }
+          ],
+          outputs: [
+            { name: "Receive Policy task", detail: "Assistant-owned task and reminder.", source: "HubSpot · Appeals queue" },
+            { name: "Verified policy/plan documents", detail: "The drafting source saved in the governed location.", source: "SharePoint · Policy bin" },
+            { name: "Manual follow-up record", detail: "Communication captured in normal case history.", source: "HubSpot" }
+          ],
+          gate: "The workflow creates staff work, not an outbound message. Staff confirm the policy is actually missing before contacting the employer or administrator."
+        }
+      ]
+    },
+    {
+      number: 7,
+      title: "Start the client homework process",
+      stage: "Stage 4 · Claim file, policy & homework",
+      workflows: [
+        {
+          id: "A-07 / A-06",
+          name: "Draft the new-client homework-call setup email",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Creates the assistant-voiced introduction with the attorney's booking link and the treating-provider form; A-06 is absorbed into this workflow.",
+          trigger: "An eligible In-Appeal Service reaches the centralized assistant-assigned event with both team fields known.",
+          inputs: [
+            { name: "In-Appeal Service", detail: "A-07 is appeals-only.", source: "HubSpot · Service", required: true },
+            { name: "Assigned appeals assistant", detail: "Draft mailbox, voice, and signature.", source: "HubSpot · Service", required: true },
+            { name: "Assigned attorney", detail: "Owner whose booking link is used.", source: "HubSpot · Service", required: true },
+            { name: "Client email", detail: "Exact recipient.", source: "HubSpot · Contact", required: true },
+            { name: "Attorney booking link", detail: "Required before the assistant sends; a missing-link marker may appear in the draft.", source: "HubSpot owner/user", required: false },
+            { name: "Treating Team Info form", detail: "The blank client form formerly carried by A-06.", source: "Dodonai · embedded attachment", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Receive the single assistant-assigned event and confirm the Service is In Appeal.", where: "HubSpot workflow 1856028770" },
+            { owner: "System", action: "Resolve the assistant mailbox, client, assigned attorney, booking link, and attachment.", where: "Dodonai · dispatch" },
+            { owner: "System", action: "Create an unsent introduction draft in the assistant's Outlook Drafts.", where: "Outlook · assistant mailbox" },
+            { owner: "Assistant", action: "Verify recipient, greeting, signature, attorney, booking link, and treating-provider attachment.", where: "Outlook Drafts" },
+            { owner: "Assistant", action: "Insert the correct booking link if marked missing, edit as needed, send, and record the communication.", where: "Outlook + HubSpot" }
+          ],
+          outputs: [
+            { name: "Homework-call setup draft", detail: "Assistant-voiced email with booking link.", source: "Outlook · assigned assistant Drafts" },
+            { name: "Treating-provider form", detail: "Attached to the client email; no separate A-06 send.", source: "Outlook draft attachment" },
+            { name: "Scheduled homework call", detail: "Client selects a time through the attorney's link.", source: "Attorney calendar" }
+          ],
+          gate: "The draft never auto-sends. The assistant must supply a valid booking link and verify the attachment before the message leaves the firm."
+        }
+      ]
+    },
+    {
+      number: 8,
+      title: "Run homework, evaluations, and follow-up",
+      stage: "Stage 4 · Claim file, policy & homework",
+      workflows: [
+        {
+          id: "A-09",
+          name: "Draft the post-homework-call recap",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Attorney",
+          summary: "Normalizes the existing homework fields into a safe client recap and drafts it from the assigned attorney with the assistant CC'd.",
+          trigger: "Homework Call Completed changes to Yes on an eligible In-Appeal Service.",
+          inputs: [
+            { name: "Homework Call Completed", detail: "Yes, after the call actually occurred.", source: "HubSpot · Service", required: true },
+            { name: "Client Homework Tasks", detail: "What the client still needs to do.", source: "HubSpot · Service", required: true },
+            { name: "Homework Received", detail: "What the firm already has.", source: "HubSpot · Service", required: false },
+            { name: "Internal Homework Tasks", detail: "What the firm will handle.", source: "HubSpot · Service", required: false },
+            { name: "Safe Homework Notes", detail: "Optional additional call notes after safety filtering.", source: "HubSpot · Service", required: false },
+            { name: "Attorney mailbox + client To + assistant CC", detail: "All three identities must resolve exactly.", source: "HubSpot + Microsoft Graph", required: true }
+          ],
+          steps: [
+            { owner: "Attorney", action: "Finish the call and ensure the four homework areas reflect what was actually discussed.", where: "HubSpot · Service" },
+            { owner: "System", action: "Normalize requested, received, internal, and safe-note content; reject unsafe material.", where: "Dodonai · homework form" },
+            { owner: "System", action: "Look for one recent exact-participant homework thread; otherwise choose a new draft.", where: "Outlook · bounded Inbox/Sent search" },
+            { owner: "System", action: "Create the unsent draft in the assigned attorney's mailbox with client in To and assistant in CC.", where: "Outlook · attorney Drafts" },
+            { owner: "System", action: "Stamp the draft URL and timestamp only after Outlook returns success.", where: "HubSpot · Service" },
+            { owner: "Attorney", action: "Review, correct, add only verified links/attachments/deadlines, and send manually.", where: "Outlook Drafts" }
+          ],
+          outputs: [
+            { name: "Homework recap draft", detail: "Attorney-sent message; client To, assigned assistant CC.", source: "Outlook · attorney Drafts" },
+            { name: "Replay/audit fields", detail: "A-09 timestamp and draft URL.", source: "HubSpot · Service" },
+            { name: "Client recap", detail: "External only after the attorney reviews and sends.", source: "Client inbox + assistant CC" }
+          ],
+          gate: "Credentials, inferred deadlines, variable costs, outcome promises, and unsafe HTML are excluded. No mailbox or safe content means no draft."
+        },
+        {
+          id: "A-10",
+          name: "Reconcile outstanding homework",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Compares assigned homework with received homework and either creates one review task or marks the homework complete.",
+          trigger: "Homework Received changes on an eligible In-Appeal Service.",
+          inputs: [
+            { name: "In-Appeal Service", detail: "Eligible workflow stage.", source: "HubSpot · Service", required: true },
+            { name: "Client Homework Tasks", detail: "The assigned list.", source: "HubSpot · Service", required: true },
+            { name: "Homework Received", detail: "The current received list.", source: "HubSpot · Service", required: true },
+            { name: "Assigned appeals assistant", detail: "Owner of any reconciliation task.", source: "HubSpot · Service", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Re-read the Service and calculate assigned minus received.", where: "Dodonai · deterministic reconcile" },
+            { owner: "System", action: "Build and check a checklist-state signature so an exact replay cannot duplicate work.", where: "HubSpot + durable state" },
+            { owner: "System", action: "If items remain, create one assistant-owned review task with the pending-item list.", where: "HubSpot · Appeals queue" },
+            { owner: "Assistant", action: "Verify the list against the Service and matter folder, adapt the wording, contact the client manually, and record it.", where: "HubSpot + approved client channel" },
+            { owner: "System", action: "If no items remain, set Homework Completed to Yes.", where: "HubSpot · Service" }
+          ],
+          outputs: [
+            { name: "Reconciliation task", detail: "One replay-safe staff task when items remain.", source: "HubSpot · Appeals queue 10308748" },
+            { name: "Homework Completed = Yes", detail: "Automatic branch when assigned minus received is empty.", source: "HubSpot · Service" },
+            { name: "A-15 trigger", detail: "The completion state can notify the attorney that drafting is ready.", source: "HubSpot workflow" }
+          ],
+          gate: "The task contains proposed follow-up wording, not a sent email. Staff verify the actual file before contacting the client."
+        },
+        {
+          id: "A-11",
+          name: "Create the three-way evaluation scheduling task",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Detects a new IME, FCE, or CPET requirement and creates one internal scheduling task with three business-day options.",
+          trigger: "A future evaluation-checklist value is added after the durable baseline.",
+          inputs: [
+            { name: "Evaluation checklist change", detail: "One of the mapped IME/FCE/CPET values.", source: "HubSpot · Internal Homework Tasks", required: true },
+            { name: "Assigned assistant", detail: "Task owner and coordinator.", source: "HubSpot · Service", required: true },
+            { name: "Matter identity", detail: "Exact Service and client.", source: "HubSpot", required: true },
+            { name: "Business-day calendar", detail: "Used to propose three coordination dates.", source: "Dodonai scheduling rules", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Detect a new evaluation lifecycle after the no-backfill baseline.", where: "Daily evaluation sweep" },
+            { owner: "System", action: "Generate three business-day scheduling options.", where: "Dodonai · scheduling" },
+            { owner: "System", action: "Create one replay-safe assistant-owned internal task.", where: "HubSpot · Appeals queue" },
+            { owner: "Assistant", action: "Coordinate the vendor, client, and firm; no outreach is generated automatically.", where: "Firm-approved communication channels" },
+            { owner: "Assistant", action: "Enter the confirmed evaluation date and details on the Service.", where: "HubSpot · Service" }
+          ],
+          outputs: [
+            { name: "Scheduling task", detail: "Three proposed business-day options and coordination instructions.", source: "HubSpot · Appeals queue" },
+            { name: "Confirmed evaluation date", detail: "The human-agreed date that unlocks A-12 and A-13.", source: "HubSpot · evaluation_date" }
+          ],
+          gate: "A-11 creates an internal task only. Staff own all vendor and client coordination and must enter the agreed date."
+        },
+        {
+          id: "A-12",
+          name: "Create evaluation reminders",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Creates 14-day, 7-day, and 1-day Outlook reminders from the human-confirmed evaluation date.",
+          trigger: "Evaluation Date is set after A-11 coordination.",
+          inputs: [
+            { name: "Confirmed evaluation date", detail: "Human-entered anchor date.", source: "HubSpot · Service", required: true },
+            { name: "Resolvable attendees", detail: "Attorney and assistant calendar identities.", source: "HubSpot + Microsoft Graph", required: true },
+            { name: "Matter identity", detail: "Client surname or case ID for exact reminder matching.", source: "HubSpot", required: true },
+            { name: "A-12 allowlist", detail: "The production job is hard-scoped to this calendar item.", source: "Dodonai deployment config", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Confirm the evaluation date and attendee assignments.", where: "HubSpot · Service" },
+            { owner: "System", action: "Compute T−14, T−7, and T−1 reminder dates.", where: "Dodonai · calendar engine" },
+            { owner: "System", action: "Check durable state and existing matter-matched Outlook events.", where: "GCS state + Microsoft Graph" },
+            { owner: "System", action: "Create only missing events; skip unresolved attendees rather than guessing.", where: "Outlook calendars" }
+          ],
+          outputs: [
+            { name: "Evaluation reminder events", detail: "Three matter-scoped reminders per resolvable attendee.", source: "Outlook · attorney/assistant calendars" },
+            { name: "Replay state", detail: "Prevents duplicate event creation.", source: "Dodonai · durable state" }
+          ],
+          gate: "The workflow fails closed if dedup reads or the exact A-12 allowlist are unavailable."
+        },
+        {
+          id: "A-13",
+          name: "Prepare the examiner cover letter and records packet",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Attorney",
+          summary: "Creates a source index, requires explicit ordered-row selection, and assembles only the attorney-approved records.",
+          trigger: "The evaluation enters the T−7 through T−0 preparation window.",
+          inputs: [
+            { name: "Confirmed evaluation date", detail: "Anchors the T−7 preparation window.", source: "HubSpot · Service", required: true },
+            { name: "Exact matter folder", detail: "Source and destination boundary.", source: "HubSpot → SharePoint", required: true },
+            { name: "Candidate medical records", detail: "Eligible governed documents; generated AI Output and suppressed files are excluded.", source: "SharePoint · matter bins", required: true },
+            { name: "Ordered row selection", detail: "Unique candidate row numbers in delivery order.", source: "HubSpot · staff entry", required: true },
+            { name: "Attorney approval", detail: "Approval of the exact selected subset.", source: "HubSpot · Service", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Generate the sourced examiner cover-letter draft and candidate-records index.", where: "SharePoint · matter/AI Output" },
+            { owner: "System", action: "Reset prior approval and create the packet-review task.", where: "HubSpot · Appeals queue" },
+            { owner: "Assistant", action: "Review the index and enter the exact unique row numbers in delivery order.", where: "HubSpot · Service" },
+            { owner: "Attorney", action: "Approve that exact ordered subset.", where: "HubSpot · Service" },
+            { owner: "System", action: "Copy only the approved records into the deterministic packet and verify the inventory.", where: "SharePoint · exact matter packet" },
+            { owner: "Assistant", action: "Perform final QA and send through the approved channel when appropriate.", where: "Firm-controlled external send" }
+          ],
+          outputs: [
+            { name: "Examiner cover-letter draft", detail: "Editable sourced draft.", source: "SharePoint · matter/AI Output" },
+            { name: "Candidate-records index", detail: "Numbered source list for explicit selection.", source: "SharePoint · matter/AI Output" },
+            { name: "Selected-only records packet", detail: "Only the ordered, attorney-approved documents.", source: "SharePoint · exact matter packet" }
+          ],
+          gate: "No automatic send path exists. Packet assembly does not begin until staff select exact rows and the attorney approves the subset."
+        },
+        {
+          id: "A-14",
+          name: "Track the evaluation report",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Starts a weekly internal follow-up cadence at T+7 and stops when the report-received state is recorded.",
+          trigger: "Seven days pass after the evaluation date and no report-received stop condition is present.",
+          inputs: [
+            { name: "Evaluation date", detail: "Timer anchor.", source: "HubSpot · Service", required: true },
+            { name: "Assigned assistant", detail: "Owner of the follow-up work.", source: "HubSpot · Service", required: true },
+            { name: "Report received date", detail: "Stops the cadence when populated.", source: "HubSpot · Service", required: false },
+            { name: "Matching received checklist item", detail: "Alternate stop signal.", source: "HubSpot · Service", required: false }
+          ],
+          steps: [
+            { owner: "System", action: "At T+7, check whether the report-received stop condition is present.", where: "Daily evaluation sweep" },
+            { owner: "System", action: "If still missing, create one replay-safe assistant-owned follow-up task for the elapsed week.", where: "HubSpot · Appeals queue" },
+            { owner: "Assistant", action: "Use firm-approved wording to follow up with the provider; no provider draft is generated.", where: "Approved provider channel" },
+            { owner: "Assistant", action: "File the report and enter Evaluation Report Received Date when it arrives.", where: "SharePoint + HubSpot" },
+            { owner: "System", action: "Stop creating tasks when the date or matching checklist receipt is present.", where: "HubSpot + durable state" }
+          ],
+          outputs: [
+            { name: "Weekly report-follow-up task", detail: "One internal task per elapsed week while missing.", source: "HubSpot · Appeals queue" },
+            { name: "Filed evaluation report", detail: "Verified report in the governed matter location.", source: "SharePoint · evaluation/report bin" },
+            { name: "Cadence stop state", detail: "Report-received date or matching checklist item.", source: "HubSpot · Service" }
+          ],
+          gate: "A-14 never contacts the provider automatically. Staff own the follow-up and must record receipt to stop the cadence."
+        }
+      ]
+    },
+    {
+      number: 9,
+      title: "Mark homework complete",
+      stage: "Stage 5 · Drafting trigger",
+      workflows: [
+        {
+          id: "A-15",
+          name: "Notify the attorney that the file is ready",
+          status: "live",
+          phase: "LIVE",
+          primaryOwner: "Assistant + System",
+          summary: "Uses the existing Homework Complete checkbox as the explicit human signal that the appeal file is ready to write.",
+          trigger: "The assistant checks Homework Complete on the Service.",
+          inputs: [
+            { name: "Complete claim file", detail: "Carrier file is received and usable.", source: "SharePoint · governed bins", required: true },
+            { name: "Policy and plan documents", detail: "The controlling plan material is present.", source: "SharePoint · governed bins", required: true },
+            { name: "Medical records and evaluations", detail: "Required homework and reports are in.", source: "SharePoint · governed bins", required: true },
+            { name: "Homework Complete", detail: "The explicit human-ready signal.", source: "HubSpot · Service", required: true },
+            { name: "Assigned attorney", detail: "Notification recipient and drafting owner.", source: "HubSpot · Service", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Confirm the file is genuinely complete; do not use the checkbox as a placeholder.", where: "SharePoint + HubSpot" },
+            { owner: "Assistant", action: "Set Homework Complete to Yes.", where: "HubSpot · Service" },
+            { owner: "System", action: "Notify the assigned attorney that the matter is ready to write.", where: "HubSpot workflow" },
+            { owner: "System", action: "Fan the same ready signal into the summarizer and drafting pipeline.", where: "Dodonai · drafting trigger" }
+          ],
+          outputs: [
+            { name: "Attorney-ready notification", detail: "The matter is ready for drafting.", source: "Attorney notification channel" },
+            { name: "Drafting event", detail: "Starts the summarizer, grounding, and A-16 path.", source: "Dodonai · workflow dispatch" }
+          ],
+          gate: "The assistant owns the readiness decision. Checking the box early gives the drafting engine an incomplete record."
+        },
+        {
+          id: "Summarizer",
+          name: "Extract the appeal-ready claim facts",
+          status: "tuning",
+          phase: "1A",
+          primaryOwner: "System",
+          summary: "Reads the complete governed file and produces the structured claim facts the first-pass appeal needs.",
+          trigger: "The Homework Complete event starts the drafting pipeline.",
+          inputs: [
+            { name: "Claim File", detail: "Full carrier record.", source: "SharePoint · governed Claim File bin", required: true },
+            { name: "Denial letter", detail: "Carrier decision and rationale.", source: "SharePoint · carrier correspondence", required: true },
+            { name: "Policy/plan documents", detail: "Controlling definitions, limitations, and standards.", source: "SharePoint · Policy bin", required: true },
+            { name: "Treating records and evaluations", detail: "Medical and vocational evidence selected by the file taxonomy.", source: "SharePoint · governed evidence bins", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Resolve the exact matter and read the governed source set.", where: "Dodonai · matter reader" },
+            { owner: "System", action: "OCR and normalize the full claim file where needed.", where: "Dodonai · summarizer" },
+            { owner: "System", action: "Extract dates, policy provisions, denial rationale, treating statements, and review conclusions.", where: "Dodonai · structured extraction" },
+            { owner: "System", action: "Attach source traceability and hand the structured context to A-16.", where: "Dodonai · drafting context" }
+          ],
+          outputs: [
+            { name: "Structured claim summary", detail: "Appeal-ready facts tied back to source material.", source: "Dodonai · A-16 context" },
+            { name: "Source trace", detail: "The evidence path used for attorney review.", source: "Dodonai · drafting record" }
+          ],
+          gate: "The summary feeds a draft; it is not a legal conclusion and does not bypass attorney review."
+        },
+        {
+          id: "Grounding",
+          name: "Ground the draft in the firm's prior work",
+          status: "tuning",
+          phase: "1A",
+          primaryOwner: "System",
+          summary: "Supplies firm-specific appeal and rebuttal exemplars to the drafting engine without treating old-case facts as new-case evidence.",
+          trigger: "A-16 or A-23 requests drafting context.",
+          inputs: [
+            { name: "Current matter context", detail: "Carrier, condition, denial theory, and requested draft type.", source: "Dodonai · summarizer/A-22", required: true },
+            { name: "Historical appeal corpus", detail: "Firm-authored appeals and rebuttals graded for use.", source: "Dodonai · agentic packs", required: true },
+            { name: "Draft type", detail: "Appeal or medical-review rebuttal.", source: "Dodonai · workflow dispatch", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Choose the appeal or rebuttal corpus for the requested draft.", where: "Dodonai · agentic pack" },
+            { owner: "System", action: "Retrieve structurally relevant firm examples and advocacy patterns.", where: "Dodonai · exemplar library" },
+            { owner: "System", action: "Supply style and precedent context while keeping current-case facts source-bound.", where: "Dodonai · drafting engine" }
+          ],
+          outputs: [
+            { name: "Firm-voice context", detail: "Relevant structure, tone, and advocacy patterns.", source: "A-16 or A-23 drafting context" },
+            { name: "Exemplar provenance", detail: "Traceable historical sources used for grounding.", source: "Dodonai · drafting record" }
+          ],
+          gate: "Historical examples guide structure and voice. They are never evidence for the current client unless independently present in the current matter."
+        }
+      ]
+    },
+    {
+      number: 10,
+      title: "Draft the appeal letter",
+      stage: "Stage 6 · Draft and submit",
+      workflows: [
+        {
+          id: "A-16",
+          name: "Generate the first-pass appeal draft",
+          status: "tuning",
+          phase: "1A",
+          primaryOwner: "System + Attorney",
+          summary: "Combines the claim summary, governed evidence, denial, policy, and firm exemplars into a source-traceable first-pass Word draft.",
+          trigger: "Homework Complete starts the summarizer; a successful matter read advances into A-16.",
+          inputs: [
+            { name: "Structured claim summary", detail: "Dates, denial rationale, policy provisions, treating evidence, and reviews.", source: "Dodonai · summarizer", required: true },
+            { name: "Denial + policy", detail: "Primary carrier and plan sources.", source: "SharePoint · governed bins", required: true },
+            { name: "Approved matter evidence", detail: "Documents included by the governed taxonomy.", source: "SharePoint · evidence bins", required: true },
+            { name: "Firm exemplar library", detail: "Carrier- and condition-relevant drafting context.", source: "Dodonai · agentic pack 426", required: true },
+            { name: "Exact matter output folder", detail: "The correct AI Output location.", source: "HubSpot → SharePoint", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Assemble the full claim context and firm-grounding package.", where: "Dodonai · agentic drafter" },
+            { owner: "System", action: "Generate the carrier- and condition-aware first-pass appeal.", where: "Dodonai · template 426" },
+            { owner: "System", action: "Self-check the draft, attach source traceability, and render the Word document.", where: "Dodonai · drafting harness" },
+            { owner: "System", action: "Save the .docx to the exact matter and alert the assigned attorney with a deep link.", where: "SharePoint + Teams/email" },
+            { owner: "Attorney", action: "Review the evidence, strategy, law, tone, exclusions, and every factual assertion; edit to final.", where: "Microsoft Word" }
+          ],
+          outputs: [
+            { name: "First-pass appeal .docx", detail: "Firm-voice draft with source traceability.", source: "SharePoint · matter/AI Output" },
+            { name: "Attorney alert + mobile deep link", detail: "Direct path to the draft from anywhere.", source: "Teams/email" },
+            { name: "Attorney-approved appeal letter", detail: "The final legal work product after human revision.", source: "Matter file → A-17" }
+          ],
+          gate: "The attorney owns the final letter. The first pass is measured against the firm's 70% quality bar and never goes directly to a carrier."
+        }
+      ]
+    },
+    {
+      number: 11,
+      title: "Assemble and submit the appeal",
+      stage: "Stage 6 · Draft and submit",
+      workflows: [
+        {
+          id: "A-17",
+          name: "Bundle the appeal submission packet",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Attorney + Assistant",
+          summary: "Builds one indexed packet from the final appeal and the human-approved evidence plan while hard-excluding suppressed material.",
+          trigger: "The attorney-approved appeal is ready to file and the packet plan is complete.",
+          inputs: [
+            { name: "Final appeal letter", detail: "Attorney-approved filing version.", source: "SharePoint · matter file", required: true },
+            { name: "Approved evidence plan", detail: "The exact documents and order for filing.", source: "Attorney/coordinator selection", required: true },
+            { name: "RFI, DOP, and Authorization", detail: "Required filing components when applicable.", source: "SharePoint · governed bins", required: true },
+            { name: "Suppressed/excluded set", detail: "Documents that must never enter the packet.", source: "SharePoint · _EXCLUDED + rules", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Prepare the proposed packet plan and source inventory.", where: "Matter file + packet review" },
+            { owner: "Attorney", action: "Approve the final letter and exact packet plan.", where: "Packet review gate" },
+            { owner: "System", action: "Apply hard exclusions and assemble the approved items in order.", where: "Dodonai · packet engine" },
+            { owner: "System", action: "Generate the indexed submission bundle and verify its inventory.", where: "SharePoint · matter packet" },
+            { owner: "Assistant", action: "Perform final QA, submit through the carrier-approved channel, and preserve proof of filing.", where: "Carrier channel + matter file" }
+          ],
+          outputs: [
+            { name: "Indexed appeal packet", detail: "Appeal letter, approved evidence, and required forms.", source: "SharePoint · exact matter" },
+            { name: "Filed submission", detail: "External only after attorney approval and coordinator QA.", source: "Carrier channel" },
+            { name: "Proof of filing", detail: "Transmission evidence retained with the matter.", source: "SharePoint/HubSpot" }
+          ],
+          gate: "A human signs the packet plan before assembly and a person submits it. Suppressed evidence is non-overridable."
+        },
+        {
+          id: "A-19",
+          name: "Create the acknowledgement chase call",
+          status: "live",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Waits 14 days after a future submission, suppresses itself if acknowledgement arrives, and otherwise creates one assistant call task.",
+          trigger: "Appeal Submission Date changes on an In-Appeal Service with an assistant and no acknowledgement date.",
+          inputs: [
+            { name: "Appeal submission date", detail: "Future change only; anchors the +14-day wait.", source: "HubSpot · Service", required: true },
+            { name: "Assigned appeals assistant", detail: "Owner of the call.", source: "HubSpot · Service", required: true },
+            { name: "Acknowledgement received date", detail: "Blank to enroll; rechecked after the wait.", source: "HubSpot · Service", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Enroll the Service on the future submission-date event.", where: "HubSpot workflow 1855998880" },
+            { owner: "System", action: "Wait until submission +14 days.", where: "HubSpot workflow delay" },
+            { owner: "System", action: "Recheck the acknowledgement date and exit if it is now present.", where: "HubSpot · Service" },
+            { owner: "System", action: "If still blank, create one assistant-owned CALL task in the Appeals queue.", where: "HubSpot · Tasks" },
+            { owner: "Assistant", action: "Call the carrier, record the result, and enter the acknowledgement date when received.", where: "Carrier phone + HubSpot" }
+          ],
+          outputs: [
+            { name: "Acknowledgement CALL task", detail: "One native assistant-owned task.", source: "HubSpot · Appeals queue" },
+            { name: "Acknowledgement date", detail: "Entered by staff after carrier confirmation.", source: "HubSpot · Service" }
+          ],
+          gate: "A-19 creates a phone task only. It sends no letter or email and does not enroll historical submissions."
+        },
+        {
+          id: "A-20",
+          name: "Draft the client copy email",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Prepares the client-facing email that transmits the filed appeal letter after submission.",
+          trigger: "The appeal is filed and the filed A-16 letter is available.",
+          inputs: [
+            { name: "Filed appeal letter", detail: "The exact final version sent to the carrier.", source: "SharePoint · matter file", required: true },
+            { name: "Client email", detail: "Exact associated client recipient.", source: "HubSpot · Contact", required: true },
+            { name: "Submission confirmation", detail: "Confirms the appeal was actually filed.", source: "HubSpot/matter record", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Resolve the exact filed appeal document and client recipient.", where: "HubSpot + SharePoint" },
+            { owner: "System", action: "Create the client-copy email and attach the filed appeal.", where: "Outlook Drafts" },
+            { owner: "Assistant", action: "Verify the attachment is the filed version, review the message, and send.", where: "Outlook" }
+          ],
+          outputs: [
+            { name: "Client copy draft", detail: "Email with the filed appeal attached.", source: "Outlook Drafts" },
+            { name: "Client delivery", detail: "External only after staff review.", source: "Client inbox" }
+          ],
+          gate: "The workflow must resolve the exact filed version. Staff verify the attachment before sending."
+        },
+        {
+          id: "A-21",
+          name: "Draft the SSDI attorney evidence forward",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Attorney",
+          summary: "Chooses the firm-referred or client-selected SSDI-attorney variant and drafts the evidence-forward message.",
+          trigger: "The appeal is filed and an SSDI attorney is present.",
+          inputs: [
+            { name: "SSDI attorney identity", detail: "Exact recipient and contact details.", source: "HubSpot/matter record", required: true },
+            { name: "Referral relationship", detail: "Firm-referred or the client's own attorney.", source: "HubSpot/matter record", required: true },
+            { name: "Approved evidence set", detail: "The material permitted for the SSDI forward.", source: "SharePoint · matter file", required: true },
+            { name: "Delivery mechanism", detail: "CD-enclosed or reviewed secure-link variant.", source: "Workflow branch", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Select the referred-attorney or client-selected-attorney template.", where: "Dodonai · letter renderer" },
+            { owner: "System", action: "Resolve the approved evidence references and delivery language.", where: "SharePoint + workflow data" },
+            { owner: "System", action: "Create an unsent forward draft.", where: "Outlook Drafts" },
+            { owner: "Attorney", action: "Review the recipient, evidence scope, disclaimer, and message; send manually.", where: "Outlook" }
+          ],
+          outputs: [
+            { name: "SSDI evidence-forward draft", detail: "The correct referral-relationship variant.", source: "Outlook Drafts" },
+            { name: "SSDI attorney delivery", detail: "Approved evidence after human review.", source: "SSDI attorney channel" }
+          ],
+          gate: "A person confirms the attorney identity and evidence scope. Nothing fans out automatically."
+        }
+      ]
+    },
+    {
+      number: 12,
+      title: "Calendar the carrier decision window",
+      stage: "Stage 7 · Decision control",
+      workflows: [
+        {
+          id: "A-18",
+          name: "Create the 45-day and 90-day decision deadlines",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Records the confirmed submission date and creates the carrier decision-window calendar events for the responsible team.",
+          trigger: "The appeal is submitted and a person confirms the submission date.",
+          inputs: [
+            { name: "Confirmed submission date", detail: "Human-verified filing date.", source: "HubSpot · Service", required: true },
+            { name: "Assigned attorney", detail: "Calendar recipient.", source: "HubSpot · Service", required: true },
+            { name: "Assigned assistant", detail: "Calendar recipient.", source: "HubSpot · Service", required: true },
+            { name: "Client name + case ID", detail: "Matter identity for event titles and dedup.", source: "HubSpot", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Confirm and record the actual appeal submission date.", where: "HubSpot · Service" },
+            { owner: "System", action: "Compute the 45-day and 90-day decision dates.", where: "Dodonai · calendar cadence" },
+            { owner: "System", action: "Check for matching existing events before creating new ones.", where: "Microsoft Graph" },
+            { owner: "System", action: "Write the decision-window events to the attorney and assistant calendars.", where: "Outlook calendars" }
+          ],
+          outputs: [
+            { name: "45-day decision event", detail: "Primary carrier decision deadline.", source: "Outlook · attorney/assistant calendars" },
+            { name: "90-day decision event", detail: "Extended decision-window control.", source: "Outlook · attorney/assistant calendars" },
+            { name: "Submission-date record", detail: "The system-of-record anchor for later enforcement.", source: "HubSpot · Service" }
+          ],
+          gate: "A-18 calendars only a human-confirmed submission date. The events are controls, not a legal determination."
+        }
+      ]
+    },
+    {
+      number: 13,
+      title: "Handle medical reviews and rebuttals",
+      stage: "Stage 7 · Decision control",
+      workflows: [
+        {
+          id: "A-22",
+          name: "Classify the medical review and propose its deadline",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Turns a newly arrived carrier medical review into a matter-linked received date, proposed response deadline, and attorney notice.",
+          trigger: "F-02 classifies an inbound document as a peer review, IME, FCE, or other medical review.",
+          inputs: [
+            { name: "Inbound medical review", detail: "Readable carrier document.", source: "SharePoint/Outlook → F-02", required: true },
+            { name: "Exact matter association", detail: "One Service and matter folder.", source: "HubSpot + file-store locator", required: true },
+            { name: "Received date", detail: "The date the review reached the firm.", source: "Inbound event/document", required: true },
+            { name: "Response-deadline language", detail: "Carrier-stated timing or applicable workflow rule.", source: "Document OCR", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Classify the inbound document as a medical review and resolve it to the matter.", where: "Dodonai · F-02 router" },
+            { owner: "System", action: "Record the received date and extract any response-deadline language.", where: "HubSpot + document parser" },
+            { owner: "System", action: "Propose the response deadline and notify the assigned attorney.", where: "HubSpot/notification channel" },
+            { owner: "Assistant", action: "Read the actual review, confirm or correct the deadline, and file it in the correct carrier-review bin.", where: "SharePoint + HubSpot" }
+          ],
+          outputs: [
+            { name: "Medical Review Received Date", detail: "Matter-level receipt control.", source: "HubSpot · Service" },
+            { name: "Proposed response deadline", detail: "Held for human confirmation.", source: "HubSpot · Service" },
+            { name: "Attorney notification", detail: "Alerts the legal owner that strategy is required.", source: "Attorney notification channel" },
+            { name: "A-23 drafting trigger", detail: "Confirmed review context for rebuttal drafting.", source: "Dodonai · workflow dispatch" }
+          ],
+          gate: "The assistant confirms the response deadline from the source document. Auto-classified mail never finalizes a legal date."
+        },
+        {
+          id: "A-23",
+          name: "Generate the medical-review rebuttal draft",
+          status: "tuning",
+          phase: "1A",
+          primaryOwner: "System + Attorney",
+          summary: "Retargets the firm-grounded appeal engine at the carrier review and produces a source-traceable first-pass rebuttal.",
+          trigger: "A-22 supplies a confirmed medical-review event and the attorney requests rebuttal drafting.",
+          inputs: [
+            { name: "Carrier medical review", detail: "Peer review, IME, FCE, or related carrier analysis.", source: "SharePoint · 10 Carrier Reviews", required: true },
+            { name: "Current claim context", detail: "Policy, denial, medical evidence, and prior submissions.", source: "Dodonai · matter context", required: true },
+            { name: "Attorney strategy", detail: "The legal and evidentiary direction for the response.", source: "Assigned attorney", required: true },
+            { name: "Firm rebuttal exemplars", detail: "Prior firm work relevant to the review type.", source: "Dodonai · agentic pack 427", required: true },
+            { name: "Exact matter output folder", detail: "The correct AI Output location.", source: "HubSpot → SharePoint", required: true }
+          ],
+          steps: [
+            { owner: "Attorney", action: "Set the rebuttal strategy and identify the review points that require response.", where: "Matter review" },
+            { owner: "System", action: "Assemble the medical review, current evidence, and relevant firm exemplars.", where: "Dodonai · agentic drafter" },
+            { owner: "System", action: "Generate the first-pass rebuttal with source traceability.", where: "Dodonai · template 427" },
+            { owner: "System", action: "Render and save the .docx to the exact matter.", where: "SharePoint · matter/AI Output" },
+            { owner: "Attorney", action: "Verify the medical analysis, evidence, citations, and legal posture; revise and approve.", where: "Microsoft Word" }
+          ],
+          outputs: [
+            { name: "First-pass rebuttal .docx", detail: "Firm-grounded, source-traceable draft.", source: "SharePoint · matter/AI Output" },
+            { name: "Attorney-approved rebuttal", detail: "Final legal work product after strategy and revision.", source: "Matter file → carrier send path" }
+          ],
+          gate: "The attorney sets the strategy and owns the final rebuttal. The system does not decide which medical arguments the firm adopts."
+        }
+      ]
+    },
+    {
+      number: 14,
+      title: "Enforce or extend the decision deadline",
+      stage: "Stage 7 · Decision control",
+      workflows: [
+        {
+          id: "A-24",
+          name: "Draft the 45-day deemed-exhaustion letter",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Attorney",
+          summary: "Prepares the legal-position letter when the confirmed carrier decision deadline is approaching or has passed without proper notice.",
+          trigger: "The confirmed 45/90-day deadline is approaching or blown and no proper carrier notice resolves it.",
+          inputs: [
+            { name: "Confirmed decision deadlines", detail: "Human-verified 45-day and 90-day dates.", source: "HubSpot + Outlook", required: true },
+            { name: "Carrier correspondence", detail: "Decision, extension, or notice record through the current date.", source: "SharePoint · carrier correspondence", required: true },
+            { name: "Matter + claim identifiers", detail: "Client, carrier, claim number, and handling attorney.", source: "HubSpot", required: true },
+            { name: "Legal posture confirmation", detail: "Attorney decision that deemed exhaustion is the right path.", source: "Assigned attorney", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Verify the calendar, matter file, and recent carrier communications are current.", where: "HubSpot + Outlook + SharePoint" },
+            { owner: "Attorney", action: "Decide whether the firm should assert deemed exhaustion or pursue another path.", where: "Legal strategy review" },
+            { owner: "System", action: "Render the 45-day deemed-exhaustion draft from the confirmed matter facts.", where: "Dodonai · letter renderer" },
+            { owner: "System", action: "Save the editable draft to the exact matter.", where: "SharePoint · matter/AI Output" },
+            { owner: "Attorney", action: "Review the law, dates, posture, and recipient; edit and authorize any send.", where: "Microsoft Word" }
+          ],
+          outputs: [
+            { name: "Deemed-exhaustion draft", detail: "Editable legal-position letter.", source: "SharePoint · matter/AI Output" },
+            { name: "Carrier communication", detail: "External only if the attorney approves and staff sends.", source: "Carrier channel" }
+          ],
+          gate: "This letter asserts a legal posture. The attorney decides whether it is appropriate and approves every date and sentence before use."
+        },
+        {
+          id: "A-25",
+          name: "Re-anchor deadlines after an extension",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Creates the new deadline cadence from a confirmed extension while leaving superseded-event cleanup visible to a person.",
+          trigger: "A carrier or firm extension is logged and the new date is human-confirmed.",
+          inputs: [
+            { name: "Extension record", detail: "Who granted it and the supporting correspondence.", source: "SharePoint + HubSpot", required: true },
+            { name: "Confirmed new deadline", detail: "Human-approved replacement anchor.", source: "HubSpot · Service", required: true },
+            { name: "Existing deadline events", detail: "The now-superseded calendar series.", source: "Outlook calendars", required: true },
+            { name: "Assigned calendars", detail: "Attorney and assistant recipients.", source: "HubSpot + Microsoft Graph", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Read the extension source and confirm the replacement deadline.", where: "SharePoint + HubSpot" },
+            { owner: "System", action: "Recompute the decision cadence from the new anchor date.", where: "Dodonai · calendar engine" },
+            { owner: "System", action: "Create the new matter-scoped calendar events.", where: "Outlook calendars" },
+            { owner: "Assistant", action: "Identify and cancel the superseded events after verifying the new series.", where: "Outlook calendars" }
+          ],
+          outputs: [
+            { name: "Re-anchored deadline events", detail: "The new confirmed decision cadence.", source: "Outlook · attorney/assistant calendars" },
+            { name: "Superseded-event cleanup", detail: "Visible human task to remove the old dates.", source: "Outlook/manual control" },
+            { name: "Updated deadline record", detail: "Current confirmed extension anchor.", source: "HubSpot · Service" }
+          ],
+          gate: "A-25 does not auto-delete old events. A person confirms the new date and cancels the superseded calendar entries."
+        }
+      ]
+    },
+    {
+      number: 15,
+      title: "Route the approval or denial",
+      stage: "Stage 8 · Resolution",
+      workflows: [
+        {
+          id: "A-26",
+          name: "Fire the approval workflow",
+          status: "live",
+          phase: "LIVE",
+          primaryOwner: "Assistant + System",
+          summary: "Turns the verified carrier approval into the HubSpot approval state that drives handoff and follow-on work.",
+          trigger: "Staff receive an approval letter and log the approval.",
+          inputs: [
+            { name: "Carrier approval letter", detail: "Verified decision document.", source: "SharePoint · carrier correspondence", required: true },
+            { name: "Appeal approval date", detail: "The date confirmed from the letter.", source: "HubSpot · Service", required: true },
+            { name: "Claim type", detail: "LTD, STD, or dual-claim context.", source: "HubSpot · Service", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Verify the approval letter, file it, and enter the approval date.", where: "SharePoint + HubSpot" },
+            { owner: "System", action: "Set the Service approval state and fire the approval workflow.", where: "HubSpot workflow" },
+            { owner: "System", action: "Fan the event into On Claims handoff, client next steps, marketing routing, and dual-approval logic as applicable.", where: "HubSpot/Dodonai" }
+          ],
+          outputs: [
+            { name: "Approved Service state", detail: "The system-of-record resolution.", source: "HubSpot · Service" },
+            { name: "Approval branch events", detail: "Triggers O-01, A-27, A-28, and A-33 when applicable.", source: "HubSpot/Dodonai" }
+          ],
+          gate: "Staff confirm the approval date and claim type from the carrier letter before the branch fires."
+        },
+        {
+          id: "O-01",
+          name: "Hand the approved matter to On Claims",
+          status: "live",
+          phase: "LIVE",
+          primaryOwner: "System + On Claims",
+          summary: "Moves the approved matter out of Appeals and into the On Claims operating path.",
+          trigger: "A-26 records an approval on the Appeals Service.",
+          inputs: [
+            { name: "Approved Service", detail: "A valid approval state and date.", source: "HubSpot · Service", required: true },
+            { name: "On Claims routing fields", detail: "Claim type, carrier, team, and matter associations.", source: "HubSpot · Service", required: true },
+            { name: "Assigned receiving team", detail: "The On Claims ownership path.", source: "HubSpot workflow", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Validate the approval state and required routing fields.", where: "HubSpot workflow" },
+            { owner: "System", action: "Move or hand off the matter into the On Claims pipeline.", where: "HubSpot · On Claims" },
+            { owner: "System", action: "Create the receiving work and internal notification.", where: "HubSpot · tasks/notification" },
+            { owner: "On Claims", action: "Accept the handoff and begin the ongoing-benefits workflow.", where: "HubSpot · On Claims queue" }
+          ],
+          outputs: [
+            { name: "On Claims matter", detail: "Approved matter in the receiving pipeline.", source: "HubSpot · On Claims" },
+            { name: "Receiving task set", detail: "Work assigned to the On Claims team.", source: "HubSpot · On Claims queue" }
+          ],
+          gate: "Accounting remains walled off from the appeal file. The handoff transfers the operational matter, not unrestricted file access."
+        },
+        {
+          id: "A-27",
+          name: "Draft the approval next-steps email",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Attorney",
+          summary: "Prepares the client message that explains the On Claims next steps after an appeal approval.",
+          trigger: "A-26 records the approval.",
+          inputs: [
+            { name: "Approval facts", detail: "Decision date, claim type, and carrier result.", source: "HubSpot + approval letter", required: true },
+            { name: "Client email", detail: "Exact associated client recipient.", source: "HubSpot · Contact", required: true },
+            { name: "On Claims next steps", detail: "The firm-approved process the client should expect.", source: "Workflow template", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Merge the approval facts and approved next-steps copy.", where: "Dodonai · letter renderer" },
+            { owner: "System", action: "Create an unsent client email draft.", where: "Outlook Drafts" },
+            { owner: "Attorney", action: "Verify the result, expectations, and wording; edit and send manually.", where: "Outlook" }
+          ],
+          outputs: [
+            { name: "Client next-steps draft", detail: "Approval and On Claims orientation.", source: "Outlook Drafts" },
+            { name: "Client communication", detail: "External only after attorney review.", source: "Client inbox" }
+          ],
+          gate: "The attorney verifies the approval scope and client expectations before the email is sent."
+        },
+        {
+          id: "A-28",
+          name: "Route approval materials to marketing",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Marketing",
+          summary: "Creates the internal operations handoff that carries the approved matter's denial and appeal materials to the designated marketing recipient.",
+          trigger: "A-26 records the approval.",
+          inputs: [
+            { name: "Approved matter", detail: "Confirmed approval event.", source: "HubSpot · Service", required: true },
+            { name: "Filed denial letter", detail: "The source carrier denial.", source: "SharePoint · matter file", required: true },
+            { name: "Filed appeal letter", detail: "The final submitted appeal.", source: "SharePoint · matter file", required: true },
+            { name: "Designated recipient", detail: "The confirmed internal marketing owner.", source: "Workflow configuration", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Resolve the exact denial and appeal documents for the approved matter.", where: "SharePoint" },
+            { owner: "System", action: "Compose the internal handoff with links or attachments.", where: "Internal email" },
+            { owner: "Marketing", action: "Receive the materials and apply the firm's separate marketing review rules.", where: "Marketing workflow" }
+          ],
+          outputs: [
+            { name: "Internal marketing handoff", detail: "Matter materials routed inside the firm.", source: "Designated marketing inbox" },
+            { name: "Reviewable source set", detail: "The exact denial and filed appeal, not an open matter browse.", source: "Internal marketing workflow" }
+          ],
+          gate: "This is an internal handoff, not permission to publish. Marketing's consent and confidentiality review remains separate."
+        },
+        {
+          id: "A-29",
+          name: "Record denial and select next steps",
+          status: "live",
+          phase: "LIVE",
+          primaryOwner: "Attorney + Assistant",
+          summary: "Captures the denial date and uses the attorney's next-steps decision to route the case into Litigation, Second Appeal, or Termination.",
+          trigger: "Staff receive and log the appeal denial.",
+          inputs: [
+            { name: "Carrier denial letter", detail: "Verified appeal decision.", source: "SharePoint · carrier correspondence", required: true },
+            { name: "Appeal denial date", detail: "Confirmed from the source letter.", source: "HubSpot · Service", required: true },
+            { name: "Attorney next-steps decision", detail: "Litigation, Second Appeal, or Terminate.", source: "Assigned attorney", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Verify and file the denial, then enter the denial date.", where: "SharePoint + HubSpot" },
+            { owner: "Attorney", action: "Choose the legal next step for the client.", where: "Case strategy review" },
+            { owner: "Assistant", action: "Set the Denial — Next Steps dropdown to the attorney's decision.", where: "HubSpot · Service" },
+            { owner: "System", action: "Dispatch the matching Litigation, Second Appeal, or Termination branch.", where: "HubSpot workflow" }
+          ],
+          outputs: [
+            { name: "Denial state + date", detail: "The system-of-record resolution.", source: "HubSpot · Service" },
+            { name: "Next-steps branch trigger", detail: "Feeds A-30, A-31, or A-32.", source: "HubSpot workflow" }
+          ],
+          gate: "The system never chooses the legal path. The attorney decides, and staff record that decision."
+        },
+        {
+          id: "A-30",
+          name: "Route the denied appeal to Litigation",
+          status: "live",
+          phase: "LIVE",
+          primaryOwner: "System + Litigation",
+          summary: "Hands a denied appeal to the Litigation team when the attorney selects that branch.",
+          trigger: "Denial — Next Steps is set to Litigation.",
+          inputs: [
+            { name: "Litigation branch selection", detail: "Attorney-approved next step.", source: "HubSpot · Service", required: true },
+            { name: "Denied Appeals Service", detail: "Client, carrier, claim, deadline, and matter associations.", source: "HubSpot", required: true },
+            { name: "Litigation recipients", detail: "Configured receiving team.", source: "HubSpot workflow", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Detect the Litigation branch selection.", where: "HubSpot workflow" },
+            { owner: "System", action: "Route the matter and notify the Litigation team.", where: "HubSpot · Litigation" },
+            { owner: "Litigation", action: "Accept the handoff, review the appeal record, and begin the litigation intake process.", where: "Litigation queue" }
+          ],
+          outputs: [
+            { name: "Litigation handoff", detail: "Denied appeal visible to the receiving team.", source: "HubSpot · Litigation pipeline/queue" },
+            { name: "Team notification", detail: "Internal notice with the matter link.", source: "Litigation team inbox" }
+          ],
+          gate: "The branch fires only from the attorney-approved next-steps selection."
+        },
+        {
+          id: "A-31",
+          name: "Draft the termination letters",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Attorney",
+          summary: "Creates the carrier-notice and client-copy variants when the attorney decides the firm will terminate representation.",
+          trigger: "Denial — Next Steps is set to Terminate.",
+          inputs: [
+            { name: "Termination branch selection", detail: "Attorney-approved next step.", source: "HubSpot · Service", required: true },
+            { name: "Client + carrier identities", detail: "Exact recipients and claim identifiers.", source: "HubSpot", required: true },
+            { name: "Representation facts", detail: "Matter details needed for the termination notice.", source: "HubSpot + matter file", required: true },
+            { name: "Responsible attorney", detail: "Reviewer and legal owner.", source: "HubSpot · Service", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Select the carrier-notice and client-letter variants.", where: "Dodonai · letter renderer" },
+            { owner: "System", action: "Merge the matter and representation facts into both drafts.", where: "Dodonai · letter renderer" },
+            { owner: "System", action: "Save or stage the two unsent drafts.", where: "SharePoint/Outlook" },
+            { owner: "Attorney", action: "Review the legal effect, dates, recipients, and client obligations; approve or revise.", where: "Word/Outlook" },
+            { owner: "Assistant", action: "Send through the approved channels only after attorney approval and record the closure work.", where: "Carrier + client channels" }
+          ],
+          outputs: [
+            { name: "Carrier termination draft", detail: "Notice ending representation to the insurer.", source: "SharePoint/Outlook" },
+            { name: "Client termination draft", detail: "Client-facing representation closure letter.", source: "SharePoint/Outlook" },
+            { name: "Closed representation record", detail: "Documented only after approved sends.", source: "HubSpot + matter file" }
+          ],
+          gate: "Termination is high consequence. The attorney reviews both recipient variants and authorizes every send."
+        },
+        {
+          id: "A-32",
+          name: "Restart the matter for a second appeal",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Attorney",
+          summary: "Starts a clean second-appeal lifecycle by resetting first-appeal working fields, re-anchoring the deadline, and opening an Appeal #2 task.",
+          trigger: "Denial — Next Steps is Second Appeal on a matter that has already completed one appeal.",
+          inputs: [
+            { name: "Second Appeal selection", detail: "Attorney-approved next step.", source: "HubSpot · Service", required: true },
+            { name: "Appeal denial date", detail: "Anchor for the new default deadline.", source: "HubSpot · Service", required: true },
+            { name: "Existing first-appeal fields", detail: "The working state that must be cleared or preserved intentionally.", source: "HubSpot · Service", required: true },
+            { name: "Human start-clean approval", detail: "Confirms the reset is appropriate.", source: "Assigned attorney/staff", required: true }
+          ],
+          steps: [
+            { owner: "Attorney", action: "Confirm the matter should proceed as a second appeal.", where: "Case strategy review" },
+            { owner: "System", action: "Clear the first-appeal working fields covered by the reset contract.", where: "HubSpot · Service" },
+            { owner: "System", action: "Set the new default appeal deadline to appeal denial + 180 days.", where: "HubSpot · Service" },
+            { owner: "System", action: "Move the Service back to In Appeal and create the Appeal #2 staff task.", where: "HubSpot · Case Pipeline/Tasks" },
+            { owner: "Assistant", action: "Review the reset matter, confirm the new deadline from the denial, and begin the new lifecycle.", where: "HubSpot + source letter" }
+          ],
+          outputs: [
+            { name: "Reset In-Appeal Service", detail: "Clean second-appeal working state.", source: "HubSpot · Case Pipeline" },
+            { name: "Proposed second-appeal deadline", detail: "Default +180-day date, still human-confirmed.", source: "HubSpot · Service" },
+            { name: "Appeal #2 task", detail: "Visible restart work for staff.", source: "HubSpot · Appeals queue" }
+          ],
+          gate: "Resetting system-of-record fields is deliberately double-gated. Staff confirm the new deadline from the actual denial."
+        },
+        {
+          id: "A-33",
+          name: "Handle LTD/STD dual approvals",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Attorney",
+          summary: "Branches a dual-type matter correctly when both claims are approved or when only one claim is approved.",
+          trigger: "An approval is recorded on a Service carrying both LTD and STD.",
+          inputs: [
+            { name: "Dual claim type", detail: "The Service is carrying both LTD and STD.", source: "HubSpot · Service", required: true },
+            { name: "Per-claim approval status", detail: "Approved or still pending/denied for each claim type.", source: "Carrier decision + HubSpot", required: true },
+            { name: "Approval date", detail: "Confirmed from the carrier decision.", source: "HubSpot · Service", required: true },
+            { name: "Conditional-display support", detail: "The UI/data contract needed to expose the right fields.", source: "HubSpot configuration", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Record the per-claim result from the carrier's decision.", where: "HubSpot · Service" },
+            { owner: "System", action: "If both claims are approved, set the approval date and continue through the normal approval path.", where: "HubSpot workflow" },
+            { owner: "System", action: "If only one is approved, create a new On-Claim Service for the approved type.", where: "HubSpot · On Claims" },
+            { owner: "System", action: "Narrow the original Service to the remaining unresolved claim type.", where: "HubSpot · Service" },
+            { owner: "Attorney", action: "Verify the split accurately reflects the carrier decision and intended legal path.", where: "HubSpot + approval letter" }
+          ],
+          outputs: [
+            { name: "Both-approved branch", detail: "One approval workflow when LTD and STD are both approved.", source: "HubSpot · approval path" },
+            { name: "Approved-type On Claims Service", detail: "New receiving matter when only one type is approved.", source: "HubSpot · On Claims" },
+            { name: "Remaining-claim Appeals Service", detail: "Original matter narrowed to the unresolved claim.", source: "HubSpot · Case Pipeline" }
+          ],
+          gate: "The dual-claim split changes the system of record. A person verifies the per-claim decision before and after the branch."
+        }
+      ]
+    }
+  ];
+
+  const STATUS_LABELS = {
+    live: "Live",
+    tuning: "In tuning",
+    coded: "Coded",
+    shadow: "Shadow"
+  };
+
+  function esc(value) {
+    return String(value)
+      .replace(/&/g, "&amp;")
+      .replace(/</g, "&lt;")
+      .replace(/>/g, "&gt;")
+      .replace(/"/g, "&quot;");
+  }
+
+  function ownerClass(owner) {
+    const lower = owner.toLowerCase();
+    if (lower.includes("attorney")) return "owner-attorney";
+    if (lower.includes("assistant")) return "owner-assistant";
+    if (lower.includes("coordinator")) return "owner-coordinator";
+    if (lower.includes("intake")) return "owner-intake";
+    if (lower.includes("on claims")) return "owner-on-claims";
+    if (lower.includes("litigation")) return "owner-litigation";
+    if (lower.includes("marketing")) return "owner-marketing";
+    if (lower.includes("staff")) return "owner-staff";
+    return "owner-system";
+  }
+
+  function buildTree() {
+    const tree = document.getElementById("tree");
+    tree.innerHTML = SOPS.map((sop, sopIndex) => `
+      <details class="sop" data-sop="${sop.number}" ${sopIndex === 0 ? "open" : ""}>
+        <summary>
+          <span class="sop-number">${sop.number}</span>
+          <span class="sop-label">${esc(sop.title)}<span class="sop-stage">${esc(sop.stage)}</span></span>
+          <span class="sop-count">${sop.workflows.length}</span>
+        </summary>
+        <div class="workflow-list">
+          ${sop.workflows.map((workflow, workflowIndex) => `
+            <button type="button" class="workflow-btn${sopIndex === 0 && workflowIndex === 0 ? " is-active" : ""}"
+              data-sop-index="${sopIndex}" data-workflow-index="${workflowIndex}"
+              aria-label="Open ${esc(workflow.id)} ${esc(workflow.name)}">
+              <span class="workflow-code">${esc(workflow.id)}</span>
+              <span class="workflow-name">${esc(workflow.name)}</span>
+              <span class="mini-status ${workflow.status}" aria-hidden="true"></span>
+            </button>
+          `).join("")}
+        </div>
+      </details>
+    `).join("");
+
+    tree.querySelectorAll(".workflow-btn").forEach(button => {
+      button.addEventListener("click", () => {
+        selectWorkflow(Number(button.dataset.sopIndex), Number(button.dataset.workflowIndex), button);
+      });
+    });
+  }
+
+  function renderIoCard(item, type) {
+    const tag = type === "input"
+      ? `<span class="${item.required ? "required" : "conditional"}">${item.required ? "Required" : "Conditional"}</span>`
+      : "";
+    return `
+      <div class="io-card ${type}">
+        <div class="io-top">
+          <div class="io-name">${esc(item.name)}</div>
+          ${tag}
+        </div>
+        <div class="io-detail">${esc(item.detail)}</div>
+        <div class="io-source">${esc(item.source)}</div>
+      </div>
+    `;
+  }
+
+  function renderStep(step, index) {
+    return `
+      <div class="step-card">
+        <div class="step-num">${index + 1}</div>
+        <div class="step-main">
+          <span class="step-owner ${ownerClass(step.owner)}">${esc(step.owner)}</span>
+          <div class="step-action">${esc(step.action)}</div>
+          <div class="step-where">${esc(step.where)}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function renderDetail(sop, workflow) {
+    const detail = document.getElementById("detail");
+    detail.innerHTML = `
+      <header class="detail-head">
+        <div class="breadcrumb">
+          <span class="crumb-strong">Appeals SOP ${sop.number}</span>
+          <span>›</span>
+          <span>${esc(sop.title)}</span>
+          <span>›</span>
+          <span>${esc(workflow.id)}</span>
+        </div>
+        <div class="detail-title-row">
+          <h2><span class="workflow-id-large">${esc(workflow.id)}</span>${esc(workflow.name)}</h2>
+          <span class="status ${workflow.status}">${STATUS_LABELS[workflow.status]}</span>
+        </div>
+        <p class="detail-summary">${esc(workflow.summary)}</p>
+        <div class="detail-meta">
+          <span class="meta-chip"><strong>SOP</strong> ${sop.number} of 15</span>
+          <span class="meta-chip"><strong>Stage</strong> ${esc(sop.stage.replace(/^Stage \d+ · /, ""))}</span>
+          <span class="meta-chip"><strong>Primary owner</strong> ${esc(workflow.primaryOwner)}</span>
+          <span class="meta-chip"><strong>Rollout</strong> ${esc(workflow.phase)}</span>
+        </div>
+      </header>
+      <div class="trigger">
+        <div class="trigger-icon">↯</div>
+        <div>
+          <div class="trigger-label">Workflow fires when</div>
+          <div class="trigger-text">${esc(workflow.trigger)}</div>
+        </div>
+      </div>
+      <div class="flow" role="group" aria-label="${esc(workflow.id)} input, workflow, and output diagram">
+        <section class="flow-col">
+          <div class="flow-label inputs">1 · Data in</div>
+          <div class="input-list">${workflow.inputs.map(item => renderIoCard(item, "input")).join("")}</div>
+        </section>
+        <div class="flow-arrow" aria-hidden="true"><span class="arrow-line"></span></div>
+        <section class="flow-col">
+          <div class="flow-label steps">2 · Owned workflow</div>
+          <div class="step-list">${workflow.steps.map(renderStep).join("")}</div>
+        </section>
+        <div class="flow-arrow" aria-hidden="true"><span class="arrow-line"></span></div>
+        <section class="flow-col">
+          <div class="flow-label outputs">3 · Result + destination</div>
+          <div class="output-list">${workflow.outputs.map(item => renderIoCard(item, "output")).join("")}</div>
+        </section>
+      </div>
+      <div class="gate">
+        <div class="gate-icon">◇</div>
+        <div>
+          <div class="gate-label">Human-control boundary</div>
+          <div class="gate-text">${esc(workflow.gate)}</div>
+        </div>
+      </div>
+    `;
+  }
+
+  function selectWorkflow(sopIndex, workflowIndex, button) {
+    const sop = SOPS[sopIndex];
+    const workflow = sop.workflows[workflowIndex];
+    document.querySelectorAll(".workflow-btn").forEach(item => item.classList.remove("is-active"));
+    button.classList.add("is-active");
+    button.closest("details").open = true;
+    renderDetail(sop, workflow);
+    if (window.innerWidth < 941) {
+      document.getElementById("detail").scrollIntoView({ behavior: "smooth", block: "start" });
+    }
+  }
+
+  document.getElementById("expandAll").addEventListener("click", () => {
+    document.querySelectorAll("details.sop").forEach(item => { item.open = true; });
+  });
+
+  document.getElementById("collapseAll").addEventListener("click", () => {
+    document.querySelectorAll("details.sop").forEach(item => { item.open = false; });
+    const active = document.querySelector(".workflow-btn.is-active");
+    if (active) active.closest("details").open = true;
+  });
+
+  buildTree();
+  renderDetail(SOPS[0], SOPS[0].workflows[0]);
+</script>
+</body>
+</html>
