@@ -900,12 +900,12 @@
   <section class="hero" aria-labelledby="page-title">
     <div class="eyebrow">Dabdoub Law Firm · Appeals Department · Operating Map</div>
     <h1 id="page-title">The Appeals SOP, from required data to owned action to destination</h1>
-    <p class="hero-copy">Open any of the 15 SOP steps, choose an individual workflow, and follow the complete data journey: what must exist before the workflow can fire, who or what owns every action, and exactly where the result lands.</p>
+    <p class="hero-copy">Open any of the 15 SOP steps, choose an individual workflow, and follow the complete data journey: what must exist before the workflow can fire, who or what owns every action, and exactly where the result lands. The opening step includes the fee-agreement handoff that creates and activates the matter.</p>
     <div class="metrics" aria-label="Atlas summary">
       <span class="metric"><strong>15</strong> Appeals SOP steps</span>
-      <span class="metric"><strong>41</strong> workflow views</span>
+      <span class="metric"><strong>42</strong> workflow views</span>
       <span class="metric"><strong>3</strong> mapped layers per view</span>
-      <span class="metric"><strong>2026-07-30</strong> source refresh</span>
+      <span class="metric"><strong>2026-07-31</strong> source refresh</span>
     </div>
     <div class="reading-key" aria-label="How to read the diagram">
       <div class="key-card key-input"><span class="key-icon">↓</span><span><strong>Inputs</strong><br>Required data and its system of record</span></div>
@@ -938,7 +938,7 @@
     <span class="legend-item"><span class="legend-dot coded"></span><strong>Coded</strong>, not yet enabled end to end</span>
     <span class="legend-item"><span class="legend-dot shadow"></span><strong>Shadow</strong>, observing without downstream action</span>
   </div>
-  <p class="source-note">Internal planning view. Compiled from <code>deliverables/staff-sops/appeals-department-sop-automated.md</code>, <code>delivery.yaml</code>, and <code>planning/appeals-automation-stage-map.md</code>. “Required” means the workflow fails closed without the value. A human approves every external send and every legal deadline.</p>
+  <p class="source-note">Internal planning view. Compiled from <code>deliverables/staff-sops/appeals-department-sop-automated.md</code>, <code>deliverables/staff-sops/fee-agreement-and-onboarding-sop.md</code>, <code>delivery.yaml</code>, and <code>planning/appeals-automation-stage-map.md</code>. “Required” means the workflow fails closed without the value. A human approves every external send and every legal deadline.</p>
 </main>
 
 <script>
@@ -948,6 +948,36 @@
       title: "Open the appeals matter",
       stage: "Stage 1 · Intake handoff",
       workflows: [
+        {
+          id: "FA-01",
+          name: "Attorney Qualified → signed fee agreement",
+          status: "live",
+          phase: "LIVE",
+          primaryOwner: "System + Intake",
+          summary: "Builds the editable agreement, holds the DocuSign send for human review, then files the executed PDF and activates the exact same matter folder.",
+          trigger: "Intake moves the HubSpot Deal to Attorney Qualified; the post-signature half resumes only when DocuSign reports the envelope completed.",
+          inputs: [
+            { name: "Qualified Deal + client", detail: "One associated client and one resolvable matter identity.", source: "HubSpot · Deal + Contact", required: true },
+            { name: "Approved fee terms", detail: "Fee, cap, buy-out, referral, insurer, and representation fields used by the CFA template.", source: "HubSpot · Deal", required: true },
+            { name: "Case-value bucket", detail: "A CASES, B CASES, C CASES, or PRO BONO CASES; blank value tier defaults to B CASES.", source: "HubSpot · case_value_tier + type_of_action", required: false },
+            { name: "CFA template + signer data", detail: "The approved Word template, client signer, firm signer, and standard CCs.", source: "Dodonai + DocuSign configuration", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Create the intake matter folder, ensure its ATTY NOTES child, and stamp the exact matter-folder item ID on the Deal.", where: "SharePoint · matter / ATTY NOTES" },
+            { owner: "System", action: "Render the editable agreement and save it in ATTY NOTES. Reuse legacy ATTORNEY NOTES when that folder already exists.", where: "SharePoint · ATTY NOTES / FA - Client.docx" },
+            { owner: "System", action: "Create one pre-filled, unsent DocuSign envelope and open the Intake review task.", where: "DocuSign Drafts + HubSpot Tasks" },
+            { owner: "Intake / Attorney", action: "Review the agreement, resolve any attorney flags, and send the envelope.", where: "DocuSign · human send gate" },
+            { owner: "System", action: "On completed signature, fetch the combined executed PDF and file it to the same ATTY NOTES child before matter-folder relocation.", where: "SharePoint · same stamped matter / ATTY NOTES / FA (executed) - Client (Insurer).pdf" },
+            { owner: "System", action: "Set the Deal to Closed Won, activate the exact matter folder, and build the governed Appeals bins.", where: "HubSpot + SharePoint · active matter" },
+            { owner: "System", action: "Send the client the onboarding-form link and hand the matter to the Appeals staffing flow.", where: "Client email + HubSpot" }
+          ],
+          outputs: [
+            { name: "Editable FA before send", detail: "FA - Client.docx in the intake matter's ATTY NOTES folder.", source: "SharePoint · ATTY NOTES" },
+            { name: "Executed FA after signature", detail: "FA (executed) - Client (Insurer).pdf in ATTY NOTES. It is filed before activation and stays with the matter.", source: "SharePoint · ATTY NOTES" },
+            { name: "Active appeal handoff", detail: "Closed Won Deal, exact active-folder pointer, governed Appeals bins, and onboarding email.", source: "HubSpot + SharePoint + client inbox" }
+          ],
+          gate: "The system prepares but never sends the fee agreement. Intake or the attorney reviews and sends the DocuSign envelope; unresolved attorney flags, an ambiguous folder, or unsupported multi-insurer terms fail closed for human handling."
+        },
         {
           id: "I-14",
           name: "Closed Won → create the Service",
