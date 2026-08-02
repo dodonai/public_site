@@ -1,0 +1,714 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>The Juge Firm — Firm OS (POC)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['-apple-system', 'BlinkMacSystemFont', '"Helvetica Neue"', 'Arial', 'sans-serif'] },
+        colors: {
+          juge: {
+            50:  '#f6f8fb',
+            100: '#eaeef5',
+            200: '#d3dce9',
+            300: '#b3c2d8',
+            400: '#5b7395',
+            500: '#3d5573',
+            600: '#2c4056',
+            700: '#1f3352',
+            800: '#16263f',
+            900: '#0f1e33'
+          },
+          brass: { 400: '#c9a45c', 500: '#b08d3e', 600: '#93752f' }
+        }
+      }
+    }
+  };
+</script>
+<style>
+  html, body { height: 100%; }
+  body { background: #f2f4f8; }
+  .nav-link.active { background: #1f3352; color: white; }
+  .nav-link.active .icon { color: #c9a45c; }
+  .tab.active { color: #1f3352; border-bottom-color: #b08d3e; font-weight: 600; }
+  .toast { animation: toastIn 0.2s ease-out; }
+  @keyframes toastIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .step-pending { opacity: 0.35; }
+  .step-done .step-dot { background: #16a34a; }
+  .clockfill { transition: width 0.4s ease; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: #d3dce9; border-radius: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  .phase-chip { font-size: 10px; letter-spacing: .04em; }
+</style>
+</head>
+<body class="font-sans text-slate-800">
+
+<div class="flex h-screen overflow-hidden">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="w-64 bg-juge-900 text-juge-100 flex flex-col flex-shrink-0">
+    <div class="px-5 pt-5 pb-4 border-b border-juge-700">
+      <div class="flex items-center gap-2.5">
+        <div class="w-9 h-9 rounded-md bg-gradient-to-br from-brass-400 to-brass-600 flex items-center justify-center text-juge-900 font-bold text-lg">J</div>
+        <div>
+          <div class="text-white font-semibold tracking-tight leading-tight">The Juge Firm</div>
+          <div class="text-[11px] text-juge-300 leading-tight tracking-wide">FIRM OS</div>
+        </div>
+      </div>
+    </div>
+    <nav class="flex-1 px-3 py-3 space-y-0.5 text-sm" id="sidebar-nav">
+      <a href="#/dashboard" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-juge-700"><i data-lucide="layout-dashboard" class="icon w-4 h-4 text-juge-300"></i> Dashboard</a>
+      <a href="#/intake" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-juge-700"><i data-lucide="inbox" class="icon w-4 h-4 text-juge-300"></i> New Referrals <span class="ml-auto text-xs bg-brass-500 text-juge-900 rounded-full px-1.5 py-0.5 font-semibold">2</span></a>
+      <a href="#/matter" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-juge-700"><i data-lucide="folder-kanban" class="icon w-4 h-4 text-juge-300"></i> Matters</a>
+      <a href="#/deadlines" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-juge-700"><i data-lucide="timer" class="icon w-4 h-4 text-juge-300"></i> Deadline Engine <span class="ml-auto phase-chip bg-juge-700 text-brass-400 rounded px-1.5 py-0.5 font-semibold">P2</span></a>
+      <a href="#/mail" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-juge-700"><i data-lucide="mail" class="icon w-4 h-4 text-juge-300"></i> Mail &amp; Email</a>
+      <a href="#/assembly" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-juge-700"><i data-lucide="file-stack" class="icon w-4 h-4 text-juge-300"></i> Form Library</a>
+      <a href="#/policy" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-juge-700"><i data-lucide="shield-check" class="icon w-4 h-4 text-juge-300"></i> AI Policy &amp; Governance</a>
+      <a href="#/reports" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-juge-700"><i data-lucide="printer" class="icon w-4 h-4 text-juge-300"></i> Reports &amp; Checks</a>
+    </nav>
+    <div class="px-3 pb-4 pt-2 border-t border-juge-700">
+      <div class="bg-juge-800 rounded-lg p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="building-2" class="w-4 h-4 text-juge-300"></i>
+          <span class="text-[10px] uppercase tracking-wider text-juge-300 font-semibold">Your instance</span>
+        </div>
+        <div class="text-white font-medium text-sm leading-tight">The Juge Firm</div>
+        <div class="text-[11px] text-juge-300 mt-0.5">Firm OS · POC v0.1 · built on Dodonai</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+    <header class="h-14 bg-white border-b border-slate-200 flex items-center px-6 gap-4 flex-shrink-0">
+      <div id="breadcrumb" class="text-sm text-slate-500 font-medium"></div>
+      <div class="flex-1 max-w-md mx-auto">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input id="globalsearch" type="text" placeholder="Search by client ID, file, attorney, claimant, adjuster…" class="w-full bg-slate-50 border border-slate-200 rounded-md pl-9 pr-3 py-1.5 text-sm focus:bg-white focus:border-juge-400 focus:outline-none focus:ring-2 focus:ring-juge-200" />
+        </div>
+      </div>
+      <div class="text-xs text-slate-400 hidden md:block">Mon, Aug 3, 2026</div>
+      <button class="text-slate-400 hover:text-juge-700 relative">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-semibold">4</span>
+      </button>
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-juge-400 to-juge-600 text-white flex items-center justify-center font-semibold text-sm">JL</div>
+        <div class="text-sm leading-tight hidden md:block"><div class="font-medium">Jessica</div><div class="text-[11px] text-slate-400">Paralegal · Systems</div></div>
+      </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto">
+
+    <!-- ============ DASHBOARD ============ -->
+    <section id="page-dashboard" class="page p-6 space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold">Active files</div>
+          <div class="text-2xl font-semibold text-juge-800 mt-1">503</div>
+          <div class="text-xs text-slate-500 mt-1">~90% workers'-comp defense</div>
+        </div>
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold">Emails auto-filed today</div>
+          <div class="text-2xl font-semibold text-juge-800 mt-1">312</div>
+          <div class="text-xs text-emerald-600 mt-1">0 dragged by hand</div>
+        </div>
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold">Deadlines under watch</div>
+          <div class="text-2xl font-semibold text-juge-800 mt-1">1,148</div>
+          <div class="text-xs text-slate-500 mt-1">every one instantiated automatically</div>
+        </div>
+        <div class="bg-white rounded-lg border border-rose-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-rose-400 font-semibold">Needs a human now</div>
+          <div class="text-2xl font-semibold text-rose-600 mt-1">4</div>
+          <div class="text-xs text-slate-500 mt-1">2 referrals · 1 grace expired · 1 letter to sign</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg border border-slate-200">
+        <div class="px-4 py-3 border-b border-slate-100 flex items-center justify-between">
+          <div class="font-semibold text-juge-800 text-sm">All files <span class="font-normal text-slate-400">— every column sortable &amp; searchable, same as Practice Master's dashboard</span></div>
+          <div class="text-xs text-slate-400">Try the search bar: type <span class="font-mono bg-slate-100 px-1 rounded">Benadetto</span></div>
+        </div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="text-left text-[11px] uppercase tracking-wide text-slate-400 border-b border-slate-100">
+              <th class="px-4 py-2 font-semibold">Client ID</th>
+              <th class="px-2 py-2 font-semibold">File #</th>
+              <th class="px-2 py-2 font-semibold">Claimant (Desc)</th>
+              <th class="px-2 py-2 font-semibold">Attorney</th>
+              <th class="px-2 py-2 font-semibold">Adjuster / Carrier</th>
+              <th class="px-2 py-2 font-semibold">AOP</th>
+              <th class="px-4 py-2 font-semibold">Status</th>
+            </tr>
+          </thead>
+          <tbody id="matter-rows" class="divide-y divide-slate-50">
+            <!-- rows injected -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-juge-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="calendar-days" class="w-4 h-4 text-brass-500"></i> Today — firm calendar <span class="text-[11px] font-normal text-slate-400">(syncs to everyone's Outlook, like today)</span></div>
+          <ul class="space-y-2 text-sm">
+            <li class="flex gap-3"><span class="text-slate-400 w-16 flex-shrink-0">9:30a</span><span><b>10.1 conference</b> — Fontenot v. Cane River Fabricators · TJR</span></li>
+            <li class="flex gap-3"><span class="text-slate-400 w-16 flex-shrink-0">11:00a</span><span><b>Status conference</b> — OWC Dist. 08 · Washington · MJP</span></li>
+            <li class="flex gap-3"><span class="text-slate-400 w-16 flex-shrink-0">2:00p</span><span><b>Deposition</b> — treating physician · Okafor · JVQ</span></li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-juge-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="list-checks" class="w-4 h-4 text-brass-500"></i> Tasks <span class="text-[11px] font-normal text-slate-400">(assignee-scoped, auto-escalate — no manual mark-complete hunting)</span></div>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0"></span> Discovery grace expired — Fontenot · <b>10.1 letter drafted, review &amp; send</b> <span class="ml-auto text-[11px] text-rose-500 font-semibold">TODAY</span></li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span> Personnel file still not received — Boudreaux · follow-up queued <span class="ml-auto text-[11px] text-slate-400">day 3</span></li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span> Records check-off — Ochsner records arrived, auto-matched to subpoena <span class="ml-auto text-[11px] text-emerald-600">done, no touch</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTAKE ============ -->
+    <section id="page-intake" class="page p-6 hidden">
+      <div class="mb-4">
+        <h2 class="text-lg font-semibold text-juge-800">New referrals — parse once, type never</h2>
+        <p class="text-sm text-slate-500 mt-0.5">Today this referral is keyed into File Manager, then re-keyed across five Practice Master screens. Here, the referral itself does the work.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <!-- Left: the referral -->
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+            <div class="px-4 py-3 bg-juge-50 border-b border-slate-200 flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-juge-500"></i>
+              <div class="text-sm"><b>New Defense Assignment — Litigation</b> <span class="text-slate-400">· claims@greatamerican-ins.example</span></div>
+              <span class="ml-auto text-[11px] text-slate-400">7:42 AM</span>
+            </div>
+            <div class="p-4 text-sm text-slate-600 space-y-3">
+              <p>Counsel — please find attached our defense referral on the captioned claim. Disputed Claim for Compensation (Form 1008) filed with OWC District 08. Kindly confirm receipt and enrollment.</p>
+              <div class="border border-slate-200 rounded-md divide-y divide-slate-100 text-[13px]">
+                <div class="px-3 py-2 flex items-center gap-2 bg-slate-50"><i data-lucide="paperclip" class="w-3.5 h-3.5 text-slate-400"></i><b>Defense Referral — Boudreaux, Darryl T..pdf</b></div>
+                <div class="px-3 py-2 flex items-center gap-2"><i data-lucide="paperclip" class="w-3.5 h-3.5 text-slate-400"></i>Form 1008 — Disputed Claim for Compensation.pdf</div>
+                <div class="px-3 py-2 flex items-center gap-2"><i data-lucide="paperclip" class="w-3.5 h-3.5 text-slate-400"></i>FROI.pdf · Payroll summary (26 wks).pdf · Adjuster claim notes.pdf</div>
+              </div>
+              <div class="rounded-md border border-slate-200 p-3 bg-slate-50 text-[12px] leading-relaxed text-slate-500">
+                <div class="font-semibold text-slate-600 mb-1 text-[11px] uppercase tracking-wide">Referral form (as received)</div>
+                Referral type: <b>Litigation</b> · Injured worker: <b>Darryl T. Boudreaux</b> · DOI: <b>03/19/2026</b> · Claim #: <b>WC-2026-118764</b> · Employer/Insured: <b>Pelican Industrial Services, LLC</b> (Belle Chasse) · Carrier: <b>Great American Insurance Co.</b> · Adjuster: <b>Monica Herbert</b> · Opposing counsel: <b>Marcus J. Thibodeaux</b> · Venue: <b>OWC District 08, New Orleans</b> · Docket: <b>26-04832</b> · AWW/CR alleged: <b>$1,300.00 / $866.67</b> · Wage statement: <b>attached</b> · Personnel file: <b>to follow</b>
+              </div>
+              <button id="btn-open-file" class="w-full bg-juge-700 hover:bg-juge-600 text-white rounded-md py-2.5 font-semibold text-sm flex items-center justify-center gap-2"><i data-lucide="play" class="w-4 h-4"></i> Open the file</button>
+            </div>
+          </div>
+
+          <!-- The held referral (Denise scenario) -->
+          <div class="bg-white rounded-lg border border-amber-200 overflow-hidden">
+            <div class="px-4 py-3 bg-amber-50 border-b border-amber-200 flex items-center gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>
+              <div class="text-sm"><b>Assignment — Broussard, Terrell</b> <span class="text-slate-400">· LIA</span></div>
+              <span class="ml-auto text-[11px] font-semibold text-amber-600 uppercase tracking-wide">Held — not opened</span>
+            </div>
+            <div class="p-4 text-[13px] text-slate-600">
+              Referral is missing the <b>date of injury</b> and <b>claim number</b> — below the minimum to open. Firm OS did <b>not</b> open it prematurely and did not let it fall through the cracks: a request for the missing fields went back to the adjuster <span class="text-slate-400">(Thu)</span>, a follow-up fires tomorrow, and it stays on this list until a human clears it.
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: what fires -->
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-sm font-semibold text-juge-800 mb-1">One parse. Everything downstream fires.</div>
+          <div class="text-[12px] text-slate-400 mb-4">31 fields → File Manager + all five Practice Master sub-records, verbatim to your naming conventions.</div>
+          <ol id="intake-steps" class="space-y-3 text-sm">
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Referral parsed — 31 fields extracted</b><div class="text-[12px] text-slate-500">Practice area detected: workers'-comp (<span class="font-mono">SWC</span>). Form 1008 recognized → litigation track.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>File number assigned: <span class="font-mono">34253</span></b><div class="text-[12px] text-slate-500">Sequential 5-digit, same series File Manager uses today. Opened-by and date stamped.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Michelle notified — client # requisition in Omega</b><div class="text-[12px] text-slate-500">Numbering stays hers. Firm OS coordinates the requisition; it never bypasses it. Carrier-code rules (3/4/6-digit, GB→AIU) applied from the code table.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Server folders created — your tree, unchanged</b><div class="text-[12px] text-slate-500 font-mono">\\jfs-fs\files\34253_Boudreaux\ {medicals, subpoenas, pleadings, correspondence…}</div><div class="text-[12px] text-slate-500">Attachments filed into the right subfolders. Nothing moves, nothing is renamed.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Matter record populated — CASE 1, CLAIMANT, INSURE1, Related Parties</b><div class="text-[12px] text-slate-500"><span class="font-mono">er/Pelican Industrial Services</span> was not in the rolodex → contact created. <span class="font-mono">Adj/Herbert, Monica</span> matched existing. SSN/DOB stored behind the access gate.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Answer package drafted — 6 attorney calls surfaced</b><div class="text-[12px] text-slate-500">Your standard answer, your affirmative defenses, on your template. AWW check: payroll computes <b>$1,142.30</b> vs $1,300.00 alleged → recommend DENY. Waiting on JVQ, not on anyone's memory.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Calendar plan applied — nobody had to remember</b><div class="text-[12px] text-slate-500">Initial litigation plan instantiated off the answer deadline: answer diary, motion to enroll + extension, employer letter, client eval letter, subpoenas. On every attorney's Outlook already.</div></div>
+            </li>
+          </ol>
+          <div id="intake-done" class="hidden mt-4 rounded-md bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-800 flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4"></i> File 34253 opened in 41 seconds. Zero fields typed. <a href="#/matter" class="underline font-semibold ml-1">Open the matter →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MATTER ============ -->
+    <section id="page-matter" class="page p-6 hidden">
+      <div class="flex items-start justify-between mb-4 flex-wrap gap-3">
+        <div>
+          <div class="flex items-center gap-3">
+            <h2 class="text-lg font-semibold text-juge-800">Boudreaux, Darryl T. <span class="text-slate-400 font-normal">v. Pelican Industrial Services, LLC</span></h2>
+            <span class="text-[11px] bg-juge-100 text-juge-700 rounded px-2 py-0.5 font-semibold font-mono">SWC</span>
+          </div>
+          <div class="text-sm text-slate-500 mt-0.5 font-mono text-[13px]">GAIC-10247 · File 34253 · Claim WC-2026-118764 · OWC Dist. 08 · Docket 26-04832</div>
+        </div>
+        <div class="flex items-center gap-2 text-[12px]">
+          <span class="flex items-center gap-1.5 bg-white border border-slate-200 rounded-md px-2.5 py-1.5"><i data-lucide="shield" class="w-3.5 h-3.5 text-slate-400"></i> Secure_Client: <b class="text-slate-600">N</b></span>
+          <span class="flex items-center gap-1.5 bg-white border border-slate-200 rounded-md px-2.5 py-1.5"><i data-lucide="bot" class="w-3.5 h-3.5 text-emerald-500"></i> AI policy: <b class="text-emerald-600">standard (ZDR)</b></span>
+        </div>
+      </div>
+
+      <div class="border-b border-slate-200 mb-4 flex gap-5 text-sm" id="matter-tabs">
+        <button data-tab="case1" class="tab active pb-2 border-b-2 border-transparent text-slate-500">CASE 1</button>
+        <button data-tab="claimant" class="tab pb-2 border-b-2 border-transparent text-slate-500">CLAIMANT</button>
+        <button data-tab="insure1" class="tab pb-2 border-b-2 border-transparent text-slate-500">INSURE1</button>
+        <button data-tab="related" class="tab pb-2 border-b-2 border-transparent text-slate-500">Related Parties</button>
+        <button data-tab="docs" class="tab pb-2 border-b-2 border-transparent text-slate-500">Documents</button>
+        <button data-tab="mail" class="tab pb-2 border-b-2 border-transparent text-slate-500">Email</button>
+      </div>
+
+      <div id="mtab-case1" class="mtab bg-white rounded-lg border border-slate-200 p-5">
+        <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold mb-3">Your fields, your IDs — schema parity with the Practice Master file definition (149 fields, 7 search indexes)</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-2.5 text-sm">
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Desc</span><span class="font-medium text-right">Boudreaux, Darryl T.</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Claimant_s_Name</span><span class="font-medium text-right">Darryl T. Boudreaux</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Date_Of_Ac</span><span class="font-medium text-right">03/19/2026</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Employer</span><span class="font-medium text-right">er/Pelican Industrial Services, LLC</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Acc_Injury</span><span class="font-medium text-right">Lifting pipe skid — lumbar</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Tpa</span><span class="font-medium text-right">AdjCo/Great American Insurance Co.</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Adjuster_N</span><span class="font-medium text-right">Adj/Herbert, Monica</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Claim_Numb</span><span class="font-medium text-right">WC-2026-118764</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Primary_Attorney</span><span class="font-medium text-right">JNG/Quaglino, John</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Opp_Atty</span><span class="font-medium text-right">atty/Thibodeaux, Marcus J.</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Court_Jurs</span><span class="font-medium text-right">OWC District 08 — New Orleans</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Dock_Numb</span><span class="font-medium text-right">26-04832</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Date_Open</span><span class="font-medium text-right">08/03/2026</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Cc_Status_</span><span class="font-medium text-right">Adj/Herbert, Monica</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Stat_Limit</span><span class="font-medium text-right">03/19/2027</span></div>
+        </div>
+        <div class="mt-4 text-[12px] text-slate-400 flex items-center gap-1.5"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-brass-500"></i> Every value above came off the referral PDF. When any new document arrives, fields you don't yet have are extracted and supplemented automatically — the manual "update the database" loop is gone.</div>
+      </div>
+
+      <div id="mtab-claimant" class="mtab hidden bg-white rounded-lg border border-slate-200 p-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5 text-sm max-w-3xl">
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Social_Sec</span><span class="font-medium text-right flex items-center gap-2">XXX-XX-4821 <span class="text-[10px] bg-slate-100 text-slate-500 rounded px-1.5 py-0.5 flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3"></i>access-gated</span></span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Dob</span><span class="font-medium text-right flex items-center gap-2">09/14/1987 <span class="text-[10px] bg-slate-100 text-slate-500 rounded px-1.5 py-0.5 flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3"></i>access-gated</span></span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Street_Adr</span><span class="font-medium text-right">1436 Cypress Street</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">City_Sz</span><span class="font-medium text-right">Westwego, LA 70094</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Years employed</span><span class="font-medium text-right">2.5 (hired 11/2023)</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">AWW (computed)</span><span class="font-medium text-right">$1,142.30 <span class="text-[11px] text-rose-500">petition alleges $1,300.00</span></span></div>
+        </div>
+        <div class="mt-4 text-[12px] text-slate-400">Same field-level access controls your templates already honor (<span class="font-mono">BeginAccess…EndAccess</span>) — the merge respects the gate, and so does every screen.</div>
+      </div>
+
+      <div id="mtab-insure1" class="mtab hidden bg-white rounded-lg border border-slate-200 p-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5 text-sm max-w-3xl">
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Name</span><span class="font-medium text-right">Great American Insurance Company</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Received wage data?</span><span class="font-medium text-right text-emerald-600">Y — payroll summary, 26 weeks</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Received personnel file?</span><span class="font-medium text-right text-amber-600">N — task open, follow-up day 3</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">STAT_LIT: District_N</span><span class="font-medium text-right">08</span></div>
+        </div>
+      </div>
+
+      <div id="mtab-related" class="mtab hidden bg-white rounded-lg border border-slate-200">
+        <table class="w-full text-sm">
+          <thead><tr class="text-left text-[11px] uppercase tracking-wide text-slate-400 border-b border-slate-100">
+            <th class="px-4 py-2.5 font-semibold">RP key</th><th class="px-2 py-2.5 font-semibold">Name</th><th class="px-2 py-2.5 font-semibold">Role</th><th class="px-4 py-2.5 font-semibold">Rolodex</th></tr></thead>
+          <tbody class="divide-y divide-slate-50">
+            <tr><td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">er/Pelican Industrial</td><td class="px-2 py-2.5 font-medium">Pelican Industrial Services, LLC — Karen Melancon (HR)</td><td class="px-2 py-2.5">Employer / Insured</td><td class="px-4 py-2.5"><span class="text-[11px] bg-brass-400/20 text-brass-600 rounded px-1.5 py-0.5 font-semibold">NEW — added at intake</span></td></tr>
+            <tr><td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">Adj/Herbert, Monica</td><td class="px-2 py-2.5 font-medium">Monica Herbert — Great American</td><td class="px-2 py-2.5">Adjuster</td><td class="px-4 py-2.5"><span class="text-[11px] bg-emerald-100 text-emerald-700 rounded px-1.5 py-0.5 font-semibold">matched existing</span></td></tr>
+            <tr><td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">atty/Thibodeaux, Marcus</td><td class="px-2 py-2.5 font-medium">Marcus J. Thibodeaux — 909 Poydras St, Ste 1800</td><td class="px-2 py-2.5">Opposing counsel</td><td class="px-4 py-2.5"><span class="text-[11px] bg-emerald-100 text-emerald-700 rounded px-1.5 py-0.5 font-semibold">matched existing</span></td></tr>
+            <tr><td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">JNG/Quaglino, John</td><td class="px-2 py-2.5 font-medium">John Quaglino</td><td class="px-2 py-2.5">Primary attorney</td><td class="px-4 py-2.5"><span class="text-[11px] bg-emerald-100 text-emerald-700 rounded px-1.5 py-0.5 font-semibold">firm</span></td></tr>
+          </tbody>
+        </table>
+        <div class="px-4 py-3 text-[12px] text-slate-400 border-t border-slate-100 flex items-center gap-1.5"><i data-lucide="git-branch" class="w-3.5 h-3.5"></i> The 25-year rolodex migrates as-is; conflict checks run against it on every new referral — before the file opens, not after.</div>
+      </div>
+
+      <div id="mtab-docs" class="mtab hidden bg-white rounded-lg border border-slate-200 p-5">
+        <div class="text-[12px] text-slate-400 mb-3 font-mono">\\jfs-fs\files\34253_Boudreaux\ — your directory tree, created and filed by Firm OS, browsable exactly where it always was</div>
+        <ul class="text-sm space-y-1.5 font-mono text-[13px]">
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> pleadings\ <span class="text-slate-400 font-sans text-[12px]">— Form 1008 · draft Answer package (awaiting JVQ)</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> medicals\ <span class="text-slate-400 font-sans text-[12px]">— FROI · 2023 lumbar MRI report (flagged: pre-existing DDD L4-L5)</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> wages\ <span class="text-slate-400 font-sans text-[12px]">— payroll summary 26 wks (AWW computed $1,142.30)</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> claim_notes\ <span class="text-slate-400 font-sans text-[12px]">— adjuster notes, indexed &amp; queryable</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> correspondence\ <span class="text-slate-400 font-sans text-[12px]">— every email on this claim, auto-filed (see Email tab)</span></li>
+        </ul>
+      </div>
+
+      <div id="mtab-mail" class="mtab hidden bg-white rounded-lg border border-slate-200 p-5">
+        <div class="text-sm space-y-2.5">
+          <div class="flex gap-3 items-start"><span class="text-[11px] text-slate-400 w-14 flex-shrink-0 pt-0.5">7:42a</span><div><b>New Defense Assignment — Litigation</b> <span class="text-slate-400">from Monica Herbert</span> <div class="text-[12px] text-slate-500">auto-filed → correspondence\ · triggered intake</div></div></div>
+          <div class="flex gap-3 items-start"><span class="text-[11px] text-slate-400 w-14 flex-shrink-0 pt-0.5">9:15a</span><div><b>RE: enrollment confirmed</b> <span class="text-slate-400">to Monica Herbert</span> <div class="text-[12px] text-slate-500">auto-filed · filed under the claim, not the adjuster — Monica has 7 other active claims with the firm</div></div></div>
+        </div>
+        <div class="mt-4 border-t border-slate-100 pt-3 text-[12px] text-slate-400">Ask it: <i>"What did I tell Monica about enrollment?"</i> — answers come from the indexed thread, per matter, per day.</div>
+      </div>
+    </section>
+
+    <!-- ============ DEADLINE ENGINE ============ -->
+    <section id="page-deadlines" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-juge-800">The Deadline &amp; Records Engine <span class="text-[11px] align-middle bg-juge-100 text-juge-700 rounded px-2 py-0.5 font-semibold ml-1">PHASE 2</span></h2>
+        <p class="text-sm text-slate-500 mt-0.5">Pure rules, zero judgment. Your deadline math, ported 1:1 from your own calendar-plan templates — the OS supplies the trigger your memory used to.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <!-- Discovery clocks -->
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-juge-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="hourglass" class="w-4 h-4 text-brass-500"></i> Written-discovery clocks <span class="text-[11px] font-normal text-slate-400">30 days + 10-day grace, running on their own</span></div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-[13px] mb-1"><span><b>Fontenot</b> — ROG/RFP served 6/24 to atty/Landrieu</span><span class="text-rose-600 font-semibold">grace expired today</span></div>
+              <div class="h-2 bg-slate-100 rounded-full overflow-hidden flex">
+                <div class="clockfill bg-juge-500 h-full" style="width:75%"></div>
+                <div class="clockfill bg-rose-400 h-full" style="width:25%"></div>
+              </div>
+              <div class="text-[12px] text-slate-500 mt-1.5 flex items-center gap-1.5"><i data-lucide="file-text" class="w-3.5 h-3.5 text-rose-400"></i> <b>Rule 10.1 conference letter drafted</b> on your template → in TJR's review queue. Nobody diaried this. Nobody had to.</div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[13px] mb-1"><span><b>Washington</b> — ROG/RFP served 7/21</span><span class="text-slate-500">day 13 of 30</span></div>
+              <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="clockfill bg-juge-400 h-full" style="width:43%"></div></div>
+              <div class="text-[12px] text-slate-400 mt-1.5">No-response letter will draft itself on day 30; 10.1 letter on day 40.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Records tracker -->
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-juge-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="stethoscope" class="w-4 h-4 text-brass-500"></i> Records subpoenas — Okafor <span class="text-[11px] font-normal text-slate-400">~80% ignore the first request; the follow-up fires itself at day 20</span></div>
+          <ul class="text-[13px] space-y-2" id="records-list">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Ochsner Health — received 7/30, <b>auto-matched to the subpoena and checked off</b></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Westbank Ortho — received 7/22, checked off</li>
+            <li class="flex items-center gap-2"><i data-lucide="rotate-cw" class="w-4 h-4 text-amber-500"></i> Crescent City Imaging — no response, day 21 → <b>follow-up letter went out yesterday, unprompted</b></li>
+            <li class="flex items-center gap-2"><i data-lucide="rotate-cw" class="w-4 h-4 text-amber-500"></i> Dr. K. Nguyen (treating) — no response, day 24 → follow-up out, diary at day 40</li>
+            <li class="flex items-center gap-2"><i data-lucide="circle" class="w-4 h-4 text-slate-300"></i> Jefferson Parish EMS — day 9, waiting</li>
+            <li class="flex items-center gap-2"><i data-lucide="circle" class="w-4 h-4 text-slate-300"></i> Employer personnel file — day 3, waiting</li>
+          </ul>
+          <button id="btn-scan" class="mt-3 w-full border border-juge-200 hover:bg-juge-50 text-juge-700 rounded-md py-2 font-medium text-[13px] flex items-center justify-center gap-2"><i data-lucide="scan-line" class="w-4 h-4"></i> Simulate: today's mail scan arrives (Crescent City Imaging records)</button>
+        </div>
+      </div>
+
+      <!-- Calendar plan -->
+      <div class="bg-white rounded-lg border border-slate-200 p-4">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+          <div class="font-semibold text-juge-800 text-sm flex items-center gap-2"><i data-lucide="calendar-range" class="w-4 h-4 text-brass-500"></i> Calendar plan <span class="font-mono text-[12px] bg-slate-100 rounded px-1.5 py-0.5">TRIALwc</span> — Landry · anchored to trial <b>01/13/2027</b></div>
+          <div class="text-[12px] text-slate-400">Applied automatically when the trial-setting notice hit Mail-In. Your plan, your intervals — ported, not re-derived.</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-2 text-[13px]">
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>File &amp; serve MSJ (≥65 days prior)</span><span class="text-slate-500 font-mono">11/09/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>PTO due (60 days prior)</span><span class="text-slate-500 font-mono">11/14/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Pre-trial motions filed (45 days)</span><span class="text-slate-500 font-mono">11/29/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Amend answer — 1208 affirmative defense</span><span class="text-slate-500 font-mono">11/29/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Request in-person pre-trial mediation conf.</span><span class="text-slate-500 font-mono">12/04/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Discovery cutoff (20 days)</span><span class="text-slate-500 font-mono">12/24/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Send trial exhibits (10 days)</span><span class="text-slate-500 font-mono">01/03/27</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Exhibits to opposing counsel (7 days)</span><span class="text-slate-500 font-mono">01/06/27</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span class="font-semibold text-juge-800">TRIAL — OWC District 08</span><span class="text-juge-800 font-mono font-semibold">01/13/27</span></div>
+        </div>
+        <div class="mt-3 text-[12px] text-slate-400">Post-vacation backlog of un-entered calendar plans: <b class="text-slate-500">structurally impossible.</b> A file opened while you're out gets its plan the moment it opens.</div>
+      </div>
+    </section>
+
+    <!-- ============ MAIL ============ -->
+    <section id="page-mail" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-juge-800">Mail &amp; Email — filed by claim, not by adjuster</h2>
+        <p class="text-sm text-slate-500 mt-0.5">100–120 emails per attorney per day, captured and indexed to the right matter automatically. Court notices become calendar entries and client letters on their own.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-5 gap-5">
+        <div class="xl:col-span-2 bg-white rounded-lg border border-slate-200 overflow-hidden">
+          <div class="px-4 py-2.5 border-b border-slate-100 text-[11px] uppercase tracking-wide text-slate-400 font-semibold">This morning's stream (auto-filed)</div>
+          <ul class="divide-y divide-slate-50 text-[13px]">
+            <li class="px-4 py-2.5"><div class="flex justify-between"><b>Monica Herbert</b><span class="text-[11px] text-slate-400">7:42a</span></div><div class="text-slate-500">New Defense Assignment — Litigation</div><div class="text-[11px] text-emerald-600 mt-0.5">→ opened file 34253 (Boudreaux)</div></li>
+            <li id="mail-notice" class="px-4 py-2.5 bg-brass-400/10 cursor-pointer hover:bg-brass-400/20"><div class="flex justify-between"><b>OWC District 08 — Clerk</b><span class="text-[11px] text-slate-400">8:10a</span></div><div class="text-slate-500">Notice: mediation set 09/14/2026, 10:00 AM — Prejean</div><div class="text-[11px] text-brass-600 mt-0.5 font-semibold">court notice detected — click to see what fired →</div></li>
+            <li class="px-4 py-2.5"><div class="flex justify-between"><b>Lisa Trahan (LUBA)</b><span class="text-[11px] text-slate-400">8:34a</span></div><div class="text-slate-500">RE: scheduling the pre-trial hearing</div><div class="text-[11px] text-slate-400 mt-0.5">→ filed: Fontenot · claim, not adjuster (Lisa has 8 active claims)</div></li>
+            <li class="px-4 py-2.5"><div class="flex justify-between"><b>Marcus Thibodeaux</b><span class="text-[11px] text-slate-400">9:02a</span></div><div class="text-slate-500">Boudreaux — extension courtesy copy</div><div class="text-[11px] text-slate-400 mt-0.5">→ filed: 34253 · pleadings watch</div></li>
+          </ul>
+          <div class="px-4 py-3 border-t border-slate-100">
+            <div class="relative">
+              <i data-lucide="message-circle-question" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+              <input id="mail-query" type="text" placeholder='Ask: "What did I talk to Lisa about on Tuesday?"' class="w-full bg-slate-50 border border-slate-200 rounded-md pl-9 pr-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-juge-200" />
+            </div>
+            <div id="mail-answer" class="hidden mt-2 text-[13px] bg-juge-50 border border-juge-100 rounded-md p-3 text-slate-600"></div>
+          </div>
+        </div>
+
+        <div class="xl:col-span-3 space-y-4">
+          <div id="notice-detail" class="bg-white rounded-lg border border-slate-200 p-4 hidden">
+            <div class="text-sm font-semibold text-juge-800 mb-3">Court notice → three things fired, zero keystrokes</div>
+            <ol class="space-y-3 text-[13px]">
+              <li class="flex gap-2.5"><i data-lucide="calendar-plus" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i><div><b>Calendar event created</b> — Mediation, 09/14/2026 10:00 AM, OWC Dist. 08 → on JCN's Outlook now.</div></li>
+              <li class="flex gap-2.5"><i data-lucide="calendar-range" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i><div><b>Calendar plan <span class="font-mono text-[12px]">MEDIATIONwc</span> applied</b> off the anchor date — prep items on the diary.</div></li>
+              <li class="flex gap-2.5"><i data-lucide="file-text" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i><div><b>Client status letter drafted</b> on your STI merge template, addressed to the adjuster (LWCC), <span class="font-mono text-[12px]">JCN:jl</span> block — queued for review below. This letter goes out many times a day today, every one by hand.</div></li>
+            </ol>
+            <div class="mt-4 border border-slate-200 rounded-md p-4 bg-slate-50 text-[12px] leading-relaxed text-slate-600 font-serif">
+              <div class="text-right">August 3, 2026</div>
+              <div class="mt-2">Mr. Steve Morrow<br>LWCC<br><span class="text-slate-400">Re: Denise A. Prejean — Claim No. LW-2025-99401 · Our File 34188</span></div>
+              <p class="mt-2">Dear Mr. Morrow:</p>
+              <p class="mt-1.5">Please be advised the Court has set this matter for <b>mediation on September 14, 2026 at 10:00 a.m.</b> before the Office of Workers' Compensation, District 08. We will attend on behalf of the employer and will report following the conference…</p>
+              <div class="mt-2 text-slate-400">JCN:jl</div>
+            </div>
+            <div class="mt-3 flex gap-2">
+              <button class="send-letter bg-juge-700 hover:bg-juge-600 text-white rounded-md px-4 py-2 text-[13px] font-semibold flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5"></i> Approve &amp; send</button>
+              <button class="border border-slate-200 rounded-md px-4 py-2 text-[13px] text-slate-600 hover:bg-slate-50">Edit first</button>
+            </div>
+          </div>
+          <div id="notice-placeholder" class="bg-white rounded-lg border border-dashed border-slate-300 p-8 text-center text-sm text-slate-400">
+            <i data-lucide="mouse-pointer-click" class="w-5 h-5 mx-auto mb-2"></i>
+            Click the highlighted court notice to see the mail-in pipeline: notice → calendar entry → calendar plan → client letter, with the attorney as the only gate.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ ASSEMBLY ============ -->
+    <section id="page-assembly" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-juge-800">Form Library — your ~1,000 templates, wired to triggers</h2>
+        <p class="text-sm text-slate-500 mt-0.5">Vicki's document-assembly library, ported merge-fields-and-all. The drafting method stays your current one: a standard document generated, then edited — no wizards.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-5">
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold mb-3">Library</div>
+          <ul class="text-sm space-y-2">
+            <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> Answers &amp; exceptions <span class="ml-auto text-[11px] text-slate-400">38</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> Client status letters (TSC · mediation · trial) <span class="ml-auto text-[11px] text-slate-400">64</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> Subpoenas (medical · employment · trial) <span class="ml-auto text-[11px] text-slate-400">57</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> Motions (enroll · extension · compel) <span class="ml-auto text-[11px] text-slate-400">41</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> Employer &amp; wage letters <span class="ml-auto text-[11px] text-slate-400">22</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-brass-500"></i> Affidavits &amp; authorizations <span class="ml-auto text-[11px] text-slate-400">89</span></li>
+            <li class="text-[12px] text-slate-400 pt-1">…migrated from the merge-variable map already in hand</li>
+          </ul>
+        </div>
+
+        <div class="xl:col-span-2 bg-white rounded-lg border border-slate-200 p-4">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+            <div class="font-semibold text-juge-800 text-sm">Exception &amp; Answer Package — Boudreaux <span class="text-[11px] font-normal text-slate-400">drafted at intake, unprompted</span></div>
+            <span class="text-[11px] bg-amber-100 text-amber-700 rounded px-2 py-0.5 font-semibold">AWAITING JVQ</span>
+          </div>
+          <p class="text-[13px] text-slate-500 mb-3">The full skeleton is your unchanged boilerplate — prescription exception, 23:1201.1 preliminary determination, the 1221 denials, 1206/1212 credits, 1208.1 forfeiture, 1225 offsets. The system surfaces <b>only the six calls that are actually the lawyer's</b>, each with its evidence:</p>
+          <table class="w-full text-[13px] border border-slate-100 rounded">
+            <thead><tr class="text-left text-[11px] uppercase tracking-wide text-slate-400 bg-slate-50"><th class="px-3 py-2 font-semibold">Decision</th><th class="px-3 py-2 font-semibold">Recommends</th><th class="px-3 py-2 font-semibold">Because</th></tr></thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr><td class="px-3 py-2">AWW / comp-rate allegations</td><td class="px-3 py-2 font-semibold text-rose-600">DENY</td><td class="px-3 py-2 text-slate-500">payroll computes $1,142.30 vs $1,300.00 alleged</td></tr>
+              <tr><td class="px-3 py-2">Accident in course &amp; scope</td><td class="px-3 py-2 font-semibold text-emerald-600">ADMIT</td><td class="px-3 py-2 text-slate-500">witnessed ×2, reported same day, FROI on file</td></tr>
+              <tr><td class="px-3 py-2">Injury in course &amp; scope</td><td class="px-3 py-2 font-semibold text-rose-600">DENY</td><td class="px-3 py-2 text-slate-500">2023 MRI — pre-existing degenerative disc, L4-L5</td></tr>
+              <tr><td class="px-3 py-2">Employee of defendant</td><td class="px-3 py-2 font-semibold text-emerald-600">ADMIT</td><td class="px-3 py-2 text-slate-500">hired 11/2023, payroll records</td></tr>
+              <tr><td class="px-3 py-2">Terminating vs. denying</td><td class="px-3 py-2 font-semibold text-juge-700">TERMINATING</td><td class="px-3 py-2 text-slate-500">TTD paid 04/02–06/05, terminated on IME</td></tr>
+              <tr><td class="px-3 py-2">Carrier vs. TPA (intake letter)</td><td class="px-3 py-2 font-semibold text-juge-700">CARRIER</td><td class="px-3 py-2 text-slate-500">Great American is the direct carrier</td></tr>
+            </tbody>
+          </table>
+          <div class="mt-3 text-[12px] text-slate-500 flex items-center gap-1.5"><i data-lucide="file-check-2" class="w-4 h-4 text-brass-500"></i> Output is your actual Word template — letterhead, Times New Roman, native numbering. <b>We showed you the merged .docx on July 6; this screen is the trigger that produces it without being asked.</b></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ POLICY ============ -->
+    <section id="page-policy" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-juge-800">AI Policy &amp; Governance — per client, enforced by the system</h2>
+        <p class="text-sm text-slate-500 mt-0.5">Every carrier will eventually send an AI-use agreement, and they won't agree with each other. Policy hangs off the <span class="font-mono text-[13px]">Secure_Client</span> flag your schema has had for years — set per matter, enforced on every AI action.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+          <div class="px-4 py-2.5 border-b border-slate-100 text-[11px] uppercase tracking-wide text-slate-400 font-semibold">Per-carrier policy</div>
+          <table class="w-full text-[13px]">
+            <tbody class="divide-y divide-slate-50">
+              <tr><td class="px-4 py-3"><b>Great American</b><div class="text-[11px] text-slate-400">no agreement on file</div></td><td class="px-4 py-3"><span class="text-[11px] bg-emerald-100 text-emerald-700 rounded px-2 py-1 font-semibold">STANDARD — ZDR, no training, attorney gate</span></td></tr>
+              <tr class="bg-brass-400/5"><td class="px-4 py-3"><b>Carrier w/ AI-Use Guidelines</b><div class="text-[11px] text-slate-400">4-page agreement received · checklist mandatory</div></td><td class="px-4 py-3"><span class="text-[11px] bg-brass-400/20 text-brass-600 rounded px-2 py-1 font-semibold">AGREEMENT ENFORCED — approved-tools list · per-matter attestation · incident SLA</span></td></tr>
+              <tr><td class="px-4 py-3"><b>Secure_Client = Y matters</b><div class="text-[11px] text-slate-400">e.g. Robicheaux (34244)</div></td><td class="px-4 py-3"><span class="text-[11px] bg-rose-100 text-rose-600 rounded px-2 py-1 font-semibold">RESTRICTED — no external AI processing without written consent</span></td></tr>
+            </tbody>
+          </table>
+          <div class="px-4 py-3 text-[12px] text-slate-500 border-t border-slate-100">On a restricted matter, the drafting, summarization, and indexing buttons don't warn — <b>they don't exist.</b> Policy is enforcement, not a memo.</div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-juge-800 text-sm mb-2 flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-brass-500"></i> The firm's own protocol, adopted firm-wide</div>
+          <p class="text-[13px] text-slate-500 mb-3">John's <span class="font-mono text-[12px]">privileged-session-protocol</span> is the governance baseline — his standard, honored, running for all 14 attorneys instead of one laptop:</p>
+          <ul class="text-[13px] space-y-2">
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> Session sandboxed to one matter's folder</li>
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> Privileged material read into memory only — never written to disk</li>
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> No external transmission · no cross-session carryover</li>
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> Attorney review gate on every AI output (carrier §3 compliance)</li>
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> Closeout log emitted per session — audit-ready</li>
+          </ul>
+          <div class="mt-4 border border-slate-200 rounded-md bg-slate-50 p-3 font-mono text-[11px] text-slate-500 leading-relaxed">
+            [2026-08-03 09:12:04] session close · matter 34253<br>
+            docs_read=5 (memory only) · external_tx=0 · scratch_purged=yes<br>
+            outputs=1 (Answer draft) · reviewed_by=pending:JVQ · policy=STANDARD-ZDR
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ REPORTS ============ -->
+    <section id="page-reports" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-juge-800">Reports &amp; Checks — full Practice Master parity, honestly scoped</h2>
+        <p class="text-sm text-slate-500 mt-0.5">You told us last week PM also writes your reports and prints checks. You can't retire it partially — so these are in Phase 1 parity, not fine print.</p>
+      </div>
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-juge-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="table-properties" class="w-4 h-4 text-brass-500"></i> Report writer</div>
+          <div class="text-[13px] text-slate-500 mb-3">Any report you run today, rebuilt as a saved view over the same fields — filter, group, export. Example:</div>
+          <div class="border border-slate-100 rounded-md overflow-hidden">
+            <div class="px-3 py-2 bg-slate-50 text-[12px] font-semibold text-slate-600">Open files by attorney (live)</div>
+            <table class="w-full text-[13px]"><tbody class="divide-y divide-slate-50">
+              <tr><td class="px-3 py-1.5">JVQ — Quaglino</td><td class="px-3 py-1.5 text-right font-mono">64</td></tr>
+              <tr><td class="px-3 py-1.5">TJR — Ruli</td><td class="px-3 py-1.5 text-right font-mono">58</td></tr>
+              <tr><td class="px-3 py-1.5">MJP — Putfark</td><td class="px-3 py-1.5 text-right font-mono">61</td></tr>
+              <tr><td class="px-3 py-1.5">JCN — Napolitano</td><td class="px-3 py-1.5 text-right font-mono">49</td></tr>
+            </tbody></table>
+          </div>
+          <div class="mt-3 text-[12px] text-amber-600 flex items-center gap-1.5"><i data-lucide="video" class="w-3.5 h-3.5"></i> Blocked on your input: the report-writer walkthrough video (Vicki/Jessica) so we port every report you actually run.</div>
+        </div>
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-juge-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="printer" class="w-4 h-4 text-brass-500"></i> Check printing</div>
+          <div class="text-[13px] text-slate-500">Same check stock, same printer, same approval trail. Scoped into Phase 1 parity so Practice Master can actually retire — this is exactly the kind of subsystem a hard October cutover would have missed, and why we'll recommend the parachute.</div>
+          <div class="mt-3 border border-dashed border-slate-200 rounded-md p-6 text-center text-[12px] text-slate-400">Check-run mock — walkthrough pending (Session 3 discovery)</div>
+        </div>
+      </div>
+      <div class="bg-juge-900 rounded-lg p-5 text-juge-100 text-sm flex items-start gap-3">
+        <i data-lucide="server" class="w-5 h-5 text-brass-400 flex-shrink-0 mt-0.5"></i>
+        <div><b class="text-white">Where this runs:</b> hosted by Dodonai with a written SLA — or on the firm's own footprint, with Richard owning the server boundary and the on-prem integration. The file directory stays exactly where it is. Nothing in this demo moved or renamed a single file.</div>
+      </div>
+    </section>
+
+    </main>
+  </div>
+</div>
+
+<div id="toast-holder" class="fixed bottom-5 right-5 space-y-2 z-50"></div>
+
+<script>
+// ---------- data ----------
+const MATTERS = [
+  { id:'GAIC-10247', file:'34253', desc:'Boudreaux, Darryl T.', atty:'JVQ', adj:'Adj/Herbert, Monica · Great American', aop:'SWC', status:'Answer drafted — awaiting JVQ', cls:'text-amber-600' },
+  { id:'LUBA-10193', file:'34247', desc:'Fontenot, Marie L.', atty:'TJR', adj:'Adj/Trahan, Lisa · LUBA', aop:'SWC', status:'Discovery grace expired — 10.1 letter queued', cls:'text-rose-600' },
+  { id:'SUMM-10201', file:'34249', desc:'Landry, Kevin J.', atty:'MJP', adj:'Adj/Foster, Renee · Summit Claims', aop:'SWC', status:'TRIALwc applied · trial 01/13/27', cls:'text-slate-500' },
+  { id:'AIU-556102', file:'34211', desc:'Okafor, Samuel', atty:'JVQ', adj:'Adj/Bell, Tracey · Gallagher Bassett (AIU)', aop:'SWC', status:'Records: 4 of 6 providers outstanding', cls:'text-slate-500' },
+  { id:'LWCC-10102', file:'34188', desc:'Prejean, Denise A.', atty:'JCN', adj:'Adj/Morrow, Steve · LWCC', aop:'SWC', status:'Mediation 09/14 — client letter queued', cls:'text-slate-500' },
+  { id:'SUMM-10218', file:'34250', desc:'Washington, Alvin', atty:'MJP', adj:'atty/Benadetto, Frank (opposing)', aop:'SWC', status:'Discovery out — day 13 of 30', cls:'text-slate-500' },
+  { id:'BRID-10175', file:'34196', desc:'Vu, Thanh', atty:'TJR', adj:'Adj/Simmons, Carla · Bridgefield', aop:'MFD', status:'Med-fee dispute — Phase 3 fork', cls:'text-slate-400' },
+  { id:'CARR-10222', file:'34244', desc:'Robicheaux, Anna', atty:'JVQ', adj:'carrier w/ AI-use agreement', aop:'SWC', status:'Secure_Client = Y — restricted AI policy', cls:'text-juge-700' },
+];
+
+function renderMatters(filter) {
+  const q = (filter||'').toLowerCase();
+  const rows = MATTERS.filter(m => !q || Object.values(m).join(' ').toLowerCase().includes(q));
+  document.getElementById('matter-rows').innerHTML = rows.map(m => `
+    <tr class="hover:bg-juge-50/60 cursor-pointer" onclick="location.hash='#/matter'">
+      <td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">${m.id}</td>
+      <td class="px-2 py-2.5 font-mono text-[12px]">${m.file}</td>
+      <td class="px-2 py-2.5 font-medium">${m.desc}</td>
+      <td class="px-2 py-2.5">${m.atty}</td>
+      <td class="px-2 py-2.5 text-slate-500">${m.adj}</td>
+      <td class="px-2 py-2.5"><span class="font-mono text-[11px] bg-slate-100 rounded px-1.5 py-0.5">${m.aop}</span></td>
+      <td class="px-4 py-2.5 text-[13px] ${m.cls}">${m.status}</td>
+    </tr>`).join('') || `<tr><td colspan="7" class="px-4 py-6 text-center text-slate-400 text-sm">No matches.</td></tr>`;
+}
+
+// ---------- router ----------
+const PAGES = ['dashboard','intake','matter','deadlines','mail','assembly','policy','reports'];
+const CRUMBS = { dashboard:'Dashboard', intake:'New Referrals', matter:'Matters · Boudreaux (34253)', deadlines:'Deadline & Records Engine', mail:'Mail & Email', assembly:'Form Library', policy:'AI Policy & Governance', reports:'Reports & Checks' };
+function route() {
+  const h = (location.hash.replace('#/','') || 'dashboard').split('/')[0];
+  const page = PAGES.includes(h) ? h : 'dashboard';
+  PAGES.forEach(p => document.getElementById('page-'+p).classList.toggle('hidden', p!==page));
+  document.querySelectorAll('.nav-link').forEach(a => a.classList.toggle('active', a.getAttribute('href')==='#/'+page));
+  document.getElementById('breadcrumb').textContent = CRUMBS[page];
+  lucide.createIcons();
+}
+window.addEventListener('hashchange', route);
+
+// ---------- toast ----------
+function toast(msg) {
+  const el = document.createElement('div');
+  el.className = 'toast bg-juge-900 text-white text-sm rounded-lg px-4 py-3 shadow-lg flex items-center gap-2';
+  el.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4 text-brass-400"></i>' + msg;
+  document.getElementById('toast-holder').appendChild(el);
+  lucide.createIcons();
+  setTimeout(() => el.remove(), 3200);
+}
+
+// ---------- intake animation ----------
+document.getElementById('btn-open-file').addEventListener('click', function() {
+  this.disabled = true; this.classList.add('opacity-50');
+  const steps = document.querySelectorAll('#intake-steps .step');
+  steps.forEach((s,i) => setTimeout(() => {
+    s.classList.remove('step-pending'); s.classList.add('step-done');
+    if (i === steps.length-1) {
+      document.getElementById('intake-done').classList.remove('hidden');
+      toast('File 34253 opened — Boudreaux, Darryl T.');
+      lucide.createIcons();
+    }
+  }, 550*(i+1)));
+});
+
+// ---------- dashboard search ----------
+document.getElementById('globalsearch').addEventListener('input', e => {
+  if (!location.hash.includes('dashboard') && location.hash !== '' ) location.hash = '#/dashboard';
+  renderMatters(e.target.value);
+});
+
+// ---------- matter tabs ----------
+document.querySelectorAll('#matter-tabs .tab').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('#matter-tabs .tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.mtab').forEach(t => t.classList.add('hidden'));
+  document.getElementById('mtab-'+btn.dataset.tab).classList.remove('hidden');
+  lucide.createIcons();
+}));
+
+// ---------- records scan ----------
+document.getElementById('btn-scan').addEventListener('click', function() {
+  const li = document.querySelectorAll('#records-list li')[2];
+  li.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Crescent City Imaging — <b>received just now, auto-matched to the subpoena and checked off</b>';
+  li.classList.add('bg-emerald-50','rounded','px-1');
+  this.remove();
+  toast('Scan matched to Okafor subpoena — task closed, no hands');
+  lucide.createIcons();
+});
+
+// ---------- mail notice ----------
+document.getElementById('mail-notice').addEventListener('click', () => {
+  document.getElementById('notice-placeholder').classList.add('hidden');
+  document.getElementById('notice-detail').classList.remove('hidden');
+  lucide.createIcons();
+});
+document.querySelectorAll('.send-letter').forEach(b => b.addEventListener('click', () => toast('Status letter approved — sent to LWCC & filed to 34188')));
+
+// ---------- mail query ----------
+document.getElementById('mail-query').addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  const box = document.getElementById('mail-answer');
+  box.classList.remove('hidden');
+  box.innerHTML = '<b>Lisa Trahan (LUBA), Tuesday 7/28 — Fontenot (34247):</b> you had a whole conversation about scheduling the pre-trial hearing — she proposed the week of 9/21, you countered 9/28 due to the Okafor deposition, and she agreed to confirm with the court. 4 emails, filed under the claim.';
+});
+
+// ---------- init ----------
+renderMatters('');
+route();
+</script>
+</body>
+</html>
