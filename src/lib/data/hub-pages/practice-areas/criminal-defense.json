@@ -25,7 +25,7 @@
 				"Serious criminal cases are discovery cases. A homicide file arrives with autopsy and toxicology reports, ER records for the decedent, medical history for your client, prior psychiatric evaluations, jail medical logs, body-cam transcripts, and police reports across multiple agencies. A DUI-vehicular file is smaller only in name. An aggravated assault file with a self-defense or mental-health theory can easily run into thousands of pages.",
 				"The work isn't glamorous but it's decisive. Competency and mens rea defenses live or die on a defensible mental health chronology. Causation arguments in vehicular cases depend on autopsy findings, toxicology levels, and ER treatment sequence read in order. Suppression motions need the timeline of custody events reconstructed from jail records and medical intake logs. Miss a prior hospitalization, a documented head injury, a medication that alters cognition, and you've missed the defense.",
 				"Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI chronologies}} and {{link:/deposition-summary-software/|deposition summaries}} were built for this kind of document weight. Upload discovery — medical records, autopsy and toxicology reports, jail medical logs, prior psychiatric evaluations, deposition transcripts of state witnesses — and Dodonai returns a cited chronology and summaries you can build the defense theory on. Every finding links back to the source page so you cite the record, not the AI, in your motion or at trial.",
-				"Discovery documents stay protected: HIPAA compliant with signed BAAs on every account, SOC 2 certified, AES-256 encrypted, and never used to train models."
+				"Discovery documents stay protected: HIPAA compliant with a signed BAA available on request, SOC 2 certified, AES-256 encrypted, and never used to train models."
 			]
 		},
 		{
@@ -55,7 +55,7 @@
 				{
 					"icon": "shield",
 					"title": "HIPAA Compliant and Secure",
-					"description": "Client medical PHI and third-party records are handled under signed BAAs, SOC 2 certified infrastructure, and AES-256 encryption. Nothing trains the models, and deletion runs on your schedule."
+					"description": "Client medical PHI and third-party records are handled under a signed BAA available on request, SOC 2 certified infrastructure, and AES-256 encryption. Nothing trains the models, and deletion runs on your schedule."
 				},
 				{
 					"icon": "dollar",
@@ -97,7 +97,7 @@
 		},
 		{
 			"question": "Is it secure enough for defense discovery, including client PHI?",
-			"answer": "Yes. Client medical PHI and third-party records are handled under signed BAAs, SOC 2 certified infrastructure, and AES-256 encryption. Nothing trains the models, deletion runs on your schedule, and access is limited to the users on your account."
+			"answer": "Yes. Client medical PHI and third-party records are handled under a signed BAA available on request, SOC 2 certified infrastructure, and AES-256 encryption. Nothing trains the models, deletion runs on your schedule, and access is limited to the users on your account."
 		},
 		{
 			"question": "What does it cost on a court-appointed or CJA case?",

@@ -25,7 +25,7 @@
 				"Plaintiff workers' comp is a volume practice with a fee ceiling. Statutes cap what you can charge as a percentage of the award or settlement, and the cap doesn't move because a treating provider disappeared for six months or the carrier sent you a 900-page IME record dump the day before hearing. Every hour of paralegal or attorney time on manual record review is a direct hit to the margin on that case.",
 				"The math is unforgiving. On a modest indemnity file where a statutory fee cap or schedule limits the firm's fee, a paralegal spending two full days chronologizing records can eat a meaningful share of what the firm ever sees. High-volume solos and small firms feel it most: you're carrying dozens of open files, each with medical records that keep arriving, and every one needs a defensible chronology before the hearing.",
 				"Dodonai builds the underlying documentation for a fraction of the time and cost. Upload a claimant's file and receive a {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with treatment sequence, work restrictions, and MMI status extracted with source citations. Upload the carrier's IME report and get a summary flagging causation opinions, disputed diagnoses, and the return-to-work assessment. Prescription histories are pulled across pharmacies with dosages and prescribers. PT utilization is tracked visit by visit. Your paralegals spend hearing prep on strategy, not stapling records together.",
-				"HIPAA compliant with signed BAAs on every account, SOC 2 certified, AES-256 encrypted."
+				"HIPAA compliant with a signed BAA available on request, SOC 2 certified, AES-256 encrypted."
 			]
 		},
 		{
@@ -55,7 +55,7 @@
 				{
 					"icon": "shield",
 					"title": "HIPAA-Compliant Handling",
-					"description": "Claimant PHI handled under signed BAAs, SOC 2 certified infrastructure, and AES-256 encryption. Files never train the models, and deletion runs on your schedule."
+					"description": "Claimant PHI handled under a signed BAA available on request, SOC 2 certified infrastructure, and AES-256 encryption. Files never train the models, and deletion runs on your schedule."
 				},
 				{
 					"icon": "growth",
@@ -101,7 +101,7 @@
 		},
 		{
 			"question": "Is the platform secure enough for claimant PHI?",
-			"answer": "Yes. Signed BAAs on every account, SOC 2 certified infrastructure, and AES-256 encryption on every file. Records never enter a training pipeline, and deletion runs on the schedule you set."
+			"answer": "Yes. A signed BAA is available on request, SOC 2 certified infrastructure, and AES-256 encryption on every file. Records never enter a training pipeline, and deletion runs on the schedule you set."
 		},
 		{
 			"question": "How does the pricing work for a high-volume comp practice?",
