@@ -1,7 +1,7 @@
 {
 	"seo": {
-		"title": "AI Medical Chronologies for Vocational Experts & LCPs | Dodonai",
-		"description": "Vocational experts and Life Care Planners use Dodonai to turn 500-2,000 page medical files into provider-by-provider timelines that feed LCP reports and wage-loss opinions.",
+		"title": "AI Medical Chronologies for Vocational Experts | Dodonai",
+		"description": "Vocational experts and Life Care Planners turn 500-2,000 page medical files into cited, date-ordered chronologies for LCP and wage-loss reports.",
 		"canonical": "/industries/vocational-experts/"
 	},
 	"breadcrumbs": [
@@ -25,7 +25,7 @@
 				"Vocational rehabilitation consultants and Life Care Planners (LCPs) work on the longest, most document-heavy files in personal injury and disability litigation. A single catastrophic-injury LCP can require reading 1,000-plus pages of ER notes, operative reports, PT records, pain management logs, imaging, and IME opinions before you write the first line of a projection. Wage-loss analyses demand the same lift, only compressed into a tighter fee.",
 				"Attorneys hire you for the opinion, not the record review. Every hour you spend building the underlying timeline is an hour you don't spend on labor market surveys, transferable skills analysis, or costing out future care. Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical chronologies}} produce the provider-by-provider timeline your report is built on: each treating physician grouped in sequence, every diagnosis and procedure dated, prescription histories tracked across pharmacies, and every finding cited back to the source page. You verify. You don't re-read.",
 				"That structured foundation feeds directly into an LCP template. Future medical projections need documented treatment frequency. Wage-loss opinions need functional capacity findings in context. Transferable skills analyses need a defensible medical status snapshot. Dodonai extracts the raw material; your expertise turns it into an opinion the court will credit.",
-				"Records stay protected end-to-end: HIPAA compliant with a signed BAA available on request, SOC 2 certified infrastructure, AES-256 encryption on every file."
+				"Records stay protected end-to-end: HIPAA compliant with a BAA available before PHI upload, SOC 2 certified infrastructure, AES-256 encryption on every file."
 			]
 		},
 		{
@@ -55,7 +55,7 @@
 				{
 					"icon": "shield",
 					"title": "HIPAA-Compliant Handling",
-					"description": "A signed BAA is available on request, SOC 2 certified infrastructure, AES-256 encryption on every file. Nothing trains the models, and deletion runs on your schedule."
+					"description": "A BAA is available before PHI upload, SOC 2 certified infrastructure, AES-256 encryption on every file. Nothing trains the models, and deletion runs on your schedule."
 				},
 				{
 					"icon": "dollar",
@@ -73,7 +73,7 @@
 				},
 				{
 					"title": "Dodonai Builds the Provider-by-Provider Chronology",
-					"description": "Records are grouped by treating provider and organized in sequence, with diagnoses, procedures, medications, restrictions, and functional findings extracted and cited back to the source page. Add focus areas like body part, provider type, or date range to tailor the output to your report."
+					"description": "Records are organized in date order with provider fields and filters — and can be grouped by treating provider using a configured template — with diagnoses, procedures, medications, restrictions, and functional findings extracted and cited back to the source page. Add focus areas like body part, provider type, or date range to tailor the output to your report."
 				},
 				{
 					"title": "Export and Build Your Opinion",
@@ -84,8 +84,8 @@
 	],
 	"faq": [
 		{
-			"question": "Does Dodonai produce the kind of provider-by-provider timeline an LCP report needs?",
-			"answer": "Yes. Chronologies are organized around each treating provider in sequence, with diagnoses, procedures, medications, and functional findings grouped by encounter. That's the exact structure a Life Care Planner needs to project future medical utilization and cost the plan defensibly."
+			"question": "Can Dodonai produce the provider-level view an LCP report needs?",
+			"answer": "Yes. Chronologies are date-ordered with provider fields and filters, and can be grouped by treating provider with a configured template — diagnoses, procedures, medications, and functional findings are extracted per encounter where documented. That's the exact structure a Life Care Planner needs to project future medical utilization and cost the plan defensibly."
 		},
 		{
 			"question": "How does Dodonai handle a 1,500-page catastrophic-injury file?",
@@ -105,7 +105,7 @@
 		},
 		{
 			"question": "Is Dodonai secure enough for claimant medical records?",
-			"answer": "Records are protected under a signed BAA available on request, AES-256 encryption, and SOC 2 certified infrastructure. Uploaded files are never used to train models, and you control the deletion schedule."
+			"answer": "Records are protected under a BAA available before PHI upload, AES-256 encryption, and SOC 2 certified infrastructure. Uploaded files are never used to train models, and you control the deletion schedule."
 		}
 	],
 	"relatedPages": [

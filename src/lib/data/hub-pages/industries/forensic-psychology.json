@@ -1,7 +1,7 @@
 {
 	"seo": {
 		"title": "AI Record Review for Forensic Psychologists | Dodonai",
-		"description": "Forensic psychologists use Dodonai to compress pre-evaluation chart review: psychiatric chronologies, medication histories, and prior hospitalizations pulled from decades of records.",
+		"description": "Forensic psychologists compress pre-evaluation chart review: psychiatric chronologies, medication histories, and prior hospitalizations, all cited.",
 		"canonical": "/industries/forensic-psychology/"
 	},
 	"breadcrumbs": [
@@ -55,7 +55,7 @@
 				{
 					"icon": "shield",
 					"title": "HIPAA-Compliant PHI Handling",
-					"description": "Forensic records include some of the most sensitive PHI in medicine. A signed BAA is available on request, SOC 2 certified infrastructure, AES-256 encryption. Nothing trains the models, and deletion runs on your schedule."
+					"description": "Forensic records include some of the most sensitive PHI in medicine. A BAA is available before PHI upload, SOC 2 certified infrastructure, AES-256 encryption. Nothing trains the models, and deletion runs on your schedule."
 				},
 				{
 					"icon": "dollar",
@@ -97,7 +97,7 @@
 		},
 		{
 			"question": "Is Dodonai secure enough for sensitive forensic mental health records?",
-			"answer": "Forensic mental health PHI is among the most sensitive material in medicine, and the platform is built for that standard. A signed BAA is available on request, SOC 2 certified infrastructure, AES-256 encryption on every file. Records never enter a training pipeline, and deletion runs on your schedule."
+			"answer": "Forensic mental health PHI is among the most sensitive material in medicine, and the platform is built for that standard. A BAA is available before PHI upload, SOC 2 certified infrastructure, AES-256 encryption on every file. Records never enter a training pipeline, and deletion runs on your schedule."
 		},
 		{
 			"question": "Can the AI handle handwritten intake notes and older paper records?",

@@ -1,7 +1,7 @@
 {
 	"seo": {
 		"title": "Plaintiff Workers' Comp: AI Medical Record Review | Dodonai",
-		"description": "Your workers' comp fee is capped by statute. Dodonai cuts medical record review from hours to minutes so you keep more of the fee you actually earn.",
+		"description": "Claimant-side fees are often regulated by statute or rule. Dodonai cuts medical record review from hours to minutes, so you keep more of the fee you earn.",
 		"canonical": "/practice-areas/plaintiff-workers-comp/"
 	},
 	"breadcrumbs": [
@@ -11,7 +11,7 @@
 	],
 	"hero": {
 		"headline": "Your Comp Fee Is Capped. Recover More of It With Faster Record Review.",
-		"subheadline": "Workers' comp statutes cap what you can charge, so every hour of manual medical record review comes straight out of your margin. Dodonai builds the chronology, IME summary, and prescription history for a fraction of the time and cost of doing it by hand.",
+		"subheadline": "Claimant-side fees are often regulated by statute, rule, or adjudicator approval, so every hour of manual medical record review comes straight out of your margin. Dodonai builds the chronology, IME summary, and prescription history for a fraction of the time and cost of doing it by hand.",
 		"ctaText": "Try It With a Comp File",
 		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=plaintiff-workers-comp",
 		"secondaryCtaText": "See Pricing",
@@ -22,10 +22,10 @@
 			"type": "content",
 			"heading": "How Plaintiff Comp Firms Use AI to Protect Margin",
 			"paragraphs": [
-				"Plaintiff workers' comp is a volume practice with a fee ceiling. Statutes cap what you can charge as a percentage of the award or settlement, and the cap doesn't move because a treating provider disappeared for six months or the carrier sent you a 900-page IME record dump the day before hearing. Every hour of paralegal or attorney time on manual record review is a direct hit to the margin on that case.",
+				"Plaintiff workers' comp is a volume practice with limited fee upside. Claimant-side fees are often regulated by statute, rule, or adjudicator approval — specifics vary by jurisdiction — and that ceiling doesn't move because a treating provider disappeared for six months or the carrier sent you a 900-page IME record dump the day before hearing. Every hour of paralegal or attorney time on manual record review is a direct hit to the margin on that case.",
 				"The math is unforgiving. On a modest indemnity file where a statutory fee cap or schedule limits the firm's fee, a paralegal spending two full days chronologizing records can eat a meaningful share of what the firm ever sees. High-volume solos and small firms feel it most: you're carrying dozens of open files, each with medical records that keep arriving, and every one needs a defensible chronology before the hearing.",
 				"Dodonai builds the underlying documentation for a fraction of the time and cost. Upload a claimant's file and receive a {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with treatment sequence, work restrictions, and MMI status extracted with source citations. Upload the carrier's IME report and get a summary flagging causation opinions, disputed diagnoses, and the return-to-work assessment. Prescription histories are pulled across pharmacies with dosages and prescribers. PT utilization is tracked visit by visit. Your paralegals spend hearing prep on strategy, not stapling records together.",
-				"HIPAA compliant with a signed BAA available on request, SOC 2 certified, AES-256 encrypted."
+				"HIPAA compliant with a BAA available before PHI upload, SOC 2 certified, AES-256 encrypted."
 			]
 		},
 		{
@@ -35,7 +35,7 @@
 				{
 					"icon": "dollar",
 					"title": "Fee-Cap Math That Actually Works",
-					"description": "Outsourced chronology vendors often charge several dollars per page, and paralegal hours at internal cost both eat directly into a capped fee. Dodonai processes pages for as little as $0.02 each. The margin difference on a typical 600-page comp file is real money you keep."
+					"description": "Outsourced chronology vendors often charge several dollars per page, and paralegal hours at internal cost both eat directly into a regulated fee. Dodonai processes pages for as little as $0.02 each. The margin difference on a typical 600-page comp file is real money you keep."
 				},
 				{
 					"icon": "calendar",
@@ -55,7 +55,7 @@
 				{
 					"icon": "shield",
 					"title": "HIPAA-Compliant Handling",
-					"description": "Claimant PHI handled under a signed BAA available on request, SOC 2 certified infrastructure, and AES-256 encryption. Files never train the models, and deletion runs on your schedule."
+					"description": "Claimant PHI handled under a BAA available before PHI upload, SOC 2 certified infrastructure, and AES-256 encryption. Files never train the models, and deletion runs on your schedule."
 				},
 				{
 					"icon": "growth",
@@ -84,8 +84,8 @@
 	],
 	"faq": [
 		{
-			"question": "How does Dodonai help protect margin on a fee-capped workers' comp case?",
-			"answer": "Statutes cap the fee, so every hour of manual medical record review reduces what the firm actually keeps. Dodonai processes pages for as little as $0.02 each and compresses the underlying record review from hours to minutes, which means more of the capped fee lands as margin instead of getting spent on the mechanical work."
+			"question": "How does Dodonai help protect margin on a workers' comp case?",
+			"answer": "Claimant-side fees are often regulated by statute, rule, or adjudicator approval, so every hour of manual medical record review reduces what the firm actually keeps. Dodonai processes pages for as little as $0.02 each and compresses the underlying record review from hours to minutes, which means more of the capped fee lands as margin instead of getting spent on the mechanical work."
 		},
 		{
 			"question": "Can Dodonai summarize the carrier's IME report?",
@@ -101,7 +101,7 @@
 		},
 		{
 			"question": "Is the platform secure enough for claimant PHI?",
-			"answer": "Yes. A signed BAA is available on request, SOC 2 certified infrastructure, and AES-256 encryption on every file. Records never enter a training pipeline, and deletion runs on the schedule you set."
+			"answer": "Yes. A BAA is available before PHI upload, SOC 2 certified infrastructure, and AES-256 encryption on every file. Records never enter a training pipeline, and deletion runs on the schedule you set."
 		},
 		{
 			"question": "How does the pricing work for a high-volume comp practice?",
