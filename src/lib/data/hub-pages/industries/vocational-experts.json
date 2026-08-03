@@ -23,7 +23,7 @@
 			"heading": "How Vocational Experts and Life Care Planners Use AI to Build Cases",
 			"paragraphs": [
 				"Vocational rehabilitation consultants and Life Care Planners (LCPs) work on the longest, most document-heavy files in personal injury and disability litigation. A single catastrophic-injury LCP can require reading 1,000-plus pages of ER notes, operative reports, PT records, pain management logs, imaging, and IME opinions before you write the first line of a projection. Wage-loss analyses demand the same lift, only compressed into a tighter fee.",
-				"Attorneys hire you for the opinion, not the record review. Every hour you spend building the underlying timeline is an hour you don't spend on labor market surveys, transferable skills analysis, or costing out future care. Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical chronologies}} produce the provider-by-provider timeline your report is built on: each treating physician grouped in sequence, every diagnosis and procedure dated, prescription histories tracked across pharmacies, and every finding cited back to the source page. You verify. You don't re-read.",
+				"Attorneys hire you for the opinion, not the record review. Every hour you spend building the underlying timeline is an hour you don't spend on labor market surveys, transferable skills analysis, or costing out future care. Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical chronologies}} produce the date-ordered timeline your report is built on \u2014 with provider fields and filters, and grouping by treating provider available via a configured template. Diagnoses and procedures are dated where documented, prescription histories tracked across pharmacies, and every finding cited back to the source page. You verify. You don't re-read.",
 				"That structured foundation feeds directly into an LCP template. Future medical projections need documented treatment frequency. Wage-loss opinions need functional capacity findings in context. Transferable skills analyses need a defensible medical status snapshot. Dodonai extracts the raw material; your expertise turns it into an opinion the court will credit.",
 				"Records stay protected end-to-end: HIPAA compliant with a BAA available before PHI upload, SOC 2 certified infrastructure, AES-256 encryption on every file."
 			]
@@ -137,6 +137,6 @@
 	],
 	"ctaOverride": {
 		"headline": "Skip the 1,500-Page Read. Start With the Chronology.",
-		"description": "Upload a claimant's medical file and get a provider-by-provider chronology ready for your LCP or vocational report in minutes. No credit card required."
+		"description": "Upload a claimant's medical file and get a cited, date-ordered chronology ready for your LCP or vocational report in minutes. No credit card required."
 	}
 }
