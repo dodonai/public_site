@@ -1,7 +1,7 @@
 ---
 title: "How to Organize Medical Records for a Personal Injury Demand Package"
 date: "2026-03-02"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Medical Records"
 image: "/images/blog/how-to-organize-medical-records-for-personal-injury-demand-package.webp?v=2"
 description: "How to organize medical records for a personal injury demand package: collection, chronology, specials, and MMI documentation."

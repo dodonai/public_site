@@ -1,7 +1,7 @@
 ---
 title: "Medical Chronology vs. Narrative Summary: Which Format Fits Your Case Prep?"
 date: "2025-11-18"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Medical Records"
 image: "/images/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep.webp"
 description: "Learn the difference between table and narrative medical chronologies. See how Dodon.ai generates both formats in minutes - secure, accurate, and audit-ready."

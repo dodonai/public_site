@@ -1,7 +1,7 @@
 ---
 title: "The Role of Depositions in Litigation: A Closer Look"
 date: "2024-05-01"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/the-role-of-depositions-in-litigation-a-closer-look.webp"
 description: "Depositions are a pivotal component of the litigation process. This post delves deeper into the role of depositions in litigation, highlighting their strategic importance."

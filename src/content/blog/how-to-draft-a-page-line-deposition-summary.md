@@ -1,7 +1,7 @@
 ---
 title: "How to Draft a Page-Line Deposition Summary"
 date: "2024-05-01"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/how-to-draft-a-page-line-deposition-summary.webp"
 description: "Deposition summaries are invaluable tools in legal proceedings, providing attorneys and legal teams with quick references to crucial testimonies. Here’s a guide on how to effectively draft a Page-Line Deposition Summary."

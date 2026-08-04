@@ -1,7 +1,7 @@
 ---
 title: "How IME Companies Use AI to Process Medical Records"
 date: "2026-03-02"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Technology"
 image: "/images/blog/how-ime-companies-use-ai-to-process-medical-records.webp?v=2"
 description: "How IME companies use AI to process medical records: cost-per-exam math, turnaround benchmarks, and quality control workflows."

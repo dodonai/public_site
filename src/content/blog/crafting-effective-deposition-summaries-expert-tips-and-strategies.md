@@ -1,7 +1,7 @@
 ---
 title: "Deposition Summary Best Practices: Expert Tips for Accuracy and Clarity"
 date: "2024-05-01"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies.webp"
 description: "Deposition summary best practices that actually matter: background prep, the 5:1 page ratio, page-line formatting, and a review process that catches errors."

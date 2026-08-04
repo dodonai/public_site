@@ -1,7 +1,7 @@
 ---
 title: "Product Update: Document Summary Table"
 date: "2024-05-01"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Product"
 image: "/images/blog/product-update-document-summary-table.webp"
 description: "Dodonai's Document Summary Table automates creation of a summary table from any set of documents."

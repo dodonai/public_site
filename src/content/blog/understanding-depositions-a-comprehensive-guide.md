@@ -1,7 +1,7 @@
 ---
 title: "Understanding Depositions: A Comprehensive Guide"
 date: "2024-05-01"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/understanding-depositions-a-comprehensive-guide.webp"
 description: "Depositions are a cornerstone of the litigation process, serving as a critical tool for gathering testimony from witnesses ahead of a trial. This detailed guide explores the nuances of depositions, their procedural workings, their place in litigation, governing rules, and their evidential value."

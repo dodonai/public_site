@@ -2,7 +2,7 @@
 title: "Deposition Summary Template: Page-Line Format for Motion Practice"
 slug: "deposition-summary-template-page-line-format-for-motion-practice"
 date: "2026-02-26"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Deposition"
 tags: ["deposition summaries", "litigation support", "motion practice", "legal drafting", "templates"]
 image: "/images/blog/deposition-summary-template-page-line-format-for-motion-practice.webp"

@@ -1,7 +1,7 @@
 ---
 title: "How to Draft an Issue-Based Deposition Summary"
 date: "2024-05-01"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/how-to-draft-a-issue-based-deposition-summary.webp"
 description: "Learn how to draft an issue-based deposition summary that groups testimony by case issues, not page order. Step-by-step guide with a worked example."

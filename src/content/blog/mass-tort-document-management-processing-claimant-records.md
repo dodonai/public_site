@@ -1,7 +1,7 @@
 ---
 title: "Mass Tort Document Management: Processing Records for 500+ Claimants"
 date: "2026-03-02"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Technology"
 image: "/images/blog/mass-tort-document-management-processing-claimant-records.webp?v=2"
 description: "Mass tort document management for 500+ claimants: batch processing pipelines, per-case cost economics, and consistent quality at scale."

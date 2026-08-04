@@ -1,7 +1,7 @@
 ---
 title: "How to Extract Key Clauses from Contracts with AI"
 date: "2026-03-02"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Technology"
 image: "/images/blog/how-to-extract-key-clauses-from-contracts.webp"
 description: "How to extract key clauses from contracts using AI: obligations, termination, indemnification, and liability provisions across entire document sets."

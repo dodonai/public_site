@@ -1,7 +1,7 @@
 ---
 title: "Rules Governing Depositions: Navigating the Legal Framework"
 date: "2024-05-01"
-author: "Nick Chapleau"
+author: "Dodonai Team"
 category: "Deposition"
 image: "/images/blog/rules-governing-depositions-navigating-the-legal-framework.webp"
 description: "Depositions, a critical phase in the discovery process of litigation, are governed by a comprehensive set of rules designed to ensure fairness, efficiency, and decorum. Understanding these rules is crucial for legal practitioners to navigate the deposition process effectively."
