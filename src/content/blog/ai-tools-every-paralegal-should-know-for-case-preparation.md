@@ -1,7 +1,7 @@
 ---
 title: "AI Tools Every Paralegal Should Know for Case Preparation"
 date: "2026-03-02"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Technology"
 image: "/images/blog/ai-tools-every-paralegal-should-know-for-case-preparation.webp?v=2"
 description: "AI tools for paralegal case preparation: which ones handle medical chronologies, deposition summaries, OCR, and extraction, plus how to evaluate them."

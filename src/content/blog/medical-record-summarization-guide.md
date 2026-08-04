@@ -1,7 +1,7 @@
 ---
 title: "Medical Record Summarization: What It Is, How It Works, and When AI Beats Manual"
 date: "2026-05-05"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Medical Records"
 image: "/images/blog/medical-record-summarization-guide.webp"
 description: "Medical record summarization extracts key clinical events from patient files into a structured timeline or narrative. See how AI tools cut review time from days to minutes."

@@ -1,7 +1,7 @@
 ---
 title: "How Dodon.ai Protects Data Privacy When Using LLMs in Medico-Legal Workflows"
 date: "2025-08-30"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Technology"
 image: "/images/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows.webp"
 description: "Dodon.ai ensures secure, HIPAA-aligned AI processing for medico-legal records through zero data retention, no model training, and US-only servers."

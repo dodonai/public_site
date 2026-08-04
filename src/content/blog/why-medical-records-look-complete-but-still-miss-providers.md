@@ -1,7 +1,7 @@
 ---
 title: "Why Medical Records Look Complete But Still Miss Providers"
 date: "2026-01-14"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Medical Records"
 image: "/images/blog/why-medical-records-look-complete-but-still-miss-providers.webp"
 description: "Medical records often look complete but still miss providers. Learn why record gaps happen in litigation and how provider cross reference during chronology prep prevents surprises."

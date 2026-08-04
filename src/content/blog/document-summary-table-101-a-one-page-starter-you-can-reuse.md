@@ -1,7 +1,7 @@
 ---
 title: "Document Summary Table 101: A One-Page Starter You Can Reuse"
 date: "2025-11-18"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Medical Records"
 image: "/images/blog/document-summary-table-101-a-one-page-starter-you-can-reuse.webp"
 description: "A quick guide to building document summary tables - one-page grids that keep your legal reviews consistent, scannable, and source-cited for fast team verification."

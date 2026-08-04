@@ -1,7 +1,7 @@
 ---
 title: "Devillier v. Texas - AI Analysis of Oral Argument"
 date: "2024-05-01"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Argument"
 image: "/images/blog/devillier-v-texas-ai-analysis-of-oral-argument.webp"
 description: "We had Dodonai analyze a transcript of oral arguments in Devillier v. Texas on 1/16/24 with a focus on the issues that each individual justice indicated interest in, their sentiment towards those issues, and their sentiment towards the positions taken by the parties. See the results below."

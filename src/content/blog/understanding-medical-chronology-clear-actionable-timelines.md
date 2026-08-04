@@ -1,7 +1,7 @@
 ---
 title: "Understanding Medical Chronology: Transforming Medical Records Into Clear, Actionable Timelines"
 date: "2025-08-30"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Medical Records"
 image: "/images/blog/understanding-medical-chronology-clear-actionable-timelines.webp"
 description: "Dodon.ai’s latest article explains how to turn complex medical records into clear, defensible timelines—fast. Perfect for attorneys, insurers, and med-legal professionals looking to streamline case prep."

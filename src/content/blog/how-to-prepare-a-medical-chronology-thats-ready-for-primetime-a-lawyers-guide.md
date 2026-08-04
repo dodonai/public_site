@@ -1,7 +1,7 @@
 ---
 title: "How to Prepare a Medical Chronology That’s Ready for Primetime: A Lawyer’s Guide"
 date: "2025-08-30"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Medical Records"
 image: "/images/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide.webp"
 description: "A step-by-step guide for attorneys on building accurate, efficient medical chronologies, streamlined with document automation for faster litigation prep."

@@ -2,7 +2,7 @@
 title: "How Do Depositions Work? An In-Depth Exploration"
 date: "2024-05-01"
 dateModified: "2026-04-04"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Deposition"
 image: "/images/blog/how-do-depositions-work-an-in-depth-exploration.webp"
 description: "Learn how depositions work in civil litigation, from scheduling and notice through examination, objections, and how transcripts are used at trial."

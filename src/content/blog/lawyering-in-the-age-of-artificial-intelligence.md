@@ -1,7 +1,7 @@
 ---
 title: "Lawyering in the Age of Artificial Intelligence"
 date: "2024-05-01"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Law Review"
 image: "/images/blog/lawyering-in-the-age-of-artificial-intelligence.webp"
 description: "Researchers at the University of Minnesota Law School studied AI assistance’s effect on human legal analysis. Dodonai's AI Summarizer summarized their findings below."

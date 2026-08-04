@@ -1,7 +1,7 @@
 ---
 title: "6 Ways Deposition Summaries Provide Value in Litigation"
 date: "2024-05-01"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Deposition"
 image: "/images/blog/6-ways-deposition-summaries-provide-value-in-litigation.webp"
 description: "Deposition summaries in litigation save time, cut costs, and sharpen trial strategy. Here are 6 concrete ways they deliver value to legal teams."

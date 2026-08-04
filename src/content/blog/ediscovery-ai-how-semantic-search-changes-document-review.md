@@ -1,7 +1,7 @@
 ---
 title: "eDiscovery AI: How Semantic Search Changes Document Review"
 date: "2026-03-18"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Technology"
 image: "/images/blog/ediscovery-ai-how-semantic-search-changes-document-review.webp"
 description: "eDiscovery AI semantic search finds relevant documents by meaning, not keywords. Fewer missed docs, fewer false positives, faster review cycles."

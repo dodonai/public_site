@@ -1,7 +1,7 @@
 ---
 title: "Podcast Summary - Supreme Court Cases to Watch (NYT 10.10.23)"
 date: "2024-05-01"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Podcast"
 image: "/images/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23.webp"
 description: "A summary of The Daily's podcast discussing the cases that the Supreme Court will hear in its Fall 2023 term"

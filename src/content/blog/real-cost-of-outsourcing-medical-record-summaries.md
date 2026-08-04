@@ -1,7 +1,7 @@
 ---
 title: "The Real Cost of Outsourcing Medical Record Summaries"
 date: "2026-03-02"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Medical Records"
 image: "/images/blog/real-cost-of-outsourcing-medical-record-summaries.webp?v=2"
 description: "The cost of outsourcing medical record summaries runs $5-15/page. AI does it for $0.02/page. ROI math for solo, mid-size, and high-volume firms."

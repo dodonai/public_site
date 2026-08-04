@@ -1,7 +1,7 @@
 ---
 title: "Building Medical Chronologies for SSDI and Disability Claims"
 date: "2026-03-02"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Medical Records"
 image: "/images/blog/building-medical-chronologies-for-ssdi-disability-claims.webp?v=2"
 description: "How to build medical chronologies for SSDI disability claims: Blue Book mapping, RFC documentation, onset date evidence, and ALJ hearing prep."

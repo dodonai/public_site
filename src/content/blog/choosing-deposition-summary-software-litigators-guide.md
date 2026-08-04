@@ -1,7 +1,7 @@
 ---
 title: "Choosing Deposition Summary Software: A Litigator's Buyer's Guide"
 date: "2026-03-02"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Deposition"
 image: "/images/blog/choosing-deposition-summary-software-litigators-guide.webp?v=2"
 description: "A buyer's guide for choosing deposition summary software: pricing math, output formats, security requirements, and a structured evaluation checklist."

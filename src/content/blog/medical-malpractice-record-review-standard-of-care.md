@@ -1,7 +1,7 @@
 ---
 title: "Medical Malpractice Record Review: Identifying Standard-of-Care Deviations"
 date: "2026-03-02"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Medical Records"
 image: "/images/blog/medical-malpractice-record-review-standard-of-care.webp?v=2"
 description: "How to run a medical malpractice record review: build clinical chronologies, flag standard-of-care deviations, and prepare expert review packages."

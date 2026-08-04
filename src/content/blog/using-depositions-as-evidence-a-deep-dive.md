@@ -1,7 +1,7 @@
 ---
 title: "Using Depositions as Evidence: A Deep Dive"
 date: "2024-05-01"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Deposition"
 image: "/images/blog/using-depositions-as-evidence-a-deep-dive.webp"
 description: "Depositions are a vital part of the discovery process in litigation, offering a way for parties to gather information under oath before a trial. This deep dive explores how depositions are used as evidence, the rules governing their use, and strategic considerations for attorneys."

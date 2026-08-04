@@ -1,7 +1,7 @@
 ---
 title: "Find Contradictions in Deposition Transcripts Without Re-Reading the Transcript"
 date: "2026-01-14"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Deposition"
 image: "/images/blog/find-contradictions-in-deposition-transcripts-without-re-reading-the-transcript.webp"
 description: "A search-first deposition review workflow to find contradictions in deposition transcripts, verify with page-line citations, and avoid rereading."

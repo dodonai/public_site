@@ -1,7 +1,7 @@
 ---
 title: "Deposition Summary Software: What Reviewers Check Before They Rely on It"
 date: "2026-02-11"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Deposition"
 image: "/images/blog/deposition-summary-software-what-reviewers-check.webp"
 description: "The 7-point verification workflow litigation teams use before relying on deposition summary software: citation spot-checks, export formats, and defensible QA."

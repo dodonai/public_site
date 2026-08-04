@@ -1,7 +1,7 @@
 ---
 title: "How to Write Winning Deposition Summaries: Dodonai's Comprehensive Guide"
 date: "2024-05-01"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Deposition"
 image: "/images/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide.webp"
 description: "Dodonai's comprehensive guide is designed to help you craft winning deposition summaries, leveraging the latest in legal tech to optimize your process."

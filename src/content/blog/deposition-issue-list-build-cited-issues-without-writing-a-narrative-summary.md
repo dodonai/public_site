@@ -1,7 +1,7 @@
 ---
 title: "Deposition Issue List: Build Cited Issues Without Writing a Narrative Summary"
 date: "2026-01-14"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Deposition"
 image: "/images/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary.webp"
 description: "Skip narrative summaries. Build a deposition issue list from transcripts with cited issues, structured tables, and fast export for litigation prep."

@@ -1,7 +1,7 @@
 ---
 title: "AI eDiscovery for Small Law Firms: Enterprise Search Without the Enterprise Price"
 date: "2026-03-18"
-author: "Dodonai Team"
+author: "Nick Chapleau"
 category: "Technology"
 image: "/images/blog/ai-ediscovery-for-small-law-firms.webp"
 description: "AI eDiscovery for small law firms: semantic search, OCR, and document review starting at $30/mo. Enterprise capabilities without the enterprise price."
