@@ -8,7 +8,7 @@
 	import ValueProposition from '$lib/components/features/ValueProposition.svelte';
 	import FAQAccordion from '$lib/components/faq/FAQAccordion.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
-	import { stripLinks } from '$lib/utils/linkify.js';
+	import { stripLinks, linkify } from '$lib/utils/linkify.js';
 	import data from '$lib/data/services/ai-services/how-it-works.json';
 
 	let HeroAnimation = $state(null);
@@ -143,7 +143,7 @@
 										class="mt-1 h-5 w-5 flex-shrink-0"
 										aria-hidden="true"
 									/>
-									<span class="text-base leading-7 text-[#8181ac]">{detail}</span>
+									<span class="text-base leading-7 text-[#8181ac]">{@html linkify(detail)}</span>
 								</li>
 							{/each}
 						</ul>

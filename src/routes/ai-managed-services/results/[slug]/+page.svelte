@@ -7,6 +7,7 @@
 	import ContentSection from '$lib/components/content/ContentSection.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
 	import { aiServicesPracticeAreas } from '$lib/data/navigation.js';
+	import { linkify } from '$lib/utils/linkify.js';
 
 	let { data } = $props();
 	const study = $derived(data.study);
@@ -85,7 +86,7 @@
 			<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
 				{study.built.heading}
 			</h2>
-			<p class="mt-8 text-base leading-7 text-[#8181ac] sm:text-lg">{study.built.intro}</p>
+			<p class="mt-8 text-base leading-7 text-[#8181ac] sm:text-lg">{@html linkify(study.built.intro)}</p>
 			<div class="mt-8 flex flex-wrap gap-3">
 				{#each study.built.agents as agent}
 					{#if agent.slug}
@@ -131,7 +132,7 @@
 							class="mt-1 h-5 w-5 flex-shrink-0"
 							aria-hidden="true"
 						/>
-						<span class="text-base leading-7 sm:text-lg">{item}</span>
+						<span class="text-base leading-7 sm:text-lg">{@html linkify(item)}</span>
 					</li>
 				{/each}
 			</ul>
