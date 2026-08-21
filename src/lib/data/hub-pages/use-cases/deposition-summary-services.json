@@ -20,7 +20,7 @@
   ],
   "hero": {
     "headline": "Deposition Summary Software: Upload the Transcript, Get the Summary",
-    "subheadline": "Some firms want software. Some want the work done. This is the second one. Send a transcript and get back a cited summary in the format your motion practice actually uses, without adding a seat, a login, or a new process for your paralegals to learn.",
+    "subheadline": "Upload the transcript and get back a cited summary in the format your motion practice actually uses. Page-line, issue-based, narrative, or your own firm template. Every line cites the page and line it came from, so anything in it can be checked against the transcript in seconds.",
     "ctaText": "Summarise Your First Transcript",
     "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=deposition-summary-services",
     "secondaryCtaText": "See How It Works",
@@ -33,7 +33,7 @@
       "paragraphs": [
         "Every summary is cited to the page and line it came from, so anything in it can be checked against the transcript in seconds. That is the part most outsourced summaries get wrong: they read well but cannot be verified, so someone ends up re-reading the transcript anyway.",
         "You choose the format. Page-line summaries for motion practice and impeachment. Issue-based summaries when you need the testimony organised by theory of the case rather than by chronology. Narrative summaries when the summary is going to a client or an expert rather than to a judge.",
-        "The work runs on the same engine as our software, which means the summary you receive as a service is identical to the one you would produce yourself in the platform. Firms often start here and move to the software once they see the output, or run both: services for overflow, software for everyday volume."
+        "It is the same engine across every tier, so the summary does not get better on a bigger plan. What changes with volume is the price per page, not the output. Firms usually start on one transcript, then move their standing deposition volume across once they have read the output on a case they know well."
       ]
     },
     {
@@ -42,7 +42,7 @@
       "paragraphs": [
         "Firms with uneven deposition volume. If you take forty depositions one month and four the next, hiring for the peak is expensive and hiring for the average means missing deadlines. Per-page pricing means you pay for the forty and nothing for the four.",
         "Firms where the bottleneck is not skill but hours. Your paralegals can write an excellent summary. The question is whether that is the best use of the day when the alternative is intake, client contact, or discovery responses.",
-        "Litigation support vendors and court reporting agencies who want to offer summaries to their own clients without building the capability in-house. We work behind the scenes on a white-label basis."
+        "Litigation support vendors and court reporting agencies who want to offer summaries to their own clients. Our managed services team can put the platform behind your own brand and workflow, and you keep the code."
       ]
     },
     {
@@ -50,7 +50,7 @@
       "heading": "Pricing",
       "paragraphs": [
         "Per page, not per seat. Usage-based, from $0.02 per page on Pro monthly down to $0.008 per page on Pro annual. No per-user licence, and no feature gating between tiers.",
-        "A typical 200-page deposition transcript therefore costs a few dollars to summarise rather than the several hundred dollars of paralegal time it displaces. Full pricing tiers are published on our pricing page, because we think a services page that will not tell you the price is wasting your time."
+        "A typical 200-page deposition transcript therefore costs a few dollars to summarise rather than the several hundred dollars of paralegal time it displaces. Full pricing tiers are published on our pricing page, because a page that will not tell you the price is wasting your time."
       ]
     },
     {
@@ -64,28 +64,28 @@
   ],
   "faq": [
     {
-      "question": "How is this different from your deposition summary software?",
-      "answer": "The software is a platform your team logs into and runs themselves. Same engine behind every summary, same output quality, different amount of your team's time involved. Firms with steady volume run it in-house; firms with spiky volume lean on it hardest in the weeks that spike."
+      "question": "How fast is a summary back?",
+      "answer": "Minutes for a standard transcript, not days. A 200 page deposition is processed in one pass, and you are reviewing output rather than waiting on a queue."
     },
     {
-      "question": "What format do you need the transcript in?",
-      "answer": "Whatever your court reporter gave you. PDF, including scanned or image-based PDFs, plus TXT, DOCX, and the common transcript formats. If it is scanned rather than digital text, our OCR handles it as part of the same job at no extra step."
+      "question": "What format does the transcript need to be in?",
+      "answer": "Whatever your court reporter gave you. PDF including scanned or image based PDFs, plus TXT, DOCX and the common transcript formats. Scanned files run through OCR as part of the same job."
     },
     {
-      "question": "Can I ask for a specific summary format?",
-      "answer": "Yes. Page-line, issue-based, narrative, or a firm template you already use. Point it at an example of a summary your firm likes and it match that structure rather than imposing ours."
+      "question": "Can I get a specific summary format?",
+      "answer": "Yes. Page-line, issue-based, narrative, or a firm template you already use. Point it at an example of a summary your firm likes and it will match that structure."
     },
     {
-      "question": "Do you handle exhibits and medical records attached to the deposition?",
-      "answer": "Yes. Exhibits are summarised alongside the testimony, and medical exhibits can be turned into a chronology at the same time. If the deposition is medical-heavy, our medical chronology services cover that side of the file."
+      "question": "Does it handle exhibits and medical records attached to the deposition?",
+      "answer": "Yes. Exhibits are summarised alongside the testimony, and medical exhibits can be turned into a chronology at the same time, so a medical deposition comes back as one connected picture."
     },
     {
       "question": "Is there a minimum volume?",
-      "answer": "No. One transcript is a valid job. Per-page pricing means there is nothing to commit to and nothing wasted if your volume drops."
+      "answer": "No. One transcript is a valid job. Usage-based pricing means there is nothing to commit to and nothing wasted if your volume drops."
     },
     {
-      "question": "Who reviews the summary before it comes back to me?",
-      "answer": "Every summary carries page-line citations so your own team can spot-check any statement against the transcript quickly. We recommend that check on the first few jobs. It is faster than reading the transcript and it tells you exactly how much verification you need going forward."
+      "question": "How do I check a summary is right?",
+      "answer": "Every line carries its page and line citation, so any statement can be checked against the transcript in one click. That check is the point: a summary you cannot verify is not usable in front of a judge."
     }
   ],
   "relatedPages": [

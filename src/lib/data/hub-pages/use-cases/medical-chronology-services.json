@@ -20,7 +20,7 @@
   ],
   "hero": {
     "headline": "Medical Chronology Software: Upload the Records, Get the Chronology",
-    "subheadline": "Thousands of pages of mixed provider records, out of order, half of them scanned. Send them as they are and get back a chronology with every entry cited to its source page. No software for your team to learn and no seat to license.",
+    "subheadline": "Thousands of pages of mixed provider records, out of order and half of them scanned. Upload them as they are and get back a chronology with every entry cited to its source page, in minutes rather than the days it takes by hand.",
     "ctaText": "Chronologise Your First Record Set",
     "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=medical-chronology-services",
     "secondaryCtaText": "See How It Works",
@@ -32,7 +32,7 @@
       "heading": "The Part That Actually Takes the Time",
       "paragraphs": [
         "Reviewing medical records is legal work. Organising them is not. Yet on most files the organising takes longer: separating providers, putting visits in date order, reading handwriting, working out which of four copies of the same discharge summary is the complete one.",
-        "That is the part we take. What comes back is a chronology in date order, grouped by provider, with every entry citing the page it came from. Gaps in treatment are flagged, duplicate records are collapsed, and illegible entries are marked rather than guessed at.",
+        "That is the part the software takes. What comes back is a chronology in date order, grouped by provider, with every entry citing the page it came from. Gaps in treatment are flagged, duplicate records are collapsed, and illegible entries are marked rather than guessed at.",
         "Because every line is cited, your team verifies by spot-checking rather than by re-reading. That is the difference between a chronology you can rely on in a deposition and one you have to double-check before you dare use it."
       ]
     },
@@ -42,17 +42,17 @@
       "paragraphs": [
         "Personal injury and medical malpractice firms where record volume swings with the case mix. Per-page pricing means a 4,000-page file costs what it costs and a quiet month costs nothing.",
         "Workers' compensation practices, where nearly every file turns on the medical record and the chronology is the case. Comp firms tend to have the highest ratio of record pages to attorney hours of anyone we work with.",
-        "IME companies, medical record retrieval vendors, and litigation support providers who want to offer chronologies to their own clients. We work white-label behind the scenes."
+        "IME companies, medical record retrieval vendors, and litigation support providers who want to offer chronologies to their own clients. Our managed services team can put the platform behind your own brand and workflow, and you keep the code."
       ]
     },
     {
       "type": "content",
-      "heading": "Formats We Produce",
+      "heading": "Output Formats",
       "paragraphs": [
         "Chronology, which is the date-ordered timeline of every clinical event with citations. This is the default and the one most litigation teams want.",
         "Narrative summary, which reads as prose rather than a table. Better for demand packages and for anything going to a client or an adjuster.",
         "Provider timeline, which groups by treating provider rather than by date. Useful when the question is what a particular doctor knew and when.",
-        "If your firm already has a chronology template, send an example and we match it rather than imposing our own layout."
+        "If your firm already has a chronology template, point it at an example and it matches your layout rather than imposing one."
       ]
     },
     {
@@ -67,28 +67,28 @@
   ],
   "faq": [
     {
-      "question": "How is this different from your medical chronology software?",
-      "answer": "The software is a platform your team runs, on your own schedule. Same engine and same output, different amount of your team's time. Firms with steady volume run it in-house; firms with spiky volume lean on it hardest in the weeks that spike."
+      "question": "How fast is a chronology back?",
+      "answer": "Minutes for a typical record set, not the six to ten hours of manual review it displaces. Multi-thousand-page sets are routine."
     },
     {
-      "question": "Can you handle scanned and handwritten records?",
-      "answer": "Yes. Scanned PDFs, faxed records, and handwritten clinical notes are processed with OCR as part of the same job. Anything genuinely illegible is flagged as illegible rather than guessed at, because a wrong date in a chronology is worse than a missing one."
+      "question": "Does it handle scanned and handwritten records?",
+      "answer": "Yes. Scanned PDFs, faxed records and handwritten clinical notes are processed with OCR as part of the same job. Anything genuinely illegible is flagged rather than guessed at."
     },
     {
-      "question": "How large a record set can you take?",
-      "answer": "Multi-thousand-page sets are routine. Volume pricing means large files get cheaper per page, not more expensive, which is the opposite of how per-hour outsourcing behaves."
+      "question": "How large a record set can it take?",
+      "answer": "Multi-thousand-page sets are routine. Usage-based pricing means large files get cheaper per page at volume, not more expensive, which is the opposite of how per-hour review works."
     },
     {
-      "question": "Do you flag treatment gaps and inconsistencies?",
-      "answer": "Yes. Gaps in treatment, duplicate records across providers, and inconsistencies between provider accounts are surfaced in the output, since those are usually the facts that matter to the case rather than the routine visits."
+      "question": "Does it flag treatment gaps and inconsistencies?",
+      "answer": "Yes. Gaps in treatment, duplicate records across providers and inconsistencies between provider accounts are surfaced in the output, since those are usually the entries that matter most to the case."
     },
     {
       "question": "Is a BAA available?",
-      "answer": "Yes, and it is available before you upload anything containing protected health information. That is the sequence we recommend rather than signing afterwards."
+      "answer": "Yes, and it is available before you upload anything containing protected health information. That is the sequence we recommend rather than signing after the fact."
     },
     {
-      "question": "Can you also summarise the depositions on the same case?",
-      "answer": "Yes. Our deposition summary services cover the testimony side of the file, and the two can be cross-referenced so the chronology and the deposition summary point at each other."
+      "question": "Can it summarise the depositions on the same case?",
+      "answer": "Yes. The same account covers deposition summaries, and the two can be cross-referenced so the chronology and the testimony line up on one timeline."
     }
   ],
   "relatedPages": [
@@ -100,7 +100,7 @@
     {
       "title": "Deposition Summary Services",
       "href": "/use-cases/deposition-summary-services/",
-      "description": "The same arrangement for transcripts: send it, get a cited summary back."
+      "description": "The same for transcripts: upload it, get a cited summary back."
     },
     {
       "title": "Medical Record Review",
