@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Deposition Summary Services for Law Firms | Dodonai",
-    "description": "Send us the transcript, get a cited page-line or issue-based summary back. Priced per page from 2 cents. SOC 2 certified, HIPAA compliant.",
+    "description": "Upload the transcript, get a cited page-line or issue-based summary back. Usage-based pricing from $0.008 per page. SOC 2 certified, HIPAA compliant.",
     "canonical": "/use-cases/deposition-summary-services/"
   },
   "breadcrumbs": [
@@ -10,7 +10,7 @@
     { "name": "Deposition Summary Services", "href": "/use-cases/deposition-summary-services/" }
   ],
   "hero": {
-    "headline": "Deposition Summary Services — You Send the Transcript, We Send the Summary",
+    "headline": "Deposition Summary Software: Upload the Transcript, Get the Summary",
     "subheadline": "Some firms want software. Some want the work done. This is the second one. Send a transcript and get back a cited summary in the format your motion practice actually uses, without adding a seat, a login, or a new process for your paralegals to learn.",
     "ctaText": "Send Your First Transcript",
     "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=deposition-summary-services",
@@ -40,7 +40,7 @@
       "type": "content",
       "heading": "Pricing",
       "paragraphs": [
-        "Per page, not per seat. Standard summaries start at $0.06 per page, dropping to $0.008 per page at volume. There is no minimum commitment, no per-user licence, and no feature gating between tiers.",
+        "Per page, not per seat. Usage-based, from $0.02 per page on Pro monthly down to $0.008 per page on Pro annual. No per-user licence, and no feature gating between tiers.",
         "A typical 200-page deposition transcript therefore costs a few dollars to summarise rather than the several hundred dollars of paralegal time it displaces. Full pricing tiers are published on our pricing page, because we think a services page that will not tell you the price is wasting your time."
       ]
     },
@@ -56,7 +56,7 @@
   "faq": [
     {
       "question": "How is this different from your deposition summary software?",
-      "answer": "The software is a platform your team logs into and runs themselves. The service is us doing the work and sending it back. Same engine, same output quality, different amount of your team's time involved. Firms with steady volume usually prefer the software; firms with spiky volume or no spare paralegal hours usually prefer the service."
+      "answer": "The software is a platform your team logs into and runs themselves. Same engine behind every summary, same output quality, different amount of your team's time involved. Firms with steady volume run it in-house; firms with spiky volume lean on it hardest in the weeks that spike."
     },
     {
       "question": "What format do you need the transcript in?",
@@ -64,7 +64,7 @@
     },
     {
       "question": "Can I ask for a specific summary format?",
-      "answer": "Yes. Page-line, issue-based, narrative, or a firm template you already use. If you send us an example of a summary your firm likes, we match that structure rather than imposing ours."
+      "answer": "Yes. Page-line, issue-based, narrative, or a firm template you already use. Point it at an example of a summary your firm likes and it match that structure rather than imposing ours."
     },
     {
       "question": "Do you handle exhibits and medical records attached to the deposition?",
@@ -81,7 +81,7 @@
   ],
   "relatedPages": [
     { "title": "AI Deposition Summary Software", "href": "/deposition-summary-software/", "description": "The platform version, if your team would rather run the work themselves." },
-    { "title": "Medical Chronology Services", "href": "/use-cases/medical-chronology-services/", "description": "The same arrangement for medical records: send the file, get a cited chronology back." },
+    { "title": "Medical Chronology Services", "href": "/use-cases/medical-chronology-services/", "description": "The same works for medical records: upload the file, get a cited chronology back." },
     { "title": "AI Deposition Transcript Software", "href": "/ai-deposition-transcript-software/", "description": "Transcript management and search across a full case." },
     { "title": "Expert Witness Preparation", "href": "/use-cases/expert-witness-preparation/", "description": "Preparing testimony and cross-examination from summarised depositions." },
     { "title": "AI Managed Services", "href": "/ai-managed-services/", "description": "Custom agents built around your firm's own workflows, where you keep the code." },
@@ -95,7 +95,7 @@
     "6-ways-deposition-summaries-provide-value-in-litigation"
   ],
   "ctaOverride": {
-    "headline": "Send Us One Transcript",
-    "description": "Start with a single deposition and judge the output on your own case. No minimum, no seat licence, no commitment."
+    "headline": "Try It On One Transcript",
+    "description": "Start with a single deposition and judge the output on your own case."
   }
 }

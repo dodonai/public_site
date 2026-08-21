@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "Medical Chronology Services for Law Firms | Dodonai",
-    "description": "Send the records, get a cited medical chronology back. Per-page pricing from 2 cents. HIPAA compliant, BAA available before upload.",
+    "description": "Upload the records, get a cited medical chronology back. Usage-based pricing from $0.008 per page. HIPAA compliant, BAA available before upload.",
     "canonical": "/use-cases/medical-chronology-services/"
   },
   "breadcrumbs": [
@@ -10,7 +10,7 @@
     { "name": "Medical Chronology Services", "href": "/use-cases/medical-chronology-services/" }
   ],
   "hero": {
-    "headline": "Medical Chronology Services — Send the Records, Get the Chronology",
+    "headline": "Medical Chronology Software: Upload the Records, Get the Chronology",
     "subheadline": "Thousands of pages of mixed provider records, out of order, half of them scanned. Send them as they are and get back a chronology with every entry cited to its source page. No software for your team to learn and no seat to license.",
     "ctaText": "Send Your First Record Set",
     "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=medical-chronology-services",
@@ -50,7 +50,7 @@
       "type": "content",
       "heading": "Pricing and Compliance",
       "paragraphs": [
-        "Per page, not per seat. From $0.06 per page for standard summaries down to $0.008 per page at volume, with no minimum commitment and no per-user licence. Full tiers are on our pricing page.",
+        "Per page, not per seat. Usage-based, from $0.02 per page on Pro monthly down to $0.008 per page on Pro annual, with no per-user licence. Full tiers are on our pricing page.",
         "HIPAA compliant and SOC 2 certified. A BAA is available before any protected health information is uploaded, which is the right order to do it in. Records are never used to train models and are never shared between clients.",
         "For firms that cannot let records leave their environment at all, our managed services team can build the same workflow inside your own systems, and you keep the code."
       ]
@@ -59,7 +59,7 @@
   "faq": [
     {
       "question": "How is this different from your medical chronology software?",
-      "answer": "The software is a platform your team runs. The service is us running it and sending the result back. Same engine and same output, different amount of your team's time. Firms with steady volume usually take the software; firms with spiky volume or no spare paralegal hours usually take the service."
+      "answer": "The software is a platform your team runs, on your own schedule. Same engine and same output, different amount of your team's time. Firms with steady volume run it in-house; firms with spiky volume lean on it hardest in the weeks that spike."
     },
     {
       "question": "Can you handle scanned and handwritten records?",
@@ -98,7 +98,7 @@
     "what-actually-slows-down-medical-chronology-review"
   ],
   "ctaOverride": {
-    "headline": "Send Us One Record Set",
-    "description": "Start with a single file and judge the chronology on your own case. No minimum, no seat licence, no commitment."
+    "headline": "Try It On One Record Set",
+    "description": "Start with a single file and judge the chronology on your own case."
   }
 }
