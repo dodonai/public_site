@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>KFB Law · Firm OS Architecture Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
 /* ============================================================================
    Dodonai Brief Engine — canonical stylesheet
    ----------------------------------------------------------------------------
@@ -603,107 +614,418 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
   .stack-before .stack-chip{animation:none}
 }
 
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Firm OS Architecture Brief</span>
+      <span class="tag">for KFB Law</span>
+    </div>
+    <span class="eyebrow">Prepared for Kurkin Forehand Brandes LLP</span>
+    <h1>Do the legal work.<br><span class="soft">Let the system do the rest.</span></h1>
+    <p class="lede">One system that ingests every carrier file and medical record, sorts and summarizes it, files it back into ProLaw, drafts the billable time your attorneys forget to log, and keeps a human sign-off on every step.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Call</div><div class="value">Tue Jul 28, 2026 · 2:00–3:00pm ET</div></div>
+      <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · Nick + James</div></div>
+      <div class="meta"><div class="label">Goal today</div><div class="value">See a Firm OS on your WC workflow, pick the first automation to build</div></div>
+      <div class="meta"><div class="label">Your decision</div><div class="value">Move from the platform you use today to an owned, automated Firm OS</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- ALREADY LIVE (momentum band) -->
+<div class="changed">
+  <div class="wrap">
+    <div class="ctitle">Already live at KFB</div>
+    <div class="clist">
+      <div class="ci"><span class="tick">→</span><span><b>WC department on the platform</b> <span>$600 annual plan, since the 5/29 demo</span></span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Two advanced templates built</b> <span>carrier-file eval + medical records</span></span></div>
+      <div class="ci"><span class="tick">→</span><span><b>De-dup + chronology</b> <span>in production today</span></span></div>
+      <div class="ci"><span class="tick">→</span><span><b>1,000+ page files in 1–2 hours</b> <span>saved back into ProLaw</span></span></div>
+      <div class="ci"><span class="tick">→</span><span><b>SOC 2 certified, HIPAA compliant</b> <span>you own the code and the data</span></span></div>
+      <div class="ci"><span class="tick">→</span><span><b>This brief builds on that</b> <span>the Firm OS is the layer on top</span></span></div>
+    </div>
+  </div>
+</div>
+
+<!-- TRUST STRIP (badges up top) -->
+<section style="padding:22px 0">
+  <div class="wrap">
+    <div class="compliance reveal" style="justify-content:center;margin:0">
+      <span class="pill"><span class="pk">✓</span> SOC 2 Certified</span>
+      <span class="pill"><span class="pk">✓</span> HIPAA Compliant</span>
+      <span class="pill"><span class="pk">✓</span> Tenant-resident</span>
+      <span class="pill"><span class="pk">✓</span> BAA available</span>
+      <span class="pill"><span class="pk">✓</span> Zero data retention</span>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE HEARD -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What we heard · July 15 training</span><h2>Your whole WC team, <span class="soft">in one room</span></h2>
+      <p class="sec-sub">The training ran with the full six-person Workers' Comp department. Here is who was there, and the friction they raised.</p></div>
+    <div class="compliance reveal d1" style="margin-bottom:26px">
+      <span class="pill"><span class="pk">★</span> Judy Blinderman · dept head</span>
+      <span class="pill">Brittany Gonzalez · records</span>
+      <span class="pill">Heather McLeod</span>
+      <span class="pill">Emily Kraut</span>
+      <span class="pill">Dina LaPlaca</span>
+      <span class="pill">Gina</span>
+    </div>
+    <div class="feat reveal d2">
+      <div class="f"><span class="fm">→</span><span><b>Manual depo and medical summaries eat attorney time.</b> Summaries are due in 7 days, but the official transcript can take a month. <i>(Judy)</i></span></div>
+      <div class="f"><span class="fm">→</span><span><b>Every records batch is a manual round trip</b> in and out of ProLaw: downloaded, re-filed, and re-named by hand. <i>(Brittany)</i></span></div>
+      <div class="f"><span class="fm">→</span><span><b>Email attachments pile up unsorted:</b> "15 attachments I didn't have time to sort." <i>(Dina)</i></span></div>
+      <div class="f"><span class="fm">→</span><span><b>Billable time leaks</b> on the 0.1 per email nobody logs, roughly 2 hours a week per attorney. <i>(Heather lit up here)</i></span></div>
+      <div class="f"><span class="fm">→</span><span><b>"All in one place":</b> one system across emails, billing, and documents. <i>(Emily)</i></span></div>
+    </div>
+    <p class="os-def reveal d3" style="margin-top:24px">Judy drove the conversation. She used Chat with Docs live on a real claim, raised workflow automation three times, and asked to bring the firm-wide expansion to Alex directly. <strong>That ask is why we are here.</strong></p>
+  </div>
+</section>
+
+<!-- DESTINATION -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The destination</span><h2>Where you said you want to <span class="soft">get to</span></h2></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">That is definitely something we would need. I'll figure out the firm-wide piece with Alex and Kayla.</p>
+      <div class="qa">— Judy Blinderman, WC department head (7/15 Firm OS discussion)</div>
+    </div>
+    <p class="os-def reveal d2">A <strong>Firm OS</strong> is the orchestrator of your data. Today you have islands of software that do not speak to each other: ProLaw, your billing system, email, and the summaries you run in Dodonai. The OS is the conductor. It moves each document where it belongs, answers "what did we send the adjuster two weeks ago," and does it on rules you set.</p>
+  </div>
+</section>
+
+<!-- XFORM (animated: scatter -> hub) -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The transformation</span><h2>From clicking between tools <span class="soft">to one system that runs the path</span></h2></div>
+    <div class="xform reveal d1" id="xform">
+      <div class="xcol today">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber);display:inline-block"></span> Today</div>
+        <div class="scatter">
+          <span class="tool-chip">ProLaw</span><span class="tool-chip">Firm email</span><span class="tool-chip">Billing</span><span class="tool-chip">Dodonai</span>
+          <span class="tool-chip">Carrier portals</span><span class="tool-chip">Court notices</span><span class="tool-chip">Word</span><span class="tool-chip">Shared drive</span>
+          <span class="runner"></span>
+          <span class="handlabel">Your team clicking between all of them</span>
+        </div>
+      </div>
+      <div class="xarrow"><span class="at">Build &amp; own</span><span class="ah">→</span></div>
+      <div class="xcol os">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--purple-vivid);display:inline-block"></span> Firm OS</div>
+        <div class="hub">
+          <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="92" y2="28"/>
+            <line x1="50" y1="50" x2="92" y2="72"/><line x1="50" y1="50" x2="50" y2="92"/>
+            <line x1="50" y1="50" x2="8" y2="72"/><line x1="50" y1="50" x2="8" y2="28"/>
+          </svg>
+          <div class="hub-core"><span class="hw">Firm OS</span><span class="hs">the brain</span></div>
+          <span class="spoke">ProLaw</span><span class="spoke">Email</span><span class="spoke">Billing</span>
+          <span class="spoke">Dodonai</span><span class="spoke">Court dockets</span><span class="spoke">Drive</span>
+        </div>
+      </div>
+    </div>
+    <div class="xcaption reveal d2">
+      <div class="xc l"><div class="h"><span class="pin"></span>Today</div><p>Every file is a manual round trip. Records get downloaded, re-filed, and re-named. Billable time gets reconstructed from memory.</p></div>
+      <div class="xc r"><div class="h"><span class="pin"></span>Firm OS</div><p>One system reads them all, moves each document where it belongs, and keeps a human on the calls that need a lawyer.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INVENTORY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The inventory</span><h2>Keep, integrate, <span class="soft">replace</span></h2>
+      <p class="sec-sub">Nothing you rely on gets ripped out. ProLaw and your billing system stay. What gets replaced is the manual work between them.</p></div>
+    <div class="legend reveal">
+      <span class="lg"><span class="dot int"></span> Integrate: keep it, the OS reads/writes it</span>
+      <span class="lg"><span class="dot rep"></span> Replace: collapse the manual step</span>
+      <span class="lg"><span class="dot add"></span> Add: new to the stack</span>
+    </div>
+    <div class="cards">
+      <div class="card reveal d1"><div class="top"><span class="name">ProLaw</span><span class="badge int">Integrate</span></div><p class="why">Your record store stays. The OS reads and writes it so the download-and-refile round-trip disappears.</p></div>
+      <div class="card reveal d1"><div class="top"><span class="name">Billing / accounting</span><span class="badge int">Integrate</span></div><p class="why">Drafted billable time posts straight in. No system swap, Kayla keeps her stack.</p></div>
+      <div class="card reveal d1"><div class="top"><span class="name">Firm email</span><span class="badge int">Integrate</span></div><p class="why">The source for file intake and the billable time attorneys forget to capture.</p></div>
+      <div class="card reveal d2"><div class="top"><span class="name">Dodonai platform</span><span class="badge int">Integrate</span></div><p class="why">The summarization engine you already use, now driven by the OS instead of by hand.</p></div>
+      <div class="card replace reveal d2"><div class="top"><span class="name">Manual round-trip</span><span class="badge rep">Replace</span></div><p class="why">Download, re-file, and re-name by hand on every file goes away.</p></div>
+      <div class="card replace reveal d2"><div class="top"><span class="name">Manual time logging</span><span class="badge rep">Replace</span></div><p class="why">The 0.1 per email you forget becomes a drafted timesheet you approve.</p></div>
+    </div>
+    <div class="cards" style="margin-top:16px">
+      <div class="card add reveal d3"><div class="top"><span class="name">Firm OS</span><span class="badge add">Add</span></div><p class="why">The one new thing: the layer that ties it together, plus the live cockpit you open each morning.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS (v1 scope) -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The recommended build · phased</span><h2>What we'd build, <span class="soft">in order</span></h2>
+      <p class="sec-sub">A phased build, sequenced by what the team prioritized on the 15th and by what is lowest-risk to prove first. Each phase maps to the pricing below. Judy's firm-wide interest is where this heads once the WC department is running.</p></div>
+    <div class="pillars">
+      <div class="pillar reveal d1">
+        <div class="phead"><span class="picon">📂</span><span class="ptitle">Documents: records intake + round-trip</span><span class="ptag">Phase 1</span></div>
+        <p>Carrier files and medical records arrive, get auto-classified, summarized on your existing templates, and filed back into ProLaw. The summaries are live today. What is new is the automation around them: no more download, re-file, and re-name by hand.</p>
+        <p class="kills-line">Build first: it extends what is already proven and gives time back on day one.</p>
+      </div>
+      <div class="pillar reveal d2">
+        <div class="phead"><span class="picon">⏱️</span><span class="ptitle">Billing: billable time capture</span><span class="ptag">Phase 2</span></div>
+        <p>An agent drafts the 0.1s you forget from sent email and document time, builds the timesheet, and posts it to billing on your approval. Roughly 2 hours a week per attorney, recaptured. Heather on the 15th: "I might be able to survive more years."</p>
+        <p class="kills-line">Next: the firm-wide wedge Judy wants to take to Alex. Needs your billing-system connection.</p>
+      </div>
+      <div class="pillar reveal d3">
+        <div class="phead"><span class="picon">✉️</span><span class="ptitle">Emails: triage + filing to the claim</span><span class="ptag">Phase 3</span></div>
+        <p>Every incoming email, carrier, adjuster, medical, and court, read and filed to the right claim, with anything needing a decision flagged to the attorney. Solves Dina's pile of unsorted attachments.</p>
+        <p class="kills-line">Then: rounds out "all in one place" once documents and billing are flowing.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPE (animated: a claim runs itself) -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How a claim moves</span><h2>The records pipeline <span class="soft">runs itself</span></h2></div>
+    <div class="pipe-wrap reveal d1" id="pipe">
+      <div class="pipe">
+        <div class="pline"><div class="pfill"></div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📥</span><span class="ic-done">✓</span></div><div class="pttl">File arrives</div><div class="pwho">Agent</div><div class="pstatus">captured</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">🗂️</span><span class="ic-done">✓</span></div><div class="pttl">Sorted + summarized</div><div class="pwho">Agent</div><div class="pstatus">on your templates</div></div>
+        <div class="pnode gate"><div class="pdot"><span class="ic-base">👤</span><span class="ic-done">✓</span></div><div class="pttl">Attorney QA</div><div class="pwho">You</div><div class="pstatus">queued for approval</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📂</span><span class="ic-done">✓</span></div><div class="pttl">Filed to ProLaw</div><div class="pwho">Agent</div><div class="pstatus">back in your folders</div></div>
+      </div>
+      <div class="pipe-foot">The agents do the routine steps. <b>You do one: the review that needs a lawyer.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- ROSTER (agent-grid) -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Beyond v1 · the wider roster</span><h2>The agents a WC-defense <span class="soft">Firm OS</span> runs</h2>
+      <p class="sec-sub">The three phases above are where we start. These are the adjacent automations a workers' comp defense Firm OS runs, the natural next builds once the core is in. None of them duplicate the summaries you run today.</p></div>
+    <div class="agent-grid">
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">📥</div>
+        <div class="agent-body">
+          <h3 class="agent-name">New-referral intake</h3>
+          <p class="agent-desc">Opens the matter, creates the ProLaw folders, assigns the client number.</p>
+          <div class="agent-meta"><span class="am">reads referrals</span><span class="am gate">admin confirm</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">📅</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Court-notice deadlines</h3>
+          <p class="agent-desc">Applies the deadline plan and drafts the client letter off every order.</p>
+          <div class="agent-meta"><span class="am">reads court notices</span><span class="am gate">attorney approve</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">🛡</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Conflict check</h3>
+          <p class="agent-desc">Screens a new referral against decades of adjusters, opposing counsel, and courts.</p>
+          <div class="agent-meta"><span class="am">reads referrals</span><span class="am gate">attorney clear</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">↻</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Adjuster + client updates</h3>
+          <p class="agent-desc">Drafts routine carrier and client status letters off matter activity.</p>
+          <div class="agent-meta"><span class="am">reads activity</span><span class="am gate">attorney approve</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DASH (animated cockpit) -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The cockpit</span><h2>One dashboard, <span class="soft">every claim and every agent</span></h2></div>
+    <div class="dash reveal d1" id="dash">
+      <div class="dash-bar"><span class="dots"><i></i><i></i><i></i></span><span class="dtitle">KFB Law · Firm OS</span><span class="dlive">Live</span></div>
+      <div class="dash-body">
+        <div class="dash-col left">
+          <div class="kpis">
+            <div class="kpi"><div class="kn">18</div><div class="kl">Active claims</div></div>
+            <div class="kpi"><div class="kn">3</div><div class="kl">Need your sign-off</div></div>
+            <div class="kpi"><div class="kn">47</div><div class="kl">Agent runs today</div></div>
+          </div>
+          <div class="dash-h">Active claims <span class="cnt">18</span></div>
+          <div class="mrow"><div><div class="mname">Alvarez (WC)</div><div class="mphase">Records indexed</div></div><span class="mpill done">Ready</span></div>
+          <div class="mrow"><div><div class="mname">Torres (WC)</div><div class="mphase">Time capture</div></div><span class="mpill wait">Your sign-off</span></div>
+          <div class="mrow"><div><div class="mname">Nguyen (WC)</div><div class="mphase">New referral</div></div><span class="mpill run">Agent: filing to ProLaw</span></div>
+        </div>
+        <div class="dash-col right">
+          <div class="dash-h">Agent activity <span class="cnt">live</span></div>
+          <div class="feed">
+            <div class="feed-track" id="feed">
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Carrier file indexed</b> 1,240 pages, chronology built. <span class="agent">[ records ]</span></div><div class="atime">07:42</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Timesheet drafted</b> ready for your sign-off. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:03</div></div></div>
+              <div class="aevent"><span class="aic">📨</span><div><div class="atx"><b>Adjuster email filed</b> to the Nguyen claim. <span class="agent">[ triage ]</span></div><div class="atime">08:10</div></div></div>
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Carrier file indexed</b> 1,240 pages, chronology built. <span class="agent">[ records ]</span></div><div class="atime">07:42</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Timesheet drafted</b> ready for your sign-off. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:03</div></div></div>
+              <div class="aevent"><span class="aic">📨</span><div><div class="atx"><b>Adjuster email filed</b> to the Nguyen claim. <span class="agent">[ triage ]</span></div><div class="atime">08:10</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="dash-cap reveal d2">The one place above ProLaw, email, and billing. Open it in the morning and see every claim and every agent at a glance. <b>Illustrative mockup.</b></p>
+  </div>
+</section>
+
+<!-- GATES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>The OS removes the typing, <span class="soft">not the judgment</span></h2></div>
+    <div class="gates">
+      <div class="gatecard reveal d1"><div class="gi">✍️</div><h4>Summaries</h4><p>Attorneys finalize every one. The mental impressions you add in Word stay yours.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">💵</div><h4>Billing</h4><p>No timesheet posts to billing, and no client is billed, without an attorney approving it.</p></div>
+      <div class="gatecard reveal d1"><div class="gi">📂</div><h4>Filing</h4><p>Nothing files to ProLaw without a human OK.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">⚖️</div><h4>Privilege</h4><p>Responsive and privileged tags are a starting point for the attorney, never a determination.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE + SECURITY -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Built for regulated work</span><h2>Security &amp; <span class="soft">compliance</span></h2></div>
+    <div class="compliance reveal d1">
+      <span class="pill"><span class="pk">✓</span> SOC 2 Certified</span>
+      <span class="pill"><span class="pk">✓</span> HIPAA Compliant</span>
+      <span class="pill"><span class="pk">✓</span> Tenant-resident</span>
+      <span class="pill"><span class="pk">✓</span> BAA available</span>
+      <span class="pill"><span class="pk">✓</span> Zero data retention</span>
+    </div>
+    <div class="sec-grid">
+      <div class="seccard reveal d1"><div class="ic">🔐</div><h4>You own it</h4><p><b>You own the code and the data.</b> Custom KFB software, not a subscription you are locked into. Walk away and you still have the asset.</p></div>
+      <div class="seccard reveal d2"><div class="ic">🏛️</div><h4>Tenant-resident</h4><p>PHI and privileged material stay <b>in your environment</b>. The AI does not train on your files.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How it's priced</span><h2>A build you own, <span class="soft">phased and pay-as-you-go</span></h2>
+      <p class="sec-sub">Different model from the platform subscription. A statement of work: a CapEx build plus an OpEx to run it. We firm each figure once we lock scope on the call, so the numbers are honest, not guessed.</p></div>
+    <div class="numbers-grid">
+      <div class="numcard reveal d1">
+        <div class="nlabel">Build · CapEx</div><h3>~$19–30k · phased</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">1 · Documents: records round-trip</div><div class="od">Classify, summarize, file back to ProLaw, attorney QA gate</div></div><div class="oa">$6–10k</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">2 · Billing: time capture</div><div class="od">Draft 0.1s, build the timesheet, post on approval, billing-system integration</div></div><div class="oa">$8–12k</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">3 · Emails: triage + filing</div><div class="od">Read and file every email to the right claim, flag decisions, across the team</div></div><div class="oa">$5–8k</div></div>
+        <div class="paysplit"><div class="half"><div class="h">Each phase: start</div><div class="v">50%</div></div><div class="arr">→</div><div class="half"><div class="h">On approval</div><div class="v">50%</div></div></div>
+        <p class="numnote">Cash outflow tracks completion, never a big up-front lump. Sequence by the pillar that gives KFB the most back first. You own the code and data.</p>
+      </div>
+      <div class="numcard reveal d2">
+        <div class="nlabel">Ongoing · OpEx</div><h3>Two separable layers</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Hosting / infrastructure <span style="color:var(--gray-meta);font-weight:400">(only required cost)</span></div><div class="od">GCloud, US residency, storage. Scales with agent usage.</div></div><div class="oa">$200–500<br>/mo</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Support retainer <span style="color:var(--gray-meta);font-weight:400">(optional, tiered)</span></div><div class="od">Tiered by level of access: Standard ($500), Priority ($1–1.5k), White-glove ($2.5–3.5k). Scales as more of the firm comes online.</div></div><div class="oa">$500–3.5k<br>/mo</div></div>
+        <div class="value-anchor"><b>The platform you pay for today stays separate.</b> The subscription runs the summaries. The Firm OS is the automation layer on top, priced as its own build so you can start with one pillar and grow.</div>
+      </div>
+    </div>
+    <div class="roi reveal d3">
+      <div class="rlabel">The levers, in your language</div>
+      <div class="rgrid">
+        <div class="rstat"><div class="rn">~2 hrs<small>/wk</small></div><div class="rd">Billable time per attorney lost to un-logged 0.1s, recaptured</div></div>
+        <div class="rstat"><div class="rn">1–2 hrs</div><div class="rd">To sort and summarize a 1,000+ page file that used to be a manual clerk day</div></div>
+        <div class="rstat"><div class="rn">1 clerk</div><div class="rd">The records-sorting workload that today "would replace a custodian's salary"</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Suggested <span class="soft">phasing</span></h2></div>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="phase-t reveal d1"><div class="pnode2">✓</div><div class="ptagline">This call</div><div class="ph2">Pick the first automation</div><div class="pd2">See the Firm OS on KFB's workflow, choose the lead pillar, scope the build.</div></div>
+      <div class="phase-t reveal d2"><div class="pnode2">0</div><div class="ptagline">After SOW</div><div class="ph2">Discovery / architecture</div><div class="pd2">Map ProLaw, billing, and email integration surfaces, finalize the spec.</div></div>
+      <div class="phase-t reveal d3"><div class="pnode2">1</div><div class="ptagline">The build</div><div class="ph2">Build the v1 OS</div><div class="pd2">Documents round-trip + billable capture + email triage. A human gate on each.</div></div>
+      <div class="phase-t future reveal d4"><div class="pnode2">2</div><div class="ptagline">Later</div><div class="ph2">Firm-wide rollout</div><div class="pd2">Billing across departments, court-notice deadlines, other practice areas, once WC proves out.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for Kurkin Forehand Brandes LLP · Confidential
+  </div>
+</footer>
+
+
+<script>
 /* ============================================================================
-   FAMILY 5 — INTERACTIVE PRICED MENU
+   Dodonai Brief Engine — scroll reveal + animation gating
    ----------------------------------------------------------------------------
-   A build-your-own-quote block for proposal artifacts: selectable automation
-   cards (each with a mini left-to-right mechanism diagram), package cards whose
-   discount applies automatically, and a sticky bottom bar that sums the
-   selection live. Keep the headline/hero stat grid on VALUE (hours back, matters
-   covered), never price — the price only appears once the buyer selects, in the
-   totbar. Wire the interactivity with data attributes (see blocks.html FAMILY 5)
-   + brief-reveal.js, which no-ops unless a [data-menu-total] bar is present, and
-   which also runs fitDiagrams() so no SVG label can ever spill its node box.
-   When a .totbar is on the page, give body `padding-bottom:96px` (130px mobile)
-   so the fixed bar never covers the footer.
+   Pairs with brief.css. Two IntersectionObservers:
+     1. .reveal  -> adds .in when the element scrolls into view (fade + rise).
+     2. animated blocks (#xform, #pipe, #dash, or any [data-play]) -> adds .play
+        the first time they're visible, so the CSS keyframe animations stay idle
+        until seen (saves CPU + makes the reveal feel intentional).
+
+   No dependencies. Safe to load with `defer`. Honors prefers-reduced-motion via
+   brief.css (the .reveal rule no-ops; .play still applies but animations that
+   matter are decorative). To register a custom animated block, add the
+   `data-play` attribute to it OR push its id into PLAY_IDS below.
    ============================================================================ */
+(function () {
+  var PLAY_IDS = ['xform', 'pipe', 'dash'];
 
-/* ----- mini flow diagram (reusable automation-mechanism figure) ----- */
-/* SVG text never wraps; brief-reveal.js fitDiagrams() squeezes any label wider
-   than its node. Keep labels short anyway — the squeeze is a safety net. */
-.dg{margin:4px 0 2px;overflow-x:auto}
-.dg svg{width:100%;min-width:640px;height:auto;display:block}
-.dg .nd{fill:#fff;stroke:var(--cream-line);stroke-width:1.5}
-.dg .src{fill:#FBF4E7;stroke:#E5C89A}                 /* input / watched source */
-.dg .agn{fill:#F5F0FE;stroke:var(--purple-vivid)}     /* the agent */
-.dg .out{fill:#fff;stroke:var(--purple-mid)}          /* result / output */
-.dg .gat{fill:#EBF6F8;stroke:var(--teal)}             /* human gate */
-.dg text{font-family:var(--sans)}
-.dg .tt{font-size:13px;font-weight:700;fill:var(--midnight)}                                   /* node title */
-.dg .ts{font-size:10px;font-weight:600;fill:var(--gray-meta-light);font-family:var(--mono)}    /* node subtitle */
-.dg .tw{font-size:9.5px;font-weight:700;fill:var(--purple-bold);font-family:var(--mono);letter-spacing:.08em}  /* over-node kicker */
-.dg .tw.g{fill:var(--teal)}
-.dg .tw.s{fill:var(--amber)}
-.dg .ln{stroke:var(--purple-vivid);stroke-width:2;stroke-dasharray:5 5;fill:none;marker-end:url(#arw)}
-.dg .ln{animation:dashmove 1.1s linear infinite}
-@keyframes dashmove{to{stroke-dashoffset:-20}}
+  function observe() {
+    // 1. Scroll-reveal
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealIO.unobserve(e.target); // reveal once, then stop watching
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
 
-/* ----- selectable automation card ----- */
-.acard{background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;padding:20px 24px 18px;margin-bottom:16px;transition:border-color .25s,box-shadow .25s,background .25s}
-.acard.sel{border-color:var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.045));box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
-.acard .ahead{display:flex;align-items:center;gap:13px;margin-bottom:6px;flex-wrap:wrap}
-.acard .rank{flex:0 0 30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
-.acard.alt2 .rank{background:linear-gradient(150deg,var(--teal),#0a9cb8)}   /* second tier / "also on the menu" */
-.acard .aname{font-weight:800;font-size:17.5px;letter-spacing:-.01em}
-.acard .aprice{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:16px;color:var(--midnight)}
-.acard .adesc{font-size:13.5px;color:var(--gray-meta-light);line-height:1.55;margin:2px 0 12px;max-width:88ch}
-.acard .adesc strong{color:var(--midnight)}
-.acard .afoot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
-.acard .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
-.acard .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
-.acard .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
-.acard input[type=checkbox]{position:absolute;opacity:0;pointer-events:none}
-.addbtn{margin-left:auto;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:8px 18px;cursor:pointer;transition:all .2s;user-select:none}
-.addbtn:hover{background:rgba(124,58,237,.08)}
-.acard.sel .addbtn{background:var(--purple-vivid);color:#fff}
+    // 2. Animation gating: add .play once visible.
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('play'); }
+      });
+    }, { threshold: 0.2 });
 
-/* ----- foundation strip (the shared base, added once with the first pick) ----- */
-.found{background:var(--midnight);color:#fff;border-radius:14px;padding:18px 24px;margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.found .fic{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(181,168,230,.2);display:flex;align-items:center;justify-content:center;font-size:15px}
-.found .ft{font-weight:800;font-size:15.5px}
-.found .fd{font-size:12.5px;color:var(--purple-soft);flex-basis:100%;margin-left:44px;line-height:1.5}
-.found .fp{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--purple-soft)}
-.found .fp b{color:#fff}
+    var targets = {};
+    PLAY_IDS.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) targets[id] = el;
+    });
+    document.querySelectorAll('[data-play]').forEach(function (el) {
+      targets[el.id || ('p' + Math.round(el.getBoundingClientRect().top))] = el;
+    });
+    Object.keys(targets).forEach(function (k) { playIO.observe(targets[k]); });
+  }
 
-/* ----- package cards with auto-applied discount ----- */
-.phcard{background:#fff;border:1.5px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--purple-vivid);display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s}
-.phcard.sel{border-color:var(--purple-vivid);box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
-.phcard .pt{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
-.phcard h4{font-size:16px;font-weight:800;margin:0 0 4px;letter-spacing:-.01em}
-.phcard .amt{font-family:var(--mono);font-weight:700;font-size:19px;color:var(--midnight);margin:6px 0 2px}
-.phcard .amt .was{color:var(--gray-meta);text-decoration:line-through;font-size:13px;font-weight:600;margin-right:8px}
-.phcard .save{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);margin-bottom:10px}
-.phcard p{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0 0 14px;flex:1}
-.phbtn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:9px 16px;cursor:pointer;transition:all .2s;align-self:flex-start}
-.phbtn:hover{background:rgba(124,58,237,.08)}
-.phcard.sel .phbtn{background:var(--purple-vivid);color:#fff}
-.bundle-note{margin-top:18px;background:rgba(46,158,107,.08);border:1px solid rgba(46,158,107,.3);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
-.bundle-note b{color:var(--green)}
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observe);
+  } else {
+    observe();
+  }
+})();
 
-/* ----- sticky live-total bar (hidden math until the buyer selects) ----- */
-.totbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--midnight-deep);color:#fff;border-top:1px solid rgba(181,168,230,.3);box-shadow:0 -14px 40px -20px rgba(0,0,0,.5)}
-.totbar .wrap{display:flex;align-items:center;gap:18px;padding:14px 28px;flex-wrap:wrap}
-.totbar .tprompt{font-size:14.5px;color:var(--purple-soft)}
-.totbar .tprompt b{color:#fff}
-.totbar .tmath{font-family:var(--mono);font-size:12px;color:var(--purple-soft);display:none;align-items:center;gap:14px;flex-wrap:wrap}
-.totbar .tmath .seg b{color:#fff}
-.totbar .tmath .save{color:#5FD6A0}
-.totbar .ttotal{margin-left:auto;display:none;align-items:baseline;gap:10px}
-.totbar .ttotal .tl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700}
-.totbar .ttotal .tv{font-family:var(--mono);font-weight:700;font-size:23px;color:#fff}
-.totbar.active .tprompt{display:none}
-.totbar.active .tmath{display:flex}
-.totbar.active .ttotal{display:flex}
+</script>
 
-@media(max-width:880px){
-  .acard .aprice{flex-basis:100%;margin-left:44px}
-}
-@media(prefers-reduced-motion:reduce){
-  .dg .ln{animation:none}
-  .acard,.phcard,.addbtn,.phbtn{transition:none}
-}
-@media print{
-  .totbar{display:none}
-  .acard,.phcard{page-break-inside:avoid}
-  .dg .ln{animation:none}
-}
+</body>
+</html>

@@ -1,4 +1,10 @@
-/* ============================================================================
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>The Juge Firm — Firm OS: what we heard, what we build first</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>/* ============================================================================
    Dodonai Brief Engine — canonical stylesheet
    ----------------------------------------------------------------------------
    Single source of truth for the visual language behind every Dodonai client
@@ -602,108 +608,337 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
   .pkg-card,.agent-card,.role-card,.proof-card,.stack-side{page-break-inside:avoid}
   .stack-before .stack-chip{animation:none}
 }
+</style>
+</head><body>
 
-/* ============================================================================
-   FAMILY 5 — INTERACTIVE PRICED MENU
+<!-- hero -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Firm OS Discovery</span>
+      <span class="tag">Session 2 recap · Jul 6</span>
+    </div>
+    <span class="eyebrow">Prepared for The Juge Firm</span>
+    <h1>One system opens the file, drafts the answer, and files the email.<br><span class="soft">Built on the workflow your team already runs.</span></h1>
+    <p class="lede">On July 6 your team walked us from a new file landing all the way to trial: intake, calendar plans, document assembly, email, and time capture. This is what we heard, what we locked, and what we build first. Nothing here asks the firm to change how it thinks. It takes the manual, repetitive layer off your desk and leaves the judgment with your attorneys.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Call</div><div class="value">Jul 6, 2026 · 2:00pm CT</div></div>
+      <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · Nick + James</div></div>
+      <div class="meta"><div class="label">Locked today</div><div class="value">Replace Practice Master, keep Omega</div></div>
+      <div class="meta"><div class="label">Next session</div><div class="value">Mon Jul 13, 2:00pm CT</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- changed-strip: what we locked -->
+<div class="changed">
+  <div class="wrap">
+    <div class="ctitle">What we locked on July 6</div>
+    <div class="clist">
+      <div class="ci"><span class="tick">→</span><span><b>Replace Practice Master and File Manager</b>, keep Omega. The new OS takes over case management and file opening. Your billing system stays untouched.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Keep your file directory.</b> The OS creates the same folders on your Windows server. Nothing moves or gets renamed, so you always know where settlement authority lives.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>The answer method stays yours.</b> We automate the trigger, not the drafting style. No admit or deny wizard.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Client ID is non-negotiable.</b> Every file carries one, coordinated with Michelle's numbering in Omega.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Phase 1 is workers' comp.</b> The bread-and-butter path first. Medical-fee and tort forks come later.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- sec-head + pull-quote + os-def -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The destination</span><h2>What you asked us to <span class="soft">build first</span></h2>
+      <p class="sec-sub">Two moments your team called out by name: email that files itself, and calendar plans that never wait on memory.</p></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">I can tell you that is a game changer for the busy attorneys in this office.</p>
+      <div class="qa">— Tommy Ruli, on capturing and indexing a day of client email per matter</div>
+    </div>
+    <p class="os-def reveal d2">A <strong>Firm OS</strong> is one system that sits on top of what already works. It opens the file, files the email to the right matter, applies the calendar plan, and drafts the routine documents, then surfaces the decisions that need a lawyer. You own it. Omega stays exactly where it is.</p>
+  </div>
+</section>
+
+<!-- xform: scattered tools -> hub -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The shift</span><h2>From clicking between systems <span class="soft">to one that runs the path</span></h2></div>
+    <div class="xform reveal d1" id="xform">
+      <div class="xcol today">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber);display:inline-block"></span> Today</div>
+        <div class="scatter">
+          <span class="tool-chip">File Manager</span><span class="tool-chip">Practice Master</span><span class="tool-chip">Omega</span><span class="tool-chip">Outlook</span>
+          <span class="tool-chip">The server</span><span class="tool-chip">Scanned mail</span><span class="tool-chip">Claude Pro</span><span class="tool-chip">1,500 forms</span>
+          <span class="runner"></span>
+          <span class="handlabel">Your staff holding it together by memory</span>
+        </div>
+      </div>
+      <div class="xarrow"><span class="at">Build &amp; own</span><span class="ah">→</span></div>
+      <div class="xcol os">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--purple-vivid);display:inline-block"></span> Firm OS</div>
+        <div class="hub">
+          <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="92" y2="28"/>
+            <line x1="50" y1="50" x2="92" y2="72"/><line x1="50" y1="50" x2="50" y2="92"/>
+            <line x1="50" y1="50" x2="8" y2="72"/><line x1="50" y1="50" x2="8" y2="28"/>
+          </svg>
+          <div class="hub-core"><span class="hw">Firm OS</span><span class="hs">the brain</span></div>
+          <span class="spoke">File Manager</span><span class="spoke">Practice Master</span><span class="spoke">Outlook</span>
+          <span class="spoke">The server</span><span class="spoke">Omega</span><span class="spoke">Mail</span>
+        </div>
+      </div>
+    </div>
+    <div class="xcaption reveal d2">
+      <div class="xc l"><div class="h"><span class="pin"></span>Today</div><p>Everything revolves around Practice Master, and every step needs a person to remember to trigger it.</p></div>
+      <div class="xc r"><div class="h"><span class="pin"></span>Firm OS</div><p>One system runs intake, calendaring, email filing, and drafting. Miss nothing by default, not by memory.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- inventory: keep / integrate / replace / add -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The inventory</span><h2>Keep, integrate, <span class="soft">replace</span></h2>
+      <p class="sec-sub">Two systems come out. Everything else you rely on stays.</p></div>
+    <div class="legend reveal d1">
+      <span class="lg"><span class="dot int"></span> Integrate — keep it, the OS reads/writes it</span>
+      <span class="lg"><span class="dot rep"></span> Replace &amp; Build — collapse into the OS</span>
+      <span class="lg"><span class="dot add"></span> Add — new to the stack</span>
+      <span class="lg"><span class="dot skip"></span> Out of flow — untouched</span>
+    </div>
+    <div class="cards reveal d2">
+      <div class="card"><div class="top"><span class="name">Omega Legal Systems</span><span class="badge skip">Out of flow</span></div><p class="why">Your billing and accounting. Untouched. The OS notifies admin to open the file the same way you do today.</p></div>
+      <div class="card"><div class="top"><span class="name">Your Windows file server</span><span class="badge int">Integrate</span></div><p class="why">Where the 400 to 4,000 page claim files live. The OS creates the same folder tree and never moves or renames a thing.</p></div>
+      <div class="card"><div class="top"><span class="name">Outlook / Microsoft 365</span><span class="badge int">Integrate</span></div><p class="why">Firm-wide mail and calendar. It becomes the calendaring backbone. Events land on the attorney's calendar and phone.</p></div>
+      <div class="card add"><div class="top"><span class="name">Dodonai + Enterprise Claude</span><span class="badge add">Add</span></div><p class="why">The engine underneath: indexing, drafting, classification, and chat over a matter. Structured and shared across all 14 attorneys, not locked in one person's Claude.</p></div>
+      <div class="card replace"><span class="flag">changed</span><div class="top"><span class="name">Practice Master</span><span class="badge rep">Replace</span></div><p class="why">The case-management database. Its jobs (data, related parties, calendaring, document assembly) become the v1 build. About $20k a year today.</p></div>
+      <div class="card replace"><div class="top"><span class="name">File Manager</span><span class="badge rep">Replace</span></div><p class="why">Assigns the file number, notifies billing, and creates the directories. The OS assumes all three.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- pillars: Phase 1 scope -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Phase 1 scope</span><h2>What we build <span class="soft">first</span></h2></div>
+    <div class="pillars">
+      <div class="pillar reveal d1">
+        <div class="phead"><span class="pnum">1</span><span class="ptitle">File intake and opening</span></div>
+        <div class="pbody">
+<span class="flow-mini"><b>New file</b>  <span class="ar">──►</span>  <b>OS</b>  <span class="ar">──►</span>  <b>You</b>
+  1. Scan the referral (1008/108, assignment letter)
+  2. Extract every field <span class="ar">↔</span> assign the file number
+  3. Create server folders, notify admin for Omega</span>
+          <p class="kills-line">Kills: re-keying the same data into File Manager, Omega, and Practice Master.</p>
+        </div>
+      </div>
+      <div class="pillar reveal d2">
+        <div class="phead"><span class="pnum">2</span><span class="ptitle">Calendar plans, applied automatically</span><span class="ptag moved">the loudest yes</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>On a litigation file, the OS applies the right calendar plan <b>the moment it opens</b>, no one has to remember.</span></div>
+            <div class="f"><span class="fm">→</span><span>Answer deadline, employer letter, subpoenas, and client eval, all diaried from day one.</span></div>
+            <div class="f"><span class="fm">→</span><span>Court notices scanned in create the calendar entry <b>and</b> the client letter.</span></div>
+            <div class="f"><span class="fm">→</span><span>Built from <b>your own plan templates</b>, so the deadlines you already rely on carry over exactly, not rebuilt from scratch.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar reveal d3">
+        <div class="phead"><span class="pnum">3</span><span class="ptitle">Email captured and indexed per matter</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>Every client email saved to the right <b>claim</b>, not the adjuster.</span></div>
+            <div class="f"><span class="fm">→</span><span>A full day of a thread captured without dragging and naming a hundred emails.</span></div>
+            <div class="f"><span class="fm">→</span><span>Ask the file a question: "what did I discuss with the adjuster Tuesday?" and get the answer.</span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar reveal d4">
+        <div class="phead"><span class="pnum">4</span><span class="ptitle">Document drafting on your forms</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>Answer, transmittal, and employer letters drafted from <b>your own templates</b>, your affirmative defenses and offsets included.</span></div>
+            <div class="f"><span class="fm">→</span><span>Fired automatically on a new 108, with the three questions you already answer: employer only, employer and insurer, or employer and TPA.</span></div>
+            <div class="f"><span class="fm">→</span><span>Your 1,500 forms, same output, no clicking "assemble."</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- pipe: how a matter moves -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How a matter moves</span><h2>A new file <span class="soft">runs itself to your desk</span></h2></div>
+    <div class="pipe-wrap reveal d1" id="pipe">
+      <div class="pipe">
+        <div class="pline"><div class="pfill"></div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📨</span><span class="ic-done">✓</span></div><div class="pttl">File lands</div><div class="pwho">Agent</div><div class="pstatus">opened + numbered</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📂</span><span class="ic-done">✓</span></div><div class="pttl">Indexed and filed</div><div class="pwho">Agent</div><div class="pstatus">calendar plan applied</div></div>
+        <div class="pnode gate"><div class="pdot"><span class="ic-base">👤</span><span class="ic-done">✓</span></div><div class="pttl">Your sign-off</div><div class="pwho">You</div><div class="pstatus">answer + defenses queued</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">✉️</span><span class="ic-done">✓</span></div><div class="pttl">Letters and diaries fire</div><div class="pwho">Agent</div><div class="pstatus">employer letter out</div></div>
+      </div>
+      <div class="pipe-foot">The agents open, index, and draft. <b>You do one thing: approve the answer and the strategy.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- roadblock: the calendar plan, now vs fix -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The stuck point</span><h2>The calendar plan, <span class="soft">solved first</span></h2></div>
+    <div class="pillar hot reveal d1">
+      <div class="phead"><span class="picon">⛔</span><span class="ptitle">Nothing reminds you to build the calendar plan</span><span class="ptag">v1</span></div>
+      <div class="rblock">
+        <div class="rb now"><div class="rh">Today</div><ul><li>You build it from memory. "What prompts you? My brain."</li><li>Miss it and the deadline never reaches the attorney's calendar.</li><li>After a vacation it is hours of careful catch-up you cannot rush.</li></ul></div>
+        <div class="rb-arrow">→</div>
+        <div class="rb fix"><div class="rh">With the OS</div><ul><li>The calendar plan applies automatically when a litigation file opens.</li><li>Answer, employer letter, subpoenas, and client eval are diaried from day one.</li><li>Default-judgment risk moves from memory to a system that never forgets.</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- gates: what stays human -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>The OS removes the typing, <span class="soft">not the judgment</span></h2></div>
+    <div class="gates">
+      <div class="gatecard reveal d1"><div class="gi">👤</div><h4>The answer and its defenses</h4><p>The OS drafts from your forms. The attorney decides the affirmative defenses, credits, and offsets, and signs.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">⚖️</div><h4>Opening the file</h4><p>When a referral is missing information, the OS prompts and waits. It never opens a file on incomplete data.</p></div>
+      <div class="gatecard reveal d3"><div class="gi">🧭</div><h4>Strategy and analysis</h4><p>Causation, exposure, and case strategy stay with the attorney. The OS assembles, it does not opine.</p></div>
+      <div class="gatecard reveal d4"><div class="gi">🗂️</div><h4>Client codes</h4><p>Which carrier code a file carries is your call. The OS handles the sequential number and coordinates the rest with Omega.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- scope-box: out of scope for v1 -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Discipline</span><h2>Out of scope for <span class="soft">v1</span></h2></div>
+    <div class="scope-box reveal d1">
+      <h4>Waits for later</h4>
+      <div class="chips">
+        <div class="chip"><span class="mk">—</span><span><b>Omega billing:</b> untouched, and any accounting-adjacent work waits until after the Dec 31 close.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Medical-fee and tort forks:</b> v1 is the workers' comp path. Other practice areas come once the core is solid.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Full billable-time capture:</b> the L and A code timesheet automation is Phase 2, and John's working prototype is a head start.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Legacy migration:</b> the ~500 active and ~30k closed files move over after the build, once we confirm a clean export from Practice Master.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- questions: what we need from you -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">To keep moving</span><h2>What we need <span class="soft">from you</span></h2></div>
+    <div class="answered reveal d1">
+      <span class="ans"><b>Locked Jul 6:</b> replace Practice Master and File Manager, keep Omega, keep your directory, workers' comp first.</span>
+      <span class="ans"><b>Received:</b> Jessica's case-opening and calendar-plan screen recordings. Exactly what we needed to see, thank you.</span>
+    </div>
+    <div class="qcards">
+      <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">Your calendar-plan templates</p><p class="qcd">An export of the plan templates themselves (Trial, Mediation, Discovery, and the rest), so we port your deadlines exactly rather than rebuild them.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">2</span><div><p class="qct">Court-notice letter forms</p><p class="qcd">The document-assembly templates behind the status-conference, mediation, and trial client letters, with their merge fields, so drafting matches your output line for line.</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">3</span><div><p class="qct">A few referral forms</p><p class="qcd">Three to five referrals from different adjusters and TPAs, so intake reads the variation between them, not just one layout.</p></div></div>
+      <div class="qc reveal d4"><span class="qcn">4</span><div><p class="qct">Client-code database</p><p class="qcd">The list of your codes and when each is used, with the 3, 4, 5, and 6 digit rules.</p></div></div>
+      <div class="qc reveal d5"><span class="qcn">5</span><div><p class="qct">A look at your Practice Master data</p><p class="qcd">If PM can export a matter list to Excel, that with all its columns, plus one or two complete records with every field, shows us what carries over when your files migrate. The structure, not the volume. One redacted 1,000 to 6,000 page claim file too, to baseline indexing on real data.</p></div></div>
+      <div class="qc reveal d5"><span class="qcn">6</span><div><p class="qct">Dodonai trial</p><p class="qcd">Jeff's signup email so we extend the trial and demo indexing on that redacted file.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- timeline: phasing -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Where this <span class="soft">goes</span></h2></div>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">Jul 6</div><div class="ph2">Session 2</div><div class="pd2">Mapped intake through trial with Vicki and Jessica. Scope locked.</div></div>
+      <div class="phase-t"><div class="pnode2">0</div><div class="ptagline">Jul 13</div><div class="ph2">Discovery + pre-trial</div><div class="pd2">Walk the discovery and pre-trial workflow, causation analysis, and record handling.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Then</div><div class="ph2">Litigation + trial</div><div class="pd2">The final workflow session: trial prep, subpoenas, and the pre-trial order.</div></div>
+      <div class="phase-t future"><div class="pnode2">2</div><div class="ptagline">The build</div><div class="ph2">Phase 1: replace Practice Master</div><div class="pd2">Intake, calendar plans, email capture, and drafting. Omega untouched.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- compliance -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Built for regulated work</span><h2>Security &amp; <span class="soft">compliance</span></h2></div>
+    <div class="compliance reveal d1">
+      <span class="pill"><span class="pk">✓</span> SOC 2 Certified</span>
+      <span class="pill"><span class="pk">✓</span> HIPAA Compliant</span>
+      <span class="pill"><span class="pk">✓</span> Tenant-resident</span>
+      <span class="pill"><span class="pk">✓</span> BAA available</span>
+    </div>
+    <div class="sec-grid">
+      <div class="seccard reveal d1"><div class="ic">🔐</div><h4>Your data stays yours</h4><p>The system runs in your own tenant. Claim files and medical records are never used to train anyone's model.</p></div>
+      <div class="seccard reveal d2"><div class="ic">🏛️</div><h4>Handled to standard</h4><p>SOC 2 certified and HIPAA compliant, with a BAA available, so the PHI in a workers' comp file is handled the way the work requires.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- footer -->
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for The Juge Firm · Session 2 recap · Confidential
+  </div>
+</footer>
+
+<script>/* ============================================================================
+   Dodonai Brief Engine — scroll reveal + animation gating
    ----------------------------------------------------------------------------
-   A build-your-own-quote block for proposal artifacts: selectable automation
-   cards (each with a mini left-to-right mechanism diagram), package cards whose
-   discount applies automatically, and a sticky bottom bar that sums the
-   selection live. Keep the headline/hero stat grid on VALUE (hours back, matters
-   covered), never price — the price only appears once the buyer selects, in the
-   totbar. Wire the interactivity with data attributes (see blocks.html FAMILY 5)
-   + brief-reveal.js, which no-ops unless a [data-menu-total] bar is present, and
-   which also runs fitDiagrams() so no SVG label can ever spill its node box.
-   When a .totbar is on the page, give body `padding-bottom:96px` (130px mobile)
-   so the fixed bar never covers the footer.
+   Pairs with brief.css. Two IntersectionObservers:
+     1. .reveal  -> adds .in when the element scrolls into view (fade + rise).
+     2. animated blocks (#xform, #pipe, #dash, or any [data-play]) -> adds .play
+        the first time they're visible, so the CSS keyframe animations stay idle
+        until seen (saves CPU + makes the reveal feel intentional).
+
+   No dependencies. Safe to load with `defer`. Honors prefers-reduced-motion via
+   brief.css (the .reveal rule no-ops; .play still applies but animations that
+   matter are decorative). To register a custom animated block, add the
+   `data-play` attribute to it OR push its id into PLAY_IDS below.
    ============================================================================ */
+(function () {
+  var PLAY_IDS = ['xform', 'pipe', 'dash'];
 
-/* ----- mini flow diagram (reusable automation-mechanism figure) ----- */
-/* SVG text never wraps; brief-reveal.js fitDiagrams() squeezes any label wider
-   than its node. Keep labels short anyway — the squeeze is a safety net. */
-.dg{margin:4px 0 2px;overflow-x:auto}
-.dg svg{width:100%;min-width:640px;height:auto;display:block}
-.dg .nd{fill:#fff;stroke:var(--cream-line);stroke-width:1.5}
-.dg .src{fill:#FBF4E7;stroke:#E5C89A}                 /* input / watched source */
-.dg .agn{fill:#F5F0FE;stroke:var(--purple-vivid)}     /* the agent */
-.dg .out{fill:#fff;stroke:var(--purple-mid)}          /* result / output */
-.dg .gat{fill:#EBF6F8;stroke:var(--teal)}             /* human gate */
-.dg text{font-family:var(--sans)}
-.dg .tt{font-size:13px;font-weight:700;fill:var(--midnight)}                                   /* node title */
-.dg .ts{font-size:10px;font-weight:600;fill:var(--gray-meta-light);font-family:var(--mono)}    /* node subtitle */
-.dg .tw{font-size:9.5px;font-weight:700;fill:var(--purple-bold);font-family:var(--mono);letter-spacing:.08em}  /* over-node kicker */
-.dg .tw.g{fill:var(--teal)}
-.dg .tw.s{fill:var(--amber)}
-.dg .ln{stroke:var(--purple-vivid);stroke-width:2;stroke-dasharray:5 5;fill:none;marker-end:url(#arw)}
-.dg .ln{animation:dashmove 1.1s linear infinite}
-@keyframes dashmove{to{stroke-dashoffset:-20}}
+  function observe() {
+    // 1. Scroll-reveal
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealIO.unobserve(e.target); // reveal once, then stop watching
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
 
-/* ----- selectable automation card ----- */
-.acard{background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;padding:20px 24px 18px;margin-bottom:16px;transition:border-color .25s,box-shadow .25s,background .25s}
-.acard.sel{border-color:var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.045));box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
-.acard .ahead{display:flex;align-items:center;gap:13px;margin-bottom:6px;flex-wrap:wrap}
-.acard .rank{flex:0 0 30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
-.acard.alt2 .rank{background:linear-gradient(150deg,var(--teal),#0a9cb8)}   /* second tier / "also on the menu" */
-.acard .aname{font-weight:800;font-size:17.5px;letter-spacing:-.01em}
-.acard .aprice{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:16px;color:var(--midnight)}
-.acard .adesc{font-size:13.5px;color:var(--gray-meta-light);line-height:1.55;margin:2px 0 12px;max-width:88ch}
-.acard .adesc strong{color:var(--midnight)}
-.acard .afoot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
-.acard .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
-.acard .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
-.acard .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
-.acard input[type=checkbox]{position:absolute;opacity:0;pointer-events:none}
-.addbtn{margin-left:auto;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:8px 18px;cursor:pointer;transition:all .2s;user-select:none}
-.addbtn:hover{background:rgba(124,58,237,.08)}
-.acard.sel .addbtn{background:var(--purple-vivid);color:#fff}
+    // 2. Animation gating: add .play once visible.
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('play'); }
+      });
+    }, { threshold: 0.2 });
 
-/* ----- foundation strip (the shared base, added once with the first pick) ----- */
-.found{background:var(--midnight);color:#fff;border-radius:14px;padding:18px 24px;margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.found .fic{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(181,168,230,.2);display:flex;align-items:center;justify-content:center;font-size:15px}
-.found .ft{font-weight:800;font-size:15.5px}
-.found .fd{font-size:12.5px;color:var(--purple-soft);flex-basis:100%;margin-left:44px;line-height:1.5}
-.found .fp{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--purple-soft)}
-.found .fp b{color:#fff}
+    var targets = {};
+    PLAY_IDS.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) targets[id] = el;
+    });
+    document.querySelectorAll('[data-play]').forEach(function (el) {
+      targets[el.id || ('p' + Math.round(el.getBoundingClientRect().top))] = el;
+    });
+    Object.keys(targets).forEach(function (k) { playIO.observe(targets[k]); });
+  }
 
-/* ----- package cards with auto-applied discount ----- */
-.phcard{background:#fff;border:1.5px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--purple-vivid);display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s}
-.phcard.sel{border-color:var(--purple-vivid);box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
-.phcard .pt{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
-.phcard h4{font-size:16px;font-weight:800;margin:0 0 4px;letter-spacing:-.01em}
-.phcard .amt{font-family:var(--mono);font-weight:700;font-size:19px;color:var(--midnight);margin:6px 0 2px}
-.phcard .amt .was{color:var(--gray-meta);text-decoration:line-through;font-size:13px;font-weight:600;margin-right:8px}
-.phcard .save{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);margin-bottom:10px}
-.phcard p{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0 0 14px;flex:1}
-.phbtn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:9px 16px;cursor:pointer;transition:all .2s;align-self:flex-start}
-.phbtn:hover{background:rgba(124,58,237,.08)}
-.phcard.sel .phbtn{background:var(--purple-vivid);color:#fff}
-.bundle-note{margin-top:18px;background:rgba(46,158,107,.08);border:1px solid rgba(46,158,107,.3);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
-.bundle-note b{color:var(--green)}
-
-/* ----- sticky live-total bar (hidden math until the buyer selects) ----- */
-.totbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--midnight-deep);color:#fff;border-top:1px solid rgba(181,168,230,.3);box-shadow:0 -14px 40px -20px rgba(0,0,0,.5)}
-.totbar .wrap{display:flex;align-items:center;gap:18px;padding:14px 28px;flex-wrap:wrap}
-.totbar .tprompt{font-size:14.5px;color:var(--purple-soft)}
-.totbar .tprompt b{color:#fff}
-.totbar .tmath{font-family:var(--mono);font-size:12px;color:var(--purple-soft);display:none;align-items:center;gap:14px;flex-wrap:wrap}
-.totbar .tmath .seg b{color:#fff}
-.totbar .tmath .save{color:#5FD6A0}
-.totbar .ttotal{margin-left:auto;display:none;align-items:baseline;gap:10px}
-.totbar .ttotal .tl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700}
-.totbar .ttotal .tv{font-family:var(--mono);font-weight:700;font-size:23px;color:#fff}
-.totbar.active .tprompt{display:none}
-.totbar.active .tmath{display:flex}
-.totbar.active .ttotal{display:flex}
-
-@media(max-width:880px){
-  .acard .aprice{flex-basis:100%;margin-left:44px}
-}
-@media(prefers-reduced-motion:reduce){
-  .dg .ln{animation:none}
-  .acard,.phcard,.addbtn,.phbtn{transition:none}
-}
-@media print{
-  .totbar{display:none}
-  .acard,.phcard{page-break-inside:avoid}
-  .dg .ln{animation:none}
-}
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observe);
+  } else {
+    observe();
+  }
+})();
+</script>
+</body></html>

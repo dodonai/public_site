@@ -1,3 +1,14 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Talenfeld Law PA — Firm OS Architecture Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
 /* ============================================================================
    Dodonai Brief Engine — canonical stylesheet
    ----------------------------------------------------------------------------
@@ -603,107 +614,538 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
   .stack-before .stack-chip{animation:none}
 }
 
+</style>
+<style>
+/* ===== Talenfeld agent-roster flourishes (scoped to this brief) ===== */
+.agents-section .pkg-category .cat-label{color:var(--purple-soft)}
+.agents-section .pkg-category.teal .cat-label{color:var(--teal-bright)}
+.agents-section .pkg-category.amber .cat-label{color:#f4b45f}
+.agents-section .agent-card{border-color:rgba(255,255,255,.10);transition:transform .35s cubic-bezier(.2,.7,.2,1),box-shadow .35s ease,border-color .35s ease}
+.agents-section .agent-card:hover{transform:translateY(-5px);box-shadow:0 18px 40px -12px rgba(124,58,237,.55);border-color:var(--purple-soft)}
+.agents-section .agent-icon{transition:transform .4s cubic-bezier(.2,.7,.2,1),box-shadow .4s ease}
+.agents-section .agent-card:hover .agent-icon{transform:scale(1.1) rotate(-3deg);box-shadow:0 0 0 5px rgba(124,58,237,.20)}
+.agents-section .agent-meta .am.fire{position:relative;padding-left:17px}
+.agents-section .agent-meta .am.fire::before{content:"";position:absolute;left:7px;top:50%;width:6px;height:6px;margin-top:-3px;border-radius:50%;background:var(--purple-vivid);animation:agentPulse 2.2s ease-out infinite}
+@keyframes agentPulse{0%{box-shadow:0 0 0 0 rgba(124,58,237,.55)}70%{box-shadow:0 0 0 7px rgba(124,58,237,0)}100%{box-shadow:0 0 0 0 rgba(124,58,237,0)}}
+.agents-section .roster-cap{color:var(--purple-soft);font-size:14.5px;max-width:70ch;margin:18px auto 0;text-align:center}
+.agents-section .roster-cap b{color:#fff}
+@media (prefers-reduced-motion: reduce){.agents-section .agent-meta .am.fire::before{animation:none}}
+</style>
+</head>
+<body>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Firm OS Architecture Brief</span>
+      <span class="tag">v1 · post-call</span>
+    </div>
+    <span class="eyebrow">Prepared for Talenfeld Law PA</span>
+    <h1>Take twice the cases.<br>Keep every ounce of <span class="soft">judgment.</span></h1>
+    <p class="lede">You've built the market's authority in child-welfare litigation. The bottleneck was never leads, your marketing already puts you at the top. It's the hours it takes to qualify, validate, and package each case before it can move. This is a plan to encode that expertise into a Firm OS that does the routine work and hands you the decisions, so Talenfeld Law can take twice the cases in-house and arm dozens of firms across the country to take the rest.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Call</div><div class="value">Jul 27, 2026</div></div>
+      <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · Nick Chapleau</div></div>
+      <div class="meta"><div class="label">Goal</div><div class="value">Approve Phase 1 and start</div></div>
+      <div class="meta"><div class="label">Your decision</div><div class="value">Who to trust with 30 years of judgment</div></div>
+    </div>
+  </div>
+</header>
+
+<!-- OUTCOME -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">After the build</span><h2>What changes <span class="soft">for you</span></h2>
+      <p class="sec-sub">Your own numbers from the call, made the target the system is built to hit.</p></div>
+    <div class="ocards">
+      <div class="ocard reveal d1"><div class="ostat">2×</div><h4>In-house case volume</h4><p>"It would allow me to double the number of cases we handle in house." The qualification and packaging work stops being your ceiling.</p></div>
+      <div class="ocard reveal d2"><div class="ostat">~50%</div><h4>Of your time back</h4><p>"You could probably save me 50% of my time." The routine review, gap-checking, and packaging run on their own.</p></div>
+      <div class="ocard reveal d3"><div class="ostat">30–40</div><h4>Firms you can arm</h4><p>Referral-ready packages other plaintiff practices can actually run, across states, so your cases land in hands that won't create bad law.</p></div>
+    </div>
+    <p class="ocaveat reveal d3">These are your estimates, not ours. Phase 1 baselines them against real intake volume before we put a promise on paper. Each case you handle is 7 to 8 figures, so freed capacity is revenue, not overhead.</p>
+  </div>
+</section>
+
+<!-- DESTINATION -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The destination</span><h2>Where you want to <span class="soft">get to</span></h2>
+      <p class="sec-sub">In your words, from the call.</p></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">I want to build the Justice for Kids AI agents that will understand all the things we look at with our factors, and yet still allow a human side to this whole thing, because we're hands-on.</p>
+      <div class="qa">— Howard Talenfeld</div>
+    </div>
+    <p class="os-def reveal d2">A <strong>Firm OS</strong> is one system that owns your firm's real workflow end to end: intake, document validation, qualification, referral packaging, and later drafting and litigation. It reads and writes the tools you keep, replaces the ones that dead-ended, and runs the routine steps on a schedule, stopping at the decisions only you make. <strong>You own it.</strong> It is trained on your 5,000-plus prior filings and 30 years of case files, so it encodes your judgment, not a vendor's template.</p>
+  </div>
+</section>
+
+<!-- XFORM (animated) -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The transformation</span><h2>From two disconnected databases <span class="soft">to a system that runs the path</span></h2></div>
+    <div class="xform reveal d1" id="xform">
+      <div class="xcol today">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber);display:inline-block"></span> Today</div>
+        <div class="scatter">
+          <span class="tool-chip">Time Matters</span><span class="tool-chip">CaseMap</span><span class="tool-chip">Summation</span><span class="tool-chip">CallRail</span>
+          <span class="tool-chip">DocuSign</span><span class="tool-chip">Share-file</span><span class="tool-chip">Email</span><span class="tool-chip">Public records</span>
+          <span class="runner"></span>
+          <span class="handlabel">Your team clicking between all of them, by hand</span>
+        </div>
+      </div>
+      <div class="xarrow"><span class="at">Build &amp; own</span><span class="ah">→</span></div>
+      <div class="xcol os">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--purple-vivid);display:inline-block"></span> Firm OS</div>
+        <div class="hub">
+          <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="92" y2="28"/>
+            <line x1="50" y1="50" x2="92" y2="72"/><line x1="50" y1="50" x2="50" y2="92"/>
+            <line x1="50" y1="50" x2="8" y2="72"/><line x1="50" y1="50" x2="8" y2="28"/>
+          </svg>
+          <div class="hub-core"><span class="hw">Firm OS</span><span class="hs">your judgment</span></div>
+          <span class="spoke">Intake</span><span class="spoke">Validation</span><span class="spoke">Criteria</span>
+          <span class="spoke">Referral pkg</span><span class="spoke">CaseMap</span><span class="spoke">DocuSign</span>
+        </div>
+      </div>
+    </div>
+    <div class="xcaption reveal d2">
+      <div class="xc l"><div class="h"><span class="pin"></span>Today</div><p>Documents move from Time Matters to CaseMap by hand, numbered and Bates-stamped, before anyone can qualify a case.</p></div>
+      <div class="xc r"><div class="h"><span class="pin"></span>Firm OS</div><p>Intake lands, documents are validated against your criteria, and a referral package is drafted, before it reaches your desk for the call.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- INVENTORY -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The inventory</span><h2>Keep, integrate, <span class="soft">replace</span></h2>
+      <p class="sec-sub">Less changes than you'd think. Your marketing engine and your document databases stay. One dead-ended tool goes.</p></div>
+    <div class="legend reveal d1">
+      <span class="lg"><span class="dot int"></span> Integrate — keep it, the OS reads and writes it</span>
+      <span class="lg"><span class="dot rep"></span> Replace &amp; Build — collapse into the OS</span>
+      <span class="lg"><span class="dot add"></span> Add — new to the stack</span>
+      <span class="lg"><span class="dot skip"></span> Out of flow — untouched</span>
+    </div>
+    <div class="cards reveal d2">
+      <div class="card"><div class="top"><span class="name">CaseMap / Summation</span><span class="badge int">Integrate</span></div><p class="why">Your document databases and chronologies stay. The OS reads and writes them; we map how far you keep CaseMap before anything is replaced.</p></div>
+      <div class="card"><div class="top"><span class="name">CallRail</span><span class="badge int">Integrate</span></div><p class="why">Intake calls keep flowing in. The OS captures, records, and transcribes them and opens the qualification file.</p></div>
+      <div class="card"><div class="top"><span class="name">DocuSign</span><span class="badge int">Integrate</span></div><p class="why">We've already built a DocuSign integration that swaps engagement-letter provisions by state and situation, your exact "we change our drafts depending on who we're dealing with" requirement.</p></div>
+      <div class="card"><div class="top"><span class="name">Marketing · SEO / AEO · PR</span><span class="badge skip">Out of flow</span></div><p class="why">Already the best in the market, untouched. The forthcoming US child-welfare site feeds the OS as a knowledge source when it launches.</p></div>
+      <div class="card replace"><div class="top"><span class="name">Time Matters</span><span class="badge rep">Replace</span></div><p class="why">Twenty years of service, but dead-ended on AI. Its case data migrates into the OS.</p></div>
+      <div class="card add"><div class="top"><span class="name">Public-records research</span><span class="badge add">Add</span></div><p class="why">A research agent that hits public databases, police call-outs, licensing files, arrest records, to find what the agencies missed. (Phase 2.)</p></div>
+      <div class="card add"><div class="top"><span class="name">Talenfeld criteria library</span><span class="badge add">Add</span></div><p class="why">Your qualification factors, standard-of-care deviations, and state sovereign-immunity workarounds, encoded as the OS's brain.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PILLARS -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">v1 scope</span><h2>Three pillars: <span class="soft">intake, validate, package</span></h2>
+      <p class="sec-sub">The slice we prove first, the top of your funnel from call to referral-ready.</p></div>
+    <div class="pillars">
+      <div class="pillar reveal d1">
+        <div class="phead"><span class="pnum">1</span><span class="ptitle">Intake &amp; Qualification</span></div>
+        <div class="pbody">
+<span class="flow-mini"><b>Lead</b>  <span class="ar">──►</span>  <b>Orchestrator</b>  <span class="ar">──►</span>  <b>You</b>
+  1. Call / web form lands, appointment set
+  2. Client uploads documents <span class="ar">↔</span> OS scores against criteria
+  3. Qualified / needs-more / pass</span>
+          <p class="kills-line">Kills: the manual first-pass review that eats your team's hours before you even know if a case is real.</p>
+        </div>
+      </div>
+      <div class="pillar reveal d2">
+        <div class="phead"><span class="pnum">2</span><span class="ptitle">Document Validation &amp; Gap Detection</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>Knows what a <b>complete child-welfare file</b> holds: dependency file, CPT records, licensing files, police reports.</span></div>
+            <div class="f"><span class="fm">→</span><span>Flags what's <b>present, missing, or inappropriately redacted</b>, and drafts the next records request.</span></div>
+            <div class="f"><span class="fm">→</span><span>Trained on 30 years of your "here's what's not there" letters, the piece other lawyers can't do because <b>they don't know what they're not seeing.</b></span></div>
+          </div>
+        </div>
+      </div>
+      <div class="pillar reveal d3">
+        <div class="phead"><span class="pnum">3</span><span class="ptitle">Referral Package Assembly</span></div>
+        <div class="pbody">
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span>Assembles what a receiving firm can <b>actually run with</b>: fact summary, the claims (including <b>§1983 civil-rights framing</b>), likely defenses.</span></div>
+            <div class="f"><span class="fm">→</span><span>Your <b>sovereign-immunity workarounds</b> and a first-round discovery plan, tuned to the state.</span></div>
+            <div class="f"><span class="fm">→</span><span>Encodes the judgment other plaintiff firms lack, so your cases land in hands that <b>won't create bad law.</b></span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AGENT ROSTER (deepens the 3 pillars) -->
+<section class="ink agents-section">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The roster</span><h2>The three pillars, <span class="soft">as the agents you're hiring</span></h2>
+      <p class="sec-sub">Each agent watches something, does the routine work, writes an output, and stops at your gate. Grouped by the pillar it serves.</p></div>
+
+    <div class="pkg-category reveal"><div class="cat-label">Pillar 1 · Intake &amp; Qualification</div></div>
+    <div class="agent-grid">
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">IC</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Call Capture</h3>
+          <p class="agent-desc">Watches CallRail and your web forms, transcribes every intake call, and opens a structured case record the moment it lands. <strong>Nothing said on a call is ever lost again.</strong></p>
+          <div class="agent-meta"><span class="am">reads CallRail + forms</span><span class="am fire">on new call</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">PA</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Plaintiff Assessment</h3>
+          <p class="agent-desc">Reviews the recorded intake and runs open-web research on the caller, so you can weigh the thing that matters most: <strong>would a jury want to sit next to this plaintiff.</strong></p>
+          <div class="agent-meta"><span class="am">reads intake + web</span><span class="am gate">human gate: your read</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d3">
+        <div class="agent-icon">CS</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Criteria Scoring</h3>
+          <p class="agent-desc">Scores each case against your criteria library, case type, claimant age, statute of limitations, injury severity, abuse setting, and returns qualified, needs-more, or pass <strong>with its reasoning shown.</strong></p>
+          <div class="agent-meta"><span class="am">reads intake + docs</span><span class="am fire">on intake complete</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d4">
+        <div class="agent-icon">AP</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Alternate-Plaintiff Flagger</h3>
+          <p class="agent-desc">Catches the case you'd otherwise lose, strong claim, weak client, and surfaces a next friend or guardianship attorney <strong>who can sit in the client's place.</strong></p>
+          <div class="agent-meta"><span class="am">reads case file</span><span class="am gate">human gate: your call</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-category teal reveal"><div class="cat-label">Pillar 2 · Document Validation &amp; Gap Detection</div></div>
+    <div class="agent-grid teal">
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">DN</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Intake &amp; Normalize</h3>
+          <p class="agent-desc">Takes documents by email or share-file at any volume, from a single page to boxes, then OCRs, indexes, and Bates-stamps them into CaseMap. <strong>The file is ready before anyone opens it.</strong></p>
+          <div class="agent-meta"><span class="am">reads uploads</span><span class="am fire">on documents in</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">GD</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Gap Detection</h3>
+          <p class="agent-desc">Knows what a complete child-welfare file should hold and flags what's present, missing, or improperly redacted. <strong>The piece other firms can't do, because they don't know what they're not seeing.</strong></p>
+          <div class="agent-meta"><span class="am">reads file + 30-yr letters</span><span class="am gate">human gate: your confirm</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d3">
+        <div class="agent-icon">RR</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Records-Request Generator</h3>
+          <p class="agent-desc">For every gap, drafts the exact public-records request, and knows where child-welfare records are hidden and the legal basis to get them. <strong>The letters you've written hundreds of times, in seconds.</strong></p>
+          <div class="agent-meta"><span class="am">writes request letters</span><span class="am gate">human gate: approve before send</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d4">
+        <div class="agent-icon">SC</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Standard-of-Care Signal</h3>
+          <p class="agent-desc">Surfaces the deviation you read a case on: prior police visits, missed warnings, agency failures. <strong>The early "this is real" signal, on the record.</strong></p>
+          <div class="agent-meta"><span class="am">reads file</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-category amber reveal"><div class="cat-label">Pillar 3 · Referral Package Assembly</div></div>
+    <div class="agent-grid amber">
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">ST</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Strategy-Outline Drafter</h3>
+          <p class="agent-desc">From the validated facts, drafts the strategy outline you already build by hand: causes of action, including &sect;1983 civil rights, matched to the state. <strong>Trained on your own prior outlines.</strong></p>
+          <div class="agent-meta"><span class="am">reads facts + priors</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">IM</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Immunity &amp; Caps Map</h3>
+          <p class="agent-desc">For the target state, maps the sovereign-immunity posture, planning vs operational, the damage caps, and the recommended path: &sect;1983, claims bill, or negligence. <strong>The judgment receiving firms lack.</strong></p>
+          <div class="agent-meta"><span class="am">reads 50-state immunity memos</span><span class="am gate">human gate: you set the play</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d3">
+        <div class="agent-icon">DP</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Discovery Planner</h3>
+          <p class="agent-desc">Builds the first-round discovery plan, what to go after, tuned to the state and case type, so the receiving firm knows exactly where to start.</p>
+          <div class="agent-meta"><span class="am">writes discovery plan</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d4">
+        <div class="agent-icon">PK</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Package Assembler</h3>
+          <p class="agent-desc">Bundles summary, claims, defenses and workarounds, and the discovery plan into one referral package a plaintiff firm can run with, framed so they're not scared off. <strong>Your cases land in hands that won't create bad law.</strong></p>
+          <div class="agent-meta"><span class="am">writes referral package</span><span class="am gate">human gate: your sign-off + which firm</span><span class="am phase">Phase 1</span></div>
+        </div>
+      </div>
+    </div>
+
+    <p class="roster-cap reveal">Twelve agents, one shared brain: your criteria library, 5,000-plus prior filings, and the sovereign-immunity memo corpus. <b>Build the brain once; the pillars are lenses on it.</b></p>
+  </div>
+</section>
+
+<!-- PIPE (animated) -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How a case moves</span><h2>The pipeline <span class="soft">runs itself</span></h2></div>
+    <div class="pipe-wrap reveal d1" id="pipe">
+      <div class="pipe">
+        <div class="pline"><div class="pfill"></div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📞</span><span class="ic-done">✓</span></div><div class="pttl">Intake captured</div><div class="pwho">Agent</div><div class="pstatus">call transcribed</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📂</span><span class="ic-done">✓</span></div><div class="pttl">Documents validated</div><div class="pwho">Agent</div><div class="pstatus">gaps flagged</div></div>
+        <div class="pnode gate"><div class="pdot"><span class="ic-base">👤</span><span class="ic-done">✓</span></div><div class="pttl">Take or refer</div><div class="pwho">You</div><div class="pstatus">queued for your call</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📦</span><span class="ic-done">✓</span></div><div class="pttl">Package assembled</div><div class="pwho">Agent</div><div class="pstatus">claims + discovery drafted</div></div>
+      </div>
+      <div class="pipe-foot">The agents do the routine steps. <b>You do one: who's my plaintiff, do I take this or refer it.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- GATES -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>The OS removes the typing, <span class="soft">not the judgment</span></h2></div>
+    <div class="gates">
+      <div class="gatecard reveal d1"><div class="gi">👤</div><h4>The take / refer call</h4><p>"Who is my plaintiff, do I want to sit next to them in front of a jury." That gut call stays yours, on every case.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">⚖️</div><h4>Strategy judgment</h4><p>§1983, a claims bill, or state-court negligence, and how to get around each state's immunity barriers. The OS surfaces the caps and the authority; you set the play.</p></div>
+      <div class="gatecard reveal d3"><div class="gi">🤝</div><h4>Engagement &amp; client prep</h4><p>You don't just fire off a DocuSign, you prep expectations. The OS assembles the letter; the conversation stays human.</p></div>
+      <div class="gatecard reveal d4"><div class="gi">✍️</div><h4>Final sign-off</h4><p>No referral package or filing leaves without your review. Every draft stops at your desk first.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DASH (animated) -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The cockpit</span><h2>One dashboard, <span class="soft">every case and every agent</span></h2></div>
+    <div class="dash reveal d1" id="dash">
+      <div class="dash-bar"><span class="dots"><i></i><i></i><i></i></span><span class="dtitle">Talenfeld Law · Firm OS</span><span class="dlive">Live</span></div>
+      <div class="dash-body">
+        <div class="dash-col left">
+          <div class="kpis">
+            <div class="kpi"><div class="kn">9</div><div class="kl">Cases in intake</div></div>
+            <div class="kpi"><div class="kn">3</div><div class="kl">Need your call</div></div>
+            <div class="kpi"><div class="kn">24</div><div class="kl">Agent runs today</div></div>
+          </div>
+          <div class="dash-h">Active cases <span class="cnt">9</span></div>
+          <div class="mrow"><div><div class="mname">Foster-care abuse · FL</div><div class="mphase">Validation</div></div><span class="mpill done">Ready</span></div>
+          <div class="mrow"><div><div class="mname">Residential facility · GA</div><div class="mphase">Take or refer</div></div><span class="mpill wait">Your call</span></div>
+          <div class="mrow"><div><div class="mname">Group-home injury · TX</div><div class="mphase">Referral package</div></div><span class="mpill run">Agent: drafting §1983</span></div>
+        </div>
+        <div class="dash-col right">
+          <div class="dash-h">Agent activity <span class="cnt">live</span></div>
+          <div class="feed">
+            <div class="feed-track" id="feed">
+              <!-- set A -->
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Dependency file parsed</b> 214 pages indexed. <span class="agent">[ validation ]</span></div><div class="atime">07:42</div></div></div>
+              <div class="aevent"><span class="aic">📨</span><div><div class="atx"><b>Missing licensing file</b> flagged, records request drafted. <span class="agent">[ gap-detect ]</span></div><div class="atime">07:55</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Residential facility · GA</b> ready for your take-or-refer call. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:03</div></div></div>
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>§1983 authority pulled</b> for GA, added to package. <span class="agent">[ referral ]</span></div><div class="atime">08:10</div></div></div>
+              <!-- set B (duplicate for seamless loop) -->
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Dependency file parsed</b> 214 pages indexed. <span class="agent">[ validation ]</span></div><div class="atime">07:42</div></div></div>
+              <div class="aevent"><span class="aic">📨</span><div><div class="atx"><b>Missing licensing file</b> flagged, records request drafted. <span class="agent">[ gap-detect ]</span></div><div class="atime">07:55</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Residential facility · GA</b> ready for your take-or-refer call. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:03</div></div></div>
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>§1983 authority pulled</b> for GA, added to package. <span class="agent">[ referral ]</span></div><div class="atime">08:10</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="dash-cap reveal d2">One place above your tools, every case in intake, every gap flagged, every package waiting on your call.</p>
+  </div>
+</section>
+
+<!-- ALTERNATIVES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">You already ran this comparison</span><h2>Build-and-own vs. <span class="soft">the alternatives</span></h2></div>
+    <div class="alt-grid">
+      <div class="altc reveal d1"><div class="an">DIY on Claude</div><div class="ashape">do it yourself</div><p class="agreat">Great at: <b>learning what's possible</b> (you've spent three months)</p><p class="afit">Where it breaks: <b>it's a full-time build; your time is worth more on cases</b></p></div>
+      <div class="altc reveal d2"><div class="an">Filevine / point tools</div><div class="ashape">rented platform</div><p class="agreat">Great at: <b>out-of-the-box case management</b></p><p class="afit">Where it breaks: <b>their constraints, charged for every integration, you own nothing</b></p></div>
+      <div class="altc us reveal d3"><div class="an">Dodonai — build &amp; own</div><div class="ashape">implementation partner</div><p class="agreat">Great at: <b>a custom system with no platform constraints</b></p><p class="afit">Best fit when: <b>you want to encode your life's work and keep the IP</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPLIANCE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Built for regulated work</span><h2>Security &amp; <span class="soft">compliance</span></h2>
+      <p class="sec-sub">Child-welfare records are confidential by federal and state law. This is why "send us your documents" is safe.</p></div>
+    <div class="compliance reveal d1">
+      <span class="pill"><span class="pk">✓</span> SOC 2 Certified</span>
+      <span class="pill"><span class="pk">✓</span> HIPAA Compliant</span>
+      <span class="pill"><span class="pk">✓</span> Tenant-resident</span>
+      <span class="pill"><span class="pk">✓</span> BAA available</span>
+    </div>
+    <div class="sec-grid">
+      <div class="seccard reveal d1"><div class="ic">🔐</div><h4>Tenant-resident</h4><p>Your case files and 30 years of history stay in your own environment. This is your life's work; it never becomes training data for anyone else, and it is never shared across firms.</p></div>
+      <div class="seccard reveal d2"><div class="ic">🏛️</div><h4>Confidential by design</h4><p>The OS is built for privileged, regulated matters, dependency files, CPT and psychological records, minors' data. NDA in place before any files move.</p></div>
+      <div class="seccard reveal d3"><div class="ic">🔑</div><h4>You own it</h4><p>You retain ownership of everything we build. No lock-in, no per-integration toll, no vendor holding your workflow hostage.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The decision input</span><h2>The <span class="soft">numbers</span></h2>
+      <p class="sec-sub">The framework. Final figures are fixed in the SOW once we lock Phase 1 scope.</p></div>
+    <div class="numbers-grid">
+      <div class="numcard reveal d1">
+        <div class="nlabel">Build · CapEx · phased fixed-fee</div><h3>Phase 1: a defined slice</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Phase 1 — Intake + Validation + Referral Package</div><div class="od">the top-of-funnel slice we prove first</div></div><div class="oa">scoped in SOW</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Comparable, for scale</div><div class="od">our current 155-automation build for a disability-benefits firm</div></div><div class="oa">~$120k · 6 mo</div></div>
+        <div class="paysplit"><div class="half"><div class="h">Each phase: start</div><div class="v">50%</div></div><div class="arr">→</div><div class="half"><div class="h">On your approval</div><div class="v">50%</div></div></div>
+        <p class="numnote">Phase 1 is smaller than a full firm-OS build. Your full soup-to-nuts vision runs larger, which is exactly why we start with the intake slice and prove it before you commit further.</p>
+      </div>
+      <div class="numcard reveal d2">
+        <div class="nlabel">Ongoing · OpEx</div><h3>Two separable layers</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Hosting / infrastructure</div><div class="od">your tenant-resident environment</div></div><div class="oa">~$200–500/mo</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Support retainer <span style="color:var(--gray-meta);font-weight:400">(optional, tiered)</span></div><div class="od">monitoring, iteration, new builds</div></div><div class="oa">pay for what you want</div></div>
+        <div class="value-anchor"><b>You own the build.</b> Unlike a rented platform, there's no per-integration toll and no seat tax on scaling to new states.</div>
+      </div>
+    </div>
+    <div class="roi reveal d3">
+      <div class="rlabel">ROI frame — your language</div>
+      <div class="rgrid">
+        <div class="rstat"><div class="rn">~50%</div><div class="rd">of your time back</div></div>
+        <div class="rstat"><div class="rn">2×</div><div class="rd">in-house case volume</div></div>
+        <div class="rstat"><div class="rn">7–8 fig</div><div class="rd">value per case, so capacity is revenue</div></div>
+      </div>
+    </div>
+    <p class="why-now reveal d3"><b>Why now:</b> you're evaluating Filevine this week, and your US child-welfare site launches in 30 to 60 days, which will drive a lead surge you'll want the qualification engine ready to absorb.</p>
+  </div>
+</section>
+
+<!-- SCOPE-BOX -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Discipline</span><h2>Out of scope for <span class="soft">v1</span></h2>
+      <p class="sec-sub">We ship the intake slice first, not everything at once. Here's what waits, and why.</p></div>
+    <div class="scope-box reveal d1">
+      <h4>Waits for later</h4>
+      <div class="chips">
+        <div class="chip"><span class="mk">—</span><span><b>Full litigation / case-management platform</b> — Phase 3. Prove intake first.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Public-records research agents</b> — Phase 2. High value, sequenced after intake.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Strategy-memo / caps &amp; immunity research agent</b> — Phase 2, once intake is trusted.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Multi-state referral network operations</b> — the destination, sequenced after the in-house build works.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- QUESTIONS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">To lock the SOW</span><h2>What we still need to <span class="soft">pin down</span></h2></div>
+    <div class="answered reveal d1">
+      <span class="ans"><b>Answered 7/27:</b> buying entity is Talenfeld Law PA · start with intake + validation · you retain IP ownership · confidentiality via NDA before files move</span>
+    </div>
+    <div class="qcards">
+      <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">CaseMap boundary</p><p class="qcd">Which CaseMap / Summation pieces you keep vs. replace as the OS takes over chronologies.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">2</span><div><p class="qct">Referral package format</p><p class="qcd">How packages are delivered today (no firm standard yet), so we design the output attorneys will trust.</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">3</span><div><p class="qct">The criteria set</p><p class="qcd">Your full qualification factors, from your 17-year right hand and the justiceforkids.com case categories, to train the brain.</p></div></div>
+      <div class="qc reveal d4"><span class="qcn">4</span><div><p class="qct">Volume &amp; sequencing</p><p class="qcd">Intake volume and velocity for sizing, and the multi-state rollout order.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Suggested <span class="soft">phasing</span></h2></div>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">This call</div><div class="ph2">Discovery</div><div class="pd2">Scope the intake + validation slice.</div></div>
+      <div class="phase-t"><div class="pnode2">0</div><div class="ptagline">Next</div><div class="ph2">Proposal + SOW</div><div class="pd2">Phase 1, addressed to Talenfeld Law PA. NDA finalized.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">The build</div><div class="ph2">Intake, validate, package</div><div class="pd2">The three v1 pillars, live and in your hands.</div></div>
+      <div class="phase-t future"><div class="pnode2">2</div><div class="ptagline">Later</div><div class="ph2">Research &amp; drafting</div><div class="pd2">Strategy / public-records agents, drafting on your 5,000+ priors.</div></div>
+      <div class="phase-t future"><div class="pnode2">3</div><div class="ptagline">The destination</div><div class="ph2">Litigation OS + referral network</div><div class="pd2">Full case management and the multi-state referral network.</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for Talenfeld Law PA · Firm OS Architecture Brief v1 · Confidential
+  </div>
+</footer>
+
+
+<script>
 /* ============================================================================
-   FAMILY 5 — INTERACTIVE PRICED MENU
+   Dodonai Brief Engine — scroll reveal + animation gating
    ----------------------------------------------------------------------------
-   A build-your-own-quote block for proposal artifacts: selectable automation
-   cards (each with a mini left-to-right mechanism diagram), package cards whose
-   discount applies automatically, and a sticky bottom bar that sums the
-   selection live. Keep the headline/hero stat grid on VALUE (hours back, matters
-   covered), never price — the price only appears once the buyer selects, in the
-   totbar. Wire the interactivity with data attributes (see blocks.html FAMILY 5)
-   + brief-reveal.js, which no-ops unless a [data-menu-total] bar is present, and
-   which also runs fitDiagrams() so no SVG label can ever spill its node box.
-   When a .totbar is on the page, give body `padding-bottom:96px` (130px mobile)
-   so the fixed bar never covers the footer.
+   Pairs with brief.css. Two IntersectionObservers:
+     1. .reveal  -> adds .in when the element scrolls into view (fade + rise).
+     2. animated blocks (#xform, #pipe, #dash, or any [data-play]) -> adds .play
+        the first time they're visible, so the CSS keyframe animations stay idle
+        until seen (saves CPU + makes the reveal feel intentional).
+
+   No dependencies. Safe to load with `defer`. Honors prefers-reduced-motion via
+   brief.css (the .reveal rule no-ops; .play still applies but animations that
+   matter are decorative). To register a custom animated block, add the
+   `data-play` attribute to it OR push its id into PLAY_IDS below.
    ============================================================================ */
+(function () {
+  var PLAY_IDS = ['xform', 'pipe', 'dash'];
 
-/* ----- mini flow diagram (reusable automation-mechanism figure) ----- */
-/* SVG text never wraps; brief-reveal.js fitDiagrams() squeezes any label wider
-   than its node. Keep labels short anyway — the squeeze is a safety net. */
-.dg{margin:4px 0 2px;overflow-x:auto}
-.dg svg{width:100%;min-width:640px;height:auto;display:block}
-.dg .nd{fill:#fff;stroke:var(--cream-line);stroke-width:1.5}
-.dg .src{fill:#FBF4E7;stroke:#E5C89A}                 /* input / watched source */
-.dg .agn{fill:#F5F0FE;stroke:var(--purple-vivid)}     /* the agent */
-.dg .out{fill:#fff;stroke:var(--purple-mid)}          /* result / output */
-.dg .gat{fill:#EBF6F8;stroke:var(--teal)}             /* human gate */
-.dg text{font-family:var(--sans)}
-.dg .tt{font-size:13px;font-weight:700;fill:var(--midnight)}                                   /* node title */
-.dg .ts{font-size:10px;font-weight:600;fill:var(--gray-meta-light);font-family:var(--mono)}    /* node subtitle */
-.dg .tw{font-size:9.5px;font-weight:700;fill:var(--purple-bold);font-family:var(--mono);letter-spacing:.08em}  /* over-node kicker */
-.dg .tw.g{fill:var(--teal)}
-.dg .tw.s{fill:var(--amber)}
-.dg .ln{stroke:var(--purple-vivid);stroke-width:2;stroke-dasharray:5 5;fill:none;marker-end:url(#arw)}
-.dg .ln{animation:dashmove 1.1s linear infinite}
-@keyframes dashmove{to{stroke-dashoffset:-20}}
+  function observe() {
+    // 1. Scroll-reveal
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealIO.unobserve(e.target); // reveal once, then stop watching
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
 
-/* ----- selectable automation card ----- */
-.acard{background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;padding:20px 24px 18px;margin-bottom:16px;transition:border-color .25s,box-shadow .25s,background .25s}
-.acard.sel{border-color:var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.045));box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
-.acard .ahead{display:flex;align-items:center;gap:13px;margin-bottom:6px;flex-wrap:wrap}
-.acard .rank{flex:0 0 30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
-.acard.alt2 .rank{background:linear-gradient(150deg,var(--teal),#0a9cb8)}   /* second tier / "also on the menu" */
-.acard .aname{font-weight:800;font-size:17.5px;letter-spacing:-.01em}
-.acard .aprice{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:16px;color:var(--midnight)}
-.acard .adesc{font-size:13.5px;color:var(--gray-meta-light);line-height:1.55;margin:2px 0 12px;max-width:88ch}
-.acard .adesc strong{color:var(--midnight)}
-.acard .afoot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
-.acard .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
-.acard .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
-.acard .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
-.acard input[type=checkbox]{position:absolute;opacity:0;pointer-events:none}
-.addbtn{margin-left:auto;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:8px 18px;cursor:pointer;transition:all .2s;user-select:none}
-.addbtn:hover{background:rgba(124,58,237,.08)}
-.acard.sel .addbtn{background:var(--purple-vivid);color:#fff}
+    // 2. Animation gating: add .play once visible.
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('play'); }
+      });
+    }, { threshold: 0.2 });
 
-/* ----- foundation strip (the shared base, added once with the first pick) ----- */
-.found{background:var(--midnight);color:#fff;border-radius:14px;padding:18px 24px;margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
-.found .fic{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(181,168,230,.2);display:flex;align-items:center;justify-content:center;font-size:15px}
-.found .ft{font-weight:800;font-size:15.5px}
-.found .fd{font-size:12.5px;color:var(--purple-soft);flex-basis:100%;margin-left:44px;line-height:1.5}
-.found .fp{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--purple-soft)}
-.found .fp b{color:#fff}
+    var targets = {};
+    PLAY_IDS.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) targets[id] = el;
+    });
+    document.querySelectorAll('[data-play]').forEach(function (el) {
+      targets[el.id || ('p' + Math.round(el.getBoundingClientRect().top))] = el;
+    });
+    Object.keys(targets).forEach(function (k) { playIO.observe(targets[k]); });
+  }
 
-/* ----- package cards with auto-applied discount ----- */
-.phcard{background:#fff;border:1.5px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--purple-vivid);display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s}
-.phcard.sel{border-color:var(--purple-vivid);box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
-.phcard .pt{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
-.phcard h4{font-size:16px;font-weight:800;margin:0 0 4px;letter-spacing:-.01em}
-.phcard .amt{font-family:var(--mono);font-weight:700;font-size:19px;color:var(--midnight);margin:6px 0 2px}
-.phcard .amt .was{color:var(--gray-meta);text-decoration:line-through;font-size:13px;font-weight:600;margin-right:8px}
-.phcard .save{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);margin-bottom:10px}
-.phcard p{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0 0 14px;flex:1}
-.phbtn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:9px 16px;cursor:pointer;transition:all .2s;align-self:flex-start}
-.phbtn:hover{background:rgba(124,58,237,.08)}
-.phcard.sel .phbtn{background:var(--purple-vivid);color:#fff}
-.bundle-note{margin-top:18px;background:rgba(46,158,107,.08);border:1px solid rgba(46,158,107,.3);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
-.bundle-note b{color:var(--green)}
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observe);
+  } else {
+    observe();
+  }
+})();
 
-/* ----- sticky live-total bar (hidden math until the buyer selects) ----- */
-.totbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--midnight-deep);color:#fff;border-top:1px solid rgba(181,168,230,.3);box-shadow:0 -14px 40px -20px rgba(0,0,0,.5)}
-.totbar .wrap{display:flex;align-items:center;gap:18px;padding:14px 28px;flex-wrap:wrap}
-.totbar .tprompt{font-size:14.5px;color:var(--purple-soft)}
-.totbar .tprompt b{color:#fff}
-.totbar .tmath{font-family:var(--mono);font-size:12px;color:var(--purple-soft);display:none;align-items:center;gap:14px;flex-wrap:wrap}
-.totbar .tmath .seg b{color:#fff}
-.totbar .tmath .save{color:#5FD6A0}
-.totbar .ttotal{margin-left:auto;display:none;align-items:baseline;gap:10px}
-.totbar .ttotal .tl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700}
-.totbar .ttotal .tv{font-family:var(--mono);font-weight:700;font-size:23px;color:#fff}
-.totbar.active .tprompt{display:none}
-.totbar.active .tmath{display:flex}
-.totbar.active .ttotal{display:flex}
-
-@media(max-width:880px){
-  .acard .aprice{flex-basis:100%;margin-left:44px}
-}
-@media(prefers-reduced-motion:reduce){
-  .dg .ln{animation:none}
-  .acard,.phcard,.addbtn,.phbtn{transition:none}
-}
-@media print{
-  .totbar{display:none}
-  .acard,.phcard{page-break-inside:avoid}
-  .dg .ln{animation:none}
-}
+</script>
+</body>
+</html>

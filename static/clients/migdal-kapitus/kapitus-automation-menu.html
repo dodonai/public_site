@@ -1,0 +1,928 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Levin Migdal &amp; Gibbs — Kapitus Automation Menu</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Dodonai Brief Engine — standalone. Tokens + components from _assets/brief.css */
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased;padding-bottom:96px}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+.reveal{opacity:0;transform:translateY(20px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* hero */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:54px 0 56px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:34px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+.brandbar .tag{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:16px}
+.hero h1{font-weight:800;font-size:48px;line-height:1.04;letter-spacing:-.025em;margin:0 0 16px;max-width:19ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:19px;line-height:1.48;color:var(--purple-soft);max-width:66ch;margin:0 0 32px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:22px;border-top:1px solid rgba(255,255,255,.16);padding-top:22px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:6px}
+.meta .value{font-size:14px;font-weight:600;line-height:1.3}
+
+/* strip */
+.changed{background:var(--midnight);color:#fff;padding:28px 0}
+.changed .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.changed .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:140px;line-height:1.4}
+.changed .clist{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px 26px}
+.changed .ci{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4}
+.changed .ci .tick{color:var(--purple-soft);font-weight:800;flex:0 0 auto}
+.changed .ci b{color:#fff}.changed .ci span{color:var(--purple-soft)}
+
+/* sections */
+section{padding:48px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:30px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:16.5px;color:var(--gray-meta-light);max-width:70ch;margin:0 0 28px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:26px}
+.sec-head .eyebrow{display:block;margin-bottom:11px}
+.ink .eyebrow{color:var(--purple-soft)}
+
+/* pull quote */
+.pull{position:relative;background:#fff;border-radius:14px;padding:32px 40px 28px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:21px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:16px}
+
+/* workflow lanes */
+.phasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.phasecard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:20px 22px;position:relative}
+.phasecard .ph-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.phasecard .ph-n{flex:0 0 30px;height:30px;border-radius:9px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.phasecard .ph-name{font-weight:800;font-size:17px;letter-spacing:-.01em}
+.phasecard .ph-meta{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light)}
+.flow{display:flex;flex-direction:column;gap:7px}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4;position:relative;padding-left:2px}
+.step .sb{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:6px;background:var(--gray-meta)}
+.step.man .sb{background:var(--amber)}
+.step.gate .sb{background:var(--teal)}
+.step .stx{color:var(--midnight)}
+.step .stx .who{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.who.w-man{background:rgba(199,125,46,.14);color:var(--amber)}
+.who.w-gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.flow-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.flow-legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.flow-legend .dot{width:10px;height:10px;border-radius:50%}
+.tally{margin-top:24px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15px;line-height:1.6}
+.tally b{color:var(--amber)}
+
+/* ===== INTERACTIVE MENU ===== */
+.pkg-category{margin:30px 0 12px}
+.pkg-category .cat-label{font-family:var(--mono);font-size:11px;color:var(--purple-bold);letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}
+.pkg-category .cat-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--purple-bold) 0%,transparent 100%)}
+.pkg-category.teal .cat-label{color:var(--teal)}
+.pkg-category.teal .cat-label::after{background:linear-gradient(90deg,var(--teal) 0%,transparent 100%)}
+
+.acard{background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;padding:20px 24px 18px;margin-bottom:16px;transition:border-color .25s,box-shadow .25s,background .25s}
+.acard.sel{border-color:var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.045));box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
+.acard .ahead{display:flex;align-items:center;gap:13px;margin-bottom:6px;flex-wrap:wrap}
+.acard .rank{flex:0 0 30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.acard.alt2 .rank{background:linear-gradient(150deg,var(--teal),#0a9cb8)}
+.acard .aname{font-weight:800;font-size:17.5px;letter-spacing:-.01em}
+.acard .aprice{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:16px;color:var(--midnight)}
+.acard .adesc{font-size:13.5px;color:var(--gray-meta-light);line-height:1.55;margin:2px 0 12px;max-width:88ch}
+.acard .adesc strong{color:var(--midnight)}
+.acard .afoot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.acard .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.acard .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.acard .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.addbtn{margin-left:auto;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:8px 18px;cursor:pointer;transition:all .2s;user-select:none}
+.addbtn:hover{background:rgba(124,58,237,.08)}
+.acard.sel .addbtn{background:var(--purple-vivid);color:#fff}
+.acard input[type=checkbox]{position:absolute;opacity:0;pointer-events:none}
+
+/* foundation strip */
+.found{background:var(--midnight);color:#fff;border:none;border-radius:14px;padding:18px 24px;margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.found .fic{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(181,168,230,.2);display:flex;align-items:center;justify-content:center;font-size:15px}
+.found .ft{font-weight:800;font-size:15.5px}
+.found .fd{font-size:12.5px;color:var(--purple-soft);flex-basis:100%;margin-left:44px;line-height:1.5}
+.found .fp{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--purple-soft)}
+.found .fp b{color:#fff}
+
+/* mini diagrams */
+.dg{margin:4px 0 2px;overflow-x:auto}
+.dg svg{width:100%;min-width:640px;height:auto;display:block}
+.dg .nd{fill:#fff;stroke:var(--cream-line);stroke-width:1.5;rx:12}
+.dg .src{fill:#FBF4E7;stroke:#E5C89A}
+.dg .agn{fill:#F5F0FE;stroke:var(--purple-vivid)}
+.dg .out{fill:#fff;stroke:var(--purple-mid)}
+.dg .gat{fill:#EBF6F8;stroke:var(--teal)}
+.dg text{font-family:var(--sans)}
+.dg .tt{font-size:13px;font-weight:700;fill:var(--midnight)}
+.dg .ts{font-size:10px;font-weight:600;fill:var(--gray-meta-light);font-family:var(--mono)}
+.dg .tw{font-size:9.5px;font-weight:700;fill:var(--purple-bold);font-family:var(--mono);letter-spacing:.08em}
+.dg .tw.g{fill:var(--teal)}
+.dg .tw.s{fill:var(--amber)}
+.dg .ln{stroke:var(--purple-vivid);stroke-width:2;stroke-dasharray:5 5;fill:none;marker-end:url(#arw)}
+.play .dg .ln{animation:dashmove 1.1s linear infinite}
+@keyframes dashmove{to{stroke-dashoffset:-20}}
+
+/* phase packages */
+.timeline{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:6px}
+.phcard{background:#fff;border:1.5px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--purple-vivid);display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s}
+.phcard.sel{border-color:var(--purple-vivid);box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
+.phcard .pt{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phcard h4{font-size:16px;font-weight:800;margin:0 0 4px;letter-spacing:-.01em}
+.phcard .amt{font-family:var(--mono);font-weight:700;font-size:19px;color:var(--midnight);margin:6px 0 2px}
+.phcard .amt .was{color:var(--gray-meta);text-decoration:line-through;font-size:13px;font-weight:600;margin-right:8px}
+.phcard .save{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);margin-bottom:10px}
+.phcard p{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0 0 14px;flex:1}
+.phbtn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:9px 16px;cursor:pointer;transition:all .2s;align-self:flex-start}
+.phbtn:hover{background:rgba(124,58,237,.08)}
+.phcard.sel .phbtn{background:var(--purple-vivid);color:#fff}
+.bundle-note{margin-top:18px;background:rgba(46,158,107,.08);border:1px solid rgba(46,158,107,.3);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.bundle-note b{color:var(--green)}
+
+/* ongoing */
+.numcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;max-width:620px}
+.numcard h3{font-weight:800;font-size:18px;margin:0 0 4px}
+.numcard .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:14px}
+.opex-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--cream-line)}
+.opex-row:last-of-type{border-bottom:none}
+.opex-row .ol .ot{font-weight:700;font-size:14.5px}
+.opex-row .ol .od{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin-top:3px}
+.opex-row .oa{font-family:var(--mono);font-size:12.5px;font-weight:700;color:var(--purple-bold);white-space:nowrap;text-align:right;padding-top:2px}
+.numnote{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5;margin-top:12px}
+
+/* dashboard */
+.dash{background:#0F0F2E;border-radius:18px;padding:0;overflow:hidden;border:1px solid rgba(181,168,230,.25);box-shadow:0 40px 80px -50px rgba(0,0,0,.7)}
+.dash-bar{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(181,168,230,.18)}
+.dash-bar .dots{display:flex;gap:6px}
+.dash-bar .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dash-bar .dots i:nth-child(1){background:#ff5f57}.dash-bar .dots i:nth-child(2){background:#febc2e}.dash-bar .dots i:nth-child(3){background:#28c840}
+.dash-bar .dtitle{font-family:var(--mono);font-size:12px;color:var(--purple-soft);letter-spacing:.06em;font-weight:600}
+.dash-bar .dlive{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:7px}
+.dash-bar .dlive::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dash-body{display:grid;grid-template-columns:1.35fr 1fr;gap:0}
+.dash-col{padding:20px 22px}
+.dash-col.left{border-right:1px solid rgba(181,168,230,.14)}
+.dash-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:14px;display:flex;justify-content:space-between}
+.dash-h .cnt{color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.16);border-radius:11px;padding:12px 13px}
+.kpi .kn{font-weight:800;font-size:24px;color:#fff;letter-spacing:-.02em;line-height:1}
+.kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta);margin-top:6px;line-height:1.3}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 13px;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;margin-bottom:8px}
+.mrow .mname{font-size:13px;color:#fff;font-weight:600}
+.mrow .mphase{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--purple-soft);margin-top:3px}
+.mrow .mpill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.mpill.run{background:rgba(124,58,237,.22);color:var(--purple-soft)}
+.mpill.wait{background:rgba(199,125,46,.2);color:#F0B366}
+.mpill.done{background:rgba(46,158,107,.18);color:#5FD6A0}
+.feed{position:relative;height:268px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent)}
+.feed-track{display:flex;flex-direction:column;gap:9px}
+.play .feed-track{animation:scrollfeed 18s linear infinite}
+@keyframes scrollfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.aevent{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;padding:10px 12px}
+.aevent .aic{flex:0 0 26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(124,58,237,.18)}
+.aevent.ok .aic{background:rgba(46,158,107,.18)}
+.aevent.gate .aic{background:rgba(14,116,137,.2)}
+.aevent .atx{font-size:12px;line-height:1.4;color:#E7E4F5}
+.aevent .atx b{color:#fff;font-weight:700}
+.aevent .atime{font-family:var(--mono);font-size:9px;color:var(--gray-meta);margin-top:3px;letter-spacing:.04em}
+.aevent .atx .agent{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple-soft);letter-spacing:.03em}
+.dash-cap{font-size:14px;color:var(--purple-soft);line-height:1.6;margin-top:24px;text-align:center;max-width:74ch;margin-left:auto;margin-right:auto}
+.dash-cap b{color:#fff}
+
+/* gates + docs + trust */
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gatecard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:19px 22px;border-top:4px solid var(--teal)}
+.gatecard .gi{font-size:20px;margin-bottom:8px}
+.gatecard h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:0 0 7px;color:var(--teal)}
+.gatecard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.qcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start}
+.qc .qcn{flex:0 0 34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qc .qct{font-weight:800;font-size:15px;margin:0 0 4px}
+.qc .qcd{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+.compliance{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--midnight);color:#fff;padding:8px 16px;border-radius:24px;display:inline-flex;align-items:center;gap:8px}
+.pill .pk{color:var(--purple-soft)}
+
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:26px 0;font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff}
+
+/* sticky total bar */
+.totbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--midnight-deep);color:#fff;border-top:1px solid rgba(181,168,230,.3);box-shadow:0 -14px 40px -20px rgba(0,0,0,.5)}
+.totbar .wrap{display:flex;align-items:center;gap:18px;padding:14px 28px;flex-wrap:wrap}
+.totbar .tprompt{font-size:14.5px;color:var(--purple-soft)}
+.totbar .tprompt b{color:#fff}
+.totbar .tmath{font-family:var(--mono);font-size:12px;color:var(--purple-soft);display:none;align-items:center;gap:14px;flex-wrap:wrap}
+.totbar .tmath .seg b{color:#fff}
+.totbar .tmath .save{color:#5FD6A0}
+.totbar .ttotal{margin-left:auto;display:none;align-items:baseline;gap:10px}
+.totbar .ttotal .tl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700}
+.totbar .ttotal .tv{font-family:var(--mono);font-weight:700;font-size:23px;color:#fff}
+.totbar.active .tprompt{display:none}
+.totbar.active .tmath{display:flex}
+.totbar.active .ttotal{display:flex}
+
+@media(max-width:880px){
+  .hero h1{font-size:34px}.meta-grid{grid-template-columns:1fr 1fr;gap:16px}
+  .changed .wrap{grid-template-columns:1fr}.changed .clist{grid-template-columns:1fr}
+  .phasegrid,.gates,.qcards{grid-template-columns:1fr}
+  .timeline{grid-template-columns:1fr}
+  .dash-body{grid-template-columns:1fr}.dash-col.left{border-right:none;border-bottom:1px solid rgba(181,168,230,.14)}
+  .acard .aprice{flex-basis:100%;margin-left:44px}
+  body{padding-bottom:130px}
+}
+</style>
+</head>
+<body>
+
+<svg width="0" height="0" style="position:absolute"><defs>
+<marker id="arw" markerWidth="9" markerHeight="9" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#7C3AED"/></marker>
+</defs></svg>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Kapitus Collections — Automation Menu</span>
+      <span class="tag">interactive · aug 16</span>
+    </div>
+    <span class="eyebrow">Prepared for Levin Migdal &amp; Gibbs LLP</span>
+    <h1>Pick the automations. <span class="soft">Build your own scope.</span></h1>
+    <p class="lede">Every workflow from our call, mapped and priced individually. Each card shows exactly what the automation does, what it watches, and where your sign-off sits. Add the ones you want; your total updates live at the bottom of the page. Start with one, or take a phase at a package price.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Capacity created</div><div class="value">est. 40–60 staff hrs/mo back</div></div>
+      <div class="meta"><div class="label">Matters tracked</div><div class="value">~100, hands-free</div></div>
+      <div class="meta"><div class="label">Manual re-keying</div><div class="value">~10 fields/matter → 0</div></div>
+      <div class="meta"><div class="label">Default packages</div><div class="value">hours → minutes</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="changed">
+  <div class="wrap">
+    <div class="ctitle">How this works</div>
+    <div class="clist">
+      <div class="ci"><span class="tick">→</span><span><b>Each automation stands alone</b>: its own diagram, its own price, buy any subset.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Tap "Add to build"</b> and the running total appears at the bottom of the page.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Packages save money</b>: take a full phase and the discount applies automatically.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- WHAT WE HEARD -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What we heard</span><h2>A high-volume practice <span class="soft">running on manual steps</span></h2>
+      <p class="sec-sub">Roughly 100 live Kapitus matters, most in LA County. California's county-by-county filing system blocks the off-the-shelf tools, so the firm absorbed the gap with paralegal hours, a service mailbox, and a spreadsheet.</p></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">Our tracking is manual, by a shared Excel spreadsheet, which is the scariest thought of all time.</p>
+      <div class="qa">— Lauren Gibbs, Levin Migdal &amp; Gibbs LLP</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFECYCLE TEARDOWN -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The lifecycle today</span><h2>One Kapitus matter, <span class="soft">start to finish</span></h2>
+      <p class="sec-sub">Exactly as Paul and Lauren walked it. Amber dots are steps a person does by hand today; teal dots are judgment calls that should stay human either way.</p></div>
+    <div class="flow-legend reveal d1">
+      <span class="lg"><span class="dot" style="background:var(--gray-meta)"></span> Runs by itself / external</span>
+      <span class="lg"><span class="dot" style="background:var(--amber)"></span> Manual today</span>
+      <span class="lg"><span class="dot" style="background:var(--teal)"></span> Human judgment (stays yours)</span>
+    </div>
+    <div class="phasegrid">
+      <div class="phasecard reveal d1">
+        <div class="ph-top"><span class="ph-n">1</span><span class="ph-name">Intake</span><span class="ph-meta">per referral</span></div>
+        <div class="flow">
+          <div class="step"><span class="sb"></span><span class="stx">Kapitus refers the case; uploads documents to the Convoke portal</span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Paralegal saves the packet into NetDocs, opens the Clio matter<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Attorney or paralegal pulls the loan agreement + merchant statement<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Keys the ~10 fields into Clio: county / case number, borrower, guarantor, contract date, loan amount, repayment amount, payment frequency, principal balance, default date<span class="who w-man">manual</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d1">
+        <div class="ph-top"><span class="ph-n">2</span><span class="ph-name">Complaint &amp; filing</span><span class="ph-meta">every matter</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Clio Draft merges the complaint template from the keyed fields<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Summons, civil case cover sheet + LA addendum prepared; exhibits attached<span class="who w-man">manual</span></span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Attorney reviews the set<span class="who w-gate">your call</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Sent to the process server; filed through the county's required vendor<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Paralegal email-serves opposing counsel as PDFs (no ECF in CA state court)<span class="who w-man">manual</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d2">
+        <div class="ph-top"><span class="ph-n">3</span><span class="ph-name">If they answer</span><span class="ph-meta">contested path</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">First-set discovery incl. RFAs, built in Clio Draft, exhibits added<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Pro per silent → motion to deem RFAs admitted<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">MSJ: motion, memorandum, separate statement with evidence cites, declarations<span class="who w-man">manual</span></span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Pursue attorney's fees? Then into post-judgment<span class="who w-gate">your call</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d2">
+        <div class="ph-top"><span class="ph-n">4</span><span class="ph-name">If they default</span><span class="ph-meta">most common</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Default judgment package: court fillable PDF forms<span class="who w-man">manual · painful</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Supporting declaration (semi-automated in Clio today)<span class="who w-man">manual</span></span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Default judgment entered → matter moves to the post-judgment queue</span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d3">
+        <div class="ph-top"><span class="ph-n">5</span><span class="ph-name">Post-judgment</span><span class="ph-meta">paul's side</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Writs + sheriff instructions; forms vary county by county<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Abstract of judgment prepared, submitted to the court, returned<span class="who w-man">manual</span></span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Third-party service carries it to the county recorder → lien on real property</span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Sister-state judgments tracked as their own category</span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d3">
+        <div class="ph-top"><span class="ph-n">6</span><span class="ph-name">The back office</span><span class="ph-meta">every day</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Service mailbox: offshore paralegal saves each served document, calendars deadlines<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">LA court portal notices arrive with no link; someone logs in and downloads<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Monthly vendor invoice → spreadsheet → costs entered in Clio for client billing<span class="who w-man">~3 hrs/mo</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Shared Excel tracker updated by hand across active / default / post-judgment / sister-state<span class="who w-man">manual</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tally reveal d3"><b>Nearly every hop between the referral packet and the recorded lien is a person re-keying, downloading, or copying.</b> At ~100 live matters, and a second contract form escalating, that manual layer is the ceiling on the practice's capacity.</div>
+  </div>
+</section>
+
+<!-- ===== INTERACTIVE MENU ===== -->
+<section id="menu">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The menu</span><h2>Nine automations. <span class="soft">Take what you want.</span></h2>
+      <p class="sec-sub">Each is deterministic software: AI reads the unstructured documents, structured code produces the output, so nothing gets reworded or invented. The diagrams show the real mechanism, left to right: what comes in, what the agent does, what comes out, and where a human signs. Prices are per automation; the foundation below is built once and shared by everything you pick.</p></div>
+
+    <div class="found reveal d1">
+      <span class="fic">🏗️</span><span class="ft">Engagement foundation</span>
+      <span class="fp"><b>$5,000</b> · added once, with your first selection</span>
+      <span class="fd">Your dedicated tenant in its own isolated cloud project, the Clio API integration, the litigation-event email pipeline, the document store, and the dashboard. Every automation below runs on this base, which is why each line costs less than a standalone one-off build.</span>
+    </div>
+
+    <div class="pkg-category reveal"><div class="cat-label">Ranked by you · Aug 13 follow-up</div></div>
+
+    <!-- 1 TRACKER -->
+    <div class="acard reveal" id="card-a1">
+      <input type="checkbox" id="a1" data-price="5000">
+      <div class="ahead"><span class="rank">1</span><span class="aname">Portfolio Case Tracker</span><span class="aprice">$5,000</span></div>
+      <p class="adesc">The litigation-event emails you already receive (complaint filed, answer served, discovery served, MSJ filed) advance each matter's state on their own. <strong>Nobody updates the tracker; it stays current.</strong> Your working spreadsheet is the starting model.</p>
+      <div class="dg"><svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg">
+        <rect class="nd src" x="6" y="24" width="180" height="72" rx="12"/>
+        <text class="tw s" x="96" y="18" text-anchor="middle">WATCHES</text>
+        <text class="tt" x="96" y="52" text-anchor="middle">✉️ Event emails</text>
+        <text class="ts" x="96" y="72" text-anchor="middle">filed · served · answered</text>
+        <path class="ln" d="M190 60 H240"/>
+        <rect class="nd agn" x="246" y="24" width="200" height="72" rx="12"/>
+        <text class="tw" x="346" y="18" text-anchor="middle">AGENT</text>
+        <text class="tt" x="346" y="52" text-anchor="middle">🤖 Reads each event</text>
+        <text class="ts" x="346" y="72" text-anchor="middle">matches it to the matter</text>
+        <path class="ln" d="M450 60 H500"/>
+        <rect class="nd out" x="506" y="24" width="248" height="72" rx="12"/>
+        <text class="tw" x="630" y="18" text-anchor="middle">RESULT</text>
+        <text class="tt" x="630" y="52" text-anchor="middle">📊 Matter state advances</text>
+        <text class="ts" x="630" y="72" text-anchor="middle">active → default → post-judgment</text>
+      </svg></div>
+      <div class="afoot"><span class="am">reads litigation-event emails</span><span class="am fire">always current</span><span class="am gate">read-only, no gate needed</span>
+        <button class="addbtn" data-for="a1">＋ Add to build</button></div>
+    </div>
+
+    <!-- 2 CALENDARING -->
+    <div class="acard reveal" id="card-a2">
+      <input type="checkbox" id="a2" data-price="4500">
+      <div class="ahead"><span class="rank">2</span><span class="aname">Calendaring &amp; Document Saving</span><span class="aprice">$4,500</span></div>
+      <p class="adesc">Served documents arrive as email attachments. The agent saves each to its matter and calendars the deadline through Clio, so <strong>Clio's date-calculation rules do the math</strong>, not a person at 6pm. Same engine as the build underway with Josh.</p>
+      <div class="dg"><svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg">
+        <rect class="nd src" x="6" y="24" width="170" height="72" rx="12"/>
+        <text class="tw s" x="91" y="18" text-anchor="middle">WATCHES</text>
+        <text class="tt" x="91" y="52" text-anchor="middle">📎 Service mailbox</text>
+        <text class="ts" x="91" y="72" text-anchor="middle">attachment = the trigger</text>
+        <path class="ln" d="M180 60 H226"/>
+        <rect class="nd agn" x="232" y="24" width="190" height="72" rx="12"/>
+        <text class="tw" x="327" y="18" text-anchor="middle">AGENT</text>
+        <text class="tt" x="327" y="52" text-anchor="middle">🤖 Files + computes</text>
+        <text class="ts" x="327" y="72" text-anchor="middle">files it · dates via Clio rules</text>
+        <path class="ln" d="M426 60 H472"/>
+        <rect class="nd out" x="478" y="10" width="276" height="46" rx="10"/>
+        <text class="tt" x="616" y="33" text-anchor="middle" font-size="12.5">📅 Deadline on the calendar</text>
+        <text class="ts" x="616" y="48" text-anchor="middle">computed, not guessed</text>
+        <rect class="nd out" x="478" y="66" width="276" height="46" rx="10"/>
+        <text class="tt" x="616" y="89" text-anchor="middle" font-size="12.5">🗂️ Document filed to the matter</text>
+        <text class="ts" x="616" y="104" text-anchor="middle">named, stored, findable</text>
+      </svg></div>
+      <div class="afoot"><span class="am">watches service mail</span><span class="am fire">fires on attachment</span><span class="am gate">exceptions flagged to you</span>
+        <button class="addbtn" data-for="a2">＋ Add to build</button></div>
+    </div>
+
+    <!-- 3 COSTS -->
+    <div class="acard reveal" id="card-a3">
+      <input type="checkbox" id="a3" data-price="3500">
+      <div class="ahead"><span class="rank">3</span><span class="aname">Cost Accounting in Clio</span><span class="aprice">$3,500</span></div>
+      <p class="adesc">Reads the vendor's monthly invoice and per-filing receipts, splits every charge by case, and posts them into Clio through its API. <strong>Costs land on the client invoice next to your fees</strong> with no spreadsheet in between. About 3 paralegal hours a month, returned.</p>
+      <div class="dg"><svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg">
+        <rect class="nd src" x="6" y="24" width="170" height="72" rx="12"/>
+        <text class="tw s" x="91" y="18" text-anchor="middle">WATCHES</text>
+        <text class="tt" x="91" y="52" text-anchor="middle">🧾 Vendor invoices</text>
+        <text class="ts" x="91" y="72" text-anchor="middle">monthly bill + card receipts</text>
+        <path class="ln" d="M180 60 H226"/>
+        <rect class="nd agn" x="232" y="24" width="200" height="72" rx="12"/>
+        <text class="tw" x="332" y="18" text-anchor="middle">AGENT</text>
+        <text class="tt" x="332" y="52" text-anchor="middle">🤖 Splits by case</text>
+        <text class="ts" x="332" y="72" text-anchor="middle">every $135 filing → its matter</text>
+        <path class="ln" d="M436 60 H482"/>
+        <rect class="nd out" x="488" y="24" width="266" height="72" rx="12"/>
+        <text class="tw" x="621" y="18" text-anchor="middle">RESULT</text>
+        <text class="tt" x="621" y="52" text-anchor="middle">💵 Costs posted to Clio</text>
+        <text class="ts" x="621" y="72" text-anchor="middle">on the client invoice with your fees</text>
+      </svg></div>
+      <div class="afoot"><span class="am">watches cost emails</span><span class="am fire">fires on invoice</span><span class="am gate">monthly summary to you</span>
+        <button class="addbtn" data-for="a3">＋ Add to build</button></div>
+    </div>
+
+    <!-- 4 DIGEST -->
+    <div class="acard reveal" id="card-a4">
+      <input type="checkbox" id="a4" data-price="2000">
+      <div class="ahead"><span class="rank">4</span><span class="aname">Deadline &amp; Hearing Digest</span><span class="aprice">$2,000</span></div>
+      <p class="adesc">Every week, one email per attorney with every upcoming deadline and court hearing pulled from the Clio calendar. <strong>Nothing sneaks up on anyone.</strong> The item you flagged after the call.</p>
+      <div class="dg"><svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg">
+        <rect class="nd src" x="6" y="24" width="170" height="72" rx="12"/>
+        <text class="tw s" x="91" y="18" text-anchor="middle">READS</text>
+        <text class="tt" x="91" y="52" text-anchor="middle">📅 Clio calendar</text>
+        <text class="ts" x="91" y="72" text-anchor="middle">all matters, all attorneys</text>
+        <path class="ln" d="M180 60 H226"/>
+        <rect class="nd agn" x="232" y="24" width="200" height="72" rx="12"/>
+        <text class="tw" x="332" y="18" text-anchor="middle">AGENT</text>
+        <text class="tt" x="332" y="52" text-anchor="middle">🤖 Weekly sweep</text>
+        <text class="ts" x="332" y="72" text-anchor="middle">sorts by date, flags the urgent</text>
+        <path class="ln" d="M436 60 H482"/>
+        <rect class="nd out" x="488" y="24" width="266" height="72" rx="12"/>
+        <text class="tw" x="621" y="18" text-anchor="middle">RESULT</text>
+        <text class="tt" x="621" y="52" text-anchor="middle">✉️ Monday digest</text>
+        <text class="ts" x="621" y="72" text-anchor="middle">one email per attorney, per week</text>
+      </svg></div>
+      <div class="afoot"><span class="am">reads Clio calendar</span><span class="am fire">weekly</span><span class="am gate">informational</span>
+        <button class="addbtn" data-for="a4">＋ Add to build</button></div>
+    </div>
+
+    <!-- 5 DEFAULT JUDGMENT -->
+    <div class="acard reveal" id="card-a5">
+      <input type="checkbox" id="a5" data-price="5500">
+      <div class="ahead"><span class="rank">5</span><span class="aname">Default Judgment Package Builder</span><span class="aprice">$5,500</span></div>
+      <p class="adesc">Builds the full package from the filed complaint and the filing + service (POS) emails: request for entry of default, proposed judgment, request for dismissal, and the declaration. <strong>The court PDFs are filled field by field, never flattened</strong>, which is exactly where your Clio project stalled. Your exemplar package is our answer key.</p>
+      <div class="dg"><svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg">
+        <rect class="nd src" x="6" y="24" width="158" height="72" rx="12"/>
+        <text class="tw s" x="85" y="18" text-anchor="middle">READS</text>
+        <text class="tt" x="85" y="52" text-anchor="middle">📄 Complaint + POS</text>
+        <text class="ts" x="85" y="72" text-anchor="middle">fires on missed answer</text>
+        <path class="ln" d="M168 60 H208"/>
+        <rect class="nd agn" x="214" y="24" width="180" height="72" rx="12"/>
+        <text class="tw" x="304" y="18" text-anchor="middle">AGENT</text>
+        <text class="tt" x="304" y="52" text-anchor="middle">🤖 Fills the forms</text>
+        <text class="ts" x="304" y="72" text-anchor="middle">3 court PDFs + declaration</text>
+        <path class="ln" d="M398 60 H438"/>
+        <rect class="nd gat" x="444" y="24" width="140" height="72" rx="12"/>
+        <text class="tw g" x="514" y="18" text-anchor="middle">YOU</text>
+        <text class="tt" x="514" y="52" text-anchor="middle">👤 One look</text>
+        <text class="ts" x="514" y="72" text-anchor="middle">attorney signs</text>
+        <path class="ln" d="M588 60 H628"/>
+        <rect class="nd out" x="634" y="24" width="120" height="72" rx="12"/>
+        <text class="tw" x="694" y="18" text-anchor="middle">RESULT</text>
+        <text class="tt" x="694" y="52" text-anchor="middle">📦 Ready</text>
+        <text class="ts" x="694" y="72" text-anchor="middle">to file</text>
+      </svg></div>
+      <div class="afoot"><span class="am">reads complaint + POS emails</span><span class="am fire">fires on missed answer</span><span class="am gate">gate: attorney review</span>
+        <button class="addbtn" data-for="a5">＋ Add to build</button></div>
+    </div>
+
+    <!-- 6 TASKS -->
+    <div class="acard reveal" id="card-a6">
+      <input type="checkbox" id="a6" data-price="3500">
+      <div class="ahead"><span class="rank">6</span><span class="aname">Task Lists &amp; Reminders</span><span class="aprice">$3,500</span></div>
+      <p class="adesc">When an attorney emails a paralegal an assignment, it becomes a shared task with reminders until it's done. <strong>Assignments stop vanishing into a black hole</strong>, and the supervising attorney stops carrying the follow-up in their head. Attorneys get their own list too.</p>
+      <div class="dg"><svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg">
+        <rect class="nd src" x="6" y="24" width="180" height="72" rx="12"/>
+        <text class="tw s" x="96" y="18" text-anchor="middle">WATCHES</text>
+        <text class="tt" x="96" y="52" text-anchor="middle">✉️ Assignment email</text>
+        <text class="ts" x="96" y="72" text-anchor="middle">attorney → paralegal</text>
+        <path class="ln" d="M190 60 H236"/>
+        <rect class="nd agn" x="242" y="24" width="190" height="72" rx="12"/>
+        <text class="tw" x="337" y="18" text-anchor="middle">AGENT</text>
+        <text class="tt" x="337" y="52" text-anchor="middle">🤖 Creates the task</text>
+        <text class="ts" x="337" y="72" text-anchor="middle">owner · matter · due date</text>
+        <path class="ln" d="M436 60 H482"/>
+        <rect class="nd out" x="488" y="10" width="266" height="46" rx="10"/>
+        <text class="tt" x="621" y="33" text-anchor="middle" font-size="12.5">📋 Shared task list</text>
+        <text class="ts" x="621" y="48" text-anchor="middle">both of you see the same board</text>
+        <rect class="nd out" x="488" y="66" width="266" height="46" rx="10"/>
+        <text class="tt" x="621" y="89" text-anchor="middle" font-size="12.5">🔔 Reminders until done</text>
+        <text class="ts" x="621" y="104" text-anchor="middle">nobody has to circle back</text>
+      </svg></div>
+      <div class="afoot"><span class="am">reads assignment emails</span><span class="am fire">fires on assignment</span><span class="am gate">no gate needed</span>
+        <button class="addbtn" data-for="a6">＋ Add to build</button></div>
+    </div>
+
+    <div class="pkg-category teal reveal"><div class="cat-label">Also on the menu · from the call</div></div>
+
+    <!-- 7 COMPLAINT -->
+    <div class="acard alt2 reveal" id="card-a7">
+      <input type="checkbox" id="a7" data-price="6500">
+      <div class="ahead"><span class="rank">7</span><span class="aname">Complaint &amp; Filing-Set Drafter</span><span class="aprice">$6,500</span></div>
+      <p class="adesc">Reads the loan agreement and merchant statement, extracts the ~10 fields you key today, and assembles the full filing set with exhibits. Both contract forms, guarantor count included. <strong>Your templates stay verbatim; only the fields change.</strong></p>
+      <div class="dg"><svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg">
+        <rect class="nd src" x="6" y="24" width="158" height="72" rx="12"/>
+        <text class="tw s" x="85" y="18" text-anchor="middle">READS</text>
+        <text class="tt" x="85" y="52" text-anchor="middle">📄 Referral packet</text>
+        <text class="ts" x="85" y="72" text-anchor="middle">agreement + statement</text>
+        <path class="ln" d="M168 60 H208"/>
+        <rect class="nd agn" x="214" y="24" width="180" height="72" rx="12"/>
+        <text class="tw" x="304" y="18" text-anchor="middle">AGENT</text>
+        <text class="tt" x="304" y="52" text-anchor="middle">🤖 Extracts ~10 fields</text>
+        <text class="ts" x="304" y="72" text-anchor="middle">merges your templates</text>
+        <path class="ln" d="M398 60 H438"/>
+        <rect class="nd out" x="444" y="24" width="150" height="72" rx="12"/>
+        <text class="tw" x="519" y="18" text-anchor="middle">DRAFTS</text>
+        <text class="tt" x="519" y="52" text-anchor="middle">📝 Filing set</text>
+        <text class="ts" x="519" y="72" text-anchor="middle">complaint, summons, +2</text>
+        <path class="ln" d="M598 60 H638"/>
+        <rect class="nd gat" x="644" y="24" width="110" height="72" rx="12"/>
+        <text class="tw g" x="699" y="18" text-anchor="middle">YOU</text>
+        <text class="tt" x="699" y="52" text-anchor="middle">👤 Sign</text>
+        <text class="ts" x="699" y="72" text-anchor="middle">then it files</text>
+      </svg></div>
+      <div class="afoot"><span class="am">reads referral packet</span><span class="am fire">fires on new referral</span><span class="am gate">gate: attorney one-look</span>
+        <button class="addbtn" data-for="a7">＋ Add to build</button></div>
+    </div>
+
+    <!-- 8 SETTLEMENT -->
+    <div class="acard alt2 reveal" id="card-a8">
+      <input type="checkbox" id="a8" data-price="3500">
+      <div class="ahead"><span class="rank">8</span><span class="aname">Settlement Agreement Drafter</span><span class="aprice">$3,500</span></div>
+      <p class="adesc">Forward the email that memorializes the deal. It extracts the settlement amount, stipulated judgment, payment frequency, and term, and merges them into the client's form. <strong>Terms in an email become a draft in minutes.</strong></p>
+      <div class="dg"><svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg">
+        <rect class="nd src" x="6" y="24" width="170" height="72" rx="12"/>
+        <text class="tw s" x="91" y="18" text-anchor="middle">WATCHES</text>
+        <text class="tt" x="91" y="52" text-anchor="middle">✉️ Forwarded terms</text>
+        <text class="ts" x="91" y="72" text-anchor="middle">the memorializing email</text>
+        <path class="ln" d="M180 60 H222"/>
+        <rect class="nd agn" x="228" y="24" width="190" height="72" rx="12"/>
+        <text class="tw" x="323" y="18" text-anchor="middle">AGENT</text>
+        <text class="tt" x="323" y="52" text-anchor="middle">🤖 Extracts the terms</text>
+        <text class="ts" x="323" y="72" text-anchor="middle">amount · judgment · freq · term</text>
+        <path class="ln" d="M422 60 H464"/>
+        <rect class="nd out" x="470" y="24" width="150" height="72" rx="12"/>
+        <text class="tw" x="545" y="18" text-anchor="middle">DRAFTS</text>
+        <text class="tt" x="545" y="52" text-anchor="middle">📝 Agreement</text>
+        <text class="ts" x="545" y="72" text-anchor="middle">on the client's form</text>
+        <path class="ln" d="M624 60 H664"/>
+        <rect class="nd gat" x="670" y="24" width="84" height="72" rx="12"/>
+        <text class="tw g" x="712" y="18" text-anchor="middle">YOU</text>
+        <text class="tt" x="712" y="52" text-anchor="middle">👤 Review</text>
+        <text class="ts" x="712" y="72" text-anchor="middle">and send</text>
+      </svg></div>
+      <div class="afoot"><span class="am">reads forwarded email</span><span class="am fire">fires on forward</span><span class="am gate">gate: attorney review</span>
+        <button class="addbtn" data-for="a8">＋ Add to build</button></div>
+    </div>
+
+    <!-- 9 DISCOVERY -->
+    <div class="acard alt2 reveal" id="card-a9">
+      <input type="checkbox" id="a9" data-price="5000">
+      <div class="ahead"><span class="rank">9</span><span class="aname">Discovery &amp; Motion Support</span><span class="aprice">$5,000</span></div>
+      <p class="adesc">When an answer lands, it builds the first set with RFAs from your templates. Later, the bloated LA separate statements that repeat request, response, and reason for all 50 RFPs. <strong>The per-RFP grind becomes a merge.</strong></p>
+      <div class="dg"><svg viewBox="0 0 760 120" xmlns="http://www.w3.org/2000/svg">
+        <rect class="nd src" x="6" y="24" width="158" height="72" rx="12"/>
+        <text class="tw s" x="85" y="18" text-anchor="middle">WATCHES</text>
+        <text class="tt" x="85" y="52" text-anchor="middle">⚖️ Answer filed</text>
+        <text class="ts" x="85" y="72" text-anchor="middle">the trigger event</text>
+        <path class="ln" d="M168 60 H208"/>
+        <rect class="nd agn" x="214" y="24" width="190" height="72" rx="12"/>
+        <text class="tw" x="309" y="18" text-anchor="middle">AGENT</text>
+        <text class="tt" x="309" y="52" text-anchor="middle">🤖 Builds the set</text>
+        <text class="ts" x="309" y="72" text-anchor="middle">RFAs · rogs · RFPs + exhibits</text>
+        <path class="ln" d="M408 60 H448"/>
+        <rect class="nd out" x="454" y="24" width="166" height="72" rx="12"/>
+        <text class="tw" x="537" y="18" text-anchor="middle">DRAFTS</text>
+        <text class="tt" x="537" y="52" text-anchor="middle">📝 Discovery + SS</text>
+        <text class="ts" x="537" y="72" text-anchor="middle">separate statements per RFP</text>
+        <path class="ln" d="M624 60 H664"/>
+        <rect class="nd gat" x="670" y="24" width="84" height="72" rx="12"/>
+        <text class="tw g" x="712" y="18" text-anchor="middle">YOU</text>
+        <text class="tt" x="712" y="52" text-anchor="middle">👤 Review</text>
+        <text class="ts" x="712" y="72" text-anchor="middle">and serve</text>
+      </svg></div>
+      <div class="afoot"><span class="am">reads answer + discovery</span><span class="am fire">fires on answer filed</span><span class="am gate">gate: attorney review</span>
+        <button class="addbtn" data-for="a9">＋ Add to build</button></div>
+    </div>
+
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Or take a package</span><h2>Build it in three phases, <span class="soft">and save</span></h2>
+      <p class="sec-sub">Take a full phase and the package discount applies automatically; the buttons below select the whole set for you. Take all three and the full-build discount kicks in on top. Each phase pays 50% at start, 50% on your approval.</p></div>
+    <div class="timeline reveal d1">
+      <div class="phcard" id="ph1">
+        <div class="pt">Phase 1 · the admin engine</div>
+        <h4>Tracker + calendaring + costs + digest</h4>
+        <div class="amt"><span class="was">$20,000</span>$18,500</div>
+        <div class="save">package saves $1,500 · incl. foundation</div>
+        <p>Your top four. The email-event engine, the calendar that runs itself, and the tracker that retires the spreadsheet.</p>
+        <button class="phbtn" data-phase="p1">Select phase 1</button>
+      </div>
+      <div class="phcard" id="ph2">
+        <div class="pt">Phase 2 · the time sinks</div>
+        <h4>Default packages + task lists</h4>
+        <div class="amt"><span class="was">$9,000</span>$8,250</div>
+        <div class="save">package saves $750</div>
+        <p>The painful default judgment packages (we have your exemplar) and the task lists you called huge.</p>
+        <button class="phbtn" data-phase="p2">Select phase 2</button>
+      </div>
+      <div class="phcard" id="ph3">
+        <div class="pt">Phase 3 · drafting</div>
+        <h4>Complaints + settlements + discovery</h4>
+        <div class="amt"><span class="was">$15,000</span>$13,750</div>
+        <div class="save">package saves $1,250</div>
+        <p>The document generation, staged last since Clio Draft already moves quickly here.</p>
+        <button class="phbtn" data-phase="p3">Select phase 3</button>
+      </div>
+    </div>
+    <div class="bundle-note reveal d2"><b>All three phases:</b> the full-build discount replaces the per-phase savings, for $4,000 off the whole menu. The total bar below does the math either way.</div>
+  </div>
+</section>
+
+<!-- ONGOING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Ongoing</span><h2>What it costs to <span class="soft">keep it running</span></h2>
+      <p class="sec-sub">One required layer. Your existing Clio subscription stays as-is; we don't stack on top of it.</p></div>
+    <div class="numcard reveal d1">
+      <div class="nlabel">Infrastructure</div><h3>$300–600/mo</h3>
+      <div class="opex-row"><div class="ol"><div class="ot">Hosting &amp; infrastructure</div><div class="od">Your dedicated, isolated cloud project, scaled to how many automations run. One or two automations sit at the low end; the full menu at the high end.</div></div><div class="oa">$300–600/mo</div></div>
+      <div class="opex-row"><div class="ol"><div class="ot">AI / API usage</div><div class="od">Billed at cost, no markup, to your account or passed straight through. You see the real number.</div></div><div class="oa">~$100–250/mo</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- DASH -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Your window into it</span><h2>One dashboard shows <span class="soft">everything it did</span></h2>
+      <p class="sec-sub">Mostly-background doesn't mean invisible. Whatever you pick, the dashboard is your source of truth: every matter's stage, everything waiting on a signature, and a live feed of every action an agent took.</p></div>
+    <div class="dash reveal d1" id="dash">
+      <div class="dash-bar"><span class="dots"><i></i><i></i><i></i></span><span class="dtitle">Levin Migdal &amp; Gibbs · Dodonai FirmOS</span><span class="dlive">Live</span></div>
+      <div class="dash-body">
+        <div class="dash-col left">
+          <div class="kpis">
+            <div class="kpi"><div class="kn">100</div><div class="kl">Active matters</div></div>
+            <div class="kpi"><div class="kn">3</div><div class="kl">Awaiting your sign-off</div></div>
+            <div class="kpi"><div class="kn">27</div><div class="kl">Agent actions today</div></div>
+          </div>
+          <div class="dash-h">Needs attention <span class="cnt">3</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Pacific Coast Catering</div><div class="mphase">new referral · LA County</div></div><span class="mpill wait">Complaint set → sign-off</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Harbor Auto Group</div><div class="mphase">answer deadline passed</div></div><span class="mpill wait">Default package → sign-off</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Sunrise Dental Mgmt</div><div class="mphase">settlement terms received</div></div><span class="mpill wait">Agreement → sign-off</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Golden State Logistics</div><div class="mphase">discovery · answered</div></div><span class="mpill run">Agent: building RFAs</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Vista Home Services</div><div class="mphase">post-judgment · abstract</div></div><span class="mpill done">Recorded · lien on file</span></div>
+        </div>
+        <div class="dash-col right">
+          <div class="dash-h">Agent activity <span class="cnt">live</span></div>
+          <div class="feed">
+            <div class="feed-track" id="feed">
+              <!-- set A -->
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Complaint set drafted</b> from referral packet, 10 fields extracted. <span class="agent">[ drafter ]</span></div><div class="atime">07:42</div></div></div>
+              <div class="aevent"><span class="aic">🏛️</span><div><div class="atx"><b>Event email detected</b>, matter state advanced to default queue. <span class="agent">[ tracker ]</span></div><div class="atime">08:03</div></div></div>
+              <div class="aevent ok"><span class="aic">📅</span><div><div class="atx"><b>Service email processed</b>, motion saved, opposition deadline calendared via Clio rules. <span class="agent">[ calendaring ]</span></div><div class="atime">08:17</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Default judgment package</b> assembled, ready for your sign-off. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:31</div></div></div>
+              <div class="aevent ok"><span class="aic">💵</span><div><div class="atx"><b>Vendor invoice ingested</b>, 22 filing charges posted to Clio by case. <span class="agent">[ costs ]</span></div><div class="atime">09:02</div></div></div>
+              <div class="aevent"><span class="aic">🔔</span><div><div class="atx"><b>Task reminder sent</b>, service instructions assignment still open. <span class="agent">[ tasks ]</span></div><div class="atime">09:26</div></div></div>
+              <div class="aevent ok"><span class="aic">📊</span><div><div class="atx"><b>Weekly digest queued</b>, 14 deadlines + 3 hearings for Monday. <span class="agent">[ digest ]</span></div><div class="atime">09:40</div></div></div>
+              <!-- set B (duplicate for seamless loop) -->
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Complaint set drafted</b> from referral packet, 10 fields extracted. <span class="agent">[ drafter ]</span></div><div class="atime">07:42</div></div></div>
+              <div class="aevent"><span class="aic">🏛️</span><div><div class="atx"><b>Event email detected</b>, matter state advanced to default queue. <span class="agent">[ tracker ]</span></div><div class="atime">08:03</div></div></div>
+              <div class="aevent ok"><span class="aic">📅</span><div><div class="atx"><b>Service email processed</b>, motion saved, opposition deadline calendared via Clio rules. <span class="agent">[ calendaring ]</span></div><div class="atime">08:17</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Default judgment package</b> assembled, ready for your sign-off. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:31</div></div></div>
+              <div class="aevent ok"><span class="aic">💵</span><div><div class="atx"><b>Vendor invoice ingested</b>, 22 filing charges posted to Clio by case. <span class="agent">[ costs ]</span></div><div class="atime">09:02</div></div></div>
+              <div class="aevent"><span class="aic">🔔</span><div><div class="atx"><b>Task reminder sent</b>, service instructions assignment still open. <span class="agent">[ tasks ]</span></div><div class="atime">09:26</div></div></div>
+              <div class="aevent ok"><span class="aic">📊</span><div><div class="atx"><b>Weekly digest queued</b>, 14 deadlines + 3 hearings for Monday. <span class="agent">[ digest ]</span></div><div class="atime">09:40</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="dash-cap reveal d2"><b>Increase capacity, reduce labor.</b> The same team runs more matters because the mechanical layer runs itself, and everything it does is visible here.</p>
+  </div>
+</section>
+
+<!-- GATES -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>The system removes the typing, <span class="soft">not the judgment</span></h2>
+      <p class="sec-sub">Templates stay verbatim; only the fields change. The calls that matter stay with the people who should make them.</p></div>
+    <div class="gates">
+      <div class="gatecard reveal d1"><div class="gi">✍️</div><h4>Attorney signs every filing</h4><p>Complaints, discovery, default packages, motions: nothing reaches a process server, a clerk, or opposing counsel without a one-look approval.</p></div>
+      <div class="gatecard reveal d1"><div class="gi">🧾</div><h4>Fixed price, phased pay</h4><p>50% at the start of each phase, 50% when it meets the acceptance criteria we agree on. Locked prices hold regardless of how tricky any one workflow turns out to be. Out-of-scope work is quoted first, or $200/hr.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">🔑</div><h4>You own the code</h4><p>The build is yours, outright. If we ever part ways, you keep everything and we help you move it.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">🚩</div><h4>Exceptions flag, not file</h4><p>A packet with missing documents, a mismatched contract form, an unusual guaranty: anything that fails a check stops and asks, instead of guessing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE NEED -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">To get building</span><h2>What to send over <span class="soft">(overshare freely)</span></h2>
+      <p class="sec-sub">Thanks for the default judgment package and the tracker spreadsheet Lauren already sent, those are in hand. The rest rounds out scoping for whichever lines you pick.</p></div>
+    <div class="qcards">
+      <div class="qc reveal d1"><div class="qcn" style="background:var(--green)">✓</div><div><p class="qct">Default judgment package <span style="font-family:var(--mono);font-size:10px;color:var(--green);font-weight:700;letter-spacing:.06em;text-transform:uppercase">· received</span></p><p class="qcd">The exemplar (declaration, request for entry of default, proposed judgment, request for dismissal) landed Aug 13.</p></div></div>
+      <div class="qc reveal d1"><div class="qcn" style="background:var(--green)">✓</div><div><p class="qct">Working tracker spreadsheet <span style="font-family:var(--mono);font-size:10px;color:var(--green);font-weight:700;letter-spacing:.06em;text-transform:uppercase">· received</span></p><p class="qcd">The Kapitus Matter Report is the starting model for the Portfolio Case Tracker.</p></div></div>
+      <div class="qc reveal d2"><div class="qcn">3</div><div><p class="qct">Clio Draft templates</p><p class="qcd">Complaint (both contract forms), summons, cover sheet + addendum, discovery set, declaration: the templates Lauren built.</p></div></div>
+      <div class="qc reveal d2"><div class="qcn">4</div><div><p class="qct">A sample referral packet</p><p class="qcd">A loan agreement and merchant statement pair, ideally one of each contract form, so extraction trains on the real thing.</p></div></div>
+      <div class="qc reveal d3"><div class="qcn">5</div><div><p class="qct">An LA portal notice email</p><p class="qcd">The "new action has taken place" email, plus whatever Lauren learns about per-case notification elections.</p></div></div>
+      <div class="qc reveal d3"><div class="qcn">6</div><div><p class="qct">A vendor invoice</p><p class="qcd">One monthly filing invoice and one card receipt, so cost extraction matches how the charges actually arrive.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Built for legal work</span><h2>Your client's data, <span class="soft">treated like it</span></h2>
+      <p class="sec-sub">The whole build runs inside your own isolated cloud project.</p></div>
+    <div class="compliance reveal d1">
+      <span class="pill"><span class="pk">✓</span> SOC 2 Certified</span>
+      <span class="pill"><span class="pk">✓</span> HIPAA Compliant</span>
+      <span class="pill"><span class="pk">✓</span> Single-tenant, your data isolated</span>
+      <span class="pill"><span class="pk">✓</span> No training on your data</span>
+      <span class="pill"><span class="pk">✓</span> You own the code</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</span>
+    <span>Prepared for Levin Migdal &amp; Gibbs LLP · Kapitus collections · Estimates, confirmed at SOW · Confidential</span>
+  </div>
+</footer>
+
+<!-- STICKY TOTAL -->
+<div class="totbar" id="totbar">
+  <div class="wrap">
+    <span class="tprompt">👆 <b>Add automations above</b> and your total appears here. No commitment, just math.</span>
+    <div class="tmath">
+      <span class="seg">foundation <b>$5,000</b></span>
+      <span class="seg">+ <b id="tcount">0</b> automations <b id="tsum">$0</b></span>
+      <span class="seg save" id="tsaveseg" style="display:none">− package savings <b id="tsave">$0</b></span>
+    </div>
+    <div class="ttotal"><span class="tl">Your build</span><span class="tv" id="ttotal">$0</span></div>
+  </div>
+</div>
+
+<script>
+(function () {
+  /* scroll reveal + animation gating */
+  var PLAY_IDS = ['dash'];
+  function observe() {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: '0px 0px -6% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('play'); } });
+    }, { threshold: 0.2 });
+    PLAY_IDS.forEach(function (id) { var el = document.getElementById(id); if (el) playIO.observe(el); });
+    document.querySelectorAll('.acard').forEach(function (el) { playIO.observe(el); });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', init); } else { init(); }
+
+  /* selection + pricing */
+  var FOUNDATION = 5000;
+  var PHASES = { p1: ['a1','a2','a3','a4'], p2: ['a5','a6'], p3: ['a7','a8','a9'] };
+  var PHASE_SAVE = { p1: 1500, p2: 750, p3: 1250 };
+  var FULL_SAVE = 4000;
+  var ALL = ['a1','a2','a3','a4','a5','a6','a7','a8','a9'];
+
+  function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+
+  function recalc() {
+    var sum = 0, count = 0;
+    ALL.forEach(function (id) {
+      var cb = document.getElementById(id);
+      var card = document.getElementById('card-' + id);
+      if (cb.checked) { sum += +cb.dataset.price; count++; card.classList.add('sel'); }
+      else { card.classList.remove('sel'); }
+      var btn = document.querySelector('.addbtn[data-for="' + id + '"]');
+      btn.textContent = cb.checked ? '✓ Added' : '＋ Add to build';
+    });
+    var save = 0;
+    var allSelected = ALL.every(function (id) { return document.getElementById(id).checked; });
+    if (allSelected) { save = FULL_SAVE; }
+    else {
+      Object.keys(PHASES).forEach(function (p) {
+        var complete = PHASES[p].every(function (id) { return document.getElementById(id).checked; });
+        if (complete) save += PHASE_SAVE[p];
+      });
+    }
+    Object.keys(PHASES).forEach(function (p) {
+      var complete = PHASES[p].every(function (id) { return document.getElementById(id).checked; });
+      var card = document.getElementById('ph' + p.slice(1));
+      var btn = card.querySelector('.phbtn');
+      card.classList.toggle('sel', complete);
+      btn.textContent = complete ? '✓ Phase selected' : 'Select phase ' + p.slice(1);
+    });
+    var bar = document.getElementById('totbar');
+    if (count === 0) { bar.classList.remove('active'); return; }
+    bar.classList.add('active');
+    document.getElementById('tcount').textContent = count;
+    document.getElementById('tsum').textContent = fmt(sum);
+    var saveseg = document.getElementById('tsaveseg');
+    if (save > 0) { saveseg.style.display = ''; document.getElementById('tsave').textContent = fmt(save); }
+    else { saveseg.style.display = 'none'; }
+    document.getElementById('ttotal').textContent = fmt(FOUNDATION + sum - save);
+  }
+
+  /* Auto-fit: squeeze any diagram label that is wider than its node box so SVG
+     text (which never wraps) can't spill out. Runs once; viewBox geometry is
+     constant regardless of display scale. */
+  function fitDiagrams() {
+    document.querySelectorAll('.dg svg').forEach(function (svg) {
+      var rects = [].map.call(svg.querySelectorAll('rect.nd'), function (r) {
+        return { x:+r.getAttribute('x'), w:+r.getAttribute('width'), y:+r.getAttribute('y'), h:+r.getAttribute('height') };
+      });
+      [].forEach.call(svg.querySelectorAll('text'), function (t) {
+        var bb; try { bb = t.getBBox(); } catch (e) { return; }
+        var cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2, node = null;
+        for (var i = 0; i < rects.length; i++) {
+          var r = rects[i];
+          if (cy >= r.y && cy <= r.y + r.h && cx >= r.x - 30 && cx <= r.x + r.w + 30) { node = r; break; }
+        }
+        if (!node) return;
+        var max = node.w - 16;
+        if (bb.width > max && max > 0) {
+          t.setAttribute('textLength', max);
+          t.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+        }
+      });
+    });
+  }
+
+  function init() {
+    observe();
+    fitDiagrams();
+    document.querySelectorAll('.addbtn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var cb = document.getElementById(btn.dataset.for);
+        cb.checked = !cb.checked;
+        recalc();
+      });
+    });
+    document.querySelectorAll('.phbtn').forEach(function (btn) {
+      btn.addEventListener('click', function () {
+        var ids = PHASES[btn.dataset.phase];
+        var complete = ids.every(function (id) { return document.getElementById(id).checked; });
+        ids.forEach(function (id) { document.getElementById(id).checked = !complete; });
+        recalc();
+      });
+    });
+    recalc();
+  }
+})();
+</script>
+</body></html>

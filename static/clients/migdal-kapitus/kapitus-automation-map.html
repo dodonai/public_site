@@ -1,0 +1,813 @@
+<!DOCTYPE html><html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Levin Migdal &amp; Gibbs — Kapitus Automation Map</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* Dodonai Brief Engine — standalone. Tokens + components inlined from
+   _assets/brief.css (the canonical stylesheet behind every client brief). */
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  --teal-bright:#06B6D4; --rose:#E11D48; --good:#16A34A;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+/* reveal */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* hero */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:58px 0 62px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:36px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+.brandbar .tag{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:50px;line-height:1.04;letter-spacing:-.025em;margin:0 0 18px;max-width:20ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:19px;line-height:1.48;color:var(--purple-soft);max-width:66ch;margin:0 0 36px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+
+/* changed strip */
+.changed{background:var(--midnight);color:#fff;padding:30px 0}
+.changed .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.changed .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:140px;line-height:1.4}
+.changed .clist{display:grid;grid-template-columns:1fr 1fr 1fr;gap:12px 26px}
+.changed .ci{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4}
+.changed .ci .tick{color:var(--purple-soft);font-weight:800;flex:0 0 auto}
+.changed .ci b{color:#fff}
+.changed .ci span{color:var(--purple-soft)}
+
+/* sections */
+section{padding:52px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:68ch;margin:0 0 30px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+.ink .eyebrow{color:var(--purple-soft)}
+
+/* pull quote */
+.pull{position:relative;background:#fff;border-radius:14px;padding:34px 42px 30px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:22px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+
+/* workflow lanes (current-state teardown) */
+.phasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.phasecard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:20px 22px;position:relative}
+.phasecard .ph-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.phasecard .ph-n{flex:0 0 30px;height:30px;border-radius:9px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.phasecard .ph-name{font-weight:800;font-size:17px;letter-spacing:-.01em}
+.phasecard .ph-meta{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light)}
+.flow{display:flex;flex-direction:column;gap:7px}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4;position:relative;padding-left:2px}
+.step .sb{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:6px;background:var(--gray-meta)}
+.step.man .sb{background:var(--amber)}
+.step.gate .sb{background:var(--teal)}
+.step .stx{color:var(--midnight)}
+.step .stx .who{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.who.w-man{background:rgba(199,125,46,.14);color:var(--amber)}
+.who.w-gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.flow-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.flow-legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.flow-legend .dot{width:10px;height:10px;border-radius:50%}
+.tally{margin-top:26px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15px;line-height:1.6}
+.tally b{color:var(--amber)}
+
+/* agent roster */
+.pkg-category{margin:32px 0 12px}
+.pkg-category .cat-label{font-family:var(--mono);font-size:11px;color:var(--purple-bold);letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}
+.pkg-category .cat-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--purple-bold) 0%,transparent 100%)}
+.pkg-category.teal .cat-label{color:var(--teal)}
+.pkg-category.teal .cat-label::after{background:linear-gradient(90deg,var(--teal) 0%,transparent 100%)}
+.pkg-category.amber .cat-label{color:var(--amber)}
+.pkg-category.amber .cat-label::after{background:linear-gradient(90deg,var(--amber) 0%,transparent 100%)}
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));gap:14px;margin:14px 0 8px}
+.agent-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 20px;transition:transform .3s ease,box-shadow .3s ease;display:flex;gap:14px;align-items:flex-start}
+.agent-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(20,20,58,.08)}
+.agent-icon{flex-shrink:0;width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:15px;color:#fff;background:linear-gradient(135deg,var(--purple-bold),var(--purple-vivid))}
+.agent-grid.teal .agent-icon{background:linear-gradient(135deg,var(--teal),var(--teal-bright))}
+.agent-grid.amber .agent-icon{background:linear-gradient(135deg,var(--amber),#f59e0b)}
+.agent-body{flex:1;min-width:0}
+.agent-body .agent-name{font-weight:700;font-size:15px;color:var(--midnight-deep);margin:0 0 6px;line-height:1.3;letter-spacing:-.005em}
+.agent-body .agent-desc{font-size:12.5px;line-height:1.55;color:var(--gray-meta-light);margin:0}
+.agent-body .agent-desc strong{color:var(--midnight-deep)}
+.agent-body .agent-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.agent-body .agent-meta .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.agent-body .agent-meta .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.agent-body .agent-meta .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.agent-body .agent-meta .am.phase{background:rgba(199,125,46,.16);color:var(--amber)}
+
+/* pipeline (self-running) — 6 nodes, 11s cycle */
+.pipe-wrap{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:30px 26px 26px;position:relative;overflow:hidden}
+.pipe{display:flex;align-items:stretch;gap:0;position:relative}
+.pnode{flex:1;text-align:center;position:relative;padding:0 6px}
+.pnode .pdot{width:54px;height:54px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--cream-deep);border:2px solid var(--cream-line);position:relative;z-index:2;transition:all .4s}
+.pnode .pttl{font-weight:700;font-size:13.5px;letter-spacing:-.01em;margin-bottom:4px}
+.pnode .pwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-bold)}
+.pnode.gate .pwho{color:var(--teal)}
+.pnode .pstatus{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:7px;padding:2px 8px;border-radius:10px;display:inline-block;background:var(--cream-deep);color:var(--gray-meta-light)}
+.pline{position:absolute;top:27px;height:3px;background:var(--cream-line);z-index:0;left:0;right:0}
+.pline .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft))}
+.play .pline .pfill{animation:fill 11s linear infinite}
+@keyframes fill{0%{width:0}90%,100%{width:100%}}
+.play .pnode .pdot{animation:nodeActivate 11s linear infinite}
+.play .pnode:nth-child(2) .pdot{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot{animation-delay:1.7s}
+.play .pnode:nth-child(4) .pdot{animation-delay:3.4s}
+.play .pnode:nth-child(5) .pdot{animation-delay:5.1s}
+.play .pnode:nth-child(6) .pdot{animation-delay:6.8s}
+.play .pnode:nth-child(7) .pdot{animation-delay:8.5s}
+@keyframes nodeActivate{0%,8%{background:var(--cream-deep);border-color:var(--cream-line);transform:scale(1)}
+  10%{background:rgba(124,58,237,.15);border-color:var(--purple-vivid);transform:scale(1.08)}
+  16%,100%{background:var(--purple-vivid);border-color:var(--purple-vivid)}}
+.pnode.gate .pdot{border-color:var(--teal)}
+.play .pnode.gate .pdot{animation:nodeActivateGate 11s linear infinite;animation-delay:5.1s}
+@keyframes nodeActivateGate{0%,8%{background:var(--cream-deep);border-color:var(--teal);transform:scale(1)}
+  10%{background:rgba(14,116,137,.16);border-color:var(--teal);transform:scale(1.08)}
+  16%,100%{background:var(--teal);border-color:var(--teal)}}
+.play .pnode .pstatus{animation:statusFlip 11s linear infinite}
+.play .pnode:nth-child(2) .pstatus{animation-delay:0s}
+.play .pnode:nth-child(3) .pstatus{animation-delay:1.7s}
+.play .pnode:nth-child(4) .pstatus{animation-delay:3.4s}
+.play .pnode:nth-child(5) .pstatus{animation-delay:5.1s}
+.play .pnode:nth-child(6) .pstatus{animation-delay:6.8s}
+.play .pnode:nth-child(7) .pstatus{animation-delay:8.5s}
+@keyframes statusFlip{0%,8%{background:var(--cream-deep);color:var(--gray-meta-light)}
+  16%,100%{background:rgba(46,158,107,.14);color:var(--green)}}
+.pnode .pdot .ic-done{position:absolute;opacity:0}
+.play .pnode .pdot .ic-done{animation:doneShow 11s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-done{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-done{animation-delay:1.7s}
+.play .pnode:nth-child(4) .pdot .ic-done{animation-delay:3.4s}
+.play .pnode:nth-child(5) .pdot .ic-done{animation-delay:5.1s}
+.play .pnode:nth-child(6) .pdot .ic-done{animation-delay:6.8s}
+.play .pnode:nth-child(7) .pdot .ic-done{animation-delay:8.5s}
+@keyframes doneShow{0%,12%{opacity:0}16%,100%{opacity:1}}
+.play .pnode .pdot .ic-base{animation:baseHide 11s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-base{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-base{animation-delay:1.7s}
+.play .pnode:nth-child(4) .pdot .ic-base{animation-delay:3.4s}
+.play .pnode:nth-child(5) .pdot .ic-base{animation-delay:5.1s}
+.play .pnode:nth-child(6) .pdot .ic-base{animation-delay:6.8s}
+.play .pnode:nth-child(7) .pdot .ic-base{animation-delay:8.5s}
+@keyframes baseHide{0%,12%{opacity:1}16%,100%{opacity:0;color:#fff}}
+.pipe-foot{margin-top:22px;font-size:14px;color:var(--gray-meta-light);text-align:center;line-height:1.5}
+.pipe-foot b{color:var(--teal)}
+
+/* roadblock (now vs fix) */
+.pillar{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;position:relative}
+.pillar.hot{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.04))}
+.pillar .phead{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.pillar .picon{flex:0 0 40px;height:40px;border-radius:11px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center}
+.pillar .ptitle{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.pillar .ptag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:14px;margin-left:auto;background:var(--purple-vivid);color:#fff}
+.rblock{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:6px}
+.rb{background:var(--cream-deep);border-radius:11px;padding:16px 18px}
+.rb.fix{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.25)}
+.rb .rh{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:9px}
+.rb.now .rh{color:var(--red)} .rb.fix .rh{color:var(--purple-bold)}
+.rb ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6}
+.rb li{margin-bottom:4px}
+.rb-arrow{font-size:26px;font-weight:800;color:var(--purple-vivid)}
+.rbgrid{display:flex;flex-direction:column;gap:18px}
+
+/* transformation (scatter → hub) */
+.xform{display:grid;grid-template-columns:1fr 64px 1fr;gap:8px;align-items:stretch;margin-top:10px}
+.xcol{background:rgba(255,255,255,.04);border:1px solid rgba(181,168,230,.22);border-radius:16px;padding:24px 22px 26px;position:relative;overflow:hidden}
+.xcol .xlabel{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.xcol.today .xlabel{color:var(--purple-soft)}
+.xcol.os .xlabel{color:#fff}
+.xcol.os{border-color:rgba(124,58,237,.6);background:radial-gradient(420px 240px at 70% 0%,rgba(124,58,237,.22),transparent 60%),rgba(124,58,237,.06)}
+.scatter{position:relative;height:300px}
+.tool-chip{position:absolute;font-family:var(--mono);font-size:11px;font-weight:600;background:var(--midnight-soft);color:var(--purple-soft);border:1px solid rgba(181,168,230,.3);border-radius:9px;padding:7px 10px;white-space:nowrap;opacity:0;transform:scale(.85)}
+.play .tool-chip{animation:chipIn .5s ease forwards}
+.tool-chip:nth-child(1){top:6%;left:4%}
+.tool-chip:nth-child(2){top:2%;left:54%}
+.tool-chip:nth-child(3){top:26%;left:30%}
+.tool-chip:nth-child(4){top:30%;left:66%}
+.tool-chip:nth-child(5){top:50%;left:8%}
+.tool-chip:nth-child(6){top:54%;left:44%}
+.tool-chip:nth-child(7){top:74%;left:22%}
+.tool-chip:nth-child(8){top:78%;left:60%}
+.play .tool-chip:nth-child(1){animation-delay:.05s}
+.play .tool-chip:nth-child(2){animation-delay:.13s}
+.play .tool-chip:nth-child(3){animation-delay:.21s}
+.play .tool-chip:nth-child(4){animation-delay:.29s}
+.play .tool-chip:nth-child(5){animation-delay:.37s}
+.play .tool-chip:nth-child(6){animation-delay:.45s}
+.play .tool-chip:nth-child(7){animation-delay:.53s}
+.play .tool-chip:nth-child(8){animation-delay:.61s}
+.scatter .runner{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px rgba(199,125,46,.22);opacity:0}
+.play .scatter .runner{animation:runnerFade .6s .7s ease forwards,runAround 6s 1.3s ease-in-out infinite}
+.scatter .handlabel{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--amber);font-weight:700;opacity:0;text-align:center;width:90%}
+.play .scatter .handlabel{animation:runnerFade .5s 1s ease forwards}
+@keyframes chipIn{to{opacity:1;transform:scale(1)}}
+@keyframes runnerFade{to{opacity:1}}
+@keyframes runAround{
+  0%{top:8%;left:8%}12%{top:6%;left:56%}25%{top:28%;left:32%}38%{top:32%;left:66%}
+  50%{top:52%;left:10%}62%{top:56%;left:46%}75%{top:76%;left:24%}88%{top:80%;left:60%}100%{top:8%;left:8%}}
+.hub{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+.hub-core{width:130px;height:120px;border-radius:24px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 0 rgba(124,58,237,.5);position:relative;z-index:3;opacity:0;transform:scale(.8)}
+.play .hub-core{animation:hubIn .6s 1.2s cubic-bezier(.2,1.3,.4,1) forwards,hubPulse 2.8s 1.9s ease-in-out infinite}
+.hub-core .hw{font-weight:800;font-size:14px;letter-spacing:-.01em;text-align:center;line-height:1.25}
+.hub-core .hs{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-soft);margin-top:4px}
+.spoke{position:absolute;font-family:var(--mono);font-size:10.5px;font-weight:600;background:var(--midnight-soft);color:#fff;border:1px solid rgba(181,168,230,.4);border-radius:8px;padding:6px 9px;white-space:nowrap;opacity:0;z-index:2}
+.play .spoke{animation:spokeIn .5s ease forwards}
+.spoke:nth-of-type(1){top:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(2){top:24%;right:2%}
+.spoke:nth-of-type(3){bottom:24%;right:0%}
+.spoke:nth-of-type(4){bottom:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(5){bottom:24%;left:0%}
+.spoke:nth-of-type(6){top:24%;left:2%}
+.play .spoke:nth-of-type(1){animation-delay:1.7s}
+.play .spoke:nth-of-type(2){animation-delay:1.85s}
+.play .spoke:nth-of-type(3){animation-delay:2.0s}
+.play .spoke:nth-of-type(4){animation-delay:2.15s}
+.play .spoke:nth-of-type(5){animation-delay:2.3s}
+.play .spoke:nth-of-type(6){animation-delay:2.45s}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:0}
+.play .hub svg.links{animation:runnerFade .6s 2.5s ease forwards}
+.hub svg.links line{stroke:rgba(181,168,230,.45);stroke-width:1.5;stroke-dasharray:4 5}
+.play .hub svg.links line{animation:dashmove 1.4s linear infinite}
+@keyframes dashmove{to{stroke-dashoffset:-18}}
+@keyframes hubIn{to{opacity:1;transform:scale(1)}}
+@keyframes spokeIn{from{opacity:0;transform:scale(.8) translateY(6px)}to{opacity:1}}
+@keyframes hubPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.45)}50%{box-shadow:0 0 0 14px rgba(124,58,237,0)}}
+.xarrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--purple-soft)}
+.xarrow .ah{font-size:30px;font-weight:800;line-height:1}
+.xarrow .at{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--purple-soft)}
+.xcaption{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+.xcaption .xc{font-size:14.5px;line-height:1.55}
+.xcaption .xc .h{font-weight:800;color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.xcaption .xc .h .pin{width:9px;height:9px;border-radius:50%}
+.xcaption .xc.l .h .pin{background:var(--amber)}
+.xcaption .xc.r .h .pin{background:var(--purple-vivid)}
+.xcaption .xc p{margin:0;color:var(--purple-soft)}
+
+/* cockpit dashboard */
+.dash{background:#0F0F2E;border-radius:18px;padding:0;overflow:hidden;border:1px solid rgba(181,168,230,.25);box-shadow:0 40px 80px -50px rgba(0,0,0,.7)}
+.dash-bar{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(181,168,230,.18)}
+.dash-bar .dots{display:flex;gap:6px}
+.dash-bar .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dash-bar .dots i:nth-child(1){background:#ff5f57}.dash-bar .dots i:nth-child(2){background:#febc2e}.dash-bar .dots i:nth-child(3){background:#28c840}
+.dash-bar .dtitle{font-family:var(--mono);font-size:12px;color:var(--purple-soft);letter-spacing:.06em;font-weight:600}
+.dash-bar .dlive{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:7px}
+.dash-bar .dlive::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dash-body{display:grid;grid-template-columns:1.35fr 1fr;gap:0}
+.dash-col{padding:20px 22px}
+.dash-col.left{border-right:1px solid rgba(181,168,230,.14)}
+.dash-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:14px;display:flex;justify-content:space-between}
+.dash-h .cnt{color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.16);border-radius:11px;padding:12px 13px}
+.kpi .kn{font-weight:800;font-size:24px;color:#fff;letter-spacing:-.02em;line-height:1}
+.kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta);margin-top:6px;line-height:1.3}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 13px;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;margin-bottom:8px}
+.mrow .mname{font-size:13px;color:#fff;font-weight:600}
+.mrow .mphase{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--purple-soft);margin-top:3px}
+.mrow .mpill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.mpill.run{background:rgba(124,58,237,.22);color:var(--purple-soft)}
+.mpill.wait{background:rgba(199,125,46,.2);color:#F0B366}
+.mpill.done{background:rgba(46,158,107,.18);color:#5FD6A0}
+.feed{position:relative;height:268px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent)}
+.feed-track{display:flex;flex-direction:column;gap:9px}
+.play .feed-track{animation:scrollfeed 18s linear infinite}
+@keyframes scrollfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.aevent{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;padding:10px 12px}
+.aevent .aic{flex:0 0 26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(124,58,237,.18)}
+.aevent.ok .aic{background:rgba(46,158,107,.18)}
+.aevent.gate .aic{background:rgba(14,116,137,.2)}
+.aevent .atx{font-size:12px;line-height:1.4;color:#E7E4F5}
+.aevent .atx b{color:#fff;font-weight:700}
+.aevent .atime{font-family:var(--mono);font-size:9px;color:var(--gray-meta);margin-top:3px;letter-spacing:.04em}
+.aevent .atx .agent{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple-soft);letter-spacing:.03em}
+.dash-cap{font-size:14px;color:var(--purple-soft);line-height:1.6;margin-top:26px;text-align:center;max-width:74ch;margin-left:auto;margin-right:auto}
+.dash-cap b{color:#fff}
+
+/* human gates */
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gatecard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--teal)}
+.gatecard .gi{font-size:20px;margin-bottom:8px}
+.gatecard h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:0 0 7px;color:var(--teal)}
+.gatecard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+
+/* timeline */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.tl-line{position:absolute;top:21px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));z-index:0}
+.phase-t{position:relative;z-index:1;padding:0 12px;text-align:center}
+.phase-t .pnode2{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;background:var(--purple-vivid);border:4px solid var(--cream)}
+.phase-t.future .pnode2{background:var(--midnight);color:var(--purple-soft)}
+.phase-t .ptagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phase-t .ph2{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+.phase-t .pd2{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5}
+
+/* out of scope */
+.scope-box{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 26px;border-top:4px solid var(--gray-meta);margin-top:26px}
+.scope-box h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 14px;color:var(--gray-meta-light)}
+.chips{display:flex;flex-direction:column;gap:11px}
+.chip{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.chip .mk{flex:0 0 auto;font-weight:800;font-family:var(--mono);color:var(--gray-meta)}
+.chip b{color:var(--midnight)}
+
+/* what we need from you */
+.qcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start}
+.qc .qcn{flex:0 0 34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qc .qct{font-weight:800;font-size:15px;margin:0 0 4px}
+.qc .qcd{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+
+/* compliance pills */
+.compliance{display:flex;gap:12px;flex-wrap:wrap;margin-top:6px}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--midnight);color:#fff;padding:8px 16px;border-radius:24px;display:inline-flex;align-items:center;gap:8px}
+.pill .pk{color:var(--purple-soft)}
+
+/* footer */
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:26px 0;font-family:var(--mono);font-size:12px;letter-spacing:.04em}
+footer .wrap{display:flex;justify-content:space-between;gap:14px;flex-wrap:wrap;align-items:center}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff}
+
+@media(max-width:880px){
+  .hero h1{font-size:36px}.meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .changed .wrap{grid-template-columns:1fr}.changed .clist{grid-template-columns:1fr}
+  .phasegrid,.gates,.qcards{grid-template-columns:1fr}
+  .pipe{flex-wrap:wrap;gap:18px}.pnode{flex:0 0 46%}.pline{display:none}
+  .xform{grid-template-columns:1fr;gap:18px}.xarrow{flex-direction:row}.xarrow .at{writing-mode:horizontal-tb}.xcaption{grid-template-columns:1fr}
+  .dash-body{grid-template-columns:1fr}.dash-col.left{border-right:none;border-bottom:1px solid rgba(181,168,230,.14)}
+  .rblock{grid-template-columns:1fr;gap:12px}.rb-arrow{transform:rotate(90deg)}
+  .timeline{grid-template-columns:1fr;gap:26px}.tl-line{display:none}
+  .agent-grid{grid-template-columns:1fr}
+}
+@media print{
+  body{background:#fff}.hero,section.ink{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  section{padding:24px 0;break-inside:avoid}.reveal{opacity:1;transform:none}
+  .phasecard,.agent-card,.gatecard,.qc,.pillar{page-break-inside:avoid}
+}
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Kapitus Collections — Automation Map</span>
+      <span class="tag">post-call · aug 13</span>
+    </div>
+    <span class="eyebrow">Prepared for Levin Migdal &amp; Gibbs LLP</span>
+    <h1>Everything we mapped, <span class="soft">and what runs itself.</span></h1>
+    <p class="lede">On our call we walked the Kapitus practice soup to nuts: roughly 100 live matters, most of them in LA County, moved along by hand at every step. This page is the full map: the lifecycle as it works today, the nine automations that take over the mechanical work (now ranked by the priorities you sent on Aug 13), and the places where an attorney's judgment stays exactly where it is.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Call</div><div class="value">Aug 13 · Paul Levin &amp; Lauren Gibbs</div></div>
+      <div class="meta"><div class="label">Practice</div><div class="value">~100 active Kapitus matters</div></div>
+      <div class="meta"><div class="label">Where</div><div class="value">~80 LA County · ~20 other CA</div></div>
+      <div class="meta"><div class="label">Next step</div><div class="value">Proposal from Nick — Aug 14</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="changed">
+  <div class="wrap">
+    <div class="ctitle">The short version</div>
+    <div class="clist">
+      <div class="ci"><span class="tick">→</span><span><b>Six phases mapped</b> from referral packet to recorded lien, including the back office.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Nine automations, ranked by you</b> including two new ones: a deadline digest and paralegal task lists.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>An attorney signs first</b>, so nothing files, serves, or settles without your one-look approval.</span></div>
+    </div>
+  </div>
+</div>
+
+<!-- PULL QUOTE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What we heard</span><h2>A high-volume practice <span class="soft">running on manual steps</span></h2>
+      <p class="sec-sub">California's county-by-county filing system blocks the off-the-shelf tools, so the firm absorbed the gap with paralegal hours, a service mailbox, and a spreadsheet. The volume is growing — a second contract form started arriving last month.</p></div>
+    <div class="pull reveal d1">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">Our tracking is manual, by a shared Excel spreadsheet — which is the scariest thought of all time.</p>
+      <div class="qa">— Lauren Gibbs, Levin Migdal &amp; Gibbs LLP</div>
+    </div>
+  </div>
+</section>
+
+<!-- LIFECYCLE TEARDOWN -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The lifecycle today</span><h2>One Kapitus matter, <span class="soft">start to finish</span></h2>
+      <p class="sec-sub">Exactly as Paul and Lauren walked it. Amber dots are steps a person does by hand today; teal dots are judgment calls that should stay human either way.</p></div>
+    <div class="flow-legend reveal d1">
+      <span class="lg"><span class="dot" style="background:var(--gray-meta)"></span> Runs by itself / external</span>
+      <span class="lg"><span class="dot" style="background:var(--amber)"></span> Manual today</span>
+      <span class="lg"><span class="dot" style="background:var(--teal)"></span> Human judgment (stays yours)</span>
+    </div>
+    <div class="phasegrid">
+      <div class="phasecard reveal d1">
+        <div class="ph-top"><span class="ph-n">1</span><span class="ph-name">Intake</span><span class="ph-meta">per referral</span></div>
+        <div class="flow">
+          <div class="step"><span class="sb"></span><span class="stx">Kapitus refers the case; uploads documents to the Convoke portal</span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Paralegal saves the packet into NetDocs, opens the Clio matter<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Attorney or paralegal pulls the loan agreement + merchant statement<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Keys the ~10 fields into Clio: county / case number, borrower, guarantor, contract date, loan amount, repayment amount, payment frequency, principal balance, default date<span class="who w-man">manual</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d1">
+        <div class="ph-top"><span class="ph-n">2</span><span class="ph-name">Complaint &amp; filing</span><span class="ph-meta">every matter</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Clio Draft merges the complaint template from the keyed fields<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Summons, civil case cover sheet + LA addendum prepared; exhibits attached<span class="who w-man">manual</span></span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Attorney reviews the set<span class="who w-gate">your call</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Sent to the process server; filed through the county's required vendor<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Paralegal email-serves opposing counsel as PDFs (no ECF in CA state court)<span class="who w-man">manual</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d2">
+        <div class="ph-top"><span class="ph-n">3</span><span class="ph-name">If they answer</span><span class="ph-meta">contested path</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">First-set discovery incl. RFAs, built in Clio Draft, exhibits added<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Pro per silent → motion to deem RFAs admitted<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">MSJ: motion, memorandum, separate statement with evidence cites, declarations<span class="who w-man">manual</span></span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Pursue attorney's fees? Then into post-judgment<span class="who w-gate">your call</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d2">
+        <div class="ph-top"><span class="ph-n">4</span><span class="ph-name">If they default</span><span class="ph-meta">most common</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Default judgment package: three court fillable PDF forms<span class="who w-man">manual · painful</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Supporting declaration (semi-automated in Clio today)<span class="who w-man">manual</span></span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Default judgment entered → matter moves to the post-judgment queue</span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d3">
+        <div class="ph-top"><span class="ph-n">5</span><span class="ph-name">Post-judgment</span><span class="ph-meta">paul's side</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Writs + sheriff instructions — forms vary county by county<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Abstract of judgment prepared, submitted to the court, returned<span class="who w-man">manual</span></span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Third-party service carries it to the county recorder → lien on real property</span></div>
+          <div class="step"><span class="sb"></span><span class="stx">Sister-state judgments tracked as their own category</span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d3">
+        <div class="ph-top"><span class="ph-n">6</span><span class="ph-name">The back office</span><span class="ph-meta">every day</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Service mailbox: offshore paralegal saves each served document, calendars deadlines<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">LA court portal notices arrive with no link — someone logs in and downloads<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Monthly vendor invoice → spreadsheet → costs entered in Clio for client billing<span class="who w-man">~3 hrs/mo</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Shared Excel tracker updated by hand across active / default / post-judgment / sister-state<span class="who w-man">manual</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tally reveal d3"><b>Nearly every hop between the referral packet and the recorded lien is a person re-keying, downloading, or copying.</b> At ~100 live matters — and a second contract form escalating — that manual layer is the ceiling on the practice's capacity.</div>
+  </div>
+</section>
+
+<!-- THE ROSTER -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The build</span><h2>Nine automations, <span class="soft">ranked by your priorities</span></h2>
+      <p class="sec-sub">Reordered to match the priorities Lauren and Paul sent on Aug 13. Each one is deterministic software: AI reads the unstructured documents, structured code produces the output, so nothing gets reworded, reformatted, or invented. Your top three (tracking, calendaring, the deadline digest) are really one engine, fed by the litigation-event emails that already hit your inbox. Every badge shows what it watches, when it fires, and where the human gate sits.</p></div>
+
+    <div class="pkg-category reveal"><div class="cat-label">Ranked by you · Aug 13 follow-up</div></div>
+    <div class="agent-grid">
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">1</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Portfolio Case Tracker</h3>
+          <p class="agent-desc">Your #1. Replaces the shared spreadsheet with a live portfolio view driven by the litigation-event emails you already receive: complaint filed, answer served, discovery served, MSJ filed. Each event advances the matter's state on its own across active, default, post-judgment, and sister-state. <strong>Nobody updates it; it stays current.</strong> Your working spreadsheet is the starting model.</p>
+          <div class="agent-meta"><span class="am">reads litigation-event emails</span><span class="am fire">always current</span><span class="am gate">gate: read-only</span><span class="am phase">pilot</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">2</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Calendaring &amp; Document Saving</h3>
+          <p class="agent-desc">Watches the mailbox where served documents arrive as email attachments, saves each to the matter, and calendars the deadline through Clio so its date-calculation rules do the math. Same engine as the build underway with Josh, tuned to your attachment-based service. <strong>The human-error window on calendaring closes.</strong></p>
+          <div class="agent-meta"><span class="am">watches service mail</span><span class="am fire">fires on attachment</span><span class="am gate">gate: exceptions flagged</span><span class="am phase">pilot</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">3</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Cost Accounting in Clio</h3>
+          <p class="agent-desc">Reads the vendor's monthly invoice and per-filing receipts, splits the charges by case, and posts them into Clio through its API, so costs land on the client invoice next to your fees. <strong>The paralegal's spreadsheet step disappears, roughly three hours a month returned.</strong></p>
+          <div class="agent-meta"><span class="am">watches cost emails</span><span class="am fire">fires on invoice</span><span class="am gate">gate: monthly summary</span><span class="am phase">pilot</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">4</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Deadline &amp; Hearing Digest</h3>
+          <p class="agent-desc"><em>New from your follow-up.</em> A weekly digest of every upcoming deadline and court hearing, pulled from the Clio calendar, so nothing sneaks up. <strong>One email, every week, per attorney.</strong></p>
+          <div class="agent-meta"><span class="am">reads Clio calendar</span><span class="am fire">weekly digest</span><span class="am gate">gate: informational</span><span class="am phase">pilot</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">5</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Default Judgment Package Builder</h3>
+          <p class="agent-desc">Fills the court forms (request for entry of default, proposed judgment, request for dismissal) field by field, no flattening, and merges the declaration from the matter data. Built from the filed complaint plus the filing and service (POS) emails. <strong>Your exemplar package is in hand, and this is exactly where your Clio project stalled on the forms.</strong></p>
+          <div class="agent-meta"><span class="am">reads complaint + POS emails</span><span class="am fire">fires on missed answer</span><span class="am gate">gate: attorney review</span><span class="am phase">pilot</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">6</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Task Lists &amp; Reminders</h3>
+          <p class="agent-desc"><em>New from your follow-up, and you called it huge.</em> When an attorney emails a paralegal an assignment, it generates a shared task list and sends the reminders. <strong>Assignments stop vanishing into a black hole</strong>, and the supervising attorney doesn't have to remember to circle back. Attorneys get their own list too.</p>
+          <div class="agent-meta"><span class="am">reads assignment emails</span><span class="am fire">fires on assignment</span><span class="am gate">gate: none</span><span class="am phase">pilot</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="pkg-category teal reveal"><div class="cat-label">Also in scope · from the call</div></div>
+    <div class="agent-grid teal">
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">7</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Complaint &amp; Filing-Set Drafter</h3>
+          <p class="agent-desc">Reads the loan agreement and merchant statement, extracts the ~10 fields you key today, and assembles the complaint, summons, cover sheet + addendum, and exhibits. Both contract forms, guarantor count included. You noted Clio Draft already moves quickly here, so it sits behind the admin work.</p>
+          <div class="agent-meta"><span class="am">reads referral packet</span><span class="am fire">fires on new referral</span><span class="am gate">gate: attorney one-look</span><span class="am phase">later</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d1">
+        <div class="agent-icon">8</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Settlement Agreement Drafter</h3>
+          <p class="agent-desc">Forward the email that memorializes a deal; it pulls the amount, stipulated judgment, payment frequency, and term into the client's form agreement. Terms in an email become a draft in minutes.</p>
+          <div class="agent-meta"><span class="am">reads forwarded email</span><span class="am fire">fires on forward</span><span class="am gate">gate: attorney review</span><span class="am phase">later</span></div>
+        </div>
+      </div>
+      <div class="agent-card reveal d2">
+        <div class="agent-icon">9</div>
+        <div class="agent-body">
+          <h3 class="agent-name">Discovery &amp; Motion Support</h3>
+          <p class="agent-desc">First-set discovery with RFAs, and later the bloated LA separate statements that repeat request, response, and reason for every RFP. Your existing Clio Draft sets are the starting templates.</p>
+          <div class="agent-meta"><span class="am">reads answer + discovery</span><span class="am fire">fires on answer filed</span><span class="am gate">gate: attorney review</span><span class="am phase">later</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Lauren's question, answered</span><h2>A new matter <span class="soft">runs in the background</span></h2>
+      <p class="sec-sub">"Does that mean it's just running in the background?" — yes. Here's one referral moving itself through the system, and stopping at the only step that matters.</p></div>
+    <div class="pipe-wrap reveal d1" id="pipe">
+      <div class="pipe">
+        <div class="pline"><div class="pfill"></div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📦</span><span class="ic-done">✓</span></div><div class="pttl">Referral lands</div><div class="pwho">Kapitus</div><div class="pstatus">packet via Convoke</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">🔎</span><span class="ic-done">✓</span></div><div class="pttl">Fields extracted</div><div class="pwho">Agent</div><div class="pstatus">parties · amounts · dates</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📝</span><span class="ic-done">✓</span></div><div class="pttl">Set drafted</div><div class="pwho">Agent</div><div class="pstatus">complaint + summons + cover</div></div>
+        <div class="pnode gate"><div class="pdot"><span class="ic-base">👤</span><span class="ic-done">✓</span></div><div class="pttl">Attorney sign-off</div><div class="pwho">You</div><div class="pstatus">one-look approval</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📮</span><span class="ic-done">✓</span></div><div class="pttl">Out the door</div><div class="pwho">Agent</div><div class="pstatus">server + service staged</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📊</span><span class="ic-done">✓</span></div><div class="pttl">Tracked</div><div class="pwho">Agent</div><div class="pstatus">tracker + calendar current</div></div>
+      </div>
+      <div class="pipe-foot">Nobody re-keyed the agreement, built the cover sheet, or updated the spreadsheet. <b>The system did the mechanical steps and stopped for a signature.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- DEFAULT JUDGMENT ROADBLOCK -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The one you asked about first</span><h2>Default judgments, <span class="soft">without the afternoon</span></h2>
+      <p class="sec-sub">Lauren tried this with Claude alone and hit exactly the failure we'd expect: a language model asked to fill a court PDF flattens and rebuilds it. Our approach is different — the AI only reads; deterministic code fills the actual form fields.</p></div>
+    <div class="rbgrid">
+      <div class="pillar hot reveal d1">
+        <div class="phead"><span class="picon">📋</span><span class="ptitle">The default judgment package</span><span class="ptag">pilot</span></div>
+        <div class="rblock">
+          <div class="rb now"><div class="rh">Today</div>
+            <ul>
+              <li>Three court fillable PDFs completed by hand, every defaulted case</li>
+              <li>Claude experiments flattened and reformatted the forms</li>
+              <li>Real attorney time spent on matters that are already won</li>
+            </ul>
+          </div>
+          <div class="rb-arrow">→</div>
+          <div class="rb fix"><div class="rh">With the system</div>
+            <ul>
+              <li>Form fields filled programmatically from the matter's data — the PDF stays a court form</li>
+              <li>Declaration merged from the same data, consistent with the forms</li>
+              <li>Package queued for signature the day the answer deadline passes</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- XFORM -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The shape of the change</span><h2>From tools someone runs <span class="soft">to a system that runs them</span></h2>
+      <p class="sec-sub">Nothing you rely on gets ripped out. Clio keeps billing and date rules; the portal and Convoke stay where they are. The system sits above them and does the clicking.</p></div>
+    <div class="xform reveal d1" id="xform">
+      <div class="xcol today">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--amber);display:inline-block"></span> Today</div>
+        <div class="scatter">
+          <span class="tool-chip">Clio Draft</span><span class="tool-chip">NetDocuments</span><span class="tool-chip">Convoke portal</span><span class="tool-chip">Shared Excel</span>
+          <span class="tool-chip">Service mailbox</span><span class="tool-chip">LA court portal</span><span class="tool-chip">Vendor invoices</span><span class="tool-chip">Parallels + PC</span>
+          <span class="runner"></span>
+          <span class="handlabel">Paralegals and partners carrying data between all of them</span>
+        </div>
+      </div>
+      <div class="xarrow"><span class="at">Build &amp; own</span><span class="ah">→</span></div>
+      <div class="xcol os">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:var(--purple-vivid);display:inline-block"></span> With the system</div>
+        <div class="hub">
+          <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="92" y2="28"/>
+            <line x1="50" y1="50" x2="92" y2="72"/><line x1="50" y1="50" x2="50" y2="92"/>
+            <line x1="50" y1="50" x2="8" y2="72"/><line x1="50" y1="50" x2="8" y2="28"/>
+          </svg>
+          <div class="hub-core"><span class="hw">Dodonai<br>FirmOS</span><span class="hs">runs the path</span></div>
+          <span class="spoke">Clio · billing + dates</span><span class="spoke">Convoke</span><span class="spoke">LA court portal</span>
+          <span class="spoke">Case tracker</span><span class="spoke">Watched inboxes</span><span class="spoke">Microsoft 365</span>
+        </div>
+      </div>
+    </div>
+    <div class="xcaption reveal d2">
+      <div class="xc l"><div class="h"><span class="pin"></span>Today</div><p>Every document, deadline, and cost passes through a person's hands — and works only on a PC, which is why there's a Parallels install on a Mac just to reach NetDocs.</p></div>
+      <div class="xc r"><div class="h"><span class="pin"></span>With the system</div><p>The agents read the inboxes and portals, write to Clio and the tracker, and queue anything that needs judgment. Browser-based, Mac-native — and a working test case for life after NetDocs.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DASH -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Your window into it</span><h2>One dashboard shows <span class="soft">everything it did</span></h2>
+      <p class="sec-sub">Mostly-background doesn't mean invisible. The dashboard is your source of truth: every matter's stage, everything waiting on a signature, and a live feed of every action an agent took — so you can verify it isn't going off the rails.</p></div>
+    <div class="dash reveal d1" id="dash">
+      <div class="dash-bar"><span class="dots"><i></i><i></i><i></i></span><span class="dtitle">Levin Migdal &amp; Gibbs · Dodonai FirmOS</span><span class="dlive">Live</span></div>
+      <div class="dash-body">
+        <div class="dash-col left">
+          <div class="kpis">
+            <div class="kpi"><div class="kn">100</div><div class="kl">Active matters</div></div>
+            <div class="kpi"><div class="kn">3</div><div class="kl">Awaiting your sign-off</div></div>
+            <div class="kpi"><div class="kn">27</div><div class="kl">Agent actions today</div></div>
+          </div>
+          <div class="dash-h">Needs attention <span class="cnt">3</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Pacific Coast Catering</div><div class="mphase">new referral · LA County</div></div><span class="mpill wait">Complaint set → sign-off</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Harbor Auto Group</div><div class="mphase">answer deadline passed</div></div><span class="mpill wait">Default package → sign-off</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Sunrise Dental Mgmt</div><div class="mphase">settlement terms received</div></div><span class="mpill wait">Agreement → sign-off</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Golden State Logistics</div><div class="mphase">discovery · answered</div></div><span class="mpill run">Agent: building RFAs</span></div>
+          <div class="mrow"><div><div class="mname">Kapitus v. Vista Home Services</div><div class="mphase">post-judgment · abstract</div></div><span class="mpill done">Recorded · lien on file</span></div>
+        </div>
+        <div class="dash-col right">
+          <div class="dash-h">Agent activity <span class="cnt">live</span></div>
+          <div class="feed">
+            <div class="feed-track" id="feed">
+              <!-- set A -->
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Complaint set drafted</b> from referral packet — 14 fields extracted. <span class="agent">[ drafter ]</span></div><div class="atime">07:42</div></div></div>
+              <div class="aevent"><span class="aic">🏛️</span><div><div class="atx"><b>Portal notice detected</b> — logged in, retrieved minute order, filed to matter. <span class="agent">[ court-watch ]</span></div><div class="atime">08:03</div></div></div>
+              <div class="aevent ok"><span class="aic">📅</span><div><div class="atx"><b>Service email processed</b> — motion saved, opposition deadline calendared via Clio rules. <span class="agent">[ calendaring ]</span></div><div class="atime">08:17</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Default judgment package</b> assembled — ready for your sign-off. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:31</div></div></div>
+              <div class="aevent ok"><span class="aic">💵</span><div><div class="atx"><b>Vendor invoice ingested</b> — 22 filing charges posted to Clio by case. <span class="agent">[ costs ]</span></div><div class="atime">09:02</div></div></div>
+              <div class="aevent"><span class="aic">✉️</span><div><div class="atx"><b>Settlement email forwarded in</b> — terms extracted, agreement drafted from client form. <span class="agent">[ settlements ]</span></div><div class="atime">09:26</div></div></div>
+              <div class="aevent ok"><span class="aic">📊</span><div><div class="atx"><b>Tracker updated</b> — 2 matters moved to post-judgment queue. <span class="agent">[ tracker ]</span></div><div class="atime">09:40</div></div></div>
+              <!-- set B (duplicate for seamless loop) -->
+              <div class="aevent ok"><span class="aic">✓</span><div><div class="atx"><b>Complaint set drafted</b> from referral packet — 14 fields extracted. <span class="agent">[ drafter ]</span></div><div class="atime">07:42</div></div></div>
+              <div class="aevent"><span class="aic">🏛️</span><div><div class="atx"><b>Portal notice detected</b> — logged in, retrieved minute order, filed to matter. <span class="agent">[ court-watch ]</span></div><div class="atime">08:03</div></div></div>
+              <div class="aevent ok"><span class="aic">📅</span><div><div class="atx"><b>Service email processed</b> — motion saved, opposition deadline calendared via Clio rules. <span class="agent">[ calendaring ]</span></div><div class="atime">08:17</div></div></div>
+              <div class="aevent gate"><span class="aic">👤</span><div><div class="atx"><b>Default judgment package</b> assembled — ready for your sign-off. <span class="agent">[ awaiting you ]</span></div><div class="atime">08:31</div></div></div>
+              <div class="aevent ok"><span class="aic">💵</span><div><div class="atx"><b>Vendor invoice ingested</b> — 22 filing charges posted to Clio by case. <span class="agent">[ costs ]</span></div><div class="atime">09:02</div></div></div>
+              <div class="aevent"><span class="aic">✉️</span><div><div class="atx"><b>Settlement email forwarded in</b> — terms extracted, agreement drafted from client form. <span class="agent">[ settlements ]</span></div><div class="atime">09:26</div></div></div>
+              <div class="aevent ok"><span class="aic">📊</span><div><div class="atx"><b>Tracker updated</b> — 2 matters moved to post-judgment queue. <span class="agent">[ tracker ]</span></div><div class="atime">09:40</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <p class="dash-cap reveal d2"><b>Increase capacity, reduce labor.</b> The same team runs more matters because the mechanical layer runs itself — and everything it does is visible here.</p>
+  </div>
+</section>
+
+<!-- GATES -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>The system removes the typing, <span class="soft">not the judgment</span></h2>
+      <p class="sec-sub">Lauren's frustration with raw Claude — rewording things, adding ten words where one would do — is exactly why this isn't a chatbot. Templates stay verbatim; only the fields change. And the calls that matter stay with the people who should make them.</p></div>
+    <div class="gates">
+      <div class="gatecard reveal d1"><div class="gi">✍️</div><h4>Attorney signs every filing</h4><p>Complaints, discovery, default packages, motions — nothing reaches a process server, a clerk, or opposing counsel without a one-look approval.</p></div>
+      <div class="gatecard reveal d1"><div class="gi">🤝</div><h4>Settlement terms are yours</h4><p>You negotiate; the email memorializes it. The system only turns terms you already agreed into a draft on the client's form.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">⚖️</div><h4>Strategy calls stay human</h4><p>Whether to chase attorney's fees, when to push an MSJ, how hard to go post-judgment — the system queues the work; it never makes the call.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">🚩</div><h4>Exceptions flag, not file</h4><p>A packet with missing documents, a mismatched contract form, an unusual guaranty — anything that fails a check stops and asks, instead of guessing.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- PHASING -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Pilots first, <span class="soft">then the rest</span></h2>
+      <p class="sec-sub">As agreed on the call: get pilots off the ground, then keep exploring. Each later phase builds on the same foundation, so nothing is thrown away.</p></div>
+    <div class="timeline reveal d1">
+      <div class="tl-line"></div>
+      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">Aug 13</div><div class="ph2">Workflows mapped + ranked</div><div class="pd2">This document: the full lifecycle and nine automations, reordered to your Aug 13 priorities.</div></div>
+      <div class="phase-t"><div class="pnode2">→</div><div class="ptagline">Aug 14</div><div class="ph2">Proposal</div><div class="pd2">Scope, phasing, and pricing for the pilot set, admin-engine first.</div></div>
+      <div class="phase-t future"><div class="pnode2">1</div><div class="ptagline">The build</div><div class="ph2">Pilot automations</div><div class="pd2">Case tracker, calendaring, cost accounting, deadline digest, default packages, task lists.</div></div>
+      <div class="phase-t future"><div class="pnode2">2</div><div class="ptagline">After pilots</div><div class="ph2">Expand</div><div class="pd2">Complaint drafter, settlements, discovery &amp; motion support, post-judgment forms, and the NetDocs exit if the pilot storage feels right.</div></div>
+    </div>
+    <div class="scope-box reveal d2">
+      <h4>Parked for later — deliberately</h4>
+      <div class="chips">
+        <div class="chip"><span class="mk">—</span><span><b>Post-judgment forms</b> (writs, sheriff instructions, abstracts) — county-by-county variation; automate once the pilot patterns are proven.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Motion-to-compel separate statements</b> — very automatable, but rare enough to follow the pilots rather than lead them.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>The NetDocs exit</b> — the pilot's document storage doubles as the test case. If you like living in it, we plan the full migration; your contract window leaves time to decide.</span></div>
+        <div class="chip"><span class="mk">—</span><span><b>Document production</b> — one in a hundred cases, handled fine in Adobe today. Not worth automating yet.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- WHAT WE NEED -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">To get building</span><h2>What to send over <span class="soft">(overshare freely)</span></h2>
+      <p class="sec-sub">Thanks for the default judgment package and the tracker spreadsheet Lauren already sent, those are in hand. The rest is what would round out scoping. Email works, forward as much as you like.</p></div>
+    <div class="qcards">
+      <div class="qc reveal d1"><div class="qcn" style="background:var(--green)">✓</div><div><p class="qct">Default judgment package <span style="font-family:var(--mono);font-size:10px;color:var(--green);font-weight:700;letter-spacing:.06em;text-transform:uppercase">· received</span></p><p class="qcd">The exemplar (declaration, request for entry of default, proposed judgment, request for dismissal) landed Aug 13. This is where your Clio project stalled on the forms.</p></div></div>
+      <div class="qc reveal d1"><div class="qcn" style="background:var(--green)">✓</div><div><p class="qct">Working tracker spreadsheet <span style="font-family:var(--mono);font-size:10px;color:var(--green);font-weight:700;letter-spacing:.06em;text-transform:uppercase">· received</span></p><p class="qcd">The Kapitus Matter Report is the starting model for the Portfolio Case Tracker.</p></div></div>
+      <div class="qc reveal d2"><div class="qcn">3</div><div><p class="qct">Clio Draft templates</p><p class="qcd">Complaint (both contract forms), summons, cover sheet + addendum, discovery set, declaration: the templates Lauren built.</p></div></div>
+      <div class="qc reveal d2"><div class="qcn">4</div><div><p class="qct">A sample referral packet</p><p class="qcd">A loan agreement and merchant statement pair, ideally one of each contract form, so extraction trains on the real thing.</p></div></div>
+      <div class="qc reveal d3"><div class="qcn">5</div><div><p class="qct">An LA portal notice email</p><p class="qcd">The "new action has taken place" email Lauren read from, plus whatever she learns about per-case notification elections.</p></div></div>
+      <div class="qc reveal d3"><div class="qcn">6</div><div><p class="qct">A vendor invoice</p><p class="qcd">One monthly filing invoice and one card receipt, so cost extraction matches how the charges actually arrive.</p></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- TRUST -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">Built for legal work</span><h2>Your client's data, <span class="soft">treated like it</span></h2>
+      <p class="sec-sub">Kapitus matters carry your client's borrowers' financial details. The system is built for regulated work from the ground up.</p></div>
+    <div class="compliance reveal d1">
+      <span class="pill"><span class="pk">✓</span> SOC 2 Certified</span>
+      <span class="pill"><span class="pk">✓</span> HIPAA Compliant</span>
+      <span class="pill"><span class="pk">✓</span> Single-tenant — your data isolated</span>
+      <span class="pill"><span class="pk">✓</span> No training on your data</span>
+      <span class="pill"><span class="pk">✓</span> Full audit trail per matter</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</span>
+    <span>Prepared for Levin Migdal &amp; Gibbs LLP · Kapitus collections · Confidential</span>
+  </div>
+</footer>
+
+<script>
+/* Dodonai Brief Engine — scroll reveal + animation gating (inline copy of brief-reveal.js) */
+(function () {
+  var PLAY_IDS = ['pipe', 'xform', 'dash'];
+  function observe() {
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); revealIO.unobserve(e.target); } });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('play'); } });
+    }, { threshold: 0.2 });
+    PLAY_IDS.forEach(function (id) { var el = document.getElementById(id); if (el) playIO.observe(el); });
+  }
+  if (document.readyState === 'loading') { document.addEventListener('DOMContentLoaded', observe); } else { observe(); }
+})();
+</script>
+</body></html>

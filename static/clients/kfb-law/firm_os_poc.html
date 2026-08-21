@@ -1,0 +1,774 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="robots" content="noindex,nofollow">
+<title>Kurkin Forehand Brandes — Firm OS (POC)</title>
+<script src="https://cdn.tailwindcss.com"></script>
+<script src="https://unpkg.com/lucide@latest/dist/umd/lucide.min.js"></script>
+<script>
+  tailwind.config = {
+    theme: {
+      extend: {
+        fontFamily: { sans: ['-apple-system', 'BlinkMacSystemFont', '"Helvetica Neue"', 'Arial', 'sans-serif'] },
+        colors: {
+          kfb: {
+            50:  '#eef4fa',
+            100: '#d7e6f3',
+            200: '#aecbe4',
+            300: '#7ba7cf',
+            400: '#3f7cad',
+            500: '#004f90',
+            600: '#004c8b',
+            700: '#003a6b',
+            800: '#002f56',
+            900: '#001f3a'
+          },
+          accent: { 400: '#4f93cf', 500: '#004f90', 600: '#003a6b' }
+        }
+      }
+    }
+  };
+</script>
+<style>
+  html, body { height: 100%; }
+  body { background: #f2f4f8; }
+  .nav-link.active { background: #004c8b; color: white; }
+  .nav-link.active .icon { color: #4f93cf; }
+  .tab.active { color: #002f56; border-bottom-color: #004f90; font-weight: 600; }
+  .toast { animation: toastIn 0.2s ease-out; }
+  @keyframes toastIn { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: translateY(0); } }
+  .step-pending { opacity: 0.35; }
+  .step-done .step-dot { background: #16a34a; }
+  .clockfill { transition: width 0.4s ease; }
+  ::-webkit-scrollbar { width: 8px; height: 8px; }
+  ::-webkit-scrollbar-thumb { background: #aecbe4; border-radius: 4px; }
+  ::-webkit-scrollbar-track { background: transparent; }
+  .phase-chip { font-size: 10px; letter-spacing: .04em; }
+</style>
+</head>
+<body class="font-sans text-slate-800">
+
+<div class="flex h-screen overflow-hidden">
+
+  <!-- ============ SIDEBAR ============ -->
+  <aside class="w-64 bg-kfb-900 text-kfb-100 flex flex-col flex-shrink-0">
+    <div class="px-5 pt-5 pb-4 border-b border-kfb-700">
+      <div class="flex items-center gap-2.5">
+        <img src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/4QAYRXhpZgAASUkqAAgAAAAAAAAAAAAAAP/hAy9odHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDcuMS1jMDAwIDc5LmRhYmFjYmIsIDIwMjEvMDQvMTQtMDA6Mzk6NDQgICAgICAgICI+IDxyZGY6UkRGIHhtbG5zOnJkZj0iaHR0cDovL3d3dy53My5vcmcvMTk5OS8wMi8yMi1yZGYtc3ludGF4LW5zIyI+IDxyZGY6RGVzY3JpcHRpb24gcmRmOmFib3V0PSIiIHhtbG5zOnhtcD0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wLyIgeG1sbnM6eG1wTU09Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9tbS8iIHhtbG5zOnN0UmVmPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvc1R5cGUvUmVzb3VyY2VSZWYjIiB4bXA6Q3JlYXRvclRvb2w9IkFkb2JlIFBob3Rvc2hvcCAyMy4wIChNYWNpbnRvc2gpIiB4bXBNTTpJbnN0YW5jZUlEPSJ4bXAuaWlkOjUxNzgxNkZENTlGRjExRUM4REY2RkQzRENBOEIzQjIxIiB4bXBNTTpEb2N1bWVudElEPSJ4bXAuZGlkOjUxNzgxNkZFNTlGRjExRUM4REY2RkQzRENBOEIzQjIxIj4gPHhtcE1NOkRlcml2ZWRGcm9tIHN0UmVmOmluc3RhbmNlSUQ9InhtcC5paWQ6NTE3ODE2RkI1OUZGMTFFQzhERjZGRDNEQ0E4QjNCMjEiIHN0UmVmOmRvY3VtZW50SUQ9InhtcC5kaWQ6NTE3ODE2RkM1OUZGMTFFQzhERjZGRDNEQ0E4QjNCMjEiLz4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz7/2wBDAAYEBAUEBAYFBQUGBgYHCQ4JCQgICRINDQoOFRIWFhUS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" alt="Kurkin Forehand Brandes LLP" class="h-9 w-auto rounded shadow-sm" />
+        <div>
+          <div class="text-white font-semibold tracking-tight leading-tight">Kurkin Forehand Brandes</div>
+          <div class="text-[11px] text-kfb-300 leading-tight tracking-wide">FIRM OS · WORKERS' COMP</div>
+        </div>
+      </div>
+    </div>
+    <nav class="flex-1 px-3 py-3 space-y-0.5 text-sm" id="sidebar-nav">
+      <a href="#/dashboard" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-kfb-700"><i data-lucide="layout-dashboard" class="icon w-4 h-4 text-kfb-300"></i> Dashboard</a>
+      <a href="#/intake" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-kfb-700"><i data-lucide="inbox" class="icon w-4 h-4 text-kfb-300"></i> New Referrals <span class="ml-auto text-xs bg-accent-500 text-kfb-900 rounded-full px-1.5 py-0.5 font-semibold">2</span></a>
+      <a href="#/matter" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-kfb-700"><i data-lucide="folder-kanban" class="icon w-4 h-4 text-kfb-300"></i> Matters</a>
+      <a href="#/deadlines" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-kfb-700"><i data-lucide="stethoscope" class="icon w-4 h-4 text-kfb-300"></i> Records &amp; Deadlines <span class="ml-auto phase-chip bg-kfb-700 text-accent-400 rounded px-1.5 py-0.5 font-semibold">P1</span></a>
+      <a href="#/mail" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-kfb-700"><i data-lucide="mail" class="icon w-4 h-4 text-kfb-300"></i> Mail &amp; Email <span class="ml-auto phase-chip bg-kfb-700 text-accent-400 rounded px-1.5 py-0.5 font-semibold">P3</span></a>
+      <a href="#/assembly" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-kfb-700"><i data-lucide="timer" class="icon w-4 h-4 text-kfb-300"></i> Billable Time <span class="ml-auto phase-chip bg-kfb-700 text-accent-400 rounded px-1.5 py-0.5 font-semibold">P2</span></a>
+      <a href="#/policy" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-kfb-700"><i data-lucide="shield-check" class="icon w-4 h-4 text-kfb-300"></i> Security &amp; AI Policy</a>
+      <a href="#/reports" class="nav-link flex items-center gap-2.5 px-3 py-2 rounded-md hover:bg-kfb-700"><i data-lucide="file-stack" class="icon w-4 h-4 text-kfb-300"></i> Templates &amp; Reports</a>
+    </nav>
+    <div class="px-3 pb-4 pt-2 border-t border-kfb-700">
+      <div class="bg-kfb-800 rounded-lg p-3">
+        <div class="flex items-center gap-2 mb-1">
+          <i data-lucide="building-2" class="w-4 h-4 text-kfb-300"></i>
+          <span class="text-[10px] uppercase tracking-wider text-kfb-300 font-semibold">Your instance</span>
+        </div>
+        <div class="text-white font-medium text-sm leading-tight">KFB Law · Aventura, FL</div>
+        <div class="text-[11px] text-kfb-300 mt-0.5">Firm OS · POC v0.1 · built on Dodonai</div>
+      </div>
+    </div>
+  </aside>
+
+  <!-- ============ MAIN ============ -->
+  <div class="flex-1 flex flex-col overflow-hidden">
+    <header class="h-14 bg-white border-b border-slate-200 flex items-center px-6 gap-4 flex-shrink-0">
+      <div id="breadcrumb" class="text-sm text-slate-500 font-medium"></div>
+      <div class="flex-1 max-w-md mx-auto">
+        <div class="relative">
+          <i data-lucide="search" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+          <input id="globalsearch" type="text" placeholder="Search by matter, file, attorney, claimant, adjuster…" class="w-full bg-slate-50 border border-slate-200 rounded-md pl-9 pr-3 py-1.5 text-sm focus:bg-white focus:border-kfb-400 focus:outline-none focus:ring-2 focus:ring-kfb-200" />
+        </div>
+      </div>
+      <div class="text-xs text-slate-400 hidden md:block">Thu, Aug 7, 2026</div>
+      <button class="text-slate-400 hover:text-kfb-700 relative">
+        <i data-lucide="bell" class="w-5 h-5"></i>
+        <span class="absolute -top-1 -right-1 bg-rose-500 text-white text-[10px] rounded-full w-4 h-4 flex items-center justify-center font-semibold">4</span>
+      </button>
+      <div class="flex items-center gap-2">
+        <div class="w-8 h-8 rounded-full bg-gradient-to-br from-kfb-400 to-kfb-600 text-white flex items-center justify-center font-semibold text-sm">BG</div>
+        <div class="text-sm leading-tight hidden md:block"><div class="font-medium">Brittany</div><div class="text-[11px] text-slate-400">Records · Systems</div></div>
+      </div>
+    </header>
+
+    <main class="flex-1 overflow-y-auto">
+
+    <!-- ============ DASHBOARD ============ -->
+    <section id="page-dashboard" class="page p-6 space-y-5 hidden">
+      <div class="grid grid-cols-1 lg:grid-cols-4 gap-4">
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold">Active WC files</div>
+          <div class="text-2xl font-semibold text-kfb-800 mt-1">340</div>
+          <div class="text-xs text-slate-500 mt-1">~95% workers'-comp defense</div>
+        </div>
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold">Pages summarized this week</div>
+          <div class="text-2xl font-semibold text-kfb-800 mt-1">6,240</div>
+          <div class="text-xs text-emerald-600 mt-1">chronologies filed to ProLaw · 0 hand-sorted</div>
+        </div>
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold">Billable time recaptured (Aug)</div>
+          <div class="text-2xl font-semibold text-kfb-800 mt-1">41.5 hrs</div>
+          <div class="text-xs text-slate-500 mt-1">the 0.1s the team used to forget</div>
+        </div>
+        <div class="bg-white rounded-lg border border-rose-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-rose-400 font-semibold">Needs a human now</div>
+          <div class="text-2xl font-semibold text-rose-600 mt-1">4</div>
+          <div class="text-xs text-slate-500 mt-1">2 referrals · 1 records gap · 1 letter to sign</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg border border-slate-200">
+        <div class="px-4 py-3 border-b border-slate-100 flex items-center justify-between">
+          <div class="font-semibold text-kfb-800 text-sm">All files <span class="font-normal text-slate-400">— every column sortable &amp; searchable, reading straight from ProLaw</span></div>
+          <div class="text-xs text-slate-400">Try the search bar: type <span class="font-mono bg-slate-100 px-1 rounded">Dominguez</span></div>
+        </div>
+        <table class="w-full text-sm">
+          <thead>
+            <tr class="text-left text-[11px] uppercase tracking-wide text-slate-400 border-b border-slate-100">
+              <th class="px-4 py-2 font-semibold">Matter ID</th>
+              <th class="px-2 py-2 font-semibold">File #</th>
+              <th class="px-2 py-2 font-semibold">Claimant (Desc)</th>
+              <th class="px-2 py-2 font-semibold">Attorney</th>
+              <th class="px-2 py-2 font-semibold">Adjuster / Carrier</th>
+              <th class="px-2 py-2 font-semibold">Track</th>
+              <th class="px-4 py-2 font-semibold">Status</th>
+            </tr>
+          </thead>
+          <tbody id="matter-rows" class="divide-y divide-slate-50">
+            <!-- rows injected -->
+          </tbody>
+        </table>
+      </div>
+
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-4">
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-kfb-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="calendar-days" class="w-4 h-4 text-accent-500"></i> Today — firm calendar <span class="text-[11px] font-normal text-slate-400">(syncs to everyone's Outlook, like today)</span></div>
+          <ul class="space-y-2 text-sm">
+            <li class="flex gap-3"><span class="text-slate-400 w-16 flex-shrink-0">9:30a</span><span><b>State mediation</b> — OJCC Miami · Reyes · JB</span></li>
+            <li class="flex gap-3"><span class="text-slate-400 w-16 flex-shrink-0">11:00a</span><span><b>Pretrial hearing</b> — OJCC Ft. Lauderdale · Pierre-Louis · HM</span></li>
+            <li class="flex gap-3"><span class="text-slate-400 w-16 flex-shrink-0">2:00p</span><span><b>Deposition</b> — treating physician · Alvarez · EK</span></li>
+          </ul>
+        </div>
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-kfb-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="list-checks" class="w-4 h-4 text-accent-500"></i> Tasks <span class="text-[11px] font-normal text-slate-400">(assignee-scoped, auto-escalate — no manual mark-complete hunting)</span></div>
+          <ul class="space-y-2 text-sm">
+            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-rose-500 flex-shrink-0"></span> Discovery grace expired — Pierre-Louis · <b>motion to compel drafted, review &amp; file</b> <span class="ml-auto text-[11px] text-rose-500 font-semibold">TODAY</span></li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-amber-400 flex-shrink-0"></span> Personnel file still not received — Reyes · follow-up queued <span class="ml-auto text-[11px] text-slate-400">day 3</span></li>
+            <li class="flex items-center gap-2"><span class="w-2 h-2 rounded-full bg-emerald-500 flex-shrink-0"></span> Records check-off — Jackson Memorial records arrived, auto-matched to request <span class="ml-auto text-[11px] text-emerald-600">done, no touch</span></li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ INTAKE ============ -->
+    <section id="page-intake" class="page p-6 hidden">
+      <div class="mb-4">
+        <h2 class="text-lg font-semibold text-kfb-800">New referrals — parse once, key never</h2>
+        <p class="text-sm text-slate-500 mt-0.5">Today this referral gets keyed into ProLaw by hand — matter, contacts, and documents, across a half-dozen screens. Here, the referral itself does the work.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <!-- Left: the referral -->
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+            <div class="px-4 py-3 bg-kfb-50 border-b border-slate-200 flex items-center gap-2">
+              <i data-lucide="mail" class="w-4 h-4 text-kfb-500"></i>
+              <div class="text-sm"><b>New Defense Assignment — WC Litigation</b> <span class="text-slate-400">· claims@summitholdings.example</span></div>
+              <span class="ml-auto text-[11px] text-slate-400">7:42 AM</span>
+            </div>
+            <div class="p-4 text-sm text-slate-600 space-y-3">
+              <p>Counsel — please find attached our defense referral on the captioned claim. Petition for Benefits filed with the OJCC (Miami District). Kindly confirm receipt and enrollment.</p>
+              <div class="border border-slate-200 rounded-md divide-y divide-slate-100 text-[13px]">
+                <div class="px-3 py-2 flex items-center gap-2 bg-slate-50"><i data-lucide="paperclip" class="w-3.5 h-3.5 text-slate-400"></i><b>Defense Referral — Reyes, Manuel A..pdf</b></div>
+                <div class="px-3 py-2 flex items-center gap-2"><i data-lucide="paperclip" class="w-3.5 h-3.5 text-slate-400"></i>Petition for Benefits.pdf</div>
+                <div class="px-3 py-2 flex items-center gap-2"><i data-lucide="paperclip" class="w-3.5 h-3.5 text-slate-400"></i>DWC-1 First Report of Injury.pdf · Wage statement (13 wks).pdf · Adjuster claim notes.pdf</div>
+              </div>
+              <div class="rounded-md border border-slate-200 p-3 bg-slate-50 text-[12px] leading-relaxed text-slate-500">
+                <div class="font-semibold text-slate-600 mb-1 text-[11px] uppercase tracking-wide">Referral form (as received)</div>
+                Referral type: <b>WC Litigation (PFB)</b> · Injured worker: <b>Manuel A. Reyes</b> · DOI: <b>04/11/2026</b> · Claim #: <b>WC-2026-0417732</b> · Employer/Insured: <b>Costa Verde Landscaping, LLC</b> (Hialeah) · Carrier: <b>Summit / BusinessFirst Insurance</b> · Adjuster: <b>Denise Fuentes</b> · Claimant's counsel: <b>Ricardo Alonso, Esq.</b> · Venue: <b>OJCC Miami District</b> · OJCC case #: <b>26-014327</b> · AWW/CR alleged: <b>$1,120.00 / $746.67</b> · Wage statement: <b>attached</b> · Personnel file: <b>to follow</b>
+              </div>
+              <button id="btn-open-file" class="w-full bg-kfb-700 hover:bg-kfb-600 text-white rounded-md py-2.5 font-semibold text-sm flex items-center justify-center gap-2"><i data-lucide="play" class="w-4 h-4"></i> Open the file</button>
+            </div>
+          </div>
+
+          <!-- The held referral scenario -->
+          <div class="bg-white rounded-lg border border-amber-200 overflow-hidden">
+            <div class="px-4 py-3 bg-amber-50 border-b border-amber-200 flex items-center gap-2">
+              <i data-lucide="alert-triangle" class="w-4 h-4 text-amber-500"></i>
+              <div class="text-sm"><b>Assignment — Baptiste, Marlene</b> <span class="text-slate-400">· Gallagher Bassett</span></div>
+              <span class="ml-auto text-[11px] font-semibold text-amber-600 uppercase tracking-wide">Held — not opened</span>
+            </div>
+            <div class="p-4 text-[13px] text-slate-600">
+              Referral is missing the <b>date of injury</b> and <b>claim number</b> — below the minimum to open. Firm OS did <b>not</b> open it prematurely and did not let it fall through the cracks: a request for the missing fields went back to the adjuster <span class="text-slate-400">(Tue)</span>, a follow-up fires tomorrow, and it stays on this list until a human clears it.
+            </div>
+          </div>
+        </div>
+
+        <!-- Right: what fires -->
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-sm font-semibold text-kfb-800 mb-1">One parse. Everything downstream fires.</div>
+          <div class="text-[12px] text-slate-400 mb-4">28 fields → the ProLaw matter, every party record, and the document folders — verbatim to your naming conventions.</div>
+          <ol id="intake-steps" class="space-y-3 text-sm">
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Referral parsed — 28 fields extracted</b><div class="text-[12px] text-slate-500">Practice area detected: workers'-comp defense. Petition for Benefits recognized → litigation track.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>ProLaw matter opened: <span class="font-mono">WC-4417</span></b><div class="text-[12px] text-slate-500">Next in your existing WC series. Opened-by and date stamped. Matter type = Workers' Comp — Defense.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Client / matter number requisitioned — records desk notified</b><div class="text-[12px] text-slate-500">Numbering stays with your team. Firm OS coordinates the requisition in ProLaw; it never bypasses it.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>ProLaw document folders created — your tree, unchanged</b><div class="text-[12px] text-slate-500 font-mono">ProLaw › WC-4417_Reyes › {medicals, pleadings, wages, correspondence, discovery…}</div><div class="text-[12px] text-slate-500">Attachments filed into the right subfolders. Nothing moves, nothing is renamed.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Party records populated — Claimant, Employer, Carrier, Related Parties</b><div class="text-[12px] text-slate-500"><span class="font-mono">Costa Verde Landscaping</span> wasn't in ProLaw contacts → created. <span class="font-mono">Adj/Fuentes, Denise</span> matched existing. SSN/DOB stored behind the access gate.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Response to PFB drafted — 6 attorney calls surfaced</b><div class="text-[12px] text-slate-500">Your standard response and defenses, on your template. AWW check: payroll computes <b>$1,004.60</b> vs $1,120.00 alleged → recommend DISPUTE. Waiting on JB, not on anyone's memory.</div></div>
+            </li>
+            <li class="step step-pending flex gap-3">
+              <span class="step-dot w-5 h-5 rounded-full bg-slate-300 flex-shrink-0 flex items-center justify-center text-white"><i data-lucide="check" class="w-3 h-3"></i></span>
+              <div><b>Deadline plan applied — nobody had to remember</b><div class="text-[12px] text-slate-500">FL WC plan instantiated off the PFB: 30-day response, state mediation within 130 days, pretrial, final hearing, records requests. On every attorney's Outlook already.</div></div>
+            </li>
+          </ol>
+          <div id="intake-done" class="hidden mt-4 rounded-md bg-emerald-50 border border-emerald-200 px-4 py-3 text-sm text-emerald-800 flex items-center gap-2">
+            <i data-lucide="check-circle-2" class="w-4 h-4"></i> Matter WC-4417 opened in 41 seconds. Zero fields typed. <a href="#/matter" class="underline font-semibold ml-1">Open the matter →</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ MATTER ============ -->
+    <section id="page-matter" class="page p-6 hidden">
+      <div class="flex items-start justify-between mb-4 flex-wrap gap-3">
+        <div>
+          <div class="flex items-center gap-3">
+            <h2 class="text-lg font-semibold text-kfb-800">Reyes, Manuel A. <span class="text-slate-400 font-normal">v. Costa Verde Landscaping, LLC</span></h2>
+            <span class="text-[11px] bg-kfb-100 text-kfb-700 rounded px-2 py-0.5 font-semibold font-mono">WC · PFB</span>
+          </div>
+          <div class="text-sm text-slate-500 mt-0.5 font-mono text-[13px]">ProLaw WC-4417 · Claim WC-2026-0417732 · OJCC Miami · Case 26-014327</div>
+        </div>
+        <div class="flex items-center gap-2 text-[12px]">
+          <span class="flex items-center gap-1.5 bg-white border border-slate-200 rounded-md px-2.5 py-1.5"><i data-lucide="shield" class="w-3.5 h-3.5 text-slate-400"></i> Restricted matter: <b class="text-slate-600">N</b></span>
+          <span class="flex items-center gap-1.5 bg-white border border-slate-200 rounded-md px-2.5 py-1.5"><i data-lucide="bot" class="w-3.5 h-3.5 text-emerald-500"></i> AI policy: <b class="text-emerald-600">standard (ZDR + BAA)</b></span>
+        </div>
+      </div>
+
+      <div class="border-b border-slate-200 mb-4 flex gap-5 text-sm flex-wrap" id="matter-tabs">
+        <button data-tab="case1" class="tab active pb-2 border-b-2 border-transparent text-slate-500">Matter</button>
+        <button data-tab="claimant" class="tab pb-2 border-b-2 border-transparent text-slate-500">Claimant</button>
+        <button data-tab="insure1" class="tab pb-2 border-b-2 border-transparent text-slate-500">Employer / Carrier</button>
+        <button data-tab="related" class="tab pb-2 border-b-2 border-transparent text-slate-500">Related Parties</button>
+        <button data-tab="records" class="tab pb-2 border-b-2 border-transparent text-slate-500">Records Chronology</button>
+        <button data-tab="docs" class="tab pb-2 border-b-2 border-transparent text-slate-500">Documents</button>
+        <button data-tab="mail" class="tab pb-2 border-b-2 border-transparent text-slate-500">Email</button>
+      </div>
+
+      <div id="mtab-case1" class="mtab bg-white rounded-lg border border-slate-200 p-5">
+        <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold mb-3">Your fields, your IDs — schema parity with your ProLaw matter layout</div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-8 gap-y-2.5 text-sm">
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Desc</span><span class="font-medium text-right">Reyes, Manuel A.</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Claimant_Name</span><span class="font-medium text-right">Manuel A. Reyes</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Date_Of_Injury</span><span class="font-medium text-right">04/11/2026</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Employer</span><span class="font-medium text-right">Costa Verde Landscaping, LLC</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Accident</span><span class="font-medium text-right">Fall from trailer — lumbar</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Carrier</span><span class="font-medium text-right">Summit / BusinessFirst Insurance</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Adjuster</span><span class="font-medium text-right">Adj/Fuentes, Denise</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Claim_Number</span><span class="font-medium text-right">WC-2026-0417732</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Primary_Attorney</span><span class="font-medium text-right">JB/Blinderman, Judith</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Claimant_Counsel</span><span class="font-medium text-right">atty/Alonso, Ricardo</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Venue</span><span class="font-medium text-right">OJCC Miami District</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">OJCC_Case</span><span class="font-medium text-right">26-014327</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Date_Opened</span><span class="font-medium text-right">08/07/2026</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Assigned_JCC</span><span class="font-medium text-right">Hon. P. Sojourner</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">SOL_2yr</span><span class="font-medium text-right">04/11/2028</span></div>
+        </div>
+        <div class="mt-4 text-[12px] text-slate-400 flex items-center gap-1.5"><i data-lucide="sparkles" class="w-3.5 h-3.5 text-accent-500"></i> Every value above came off the referral PDF. When any new document arrives, fields you don't yet have are extracted and supplemented automatically — the manual "update ProLaw" loop is gone.</div>
+      </div>
+
+      <div id="mtab-claimant" class="mtab hidden bg-white rounded-lg border border-slate-200 p-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5 text-sm max-w-3xl">
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Social_Sec</span><span class="font-medium text-right flex items-center gap-2">XXX-XX-3390 <span class="text-[10px] bg-slate-100 text-slate-500 rounded px-1.5 py-0.5 flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3"></i>access-gated</span></span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Dob</span><span class="font-medium text-right flex items-center gap-2">02/26/1985 <span class="text-[10px] bg-slate-100 text-slate-500 rounded px-1.5 py-0.5 flex items-center gap-1"><i data-lucide="lock" class="w-3 h-3"></i>access-gated</span></span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Street_Adr</span><span class="font-medium text-right">2140 W 68th Street</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">City_St_Zip</span><span class="font-medium text-right">Hialeah, FL 33016</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Years employed</span><span class="font-medium text-right">3 (hired 05/2023)</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">AWW (computed)</span><span class="font-medium text-right">$1,004.60 <span class="text-[11px] text-rose-500">petition alleges $1,120.00</span></span></div>
+        </div>
+        <div class="mt-4 text-[12px] text-slate-400">Field-level access controls carry through — the merge respects the gate, and so does every screen. Claimant PII surfaces only to staff with rights on the matter.</div>
+      </div>
+
+      <div id="mtab-insure1" class="mtab hidden bg-white rounded-lg border border-slate-200 p-5">
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-2.5 text-sm max-w-3xl">
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Carrier</span><span class="font-medium text-right">Summit / BusinessFirst Insurance</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Employer</span><span class="font-medium text-right">Costa Verde Landscaping, LLC</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Received wage data?</span><span class="font-medium text-right text-emerald-600">Y — wage statement, 13 weeks</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">Received personnel file?</span><span class="font-medium text-right text-amber-600">N — task open, follow-up day 3</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">120-day pay &amp; investigate</span><span class="font-medium text-right">expires 08/09/2026</span></div>
+          <div class="flex justify-between gap-3 border-b border-slate-50 pb-1.5"><span class="text-slate-400 font-mono text-[12px]">OJCC District</span><span class="font-medium text-right">Miami</span></div>
+        </div>
+      </div>
+
+      <div id="mtab-related" class="mtab hidden bg-white rounded-lg border border-slate-200">
+        <table class="w-full text-sm">
+          <thead><tr class="text-left text-[11px] uppercase tracking-wide text-slate-400 border-b border-slate-100">
+            <th class="px-4 py-2.5 font-semibold">RP key</th><th class="px-2 py-2.5 font-semibold">Name</th><th class="px-2 py-2.5 font-semibold">Role</th><th class="px-4 py-2.5 font-semibold">Contacts</th></tr></thead>
+          <tbody class="divide-y divide-slate-50">
+            <tr><td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">er/Costa Verde</td><td class="px-2 py-2.5 font-medium">Costa Verde Landscaping, LLC — Yolanda Prieto (HR)</td><td class="px-2 py-2.5">Employer / Insured</td><td class="px-4 py-2.5"><span class="text-[11px] bg-accent-400/20 text-accent-600 rounded px-1.5 py-0.5 font-semibold">NEW — added at intake</span></td></tr>
+            <tr><td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">Adj/Fuentes, Denise</td><td class="px-2 py-2.5 font-medium">Denise Fuentes — Summit / BusinessFirst</td><td class="px-2 py-2.5">Adjuster</td><td class="px-4 py-2.5"><span class="text-[11px] bg-emerald-100 text-emerald-700 rounded px-1.5 py-0.5 font-semibold">matched existing</span></td></tr>
+            <tr><td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">atty/Alonso, Ricardo</td><td class="px-2 py-2.5 font-medium">Ricardo Alonso, Esq. — 2 S Biscayne Blvd, Ste 3200</td><td class="px-2 py-2.5">Claimant's counsel</td><td class="px-4 py-2.5"><span class="text-[11px] bg-emerald-100 text-emerald-700 rounded px-1.5 py-0.5 font-semibold">matched existing</span></td></tr>
+            <tr><td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">JB/Blinderman, Judith</td><td class="px-2 py-2.5 font-medium">Judith Blinderman</td><td class="px-2 py-2.5">Primary attorney</td><td class="px-4 py-2.5"><span class="text-[11px] bg-emerald-100 text-emerald-700 rounded px-1.5 py-0.5 font-semibold">firm</span></td></tr>
+          </tbody>
+        </table>
+        <div class="px-4 py-3 text-[12px] text-slate-400 border-t border-slate-100 flex items-center gap-1.5"><i data-lucide="git-branch" class="w-3.5 h-3.5"></i> Your ProLaw contact history migrates as-is; conflict checks run against it on every new referral — before the file opens, not after.</div>
+      </div>
+
+      <div id="mtab-records" class="mtab hidden bg-white rounded-lg border border-slate-200 p-5">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+          <div class="font-semibold text-kfb-800 text-sm flex items-center gap-2"><i data-lucide="stethoscope" class="w-4 h-4 text-accent-500"></i> Medical-records chronology <span class="text-[11px] font-normal text-slate-400">— the summary you already run, now filed automatically</span></div>
+          <span class="text-[11px] bg-emerald-100 text-emerald-700 rounded px-2 py-0.5 font-semibold">1,040 pages · indexed in 1h 12m</span>
+        </div>
+        <p class="text-[13px] text-slate-500 mb-3">Subpoenaed records arrive as one disordered batch. On your two advanced-summary templates — carrier-file initial eval + medical records — the OS sorts the whole batch chronologically, de-dupes, writes an executive summary with <b>hyperlinked source-page citations</b>, and preserves original PDF page order as evidence. Then it files the result into ProLaw. No custodian sorting by hand.</p>
+        <table class="w-full text-[13px] border border-slate-100 rounded">
+          <thead><tr class="text-left text-[11px] uppercase tracking-wide text-slate-400 bg-slate-50"><th class="px-3 py-2 font-semibold">Date</th><th class="px-3 py-2 font-semibold">Provider</th><th class="px-3 py-2 font-semibold">Event</th><th class="px-3 py-2 font-semibold">Source</th></tr></thead>
+          <tbody class="divide-y divide-slate-50">
+            <tr><td class="px-3 py-2 font-mono text-[12px]">04/11/2026</td><td class="px-3 py-2">Jackson Memorial ER</td><td class="px-3 py-2 text-slate-500">Initial presentation — lumbar strain, DOI</td><td class="px-3 py-2"><span class="font-mono text-[11px] text-kfb-600 underline">p. 12–18</span></td></tr>
+            <tr><td class="px-3 py-2 font-mono text-[12px]">04/24/2026</td><td class="px-3 py-2">Baptist Health Ortho</td><td class="px-3 py-2 text-slate-500">MRI lumbar — L4-L5 disc bulge</td><td class="px-3 py-2"><span class="font-mono text-[11px] text-kfb-600 underline">p. 233–241</span></td></tr>
+            <tr class="bg-amber-50/60"><td class="px-3 py-2 font-mono text-[12px]">2019</td><td class="px-3 py-2">Mount Sinai (prior)</td><td class="px-3 py-2 text-slate-500"><b>Pre-existing:</b> prior lumbar imaging — degenerative changes</td><td class="px-3 py-2"><span class="font-mono text-[11px] text-kfb-600 underline">p. 604–609</span></td></tr>
+            <tr><td class="px-3 py-2 font-mono text-[12px]">06/30/2026</td><td class="px-3 py-2">Dr. A. Okafor (treating)</td><td class="px-3 py-2 text-slate-500">MMI assigned · 6% PIR</td><td class="px-3 py-2"><span class="font-mono text-[11px] text-kfb-600 underline">p. 918–926</span></td></tr>
+          </tbody>
+        </table>
+        <div class="mt-3 text-[12px] text-slate-500 flex items-center gap-1.5"><i data-lucide="file-check-2" class="w-4 h-4 text-accent-500"></i> 71 duplicate pages removed · the flagged 2019 pre-existing finding feeds the major-contributing-cause defense. Chronology filed to <span class="font-mono">ProLaw › WC-4417 › medicals</span> — citations remain a starting point for the attorney, never a legal determination.</div>
+      </div>
+
+      <div id="mtab-docs" class="mtab hidden bg-white rounded-lg border border-slate-200 p-5">
+        <div class="text-[12px] text-slate-400 mb-3 font-mono">ProLaw › WC-4417_Reyes › — your document tree, created and filed by Firm OS, browsable exactly where it always was</div>
+        <ul class="text-sm space-y-1.5 font-mono text-[13px]">
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-accent-500"></i> pleadings\ <span class="text-slate-400 font-sans text-[12px]">— Petition for Benefits · draft Response to PFB (awaiting JB)</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-accent-500"></i> medicals\ <span class="text-slate-400 font-sans text-[12px]">— 1,040-pg records batch + chronology (flagged: pre-existing L4-L5)</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-accent-500"></i> wages\ <span class="text-slate-400 font-sans text-[12px]">— wage statement 13 wks (AWW computed $1,004.60)</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-accent-500"></i> discovery\ <span class="text-slate-400 font-sans text-[12px]">— records requests, indexed &amp; queryable</span></li>
+          <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-accent-500"></i> correspondence\ <span class="text-slate-400 font-sans text-[12px]">— every email on this claim, auto-filed (see Email tab)</span></li>
+        </ul>
+      </div>
+
+      <div id="mtab-mail" class="mtab hidden bg-white rounded-lg border border-slate-200 p-5">
+        <div class="text-sm space-y-2.5">
+          <div class="flex gap-3 items-start"><span class="text-[11px] text-slate-400 w-14 flex-shrink-0 pt-0.5">7:42a</span><div><b>New Defense Assignment — WC Litigation</b> <span class="text-slate-400">from Denise Fuentes</span> <div class="text-[12px] text-slate-500">auto-filed → correspondence\ · triggered intake</div></div></div>
+          <div class="flex gap-3 items-start"><span class="text-[11px] text-slate-400 w-14 flex-shrink-0 pt-0.5">9:15a</span><div><b>RE: enrollment confirmed</b> <span class="text-slate-400">to Denise Fuentes</span> <div class="text-[12px] text-slate-500">auto-filed · filed under the claim, not the adjuster — Denise has 6 other active claims with the firm</div></div></div>
+        </div>
+        <div class="mt-4 border-t border-slate-100 pt-3 text-[12px] text-slate-400">Ask it: <i>"What did I tell Denise about enrollment?"</i> — answers come from the indexed thread, per matter, per day.</div>
+      </div>
+    </section>
+
+    <!-- ============ RECORDS & DEADLINES ============ -->
+    <section id="page-deadlines" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-kfb-800">Records &amp; Deadlines — the engine <span class="text-[11px] align-middle bg-kfb-100 text-kfb-700 rounded px-2 py-0.5 font-semibold ml-1">PHASE 1</span></h2>
+        <p class="text-sm text-slate-500 mt-0.5">Pure rules, zero judgment. Florida WC deadline math and your records-request follow-ups, ported 1:1 — the OS supplies the trigger your memory used to.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <!-- Deadline clocks -->
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-kfb-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="hourglass" class="w-4 h-4 text-accent-500"></i> WC statutory clocks <span class="text-[11px] font-normal text-slate-400">440.192 response · 440.25 mediation · running on their own</span></div>
+          <div class="space-y-4">
+            <div>
+              <div class="flex justify-between text-[13px] mb-1"><span><b>Reyes</b> — Response to PFB due (30 days)</span><span class="text-amber-600 font-semibold">day 21 of 30</span></div>
+              <div class="h-2 bg-slate-100 rounded-full overflow-hidden"><div class="clockfill bg-kfb-400 h-full" style="width:70%"></div></div>
+              <div class="text-[12px] text-slate-500 mt-1.5 flex items-center gap-1.5"><i data-lucide="file-text" class="w-3.5 h-3.5 text-accent-500"></i> <b>Response drafted</b> on your template → in JB's review queue. Nobody diaried this. Nobody had to.</div>
+            </div>
+            <div>
+              <div class="flex justify-between text-[13px] mb-1"><span><b>Pierre-Louis</b> — discovery responses overdue</span><span class="text-rose-600 font-semibold">grace expired today</span></div>
+              <div class="h-2 bg-slate-100 rounded-full overflow-hidden flex">
+                <div class="clockfill bg-kfb-500 h-full" style="width:75%"></div>
+                <div class="clockfill bg-rose-400 h-full" style="width:25%"></div>
+              </div>
+              <div class="text-[12px] text-slate-500 mt-1.5"><b>Motion to compel drafted</b> → HM's queue. State mediation must be set within 130 days of the PFB; the clock is instantiated.</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Records tracker -->
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-kfb-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="folder-symlink" class="w-4 h-4 text-accent-500"></i> Records requests — Alvarez <span class="text-[11px] font-normal text-slate-400">~80% ignore the first request; the follow-up fires itself at day 20</span></div>
+          <ul class="text-[13px] space-y-2" id="records-list">
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Jackson Memorial — received 8/04, <b>auto-matched to the request and checked off</b></li>
+            <li class="flex items-center gap-2"><i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Baptist Health Ortho — received 7/29, checked off</li>
+            <li class="flex items-center gap-2"><i data-lucide="rotate-cw" class="w-4 h-4 text-amber-500"></i> Mount Sinai Miami — no response, day 21 → <b>follow-up letter went out yesterday, unprompted</b></li>
+            <li class="flex items-center gap-2"><i data-lucide="rotate-cw" class="w-4 h-4 text-amber-500"></i> Dr. A. Okafor (treating) — no response, day 24 → follow-up out, diary at day 40</li>
+            <li class="flex items-center gap-2"><i data-lucide="circle" class="w-4 h-4 text-slate-300"></i> HCA Kendall imaging — day 9, waiting</li>
+            <li class="flex items-center gap-2"><i data-lucide="circle" class="w-4 h-4 text-slate-300"></i> Employer personnel file — day 3, waiting</li>
+          </ul>
+          <button id="btn-scan" class="mt-3 w-full border border-kfb-200 hover:bg-kfb-50 text-kfb-700 rounded-md py-2 font-medium text-[13px] flex items-center justify-center gap-2"><i data-lucide="scan-line" class="w-4 h-4"></i> Simulate: today's records batch arrives (Mount Sinai)</button>
+        </div>
+      </div>
+
+      <!-- Calendar plan -->
+      <div class="bg-white rounded-lg border border-slate-200 p-4">
+        <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+          <div class="font-semibold text-kfb-800 text-sm flex items-center gap-2"><i data-lucide="calendar-range" class="w-4 h-4 text-accent-500"></i> Deadline plan <span class="font-mono text-[12px] bg-slate-100 rounded px-1.5 py-0.5">WC-FINAL</span> — Dominguez · anchored to final hearing <b>01/19/2027</b></div>
+          <div class="text-[12px] text-slate-400">Applied automatically when the OJCC hearing notice hit Mail-In. Your plan, your intervals — ported, not re-derived.</div>
+        </div>
+        <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-x-6 gap-y-2 text-[13px]">
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Pretrial stipulation filed</span><span class="text-slate-500 font-mono">11/20/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Discovery cutoff</span><span class="text-slate-500 font-mono">12/05/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Depositions complete</span><span class="text-slate-500 font-mono">12/12/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>EMA / IME reports due</span><span class="text-slate-500 font-mono">12/19/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Pretrial hearing</span><span class="text-slate-500 font-mono">12/22/26</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Witness &amp; exhibit lists exchanged</span><span class="text-slate-500 font-mono">01/05/27</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Proposed final orders</span><span class="text-slate-500 font-mono">01/12/27</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span>Trial memoranda</span><span class="text-slate-500 font-mono">01/14/27</span></div>
+          <div class="flex justify-between border-b border-slate-50 pb-1.5"><span class="font-semibold text-kfb-800">FINAL HEARING — OJCC Miami</span><span class="text-kfb-800 font-mono font-semibold">01/19/27</span></div>
+        </div>
+        <div class="mt-3 text-[12px] text-slate-400">Post-vacation backlog of un-entered deadline plans: <b class="text-slate-500">structurally impossible.</b> A file opened while you're out gets its plan the moment it opens.</div>
+      </div>
+    </section>
+
+    <!-- ============ MAIL ============ -->
+    <section id="page-mail" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-kfb-800">Mail &amp; Email — filed by claim, not by adjuster <span class="text-[11px] align-middle bg-kfb-100 text-kfb-700 rounded px-2 py-0.5 font-semibold ml-1">PHASE 3</span></h2>
+        <p class="text-sm text-slate-500 mt-0.5">100–120 emails per attorney per day, captured and indexed to the right matter automatically. OJCC notices become calendar entries and adjuster status letters on their own.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-5 gap-5">
+        <div class="xl:col-span-2 bg-white rounded-lg border border-slate-200 overflow-hidden">
+          <div class="px-4 py-2.5 border-b border-slate-100 text-[11px] uppercase tracking-wide text-slate-400 font-semibold">This morning's stream (auto-filed)</div>
+          <ul class="divide-y divide-slate-50 text-[13px]">
+            <li class="px-4 py-2.5"><div class="flex justify-between"><b>Denise Fuentes</b><span class="text-[11px] text-slate-400">7:42a</span></div><div class="text-slate-500">New Defense Assignment — WC Litigation</div><div class="text-[11px] text-emerald-600 mt-0.5">→ opened matter WC-4417 (Reyes)</div></li>
+            <li id="mail-notice" class="px-4 py-2.5 bg-accent-400/10 cursor-pointer hover:bg-accent-400/20"><div class="flex justify-between"><b>OJCC Miami — e-JCC</b><span class="text-[11px] text-slate-400">8:10a</span></div><div class="text-slate-500">Notice: state mediation set 09/22/2026, 10:00 AM — Dominguez</div><div class="text-[11px] text-accent-600 mt-0.5 font-semibold">OJCC notice detected — click to see what fired →</div></li>
+            <li class="px-4 py-2.5"><div class="flex justify-between"><b>Lourdes Vega (Sedgwick)</b><span class="text-[11px] text-slate-400">8:34a</span></div><div class="text-slate-500">RE: scheduling the pretrial</div><div class="text-[11px] text-slate-400 mt-0.5">→ filed: Pierre-Louis · claim, not adjuster (Lourdes has 5 active claims)</div></li>
+            <li class="px-4 py-2.5"><div class="flex justify-between"><b>Ricardo Alonso</b><span class="text-[11px] text-slate-400">9:02a</span></div><div class="text-slate-500">Reyes — extension courtesy copy</div><div class="text-[11px] text-slate-400 mt-0.5">→ filed: WC-4417 · pleadings watch</div></li>
+          </ul>
+          <div class="px-4 py-3 border-t border-slate-100">
+            <div class="relative">
+              <i data-lucide="message-circle-question" class="w-4 h-4 absolute left-3 top-1/2 -translate-y-1/2 text-slate-400"></i>
+              <input id="mail-query" type="text" placeholder='Ask: "What did I talk to Lourdes about on Tuesday?"' class="w-full bg-slate-50 border border-slate-200 rounded-md pl-9 pr-3 py-2 text-[13px] focus:outline-none focus:ring-2 focus:ring-kfb-200" />
+            </div>
+            <div id="mail-answer" class="hidden mt-2 text-[13px] bg-kfb-50 border border-kfb-100 rounded-md p-3 text-slate-600"></div>
+          </div>
+        </div>
+
+        <div class="xl:col-span-3 space-y-4">
+          <div id="notice-detail" class="bg-white rounded-lg border border-slate-200 p-4 hidden">
+            <div class="text-sm font-semibold text-kfb-800 mb-3">OJCC notice → three things fired, zero keystrokes</div>
+            <ol class="space-y-3 text-[13px]">
+              <li class="flex gap-2.5"><i data-lucide="calendar-plus" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i><div><b>Calendar event created</b> — State mediation, 09/22/2026 10:00 AM, OJCC Miami → on EK's Outlook now.</div></li>
+              <li class="flex gap-2.5"><i data-lucide="calendar-range" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i><div><b>Deadline plan <span class="font-mono text-[12px]">WC-MEDIATION</span> applied</b> off the anchor date — prep items on the diary.</div></li>
+              <li class="flex gap-2.5"><i data-lucide="file-text" class="w-4 h-4 text-emerald-500 flex-shrink-0 mt-0.5"></i><div><b>Adjuster status letter drafted</b> on your merge template, addressed to the carrier (FCCI), <span class="font-mono text-[12px]">EK:bg</span> block — queued for review below. This letter goes out many times a day today, every one by hand.</div></li>
+            </ol>
+            <div class="mt-4 border border-slate-200 rounded-md p-4 bg-slate-50 text-[12px] leading-relaxed text-slate-600 font-serif">
+              <div class="text-right">August 7, 2026</div>
+              <div class="mt-2">Ms. Karen Whitfield<br>FCCI Insurance Group<br><span class="text-slate-400">Re: Rafael Dominguez — Claim No. WC-2026-0388120 · ProLaw WC-4392</span></div>
+              <p class="mt-2">Dear Ms. Whitfield:</p>
+              <p class="mt-1.5">Please be advised the Office of the Judges of Compensation Claims has set this matter for <b>state mediation on September 22, 2026 at 10:00 a.m.</b> (Miami District). We will attend on behalf of the employer/carrier and will report following the conference…</p>
+              <div class="mt-2 text-slate-400">EK:bg</div>
+            </div>
+            <div class="mt-3 flex gap-2">
+              <button class="send-letter bg-kfb-700 hover:bg-kfb-600 text-white rounded-md px-4 py-2 text-[13px] font-semibold flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5"></i> Approve &amp; send</button>
+              <button class="border border-slate-200 rounded-md px-4 py-2 text-[13px] text-slate-600 hover:bg-slate-50">Edit first</button>
+            </div>
+          </div>
+          <div id="notice-placeholder" class="bg-white rounded-lg border border-dashed border-slate-300 p-8 text-center text-sm text-slate-400">
+            <i data-lucide="mouse-pointer-click" class="w-5 h-5 mx-auto mb-2"></i>
+            Click the highlighted OJCC notice to see the mail-in pipeline: notice → calendar entry → deadline plan → adjuster letter, with the attorney as the only gate.
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ BILLABLE TIME ============ -->
+    <section id="page-assembly" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-kfb-800">Billable Time — the 0.1s the team forgets, drafted for approval <span class="text-[11px] align-middle bg-kfb-100 text-kfb-700 rounded px-2 py-0.5 font-semibold ml-1">PHASE 2</span></h2>
+        <p class="text-sm text-slate-500 mt-0.5">The wedge beyond WC records. The agent reads sent email and document activity, drafts the billable entries your attorneys never log, and posts them to billing on approval — never before.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-5">
+        <div class="xl:col-span-2 bg-white rounded-lg border border-slate-200 p-4">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+            <div class="font-semibold text-kfb-800 text-sm">Drafted this week — from email &amp; document activity <span class="text-[11px] font-normal text-slate-400">awaiting attorney approval</span></div>
+            <span class="text-[11px] bg-amber-100 text-amber-700 rounded px-2 py-0.5 font-semibold">7.8 hrs pending — JB</span>
+          </div>
+          <table class="w-full text-[13px] border border-slate-100 rounded">
+            <thead><tr class="text-left text-[11px] uppercase tracking-wide text-slate-400 bg-slate-50"><th class="px-3 py-2 font-semibold">Matter</th><th class="px-3 py-2 font-semibold">Activity captured</th><th class="px-3 py-2 font-semibold text-right">Hrs</th></tr></thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr><td class="px-3 py-2 font-mono text-[12px]">WC-4417 Reyes</td><td class="px-3 py-2 text-slate-500">Review adjuster correspondence; confer re: AWW dispute</td><td class="px-3 py-2 text-right font-mono">0.4</td></tr>
+              <tr><td class="px-3 py-2 font-mono text-[12px]">WC-4392 Dominguez</td><td class="px-3 py-2 text-slate-500">Draft/send status letter to carrier re: mediation</td><td class="px-3 py-2 text-right font-mono">0.3</td></tr>
+              <tr><td class="px-3 py-2 font-mono text-[12px]">WC-4358 Alvarez</td><td class="px-3 py-2 text-slate-500">Review 1,040-pg records chronology; note pre-existing L4-L5</td><td class="px-3 py-2 text-right font-mono">0.9</td></tr>
+              <tr><td class="px-3 py-2 font-mono text-[12px]">WC-4371 Pierre-Louis</td><td class="px-3 py-2 text-slate-500">Emails re: discovery; prep motion to compel</td><td class="px-3 py-2 text-right font-mono">0.6</td></tr>
+              <tr><td class="px-3 py-2 font-mono text-[12px]">WC-4417 Reyes</td><td class="px-3 py-2 text-slate-500">Telephone conference with adjuster re: 120-day investigation</td><td class="px-3 py-2 text-right font-mono">0.2</td></tr>
+            </tbody>
+          </table>
+          <div class="mt-3 flex gap-2">
+            <button id="btn-approve-time" class="bg-kfb-700 hover:bg-kfb-600 text-white rounded-md px-4 py-2 text-[13px] font-semibold flex items-center gap-1.5"><i data-lucide="check" class="w-3.5 h-3.5"></i> Approve &amp; post to billing</button>
+            <button class="border border-slate-200 rounded-md px-4 py-2 text-[13px] text-slate-600 hover:bg-slate-50">Edit entries</button>
+          </div>
+          <div class="mt-3 text-[12px] text-slate-500 flex items-center gap-1.5"><i data-lucide="lock" class="w-3.5 h-3.5 text-accent-500"></i> Nothing posts to billing without an attorney approving it. The OS drafts; the lawyer decides.</div>
+        </div>
+
+        <div class="space-y-4">
+          <div class="bg-white rounded-lg border border-slate-200 p-4">
+            <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold mb-3">Recaptured this month</div>
+            <ul class="text-sm space-y-2">
+              <li class="flex items-center justify-between"><span>JB — Blinderman</span><span class="font-mono text-kfb-800">16.2 hrs</span></li>
+              <li class="flex items-center justify-between"><span>HM — McLeod</span><span class="font-mono text-kfb-800">14.0 hrs</span></li>
+              <li class="flex items-center justify-between"><span>EK — Kraut</span><span class="font-mono text-kfb-800">11.3 hrs</span></li>
+              <li class="flex items-center justify-between border-t border-slate-100 pt-2 font-semibold"><span>Total</span><span class="font-mono text-emerald-600">41.5 hrs</span></li>
+            </ul>
+            <div class="mt-3 text-[12px] text-slate-400">~2 hrs/week per attorney the firm was writing off. Posts straight into your billing system on approval — no system swap.</div>
+          </div>
+          <div class="bg-kfb-50 rounded-lg border border-kfb-100 p-4 text-[13px] text-slate-600">
+            <i data-lucide="quote" class="w-4 h-4 text-accent-500 mb-1"></i>
+            <p>"I might be able to survive more years."</p>
+            <div class="text-[11px] text-slate-400 mt-1">— WC team reaction, on the billable-time capture</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ SECURITY & AI POLICY ============ -->
+    <section id="page-policy" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-kfb-800">Security &amp; AI Policy — HIPAA-grade, enforced by the system</h2>
+        <p class="text-sm text-slate-500 mt-0.5">Medical records mean PHI on every file. Policy hangs off a per-matter flag — set once, enforced on every AI action. You own the code and the data; PHI stays tenant-resident.</p>
+      </div>
+
+      <div class="grid grid-cols-1 xl:grid-cols-2 gap-5">
+        <div class="bg-white rounded-lg border border-slate-200 overflow-hidden">
+          <div class="px-4 py-2.5 border-b border-slate-100 text-[11px] uppercase tracking-wide text-slate-400 font-semibold">Posture — enforced per matter</div>
+          <table class="w-full text-[13px]">
+            <tbody class="divide-y divide-slate-50">
+              <tr><td class="px-4 py-3"><b>Standard WC matter</b><div class="text-[11px] text-slate-400">PHI present · medical records</div></td><td class="px-4 py-3"><span class="text-[11px] bg-emerald-100 text-emerald-700 rounded px-2 py-1 font-semibold">ZDR · no training · BAA · attorney gate</span></td></tr>
+              <tr class="bg-accent-400/5"><td class="px-4 py-3"><b>Carrier w/ AI-use guidelines</b><div class="text-[11px] text-slate-400">agreement received · checklist mandatory</div></td><td class="px-4 py-3"><span class="text-[11px] bg-accent-400/20 text-accent-600 rounded px-2 py-1 font-semibold">AGREEMENT ENFORCED — approved-tools list · per-matter attestation</span></td></tr>
+              <tr><td class="px-4 py-3"><b>Restricted matter = Y</b><div class="text-[11px] text-slate-400">e.g. Castellanos (WC-4402)</div></td><td class="px-4 py-3"><span class="text-[11px] bg-rose-100 text-rose-600 rounded px-2 py-1 font-semibold">RESTRICTED — no external AI processing without written consent</span></td></tr>
+            </tbody>
+          </table>
+          <div class="px-4 py-3 text-[12px] text-slate-500 border-t border-slate-100">On a restricted matter, the summarize, chronology, and drafting buttons don't warn — <b>they don't exist.</b> Policy is enforcement, not a memo.</div>
+        </div>
+
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="font-semibold text-kfb-800 text-sm mb-2 flex items-center gap-2"><i data-lucide="shield-check" class="w-4 h-4 text-accent-500"></i> The firm's governance baseline — the answers Brittany already got, made structural</div>
+          <p class="text-[13px] text-slate-500 mb-3">The compliance posture confirmed before KFB adopted the platform, honored on every AI action for the whole WC team instead of one person's diligence:</p>
+          <ul class="text-[13px] space-y-2">
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> SOC 2 certified · HIPAA compliant · BAA executed</li>
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> Zero data retention with LLM providers · no training on your data</li>
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> US data residency · PHI stays in your tenant</li>
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> Attorney review gate on every summary, chronology, letter, and timesheet</li>
+            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-emerald-500 flex-shrink-0"></i> Closeout log emitted per job — audit-ready</li>
+          </ul>
+          <div class="mt-4 border border-slate-200 rounded-md bg-slate-50 p-3 font-mono text-[11px] text-slate-500 leading-relaxed">
+            [2026-08-07 09:12:04] job close · matter WC-4417<br>
+            docs_read=1,040pg (tenant-resident) · external_tx=ZDR · trained=no<br>
+            outputs=2 (chronology, Response draft) · reviewed_by=pending:JB · policy=STANDARD-ZDR-BAA
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ TEMPLATES & REPORTS ============ -->
+    <section id="page-reports" class="page p-6 space-y-5 hidden">
+      <div>
+        <h2 class="text-lg font-semibold text-kfb-800">Templates &amp; Reports — the two summaries already live, plus ProLaw parity</h2>
+        <p class="text-sm text-slate-500 mt-0.5">The advanced-summary templates you built with Brittany are in production. The drafting Judy asked about — trial memoranda, pleadings — is the next template on the same rails.</p>
+      </div>
+      <div class="grid grid-cols-1 xl:grid-cols-3 gap-5">
+        <div class="bg-white rounded-lg border border-slate-200 p-4">
+          <div class="text-[11px] uppercase tracking-wide text-slate-400 font-semibold mb-3">Template library</div>
+          <ul class="text-sm space-y-2">
+            <li class="flex items-center gap-2"><i data-lucide="file-check-2" class="w-4 h-4 text-emerald-500"></i> Carrier-file initial eval <span class="ml-auto text-[11px] text-emerald-600">live</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="file-check-2" class="w-4 h-4 text-emerald-500"></i> Medical-records chronology <span class="ml-auto text-[11px] text-emerald-600">live</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-accent-500"></i> Response to PFB &amp; defenses <span class="ml-auto text-[11px] text-slate-400">Phase 1</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-accent-500"></i> Adjuster / client status letters <span class="ml-auto text-[11px] text-slate-400">Phase 1</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="folder" class="w-4 h-4 text-accent-500"></i> Records-request subpoenas <span class="ml-auto text-[11px] text-slate-400">Phase 1</span></li>
+            <li class="flex items-center gap-2"><i data-lucide="pencil-ruler" class="w-4 h-4 text-kfb-400"></i> Trial memoranda / pleadings <span class="ml-auto text-[11px] text-kfb-500">Judy — roadmap</span></li>
+          </ul>
+        </div>
+
+        <div class="xl:col-span-2 bg-white rounded-lg border border-slate-200 p-4">
+          <div class="flex items-center justify-between flex-wrap gap-2 mb-3">
+            <div class="font-semibold text-kfb-800 text-sm">Response to PFB &amp; Defenses — Reyes <span class="text-[11px] font-normal text-slate-400">drafted at intake, unprompted</span></div>
+            <span class="text-[11px] bg-amber-100 text-amber-700 rounded px-2 py-0.5 font-semibold">AWAITING JB</span>
+          </div>
+          <p class="text-[13px] text-slate-500 mb-3">The skeleton is your unchanged boilerplate — compensability denial, major-contributing-cause, AWW dispute, 120-day investigation, SOL, misrepresentation. The system surfaces <b>only the six calls that are actually the lawyer's</b>, each with its evidence:</p>
+          <table class="w-full text-[13px] border border-slate-100 rounded">
+            <thead><tr class="text-left text-[11px] uppercase tracking-wide text-slate-400 bg-slate-50"><th class="px-3 py-2 font-semibold">Decision</th><th class="px-3 py-2 font-semibold">Recommends</th><th class="px-3 py-2 font-semibold">Because</th></tr></thead>
+            <tbody class="divide-y divide-slate-50">
+              <tr><td class="px-3 py-2">AWW / comp-rate allegations</td><td class="px-3 py-2 font-semibold text-rose-600">DISPUTE</td><td class="px-3 py-2 text-slate-500">payroll computes $1,004.60 vs $1,120.00 alleged</td></tr>
+              <tr><td class="px-3 py-2">Accident in course &amp; scope</td><td class="px-3 py-2 font-semibold text-emerald-600">ADMIT</td><td class="px-3 py-2 text-slate-500">reported same day, DWC-1 on file</td></tr>
+              <tr><td class="px-3 py-2">Major contributing cause</td><td class="px-3 py-2 font-semibold text-rose-600">DENY</td><td class="px-3 py-2 text-slate-500">2019 imaging — pre-existing degenerative L4-L5</td></tr>
+              <tr><td class="px-3 py-2">Employee of defendant</td><td class="px-3 py-2 font-semibold text-emerald-600">ADMIT</td><td class="px-3 py-2 text-slate-500">hired 05/2023, payroll records</td></tr>
+              <tr><td class="px-3 py-2">120-day pay &amp; investigate</td><td class="px-3 py-2 font-semibold text-kfb-700">PRESERVE</td><td class="px-3 py-2 text-slate-500">window expires 08/09 — right to deny reserved</td></tr>
+              <tr><td class="px-3 py-2">Carrier vs. TPA (intake letter)</td><td class="px-3 py-2 font-semibold text-kfb-700">CARRIER</td><td class="px-3 py-2 text-slate-500">Summit/BusinessFirst is the direct carrier</td></tr>
+            </tbody>
+          </table>
+          <div class="mt-3 text-[12px] text-slate-500 flex items-center gap-1.5"><i data-lucide="file-check-2" class="w-4 h-4 text-accent-500"></i> Output is your actual Word template — letterhead, native numbering — and the chronology's hyperlinked citations back every call. The lawyer signs; the typing is gone.</div>
+        </div>
+      </div>
+
+      <div class="bg-white rounded-lg border border-slate-200 p-4">
+        <div class="font-semibold text-kfb-800 text-sm mb-3 flex items-center gap-2"><i data-lucide="table-properties" class="w-4 h-4 text-accent-500"></i> Report writer — ProLaw parity</div>
+        <div class="text-[13px] text-slate-500 mb-3">Any report you run in ProLaw today, rebuilt as a saved view over the same fields — filter, group, export. Example:</div>
+        <div class="border border-slate-100 rounded-md overflow-hidden max-w-md">
+          <div class="px-3 py-2 bg-slate-50 text-[12px] font-semibold text-slate-600">Open WC files by attorney (live)</div>
+          <table class="w-full text-[13px]"><tbody class="divide-y divide-slate-50">
+            <tr><td class="px-3 py-1.5">JB — Blinderman</td><td class="px-3 py-1.5 text-right font-mono">96</td></tr>
+            <tr><td class="px-3 py-1.5">HM — McLeod</td><td class="px-3 py-1.5 text-right font-mono">88</td></tr>
+            <tr><td class="px-3 py-1.5">EK — Kraut</td><td class="px-3 py-1.5 text-right font-mono">81</td></tr>
+          </tbody></table>
+        </div>
+      </div>
+
+      <div class="bg-kfb-900 rounded-lg p-5 text-kfb-100 text-sm flex items-start gap-3">
+        <i data-lucide="server" class="w-5 h-5 text-accent-400 flex-shrink-0 mt-0.5"></i>
+        <div><b class="text-white">Where this runs:</b> hosted by Dodonai with a written SLA, or on the firm's own footprint — either way the PHI stays tenant-resident and <b class="text-white">you own the code and the data</b>. ProLaw stays exactly where it is. Nothing in this demo moved or renamed a single file.</div>
+      </div>
+    </section>
+
+    </main>
+  </div>
+</div>
+
+<div id="toast-holder" class="fixed bottom-5 right-5 space-y-2 z-50"></div>
+
+<script>
+// ---------- data ----------
+const MATTERS = [
+  { id:'WC-4417', file:'0417732', desc:'Reyes, Manuel A.', atty:'JB', adj:'Adj/Fuentes, Denise · Summit', aop:'PFB', status:'Response to PFB drafted — awaiting JB', cls:'text-amber-600' },
+  { id:'WC-4392', file:'0388120', desc:'Dominguez, Rafael', atty:'EK', adj:'Adj/Whitfield, Karen · FCCI', aop:'PFB', status:'WC-FINAL applied · final hearing 01/19/27', cls:'text-slate-500' },
+  { id:'WC-4371', file:'0372004', desc:'Pierre-Louis, Jean', atty:'HM', adj:'Adj/Vega, Lourdes · Sedgwick', aop:'PFB', status:'Discovery grace expired — motion to compel queued', cls:'text-rose-600' },
+  { id:'WC-4358', file:'0361885', desc:'Alvarez, Carmen', atty:'JB', adj:'Adj/Reddick, Tom · Zenith', aop:'Med', status:'Records: 3 of 5 providers outstanding', cls:'text-slate-500' },
+  { id:'WC-4402', file:'0401550', desc:'Castellanos, Luis', atty:'JB', adj:'carrier w/ AI-use agreement', aop:'PFB', status:'Restricted matter — limited AI policy', cls:'text-kfb-700' },
+  { id:'WC-4388', file:'0384210', desc:'Okonkwo, Chidi', atty:'EK', adj:'Adj/Bell, Tracey · Gallagher Bassett', aop:'PFB', status:'PFB response due — day 12 of 30', cls:'text-slate-500' },
+  { id:'WC-4344', file:'0350017', desc:'Nguyen, Bao', atty:'HM', adj:'Adj/Simmons, Carla · Amerisure', aop:'Med', status:'Med-fee dispute — Phase 2 fork', cls:'text-slate-400' },
+  { id:'WC-4360', file:'0362991', desc:'Saint-Fleur, Widline', atty:'HM', adj:'Adj/Prieto, Marco · Bridgefield', aop:'PFB', status:'State mediation 09/29 — client letter queued', cls:'text-slate-500' },
+];
+
+function renderMatters(filter) {
+  const q = (filter||'').toLowerCase();
+  const rows = MATTERS.filter(m => !q || Object.values(m).join(' ').toLowerCase().includes(q));
+  document.getElementById('matter-rows').innerHTML = rows.map(m => `
+    <tr class="hover:bg-kfb-50/60 cursor-pointer" onclick="location.hash='#/matter'">
+      <td class="px-4 py-2.5 font-mono text-[12px] text-slate-500">${m.id}</td>
+      <td class="px-2 py-2.5 font-mono text-[12px]">${m.file}</td>
+      <td class="px-2 py-2.5 font-medium">${m.desc}</td>
+      <td class="px-2 py-2.5">${m.atty}</td>
+      <td class="px-2 py-2.5 text-slate-500">${m.adj}</td>
+      <td class="px-2 py-2.5"><span class="font-mono text-[11px] bg-slate-100 rounded px-1.5 py-0.5">${m.aop}</span></td>
+      <td class="px-4 py-2.5 text-[13px] ${m.cls}">${m.status}</td>
+    </tr>`).join('') || `<tr><td colspan="7" class="px-4 py-6 text-center text-slate-400 text-sm">No matches.</td></tr>`;
+}
+
+// ---------- router ----------
+const PAGES = ['dashboard','intake','matter','deadlines','mail','assembly','policy','reports'];
+const CRUMBS = { dashboard:'Dashboard', intake:'New Referrals', matter:'Matters · Reyes (WC-4417)', deadlines:'Records & Deadlines', mail:'Mail & Email', assembly:'Billable Time', policy:'Security & AI Policy', reports:'Templates & Reports' };
+function route() {
+  const h = (location.hash.replace('#/','') || 'dashboard').split('/')[0];
+  const page = PAGES.includes(h) ? h : 'dashboard';
+  PAGES.forEach(p => document.getElementById('page-'+p).classList.toggle('hidden', p!==page));
+  document.querySelectorAll('.nav-link').forEach(a => a.classList.toggle('active', a.getAttribute('href')==='#/'+page));
+  document.getElementById('breadcrumb').textContent = CRUMBS[page];
+  lucide.createIcons();
+}
+window.addEventListener('hashchange', route);
+
+// ---------- toast ----------
+function toast(msg) {
+  const el = document.createElement('div');
+  el.className = 'toast bg-kfb-900 text-white text-sm rounded-lg px-4 py-3 shadow-lg flex items-center gap-2';
+  el.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4 text-accent-400"></i>' + msg;
+  document.getElementById('toast-holder').appendChild(el);
+  lucide.createIcons();
+  setTimeout(() => el.remove(), 3200);
+}
+
+// ---------- intake animation ----------
+document.getElementById('btn-open-file').addEventListener('click', function() {
+  this.disabled = true; this.classList.add('opacity-50');
+  const steps = document.querySelectorAll('#intake-steps .step');
+  steps.forEach((s,i) => setTimeout(() => {
+    s.classList.remove('step-pending'); s.classList.add('step-done');
+    if (i === steps.length-1) {
+      document.getElementById('intake-done').classList.remove('hidden');
+      toast('Matter WC-4417 opened — Reyes, Manuel A.');
+      lucide.createIcons();
+    }
+  }, 550*(i+1)));
+});
+
+// ---------- dashboard search ----------
+document.getElementById('globalsearch').addEventListener('input', e => {
+  if (!location.hash.includes('dashboard') && location.hash !== '' ) location.hash = '#/dashboard';
+  renderMatters(e.target.value);
+});
+
+// ---------- matter tabs ----------
+document.querySelectorAll('#matter-tabs .tab').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('#matter-tabs .tab').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.mtab').forEach(t => t.classList.add('hidden'));
+  document.getElementById('mtab-'+btn.dataset.tab).classList.remove('hidden');
+  lucide.createIcons();
+}));
+
+// ---------- records scan ----------
+document.getElementById('btn-scan').addEventListener('click', function() {
+  const li = document.querySelectorAll('#records-list li')[2];
+  li.innerHTML = '<i data-lucide="check-circle-2" class="w-4 h-4 text-emerald-500"></i> Mount Sinai Miami — <b>received just now, auto-matched to the request and checked off</b>';
+  li.classList.add('bg-emerald-50','rounded','px-1');
+  this.remove();
+  toast('Batch matched to Alvarez request — task closed, no hands');
+  lucide.createIcons();
+});
+
+// ---------- mail notice ----------
+document.getElementById('mail-notice').addEventListener('click', () => {
+  document.getElementById('notice-placeholder').classList.add('hidden');
+  document.getElementById('notice-detail').classList.remove('hidden');
+  lucide.createIcons();
+});
+document.querySelectorAll('.send-letter').forEach(b => b.addEventListener('click', () => toast('Status letter approved — sent to FCCI & filed to WC-4392')));
+
+// ---------- billable time approve ----------
+document.getElementById('btn-approve-time').addEventListener('click', function() {
+  this.disabled = true; this.classList.add('opacity-50');
+  toast('7.8 hrs approved — posted to billing on WC-4417/4392/4358/4371');
+});
+
+// ---------- mail query ----------
+document.getElementById('mail-query').addEventListener('keydown', e => {
+  if (e.key !== 'Enter') return;
+  const box = document.getElementById('mail-answer');
+  box.classList.remove('hidden');
+  box.innerHTML = '<b>Lourdes Vega (Sedgwick), Tuesday 8/04 — Pierre-Louis (WC-4371):</b> you had a whole conversation about scheduling the pretrial — she proposed the week of 9/21, you countered 9/28 due to the Alvarez deposition, and she agreed to confirm with the JCC. 4 emails, filed under the claim.';
+});
+
+// ---------- init ----------
+renderMatters('');
+route();
+</script>
+</body>
+</html>
