@@ -5,16 +5,25 @@
     "canonical": "/use-cases/deposition-summary-services/"
   },
   "breadcrumbs": [
-    { "name": "Home", "href": "/" },
-    { "name": "Use Cases", "href": "/use-cases/" },
-    { "name": "Deposition Summary Services", "href": "/use-cases/deposition-summary-services/" }
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "Use Cases",
+      "href": "/use-cases/"
+    },
+    {
+      "name": "Deposition Summary Services",
+      "href": "/use-cases/deposition-summary-services/"
+    }
   ],
   "hero": {
     "headline": "Deposition Summary Software: Upload the Transcript, Get the Summary",
     "subheadline": "Some firms want software. Some want the work done. This is the second one. Send a transcript and get back a cited summary in the format your motion practice actually uses, without adding a seat, a login, or a new process for your paralegals to learn.",
-    "ctaText": "Send Your First Transcript",
+    "ctaText": "Summarise Your First Transcript",
     "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=deposition-summary-services",
-    "secondaryCtaText": "See the Software Instead",
+    "secondaryCtaText": "See How It Works",
     "secondaryCtaUrl": "/deposition-summary-software/"
   },
   "sections": [
@@ -80,12 +89,36 @@
     }
   ],
   "relatedPages": [
-    { "title": "AI Deposition Summary Software", "href": "/deposition-summary-software/", "description": "The platform version, if your team would rather run the work themselves." },
-    { "title": "Medical Chronology Services", "href": "/use-cases/medical-chronology-services/", "description": "The same works for medical records: upload the file, get a cited chronology back." },
-    { "title": "AI Deposition Transcript Software", "href": "/ai-deposition-transcript-software/", "description": "Transcript management and search across a full case." },
-    { "title": "Expert Witness Preparation", "href": "/use-cases/expert-witness-preparation/", "description": "Preparing testimony and cross-examination from summarised depositions." },
-    { "title": "AI Managed Services", "href": "/ai-managed-services/", "description": "Custom agents built around your firm's own workflows, where you keep the code." },
-    { "title": "Pricing", "href": "/pricing/", "description": "Published per-page rates for every tier." }
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "The platform version, if your team would rather run the work themselves."
+    },
+    {
+      "title": "Medical Chronology Services",
+      "href": "/use-cases/medical-chronology-services/",
+      "description": "The same works for medical records: upload the file, get a cited chronology back."
+    },
+    {
+      "title": "AI Deposition Transcript Software",
+      "href": "/ai-deposition-transcript-software/",
+      "description": "Transcript management and search across a full case."
+    },
+    {
+      "title": "Expert Witness Preparation",
+      "href": "/use-cases/expert-witness-preparation/",
+      "description": "Preparing testimony and cross-examination from summarised depositions."
+    },
+    {
+      "title": "AI Managed Services",
+      "href": "/ai-managed-services/",
+      "description": "Custom agents built around your firm's own workflows, where you keep the code."
+    },
+    {
+      "title": "Pricing",
+      "href": "/pricing/",
+      "description": "Published per-page rates for every tier."
+    }
   ],
   "relatedBlogPosts": [
     "how-to-draft-a-page-line-deposition-summary",

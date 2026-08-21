@@ -5,16 +5,25 @@
     "canonical": "/use-cases/medical-chronology-services/"
   },
   "breadcrumbs": [
-    { "name": "Home", "href": "/" },
-    { "name": "Use Cases", "href": "/use-cases/" },
-    { "name": "Medical Chronology Services", "href": "/use-cases/medical-chronology-services/" }
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "Use Cases",
+      "href": "/use-cases/"
+    },
+    {
+      "name": "Medical Chronology Services",
+      "href": "/use-cases/medical-chronology-services/"
+    }
   ],
   "hero": {
     "headline": "Medical Chronology Software: Upload the Records, Get the Chronology",
     "subheadline": "Thousands of pages of mixed provider records, out of order, half of them scanned. Send them as they are and get back a chronology with every entry cited to its source page. No software for your team to learn and no seat to license.",
-    "ctaText": "Send Your First Record Set",
+    "ctaText": "Chronologise Your First Record Set",
     "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=medical-chronology-services",
-    "secondaryCtaText": "See the Software Instead",
+    "secondaryCtaText": "See How It Works",
     "secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
   },
   "sections": [
@@ -83,12 +92,36 @@
     }
   ],
   "relatedPages": [
-    { "title": "AI Medical Record Summaries & Chronologies", "href": "/ai-medical-record-summaries-chronologies/", "description": "The platform version, if your team would rather run the work themselves." },
-    { "title": "Deposition Summary Services", "href": "/use-cases/deposition-summary-services/", "description": "The same arrangement for transcripts: send it, get a cited summary back." },
-    { "title": "Medical Record Review", "href": "/use-cases/medical-record-review/", "description": "The analysis step that follows the chronology." },
-    { "title": "IME Reports", "href": "/use-cases/ime-reports/", "description": "Independent medical examination workflows and record preparation." },
-    { "title": "Demand Letters", "href": "/use-cases/demand-letters/", "description": "Turning a completed chronology into a demand package." },
-    { "title": "Pricing", "href": "/pricing/", "description": "Published per-page rates for every tier." }
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "The platform version, if your team would rather run the work themselves."
+    },
+    {
+      "title": "Deposition Summary Services",
+      "href": "/use-cases/deposition-summary-services/",
+      "description": "The same arrangement for transcripts: send it, get a cited summary back."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "The analysis step that follows the chronology."
+    },
+    {
+      "title": "IME Reports",
+      "href": "/use-cases/ime-reports/",
+      "description": "Independent medical examination workflows and record preparation."
+    },
+    {
+      "title": "Demand Letters",
+      "href": "/use-cases/demand-letters/",
+      "description": "Turning a completed chronology into a demand package."
+    },
+    {
+      "title": "Pricing",
+      "href": "/pricing/",
+      "description": "Published per-page rates for every tier."
+    }
   ],
   "relatedBlogPosts": [
     "understanding-medical-chronology-clear-actionable-timelines",
