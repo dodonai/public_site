@@ -1,0 +1,142 @@
+{
+	"seo": {
+		"title": "AI Medical Chronologies for Vocational Experts | Dodonai",
+		"description": "Vocational experts and Life Care Planners turn 500-2,000 page medical files into cited, date-ordered chronologies for LCP and wage-loss reports.",
+		"canonical": "/industries/vocational-experts/"
+	},
+	"breadcrumbs": [
+		{ "name": "Home", "href": "/" },
+		{ "name": "Industries", "href": null },
+		{ "name": "Vocational Experts & Life Care Planners" }
+	],
+	"hero": {
+		"headline": "Provider-by-Provider Timelines Built From Every Record in the File",
+		"subheadline": "Vocational rehabilitation consultants and Life Care Planners spend days reading 500 to 2,000 pages before writing a report. Dodonai reads the file for you and produces the structured chronology your LCP or wage-loss opinion is built on.",
+		"ctaText": "Try It With a Real Case File",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=vocational-experts",
+		"secondaryCtaText": "See Pricing",
+		"secondaryCtaUrl": "/pricing/"
+	},
+	"sections": [
+		{
+			"type": "content",
+			"heading": "How Vocational Experts and Life Care Planners Use AI to Build Cases",
+			"paragraphs": [
+				"Vocational rehabilitation consultants and Life Care Planners (LCPs) work on the longest, most document-heavy files in personal injury and disability litigation. A single catastrophic-injury LCP can require reading 1,000-plus pages of ER notes, operative reports, PT records, pain management logs, imaging, and IME opinions before you write the first line of a projection. Wage-loss analyses demand the same lift, only compressed into a tighter fee.",
+				"Attorneys hire you for the opinion, not the record review. Every hour you spend building the underlying timeline is an hour you don't spend on labor market surveys, transferable skills analysis, or costing out future care. Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical chronologies}} produce the date-ordered timeline your report is built on \u2014 with provider fields and filters, and grouping by treating provider available via a configured template. Diagnoses and procedures are dated where documented, prescription histories tracked across pharmacies, and every finding cited back to the source page. You verify. You don't re-read.",
+				"That structured foundation feeds directly into an LCP template. Future medical projections need documented treatment frequency. Wage-loss opinions need functional capacity findings in context. Transferable skills analyses need a defensible medical status snapshot. Dodonai extracts the raw material; your expertise turns it into an opinion the court will credit.",
+				"Records stay protected end-to-end: HIPAA compliant with a BAA available before PHI upload, SOC 2 certified infrastructure, AES-256 encryption on every file."
+			]
+		},
+		{
+			"type": "features",
+			"heading": "Dodonai for Vocational Experts and Life Care Planners",
+			"cards": [
+				{
+					"icon": "calendar",
+					"title": "Provider-by-Provider Timelines",
+					"description": "Records reorganized around each treating provider in sequence: primary care, orthopedics, neurology, PT, pain management, mental health. See the full trajectory with each provider before you write the LCP narrative."
+				},
+				{
+					"icon": "heart",
+					"title": "Treatment Frequency Extraction",
+					"description": "Future medical projections need documented current utilization. Dodonai pulls visit counts, PT session frequency, injection intervals, and specialist follow-ups so your cost projections rest on the record, not a guess."
+				},
+				{
+					"icon": "document",
+					"title": "Medication and Prescription Histories",
+					"description": "Prescription changes over time, dosage adjustments, and prescriber sources extracted across pharmacies. Critical for pain management cost projections and for spotting polypharmacy risks the LCP has to address."
+				},
+				{
+					"icon": "adjustments",
+					"title": "Functional Capacity Findings in Context",
+					"description": "Work restrictions, weight-lifting limits, sitting/standing tolerances, and FCE results extracted with the encounter that documented them. Feeds directly into transferable skills analysis and residual earning capacity opinions."
+				},
+				{
+					"icon": "shield",
+					"title": "HIPAA-Compliant Handling",
+					"description": "A BAA is available before PHI upload, SOC 2 certified infrastructure, AES-256 encryption on every file. Nothing trains the models, and deletion runs on your schedule."
+				},
+				{
+					"icon": "dollar",
+					"title": "Per-Page Pricing That Fits Expert Fees",
+					"description": "Dodonai processes pages for from $0.008 per page at volume. On a 1,500-page catastrophic case, that's a fraction of what outsourced chronology vendors charge and a fraction of the hours you'd bill for manual review."
+				}
+			]
+		},
+		{
+			"type": "howItWorks",
+			"items": [
+				{
+					"title": "Upload the Full Case File",
+					"description": "Upload the complete record set: hospital records, treating provider files, PT and pain management logs, imaging, IME reports, and prior work-injury files. Large PDFs, including scanned and faxed records, with built-in AI OCR."
+				},
+				{
+					"title": "Dodonai Builds the Provider-by-Provider Chronology",
+					"description": "Records are organized in date order with provider fields and filters — and can be grouped by treating provider using a configured template — with diagnoses, procedures, medications, restrictions, and functional findings extracted and cited back to the source page. Add focus areas like body part, provider type, or date range to tailor the output to your report."
+				},
+				{
+					"title": "Export and Build Your Opinion",
+					"description": "Export the chronology as PDF, Word, or Excel and drop it straight into your LCP, wage-loss narrative, or transferable skills report. Cite the source pages for every projection you make."
+				}
+			]
+		}
+	],
+	"faq": [
+		{
+			"question": "Can Dodonai produce the provider-level view an LCP report needs?",
+			"answer": "Yes. Chronologies are date-ordered with provider fields and filters, and can be grouped by treating provider with a configured template — diagnoses, procedures, medications, and functional findings are extracted per encounter where documented. That's the exact structure a Life Care Planner needs to project future medical utilization and cost the plan defensibly."
+		},
+		{
+			"question": "How does Dodonai handle a 1,500-page catastrophic-injury file?",
+			"answer": "A 1,500-page file is chronologized in minutes, not days, and the output is fully cited so you can verify any finding against the source page. The bottleneck on catastrophic cases moves from record review to opinion drafting, which is where your expertise actually gets paid for."
+		},
+		{
+			"question": "Can I focus the chronology on wage-loss factors like work restrictions and functional capacity?",
+			"answer": "Yes. You can specify focus areas like functional restrictions, FCE findings, work status changes, or specific body systems so the chronology highlights what matters most for vocational or LCP analysis. {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} let you save reusable templates matching your reporting preferences."
+		},
+		{
+			"question": "How much does it cost to run a typical vocational or LCP file through Dodonai?",
+			"answer": "Per-page pricing. A typical 800-page vocational file runs a small fraction of what a chronology vendor would charge for the same job. See the {{link:/pricing/|pricing page}} for current rates."
+		},
+		{
+			"question": "Can the AI extract prescription and treatment frequency across multiple providers?",
+			"answer": "Yes. Prescription histories are tracked across pharmacies and prescribers, and treatment utilization is quantified by provider so you have defensible numbers for future medical projections. Every entry links back to the source record for verification."
+		},
+		{
+			"question": "Is Dodonai secure enough for claimant medical records?",
+			"answer": "Records are protected under a BAA available before PHI upload, AES-256 encryption, and SOC 2 certified infrastructure. Uploaded files are never used to train models, and you control the deletion schedule."
+		}
+	],
+	"relatedPages": [
+		{
+			"title": "AI Medical Record Summaries & Chronologies",
+			"href": "/ai-medical-record-summaries-chronologies/",
+			"description": "Organized medical chronologies with page-level source citations. Verify any data point in seconds."
+		},
+		{
+			"title": "Personal Injury",
+			"href": "/practice-areas/personal-injury/",
+			"description": "AI document processing for PI firms building demand packages and life care plans."
+		},
+		{
+			"title": "Disability Benefits",
+			"href": "/practice-areas/disability-benefits/",
+			"description": "Chronologies and record summaries for SSDI, long-term disability, and VA claims."
+		},
+		{
+			"title": "IME Doctors",
+			"href": "/industries/ime-doctors/",
+			"description": "Structured chronologies for physicians preparing IME evaluations."
+		}
+	],
+	"relatedBlogPosts": [
+		"/blog/understanding-medical-chronology-clear-actionable-timelines/",
+		"/blog/building-medical-chronologies-for-ssdi-disability-claims/",
+		"/blog/what-actually-slows-down-medical-chronology-review/"
+	],
+	"ctaOverride": {
+		"headline": "Skip the 1,500-Page Read. Start With the Chronology.",
+		"description": "Upload a claimant's medical file and get a cited, date-ordered chronology ready for your LCP or vocational report in minutes. No credit card required."
+	}
+}
