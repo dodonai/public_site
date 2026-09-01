@@ -115,7 +115,7 @@
 
 <SEOHead
 	title="Pricing"
-	description="Simple, usage-based pricing for AI-powered document processing. Every feature included in every plan. Starting at 2 cents per page."
+	description="Simple, usage-based pricing for AI-powered document processing. Every feature included in every plan. From $0.008 per page at volume."
 	url="/pricing/"
 	jsonLd={[
 		{

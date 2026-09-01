@@ -1,0 +1,137 @@
+{
+  "seo": {
+    "title": "Medical Chronology Services for Law Firms | Dodonai",
+    "description": "Upload the records, get a cited medical chronology back. Usage-based pricing from $0.008 per page. HIPAA compliant, BAA available before upload.",
+    "canonical": "/use-cases/medical-chronology-services/"
+  },
+  "breadcrumbs": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "Use Cases",
+      "href": "/use-cases/"
+    },
+    {
+      "name": "Medical Chronology Services",
+      "href": "/use-cases/medical-chronology-services/"
+    }
+  ],
+  "hero": {
+    "headline": "Medical Chronology Software: Upload the Records, Get the Chronology",
+    "subheadline": "Thousands of pages of mixed provider records, out of order and half of them scanned. Upload them as they are and get back a chronology with every entry cited to its source page, in minutes rather than the days it takes by hand.",
+    "ctaText": "Chronologise Your First Record Set",
+    "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=medical-chronology-services",
+    "secondaryCtaText": "See How It Works",
+    "secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "The Part That Actually Takes the Time",
+      "paragraphs": [
+        "Reviewing medical records is legal work. Organising them is not. Yet on most files the organising takes longer: separating providers, putting visits in date order, reading handwriting, working out which of four copies of the same discharge summary is the complete one.",
+        "That is the part the software takes. What comes back is a chronology in date order, grouped by provider, with every entry citing the page it came from. Gaps in treatment are flagged, duplicate records are collapsed, and illegible entries are marked rather than guessed at.",
+        "Because every line is cited, your team verifies by spot-checking rather than by re-reading. That is the difference between a chronology you can rely on in a deposition and one you have to double-check before you dare use it."
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "Who This Is For",
+      "paragraphs": [
+        "Personal injury and medical malpractice firms where record volume swings with the case mix. Per-page pricing means a 4,000-page file costs what it costs and a quiet month costs nothing.",
+        "Workers' compensation practices, where nearly every file turns on the medical record and the chronology is the case. Comp firms tend to have the highest ratio of record pages to attorney hours of anyone we work with.",
+        "IME companies, medical record retrieval vendors, and litigation support providers who want to offer chronologies to their own clients. Our managed services team can put the platform behind your own brand and workflow, and you keep the code."
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "Output Formats",
+      "paragraphs": [
+        "Chronology, which is the date-ordered timeline of every clinical event with citations. This is the default and the one most litigation teams want.",
+        "Narrative summary, which reads as prose rather than a table. Better for demand packages and for anything going to a client or an adjuster.",
+        "Provider timeline, which groups by treating provider rather than by date. Useful when the question is what a particular doctor knew and when.",
+        "If your firm already has a chronology template, point it at an example and it matches your layout rather than imposing one."
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "Pricing and Compliance",
+      "paragraphs": [
+        "Per page, not per seat. Usage-based, from $0.02 per page on Pro monthly down to $0.008 per page on Pro annual, with no per-user licence. Full tiers are on our pricing page.",
+        "HIPAA compliant and SOC 2 certified. A BAA is available before any protected health information is uploaded, which is the right order to do it in. Records are never used to train models and are never shared between clients.",
+        "For firms that cannot let records leave their environment at all, our managed services team can build the same workflow inside your own systems, and you keep the code."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How fast is a chronology back?",
+      "answer": "Minutes for a typical record set, not the six to ten hours of manual review it displaces. Multi-thousand-page sets are routine."
+    },
+    {
+      "question": "Does it handle scanned and handwritten records?",
+      "answer": "Yes. Scanned PDFs, faxed records and handwritten clinical notes are processed with OCR as part of the same job. Anything genuinely illegible is flagged rather than guessed at."
+    },
+    {
+      "question": "How large a record set can it take?",
+      "answer": "Multi-thousand-page sets are routine. Usage-based pricing means large files get cheaper per page at volume, not more expensive, which is the opposite of how per-hour review works."
+    },
+    {
+      "question": "Does it flag treatment gaps and inconsistencies?",
+      "answer": "Yes. Gaps in treatment, duplicate records across providers and inconsistencies between provider accounts are surfaced in the output, since those are usually the entries that matter most to the case."
+    },
+    {
+      "question": "Is a BAA available?",
+      "answer": "Yes, and it is available before you upload anything containing protected health information. That is the sequence we recommend rather than signing after the fact."
+    },
+    {
+      "question": "Can it summarise the depositions on the same case?",
+      "answer": "Yes. The same account covers deposition summaries, and the two can be cross-referenced so the chronology and the testimony line up on one timeline."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Medical Record Summaries & Chronologies",
+      "href": "/ai-medical-record-summaries-chronologies/",
+      "description": "The platform version, if your team would rather run the work themselves."
+    },
+    {
+      "title": "Deposition Summary Services",
+      "href": "/use-cases/deposition-summary-services/",
+      "description": "The same for transcripts: upload it, get a cited summary back."
+    },
+    {
+      "title": "Medical Record Review",
+      "href": "/use-cases/medical-record-review/",
+      "description": "The analysis step that follows the chronology."
+    },
+    {
+      "title": "IME Reports",
+      "href": "/use-cases/ime-reports/",
+      "description": "Independent medical examination workflows and record preparation."
+    },
+    {
+      "title": "Demand Letters",
+      "href": "/use-cases/demand-letters/",
+      "description": "Turning a completed chronology into a demand package."
+    },
+    {
+      "title": "Pricing",
+      "href": "/pricing/",
+      "description": "Published per-page rates for every tier."
+    }
+  ],
+  "relatedBlogPosts": [
+    "understanding-medical-chronology-clear-actionable-timelines",
+    "how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide",
+    "medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep",
+    "hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams",
+    "what-actually-slows-down-medical-chronology-review"
+  ],
+  "ctaOverride": {
+    "headline": "Try It On One Record Set",
+    "description": "Start with a single file and judge the chronology on your own case."
+  }
+}

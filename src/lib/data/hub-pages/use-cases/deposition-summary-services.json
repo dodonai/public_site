@@ -1,0 +1,134 @@
+{
+  "seo": {
+    "title": "Deposition Summary Services for Law Firms | Dodonai",
+    "description": "Upload the transcript, get a cited page-line or issue-based summary back. Usage-based pricing from $0.008 per page. SOC 2 certified, HIPAA compliant.",
+    "canonical": "/use-cases/deposition-summary-services/"
+  },
+  "breadcrumbs": [
+    {
+      "name": "Home",
+      "href": "/"
+    },
+    {
+      "name": "Use Cases",
+      "href": "/use-cases/"
+    },
+    {
+      "name": "Deposition Summary Services",
+      "href": "/use-cases/deposition-summary-services/"
+    }
+  ],
+  "hero": {
+    "headline": "Deposition Summary Software: Upload the Transcript, Get the Summary",
+    "subheadline": "Upload the transcript and get back a cited summary in the format your motion practice actually uses. Page-line, issue-based, narrative, or your own firm template. Every line cites the page and line it came from, so anything in it can be checked against the transcript in seconds.",
+    "ctaText": "Summarise Your First Transcript",
+    "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=deposition-summary-services",
+    "secondaryCtaText": "See How It Works",
+    "secondaryCtaUrl": "/deposition-summary-software/"
+  },
+  "sections": [
+    {
+      "type": "content",
+      "heading": "What You Get Back",
+      "paragraphs": [
+        "Every summary is cited to the page and line it came from, so anything in it can be checked against the transcript in seconds. That is the part most outsourced summaries get wrong: they read well but cannot be verified, so someone ends up re-reading the transcript anyway.",
+        "You choose the format. Page-line summaries for motion practice and impeachment. Issue-based summaries when you need the testimony organised by theory of the case rather than by chronology. Narrative summaries when the summary is going to a client or an expert rather than to a judge.",
+        "It is the same engine across every tier, so the summary does not get better on a bigger plan. What changes with volume is the price per page, not the output. Firms usually start on one transcript, then move their standing deposition volume across once they have read the output on a case they know well."
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "Who This Is For",
+      "paragraphs": [
+        "Firms with uneven deposition volume. If you take forty depositions one month and four the next, hiring for the peak is expensive and hiring for the average means missing deadlines. Per-page pricing means you pay for the forty and nothing for the four.",
+        "Firms where the bottleneck is not skill but hours. Your paralegals can write an excellent summary. The question is whether that is the best use of the day when the alternative is intake, client contact, or discovery responses.",
+        "Litigation support vendors and court reporting agencies who want to offer summaries to their own clients. Our managed services team can put the platform behind your own brand and workflow, and you keep the code."
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "Pricing",
+      "paragraphs": [
+        "Per page, not per seat. Usage-based, from $0.02 per page on Pro monthly down to $0.008 per page on Pro annual. No per-user licence, and no feature gating between tiers.",
+        "A typical 200-page deposition transcript therefore costs a few dollars to summarise rather than the several hundred dollars of paralegal time it displaces. Full pricing tiers are published on our pricing page, because a page that will not tell you the price is wasting your time."
+      ]
+    },
+    {
+      "type": "content",
+      "heading": "Confidentiality and Compliance",
+      "paragraphs": [
+        "SOC 2 certified and HIPAA compliant. A BAA is available before any protected health information is uploaded, which matters when deposition exhibits include medical records.",
+        "Your transcripts are yours. They are not used to train models, and they are not shared with other clients. For firms that need it, our managed services team can build the whole workflow inside your own environment so the documents never leave your control."
+      ]
+    }
+  ],
+  "faq": [
+    {
+      "question": "How fast is a summary back?",
+      "answer": "Minutes for a standard transcript, not days. A 200 page deposition is processed in one pass, and you are reviewing output rather than waiting on a queue."
+    },
+    {
+      "question": "What format does the transcript need to be in?",
+      "answer": "Whatever your court reporter gave you. PDF including scanned or image based PDFs, plus TXT, DOCX and the common transcript formats. Scanned files run through OCR as part of the same job."
+    },
+    {
+      "question": "Can I get a specific summary format?",
+      "answer": "Yes. Page-line, issue-based, narrative, or a firm template you already use. Point it at an example of a summary your firm likes and it will match that structure."
+    },
+    {
+      "question": "Does it handle exhibits and medical records attached to the deposition?",
+      "answer": "Yes. Exhibits are summarised alongside the testimony, and medical exhibits can be turned into a chronology at the same time, so a medical deposition comes back as one connected picture."
+    },
+    {
+      "question": "Is there a minimum volume?",
+      "answer": "No. One transcript is a valid job. Usage-based pricing means there is nothing to commit to and nothing wasted if your volume drops."
+    },
+    {
+      "question": "How do I check a summary is right?",
+      "answer": "Every line carries its page and line citation, so any statement can be checked against the transcript in one click. That check is the point: a summary you cannot verify is not usable in front of a judge."
+    }
+  ],
+  "relatedPages": [
+    {
+      "title": "AI Deposition Summary Software",
+      "href": "/deposition-summary-software/",
+      "description": "The platform version, if your team would rather run the work themselves."
+    },
+    {
+      "title": "Medical Chronology Services",
+      "href": "/use-cases/medical-chronology-services/",
+      "description": "The same works for medical records: upload the file, get a cited chronology back."
+    },
+    {
+      "title": "AI Deposition Transcript Software",
+      "href": "/ai-deposition-transcript-software/",
+      "description": "Transcript management and search across a full case."
+    },
+    {
+      "title": "Expert Witness Preparation",
+      "href": "/use-cases/expert-witness-preparation/",
+      "description": "Preparing testimony and cross-examination from summarised depositions."
+    },
+    {
+      "title": "AI Managed Services",
+      "href": "/ai-managed-services/",
+      "description": "Custom agents built around your firm's own workflows, where you keep the code."
+    },
+    {
+      "title": "Pricing",
+      "href": "/pricing/",
+      "description": "Published per-page rates for every tier."
+    }
+  ],
+  "relatedBlogPosts": [
+    "how-to-draft-a-page-line-deposition-summary",
+    "deposition-summary-template-page-line-format-for-motion-practice",
+    "how-to-draft-a-issue-based-deposition-summary",
+    "deposition-summary-software-what-reviewers-check",
+    "6-ways-deposition-summaries-provide-value-in-litigation"
+  ],
+  "ctaOverride": {
+    "headline": "Try It On One Transcript",
+    "description": "Start with a single deposition and judge the output on your own case."
+  }
+}
