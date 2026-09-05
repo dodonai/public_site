@@ -541,6 +541,15 @@ h2 .soft{color:var(--purple-bold)}
 /* anchor callout under numbers: .value-anchor and .opex-anchor are aliases */
 .value-anchor,.opex-anchor{margin-top:16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
 .value-anchor b,.opex-anchor b{color:var(--purple-bold)}
+/* TERM TIERS */
+.term-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.term-tier{position:relative;border:1px solid var(--cream-line);border-radius:12px;padding:16px 14px;text-align:center}
+.term-tier.rec{border-color:var(--purple-bold);background:rgba(124,58,237,.05)}
+.tt-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--purple-bold);color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.tt-term{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.tt-price{font-weight:800;font-size:19px;color:var(--purple-bold)}
+.tt-note{font-size:11.5px;color:var(--gray-meta-light);margin-top:4px;line-height:1.35}
+@media(max-width:640px){.term-tiers{grid-template-columns:1fr}}
 
 /* ===== ROI stat strip (dark) ===== */
 .roi{margin-top:22px;background:linear-gradient(165deg,var(--midnight),var(--midnight-soft));border-radius:14px;padding:26px 30px;color:#fff}
@@ -681,18 +690,6 @@ h2 .soft{color:var(--purple-bold)}
 .role-card ul li::marker{color:var(--purple-vivid)}
 .role-card ul li em{color:var(--purple-bold);font-style:italic}
 
-/* ===== PROOF CARDS (named result + stat footer) ===== */
-.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:8px 0}
-.proof-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(20,20,58,.04);display:flex;flex-direction:column}
-.proof-card .p-head{padding:18px 24px;background:var(--cream-deep);border-bottom:1px solid var(--cream-line)}
-.proof-card .p-tag{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
-.proof-card .p-title{font-weight:700;font-size:17px;color:var(--midnight-deep);line-height:1.3;margin:0}
-.proof-card .p-body{padding:20px 24px;font-size:14px;line-height:1.6;flex:1}
-.proof-card .p-stats{display:flex;gap:18px;padding:14px 24px;background:var(--midnight);color:#fff;border-top:1px solid var(--midnight-soft)}
-.proof-card .p-stat{flex:1}
-.proof-card .p-stat .pn{font-weight:800;font-size:22px;color:#fff;line-height:1;letter-spacing:-.01em;background:linear-gradient(135deg,#fff 0%,var(--purple-soft) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
-.proof-card .p-stat .pl{font-family:var(--mono);font-size:9.5px;color:var(--purple-soft);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:4px;line-height:1.3}
-
 /* ===== FOOTER ===== */
 footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
 footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
@@ -714,7 +711,7 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
   .pkg-intro{grid-template-columns:1fr}
   .pkg-grid{grid-template-columns:1fr}
   .stack-compare{grid-template-columns:1fr;gap:14px}.stack-arrow{transform:rotate(90deg)}
-  .agent-grid,.role-grid,.proof-grid{grid-template-columns:1fr}
+  .agent-grid,.role-grid{grid-template-columns:1fr}
 }
 /* keep continuous catalog animations off for reduced-motion users */
 @media(prefers-reduced-motion:reduce){
@@ -726,7 +723,7 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
   .hero{padding:40px 0}section{padding:28px 0;page-break-inside:avoid}
   .reveal{opacity:1;transform:none}
   .roi,.flow-mini,.dash{box-shadow:none}
-  .pkg-card,.agent-card,.role-card,.proof-card,.stack-side{page-break-inside:avoid}
+  .pkg-card,.agent-card,.role-card,.stack-side{page-break-inside:avoid}
   .stack-before .stack-chip{animation:none}
 }
 
@@ -744,7 +741,7 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
     </div>
     <span class="eyebrow">Prepared for Hunter &amp; Everage</span>
     <h1>Every fax and email, <span class="soft">read once, filed everywhere it needs to be.</span></h1>
-    <p class="lede">One agent reads a dedicated mail and fax intake inbox, works out which matter and which person a document belongs to, and files it into Smart Advocate and Egnyte. It doesn't draft, reply, or send anything to a client, opposing counsel, or a court, and it never touches Charles's personal inbox. That's the whole scope of this pilot.</p>
+    <p class="lede">One agent reads a dedicated mail and fax intake inbox, works out which matter and which person a document belongs to, and files it into Smart Advocate and Egnyte. It doesn't draft, reply, or send anything to a client, opposing counsel, or a court. That's the whole scope of this pilot.</p>
     <div class="meta-grid">
       <div class="meta"><div class="label">Last call</div><div class="value">Aug 12 check-in</div></div>
       <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · James, Nick</div></div>
@@ -756,8 +753,8 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 
 <div class="cliff">
   <div class="wrap">
-    <div class="ctitle">The number that matters<span class="big">472,000</span></div>
-    <div class="cbody">That's how many emails sit unread in Charles's inbox. <b>It's exactly why this pilot gives faxes and mail their own dedicated intake inbox, so nothing waits behind that backlog to get filed.</b></div>
+    <div class="ctitle">The number that matters<span class="big">50+</span></div>
+    <div class="cbody">That's how many faxes and pieces of mail arrive every day, all needing someone to open it and decide where it goes. <b>This pilot gives all of it one dedicated intake inbox, so nothing waits behind someone else's backlog to get filed.</b></div>
   </div>
 </div>
 
@@ -781,22 +778,14 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
         </div>
       </div>
       <div class="phasecard reveal d1">
-        <div class="ph-top"><span class="ph-n">2</span><span class="ph-name">Charles's inbox</span><span class="ph-meta">472K unread</span></div>
-        <div class="flow">
-          <div class="step man"><span class="sb"></span><span class="stx">Referrals and case correspondence copy Charles directly<span class="who w-man">manual</span></span></div>
-          <div class="step man"><span class="sb"></span><span class="stx">The volume means most of it goes unread<span class="who w-man">manual</span></span></div>
-          <div class="step gate"><span class="sb"></span><span class="stx">What he does see, he still decides on personally<span class="who w-gate">your call</span></span></div>
-        </div>
-      </div>
-      <div class="phasecard reveal d2">
-        <div class="ph-top"><span class="ph-n">3</span><span class="ph-name">Physical mail</span><span class="ph-meta">10-20/day</span></div>
+        <div class="ph-top"><span class="ph-n">2</span><span class="ph-name">Physical mail</span><span class="ph-meta">10-20/day</span></div>
         <div class="flow">
           <div class="step"><span class="sb"></span><span class="stx">Mail arrives at the office</span></div>
           <div class="step man"><span class="sb"></span><span class="stx">Opened, sorted, and routed to the right case by hand<span class="who w-man">manual</span></span></div>
         </div>
       </div>
       <div class="phasecard reveal d2">
-        <div class="ph-top"><span class="ph-n">4</span><span class="ph-name">Filing</span><span class="ph-meta">after intake</span></div>
+        <div class="ph-top"><span class="ph-n">3</span><span class="ph-name">Filing</span><span class="ph-meta">after intake</span></div>
         <div class="flow">
           <div class="step man"><span class="sb"></span><span class="stx">Saved into Smart Advocate, Egnyte, or just one, depending on who filed it<span class="who w-man">manual · inconsistent</span></span></div>
           <div class="step gate"><span class="sb"></span><span class="stx">Case manager confirms it landed in the right matter<span class="who w-gate">your call</span></span></div>
@@ -814,9 +803,9 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
     <div class="pillar hot reveal d1">
       <div class="phead"><span class="picon">⛔</span><span class="ptitle">Everything lands in the same place</span><span class="ptag">pilot</span></div>
       <div class="rblock">
-        <div class="rb now"><div class="rh">Today</div><ul><li>Every fax, referral, and piece of mail lands in the same inbox Charles's 472,000 unread emails already sit in</li><li>Filing into Smart Advocate and Egnyte happens by hand, inconsistently, depending on who touched it</li></ul></div>
+        <div class="rb now"><div class="rh">Today</div><ul><li>Every fax, referral, and piece of mail lands wherever someone happens to be checking, with no dedicated owner or inbox</li><li>Filing into Smart Advocate and Egnyte happens by hand, inconsistently, depending on who touched it</li></ul></div>
         <div class="rb-arrow">→</div>
-        <div class="rb fix"><div class="rh">With the pilot</div><ul><li>The agent reads a dedicated mail and fax intake inbox, works out which matter and which person a document belongs to, and routes it, without ever touching Charles's personal inbox</li><li>Every document gets filed into Smart Advocate and Egnyte the same way, every time</li></ul></div>
+        <div class="rb fix"><div class="rh">With the pilot</div><ul><li>The agent reads a dedicated mail and fax intake inbox, works out which matter and which person a document belongs to, and routes it</li><li>Every document gets filed into Smart Advocate and Egnyte the same way, every time</li></ul></div>
       </div>
     </div>
   </div>
@@ -825,11 +814,13 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 <!-- PIPE -->
 <section class="ink">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">How a document moves</span><h2>Read once, <span class="soft">filed everywhere</span></h2></div>
+    <div class="sec-head reveal"><span class="eyebrow">How a document moves</span><h2>Read once, <span class="soft">filed everywhere</span></h2>
+      <p class="sec-sub">You set up one address, like mail@hunter-everage.com. Every fax routes there directly, and physical mail gets scanned to it at the printer, so nothing depends on which inbox someone happens to be checking. The agent reads that inbox and takes it from there.</p></div>
     <div class="pipe-wrap reveal d1" id="pipe">
       <div class="pipe">
         <div class="pline"><div class="pfill"></div></div>
-        <div class="pnode"><div class="pdot"><span class="ic-base">📨</span><span class="ic-done">✓</span></div><div class="pttl">Fax or email arrives</div><div class="pwho">Agent</div><div class="pstatus">reads it</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📮</span><span class="ic-done">✓</span></div><div class="pttl">Fax or mail arrives</div><div class="pwho">You set up</div><div class="pstatus">one address</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📨</span><span class="ic-done">✓</span></div><div class="pttl">Read at the intake inbox</div><div class="pwho">Agent</div><div class="pstatus">OCR + reads it</div></div>
         <div class="pnode"><div class="pdot"><span class="ic-base">🗂️</span><span class="ic-done">✓</span></div><div class="pttl">Routed to the matter</div><div class="pwho">Agent</div><div class="pstatus">matched + queued</div></div>
         <div class="pnode gate"><div class="pdot"><span class="ic-base">👤</span><span class="ic-done">✓</span></div><div class="pttl">Your team works the file</div><div class="pwho">You</div><div class="pstatus">nothing changes here</div></div>
         <div class="pnode"><div class="pdot"><span class="ic-base">✓</span><span class="ic-done">✓</span></div><div class="pttl">Filed: Smart Advocate, Egnyte</div><div class="pwho">Agent</div><div class="pstatus">same copy, every system</div></div>
@@ -1024,39 +1015,25 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 <section>
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">The decision input</span><h2>Fixed <span class="soft">pricing</span></h2>
-      <p class="sec-sub">Build price holds from the July 8 SOW call. Ongoing terms updated below.</p></div>
+      <p class="sec-sub">Updated from the Sept 4 pricing review.</p></div>
     <div class="numbers-grid">
       <div class="numcard reveal d1">
-        <div class="nlabel">Build · fixed</div><h3>$6,000</h3>
-        <div class="opex-row"><div class="ol"><div class="ot">Inbox &amp; Fax Routing Agent</div><div class="od">Reads a dedicated mail and fax intake inbox, routes each item, files into Smart Advocate and Egnyte.</div></div><div class="oa">$6,000</div></div>
+        <div class="nlabel">Build · fixed</div><h3>$4,000</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Inbox &amp; Fax Routing Agent</div><div class="od">Reads a dedicated mail and fax intake inbox, routes each item, files into Smart Advocate and Egnyte.</div></div><div class="oa">$4,000</div></div>
         <div class="paysplit"><div class="half"><div class="h">Start</div><div class="v">50%</div></div><div class="arr">→</div><div class="half"><div class="h">On acceptance</div><div class="v">50%</div></div></div>
         <p class="numnote">Fixed regardless of how the routing rules end up needing to work. Acceptance is judged as a first-draft-for-reaction pass on your own real inbox, not a demo.</p>
       </div>
       <div class="numcard reveal d2">
-        <div class="nlabel">Ongoing</div><h3>$1,200/mo</h3>
-        <div class="opex-row"><div class="ol"><div class="ot">Managed support</div><div class="od">Keeps the agent running, tuned, and maintained.</div></div><div class="oa">$1,200/mo</div></div>
+        <div class="nlabel">Ongoing · pick a term</div><h3>Managed support</h3>
+        <div class="term-tiers">
+          <div class="term-tier"><div class="tt-term">Month-to-month</div><div class="tt-price">$1,300/mo</div><div class="tt-note">Cancel anytime</div></div>
+          <div class="term-tier rec"><span class="tt-badge">6-month</span><div class="tt-term">6-month minimum</div><div class="tt-price">$1,000/mo</div><div class="tt-note">Then month-to-month unless we agree otherwise</div></div>
+          <div class="term-tier"><div class="tt-term">Annual</div><div class="tt-price">$900/mo</div><div class="tt-note">12-month term, billed annually ($10,800/yr)</div></div>
+        </div>
         <div class="opex-row"><div class="ol"><div class="ot">AI / API usage</div><div class="od">Included on our side. Whatever Egnyte or Smart Advocate charge for API access, if anything, is a cost on their platform, not ours.</div></div><div class="oa">Included</div></div>
-        <p class="numnote">12-month minimum term, then month-to-month automatically unless we agree otherwise.</p>
+        <p class="numnote">Shorter terms cost more per month, longer terms cost less &mdash; you pick the trade-off between flexibility and price.</p>
         <div class="value-anchor"><b>Below the alternative you looked at:</b> the $1,800/mo, 50-page-cap quote you mentioned for the OCR/scanning piece alone &mdash; this covers the full inbox, fax, and filing pipeline.</div>
       </div>
-    </div>
-  </div>
-</section>
-
-<!-- RELIABILITY / EGNYTE -->
-<section class="alt">
-  <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">Reliability, in plain terms</span><h2>What "reliable" means <span class="soft">on this build</span></h2>
-      <p class="sec-sub">Charles's concern is hallucinations in court-submitted work. Here's why that doesn't apply to this pilot.</p></div>
-    <div class="compliance reveal d1">
-      <span class="pill"><span class="pk">✓</span> SOC 2 Certified</span>
-      <span class="pill"><span class="pk">✓</span> HIPAA Compliant</span>
-      <span class="pill"><span class="pk">✓</span> Tenant-resident</span>
-      <span class="pill"><span class="pk">✓</span> BAA available</span>
-    </div>
-    <div class="sec-grid">
-      <div class="seccard reveal d1"><div class="ic">🔐</div><h4>Routing and filing, not writing</h4><p>Every action here is deterministic: match a document to a matter, save it to the systems you already use. There's no generation step where a hallucination could enter court-facing work, because nothing court-facing gets generated here.</p></div>
-      <div class="seccard reveal d2"><div class="ic">🗂️</div><h4>Filed where you already look</h4><p>The agent connects to Egnyte the same way it connects to Smart Advocate: reads what it needs to route the document, writes it into the matter, and stops. Nothing lives anywhere else. <em>(Exact Egnyte access mechanics: confirm with client before build.)</em></p></div>
     </div>
   </div>
 </section>
