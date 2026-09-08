@@ -1,0 +1,1912 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>AI Systems Built and Run for Your Firm | Dodonai</title>
+<meta name="description" content="Dodonai builds firm-owned AI systems around your precedent, workflows, and existing software.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='16' fill='%23282876'/%3E%3Cg stroke='%23fff' stroke-linecap='round' fill='none'%3E%3Cline x1='16' y1='16' x2='48' y2='16' stroke-width='5'/%3E%3Cline x1='23' y1='24' x2='23' y2='40' stroke-width='7'/%3E%3Cline x1='32' y1='24' x2='32' y2='50' stroke-width='7'/%3E%3Cline x1='41' y1='24' x2='41' y2='35' stroke-width='7'/%3E%3C/g%3E%3Ccircle cx='32' cy='57' r='4.5' fill='%23A9B8FF'/%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&amp;text=%CE%94%CF%89%CE%B4%CF%8E%CE%BD%CE%B7&amp;display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&amp;family=Caveat:wght@700&amp;family=Source+Code+Pro:wght@400;500&amp;display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#282876; --indigo-dk:#1E1E5A; --indigo-deep:#15154A;
+  --blue:#216FED; --muted:#65658F; --ink:#282876;
+  --bg:#FFFFFF; --wash:#F4F5FD; --line:#E3E5F2; --line-2:#CFD3E8;
+  --teal:#0FA383; --amber:#B9821F; --lav:#A9B8FF;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif; --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#3A3A6B;font-family:var(--sans);font-size:16px;line-height:1.58;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--indigo);letter-spacing:-.02em;line-height:1.08;font-weight:800}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:13px;font-weight:500}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:26px;height:68px}
+.logo{font-weight:800;font-size:21px;color:var(--indigo);letter-spacing:-.02em}
+.logo em{font-style:normal;color:var(--blue)}
+.nav-links{display:flex;gap:22px;margin-left:auto;font-size:14px;font-weight:600;color:var(--muted)}
+.nav-links a:hover{color:var(--indigo)}
+.btn{display:inline-block;font-size:14.5px;font-weight:700;padding:12px 26px;border-radius:999px;border:1px solid transparent;transition:.18s;white-space:nowrap}
+.btn-primary{background:var(--indigo);color:#fff;box-shadow:0 8px 20px -10px rgba(40,40,118,.55)}
+.btn-primary:hover{background:var(--indigo-dk);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line-2);color:var(--indigo)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-lg{padding:15px 32px;font-size:15.5px}
+.btn-inverse{background:#fff;color:var(--indigo)}
+.btn-inverse:hover{background:var(--lav)}
+
+.hero{padding:84px 0 90px;background:
+  radial-gradient(700px 360px at 85% -10%, rgba(33,111,237,.08), transparent 70%),
+  radial-gradient(560px 320px at 0% 100%, rgba(40,40,118,.06), transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.2vw,64px)}
+.hero h1 .alt{color:var(--blue)}
+.hero .sub{margin:22px 0 0;font-size:18px;color:var(--muted);max-width:34em;line-height:1.62}
+.hero-cta{display:flex;gap:12px;margin:32px 0 26px;flex-wrap:wrap}
+.chips{display:flex;gap:9px;flex-wrap:wrap}
+.chip{font-size:12.5px;font-weight:700;color:var(--indigo);border:1px solid rgba(40,40,118,.12);background:var(--wash);border-radius:999px;padding:8px 15px}
+.chip i{font-style:normal;color:var(--teal);margin-right:6px}
+
+.console{background:linear-gradient(180deg,var(--indigo-dk),var(--indigo-deep));border:1px solid rgba(40,40,118,.35);border-radius:16px;overflow:hidden;box-shadow:0 32px 64px -32px rgba(40,40,118,.55)}
+.console-bar{display:flex;align-items:center;gap:10px;padding:13px 17px;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--lav)}
+.dot{width:7px;height:7px;border-radius:50%;background:#5EE6C4;animation:pulse 2.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(94,230,196,.4)}70%{box-shadow:0 0 0 7px rgba(94,230,196,0)}}
+.console-bar b{color:#fff;font-weight:500}
+.crow{display:grid;grid-template-columns:52px 1fr;gap:13px;padding:13px 17px;border-bottom:1px solid rgba(255,255,255,.06);opacity:0;transform:translateY(7px);animation:rise .55s ease forwards}
+.crow:nth-child(1){animation-delay:.25s}.crow:nth-child(2){animation-delay:.5s}
+.crow:nth-child(3){animation-delay:.75s}.crow:nth-child(4){animation-delay:1s}
+.crow:nth-child(5){animation-delay:1.25s}
+@keyframes rise{to{opacity:1;transform:none}}
+.crow .t{font-family:var(--mono);font-size:11.5px;color:#8FB3FF;padding-top:2px}
+.crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#9A9AC6;margin-bottom:3px}
+.crow .d{font-size:13.5px;color:#E6E8FA;line-height:1.45}
+.tag{display:inline-block;margin-top:7px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#F0C87E;border:1px solid rgba(240,200,126,.35);border-radius:4px;padding:2px 8px}
+.tag.done{color:#5EE6C4;border-color:rgba(94,230,196,.35)}
+.console-foot{padding:14px 17px;background:rgba(33,111,237,.15);border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#C9D2F4;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.console-foot b{color:#fff;font-weight:600}
+.ill{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9A9AC6}
+
+section{padding:92px 0}
+.head{max-width:46rem;margin-bottom:48px}
+.head h2{font-size:clamp(30px,3.8vw,46px)}
+.head p{margin-top:14px;color:var(--muted);font-size:17px}
+.wash{background:var(--wash)}
+
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px;transition:.2s}
+.card:hover{border-color:rgba(33,111,237,.5);transform:translateY(-3px);box-shadow:0 18px 36px -22px rgba(40,40,118,.35)}
+.card h3{font-size:19px;margin-bottom:8px;font-weight:800}
+.card p{font-size:14px;color:var(--muted);line-height:1.55}
+.card .go{display:block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--indigo)}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 26px}
+.step .n{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--indigo);color:#fff;font-weight:800;font-size:15px}
+.step h3{font-size:21px;margin:14px 0 9px;font-weight:800}
+.step p{font-size:14.5px;color:var(--muted)}
+.step .when{margin-top:16px;display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);background:var(--wash);border-radius:999px;padding:6px 12px}
+
+.builds{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.build{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;justify-content:space-between;transition:.18s}
+.build:hover{border-color:rgba(33,111,237,.5)}
+.build h3{font-size:17.5px;font-weight:800;margin-bottom:5px}
+.build p{font-size:13.5px;color:var(--muted)}
+.dur{font-family:var(--mono);font-size:10.5px;color:var(--teal);white-space:nowrap;border:1px solid rgba(15,163,131,.3);border-radius:999px;padding:4px 11px;flex:none;margin-top:3px}
+
+.shape{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.shape > div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+.shape .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.shape h4{font-size:16px;font-weight:800;color:var(--indigo);margin-bottom:6px}
+.shape p{font-size:13.5px;color:var(--muted);line-height:1.5}
+
+.hitl{background:linear-gradient(135deg,var(--indigo),var(--indigo-dk));border-radius:24px;padding:56px;color:#fff}
+.hitl .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.hitl h2{color:#fff;font-size:clamp(28px,3.4vw,42px)}
+.hitl .eyebrow{color:var(--lav)}
+.hitl .lead{margin-top:16px;color:#C9D2F4;font-size:16.5px;line-height:1.6}
+.rules{display:grid;gap:14px}
+.rule{border-left:3px solid var(--lav);padding-left:18px}
+.rule h4{font-size:15.5px;font-weight:800;color:#fff;margin-bottom:4px}
+.rule p{font-size:13.5px;color:#C9D2F4}
+
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:600;color:var(--muted);background:#fff;transition:.15s}
+.pill:hover{border-color:var(--blue);color:var(--blue)}
+.explore-note{margin-top:22px;font-size:15px;color:var(--muted);max-width:40em}
+.explore-note b{color:var(--indigo);font-weight:700}
+
+.appstrip{border:1px solid var(--line);border-radius:20px;padding:42px;background:var(--wash)}
+.appstrip h3{font-size:24px;margin:10px 0}
+.appstrip p{color:var(--muted);max-width:44rem;font-size:15.5px}
+.applinks{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;align-items:center}
+
+.final{text-align:center;padding:104px 0;background:linear-gradient(180deg,#fff,var(--wash))}
+.final h2{font-size:clamp(32px,4.4vw,52px);margin:14px auto 18px;max-width:18ch}
+.final p{color:var(--muted);max-width:34rem;margin:0 auto 32px;font-size:17px}
+.final .fineprint{margin-top:26px;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:980px){
+  .hero-grid,.hitl .split{grid-template-columns:1fr;gap:40px}
+  .fgrid{grid-template-columns:repeat(2,1fr)}
+  .steps,.shape{grid-template-columns:1fr}
+  .builds{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hitl{padding:36px 28px}
+}
+@media (max-width:600px){.fgrid{grid-template-columns:1fr}section{padding:62px 0}.appstrip{padding:28px 22px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.crow{opacity:1;transform:none}}
+
+/* v4 additions */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.blob{position:absolute;pointer-events:none;opacity:.5;z-index:0}
+.cycle{display:inline-block;min-width:7.5ch;color:var(--blue);transition:opacity .35s}
+.path-band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:16px 0}
+.path-in{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.path-in b{color:var(--indigo);font-weight:500}
+.path-in i{font-style:normal;color:var(--line-2)}
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.bp-flow{display:grid;gap:10px}
+.bp-in{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo);background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:10px 18px;width:max-content}
+.bp-arrow{font-family:var(--mono);color:var(--muted);padding-left:18px}
+.bp-doc{background:linear-gradient(135deg,var(--indigo),var(--indigo-dk));color:#fff;border-radius:14px;padding:20px 22px;max-width:340px}
+.bp-doc .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--lav);display:block;margin-bottom:6px}
+.bp-doc p{font-size:13.5px;color:#C9D2F4}
+.flow-svg,.fs-svg{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 10px 6px;box-shadow:0 24px 48px -30px rgba(40,40,118,.35)}
+.flow-svg svg,.fs-svg svg{width:100%;height:auto;display:block}
+.ants{stroke-dasharray:5 6;animation:ants 1.1s linear infinite}
+@keyframes ants{to{stroke-dashoffset:-11}}
+.flow-ticker{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.flow-ticker b{color:var(--blue);font-weight:500;transition:opacity .3s}
+.fs-mono{font-family:'Source Code Pro',monospace;letter-spacing:1.2px}
+.arch{background:linear-gradient(135deg,#15154A,var(--indigo));border-radius:24px;padding:46px}
+.arch svg{width:100%;height:auto;display:block}
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:15px 0;overflow:hidden;position:relative;margin-top:44px}
+.marq::before,.marq::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2}
+.marq::before{left:0;background:linear-gradient(90deg,#fff,transparent)}
+.marq::after{right:0;background:linear-gradient(270deg,#fff,transparent)}
+.marq-track{display:flex;white-space:nowrap;animation:scroll 60s linear infinite;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.marq-track b{font-weight:400;padding:0 20px;position:relative}
+.marq-track b::after{content:"";position:absolute;right:0;top:50%;width:4px;height:4px;border-radius:50%;background:var(--blue);opacity:.7;transform:translateY(-50%)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.marq-note{text-align:center;font-size:13.5px;color:var(--muted);margin-top:14px}
+.marq-note b{color:var(--indigo);font-weight:700}
+.vp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vp{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px}
+.vp h3{font-size:18px;margin-bottom:8px}
+.vp p{font-size:13.5px;color:var(--muted)}
+.opt-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.opt-rules > div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.opt-rules h4{font-size:15px;font-weight:800;color:var(--indigo);margin-bottom:5px}
+.opt-rules p{font-size:13.5px;color:var(--muted)}
+@media (max-width:980px){.split2{grid-template-columns:1fr;gap:36px}.vp-grid{grid-template-columns:repeat(2,1fr)}.opt-rules{grid-template-columns:1fr}.arch{padding:28px 20px}}
+@media (max-width:600px){.vp-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ants{animation:none}.marq-track{animation:none}svg animate,svg animateMotion,svg animateTransform{display:none}}
+
+/* ===== V5 system ===== */
+.grad{background:linear-gradient(95deg,var(--indigo) 10%,var(--blue) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dotgrid{background-image:radial-gradient(rgba(40,40,118,.10) 1px,transparent 1px);background-size:22px 22px}
+.stepchip{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.stepchip .ic{width:34px;height:34px;border-radius:9px;background:var(--indigo);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.stepchip .ic svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.stepchip .st{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+.stepchip .sn{font-size:14px;font-weight:800;color:var(--indigo);letter-spacing:-.01em}
+.lede{color:var(--muted);font-size:17px;max-width:44rem;margin-top:14px;line-height:1.62}
+h2.disp{font-size:clamp(32px,4.2vw,52px);letter-spacing:-.028em}
+
+/* path band v2 */
+.path2{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0}
+.path2-in{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.path2-in::before{content:"";position:absolute;top:26px;left:9%;right:9%;border-top:2px dashed var(--line-2);z-index:0}
+.pstep{position:relative;z-index:1;text-align:center;padding:0 8px;display:block}
+.pstep .pic{width:52px;height:52px;border-radius:14px;background:linear-gradient(150deg,var(--indigo),#3A3A9C);margin:0 auto;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -10px rgba(40,40,118,.5);transition:.2s}
+.pstep:hover .pic{transform:translateY(-3px)}
+.pstep .pic svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.pstep .pn{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--blue);margin-top:10px;display:block}
+.pstep .pt{font-size:15px;font-weight:800;color:var(--indigo)}
+.pstep .pd{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+/* consoles (motif reuse) */
+.console.slim .crow{padding:11px 15px}
+.console-title{font-weight:800;color:#fff}
+
+/* organize storyboard */
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.panel .ph{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:3px}
+.panel h3{font-size:17px;margin-bottom:10px}
+.panel svg{width:100%;height:auto;display:block;background:var(--wash);border-radius:10px}
+.dlv-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.dlv{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center}
+.dlv .dic{width:44px;height:56px;border-radius:6px;background:var(--wash);border:1px solid var(--line-2);position:relative;flex:none}
+.dlv .dic::before{content:"";position:absolute;left:8px;right:8px;top:10px;height:4px;border-radius:2px;background:var(--indigo);opacity:.75}
+.dlv .dic::after{content:"";position:absolute;left:8px;right:14px;top:20px;height:3px;border-radius:2px;background:var(--line-2);box-shadow:0 8px 0 var(--line-2),0 16px 0 var(--line-2)}
+.dlv .dt{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.dlv h4{font-size:15.5px;font-weight:800;color:var(--indigo)}
+.dlv p{font-size:12.5px;color:var(--muted)}
+
+/* dark ink sections */
+.ink{background:linear-gradient(160deg,#12123E,#1E1E5A 60%,#232368);color:#fff}
+.ink h2{color:#fff}
+.ink .lede{color:#B9C0E8}
+.ink .stepchip .ic{background:rgba(255,255,255,.14)}
+.ink .stepchip .sn{color:#fff}
+.ink .stepchip .st{color:var(--lav)}
+
+/* xform (ported from brief) */
+.xform{display:grid;grid-template-columns:1fr 70px 1fr;gap:10px;align-items:stretch;margin-top:8px}
+.xcol{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px}
+.xlabel{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#B9C0E8;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.scatter{position:relative;height:300px}
+.tool-chip{position:absolute;font-family:var(--mono);font-size:10.5px;background:rgba(255,255,255,.08);color:#DDE1F5;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:6px 10px;white-space:nowrap}
+.runner{position:absolute;width:10px;height:10px;border-radius:50%;background:#F0C87E;box-shadow:0 0 12px rgba(240,200,126,.8);animation:runAround 7s linear infinite}
+@keyframes runAround{
+  0%{left:12%;top:8%}12%{left:66%;top:14%}25%{left:30%;top:38%}38%{left:74%;top:48%}
+  52%{left:10%;top:62%}66%{left:60%;top:72%}80%{left:26%;top:86%}100%{left:12%;top:8%}
+}
+.handlabel{position:absolute;bottom:-4px;left:0;right:0;text-align:center;font-size:11.5px;color:#8B92BE}
+.xarrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.xarrow .at{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--lav);writing-mode:vertical-rl;transform:rotate(180deg)}
+.xarrow .ah{font-size:26px;color:#fff}
+.hub{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+.hub-core{width:128px;height:128px;border-radius:26px;background:linear-gradient(150deg,var(--blue),var(--indigo));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;position:relative;z-index:3;animation:hubPulse 2.8s ease-in-out infinite;box-shadow:0 0 0 0 rgba(33,111,237,.45)}
+@keyframes hubPulse{0%,100%{box-shadow:0 0 0 0 rgba(33,111,237,.45)}55%{box-shadow:0 0 0 22px rgba(33,111,237,0)}}
+.hub-core .hw{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.hub-core .hs{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#CFE0FF;margin-top:4px}
+.spoke{position:absolute;font-family:var(--mono);font-size:10.5px;font-weight:600;background:#1B1B52;color:#fff;border:1px solid rgba(169,184,255,.45);border-radius:8px;padding:6px 10px;white-space:nowrap;z-index:2;opacity:0;animation:spokeIn .5s ease forwards}
+@keyframes spokeIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+.spoke:nth-of-type(1){top:2%;left:50%;transform:translateX(-50%);animation-delay:.3s}
+.spoke:nth-of-type(2){top:20%;right:2%;animation-delay:.5s}
+.spoke:nth-of-type(3){bottom:20%;right:0;animation-delay:.7s}
+.spoke:nth-of-type(4){bottom:2%;left:50%;transform:translateX(-50%);animation-delay:.9s}
+.spoke:nth-of-type(5){bottom:20%;left:0;animation-delay:1.1s}
+.spoke:nth-of-type(6){top:20%;left:2%;animation-delay:1.3s}
+.spoke.app{background:var(--blue);border-color:#CFE0FF}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.hub svg.links line{stroke:rgba(169,184,255,.35);stroke-width:1;stroke-dasharray:4 5;animation:ants 1.4s linear infinite}
+.xcap{display:grid;grid-template-columns:1fr 70px 1fr;gap:10px;margin-top:10px}
+.xcap p{font-size:12.5px;color:#8B92BE;padding:0 6px}
+
+/* logo scroller (pure CSS, static content) */
+.logos{margin-top:40px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.logorow{display:flex;gap:10px;width:max-content;padding:6px 0}
+.logorow.r1{animation:lscroll 46s linear infinite}
+.logorow.r2{animation:lscroll 46s linear infinite reverse}
+@keyframes lscroll{to{transform:translateX(-50%)}}
+.lbadge{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#DDE1F5;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:10px 18px;white-space:nowrap}
+.logos-note{text-align:center;font-size:13.5px;color:#8B92BE;margin-top:16px}
+.logos-note b{color:#fff;font-weight:700}
+
+/* automate foundation graphic */
+.found{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 10px 4px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3);margin-bottom:16px}
+.found svg{width:100%;height:auto;display:block}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bento .wide{grid-column:1/-1}
+.excard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.excard .ph{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.excard h3{font-size:17px;margin:3px 0 4px}
+.excard .pd{font-size:13px;color:var(--muted);margin-bottom:12px}
+
+/* app showcase */
+.appwin{border-radius:16px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 40px 80px -40px rgba(40,40,118,.5);background:#fff}
+.appwin-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--wash);border-bottom:1px solid var(--line)}
+.appwin-bar i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.appwin-url{font-family:var(--mono);font-size:11px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 14px;margin-left:8px}
+.appwin-body{display:grid;grid-template-columns:150px 1fr;min-height:290px}
+.appnav{background:var(--wash);border-right:1px solid var(--line);padding:14px 0}
+.appnav div{font-size:12px;font-weight:600;color:var(--muted);padding:9px 16px}
+.appnav div.on{color:var(--blue);background:rgba(33,111,237,.08);border-right:2px solid var(--blue)}
+.appmain{padding:20px 22px}
+.appmain .doc{font-family:var(--mono);font-size:11px;color:var(--indigo)}
+.appbar{height:6px;border-radius:3px;background:var(--line);margin:12px 0 16px;overflow:hidden}
+.appbar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--indigo));animation:appfill 5s ease-in-out infinite}
+@keyframes appfill{0%{width:4%}55%{width:100%}100%{width:100%}}
+.sumline{height:9px;border-radius:5px;background:var(--wash);margin-bottom:9px;opacity:0;animation:sumin 5s ease-in-out infinite}
+.sumline:nth-child(1){width:92%;animation-delay:2.6s}
+.sumline:nth-child(2){width:84%;animation-delay:2.9s}
+.sumline:nth-child(3){width:88%;animation-delay:3.2s}
+.sumline:nth-child(4){width:60%;animation-delay:3.5s}
+@keyframes sumin{0%,52%{opacity:0;transform:translateY(4px)}62%,100%{opacity:1;transform:none}}
+.appfoot{display:flex;gap:10px;align-items:center;margin-top:14px;opacity:0;animation:sumin 5s ease-in-out infinite;animation-delay:3.8s}
+.appfoot .cite{font-family:var(--mono);font-size:10px;color:var(--teal);border:1px solid rgba(15,163,131,.35);border-radius:999px;padding:4px 10px}
+.appfoot .exp{font-size:12px;font-weight:700;color:#fff;background:var(--indigo);border-radius:8px;padding:7px 14px}
+
+/* value props */
+.vp2-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vp2{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px;position:relative;overflow:hidden}
+.vp2::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--indigo),var(--blue))}
+.vp2 .ar{font-family:var(--mono);font-size:22px;color:var(--blue)}
+.vp2 h3{font-size:17.5px;margin:8px 0 6px}
+.vp2 p{font-size:13px;color:var(--muted)}
+
+/* security */
+.sec-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+.sec-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:20px 18px}
+.sec-card img{height:26px;margin-bottom:10px;display:block}
+.sec-card h4{font-size:14px;font-weight:800;color:#fff;margin-bottom:5px}
+.sec-card p{font-size:12px;color:#B9C0E8}
+
+@media (max-width:980px){
+  .path2-in{grid-template-columns:repeat(2,1fr);gap:20px}
+  .path2-in::before{display:none}
+  .story,.dlv-row{grid-template-columns:1fr}
+  .xform,.xcap{grid-template-columns:1fr}
+  .xarrow .at{writing-mode:horizontal-tb;transform:none}
+  .bento{grid-template-columns:1fr}
+  .vp2-grid,.sec-grid{grid-template-columns:repeat(2,1fr)}
+  .appwin-body{grid-template-columns:1fr}
+  .appnav{display:flex;overflow-x:auto;padding:0}
+}
+@media (max-width:600px){.vp2-grid,.sec-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .runner,.logorow.r1,.logorow.r2,.appbar i,.sumline,.appfoot,.hub-core,.spoke{animation:none}
+  .spoke,.sumline,.appfoot{opacity:1}
+}
+
+/* v6 */
+.announce{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:var(--indigo);background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:7px 16px 7px 8px;margin-bottom:22px;transition:.18s;box-shadow:0 6px 16px -10px rgba(40,40,118,.35)}
+.announce:hover{border-color:var(--blue);color:var(--blue)}
+.announce .an-tag{font-family:var(--mono);font-size:9px;letter-spacing:.12em;background:var(--blue);color:#fff;border-radius:999px;padding:4px 9px}
+.proof{border-bottom:1px solid var(--line)}
+.proof-top{background:#F7F8FE;border-top:1px solid var(--line);padding:34px 0}
+.proof-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;align-items:center}
+.proof-grid h3{font-size:19px;line-height:1.3;color:var(--indigo);max-width:24rem}
+.pstat b{display:block;font-size:38px;font-weight:800;color:var(--indigo);letter-spacing:-.03em}
+.pstat span{font-size:13.5px;color:var(--muted)}
+.proof-bot{background:var(--wash);padding:20px 0}
+.proof-bot-in{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.p2label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--muted);margin-right:8px}
+.pchip{font-size:13px;font-weight:700;color:var(--indigo);background:#fff;border:1px solid var(--line-2);border-radius:10px;padding:10px 16px}
+.pslot{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:#A5A9C8;border:1.5px dashed var(--line-2);border-radius:10px;padding:11px 16px}
+.bpdoc{grid-column:1/-1;margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.bpdoc .bh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.bpdoc .bh .t{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--blue)}
+.bprow{display:grid;grid-template-columns:44px 1fr auto auto;gap:14px;align-items:center;padding:11px 4px;border-top:1px solid var(--line);opacity:0;animation:bpin 9s ease infinite}
+.bprow:nth-child(2){animation-delay:.0s}.bprow:nth-child(3){animation-delay:.5s}.bprow:nth-child(4){animation-delay:1s}.bprow:nth-child(5){animation-delay:1.5s}
+@keyframes bpin{0%{opacity:0;transform:translateY(5px)}6%,92%{opacity:1;transform:none}97%,100%{opacity:0}}
+.bprow .n{font-family:var(--mono);font-size:11px;color:var(--blue)}
+.bprow .w{font-size:14.5px;font-weight:700;color:var(--indigo)}
+.bprow .w small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.bprow .seq{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--muted)}
+.bprow .fp{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--teal);border:1px solid rgba(15,163,131,.35);border-radius:999px;padding:4px 10px}
+.qa{background:var(--wash);border-radius:10px;padding:14px;min-height:252px}
+.qabar{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--indigo);border-radius:999px;padding:9px 14px}
+.qabar svg{width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:2;flex:none}
+.qabar span{font-family:var(--mono);font-size:11px;color:var(--indigo);white-space:nowrap;overflow:hidden}
+.qaans{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:10px;padding:13px 14px;margin-top:12px;opacity:0;animation:qain 8s ease infinite;animation-delay:1.6s}
+@keyframes qain{0%{opacity:0;transform:translateY(5px)}12%,88%{opacity:1;transform:none}96%,100%{opacity:0}}
+.qaans p{font-size:12.5px;color:#3A3A6B;line-height:1.5}
+.qasrc{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.qasrc span{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--teal);border:1px solid rgba(15,163,131,.3);border-radius:5px;padding:3px 7px}
+.qacap{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:#8181AC;text-align:center;margin-top:12px}
+.dlv2-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.dlv2{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.dlv2 .dt{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.dlv2 h4{font-size:15.5px;font-weight:800;color:var(--indigo);margin:2px 0 10px}
+.tplprev{background:var(--wash);border:1px solid var(--line);border-radius:8px;padding:14px 14px 10px;font-size:10.5px;line-height:1.75;color:#3A3A6B;min-height:170px}
+.tplprev .tk{font-family:var(--mono);font-size:9px;background:#FFF3D6;color:#8a6410;border-radius:4px;padding:1px 5px;border:1px solid #EDD9A3}
+.tplprev .cond{display:block;border:1.5px dashed #B9821F;border-radius:6px;padding:6px 8px;margin-top:8px;font-size:9.5px;color:#8a6410;background:#FFFBF0}
+.tplprev .cond b{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em}
+.sopprev{background:var(--wash);border:1px solid var(--line);border-radius:8px;padding:12px 14px;min-height:170px}
+.sopstep{display:flex;gap:9px;align-items:baseline;padding:5px 0;font-size:11px;color:#3A3A6B}
+.sopstep .sn2{font-family:var(--mono);font-size:9px;color:var(--blue);flex:none}
+.sopbranch{margin-left:24px;border-left:1.5px dashed #B9821F;padding:4px 0 4px 10px;font-size:10px;color:#8a6410}
+.sopbranch b{font-family:var(--mono);font-size:8.5px}
+.exscroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(660px,88%);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;scrollbar-width:thin}
+.exscroll .excard{scroll-snap-align:start;margin:0}
+.exscroll::-webkit-scrollbar{height:8px}
+.exscroll::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:4px}
+.exhint{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+.dash{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 48px -30px rgba(40,40,118,.4)}
+.dash-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--indigo);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.12em}
+.dash-bar .ill2{color:var(--lav)}
+.dash-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.kpi{background:#fff;padding:16px 18px}
+.kpi .kl{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kpi b{display:block;font-size:26px;font-weight:800;color:var(--indigo);letter-spacing:-.02em;margin:2px 0}
+.kpi .kd{font-size:10.5px;color:var(--teal);font-weight:700}
+.kpi .kd.neg{color:#D14D5E}
+.dash-charts{display:grid;grid-template-columns:1.2fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.dchart{background:#fff;padding:14px 16px}
+.dchart .kl{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px}
+.dchart svg{width:100%;height:auto;display:block}
+.vpx .bigvps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.bigvp{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:28px 24px;transition:.25s;position:relative;overflow:hidden}
+.bigvp:hover{transform:translateY(-5px);background:rgba(255,255,255,.09);border-color:rgba(169,184,255,.5)}
+.bigvp .word{font-size:clamp(22px,2.2vw,28px);font-weight:800;letter-spacing:-.02em;color:#fff}
+.bigvp .dir{font-family:var(--mono);font-size:34px;line-height:1;background:linear-gradient(120deg,#A9B8FF,#5EE6C4);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:12px}
+.bigvp p{font-size:12.5px;color:#B9C0E8;margin-top:8px}
+.bigvp::after{content:"";position:absolute;left:24px;right:24px;bottom:18px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.bigvp:hover::after{transform:scaleX(1)}
+@media (max-width:980px){.proof-grid{grid-template-columns:1fr;gap:18px}.dlv2-row{grid-template-columns:1fr}.vpx .bigvps{grid-template-columns:repeat(2,1fr)}.exscroll{grid-auto-columns:92%}}
+@media (max-width:600px){.vpx .bigvps{grid-template-columns:1fr}}
+
+/* v7 */
+.cyc-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+.cw{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.02em;background:linear-gradient(95deg,var(--indigo) 10%,var(--blue) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0}
+.cw.c1{animation:cw1 9s ease infinite}.cw.c2{animation:cw2 9s ease infinite}.cw.c3{animation:cw3 9s ease infinite}
+@keyframes cw1{0%{opacity:0;transform:translateY(8px)}5%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes cw2{0%,14%{opacity:0;transform:translateY(8px)}20%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes cw3{0%,28%{opacity:0;transform:translateY(8px)}34%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+.logo-line{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.wm{font-weight:800;font-size:16.5px;color:#8F94B8;letter-spacing:-.01em;filter:grayscale(1)}
+.wm.serif{font-family:Georgia,serif;font-weight:700}
+.wm.mono2{font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.04em}
+.bp-svg{background:linear-gradient(150deg,#1B1B52,#282876);border-radius:16px;padding:14px;box-shadow:0 24px 48px -30px rgba(40,40,118,.55)}
+.bp-svg svg{width:100%;height:auto;display:block}
+.orow{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;padding:44px 0;border-top:1px solid var(--line)}
+.orow:first-of-type{border-top:none}
+.orow .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--blue)}
+.orow h3{font-size:clamp(22px,2.4vw,30px);margin:6px 0 10px}
+.orow .od{font-size:15px;color:var(--muted);line-height:1.6}
+.orow .vis{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.orow .vis svg{width:100%;height:auto;display:block;background:var(--wash);border-radius:10px}
+.orow:nth-of-type(even){grid-template-columns:1.15fr .85fr}
+.orow:nth-of-type(even) .vis{order:-1}
+.keep-head{margin:56px 0 6px;display:flex;align-items:baseline;gap:14px}
+.keep-head h3{font-size:clamp(20px,2.2vw,26px)}
+.keep-head span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--blue)}
+.ready{display:grid;grid-template-columns:1fr 60px 1.2fr;gap:14px;align-items:stretch;margin-bottom:20px}
+.rcheck{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.rcheck .rh{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--blue);margin-bottom:12px}
+.ritem{display:flex;align-items:center;gap:12px;padding:11px 4px;border-top:1px solid var(--line)}
+.ritem .box{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--line-2);display:flex;align-items:center;justify-content:center;flex:none;position:relative}
+.ritem .box i{font-style:normal;font-size:12px;font-weight:800;color:#fff;opacity:0}
+.ritem .rl{font-size:14px;font-weight:700;color:var(--indigo)}
+.ritem .rs{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--muted);display:block}
+.ritem.i1 .box{animation:boxon 12s ease infinite;animation-delay:0s}.ritem.i1 .box i{animation:chkon 12s ease infinite}
+.ritem.i2 .box{animation:boxon2 12s ease infinite}.ritem.i2 .box i{animation:chkon2 12s ease infinite}
+.ritem.i3 .box{animation:boxon3 12s ease infinite}.ritem.i3 .box i{animation:chkon3 12s ease infinite}
+.ritem.i4 .box{animation:boxon4 12s ease infinite}.ritem.i4 .box i{animation:chkon4 12s ease infinite}
+@keyframes boxon{0%,4%{background:transparent;border-color:var(--line-2)}8%,94%{background:var(--teal);border-color:var(--teal)}100%{background:transparent}}
+@keyframes chkon{0%,4%{opacity:0}8%,94%{opacity:1}100%{opacity:0}}
+@keyframes boxon2{0%,12%{background:transparent;border-color:var(--line-2)}16%,94%{background:var(--teal);border-color:var(--teal)}100%{background:transparent}}
+@keyframes chkon2{0%,12%{opacity:0}16%,94%{opacity:1}100%{opacity:0}}
+@keyframes boxon3{0%,20%{background:transparent;border-color:var(--line-2)}24%,94%{background:var(--teal);border-color:var(--teal)}100%{background:transparent}}
+@keyframes chkon3{0%,20%{opacity:0}24%,94%{opacity:1}100%{opacity:0}}
+@keyframes boxon4{0%,28%{background:transparent;border-color:var(--line-2)}32%,94%{background:var(--teal);border-color:var(--teal)}100%{background:transparent}}
+@keyframes chkon4{0%,28%{opacity:0}32%,94%{opacity:1}100%{opacity:0}}
+.rarrow{display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--line-2)}
+.ragent{animation:wake 12s ease infinite}
+@keyframes wake{0%,34%{opacity:.4;filter:saturate(.15)}42%,96%{opacity:1;filter:none}100%{opacity:.4}}
+.rstat-off{animation:soff 12s ease infinite}.rstat-on{animation:son 12s ease infinite;color:#5EE6C4!important}
+@keyframes soff{0%,36%{opacity:1}40%,100%{opacity:0;position:absolute}}
+@keyframes son{0%,38%{opacity:0}44%,96%{opacity:1}100%{opacity:0}}
+.rrow{opacity:0}
+.rrow.r1{animation:rin1 12s ease infinite}.rrow.r2{animation:rin2 12s ease infinite}.rrow.r3{animation:rin3 12s ease infinite}
+@keyframes rin1{0%,46%{opacity:0;transform:translateY(6px)}52%,95%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes rin2{0%,58%{opacity:0;transform:translateY(6px)}64%,95%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes rin3{0%,70%{opacity:0;transform:translateY(6px)}76%,95%{opacity:1;transform:none}100%{opacity:0}}
+.vband{background:linear-gradient(135deg,#231E66 0%,#3A2E9C 48%,#1B4FD8 100%);color:#fff;position:relative;overflow:hidden}
+.vband::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;top:-320px;right:-180px;background:radial-gradient(circle,rgba(94,230,196,.14),transparent 70%)}
+.vband::after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;bottom:-300px;left:-160px;background:radial-gradient(circle,rgba(169,184,255,.16),transparent 70%)}
+.vband .wrap{position:relative;z-index:1}
+.vband h2{color:#fff}
+.bigvp2{background:rgba(255,255,255,.07);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:30px 26px;transition:.25s;position:relative;overflow:hidden;min-height:190px}
+.bigvp2:hover{transform:translateY(-6px);background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35)}
+.bigvp2 .idx{position:absolute;top:18px;right:20px;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.4)}
+.bigvp2 .dir{font-family:var(--mono);font-size:38px;line-height:1;background:linear-gradient(120deg,#5EE6C4,#A9B8FF);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.bigvp2 .word{font-size:clamp(24px,2.4vw,30px);font-weight:800;letter-spacing:-.02em;color:#fff;display:block;margin-top:10px}
+.bigvp2 p{font-size:13px;color:#C7CCEF;margin-top:9px;transition:.25s}
+.bigvp2 .eg{position:absolute;left:26px;right:26px;bottom:22px;font-size:12.5px;font-style:italic;color:#5EE6C4;opacity:0;transform:translateY(6px);transition:.28s}
+.bigvp2:hover p{opacity:0}
+.bigvp2:hover .eg{opacity:1;transform:none}
+@media (max-width:980px){.orow,.orow:nth-of-type(even){grid-template-columns:1fr;gap:22px}.orow:nth-of-type(even) .vis{order:0}.ready{grid-template-columns:1fr}.rarrow{transform:rotate(90deg)}}
+
+/* v8 */
+.lg-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding:6px 0}
+.lg-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#A5A9C8;flex:0 0 120px}
+.lg-items{display:flex;align-items:center;gap:34px;flex-wrap:wrap}
+.lg{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.015em;color:#7A80A6;filter:grayscale(1);transition:.2s;white-space:nowrap}
+.lg:hover{color:var(--indigo);filter:none}
+.lg .mark{width:30px;height:30px;border-radius:8px;background:#E7E9F4;color:#6E7494;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:0;flex:none;transition:.2s}
+.lg:hover .mark{background:var(--indigo);color:#fff}
+.lg .mark.pm{background:#DDE3F8;color:#4A5384}
+.lg.partner{font-weight:700}
+.lg-div{border-top:1px solid var(--line);margin:10px 0 10px 148px}
+/* qa icon fix: .orow .vis svg was inflating the magnifier */
+.orow .vis .qabar svg{width:14px;height:14px;background:transparent;border-radius:0}
+/* bigger deliverables */
+.dlv2{padding:24px}
+.dlv2 h4{font-size:18px}
+.dlv2 .dt{font-size:10px}
+.tplprev{font-size:12.5px;line-height:1.9;min-height:230px;padding:18px 18px 14px}
+.tplprev .tk{font-size:10.5px;padding:2px 7px}
+.tplprev .cond{font-size:11.5px;padding:8px 10px}
+.tplprev .cond b{font-size:10px}
+.sopprev{min-height:230px;padding:16px 18px}
+.sopstep{font-size:12.5px;padding:7px 0}
+.sopstep .sn2{font-size:10.5px}
+.sopbranch{font-size:11.5px}
+/* compact value cards */
+.bigvp2{padding:22px 20px;min-height:0}
+.bigvp2 .dir{font-size:26px;display:inline-block;vertical-align:middle;margin-right:10px}
+.bigvp2 .word{display:inline;font-size:21px;vertical-align:middle;margin-top:0}
+.bigvp2 p{margin-top:12px;font-size:12.5px}
+.bigvp2 .eg{bottom:16px;font-size:12px}
+.bigvp2 .idx{top:14px;right:16px}
+@media (max-width:980px){.lg-label{flex-basis:100%}.lg-div{margin-left:0}}
+
+/* v9 */
+.skip{position:absolute;left:-9999px;top:8px;background:var(--indigo);color:#fff;padding:10px 18px;border-radius:8px;z-index:100;font-weight:700;font-size:14px}
+.skip:focus{left:12px}
+.greek{display:inline-flex;align-items:baseline;font-weight:800;font-size:16px;font-family:'Noto Sans',system-ui,sans-serif;color:#A5A9C8;border-bottom:1px dotted var(--line-2);margin-left:4px;transition:.2s}
+.greek:hover{color:var(--indigo);border-bottom-color:var(--indigo)}
+.greek .colon{margin-right:6px;color:var(--line-2);font-weight:400}
+@media (max-width:1180px){.greek{display:none}}
+.cycler{margin:20px 0 4px;padding-left:16px;border-left:2px solid var(--line-2);max-width:34em}
+.cyc-label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A5A9C8;margin-bottom:7px}
+.cyc-track{position:relative;height:48px}
+.cyc-track span{position:absolute;left:0;top:0;font-size:15.5px;font-weight:700;color:var(--indigo);line-height:1.35;opacity:0;animation:cyc 21s infinite}
+.cyc-track span:nth-child(1){animation-delay:0s}.cyc-track span:nth-child(2){animation-delay:3s}
+.cyc-track span:nth-child(3){animation-delay:6s}.cyc-track span:nth-child(4){animation-delay:9s}
+.cyc-track span:nth-child(5){animation-delay:12s}.cyc-track span:nth-child(6){animation-delay:15s}
+.cyc-track span:nth-child(7){animation-delay:18s}
+@keyframes cyc{0%{opacity:0;transform:translateY(7px)}1.7%{opacity:1;transform:none}12.6%{opacity:1;transform:none}14.3%{opacity:0;transform:translateY(-7px)}100%{opacity:0}}
+.whyquote{max-width:44rem;margin:52px auto 0;text-align:center}
+.whyquote blockquote{font-size:clamp(22px,2.8vw,32px);font-weight:800;font-style:italic;color:var(--indigo);letter-spacing:-.02em;line-height:1.25}
+.whyquote blockquote::before{content:"\201C";display:block;font-size:64px;line-height:.4;color:var(--blue);opacity:.4;margin-bottom:14px}
+.whyquote p{margin-top:14px;font-size:14.5px;color:var(--muted)}
+.aside2{margin-top:34px;font-size:15px;color:var(--muted);max-width:52em;line-height:1.65}
+.aside2 b{color:var(--indigo)}
+.aside2 a{color:var(--blue);font-weight:700}
+.beunique{text-align:center;margin-top:34px;font-size:0;line-height:0}
+.handwrite{display:inline-block;font-family:'Caveat','Segoe Script','Bradley Hand',ui-rounded,cursive;font-weight:700;font-size:clamp(52px,6.4vw,82px);line-height:1.05;color:var(--indigo);transform:rotate(-1.8deg);padding:0 .12em .06em 0}
+.handwrite.armed{clip-path:inset(0 100% -12% 0)}
+.handwrite.write{animation:hwrite 1.45s cubic-bezier(.42,.03,.4,1) forwards}
+@keyframes hwrite{from{clip-path:inset(0 100% -12% 0)}to{clip-path:inset(0 -8% -12% 0)}}
+.faqhead{display:grid;grid-template-columns:1fr 296px;gap:56px;align-items:start;max-width:none}
+.askbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px}
+.askbox h4{font-size:17px;font-weight:800;color:var(--indigo);margin-bottom:8px}
+.askbox p{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:18px}
+.askbox .btn{width:100%;text-align:center}
+.faq{max-width:52rem}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 34px 20px 0;font-size:16.5px;font-weight:800;color:var(--indigo);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:18px;font-size:22px;font-weight:400;color:#A5A9C8;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding:0 0 22px;font-size:15px;color:var(--muted);max-width:46em}
+.originband{position:relative;overflow:hidden;padding:52px 0 46px;background:linear-gradient(180deg,var(--wash),#fff)}
+.origin-in{max-width:42rem;position:relative}
+.origin-copy{margin-top:2px;font-size:15.5px;line-height:1.6;color:var(--muted)}
+.origin-copy .o-name{font-weight:700;color:var(--indigo)}
+.origin-copy .o-turn{display:block;margin-top:.7em;font-weight:600;color:var(--indigo)}
+.origin-mark{position:absolute;left:calc(42rem + 56px);top:50%;transform:translateY(-50%);font-family:'Noto Sans',system-ui,sans-serif;font-weight:800;font-size:clamp(56px,7vw,104px);line-height:1;white-space:nowrap;color:var(--indigo);opacity:.06;user-select:none;pointer-events:none}
+@media (max-width:900px){.origin-mark{position:static;transform:none;display:block;margin-top:18px;font-size:clamp(46px,13vw,68px);opacity:.07}.faqhead{grid-template-columns:1fr;gap:28px}}
+.flink{position:relative;font-weight:700;color:var(--indigo);padding-bottom:2px;transition:color .18s}
+.flink:hover{color:var(--blue)}
+.flink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.22,.85,.3,1)}
+.flink:hover::after{transform:scaleX(1)}
+.flink .arw{display:inline-block;margin-left:4px;transition:transform .28s cubic-bezier(.22,.85,.3,1)}
+.flink:hover .arw{transform:translateX(4px)}
+.pre{opacity:0;transform:translateY(15px)}
+.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.22,.85,.3,1)}
+@media (prefers-reduced-motion:reduce){.pre{opacity:1;transform:none}.cyc-track{position:static;height:auto;min-height:24px}.cyc-track span{display:none}.cyc-track span:first-child{display:block;position:static;opacity:1}.handwrite.armed{clip-path:none}}
+
+/* v10 */
+.path2-title{text-align:center;margin-bottom:22px}
+.path2-title .eyebrow{margin-bottom:4px}
+.path2-title h3{font-size:clamp(18px,2vw,23px)}
+.dex{background:var(--wash);border:1px solid var(--line);border-radius:18px;padding:26px 26px 22px;margin-top:26px}
+.dex-head{display:flex;gap:18px;align-items:center;margin-bottom:18px}
+.dex-count{flex:none;min-width:58px;padding:0 10px;height:58px;flex-direction:column;border-radius:15px;background:linear-gradient(150deg,var(--indigo),#3A3A9C);color:#fff;display:flex;align-items:center;justify-content:center;font-size:22px;font-weight:800;box-shadow:0 10px 22px -10px rgba(40,40,118,.5)}
+.dex-head h3{font-size:clamp(17px,1.9vw,21px)}
+.dex-head p{font-size:13px;color:var(--muted);margin-top:2px}
+.dex-chips{display:flex;flex-wrap:wrap;gap:8px}
+.dx{font-size:13px;font-weight:700;border-radius:999px;padding:8px 15px;transition:.16s;border:1px solid transparent}
+.dx.flag{background:var(--indigo);color:#fff}
+.dx.flag:hover{background:var(--blue);transform:translateY(-2px)}
+.dx.sup{background:#fff;border-color:var(--line-2);color:var(--muted)}
+.dx.sup:hover{border-color:var(--blue);color:var(--blue);transform:translateY(-2px)}
+.dx.more{background:transparent;border:1.5px dashed var(--line-2);color:var(--blue)}
+.dx.more:hover{border-color:var(--blue)}
+.pa-line{display:flex;align-items:center;gap:14px;flex-wrap:wrap;margin-top:18px;padding-top:16px;border-top:1px solid var(--line)}
+.pa-line .p2label{flex:none}
+.pa-line .pill{padding:7px 14px;font-size:12.5px}
+.wgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.wcard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:28px 26px;position:relative;overflow:hidden;transition:.22s}
+.wcard::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--indigo),var(--blue));transform:scaleX(0);transform-origin:left;transition:transform .3s}
+.wcard:hover{transform:translateY(-4px);box-shadow:0 20px 40px -24px rgba(40,40,118,.4);border-color:rgba(33,111,237,.4)}
+.wcard:hover::before{transform:scaleX(1)}
+.wcard .wtop{display:flex;align-items:center;justify-content:space-between;margin-bottom:16px}
+.wcard .wic{width:46px;height:46px;border-radius:13px;background:linear-gradient(150deg,var(--indigo),#3A3A9C);display:flex;align-items:center;justify-content:center}
+.wcard .wic svg{width:22px;height:22px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.wcard .wnum{font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:#A5A9C8}
+.wcard h3{font-size:19px;margin-bottom:8px}
+.wcard p{font-size:14px;color:var(--muted);line-height:1.6}
+@media (max-width:980px){.wgrid{grid-template-columns:1fr}.dex-head{flex-direction:column;align-items:flex-start}}
+
+/* v11 */
+.app-note{display:flex;gap:18px;align-items:center;max-width:56rem;margin:40px auto 0;background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px 24px;box-shadow:0 14px 30px -22px rgba(40,40,118,.3);text-align:left}
+.app-note .ai{flex:none;width:48px;height:48px;border-radius:13px;background:linear-gradient(150deg,var(--indigo),var(--blue));display:flex;align-items:center;justify-content:center;color:#fff;font-weight:800;font-size:22px;font-family:var(--sans)}
+.app-note p{font-size:14.5px;color:var(--muted);line-height:1.6;margin:0}
+.app-note b{color:var(--indigo)}
+.app-note .go2{flex:none;font-size:13.5px;font-weight:700;color:var(--blue);white-space:nowrap}
+@media (max-width:760px){.app-note{flex-direction:column;align-items:flex-start}}
+.bpdoc{max-width:860px;justify-self:center;width:100%}
+.rstat{position:relative;display:inline-block;min-width:62px;height:1em}
+.rstat .rstat-off,.rstat .rstat-on{position:absolute;left:0;top:0}
+.dex-counts{display:flex;gap:12px;flex:none}
+.dex-count.alt{background:#fff;color:var(--indigo);border:1.5px solid var(--line-2);box-shadow:none}
+.dex-count small{display:block;font-size:8px;font-weight:700;letter-spacing:.08em;line-height:1;margin-top:2px;opacity:.75}
+
+/* v11.1 spoke alignment */
+@keyframes spokeIn{from{opacity:0}to{opacity:1}}
+.hub .spoke:nth-of-type(1){top:0;left:50%;right:auto;bottom:auto;transform:translateX(-50%)}
+.hub .spoke:nth-of-type(2){top:26%;right:6px;left:auto;bottom:auto;transform:translateY(-50%)}
+.hub .spoke:nth-of-type(3){top:74%;right:6px;left:auto;bottom:auto;transform:translateY(-50%)}
+.hub .spoke:nth-of-type(4){bottom:0;left:50%;right:auto;top:auto;transform:translateX(-50%)}
+.hub .spoke:nth-of-type(5){top:74%;left:6px;right:auto;bottom:auto;transform:translateY(-50%)}
+.hub .spoke:nth-of-type(6){top:26%;left:6px;right:auto;bottom:auto;transform:translateY(-50%)}
+
+/* v11.2 smoother hub choreography */
+.hub .spoke:nth-of-type(1){--pos:translateX(-50%)}
+.hub .spoke:nth-of-type(2){--pos:translateY(-50%)}
+.hub .spoke:nth-of-type(3){--pos:translateY(-50%)}
+.hub .spoke:nth-of-type(4){--pos:translateX(-50%)}
+.hub .spoke:nth-of-type(5){--pos:translateY(-50%)}
+.hub .spoke:nth-of-type(6){--pos:translateY(-50%)}
+.hub .spoke{transform:var(--pos);animation-name:spokeIn2;animation-duration:.9s;animation-timing-function:cubic-bezier(.25,.8,.35,1.1);animation-fill-mode:forwards}
+@keyframes spokeIn2{from{opacity:0;transform:var(--pos) translateY(9px) scale(.92)}to{opacity:1;transform:var(--pos)}}
+.hub .hub-core{animation:hubIn2 .8s cubic-bezier(.2,1.15,.4,1) both,hubPulse2 4.4s 1.2s ease-in-out infinite}
+@keyframes hubIn2{from{opacity:0;transform:scale(.86)}to{opacity:1;transform:scale(1)}}
+@keyframes hubPulse2{0%,100%{box-shadow:0 0 0 0 rgba(33,111,237,.35)}55%{box-shadow:0 0 0 16px rgba(33,111,237,0)}}
+.hub svg.links{opacity:0;animation:linksIn 1.1s ease 1.5s forwards}
+@keyframes linksIn{to{opacity:1}}
+.hub svg.links line{animation-duration:2.4s}
+.runner{animation-duration:11s;animation-timing-function:ease-in-out}
+@media (prefers-reduced-motion:reduce){.hub svg.links{opacity:1}.hub .spoke{opacity:1;transform:var(--pos)}.hub .hub-core{opacity:1}}
+
+/* v11.3 seamless runner orbit */
+.scatter .runner{left:auto;top:auto;offset-path:ellipse(40% 38% at 50% 48%);offset-rotate:0deg;animation:orbit 16s linear infinite}
+@keyframes orbit{from{offset-distance:0%}to{offset-distance:100%}}
+@supports not (offset-path: ellipse(40% 38% at 50% 48%)){
+  .scatter .runner{left:12%;top:8%;animation:runAround 16s linear infinite}
+}
+@media (prefers-reduced-motion:reduce){.scatter .runner{animation:none}}
+
+/* v11.4 hub as perpetual ambient loop (negative delays = already running at first paint) */
+.hub .spoke{opacity:1;animation:bob 5s ease-in-out infinite}
+.hub .spoke:nth-of-type(1){animation-delay:-0.4s}
+.hub .spoke:nth-of-type(2){animation-delay:-1.6s}
+.hub .spoke:nth-of-type(3){animation-delay:-2.8s}
+.hub .spoke:nth-of-type(4){animation-delay:-0.9s}
+.hub .spoke:nth-of-type(5){animation-delay:-2.1s}
+.hub .spoke:nth-of-type(6){animation-delay:-3.4s}
+@keyframes bob{0%,100%{transform:var(--pos) translateY(0)}50%{transform:var(--pos) translateY(-4px)}}
+.hub .hub-core{opacity:1;animation:hubPulse2 4.4s ease-in-out -2.2s infinite}
+.hub svg.links{opacity:1;animation:none}
+.hub svg.links line.ep{stroke:#8FB3FF;stroke-width:1.4;stroke-dasharray:9 91;opacity:.85;animation:flowp 3.4s linear infinite}
+.hub svg.links line.ep:nth-of-type(7){animation-delay:-0.2s}
+.hub svg.links line.ep:nth-of-type(8){animation-delay:-1.4s;animation-direction:reverse}
+.hub svg.links line.ep:nth-of-type(9){animation-delay:-2.5s}
+.hub svg.links line.ep:nth-of-type(10){animation-delay:-0.9s;animation-direction:reverse}
+.hub svg.links line.ep:nth-of-type(11){animation-delay:-1.9s}
+.hub svg.links line.ep:nth-of-type(12){animation-delay:-3.0s;animation-direction:reverse}
+@keyframes flowp{to{stroke-dashoffset:-100}}
+@media (prefers-reduced-motion:reduce){.hub svg.links line.ep{display:none}.hub .spoke{animation:none}}
+
+/* v11.5 kill the dash-period seam: base connector dashes are static; only the pulses move */
+.hub svg.links line:not(.ep){stroke-dasharray:5 6;animation:none}
+.home #why,.home #blueprint,.home #organize,.home #orchestrate,.home #automate,.home #optimize{display:none}
+.skip:focus{left:12px;top:12px}
+a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #79A9FF;outline-offset:4px;border-radius:6px}
+.mnav{display:none;position:relative;margin-left:auto}
+.mnav summary{list-style:none;width:40px;height:40px;border:1px solid var(--line-2);border-radius:10px;display:grid;place-content:center;gap:4px;cursor:pointer}
+.mnav summary::-webkit-details-marker{display:none}.mnav summary i{width:17px;height:1.5px;background:var(--indigo);display:block}
+.mnav nav{position:absolute;right:0;top:48px;min-width:220px;padding:9px;background:#fff;border:1px solid var(--line);border-radius:13px;box-shadow:0 20px 44px -28px rgba(40,40,118,.55);display:grid}
+.mnav nav a{padding:11px 12px;border-radius:8px;color:var(--indigo);font-size:13px;font-weight:700}.mnav nav a:hover{background:var(--wash)}
+.why-mini{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin-top:30px;padding-top:20px;border-top:1px solid var(--line)}
+.why-mini div{padding-right:12px}.why-mini b,.why-mini span{display:block}.why-mini b{font-size:12.5px;color:var(--indigo)}.why-mini span{margin-top:3px;font-size:11px;color:var(--muted)}
+.home-case{padding:96px 0;background:#FBFAF5}.case-layout{display:grid;grid-template-columns:.72fr 1.28fr;gap:58px;align-items:center}
+.case-copy h2{font-size:clamp(32px,4vw,47px)}.case-copy p{margin-top:15px;color:var(--muted);font-size:16px;line-height:1.65}
+.casebox{overflow:hidden;border:1px solid var(--line);border-radius:18px;background:#fff;box-shadow:0 26px 56px -40px rgba(40,40,118,.5)}
+.casehead{padding:15px 20px;background:var(--indigo);display:flex;justify-content:space-between;gap:16px;color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.1em}.casehead span{color:var(--lav)}
+.casecols{display:grid;grid-template-columns:repeat(3,1fr)}.casecols>div{padding:22px 19px;border-right:1px solid var(--line);min-height:205px}.casecols>div:last-child{border:0;background:#EEF9F5}
+.casecols b{display:block;margin-bottom:11px;color:var(--blue);font-family:var(--mono);font-size:9px;letter-spacing:.12em}.casecols p{font-size:12.5px;color:var(--muted);line-height:1.6}.casecols>div:last-child p{color:#315F57}
+.casestats{display:grid;grid-template-columns:repeat(3,1fr);background:var(--wash);border-top:1px solid var(--line)}.casestats div{padding:17px 19px;border-right:1px solid var(--line)}.casestats div:last-child{border:0}.casestats strong,.casestats span{display:block}.casestats strong{font-size:23px;color:var(--indigo)}.casestats span{font-size:9.5px;color:var(--muted)}
+.casefine{padding:10px 19px;border-top:1px solid var(--line);font-size:8.5px;color:#77799D}
+.home-workflows{padding:96px 0}.hw-head{display:grid;grid-template-columns:1fr .6fr;gap:60px;align-items:end;margin-bottom:42px}.hw-head h2{font-size:clamp(32px,4vw,47px)}.hw-head p{color:var(--muted);font-size:14px;line-height:1.65}
+.home .wcard{min-height:315px}.home .wcard .wtop{margin-bottom:23px}.home .wcard p{font-size:13.5px}.wf-list{margin:18px 0 0;padding-top:15px;border-top:1px solid var(--line);display:grid;gap:6px}.wf-list span{font-size:11.5px;font-weight:700;color:var(--indigo)}.wf-list span:before{content:"✓";color:var(--teal);margin-right:7px}
+.path-home-cta{text-align:center;margin-top:24px}.path-home-cta .btn{font-size:13px}
+.bpdoc{margin-left:auto;margin-right:auto;width:100%}
+@media(max-width:980px){.mnav{display:block}.nav-in>.btn{margin-left:auto}.case-layout,.hw-head{grid-template-columns:1fr;gap:26px}.casecopy{max-width:48rem}.casecols{grid-template-columns:1fr}.casecols>div{min-height:0;border-right:0;border-bottom:1px solid var(--line)}.casecols>div:last-child{border-bottom:0}.why-mini{grid-template-columns:1fr;gap:12px}.home-case,.home-workflows{padding:72px 0}}
+@media(max-width:600px){.nav-in>.btn{display:none}.casecols,.casestats{grid-template-columns:1fr}.casestats div{border-right:0;border-bottom:1px solid var(--line)}.casestats div:last-child{border-bottom:0}.path2-in{grid-template-columns:1fr}.dlv2-row{grid-template-columns:repeat(auto-fit,minmax(min(360px,100%),1fr))!important}.bigvp2 .eg{position:static;display:block;margin-top:8px;opacity:1;transform:none}.bigvp2:hover p{opacity:1}}
+@media(prefers-reduced-motion:reduce){.bprow,.qaans,.cw,.rrow{opacity:1!important}.cw{transform:none}.qaans{transform:none}}
+
+/* v12.1 hero operating-layer flow */
+.home .hero{padding-bottom:56px}.home .hero-grid{align-items:start}
+.flowdemo{background:#fff;border:1px solid var(--line-2);border-radius:18px;overflow:hidden;box-shadow:0 32px 68px -38px rgba(40,40,118,.58)}
+.flow-head,.flow-foot{display:flex;align-items:center;justify-content:space-between;gap:12px;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;text-transform:uppercase}
+.flow-head{padding:13px 15px;color:var(--muted);border-bottom:1px solid var(--line)}.flow-head span{display:flex;align-items:center;gap:7px}.flow-head span i{width:7px;height:7px;border-radius:50%;background:var(--teal);box-shadow:0 0 0 5px rgba(15,163,131,.11)}.flow-head b{font-weight:500;color:var(--blue)}
+.flow-progress{height:3px;background:var(--wash);overflow:hidden}.flow-progress i{display:block;height:100%;width:38%;background:linear-gradient(90deg,var(--teal),var(--blue));animation:flowProgress 7s ease-in-out infinite}
+@keyframes flowProgress{0%{width:4%}70%,88%{width:100%}100%{width:4%}}
+.flow-grid{display:grid;grid-template-columns:minmax(105px,1fr) 27px minmax(112px,.88fr) 27px minmax(112px,1fr);align-items:center;padding:19px 13px 17px;min-height:356px;background:radial-gradient(rgba(40,40,118,.07) 1px,transparent 1px);background-size:16px 16px}
+.flow-label{display:block;margin-bottom:9px;font-family:var(--mono);font-size:8px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.flow-col{display:grid;gap:8px}.flow-row{position:relative;background:#fff;border:1px solid var(--line);border-radius:9px;padding:9px 9px 8px;box-shadow:0 10px 18px -18px rgba(40,40,118,.8);animation:flowRow 8s ease-in-out infinite}.flow-row b,.flow-row small{display:block}.flow-row b{font-size:10px;color:var(--indigo)}.flow-row small{margin-top:1px;font-size:7.5px;color:var(--muted)}
+.flow-row::before{content:"";position:absolute;left:-1px;top:-1px;bottom:-1px;width:3px;border-radius:9px 0 0 9px;background:var(--line-2)}
+.flow-row.r2,.flow-row.o2{animation-delay:1.4s}.flow-row.r3,.flow-row.o3{animation-delay:2.8s}.flow-row.r4,.flow-row.o4{animation-delay:4.2s}.flow-outputs .flow-row::before{background:var(--teal)}
+@keyframes flowRow{0%,16%,100%{border-color:var(--line);transform:none}7%{border-color:#79A9FF;transform:translateY(-2px);box-shadow:0 11px 22px -15px rgba(33,111,237,.75)}}
+.flow-rail{height:2px;background:var(--line-2);position:relative;overflow:visible}.flow-rail::after{content:"";position:absolute;right:-1px;top:-3px;border-left:5px solid var(--line-2);border-top:3px solid transparent;border-bottom:3px solid transparent}.flow-rail i{position:absolute;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 9px rgba(33,111,237,.65);animation:flowParticle 2.3s linear infinite}.flow-rail i+ i{animation-delay:1.15s}
+@keyframes flowParticle{from{left:0;opacity:0}15%{opacity:1}85%{opacity:1}to{left:calc(100% - 7px);opacity:0}}
+.flow-corebox{text-align:center;padding:13px 8px;border:1px solid rgba(33,111,237,.26);border-radius:14px;background:rgba(244,245,253,.92);box-shadow:0 15px 30px -25px rgba(33,111,237,.7)}.flow-corebox .flow-label{color:var(--blue)}
+.flow-coremark{width:88px;height:88px;margin:0 auto 12px;border-radius:24px;background:linear-gradient(145deg,var(--blue),var(--indigo));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;animation:corePulse 3s ease-in-out infinite}.flow-coremark b{font-size:25px;line-height:1}.flow-coremark span{font-family:var(--mono);font-size:6.5px;letter-spacing:.05em;text-transform:uppercase;color:#DCE7FF;margin-top:5px}
+@keyframes corePulse{50%{box-shadow:0 0 0 10px rgba(33,111,237,.08)}}
+.flow-rule{font-family:var(--mono);font-size:7px;color:var(--indigo);padding:4px 3px;border-top:1px solid var(--line)}
+.flow-foot{padding:11px 15px;border-top:1px solid var(--line);color:var(--muted);background:var(--wash)}.flow-foot b{font-weight:500;color:var(--teal)}
+.hero-why{grid-column:1/-1;display:grid;grid-template-columns:1.25fr repeat(3,1fr);margin-top:2px;border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:rgba(255,255,255,.64);backdrop-filter:blur(8px)}
+.hero-why>div{padding:20px 22px;border-right:1px solid var(--line)}.hero-why>div:last-child{border:0}.hero-why-intro .eyebrow{margin-bottom:5px}.hero-why-intro>b{font-size:14px;line-height:1.35;color:var(--indigo)}.hero-why>div:not(.hero-why-intro)>span{font-family:var(--mono);font-size:8px;color:var(--blue)}.hero-why>div:not(.hero-why-intro)>b{display:block;margin-top:3px;font-size:12px;color:var(--indigo)}.hero-why p{margin-top:3px;font-size:10px;line-height:1.45;color:var(--muted)}
+
+/* overnight activity moved below workflow examples */
+.run-showcase{display:grid;grid-template-columns:.54fr 1.46fr;gap:42px;align-items:center;margin-top:56px;padding-top:56px;border-top:1px solid var(--line)}.run-copy h3{font-size:28px}.run-copy p{margin-top:12px;color:var(--muted);font-size:14px;line-height:1.65}
+
+/* four-stage switcher */
+.home .path2{padding:64px 0 38px}.home .path2-in{grid-template-columns:repeat(4,1fr);max-width:900px}.home .path2-in::before{left:12%;right:12%}
+.home button.pstep{appearance:none;border:0;background:transparent;font:inherit;cursor:pointer;color:inherit}.home .pstep .pt,.home .pstep .pd{display:block}.home .pstep .pic{opacity:.64;filter:saturate(.65)}.home .pstep.active .pic{opacity:1;filter:none;background:linear-gradient(145deg,var(--blue),var(--indigo));box-shadow:0 0 0 5px rgba(33,111,237,.09),0 10px 22px -10px rgba(40,40,118,.5)}.home .pstep.active .pt{color:var(--blue)}
+.method-stage{margin-top:34px}.method-panel{display:none;grid-template-columns:.72fr 1.28fr;gap:36px;align-items:center;border:1px solid var(--line);border-radius:18px;padding:34px;background:linear-gradient(145deg,#fff,var(--wash));box-shadow:0 28px 58px -46px rgba(40,40,118,.6)}.method-panel.active{display:grid}.method-copy h4{font-size:26px;line-height:1.15;color:var(--indigo)}.method-copy p{margin-top:11px;font-size:13.5px;color:var(--muted);line-height:1.65}.method-copy a{display:inline-block;margin-top:17px;font-size:12px;font-weight:800;color:var(--blue)}
+.method-vis{min-height:260px;border:1px solid var(--line);border-radius:14px;background:#fff;padding:19px;position:relative;overflow:hidden}.mini-head{display:flex;justify-content:space-between;gap:10px;margin-bottom:19px;font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--muted)}.mini-head b{color:var(--teal);font-weight:500}.audit-row{display:grid;grid-template-columns:1fr 1.25fr 55px;gap:12px;align-items:center;padding:11px 0;border-top:1px solid var(--line);font-size:10px;color:var(--indigo)}.audit-row i{height:6px;border-radius:6px;background:var(--wash);overflow:hidden}.audit-row i b{display:block;height:100%;width:76%;background:linear-gradient(90deg,var(--blue),var(--teal));animation:auditFill 5s ease-in-out infinite}.audit-row:nth-child(3) i b{width:64%;animation-delay:.3s}.audit-row:nth-child(4) i b{width:48%;animation-delay:.6s}.audit-row:nth-child(5) i b{width:36%;animation-delay:.9s}.audit-row em{font-style:normal;font-family:var(--mono);font-size:7.5px;color:var(--blue)}
+@keyframes auditFill{0%{transform:translateX(-105%)}45%,100%{transform:none}}
+.orchestration-mini{display:grid;grid-template-columns:1fr 30px 1.1fr;gap:11px;align-items:center}.mini-sources,.mini-outputs{display:grid;gap:9px}.mini-sources span,.mini-outputs span{padding:10px;border:1px solid var(--line);border-radius:8px;font-size:9px;font-weight:700;color:var(--indigo);background:var(--wash)}.mini-arrows{display:grid;gap:25px}.mini-arrows i{height:2px;background:var(--line-2);position:relative}.mini-arrows i::before{content:"";position:absolute;width:7px;height:7px;top:-2.5px;border-radius:50%;background:var(--blue);animation:miniFlow 1.8s linear infinite}.mini-arrows i:nth-child(2)::before{animation-delay:.6s}.mini-arrows i:nth-child(3)::before{animation-delay:1.2s}@keyframes miniFlow{from{left:0;opacity:0}15%,85%{opacity:1}to{left:calc(100% - 6px);opacity:0}}
+.mini-hub{grid-column:3;grid-row:1;align-self:start;margin-bottom:86px;padding:18px 12px;border-radius:12px;background:linear-gradient(145deg,var(--blue),var(--indigo));color:#fff;text-align:center;animation:corePulse 3s ease-in-out infinite}.mini-hub b,.mini-hub span{display:block}.mini-hub b{font-size:12px}.mini-hub span{margin-top:4px;font-family:var(--mono);font-size:6.5px;color:#DCE7FF}.mini-outputs{grid-column:3;grid-row:1;align-self:end}.mini-outputs span{border-color:rgba(15,163,131,.32);background:#EEF9F5;color:#315F57}
+.automate-mini{display:grid;gap:15px;align-content:center}.auto-checks{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.auto-checks span{padding:9px 7px;border:1px solid var(--line);border-radius:8px;font-size:8px;color:var(--muted)}.auto-checks .done::before{content:"✓";color:var(--teal);margin-right:5px}.auto-progress{position:relative;height:44px;border-radius:9px;background:var(--wash);overflow:hidden;display:grid;place-items:center}.auto-progress i{position:absolute;inset:0 auto 0 0;width:74%;background:linear-gradient(90deg,rgba(33,111,237,.18),rgba(15,163,131,.22));animation:autoFill 5s ease-in-out infinite}.auto-progress span{position:relative;font-family:var(--mono);font-size:8.5px;color:var(--indigo)}@keyframes autoFill{0%{width:4%}65%,100%{width:100%}}
+.auto-output{padding:16px;border:1px solid rgba(15,163,131,.35);border-radius:10px;background:#EEF9F5}.auto-output span,.auto-output b,.auto-output small{display:block}.auto-output span{font-family:var(--mono);font-size:7.5px;color:var(--teal)}.auto-output b{margin-top:5px;font-size:12px;color:var(--indigo)}.auto-output small{margin-top:3px;font-size:8px;color:#315F57}
+.opt-kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:8px}.opt-kpis div{padding:12px 8px;border:1px solid var(--line);border-radius:9px}.opt-kpis b,.opt-kpis span{display:block}.opt-kpis b{font-size:17px;color:var(--indigo)}.opt-kpis span{font-family:var(--mono);font-size:6.5px;color:var(--muted)}.opt-bars{height:112px;display:flex;align-items:end;gap:10px;padding:18px 12px 0;border-bottom:1px solid var(--line)}.opt-bars i{flex:1;background:linear-gradient(180deg,var(--blue),var(--indigo));border-radius:4px 4px 0 0;animation:barRise 2.8s ease-in-out infinite alternate;transform-origin:bottom}.opt-bars i:nth-child(2){animation-delay:.15s}.opt-bars i:nth-child(3){animation-delay:.3s}.opt-bars i:nth-child(4){animation-delay:.45s}.opt-bars i:nth-child(5){animation-delay:.6s}.opt-bars i:nth-child(6){animation-delay:.75s}@keyframes barRise{from{transform:scaleY(.18)}to{transform:scaleY(1)}}.optimize-mini>small{display:block;margin-top:11px;font-family:var(--mono);font-size:7.5px;letter-spacing:.12em;color:var(--teal)}
+@media(max-width:1100px){.flow-grid{grid-template-columns:minmax(96px,1fr) 18px minmax(105px,.85fr) 18px minmax(100px,1fr);padding-left:9px;padding-right:9px}.flow-row{padding-left:7px;padding-right:7px}.flow-coremark{width:78px;height:78px}}
+@media(max-width:980px){.flowdemo{max-width:680px}.hero-why{grid-template-columns:1fr 1fr}.hero-why>div:nth-child(2){border-bottom:1px solid var(--line)}.run-showcase,.method-panel{grid-template-columns:1fr;gap:26px}.method-vis{min-height:240px}.home .path2-in{grid-template-columns:repeat(4,1fr)}.run-copy{max-width:40rem}}
+@media(max-width:650px){.flow-grid{grid-template-columns:1fr;gap:9px;min-height:0}.flow-rail{height:24px;width:2px;justify-self:center}.flow-rail::after{right:-3px;top:auto;bottom:-1px;border-left:3px solid transparent;border-right:3px solid transparent;border-top:5px solid var(--line-2);border-bottom:0}.flow-rail i{left:-3px!important;animation:flowParticleY 2.3s linear infinite}@keyframes flowParticleY{from{top:0;opacity:0}15%,85%{opacity:1}to{top:18px;opacity:0}}.flow-coremark{width:86px;height:86px}.hero-why{grid-template-columns:1fr}.hero-why>div{border-right:0;border-bottom:1px solid var(--line)}.home .path2-in{grid-template-columns:repeat(2,1fr);gap:26px 0}.home .path2-in::before{display:none}.method-panel{padding:22px}.audit-row{grid-template-columns:1fr 1fr}.audit-row em{display:none}.orchestration-mini{grid-template-columns:1fr 24px 1fr;padding:12px}.auto-checks{grid-template-columns:1fr}.run-showcase{margin-top:42px;padding-top:42px}}
+@media(prefers-reduced-motion:reduce){.flow-progress i{width:100%}.flow-row{border-color:var(--line)}.flow-rail i{display:none}.mini-arrows i::before{display:none}.audit-row i b{transform:none}.auto-progress i{width:100%}.opt-bars i{transform:none}}
+
+/* shared full-size method animations */
+.blueprint-slot,.orchestration-slot{padding:0;min-height:330px;background:linear-gradient(150deg,#15154A,#282876)}.slot-fallback{display:grid;place-items:center;min-height:330px;font-family:var(--mono);font-size:10px;letter-spacing:.14em;color:var(--lav)}.blueprint-slot>.bp-svg{width:100%;max-width:none;border-radius:13px;box-shadow:none}.orchestration-slot>.xcol{width:100%;border:0;border-radius:13px;background:transparent}.orchestration-slot .hub{height:330px}
+/* hub geometry: every chip is centered on its anchor point via --pos (kept by the
+   bob float animation), and the svg line endpoints use the same percentages, so
+   lines meet chips at any aspect ratio. .hub.hub-custom outranks .hub .spoke:nth-of-type() */
+.hub.hub-custom .spoke{--pos:translate(-50%,-50%);transform:var(--pos)}
+.hub.hub-custom .sn-case{left:50%;top:8%;right:auto;bottom:auto}
+.hub.hub-custom .sn-email{left:82%;top:22%;right:auto;bottom:auto}
+.hub.hub-custom .sn-teams{left:90%;top:55%;right:auto;bottom:auto}
+.hub.hub-custom .sn-template{left:74%;top:84%;right:auto;bottom:auto;animation-delay:-1.2s}
+.hub.hub-custom .sn-billing{left:50%;top:92%;right:auto;bottom:auto}
+.hub.hub-custom .sn-drive{left:14%;top:78%;right:auto;bottom:auto}
+.hub.hub-custom .sn-sop{left:12%;top:26%;right:auto;bottom:auto}
+.hub-custom .sn-sop,.hub-custom .sn-template{border-color:rgba(94,230,196,.6);color:#8FF5DC}
+.hub-legend{position:absolute;left:4px;bottom:0;z-index:2;font-family:var(--mono);font-size:7.5px;letter-spacing:.1em;text-transform:uppercase;color:#9A9AC6;white-space:nowrap}
+.hub-legend i{display:inline-block;width:7px;height:7px;border-radius:2px;margin-right:5px;border:1px solid rgba(169,184,255,.45);background:#1B1B52;vertical-align:-1px}
+.hub-legend i.t{margin-left:12px;border-color:rgba(94,230,196,.6);background:rgba(94,230,196,.14)}
+/* uniform stage-panel height: all four visuals resolve to 430px tall */
+.home .method-panel{min-height:510px}
+.home .method-vis{min-height:430px}
+.home .blueprint-slot>.bp-svg svg{height:402px}
+.home .orchestration-slot .hub{height:368px}
+@media(max-width:650px){.blueprint-slot,.orchestration-slot,.slot-fallback{min-height:250px}.hub-custom .spoke{font-size:8px;padding:5px 7px}.hub-legend{font-size:6.5px}.home .method-vis{min-height:352px}.home .blueprint-slot>.bp-svg svg{height:300px}.home .orchestration-slot .hub{height:290px}}
+@media(prefers-reduced-motion:reduce){.blueprint-slot .bp-svg rect[stroke-dasharray]{stroke-dashoffset:0}.hub-custom .spoke{opacity:1}}
+
+/* v14 choreographed hero demo: organize → orchestrate → automate.
+   Default CSS is the finished state (no-JS and reduced-motion fallback);
+   JS adds .anim to enable the unbuilt states, then state classes rebuild it. */
+.flowdemo .flow-row{animation:none;transition:transform .6s cubic-bezier(.22,.9,.32,1.15),opacity .5s,border-color .35s,box-shadow .35s,filter .5s}
+.flowdemo .flow-progress i{animation:none;width:100%}
+.flowdemo .flow-rail i{animation:none;opacity:0}
+.flowdemo .flow-rail.active i{animation:flowParticle .95s linear}
+.flowdemo .flow-rail.active i+i{animation-delay:.16s}
+.flow-phases{display:flex;align-items:center;gap:7px;font-weight:500}
+.flow-phases em{font-style:normal;color:var(--muted);opacity:.5;transition:.3s}
+.flow-phases s{text-decoration:none;color:var(--line-2)}
+.flow-phases em.on{color:var(--blue);opacity:1}
+.flow-phases em.done{color:var(--teal);opacity:.85}
+.flowdemo .flow-rule{transition:opacity .35s,color .35s}
+.flow-rule.lit{color:var(--blue)}
+.flowdemo .flow-coremark{transition:opacity .45s,transform .45s}
+.apr{display:inline-block;margin-top:6px;width:max-content;font-style:normal;font-family:var(--mono);font-size:7px;letter-spacing:.09em;text-transform:uppercase;color:#8A6114;background:rgba(240,200,126,.16);border:1px solid rgba(240,200,126,.6);border-radius:4px;padding:2px 6px;transition:.35s}
+.apr.ok{color:#0B7A62;background:rgba(15,163,131,.1);border-color:rgba(15,163,131,.4)}
+#flowStatus{transition:opacity .25s}
+#flowNote{display:inline-block}
+#flowNote.flash{animation:notePulse .9s ease;color:#5EE6C4}
+@keyframes notePulse{0%{transform:scale(1)}30%{transform:scale(1.07)}100%{transform:scale(1)}}
+.flow-row.ping{border-color:#79A9FF;box-shadow:0 11px 22px -15px rgba(33,111,237,.75);transform:translateY(-2px)}
+/* unbuilt states, enabled by .anim */
+.flowdemo.anim .flow-inputs .flow-row:not(.set){opacity:.5;filter:saturate(.5)}
+.flowdemo.anim .flow-inputs .r1:not(.set){transform:rotate(-2.2deg) translate(-6px,2px)}
+.flowdemo.anim .flow-inputs .r2:not(.set){transform:rotate(1.7deg) translate(8px,-1px)}
+.flowdemo.anim .flow-inputs .r3:not(.set){transform:rotate(-1.3deg) translate(3px,3px)}
+.flowdemo.anim .flow-inputs .r4:not(.set){transform:rotate(2.4deg) translate(-8px,-2px)}
+.flowdemo.anim .flow-inputs .flow-row:not(.set)::before{background:var(--line-2)}
+.flow-inputs .flow-row.set::before{background:var(--blue)}
+.flowdemo.anim .flow-outputs .flow-row:not(.born){opacity:.3;filter:grayscale(1);border-style:dashed;box-shadow:none;transform:translateY(6px)}
+.flowdemo.anim .flow-outputs .flow-row:not(.born)::before{background:var(--line-2)}
+.flowdemo.anim .flow-rule:not(.lit){opacity:.38}
+.flowdemo.anim .flow-coremark{opacity:.55;transform:scale(.94);animation:none}
+.flowdemo.anim.ph2 .flow-coremark,.flowdemo.anim.ph3 .flow-coremark{opacity:1;transform:none;animation:corePulse 3s ease-in-out infinite}
+@media(max-width:650px){.flowdemo .flow-rail.active i{animation:flowParticleY .95s linear}}
+/* v16: What we build section (ported from homepage-broad) */
+.diagram-scroll{overflow-x:auto;-webkit-overflow-scrolling:touch;scrollbar-width:thin}
+.scrollcue{display:none;margin-top:10px;font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:#8181AC}
+@media (max-width:760px){
+  .fs-svg{padding:14px 12px}
+  .fs-svg svg{min-width:1000px}
+  .scrollcue{display:block}
+  .flow-ticker{flex-direction:column;align-items:flex-start;gap:4px}
+}
+@media (prefers-reduced-motion:reduce){
+  .fs-svg animate,.fs-svg animateMotion,.fs-svg animateTransform{display:none}
+  .fs-svg .flyer{display:none}
+}
+/* v18: What changes cards - grid layout, content-sized, examples always visible */
+.vband .bigvps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.vband .bigvp2{min-height:0}
+.vband .bigvp2 .eg{position:static;display:block;opacity:1;transform:none;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.14)}
+.vband .bigvp2:hover p{opacity:1}
+@media(max-width:980px){.vband .bigvps{grid-template-columns:1fr 1fr}}
+@media(max-width:600px){.vband .bigvps{grid-template-columns:1fr}}
+/* v19 logo: the mark reuses the operating-layer tile gradient from the hero demo */
+.logo{display:flex;align-items:center;gap:9px;text-decoration:none}
+.logo-mark{width:30px;height:30px;border-radius:9px;background:linear-gradient(145deg,var(--blue),var(--indigo));color:#fff;font-family:var(--sans,inherit);font-weight:800;font-size:18px;line-height:1;display:grid;place-items:center;box-shadow:0 6px 14px -9px rgba(40,40,118,.65)}
+.logo-word{font-weight:800;font-size:20px;letter-spacing:-.03em;color:var(--indigo)}
+.logo-word b{color:var(--blue);font-weight:800}
+.logo-mark-sm{width:22px;height:22px;border-radius:7px;font-size:13px;box-shadow:none}
+/* v21: origin-band chime + larger hero demo */
+.origin-chime{position:absolute;left:calc(50% - 552px);top:0;width:150px;height:auto;z-index:1}
+.originband .origin-in{margin-left:210px}
+.chime-sway{transform-origin:70px 0;animation:chimeSway 5s ease-in-out infinite alternate}
+@keyframes chimeSway{from{transform:rotate(-2deg)}to{transform:rotate(2deg)}}
+@media(max-width:1180px){.origin-chime{left:28px}}
+@media(max-width:900px){.origin-chime{display:none}.originband .origin-in{margin-left:0}}
+@media(prefers-reduced-motion:reduce){.chime-sway{animation:none}}
+.home .hero-grid{grid-template-columns:.92fr 1.08fr}
+.flowdemo{width:calc(100% + 90px);max-width:none}
+.flow-grid{min-height:420px;padding:24px 18px 22px;grid-template-columns:minmax(130px,1fr) 34px minmax(140px,.9fr) 34px minmax(140px,1fr)}
+.flow-label{font-size:9.5px;margin-bottom:11px}
+.flow-col{gap:11px}
+.flow-row{padding:12px 12px 11px;border-radius:11px}
+.flow-row b{font-size:12.5px}
+.flow-row small{font-size:9.5px;margin-top:2px}
+.flow-coremark{width:104px;height:104px;border-radius:28px}
+.flow-coremark b{font-size:30px}
+.flow-coremark span{font-size:8px}
+.flow-rule{font-size:8.5px;padding:6px 3px}
+.flow-head,.flow-foot{font-size:9.5px}
+.apr{font-size:8px}
+@media(max-width:1380px){.flowdemo{width:calc(100% + 50px)}}
+@media(max-width:1240px){.flowdemo{width:calc(100% + 20px)}}
+@media(max-width:980px){.flowdemo{width:100%;max-width:680px}.flow-grid{min-height:0}}
+/* v22 typography pass: floor small text at readable sizes */
+.eyebrow{font-size:12px}
+.chip{font-size:13.5px}
+.hero-why-intro>b{font-size:15px}
+.hero-why>div:not(.hero-why-intro)>b{font-size:13.5px}
+.hero-why>div:not(.hero-why-intro)>span{font-size:9px}
+.hero-why p{font-size:12px;line-height:1.5}
+.pstat span{font-size:14.5px}
+.pstep .pd{font-size:12.5px}
+.method-copy p{font-size:14.5px}
+.method-copy a{font-size:13px}
+.casehead{font-size:10.5px}
+.casecols b{font-size:10.5px}
+.casecols p{font-size:14px}
+.casestats span{font-size:10.5px}
+.casefine{font-size:10.5px}
+.card h3{font-size:20px}
+.card p{font-size:15px}
+.card .go{font-size:14.5px}
+.wcard p{font-size:15px}
+.wf-list span{font-size:12.5px}
+.flow-ticker{font-size:12px}
+.scrollcue{font-size:11px}
+.bigvp2 p{font-size:14.5px}
+.bigvp2 .eg{font-size:13.5px}
+.sec-card h4{font-size:15.5px}
+.sec-card p{font-size:13.5px}
+.askbox p{font-size:15px}
+.final .fineprint{font-size:11px}
+.origin-copy{font-size:16.5px}
+.flow-foot{font-size:10.5px}
+.flow-head{font-size:10px}
+/* v23: second type bump + tighter alleys to pay for it */
+body{font-size:17px}
+.hero .sub{font-size:19px}
+.head p{font-size:18px}
+.lede{font-size:18px}
+.eyebrow{font-size:12.5px}
+.chip{font-size:14px}
+.btn{font-size:15px}
+.hero-why-intro>b{font-size:16.5px}
+.hero-why>div:not(.hero-why-intro)>b{font-size:15px}
+.hero-why>div:not(.hero-why-intro)>span{font-size:10px}
+.hero-why p{font-size:13.5px}
+.pstat span{font-size:15.5px}
+.pstep .pd{font-size:13.5px}
+.method-copy p{font-size:16px}
+.method-copy a{font-size:14px}
+.casehead{font-size:11.5px}
+.casecols b{font-size:11.5px}
+.casecols p{font-size:15.5px}
+.casestats span{font-size:11.5px}
+.casefine{font-size:11.5px}
+.card h3{font-size:21px}
+.card p{font-size:16px}
+.card .go{font-size:15px}
+.wcard p{font-size:16px}
+.wf-list span{font-size:13.5px}
+.flow-ticker{font-size:13px}
+.scrollcue{font-size:12px}
+.bigvp2 p{font-size:15.5px}
+.bigvp2 .eg{font-size:14.5px}
+.sec-card h4{font-size:17px}
+.sec-card p{font-size:15px}
+.askbox p{font-size:15.5px}
+.faq summary{font-size:17.5px}
+.faq details p{font-size:16px}
+.origin-copy{font-size:17.5px}
+.final .fineprint{font-size:11.5px}
+.excard .pd{font-size:14.5px}
+/* hero demo internals */
+.flow-row b{font-size:13.5px}
+.flow-row small{font-size:10.5px}
+.flow-label{font-size:10.5px}
+.flow-rule{font-size:9.5px}
+.flow-head{font-size:10.5px}
+.flow-foot{font-size:11.5px}
+.apr{font-size:9px}
+.flow-grid{min-height:440px}
+/* tighter alleys */
+.hero-grid{gap:42px}
+.case-layout{gap:44px}
+.method-panel{gap:28px;padding:30px}
+.hero-why>div{padding:18px 20px}
+/* v24: security icons legible on dark - white silhouettes in soft tiles */
+.sec-card img{height:22px;width:22px;box-sizing:content-box;padding:9px;border-radius:10px;background:rgba(255,255,255,.10);border:1px solid rgba(255,255,255,.16);filter:brightness(0) invert(1);opacity:.95;margin-bottom:14px}
+/* v25: condensed path band, merged proof, chime coremark */
+.path2 a.pstep{text-decoration:none;color:inherit;display:block}
+.home .pstep .pic{opacity:1;filter:none;background:linear-gradient(145deg,var(--blue),var(--indigo));box-shadow:0 8px 18px -12px rgba(40,40,118,.5)}
+.home .pstep:hover .pt{color:var(--blue)}
+.home .path2{padding:64px 0 56px}
+.flow-coremark svg{width:46px;height:46px;display:block}
+.case-proof{display:flex;gap:44px;margin-top:28px;padding-top:24px;border-top:1px solid var(--line)}
+@media(max-width:600px){.case-proof{gap:24px;flex-wrap:wrap}}
+/* v26: caseflow timeline + path table */
+.caseflow{padding:20px 22px 8px}
+.cf-step{display:grid;grid-template-columns:34px 1fr auto;gap:14px;align-items:center;padding:13px 2px}
+.cf-step+.cf-step{border-top:1px dashed var(--line)}
+.cf-n{width:31px;height:31px;border-radius:9px;background:var(--wash);border:1px solid var(--line-2);display:grid;place-items:center;font-family:var(--mono);font-size:12.5px;color:var(--indigo);animation:cfGlow 15s linear infinite}
+.cf-step:nth-child(2) .cf-n{animation-delay:2.5s}.cf-step:nth-child(3) .cf-n{animation-delay:5s}
+.cf-step:nth-child(4) .cf-n{animation-delay:7.5s}.cf-step:nth-child(5) .cf-n{animation-delay:10s}.cf-step:nth-child(6) .cf-n{animation-delay:12.5s}
+@keyframes cfGlow{0%,100%{background:var(--wash);color:var(--indigo);box-shadow:none}4%,16%{background:linear-gradient(145deg,var(--blue),var(--indigo));color:#fff;border-color:transparent;box-shadow:0 6px 16px -8px rgba(33,111,237,.65)}20%{background:var(--wash);color:var(--indigo)}}
+.cf-step b{display:block;font-size:15.5px;color:var(--indigo)}
+.cf-step small{display:block;font-size:12.5px;color:var(--muted);margin-top:2px}
+.cf-tag{font-style:normal;font-family:var(--mono);font-size:9.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--blue);border:1px solid rgba(33,111,237,.3);border-radius:4px;padding:3px 8px}
+.cf-step.human .cf-tag{color:var(--teal);border-color:rgba(15,163,131,.4);background:rgba(15,163,131,.06)}
+@media(prefers-reduced-motion:reduce){.cf-n{animation:none}}
+.path-table{max-width:880px;margin:8px auto 0;border:1px solid var(--line);border-radius:16px;background:#fff;overflow:hidden;box-shadow:0 22px 44px -34px rgba(40,40,118,.4)}
+.pt-row{display:grid;grid-template-columns:225px 1fr auto;gap:20px;align-items:center;padding:19px 24px;text-decoration:none;transition:background .2s}
+.pt-row+.pt-row{border-top:1px solid var(--line)}
+.pt-row:hover{background:var(--wash)}
+.pt-left{display:flex;align-items:center;gap:13px}
+.pt-row .pic{width:40px;height:40px;border-radius:11px;background:linear-gradient(145deg,var(--blue),var(--indigo));display:grid;place-items:center;flex:none}
+.pt-row .pic svg{width:20px;height:20px;fill:none;stroke:#fff;stroke-width:1.6;stroke-linecap:round;stroke-linejoin:round}
+.pt-row .pn{display:block;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--blue)}
+.pt-row .pt2{display:block;font-size:17.5px;font-weight:800;color:var(--indigo);margin-top:1px}
+.pt-blurb{font-size:15px;color:var(--muted);line-height:1.5}
+.pt-go{font-size:14px;font-weight:800;color:var(--blue);white-space:nowrap}
+.pt-row:hover .pt-go{text-decoration:underline}
+@media(max-width:760px){.pt-row{grid-template-columns:1fr;gap:10px;padding:17px 18px}.pt-go{justify-self:start}}
+/* v28: hero CTAs on one line; why-custom banner folded into the path band */
+.hero-cta{flex-wrap:nowrap}
+.hero-cta .btn-lg{padding-left:22px;padding-right:22px;white-space:nowrap}
+@media(max-width:700px){.hero-cta{flex-wrap:wrap}}
+.path-why .hero-why{margin-top:46px}
+.path-why .whyquote{margin-top:44px}
+.path-why .beunique{text-align:center;margin:26px 0 10px}
+/* v29: size the display face to the longer headline */
+.hero h1{font-size:clamp(34px,4.35vw,52px)}
+/* v29 mobile: restore the hero stack (the .home .hero-grid split was outranking the 980px collapse) */
+@media(max-width:980px){.home .hero-grid{grid-template-columns:1fr;gap:36px}.flowdemo{margin:0 auto}}
+/* v29 mobile: re-assert the single-column demo (the v21 enlargement rule was outranking it) */
+@media(max-width:650px){.flow-grid{grid-template-columns:1fr;min-height:0;padding:18px 14px 16px}.flow-coremark{width:96px;height:96px}}
+/* v30: drop the decorative quote mark; make Be unique pop */
+.whyquote blockquote::before{content:none}
+.handwrite{color:#7C3AED}
+</style>
+</head>
+<body class="home">
+<span id="top"></span>
+<a href="#main" class="skip">Skip to content</a>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <span style="display:flex;align-items:center"><a href="/" aria-label="Dodonai" class="logo"><span class="logo-mark" aria-hidden="true"><svg viewBox="0 0 64 64" width="20" height="20"><g stroke="#fff" stroke-linecap="round" fill="none"><line x1="16" y1="16" x2="48" y2="16" stroke-width="5"/><line x1="23" y1="24" x2="23" y2="40" stroke-width="7"/><line x1="32" y1="24" x2="32" y2="50" stroke-width="7"/><line x1="41" y1="24" x2="41" y2="35" stroke-width="7"/></g><circle cx="32" cy="57" r="4.5" fill="#A9B8FF"/></svg></span><span class="logo-word">Dodon<b>ai</b></span></a><a href="#origin" class="greek" aria-label="Dodona: where the name comes from"><span class="colon" aria-hidden="true">:</span>&#916;&#969;&#948;&#974;&#957;&#951;</a></span>
+    <div class="nav-links">
+      <a href="/ai-managed-services/how-it-works/">How it works</a>
+
+      <a href="#app">The app</a>
+      <a href="#security">Security</a>
+    </div>
+    <a class="btn btn-primary" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+    <details class="mnav"><summary aria-label="Open navigation"><i></i><i></i><i></i></summary><nav><a href="/ai-managed-services/how-it-works/">How it works</a><a href="#app">The app</a><a href="#security">Security</a></nav></details>
+  </div>
+</nav>
+
+<main id="main">
+
+<header class="hero dotgrid">
+  <img class="blob" src="https://www.dodon.ai/images/brand/ellipse-blue.webp" alt="" style="width:540px;top:-170px;right:-130px">
+  <img class="blob" src="https://www.dodon.ai/images/brand/ellipse-lavender.webp" alt="" style="width:430px;bottom:-150px;left:-130px">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">AI systems built and run for your firm</span>
+      <h1>Putting AI to work<br>is <span class="alt">our work.</span></h1>
+      <p class="sub">Scattered data, systems that don&rsquo;t talk, workflows that live in people&rsquo;s heads? Perfect. We organize, connect, and automate it all, then run it for you. The result: a firm automated on code you own, not another tool your team groans at.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Bring us one painful task</a>
+        <a class="btn btn-ghost btn-lg" href="/ai-managed-services/how-it-works/">See how the build works</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><i>&#10003;</i>Fixed price before we build</span>
+        <span class="chip"><i>&#10003;</i>You own what we build</span>
+        <span class="chip"><img src="https://www.dodon.ai/images/brand/icon-soc2.svg" alt="" style="height:15px;vertical-align:-3px;margin-right:6px">SOC 2 certified</span>
+      </div>
+    </div>
+    <div class="flowdemo" id="flowdemo" aria-label="Demo: firm data is organized, systems are orchestrated through a custom AI operating layer, and work is automated into review-ready output">
+      <div class="flow-head"><span><i></i>LIVE DEMO</span><b class="flow-phases"><em>Organize</em><s>&rarr;</s><em>Orchestrate</em><s>&rarr;</s><em>Automate</em></b></div>
+      <div class="flow-progress"><i id="flowProg"></i></div>
+      <div class="flow-grid">
+        <div class="flow-col flow-inputs">
+          <span class="flow-label">Your firm</span>
+          <div class="flow-row r1"><b>Matter files</b><small>SharePoint</small></div>
+          <div class="flow-row r2"><b>New email</b><small>Outlook</small></div>
+          <div class="flow-row r3"><b>Matter data</b><small>Case system</small></div>
+          <div class="flow-row r4"><b>Precedent</b><small>Approved work</small></div>
+        </div>
+        <div class="flow-rail rail-l"><i></i><i></i></div>
+        <div class="flow-corebox">
+          <span class="flow-label">Custom layer</span>
+          <div class="flow-coremark"><svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#fff" stroke-linecap="round" fill="none"><line x1="16" y1="16" x2="48" y2="16" stroke-width="5"/><line x1="23" y1="24" x2="23" y2="40" stroke-width="7"/><line x1="32" y1="24" x2="32" y2="50" stroke-width="7"/><line x1="41" y1="24" x2="41" y2="35" stroke-width="7"/></g><circle cx="32" cy="57" r="4.5" fill="#A9B8FF"/></svg><span>Operating layer</span></div>
+          <div class="flow-rule">Your precedent</div><div class="flow-rule">Firm rules</div><div class="flow-rule">Review gates</div>
+        </div>
+        <div class="flow-rail rail-r"><i></i><i></i></div>
+        <div class="flow-col flow-outputs">
+          <span class="flow-label">Review ready</span>
+          <div class="flow-row o1"><b>Cited appeal</b><small>Draft work product</small></div>
+          <div class="flow-row o2"><b>Attorney review</b><small>Human in the loop</small><em class="apr">Awaiting approval</em></div>
+          <div class="flow-row o3"><b>Matter update</b><small>Staged in CRM</small></div>
+          <div class="flow-row o4"><b>Deadline alert</b><small>Conflict flagged</small></div>
+        </div>
+      </div>
+      <div class="flow-foot"><span id="flowStatus">Processing: 1,000+ page claim files</span><b id="flowNote">Nothing sent without approval</b></div>
+    </div>
+    </div>
+</header>
+
+<section class="home-case" aria-labelledby="case-title">
+  <div class="wrap case-layout">
+    <div class="case-copy">
+      <span class="eyebrow">In production</span>
+      <h2 id="case-title" class="disp">Proven first in legal. Built for work where mistakes are expensive.</h2>
+      <p>For a benefits practice, we connected the systems the team already used and built a controlled path from incoming claim files to cited work packages and attorney review.</p>
+      <div class="case-proof">
+        <div class="pstat"><b>250+</b><span>Firms running Dodonai software</span></div>
+        <div class="pstat"><b>50+</b><span>Custom agents live in client environments</span></div>
+      </div>
+    </div>
+    <article class="casebox">
+      <div class="casehead"><span>BENEFITS PRACTICE</span><b>ANONYMIZED ENGAGEMENT</b></div>
+      <div class="caseflow" aria-label="The live claim workflow, step by step">
+        <div class="cf-step"><span class="cf-n">1</span><div><b>Documents received</b><small>New records arrive by email or the client portal</small></div><em class="cf-tag">Auto</em></div>
+        <div class="cf-step"><span class="cf-n">2</span><div><b>Filed to the client folder</b><small>Matched to the right matter, no touch</small></div><em class="cf-tag">Auto</em></div>
+        <div class="cf-step"><span class="cf-n">3</span><div><b>Organized, indexed, summarized</b><small>Every page searchable and cited</small></div><em class="cf-tag">Auto</em></div>
+        <div class="cf-step"><span class="cf-n">4</span><div><b>Key documents extracted</b><small>Denial letters, medical records, policies</small></div><em class="cf-tag">Auto</em></div>
+        <div class="cf-step human"><span class="cf-n">5</span><div><b>Attorney notified</b><small>Staged and ready for review</small></div><em class="cf-tag">Human</em></div>
+        <div class="cf-step"><span class="cf-n">6</span><div><b>Appeal for benefits drafted</b><small>Approved template populated with the extracted data</small></div><em class="cf-tag">Auto</em></div>
+      </div>
+      <div class="casestats">
+        <div><strong>4</strong><span>CORE SYSTEMS CONNECTED</span></div>
+        <div><strong>1,000+</strong><span>PAGE CLAIM FILES, PROCESSED</span></div>
+        <div><strong>24/7</strong><span>RUNNING IN THE FIRM&rsquo;S CLOUD</span></div>
+      </div>
+    </article>
+  </div>
+</section>
+
+<div class="path2" id="path">
+  <div class="wrap path2-title"><span class="eyebrow">The path to AI native</span><h3>Four stages. One accountable partner.</h3></div>
+  <div class="wrap"><div class="path-table">
+    <a class="pt-row" href="/ai-managed-services/how-it-works/#organize">
+      <span class="pt-left"><span class="pic"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M3 8.5h14M8.5 3v14"/></svg></span><span><span class="pn">STAGE 01</span><span class="pt2">Organize</span></span></span>
+      <span class="pt-blurb">We map the work, audit the data and systems, and hand you a fixed-price Blueprint.</span>
+      <span class="pt-go">Explore &rarr;</span>
+    </a>
+    <a class="pt-row" href="/ai-managed-services/how-it-works/#orchestrate">
+      <span class="pt-left"><span class="pic"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="3"/><path d="M10 2.5v3M10 14.5v3M2.5 10h3M14.5 10h3"/><circle cx="10" cy="2.5" r="1.2"/><circle cx="10" cy="17.5" r="1.2"/><circle cx="2.5" cy="10" r="1.2"/><circle cx="17.5" cy="10" r="1.2"/></svg></span><span><span class="pn">STAGE 02</span><span class="pt2">Orchestrate</span></span></span>
+      <span class="pt-blurb">We connect email, documents, and case systems through one operating layer.</span>
+      <span class="pt-go">Explore &rarr;</span>
+    </a>
+    <a class="pt-row" href="/ai-managed-services/how-it-works/#automate">
+      <span class="pt-left"><span class="pic"><svg viewBox="0 0 20 20"><path d="M11 2 4.5 11H9l-1 7 7.5-10H11z"/></svg></span><span><span class="pn">STAGE 03</span><span class="pt2">Automate</span></span></span>
+      <span class="pt-blurb">Agents take the repetitive work and stage everything for your team&rsquo;s review.</span>
+      <span class="pt-go">Explore &rarr;</span>
+    </a>
+    <a class="pt-row" href="/ai-managed-services/how-it-works/#optimize">
+      <span class="pt-left"><span class="pic"><svg viewBox="0 0 20 20"><path d="M3 15l4.5-4.5 3 3L17 6"/><path d="M13 6h4v4"/></svg></span><span><span class="pn">STAGE 04</span><span class="pt2">Optimize</span></span></span>
+      <span class="pt-blurb">We run it in our cloud and improve it every month from what actually happens.</span>
+      <span class="pt-go">Explore &rarr;</span>
+    </a>
+  </div></div>
+  <div class="wrap path-why">
+<div class="hero-why" aria-label="Why custom AI">
+      <div class="hero-why-intro"><span class="eyebrow">Why custom</span><b>The model is common.<br>Your operating knowledge is not.</b></div>
+      <div><span>01</span><b>Your precedent</b><p>Approved work product shapes every draft.</p></div>
+      <div><span>02</span><b>Your rules</b><p>Exceptions and approval gates are built in.</p></div>
+      <div><span>03</span><b>Your systems</b><p>The team keeps the software it already uses.</p></div>
+    </div>
+    <div class="whyquote"><blockquote>One size fits all fits almost nobody.</blockquote><p>The technology meant to differentiate firms should not make them all run the same way. Everyone has the same models; the edge is everything built around them &mdash; your precedent, your process, your standards.</p></div>
+    <div class="beunique"><span class="handwrite">Be unique.</span></div>
+  </div>
+  <div class="wrap path-home-cta"><a class="btn btn-ghost" href="/ai-managed-services/how-it-works/">Walk through all four stages &rarr;</a></div>
+</div>
+
+
+<section class="vband">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" style="color:#5EE6C4">What changes</span>
+      <h2 class="disp">Run the firm you always meant to run.</h2>
+      <p class="lede" style="color:#C7CCEF">The same team, a different week.</p>
+    </div>
+    <div class="bigvps">
+      <div class="bigvp2"><span class="idx">01</span><span class="dir">&darr;</span><span class="word">Overhead</span><p>Fewer manual steps, less re-keying, none of the work about work.</p><span class="eg">Data entered once, everywhere it needs to be.</span></div>
+      <div class="bigvp2"><span class="idx">02</span><span class="dir">&uarr;</span><span class="word">Speed</span><p>Drafts, filings, and follow-ups staged before anyone asks.</p><span class="eg">The demand package is drafted the morning the records arrive.</span></div>
+      <div class="bigvp2"><span class="idx">03</span><span class="dir">&uarr;</span><span class="word">Capacity</span><p>The same team carries a bigger caseload without the late nights.</p><span class="eg">Intake answered in minutes, not on Monday.</span></div>
+      <div class="bigvp2"><span class="idx">04</span><span class="dir">&uarr;</span><span class="word">Morale</span><p>People keep the judgment calls. The drudgery goes to the agents.</p><span class="eg">Nobody builds a chronology at 9 PM again.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="blueprint">
+  <div class="wrap">
+    <div class="split2">
+    <div>
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M3 8.5h14M8.5 3v14"/></svg></span><span><span class="st">Step 01</span><br><span class="sn">Blueprint Audit</span></span></div>
+      <h2 class="disp">Two weeks in, you hold <span class="grad">the plan.</span></h2>
+      <p class="lede">We interview your team and audit your data and systems. You leave with a written blueprint for automation: what to build, in what order, what each piece saves, and a fixed price for every line. Nothing gets built until you approve it.</p>
+    </div>
+    <div class="bp-svg" aria-label="A blueprint of the firm drawing itself, with automations stamped on">
+      <svg viewBox="0 0 560 430" xmlns="http://www.w3.org/2000/svg">
+        <defs><pattern id="bgrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/></pattern></defs>
+        <rect x="0" y="0" width="560" height="430" fill="url(#bgrid)"/>
+        <text x="24" y="34" class="fs-mono" font-size="10" letter-spacing="2" fill="#A9B8FF">FIRM BLUEPRINT &middot; DRAFT 1</text>
+        <text x="536" y="34" text-anchor="end" class="fs-mono" font-size="9" fill="#6B71A8">ILLUSTRATIVE</text>
+        <g fill="none" stroke="#fff" stroke-width="1.3" opacity=".9">
+          <rect x="30" y="60" width="220" height="100" rx="6" stroke-dasharray="640" stroke-dashoffset="640"><animate attributeName="stroke-dashoffset" values="640;0;0;640" keyTimes="0;.12;.94;1" dur="11s" repeatCount="indefinite"/></rect>
+          <rect x="310" y="60" width="220" height="100" rx="6" stroke-dasharray="640" stroke-dashoffset="640"><animate attributeName="stroke-dashoffset" values="640;640;0;0;640" keyTimes="0;.1;.22;.94;1" dur="11s" repeatCount="indefinite"/></rect>
+          <rect x="30" y="200" width="220" height="100" rx="6" stroke-dasharray="640" stroke-dashoffset="640"><animate attributeName="stroke-dashoffset" values="640;640;0;0;640" keyTimes="0;.2;.32;.94;1" dur="11s" repeatCount="indefinite"/></rect>
+          <rect x="310" y="200" width="220" height="100" rx="6" stroke-dasharray="640" stroke-dashoffset="640"><animate attributeName="stroke-dashoffset" values="640;640;0;0;640" keyTimes="0;.3;.42;.94;1" dur="11s" repeatCount="indefinite"/></rect>
+          <path d="M250,110 H310" stroke-dasharray="60" stroke-dashoffset="60"><animate attributeName="stroke-dashoffset" values="60;60;0;0;60" keyTimes="0;.24;.3;.94;1" dur="11s" repeatCount="indefinite"/></path>
+          <path d="M140,160 V200" stroke-dasharray="40" stroke-dashoffset="40"><animate attributeName="stroke-dashoffset" values="40;40;0;0;40" keyTimes="0;.34;.4;.94;1" dur="11s" repeatCount="indefinite"/></path>
+          <path d="M250,250 H310" stroke-dasharray="60" stroke-dashoffset="60"><animate attributeName="stroke-dashoffset" values="60;60;0;0;60" keyTimes="0;.42;.48;.94;1" dur="11s" repeatCount="indefinite"/></path>
+          <path d="M420,160 V200" stroke-dasharray="40" stroke-dashoffset="40"><animate attributeName="stroke-dashoffset" values="40;40;0;0;40" keyTimes="0;.38;.44;.94;1" dur="11s" repeatCount="indefinite"/></path>
+        </g>
+        <g class="fs-mono" font-size="11" fill="#DDE1F5">
+          <g><text x="46" y="88">INTAKE</text><text x="46" y="106" font-size="8.5" fill="#8B92BE">7 LEADS / DAY &middot; 3 TOUCHES EACH</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.1;.14;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><text x="326" y="88">DRAFTING</text><text x="326" y="106" font-size="8.5" fill="#8B92BE">TEMPLATES LIVE IN 4 PLACES</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.2;.24;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><text x="46" y="228">RECORDS</text><text x="46" y="246" font-size="8.5" fill="#8B92BE">CHASED BY HAND, 3 STAFF</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.3;.34;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><text x="326" y="228">BILLING</text><text x="326" y="246" font-size="8.5" fill="#8B92BE">INVOICES LAG 12 DAYS</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.4;.44;.94;1" dur="11s" repeatCount="indefinite"/></g>
+        </g>
+        <g class="fs-mono" font-size="8.5">
+          <g><circle cx="220" cy="132" r="12" fill="#F0C87E"/><text x="220" y="136" text-anchor="middle" fill="#282876" font-size="11">&#9889;</text><rect x="146" y="120" width="62" height="16" rx="8" fill="#1B1B52" stroke="#F0C87E"/><text x="177" y="131" text-anchor="middle" fill="#F0C87E">AGENT 01</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.5;.55;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><circle cx="500" cy="132" r="12" fill="#F0C87E"/><text x="500" y="136" text-anchor="middle" fill="#282876" font-size="11">&#9889;</text><rect x="426" y="120" width="62" height="16" rx="8" fill="#1B1B52" stroke="#F0C87E"/><text x="457" y="131" text-anchor="middle" fill="#F0C87E">AGENT 02</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.58;.63;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><circle cx="220" cy="272" r="12" fill="#F0C87E"/><text x="220" y="276" text-anchor="middle" fill="#282876" font-size="11">&#9889;</text><rect x="146" y="260" width="62" height="16" rx="8" fill="#1B1B52" stroke="#F0C87E"/><text x="177" y="271" text-anchor="middle" fill="#F0C87E">AGENT 03</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.66;.71;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><circle cx="500" cy="272" r="12" fill="#F0C87E"/><text x="500" y="276" text-anchor="middle" fill="#282876" font-size="11">&#9889;</text><rect x="426" y="260" width="62" height="16" rx="8" fill="#1B1B52" stroke="#F0C87E"/><text x="457" y="271" text-anchor="middle" fill="#F0C87E">AGENT 04</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.74;.79;.94;1" dur="11s" repeatCount="indefinite"/></g>
+        </g>
+        <g><rect x="120" y="336" width="320" height="42" rx="21" fill="rgba(94,230,196,.1)" stroke="#5EE6C4"/><text x="280" y="356" text-anchor="middle" class="fs-mono" font-size="9.5" fill="#5EE6C4">4 AUTOMATIONS FOUND &middot; SEQUENCED BY RETURN</text><text x="280" y="370" text-anchor="middle" class="fs-mono" font-size="8.5" fill="#8FF5DC">EACH AT A FIXED PRICE YOU APPROVE FIRST</text>
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.8;.86;.96;1" dur="11s" repeatCount="indefinite"/></g>
+        <text x="280" y="412" text-anchor="middle" class="fs-mono" font-size="9" fill="#6B71A8">WE DRAW HOW THE FIRM RUNS &middot; THEN MARK WHERE AGENTS TAKE OVER</text>
+      </svg>
+    </div>
+    </div>
+
+    <div class="bpdoc" aria-label="Example blueprint output">
+      <div class="bh"><span class="t">OUTPUT · THE BLUEPRINT (EXCERPT)</span><span class="ill">Illustrative</span></div>
+      <div>
+        <div class="bprow"><span class="n">01</span><span class="w">Records chase agent<small>Highest leverage: 3 people spend mornings on provider follow-up.</small></span><span class="seq">WAVE 1 · WKS 1-3</span><span class="fp">FIXED PRICE</span></div>
+        <div class="bprow"><span class="n">02</span><span class="w">Document ingestion<small>Everything arriving by mail and email, classified and filed.</small></span><span class="seq">WAVE 1 · WKS 2-4</span><span class="fp">FIXED PRICE</span></div>
+        <div class="bprow"><span class="n">03</span><span class="w">Deadline capture<small>Orders parsed to calendar, conflicts flagged, nothing missed.</small></span><span class="seq">WAVE 2 · WKS 4-6</span><span class="fp">FIXED PRICE</span></div>
+        <div class="bprow"><span class="n">04</span><span class="w">Client digest<small>Status updates drafted in the firm voice for every open matter.</small></span><span class="seq">WAVE 2 · WKS 5-7</span><span class="fp">FIXED PRICE</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="organize" class="wash">
+  <div class="wrap">
+    <div class="head" style="max-width:52rem">
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><path d="M2.5 5.5h5l1.6 2h8.4v8a1.5 1.5 0 0 1-1.5 1.5H4a1.5 1.5 0 0 1-1.5-1.5z"/><path d="M2.5 5.5V4A1.5 1.5 0 0 1 4 2.5h4"/></svg></span><span><span class="st">Step 02</span><br><span class="sn">Organize</span></span></div>
+      <h2 class="disp">Turn the pile into <span class="grad">raw material.</span></h2>
+      <p class="lede">Documents and data classified. Systems and workflows mapped. All of it searchable. This is the foundation every agent builds on.</p>
+    </div>
+
+    <div class="orow">
+      <div>
+        <span class="num">02.1 &middot; DOCUMENTS &amp; DATA</span>
+        <h3>Storage, standardized.</h3>
+        <p class="od">One structure for every matter, created automatically the moment a case opens. Existing files migrate into it; new files are born organized. No more "New folder (3)".</p>
+      </div>
+      <div class="vis" style="max-width:560px;justify-self:center;width:100%"><svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+          <g><rect x="60" y="18" width="260" height="28" rx="14" fill="#282876"/><text x="190" y="36" text-anchor="middle" class="fs-mono" font-size="10" fill="#A9B8FF">&#9889; NEW MATTER &middot; SINGH V. ALLIED</text>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.95;1" dur="9s" repeatCount="indefinite"/></g>
+          <line x1="190" y1="46" x2="190" y2="66" stroke="#CFD3E8" stroke-width="1.5" class="ants"/>
+          <g><rect x="30" y="68" width="320" height="26" rx="6" fill="#1E1E5A"/><text x="44" y="85" class="fs-mono" font-size="9.5" fill="#A9B8FF">/ MATTERS / SINGH-V-ALLIED</text>
+            <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.12;.18;.95;1" dur="9s" repeatCount="indefinite"/></g>
+          <g class="fs-mono" font-size="9.5">
+            <g><rect x="52" y="104" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="120" fill="#282876">01 &middot; INTAKE &amp; ENGAGEMENT</text><text x="332" y="120" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.2;.25;.95;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="52" y="134" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="150" fill="#282876">02 &middot; PLEADINGS &amp; DRAFTS</text><text x="332" y="150" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.27;.32;.95;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="52" y="164" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="180" fill="#282876">03 &middot; MEDICAL RECORDS</text><text x="332" y="180" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.34;.39;.95;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="52" y="194" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="210" fill="#282876">04 &middot; CORRESPONDENCE</text><text x="332" y="210" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.41;.46;.95;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="52" y="224" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="240" fill="#282876">05 &middot; BILLING &amp; COSTS</text><text x="332" y="240" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.48;.53;.95;1" dur="9s" repeatCount="indefinite"/></g>
+          </g>
+          <circle r="3.5" fill="#216FED"><animateMotion dur="9s" repeatCount="indefinite" path="M20,150 C30,140 40,120 56,116" keyPoints="0;0;1;1" keyTimes="0;.6;.68;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.6;.64;.69;1" dur="9s" repeatCount="indefinite"/></circle>
+          <circle r="3.5" fill="#0FA383"><animateMotion dur="9s" repeatCount="indefinite" path="M20,190 C30,185 40,178 56,176" keyPoints="0;0;1;1" keyTimes="0;.7;.78;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.7;.74;.79;1" dur="9s" repeatCount="indefinite"/></circle>
+          <text x="190" y="284" text-anchor="middle" class="fs-mono" font-size="9" fill="#8181AC">SAME STRUCTURE, EVERY MATTER &middot; CREATED ON INTAKE</text>
+        </svg></div>
+    </div>
+    <div class="orow">
+      <div>
+        <span class="num">02.2 &middot; SYSTEMS &amp; WORKFLOWS</span>
+        <h3>Every workflow traced.</h3>
+        <p class="od">We follow the work through your systems and write down what we find: every handoff, every re-key, every place a matter waits on a human router.</p>
+      </div>
+      <div class="vis" style="max-width:560px;justify-self:center;width:100%"><svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#fff" stroke="#CFD3E8">
+            <rect x="130" y="24" width="120" height="34" rx="8"><animate attributeName="stroke" values="#CFD3E8;#216FED;#CFD3E8;#CFD3E8" keyTimes="0;.1;.2;1" dur="8s" repeatCount="indefinite"/></rect>
+            <rect x="24" y="128" width="120" height="34" rx="8"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#216FED;#CFD3E8" keyTimes="0;.25;.35;.45" dur="8s" repeatCount="indefinite"/></rect>
+            <rect x="236" y="128" width="120" height="34" rx="8"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#216FED;#CFD3E8" keyTimes="0;.5;.6;.7" dur="8s" repeatCount="indefinite"/></rect>
+            <rect x="130" y="232" width="120" height="34" rx="8"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#216FED;#CFD3E8" keyTimes="0;.72;.82;.92" dur="8s" repeatCount="indefinite"/></rect>
+          </g>
+          <g class="fs-mono" font-size="9.5" fill="#282876">
+            <text x="190" y="45" text-anchor="middle">CASE MGMT</text>
+            <text x="84" y="149" text-anchor="middle">OUTLOOK</text>
+            <text x="296" y="149" text-anchor="middle">ONEDRIVE</text>
+            <text x="190" y="253" text-anchor="middle">BILLING</text>
+          </g>
+          <path id="w1" d="M150,60 C120,88 100,103 90,126" stroke="#CFD3E8" stroke-width="1.5" fill="none" class="ants"/>
+          <path id="w2" d="M144,150 C190,150 230,150 234,148" stroke="#CFD3E8" stroke-width="1.5" fill="none" class="ants"/>
+          <path id="w3" d="M296,164 C280,195 245,215 215,230" stroke="#CFD3E8" stroke-width="1.5" fill="none" class="ants"/>
+          <circle r="4" fill="#216FED"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.1;.3;1" calcMode="linear"><mpath href="#w1"/></animateMotion><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.1;.28;.32;1" dur="8s" repeatCount="indefinite"/></circle>
+          <circle r="4" fill="#216FED"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.35;.55;1" calcMode="linear"><mpath href="#w2"/></animateMotion><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.35;.53;.57;1" dur="8s" repeatCount="indefinite"/></circle>
+          <circle r="4" fill="#216FED"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.6;.8;1" calcMode="linear"><mpath href="#w3"/></animateMotion><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.6;.78;.82;1" dur="8s" repeatCount="indefinite"/></circle>
+          <g class="fs-mono" font-size="8" fill="#B9821F">
+            <g><rect x="30" y="80" width="88" height="16" rx="8" fill="#FFF8EC" stroke="#B9821F"/><text x="74" y="91" text-anchor="middle">RE-KEYED DAILY</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.14;.2;.94;1" dur="8s" repeatCount="indefinite"/></g>
+            <g><rect x="152" y="122" width="76" height="16" rx="8" fill="#FFF8EC" stroke="#B9821F"/><text x="190" y="133" text-anchor="middle">NO SYNC</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.4;.46;.94;1" dur="8s" repeatCount="indefinite"/></g>
+            <g><rect x="238" y="196" width="104" height="16" rx="8" fill="#FFF8EC" stroke="#B9821F"/><text x="290" y="207" text-anchor="middle">MANUAL EXPORT</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.64;.7;.94;1" dur="8s" repeatCount="indefinite"/></g>
+          </g>
+          <text x="190" y="290" text-anchor="middle" class="fs-mono" font-size="9" fill="#8181AC">EVERY HANDOFF TRACED &middot; EVERY GAP PRICED</text>
+        </svg></div>
+    </div>
+    <div class="orow">
+      <div>
+        <span class="num">02.3 &middot; SEARCHABLE</span>
+        <h3>Ask your workspace anything.</h3>
+        <p class="od">Not keyword search: answers. Documents, mail, and billing in one semantic index, so the firm's knowledge responds in sentences with sources attached.</p>
+      </div>
+      <div class="vis" style="max-width:560px;justify-self:center;width:100%"><div class="qa">
+          <div class="qabar"><svg viewBox="0 0 20 20"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg><span id="qaQ">What did we agree to in the Singh fee agreement?</span></div>
+          <div class="qaans">
+            <p><b>33% contingency, costs advanced,</b> signed March 12. The signed copy is filed to the matter; the current template has since moved to v4.</p>
+            <div class="qasrc"><span>FEE AGREEMENT &middot; SIGNED PDF</span><span>EMAIL &middot; MAR 12</span><span>TEMPLATES / V4</span></div>
+          </div>
+          <div class="qacap">ANSWERS WITH SOURCES &middot; DOCUMENTS, MAIL, BILLING, ONE INDEX</div>
+        </div></div>
+    </div>
+
+    <div class="keep-head"><span>WHAT YOU KEEP</span><h3>Three deliverables, yours to keep.</h3></div>
+    <div class="dlv2-row" style="grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:22px;margin-top:18px">
+      <div class="dlv2"><span class="dt">Deliverable</span><h4>Document templates</h4>
+        <div class="tplprev">
+          <b style="font-size:11px;color:#282876">ENGAGEMENT LETTER &middot; v4</b><br>
+          Dear <span class="tk">{client_name}</span>, this letter confirms that <span class="tk">{firm_name}</span> will represent you in <span class="tk">{matter_desc}</span> on a <span class="tk">{fee_pct}</span> contingency basis&hellip;
+          <span class="cond"><b>&#8627; IF</b> client is a minor <b>&rarr;</b> insert guardian signature block</span>
+          <span class="cond"><b>&#8627; IF</b> fee is hourly <b>&rarr;</b> swap contingency clause for rate schedule</span>
+        </div>
+      </div>
+      <div class="dlv2"><span class="dt">Deliverable</span><h4>Workflow SOPs</h4>
+        <div class="sopprev">
+          <b style="font-size:11px;color:#282876">SOP &middot; NEW MATTER INTAKE</b>
+          <div class="sopstep"><span class="sn2">01</span>Lead scored against firm criteria within the hour</div>
+          <div class="sopstep"><span class="sn2">02</span>Conflict check across contacts and prior matters</div>
+          <div class="sopstep"><span class="sn2">03</span>Engagement letter generated from template</div>
+          <div class="sopbranch"><b>IF</b> conflict found <b>&rarr;</b> route to managing partner, halt</div>
+          <div class="sopstep"><span class="sn2">04</span>On signature: standard folder set created, matter opened</div>
+        </div>
+      </div>
+      <div class="dlv2"><span class="dt">Deliverable</span><h4>Systems maps</h4>
+        <div class="sopprev" style="display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 300 160" style="width:100%">
+            <g fill="#fff" stroke="#CFD3E8"><rect x="110" y="10" width="80" height="24" rx="6"/><rect x="14" y="68" width="80" height="24" rx="6"/><rect x="206" y="68" width="80" height="24" rx="6"/><rect x="110" y="126" width="80" height="24" rx="6"/></g>
+            <g stroke="#216FED" stroke-width="1.2"><line x1="130" y1="34" x2="70" y2="66"/><line x1="170" y1="34" x2="230" y2="66"/><line x1="70" y1="92" x2="130" y2="126"/><line x1="230" y1="92" x2="170" y2="126"/><line x1="94" y1="80" x2="206" y2="80"/></g>
+            <g class="fs-mono" font-size="8" fill="#282876"><text x="150" y="26" text-anchor="middle">CASE MGMT</text><text x="54" y="84" text-anchor="middle">EMAIL</text><text x="246" y="84" text-anchor="middle">DOCS</text><text x="150" y="142" text-anchor="middle">BILLING</text></g>
+            <circle cx="150" cy="80" r="3" fill="#B9821F"/><text x="150" y="70" text-anchor="middle" class="fs-mono" font-size="7" fill="#B9821F">GAP</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="orchestrate" class="ink">
+  <div class="wrap">
+    <div class="head" style="max-width:52rem">
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="3"/><path d="M10 2.5v3M10 14.5v3M2.5 10h3M14.5 10h3"/><circle cx="10" cy="2.5" r="1.2"/><circle cx="10" cy="17.5" r="1.2"/><circle cx="2.5" cy="10" r="1.2"/><circle cx="17.5" cy="10" r="1.2"/></svg></span><span><span class="st">Step 03</span><br><span class="sn">Connect</span></span></div>
+      <h2 class="disp">One orchestration layer across the systems you keep.</h2>
+      <p class="lede">Today, a person is the integration layer. The orchestration layer replaces the clicking-between and connects what you keep, what we build, and what we bridge.</p>
+    </div>
+
+    <div class="xform">
+      <div class="xcol">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:#F0C87E;display:inline-block"></span> Today</div>
+        <div class="scatter">
+          <span class="tool-chip" style="top:6%;left:8%;transform:rotate(-4deg)">Case Management</span>
+          <span class="tool-chip" style="top:10%;left:58%;transform:rotate(3deg)">Outlook</span>
+          <span class="tool-chip" style="top:34%;left:24%;transform:rotate(2deg)">OneDrive</span>
+          <span class="tool-chip" style="top:42%;left:66%;transform:rotate(-3deg)">Billing</span>
+          <span class="tool-chip" style="top:58%;left:6%;transform:rotate(4deg)">DocuSign</span>
+          <span class="tool-chip" style="top:66%;left:48%;transform:rotate(-2deg)">Teams</span>
+          <span class="tool-chip" style="top:82%;left:20%;transform:rotate(-3deg)">Calendar</span>
+          <span class="tool-chip" style="top:84%;left:64%;transform:rotate(2deg)">Payments</span>
+          <span class="runner"></span>
+          <span class="handlabel">one person, clicking between all of them</span>
+        </div>
+      </div>
+      <div class="xarrow"><span class="at">Build &amp; own</span><span class="ah">&rarr;</span></div>
+      <div class="xcol">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:#216FED;display:inline-block"></span> Orchestration layer</div>
+        <div class="hub hub-custom">
+          <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="82" y2="22"/><line x1="50" y1="50" x2="90" y2="55"/><line x1="50" y1="50" x2="74" y2="84"/><line x1="50" y1="50" x2="50" y2="92"/><line x1="50" y1="50" x2="14" y2="78"/><line x1="50" y1="50" x2="12" y2="26"/>
+            <line class="ep" pathLength="100" x1="50" y1="50" x2="50" y2="8"/><line class="ep" pathLength="100" x1="50" y1="50" x2="82" y2="22"/><line class="ep" pathLength="100" x1="50" y1="50" x2="90" y2="55"/><line class="ep" pathLength="100" x1="50" y1="50" x2="74" y2="84"/><line class="ep" pathLength="100" x1="50" y1="50" x2="50" y2="92"/><line class="ep" pathLength="100" x1="50" y1="50" x2="14" y2="78"/><line class="ep" pathLength="100" x1="50" y1="50" x2="12" y2="26"/>
+          </svg>
+          <div class="hub-core"><span class="hw">Orchestration</span><span class="hs">the layer</span></div>
+          <span class="spoke sn-case">Case Management</span><span class="spoke sn-email">Email &amp; Calendar</span><span class="spoke sn-teams">Teams</span><span class="spoke sn-billing">Billing</span>
+          <span class="spoke sn-drive">OneDrive</span><span class="spoke sn-sop">SOPs</span><span class="spoke sn-template">Document Templates</span>
+          <div class="hub-legend"><i></i>Your systems<i class="t"></i>Built by Dodonai</div>
+        </div>
+      </div>
+    </div>
+    <div class="xcap">
+      <p>Eight tabs, one human router, and every handoff a chance to drop the ball.</p>
+      <span></span>
+      <p>One layer reads and writes them all. The agents work here, and your team works where they always did.</p>
+    </div>
+
+    <div class="logos" aria-label="Platforms Dodonai integrates with">
+      <div class="logorow r1">
+        <span class="lbadge">Clio</span><span class="lbadge">MyCase</span><span class="lbadge">Filevine</span><span class="lbadge">Litify</span><span class="lbadge">Smokeball</span><span class="lbadge">PracticePanther</span><span class="lbadge">CASEpeer</span><span class="lbadge">Neos</span><span class="lbadge">Actionstep</span><span class="lbadge">NetDocuments</span><span class="lbadge">iManage</span><span class="lbadge">Egnyte</span><span class="lbadge">SharePoint</span><span class="lbadge">Google Drive</span><span class="lbadge">Dropbox</span><span class="lbadge">OneDrive</span>
+        <span class="lbadge">Clio</span><span class="lbadge">MyCase</span><span class="lbadge">Filevine</span><span class="lbadge">Litify</span><span class="lbadge">Smokeball</span><span class="lbadge">PracticePanther</span><span class="lbadge">CASEpeer</span><span class="lbadge">Neos</span><span class="lbadge">Actionstep</span><span class="lbadge">NetDocuments</span><span class="lbadge">iManage</span><span class="lbadge">Egnyte</span><span class="lbadge">SharePoint</span><span class="lbadge">Google Drive</span><span class="lbadge">Dropbox</span><span class="lbadge">OneDrive</span>
+      </div>
+      <div class="logorow r2">
+        <span class="lbadge">Gmail</span><span class="lbadge">Outlook</span><span class="lbadge">Google Calendar</span><span class="lbadge">DocuSign</span><span class="lbadge">Adobe Sign</span><span class="lbadge">QuickBooks</span><span class="lbadge">Xero</span><span class="lbadge">LawPay</span><span class="lbadge">Stripe</span><span class="lbadge">Slack</span><span class="lbadge">Teams</span><span class="lbadge">Zoom</span><span class="lbadge">RingCentral</span><span class="lbadge">Calendly</span><span class="lbadge">Salesforce</span><span class="lbadge">HubSpot</span>
+        <span class="lbadge">Gmail</span><span class="lbadge">Outlook</span><span class="lbadge">Google Calendar</span><span class="lbadge">DocuSign</span><span class="lbadge">Adobe Sign</span><span class="lbadge">QuickBooks</span><span class="lbadge">Xero</span><span class="lbadge">LawPay</span><span class="lbadge">Stripe</span><span class="lbadge">Slack</span><span class="lbadge">Teams</span><span class="lbadge">Zoom</span><span class="lbadge">RingCentral</span><span class="lbadge">Calendly</span><span class="lbadge">Salesforce</span><span class="lbadge">HubSpot</span>
+      </div>
+    </div>
+    <p class="logos-note">Plus <b>anything with an inbox, an API, or a screen</b>. No API? We bridge it anyway.</p>
+  </div>
+</section>
+
+<section id="automate">
+  <div class="wrap">
+    <div class="head" style="max-width:52rem">
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><path d="M11 2 4.5 11H9l-1 7 7.5-10H11z"/></svg></span><span><span class="st">Step 04</span><br><span class="sn">Automate</span></span></div>
+      <h2 class="disp">Now the custom AI harness <span class="grad">goes to work.</span></h2>
+      <p class="lede">This is why the order matters. The templates, SOPs, and maps from Organize, plus the orchestration layer, mean every automation starts from a foundation that already understands your firm.</p>
+    </div>
+
+    <div class="ready" aria-label="When the foundation is in place, the agent powers on">
+      <div class="rcheck">
+        <div class="rh">READY CHECK &middot; BEFORE ANY AGENT SHIPS</div>
+        <div class="ritem i1"><span class="box"><i>&#10003;</i></span><div><span class="rl">Document templates</span><span class="rs">FROM ORGANIZE</span></div></div>
+        <div class="ritem i2"><span class="box"><i>&#10003;</i></span><div><span class="rl">Workflow SOPs</span><span class="rs">FROM ORGANIZE</span></div></div>
+        <div class="ritem i3"><span class="box"><i>&#10003;</i></span><div><span class="rl">Systems maps</span><span class="rs">FROM ORGANIZE</span></div></div>
+        <div class="ritem i4"><span class="box"><i>&#10003;</i></span><div><span class="rl">Orchestration connected</span><span class="rs">FROM CONNECT</span></div></div>
+      </div>
+      <div class="rarrow">&rarr;</div>
+      <div class="console slim ragent" aria-label="Agent activates once the checklist completes">
+        <div class="console-bar"><span class="dot"></span> <b>Drafting agent</b> &middot; <span class="rstat"><span class="rstat-off" style="color:#F0C87E">STANDBY</span><span class="rstat-on">LIVE</span></span></div>
+        <div>
+          <div class="crow rrow r1" style="animation-name:rin1"><div class="t">9:02</div><div><div class="k">First run</div><div class="d">New demand letter drafted from your template, your SOP, your matter data. Not a blank prompt.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow rrow r2" style="animation-name:rin2"><div class="t">9:04</div><div><div class="k">Filed</div><div class="d">Draft saved to 02 &middot; Pleadings &amp; Drafts in the standard structure. Findable forever.</div><span class="tag done">Filed</span></div></div>
+          <div class="crow rrow r3" style="animation-name:rin3"><div class="t">9:05</div><div><div class="k">Logged</div><div class="d">Run recorded to the structured record. The next agent starts smarter.</div><span class="tag done">Logged</span></div></div>
+        </div>
+        <div class="console-foot"><span><b>No blank-slate AI.</b> The agent inherits everything steps 02 and 03 built.</span><span class="ill">Illustrative</span></div>
+      </div>
+    </div>
+
+    <div class="exhint"><span>EXAMPLES</span><span style="letter-spacing:0">&larr; &rarr;</span><span>SCROLL</span></div>
+    <div class="exscroll">
+      <div class="excard">
+        <div class="ph">Example 01 &middot; Document ingestion</div>
+        <h3>From inbox to filed work</h3>
+        <div class="pd">Everything that arrives gets read, classified, filed to the right matter, and turned into staged work, waiting on a person.</div>
+        <div style="background:var(--wash);border-radius:12px;padding:10px 6px 2px"><svg viewBox="0 0 1000 430" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="agGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#282876"/><stop offset="1" stop-color="#3A3A9C"/></linearGradient>
+          <linearGradient id="recGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#15154A"/><stop offset="1" stop-color="#282876"/></linearGradient>
+          <marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#282876" opacity=".55"/></marker>
+        </defs>
+
+        <!-- source nodes -->
+        <g font-family="'Source Code Pro',monospace" font-size="11" letter-spacing="2">
+          <rect x="20" y="40" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="68" text-anchor="middle" fill="#282876" font-weight="500">EMAIL</text>
+          <rect x="20" y="134" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="162" text-anchor="middle" fill="#282876" font-weight="500">DOCUMENTS</text>
+          <rect x="20" y="228" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="256" text-anchor="middle" fill="#282876" font-weight="500">CALENDAR</text>
+          <rect x="20" y="322" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="350" text-anchor="middle" fill="#282876" font-weight="500">BILLING</text>
+        </g>
+
+        <!-- source -> agents paths -->
+        <path id="pS1" class="ants" d="M170,63 C265,63 265,140 358,140" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pS2" class="ants" d="M170,157 C265,157 265,156 358,156" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pS3" class="ants" d="M170,251 C265,251 265,172 358,172" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pS4" class="ants" d="M170,345 C265,345 265,188 358,188" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+
+        <!-- agents stack (firmOS-style pulsing layers) -->
+        <rect x="360" y="118" width="270" height="80" rx="12" fill="url(#agGrad)"><animate attributeName="opacity" values=".88;1;.88" dur="5s" repeatCount="indefinite"/></rect>
+        <text x="380" y="146" font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="2" fill="#A9B8FF">AGENTS</text>
+        <text x="380" y="172" font-family="'Plus Jakarta Sans',sans-serif" font-size="17" font-weight="800" fill="#fff">Read · draft · flag</text>
+
+        <rect x="360" y="238" width="270" height="66" rx="12" fill="url(#recGrad)"><animate attributeName="opacity" values=".88;1;.88" dur="5s" begin="2.5s" repeatCount="indefinite"/></rect>
+        <text x="380" y="264" font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="2" fill="#A9B8FF">STRUCTURED RECORD</text>
+        <text x="380" y="286" font-family="'Plus Jakarta Sans',sans-serif" font-size="14" font-weight="700" fill="#E6E8FA">Every run remembered</text>
+
+        <!-- record <-> agents loop -->
+        <line x1="430" y1="200" x2="430" y2="236" stroke="#282876" stroke-width="1.5" stroke-dasharray="4 3" opacity=".5" marker-end="url(#ah)"/>
+        <line x1="560" y1="236" x2="560" y2="200" stroke="#282876" stroke-width="1.5" stroke-dasharray="4 3" opacity=".5" marker-end="url(#ah)"/>
+
+        <!-- agents -> gate -->
+        <path id="pG" class="ants" d="M630,158 L688,158" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+
+        <!-- review gate -->
+        <rect x="690" y="126" width="122" height="64" rx="12" fill="#FFF8EC" stroke="#B9821F" stroke-width="1.5"/>
+        <text x="751" y="152" text-anchor="middle" font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="2" fill="#B9821F">REVIEW</text>
+        <text x="751" y="172" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="12.5" font-weight="700" fill="#7A5510">a person approves</text>
+
+        <!-- gate -> outputs -->
+        <path id="pO1" class="ants" d="M812,158 C842,158 842,83 858,83" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pO2" class="ants" d="M812,158 C838,158 838,189 858,189" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pO3" class="ants" d="M812,158 C842,158 842,295 858,295" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+
+        <!-- output nodes -->
+        <g font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="1.5">
+          <rect x="860" y="60" width="122" height="46" rx="10" fill="#fff" stroke="#0FA383"/><text x="921" y="88" text-anchor="middle" fill="#0FA383" font-weight="500">DRAFT TO SIGN</text>
+          <rect x="860" y="166" width="122" height="46" rx="10" fill="#fff" stroke="#0FA383"/><text x="921" y="194" text-anchor="middle" fill="#0FA383" font-weight="500">DATES STAGED</text>
+          <rect x="860" y="272" width="122" height="46" rx="10" fill="#fff" stroke="#0FA383"/><text x="921" y="300" text-anchor="middle" fill="#0FA383" font-weight="500">OWNER BRIEF</text>
+        </g>
+
+        <!-- moving data dots (Conductor-style) -->
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#pS1"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" begin="0.8s" repeatCount="indefinite"><mpath href="#pS2"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#pS3"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" begin="2.4s" repeatCount="indefinite"><mpath href="#pS4"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="1.4s" begin="0.5s" repeatCount="indefinite"><mpath href="#pG"/></animateMotion></circle>
+        <circle r="4" fill="#0FA383"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#pO1"/></animateMotion></circle>
+        <circle r="4" fill="#0FA383"><animateMotion dur="2s" begin="0.7s" repeatCount="indefinite"><mpath href="#pO2"/></animateMotion></circle>
+        <circle r="4" fill="#0FA383"><animateMotion dur="2s" begin="1.4s" repeatCount="indefinite"><mpath href="#pO3"/></animateMotion></circle>
+      </svg></div>
+      </div>
+      <div class="excard">
+        <div class="ph">Example 02 &middot; Deadline capture</div>
+        <h3>Orders become calendar entries</h3>
+        <div class="pd">Every scheduling order parsed the day it arrives. Conflicts surface before they cost anything.</div>
+        <div style="background:var(--wash);border-radius:12px;padding:10px 6px 2px">
+        <svg viewBox="0 0 620 330" xmlns="http://www.w3.org/2000/svg">
+          <g><rect x="20" y="40" width="170" height="40" rx="8" fill="#fff" stroke="#CFD3E8"/><text x="105" y="59" text-anchor="middle" class="fs-mono" font-size="9.5" fill="#282876">SCHEDULING ORDER.PDF</text><text x="105" y="72" text-anchor="middle" class="fs-mono" font-size="8" fill="#8181AC">RECEIVED 2:14 PM</text></g>
+          <rect x="36" y="96" width="138" height="24" rx="12" fill="#282876"><animate attributeName="opacity" values=".8;1;.8" dur="2.4s" repeatCount="indefinite"/></rect>
+          <text x="105" y="112" text-anchor="middle" class="fs-mono" font-size="9" fill="#A9B8FF">PARSE &middot; 11 DATES</text>
+          <g stroke="#CFD3E8" fill="#fff"><rect x="250" y="30" width="350" height="240" rx="10"/>
+            <line x1="250" y1="70" x2="600" y2="70"/><line x1="250" y1="120" x2="600" y2="120"/><line x1="250" y1="170" x2="600" y2="170"/><line x1="250" y1="220" x2="600" y2="220"/>
+            <line x1="320" y1="70" x2="320" y2="270"/><line x1="390" y1="70" x2="390" y2="270"/><line x1="460" y1="70" x2="460" y2="270"/><line x1="530" y1="70" x2="530" y2="270"/></g>
+          <text x="425" y="55" text-anchor="middle" class="fs-mono" font-size="10" fill="#282876">APRIL</text>
+          <g class="fs-mono" font-size="8">
+            <g><rect x="256" y="128" width="58" height="18" rx="4" fill="#E8EEFF" stroke="#216FED"/><text x="285" y="140" text-anchor="middle" fill="#216FED">DISC CUTOFF</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.2;.26;.95;1" dur="7s" repeatCount="indefinite"/></g>
+            <g><rect x="396" y="178" width="58" height="18" rx="4" fill="#E8EEFF" stroke="#216FED"/><text x="425" y="190" text-anchor="middle" fill="#216FED">EXPERT DDL</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.32;.38;.95;1" dur="7s" repeatCount="indefinite"/></g>
+            <g><rect x="536" y="228" width="58" height="18" rx="4" fill="#E8EEFF" stroke="#216FED"/><text x="565" y="240" text-anchor="middle" fill="#216FED">PRETRIAL</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.44;.5;.95;1" dur="7s" repeatCount="indefinite"/></g>
+          </g>
+          <g><rect x="466" y="128" width="58" height="34" fill="#F8D7DC"><animate attributeName="opacity" values=".25;.9;.25" dur="1.8s" repeatCount="indefinite"/></rect>
+            <text x="495" y="143" text-anchor="middle" class="fs-mono" font-size="7.5" fill="#D14D5E">CONFLICT</text><text x="495" y="154" text-anchor="middle" class="fs-mono" font-size="7.5" fill="#D14D5E">TRIAL BLOCK</text>
+            <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.55;.6;.95;1" dur="7s" repeatCount="indefinite"/></g>
+          <circle r="4" fill="#216FED"><animateMotion dur="7s" repeatCount="indefinite" path="M174,108 C210,110 220,130 254,136" keyPoints="0;0;1;1" keyTimes="0;.12;.2;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.12;.19;.22;1" dur="7s" repeatCount="indefinite"/></circle>
+          <circle r="4" fill="#216FED"><animateMotion dur="7s" repeatCount="indefinite" path="M174,108 C240,120 300,160 394,186" keyPoints="0;0;1;1" keyTimes="0;.24;.32;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.24;.31;.34;1" dur="7s" repeatCount="indefinite"/></circle>
+          <circle r="4" fill="#216FED"><animateMotion dur="7s" repeatCount="indefinite" path="M174,108 C260,130 380,200 534,236" keyPoints="0;0;1;1" keyTimes="0;.36;.44;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.36;.43;.46;1" dur="7s" repeatCount="indefinite"/></circle>
+          <text x="310" y="310" text-anchor="middle" class="fs-mono" font-size="9" fill="#8181AC">STAGED WITH REMINDERS &middot; A PERSON CONFIRMS</text>
+        </svg>
+        </div>
+      </div>
+      <div class="excard">
+        <div class="ph">Example 03 &middot; Records chase</div>
+        <h3>Follow-up that never forgets</h3>
+        <div class="pd">Requests tracked to completion. Silence gets re-chased automatically on day 14, and again on day 21.</div>
+        <div style="background:var(--wash);border-radius:12px;padding:10px 6px 2px">
+        <svg viewBox="0 0 620 330" xmlns="http://www.w3.org/2000/svg">
+          <g class="fs-mono" font-size="10" fill="#282876">
+            <text x="30" y="64">LAKEVIEW IMAGING</text><text x="30" y="144">DR. PATEL</text><text x="30" y="224">ST. MARY'S</text>
+          </g>
+          <g fill="#E3E5F2"><rect x="30" y="76" width="420" height="10" rx="5"/><rect x="30" y="156" width="420" height="10" rx="5"/><rect x="30" y="236" width="420" height="10" rx="5"/></g>
+          <rect x="30" y="76" height="10" rx="5" fill="#0FA383"><animate attributeName="width" values="0;420;420;0" keyTimes="0;.25;.96;1" dur="9s" repeatCount="indefinite"/></rect>
+          <rect x="30" y="156" height="10" rx="5" fill="#0FA383"><animate attributeName="width" values="0;0;420;420;0" keyTimes="0;.15;.45;.96;1" dur="9s" repeatCount="indefinite"/></rect>
+          <rect x="30" y="236" height="10" rx="5" fill="#B9821F"><animate attributeName="width" values="0;0;168;168;420;420;0" keyTimes="0;.2;.4;.62;.85;.96;1" dur="9s" repeatCount="indefinite"/></rect>
+          <g class="fs-mono" font-size="8.5">
+            <g><rect x="470" y="66" width="120" height="22" rx="11" fill="#EAF6F2" stroke="#0FA383"/><text x="530" y="81" text-anchor="middle" fill="#0FA383">RECEIVED &middot; FILED</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.26;.32;.96;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="146" width="120" height="22" rx="11" fill="#EAF6F2" stroke="#0FA383"/><text x="530" y="161" text-anchor="middle" fill="#0FA383">GAPS FLAGGED</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.46;.52;.96;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="226" width="120" height="22" rx="11" fill="#FFF8EC" stroke="#B9821F"/><text x="530" y="241" text-anchor="middle" fill="#B9821F">DAY 14 &middot; SILENT</text><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.42;.48;.6;.64;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="226" width="120" height="22" rx="11" fill="#E8EEFF" stroke="#216FED"/><text x="530" y="241" text-anchor="middle" fill="#216FED">RE-CHASED &#8635;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.62;.68;.82;.86" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="226" width="120" height="22" rx="11" fill="#EAF6F2" stroke="#0FA383"/><text x="530" y="241" text-anchor="middle" fill="#0FA383">RECEIVED</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.86;.9;.96;1" dur="9s" repeatCount="indefinite"/></g>
+          </g>
+          <g><text x="132" y="270" class="fs-mono" font-size="8" fill="#B9821F">STALLED HERE FOR 14 DAYS</text><line x1="198" y1="252" x2="198" y2="246" stroke="#B9821F"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.42;.48;.6;.64;1" dur="9s" repeatCount="indefinite"/></g>
+          <text x="310" y="310" text-anchor="middle" class="fs-mono" font-size="9" fill="#8181AC">EVERY REQUEST TRACKED TO COMPLETION &middot; NOBODY KEEPS A SPREADSHEET</text>
+        </svg>
+        </div>
+      </div>
+      <div class="excard">
+        <div class="ph">Example 04 &middot; Client digest</div>
+        <h3>Updates drafted in your voice</h3>
+        <div class="pd">A status update staged for every open matter, grouped and ready to send.</div>
+        <div class="console slim">
+          <div class="console-bar"><span class="dot"></span> <b>Digest agent</b> &middot; Friday 4:00 PM</div>
+          <div>
+            <div class="crow"><div class="t">23</div><div><div class="k">Updates drafted</div><div class="d">One per open matter, in the firm voice, grouped by attorney.</div><span class="tag">Awaiting your review</span></div></div>
+            <div class="crow"><div class="t">4</div><div><div class="k">Held back</div><div class="d">Four matters had nothing new. No filler sent, ever.</div><span class="tag done">Skipped</span></div></div>
+            <div class="crow"><div class="t">1</div><div><div class="k">Escalated</div><div class="d">One client asked a settlement question. Routed to the attorney, not answered.</div><span class="tag">Flagged to you</span></div></div>
+          </div>
+          <div class="console-foot"><span><b>Send happens from your outbox,</b> not ours.</span><span class="ill">Illustrative</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="dex" aria-label="The agent catalog">
+      <div class="dex-head">
+        <span class="dex-count">100+<small>AUTOMATIONS</small></span>
+        <div>
+          <h3>100+ automations and counting.</h3>
+        </div>
+      </div>
+      <div class="dex-chips">
+        <a class="dx flag" href="https://www.dodon.ai/ai-managed-services/agents/intake-triage/">Intake Triage</a>
+        <a class="dx flag" href="https://www.dodon.ai/ai-managed-services/agents/docketing-deadlines/">Docketing &amp; Deadlines</a>
+        <a class="dx flag" href="https://www.dodon.ai/ai-managed-services/agents/inbox-meetings/">Inbox &amp; Meetings</a>
+        <a class="dx flag" href="https://www.dodon.ai/ai-managed-services/agents/client-communications/">Client Communications</a>
+        <a class="dx flag" href="https://www.dodon.ai/ai-managed-services/agents/trial-prep/">Trial Prep</a>
+        <a class="dx flag" href="https://www.dodon.ai/ai-managed-services/agents/mediation-settlement-prep/">Mediation &amp; Settlement Prep</a>
+        <a class="dx flag" href="https://www.dodon.ai/ai-managed-services/agents/practice-intelligence/">Practice Intelligence</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/demand-package/">Demand Package</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/deposition-prep/">Deposition Prep</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/discovery-response/">Discovery Response</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/medical-records-requester/">Medical Records Requester</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/sol-tracker/">SOL Tracker</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/motion-drafter/">Motion Drafter</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/fee-agreement-drafter/">Fee Agreement Drafter</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/conflict-check/">Conflict Check</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/trust-account-reconciler/">Trust Account Reconciler</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/subpoena-manager/">Subpoena Manager</a>
+        <a class="dx sup" href="https://www.dodon.ai/ai-managed-services/agents/time-capture/">Time Capture</a>
+        <a class="dx more" href="https://www.dodon.ai/ai-managed-services/agents/">Browse the full catalog &rarr;</a>
+      </div>
+      <div class="pa-line">
+        <span class="p2label">BY PRACTICE AREA</span>
+        <a class="pill" href="https://www.dodon.ai/ai-managed-services/for/personal-injury/">Personal Injury</a>
+        <a class="pill" href="https://www.dodon.ai/ai-managed-services/for/family-law/">Family Law</a>
+        <a class="pill" href="https://www.dodon.ai/ai-managed-services/for/real-estate/">Real Estate</a>
+        <a class="pill" href="https://www.dodon.ai/ai-managed-services/for/tax/">Tax</a>
+        <a class="pill" href="https://www.dodon.ai/ai-managed-services/for/immigration/">Immigration</a>
+        <a class="pill" href="https://www.dodon.ai/ai-managed-services/for/estates-probate/">Estates &amp; Probate</a>
+        <a class="pill" href="https://www.dodon.ai/ai-managed-services/for/cybersecurity-privacy/">Cybersecurity &amp; Privacy</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="optimize" class="wash">
+  <div class="wrap split2">
+    <div>
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><path d="M3 15l4.5-4.5 3 3L17 6"/><path d="M13 6h4v4"/></svg></span><span><span class="st">Step 05</span><br><span class="sn">Optimize</span></span></div>
+      <h2 class="disp">It gets better <span class="grad">after launch.</span></h2>
+      <p class="lede">We host the harness, the automations, and the record, and we keep improving them. When better models ship, your agents move onto them. The system you buy this year is not the system you have next year.</p>
+      <p class="lede" style="margin-top:10px;font-size:15px">Monthly reviews. Priority support. A simple retainer, no long-term contract, and everything is yours if we ever part ways.</p>
+    </div>
+    <div class="dash" aria-label="Example firm dashboard">
+      <div class="dash-bar"><span>FIRM DASHBOARD &middot; THIS MONTH</span><span class="ill2">ILLUSTRATIVE</span></div>
+      <div class="dash-kpis">
+        <div class="kpi"><span class="kl">Agent runs</span><b id="kRuns">0</b><span class="kd">&uarr; every automation, logged</span></div>
+        <div class="kpi"><span class="kl">Hours returned to the team</span><b id="kHrs">0</b><span class="kd">&uarr; vs. doing it by hand</span></div>
+        <div class="kpi"><span class="kl">Drafts approved</span><b id="kDrafts">0</b><span class="kd">&uarr; every one released by a person</span></div>
+        <div class="kpi"><span class="kl">Cost per run</span><b id="kCost">$0.00</b><span class="kd neg">&darr; rerouted to cheaper models</span></div>
+      </div>
+      <div class="dash-charts">
+        <div class="dchart"><span class="kl">Runs per week</span>
+          <svg viewBox="0 0 300 110">
+            <g fill="#282876">
+              <rect x="16" y="70" width="26" rx="3" height="30"><animate attributeName="height" values="0;30" dur="1s" fill="freeze"/><animate attributeName="y" values="100;70" dur="1s" fill="freeze"/></rect>
+              <rect x="56" y="60" width="26" rx="3" height="40"><animate attributeName="height" values="0;40" dur="1s" begin=".15s" fill="freeze"/><animate attributeName="y" values="100;60" dur="1s" begin=".15s" fill="freeze"/></rect>
+              <rect x="96" y="64" width="26" rx="3" height="36"><animate attributeName="height" values="0;36" dur="1s" begin=".3s" fill="freeze"/><animate attributeName="y" values="100;64" dur="1s" begin=".3s" fill="freeze"/></rect>
+              <rect x="136" y="46" width="26" rx="3" height="54"><animate attributeName="height" values="0;54" dur="1s" begin=".45s" fill="freeze"/><animate attributeName="y" values="100;46" dur="1s" begin=".45s" fill="freeze"/></rect>
+              <rect x="176" y="38" width="26" rx="3" height="62"><animate attributeName="height" values="0;62" dur="1s" begin=".6s" fill="freeze"/><animate attributeName="y" values="100;38" dur="1s" begin=".6s" fill="freeze"/></rect>
+              <rect x="216" y="24" width="26" rx="3" height="76" fill="#216FED"><animate attributeName="height" values="0;76" dur="1s" begin=".75s" fill="freeze"/><animate attributeName="y" values="100;24" dur="1s" begin=".75s" fill="freeze"/></rect>
+              <rect x="256" y="14" width="26" rx="3" height="86" fill="#216FED"><animate attributeName="height" values="0;86" dur="1s" begin=".9s" fill="freeze"/><animate attributeName="y" values="100;14" dur="1s" begin=".9s" fill="freeze"/></rect>
+            </g>
+          </svg>
+        </div>
+        <div class="dchart"><span class="kl">Cost per run</span>
+          <svg viewBox="0 0 300 110">
+            <polyline points="14,20 60,34 106,30 152,52 198,60 244,78 290,88" fill="none" stroke="#0FA383" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="340" stroke-dashoffset="340">
+              <animate attributeName="stroke-dashoffset" values="340;0" dur="1.8s" fill="freeze"/>
+            </polyline>
+            <circle cx="290" cy="88" r="4" fill="#0FA383"><animate attributeName="opacity" values="0;0;1" keyTimes="0;.85;1" dur="1.8s" fill="freeze"/></circle>
+            <g class="fs-mono" font-size="8" fill="#8181AC"><text x="14" y="104">JAN</text><text x="270" y="104">AUG</text></g>
+          </svg>
+        </div>
+      </div>
+      <div class="console-foot" style="background:var(--wash);border-top:1px solid var(--line);color:var(--muted)"><span style="color:#3A3A6B"><b style="color:var(--indigo)">Reviewed monthly, together.</b> Three new automations proposed from what the record shows.</span></div>
+    </div>
+    <p class="aside2" style="grid-column:1/-1;margin-top:6px">Models improve for everyone on the same day. <b>The structured record of how your firm works is the part nobody else can buy.</b></p>
+  </div>
+</section>
+
+<section id="app">
+  <div class="wrap split2">
+    <div>
+      <span class="eyebrow">Need document analysis now?</span>
+      <h2 class="disp">Try the <span class="grad">Dodonai App.</span></h2>
+      <p class="lede">Upload a deposition or medical record today. Get a cited summary, chronology, OCR, or discovery workspace without waiting for a custom build.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="https://app.dodon.ai/signup">Start a free trial</a>
+        <a class="btn btn-ghost btn-lg" href="/pricing/">Explore the app &rarr;</a>
+      </div>
+      <div class="pills">
+        <span class="pill">Deposition summaries</span><span class="pill">Medical chronologies</span><span class="pill">AI OCR</span><span class="pill">E-discovery</span>
+      </div>
+    </div>
+    <div class="appwin" aria-label="Illustration of the Dodonai App">
+      <div class="appwin-bar"><i style="background:#F87171"></i><i style="background:#FBBF24"></i><i style="background:#34D399"></i><span class="appwin-url">app.dodon.ai</span></div>
+      <div class="appwin-body">
+        <div class="appnav">
+          <div class="on">Summaries</div><div>Chronologies</div><div>OCR</div><div>E-discovery</div>
+        </div>
+        <div class="appmain">
+          <div class="doc">Cruz_30b6_transcript.pdf · 212 pages</div>
+          <div class="appbar"><i></i></div>
+          <div>
+            <div class="sumline"></div><div class="sumline"></div><div class="sumline"></div><div class="sumline"></div>
+          </div>
+          <div class="appfoot"><span class="cite">44 PAGE &amp; LINE CITES</span><span class="exp">Export to Word</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<section id="security" class="ink">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" style="color:var(--lav)">Security</span>
+      <h2 class="disp">Built for firms that answer to clients, courts, and regulators.</h2>
+      <p class="lede" style="color:#C7CCEF">Automate the work. Keep the authority to release it.</p>
+    </div>
+    <div class="sec-grid">
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-soc2.svg" alt=""><h4>SOC 2 certified</h4><p>Audited controls across the platform and every environment we run.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-hipaa.svg" alt=""><h4>HIPAA compliant</h4><p>Medical records handled the way your clients' providers are required to handle them.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-encryption.svg" alt=""><h4>Your cloud, your data</h4><p>Everything runs in infrastructure you own. No second copy in our vault.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-access-control.svg" alt=""><h4>No training on your work</h4><p>Your work product improves nothing for anyone else, not even anonymized.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/checkmark.svg" alt=""><h4>A person releases everything</h4><p>Nothing reaches a client, court, or counterparty until your team sends it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="wash" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head faqhead">
+      <div>
+        <span class="eyebrow">Before you book</span>
+        <h2 class="disp">The questions we get in the first ten minutes.</h2>
+        <p class="lede">Answered here so the call can be about your work instead of ours.</p>
+      </div>
+      <aside class="askbox">
+        <h4>Not on this list?</h4>
+        <p>Ask it on the call. Thirty minutes, no deck, and you will leave knowing whether an agent can take the task.</p>
+        <a class="btn btn-primary" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+      </aside>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>What do you actually need from our people?</summary>
+        <p>Time from the people who do the work, and not much of it. The Blueprint runs on interviews; after that the build is on us. We also need access to the work your firm has already approved, because a system that has never seen your standards cannot meet them.</p>
+      </details>
+      <details>
+        <summary>How long until something is actually running?</summary>
+        <p>The Blueprint takes one to two weeks. A first automation goes live in weeks rather than quarters, and the exact timeline is in the Blueprint before you approve it. If we cannot say when it will be live, we have not understood the work well enough to build it.</p>
+      </details>
+      <details>
+        <summary>Do we have to leave the software we already use?</summary>
+        <p>No. We build into the case management, email, document, and billing systems you already run, and bridge the ones without an API. Adoption fails when the tool sits outside the workflow, so we put it inside.</p>
+      </details>
+      <details>
+        <summary>Where does our data go, and does it train anything?</summary>
+        <p>Your systems of record stay where they are, and the environment we build runs in infrastructure you control. Generating output means sending the relevant material to the model providers you approve, under your agreements with them. Your work product is never used to train models for anyone else.</p>
+      </details>
+      <details>
+        <summary>What happens when the output is wrong?</summary>
+        <p>A workflow that fails a defined check stops and routes for review rather than proceeding, and consequential output waits for a person at the firm to approve it. Corrections feed the structured record, so the same mistake gets rarer instead of recurring.</p>
+      </details>
+      <details>
+        <summary>What does it cost?</summary>
+        <p>Three things, matching how we work: a fixed fee for the Blueprint, a fixed Build price per automation approved before development starts, and a monthly Run fee for operating and improving what is in production. Model usage is passed through at cost. Exact numbers come with your Blueprint.</p>
+      </details>
+      <details>
+        <summary>What if we want to stop?</summary>
+        <p>You keep the system. Full source, running in infrastructure you control, no long-term contract to exit. Stopping after one automation that works is a perfectly good outcome.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final dotgrid">
+  <div class="wrap">
+    <span class="eyebrow">Start here</span>
+    <h2>Bring us one painful task.</h2>
+    <p>Thirty minutes tells you whether an agent can take it, what the build costs, and how fast it goes live.</p>
+    <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+    <p class="fineprint">No pitch deck · No long-term contract · SOC 2 certified · HIPAA compliant</p>
+  </div>
+</section>
+
+<section class="originband" id="origin" aria-label="Why the name Dodonai">
+  <div class="wrap">
+    <svg class="origin-chime" viewBox="0 0 140 150" aria-hidden="true">
+        <g class="chime-sway" fill="none" stroke="#282876" stroke-linecap="round">
+          <line x1="70" y1="0" x2="70" y2="24" stroke-width="2"/>
+          <line x1="34" y1="28" x2="106" y2="28" stroke-width="5"/>
+          <g stroke-width="1.5" opacity=".5">
+            <line x1="42" y1="31" x2="42" y2="38"/><line x1="56" y1="31" x2="56" y2="38"/>
+            <line x1="70" y1="31" x2="70" y2="38"/><line x1="84" y1="31" x2="84" y2="38"/>
+            <line x1="98" y1="31" x2="98" y2="38"/>
+          </g>
+          <line x1="42" y1="42" x2="42" y2="80" stroke-width="8" opacity=".8"/>
+          <line x1="56" y1="42" x2="56" y2="96" stroke-width="8"/>
+          <line x1="70" y1="42" x2="70" y2="70" stroke-width="8" opacity=".6"/>
+          <line x1="84" y1="42" x2="84" y2="104" stroke-width="8" stroke="#216FED"/>
+          <line x1="98" y1="42" x2="98" y2="86" stroke-width="8" opacity=".8"/>
+          <line x1="84" y1="108" x2="84" y2="114" stroke-width="1.5" opacity=".5"/>
+          <circle cx="84" cy="119" r="4.5" fill="#A9B8FF" stroke="none"/>
+        </g>
+        <path d="M108,96 q7,8 0,16" stroke="#216FED" stroke-width="2" fill="none" stroke-linecap="round"/>
+        <path d="M115,90 q11,14 0,28" stroke="#216FED" stroke-width="2" fill="none" stroke-linecap="round" opacity=".45"/>
+      </svg>
+    <div class="origin-in">
+      <span class="eyebrow">The name</span>
+      <p class="origin-copy"><span class="o-name">Dodona:</span> an ancient sanctuary where people brought their own questions to the whispering oaks and the bronze chimes that rang in their branches. The signal was already there; the value was in interpreting it for the question at hand. <span class="o-turn">Dodonai is built on the same idea. Your firm already holds the knowledge. We turn it into working systems.</span></p>
+      <span class="origin-mark" aria-hidden="true">&#916;&#969;&#948;&#974;&#957;&#951;</span>
+      </div>
+  </div>
+</section>
+
+</main>
+
+<footer>
+  <div class="wrap foot-in">
+    <span style="display:flex;align-items:center;gap:10px"><span class="logo-mark logo-mark-sm" aria-hidden="true"><svg viewBox="0 0 64 64" width="14" height="14"><g stroke="#fff" stroke-linecap="round" fill="none"><line x1="16" y1="16" x2="48" y2="16" stroke-width="5"/><line x1="23" y1="24" x2="23" y2="40" stroke-width="7"/><line x1="32" y1="24" x2="32" y2="50" stroke-width="7"/><line x1="41" y1="24" x2="41" y2="35" stroke-width="7"/></g><circle cx="32" cy="57" r="4.5" fill="#A9B8FF"/></svg></span>© <span id="yr">2026</span> Dodonai</span>
+    <span style="display:flex;gap:22px;flex-wrap:wrap">
+      <a class="flink" href="https://www.dodon.ai/ai-managed-services/">For legal teams <span class="arw">&rarr;</span></a>
+      <a class="flink" href="/pricing/">Dodonai App <span class="arw">&rarr;</span></a>
+    </span>
+    <span style="display:flex;gap:22px;align-items:center"><a class="flink" href="mailto:hello@dodon.ai">hello@dodon.ai</a><a class="flink" href="#top">Top <span class="arw">&uarr;</span></a></span>
+  </div>
+</footer>
+
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// semantic Q&A typewriter
+const q=document.getElementById('qaQ');
+if(q&&!reduce){
+  const qs=['What did we agree to in the Singh fee agreement?','Which matters are waiting on records right now?','When is the expert deadline in Cruz?'];let qi=0;
+  setInterval(()=>{qi=(qi+1)%qs.length;const t=qs[qi];let c=0;
+    const iv=setInterval(()=>{c++;q.textContent=t.slice(0,c);if(c>=t.length)clearInterval(iv)},40);
+  },8000);
+}
+// dashboard counters (illustrative)
+function countTo(id,target,fmt){const e=document.getElementById(id);if(!e)return;let s0=null;
+  requestAnimationFrame(function st(ts){if(!s0)s0=ts;const p=Math.min((ts-s0)/1600,1);const v=target*(1-Math.pow(1-p,3));e.textContent=fmt(v);if(p<1)requestAnimationFrame(st)});}
+const run=()=>{countTo('kRuns',1284,v=>Math.round(v).toLocaleString());countTo('kHrs',312,v=>Math.round(v));countTo('kDrafts',417,v=>Math.round(v));countTo('kCost',0.42,v=>'$'+(0.90-v).toFixed(2));};
+if(!reduce){run();}
+else{
+  const staticKpis={kRuns:'1,284',kHrs:'312',kDrafts:'417',kCost:'$0.48'};
+  Object.entries(staticKpis).forEach(([id,value])=>{const el=document.getElementById(id);if(el)el.textContent=value;});
+}
+
+// reuse the full Blueprint and orchestration animations in the homepage switcher
+const blueprintSlot=document.querySelector('[data-blueprint-slot]');
+const blueprintAnimation=document.querySelector('#blueprint .bp-svg');
+if(blueprintSlot&&blueprintAnimation)blueprintSlot.replaceChildren(blueprintAnimation);
+const orchestrationSlot=document.querySelector('[data-orchestration-slot]');
+const orchestrationAnimation=document.querySelector('#orchestrate .xform .xcol:last-child');
+if(orchestrationSlot&&orchestrationAnimation)orchestrationSlot.replaceChildren(orchestrationAnimation);
+
+// homepage method switcher
+const methodButtons=[...document.querySelectorAll('[data-method]')];
+const methodPanels=[...document.querySelectorAll('[data-method-panel]')];
+methodButtons.forEach(button=>button.addEventListener('click',()=>{
+  const target=button.dataset.method;
+  methodButtons.forEach(item=>{const selected=item===button;item.classList.toggle('active',selected);item.setAttribute('aria-selected',String(selected));});
+  methodPanels.forEach(panel=>{const selected=panel.dataset.methodPanel===target;panel.hidden=!selected;panel.classList.toggle('active',selected);});
+}));
+
+// self-updating year
+const yr=document.getElementById('yr'); if(yr)yr.textContent=new Date().getFullYear();
+// scroll reveal (applied only when motion allowed)
+if(!reduce && 'IntersectionObserver' in window){
+  const els=document.querySelectorAll('.head,.split2>div,.orow,.dlv2,.excard,.bigvp2,.sec-card,.bpdoc,.rcheck,.ragent,.xform>*,.dash,.appwin,.faq details,.whyquote,.aside2,.fgrid>.card,.origin-copy');
+  els.forEach((el,i)=>{el.classList.add('pre');el.style.transitionDelay=Math.min(i%6,5)*60+'ms'});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);e.target.classList.remove('pre');e.target.classList.add('in')}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(el=>io.observe(el));
+}
+// the handwritten line writes itself when it arrives
+const pen=document.querySelector('.handwrite'), penBox=document.querySelector('.beunique');
+if(pen&&penBox&&!reduce&&'IntersectionObserver' in window){
+  pen.classList.add('armed');
+  const po=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){po.unobserve(e.target);pen.classList.remove('armed');pen.classList.add('write')}}),{threshold:.35});
+  po.observe(penBox);
+}
+</script>
+<script>
+// v14 hero demo: one causal loop through organize → orchestrate → automate
+(function(){
+  const demo=document.getElementById('flowdemo');
+  if(!demo||reduce)return;
+  const $=s=>demo.querySelector(s), $$=s=>[...demo.querySelectorAll(s)];
+  const prog=$('#flowProg'), status=$('#flowStatus'), note=$('#flowNote');
+  const inputs=$$('.flow-inputs .flow-row'), outputs=$$('.flow-outputs .flow-row');
+  const rules=$$('.flow-rule'), phEls=$$('.flow-phases em');
+  const railL=$('.rail-l'), railR=$('.rail-r'), apr=$('.apr');
+  const T=16600;
+  demo.classList.add('anim');
+  const say=t=>{status.style.opacity=0;setTimeout(()=>{status.textContent=t;status.style.opacity=1},240)};
+  const fire=r=>{r.classList.remove('active');void r.offsetWidth;r.classList.add('active')};
+  const ping=el=>{el.classList.add('ping');setTimeout(()=>el.classList.remove('ping'),520)};
+  const phase=n=>{demo.classList.remove('ph1','ph2','ph3');demo.classList.add('ph'+n);
+    phEls.forEach((e,i)=>{e.classList.toggle('on',i===n-1);e.classList.toggle('done',i<n-1)})};
+  const steps=[
+    [0,()=>{
+      inputs.forEach(e=>e.classList.remove('set'));
+      outputs.forEach(e=>e.classList.remove('born'));
+      rules.forEach(e=>e.classList.remove('lit'));
+      apr.classList.remove('ok');apr.textContent='Awaiting approval';
+      phase(1);say('Gathering files, email, and case data');
+      prog.style.transition='none';prog.style.width='0%';void prog.offsetWidth;
+      prog.style.transition='width '+T/1000+'s linear';prog.style.width='100%';
+    }],
+    [700,()=>inputs[0].classList.add('set')],
+    [1300,()=>inputs[1].classList.add('set')],
+    [1900,()=>inputs[2].classList.add('set')],
+    [2500,()=>{inputs[3].classList.add('set');say('1,000+ page claim files indexed and mapped')}],
+    [4100,()=>{phase(2);say('Connecting SharePoint, Outlook, and the case system');ping(inputs[0]);fire(railL)}],
+    [5000,()=>{rules[0].classList.add('lit');ping(inputs[1]);fire(railL)}],
+    [5900,()=>{rules[1].classList.add('lit');ping(inputs[2]);fire(railL)}],
+    [6800,()=>{rules[2].classList.add('lit');ping(inputs[3]);fire(railL);say('Every system feeding one operating layer')}],
+    [8600,()=>{phase(3);say('Drafting appeal from your own precedent');fire(railR)}],
+    [9500,()=>outputs[0].classList.add('born')],
+    [10400,()=>fire(railR)],
+    [11300,()=>{outputs[1].classList.add('born');say('Draft held for attorney sign-off')}],
+    [12700,()=>{apr.classList.add('ok');apr.textContent='Approved';
+      note.classList.remove('flash');void note.offsetWidth;note.classList.add('flash')}],
+    [13400,()=>{fire(railR);outputs[2].classList.add('born')}],
+    [14300,()=>{fire(railR);outputs[3].classList.add('born');say('Deadlines checked, calendar and CRM updated')}],
+    [15800,()=>say('Cycle complete: 4 items staged for review')]
+  ];
+  const run=()=>steps.forEach(([t,fn])=>setTimeout(fn,t));
+  run();setInterval(run,T+1200);
+})();
+</script>
+</body>
+</html>
