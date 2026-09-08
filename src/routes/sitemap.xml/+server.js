@@ -3,6 +3,7 @@ import { aiServicesPracticeAreas, aiServicesFunctions } from '$lib/data/navigati
 
 const staticPages = [
 	{ path: '', lastmod: '2026-09-08', priority: '1.0' },
+	{ path: '/app', lastmod: '2026-09-08', priority: '0.9' },
 	{ path: '/pricing', lastmod: '2026-02-18', priority: '0.8' },
 	{ path: '/blog', lastmod: '2026-02-18', priority: '0.8' },
 	{ path: '/deposition-summary-software', lastmod: '2026-02-18', priority: '0.9' },

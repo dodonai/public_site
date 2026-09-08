@@ -1,594 +1,254 @@
 <script>
-	import {
-		practiceAreas,
-		useCases,
-		compare,
-		industries,
-		aiServicesOverview,
-		aiServicesPracticeAreas,
-		aiServicesFunctions
-	} from '$lib/data/navigation.js';
-
-	let scrollY = $state(0);
-	let mobileMenuOpen = $state(false);
-	let activeDropdown = $state(null);
-	let mobileActiveSection = $state(null);
-
-	const scrolled = $derived(scrollY > 20);
-
-	const services = [
+	import { page } from '$app/stores';
+	import { afterNavigate } from '$app/navigation';
+	import { aiServicesOverview } from '$lib/data/navigation.js';
+	let mobileOpen = $state(false);
+	let header;
+	const servicesPage = $derived(
+		$page.url.pathname === '/' || $page.url.pathname.startsWith('/ai-managed-services')
+	);
+	const groups = [
 		{
-			name: 'Deposition Summaries',
-			description: 'Get deposition transcripts summarized in minutes.',
-			href: '/deposition-summary-software/',
-			icon: '/images/webflow/Group-572.svg'
+			name: 'AI Services',
+			links: aiServicesOverview.filter((link) => !link.href.includes('/how-it-works'))
 		},
 		{
-			name: 'Deposition Transcript Management',
-			description: 'Manage citations and annotations. AI-powered search and analysis.',
-			href: '/ai-deposition-transcript-software/',
-			icon: '/images/webflow/Group-572.svg'
+			name: 'Dodonai App',
+			links: [
+				{ name: 'App overview', href: '/app/' },
+				{ name: 'Deposition summaries', href: '/deposition-summary-software/' },
+				{ name: 'Medical record chronologies', href: '/ai-medical-record-summaries-chronologies/' },
+				{ name: 'Transcript management', href: '/ai-deposition-transcript-software/' },
+				{ name: 'Extract & draft agents', href: '/dodonai-extract-and-draft-agents/' },
+				{ name: 'E-discovery', href: '/electronic-discovery-software/' },
+				{ name: 'AI OCR', href: '/ai-pdf-ocr/' },
+				{ name: 'App pricing', href: '/pricing/' }
+			]
 		},
 		{
-			name: 'Medical Records Summaries',
-			description: 'Get instant medical records summaries and chronologies.',
-			href: '/ai-medical-record-summaries-chronologies/',
-			icon: '/images/webflow/Group-569.svg'
-		},
-		{
-			name: 'AI-Powered OCR',
-			description: 'Next-generation OCR to extract text, handwriting, tables, images, and more.',
-			href: '/ai-pdf-ocr/',
-			icon: '/images/webflow/Group-565.svg'
-		},
-		{
-			name: 'Dodonai XD Agents',
-			description:
-				'Create templates for common report formats and our AI agents will extract data from your documents and build your reports.',
-			href: '/dodonai-extract-and-draft-agents/',
-			icon: '/images/webflow/Group-564.svg'
-		},
-		{
-			name: 'E-Discovery',
-			description: 'Use semantic search over documents to find exactly what you are looking for.',
-			href: '/electronic-discovery-software/',
-			icon: '/images/webflow/Group-569.svg'
+			name: 'Resources',
+			links: [
+				{ name: 'Blog', href: '/blog/' },
+				{ name: 'Help center', href: 'https://app.dodon.ai/help' },
+				{ name: 'Contact us', href: 'mailto:hello@dodon.ai' }
+			]
 		}
 	];
-
-	const solutionsColumns = [
-		{ label: 'Practice Areas', items: practiceAreas },
-		{ label: 'Use Cases', items: useCases },
-		{ label: 'Industries', items: industries }
-	];
-
-	const aiServicesColumns = [
-		{ label: 'Overview', items: aiServicesOverview },
-		{ label: 'By Practice Area', items: aiServicesPracticeAreas },
-		{ label: 'By Function', items: aiServicesFunctions }
-	];
-
-	function closeMobileMenu() {
-		mobileMenuOpen = false;
-		activeDropdown = null;
-		mobileActiveSection = null;
+	function closeMenus() {
+		mobileOpen = false;
+		header?.querySelectorAll('details[open]').forEach((el) => {
+			el.open = false;
+		});
 	}
+	function escapeMenu(event) {
+		if (event.key !== 'Escape') return;
+		const open = header?.querySelector('details[open]');
+		if (open) {
+			open.open = false;
+			open.querySelector('summary').focus();
+		} else {
+			mobileOpen = false;
+			header?.querySelector('.menu-toggle')?.focus();
+		}
+	}
+	afterNavigate(closeMenus);
 </script>
 
-<svelte:window bind:scrollY />
-
-<header class="z-50 transition-all duration-300 {scrolled ? 'bg-white shadow-sm' : 'bg-white'}">
-	<div
-		class="mx-auto flex h-16 items-center justify-between px-4 lg:h-20"
-		style="width: 90%; max-width: 1250px;"
-	>
-		<!-- Logo -->
-		<a href="/" class="flex-shrink-0" onclick={closeMobileMenu}>
-			<img
-				src="/images/brand/logo-main.webp"
-				alt="Dodonai"
-				class="h-auto w-[163px]"
-				width="163"
-				height="29"
-			/>
-		</a>
-
-		<!-- Desktop Navigation -->
-		<nav class="relative hidden items-center gap-20 lg:flex">
-			<!-- Services Dropdown -->
-			<div class="relative">
-				<a
-					href="/"
-					class="flex items-center gap-1 text-base font-medium transition-colors"
-					style="color: var(--midnight-blue);"
-					aria-haspopup="true"
-					aria-expanded={activeDropdown === 'services'}
-					onmouseenter={() => (activeDropdown = 'services')}
-					onfocus={() => (activeDropdown = 'services')}
-				>
-					Platform
-					<svg
-						class="h-4 w-4 transition-transform {activeDropdown === 'services' ? 'rotate-180' : ''}"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						stroke-width="2"
-					>
-						<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-					</svg>
-				</a>
-
-				{#if activeDropdown === 'services'}
-					<div
-						class="absolute -left-4 top-full mt-2 bg-white p-4"
-						style="box-shadow: 0 10px 100px rgba(0, 0, 0, 0.05); border-radius: 10px; width: 720px;"
-						onmouseenter={() => (activeDropdown = 'services')}
-						onmouseleave={() => (activeDropdown = null)}
-						role="menu"
-					>
-						<div class="grid grid-cols-2 gap-1">
-							{#each services as service}
-								<a
-									href={service.href}
-									class="flex items-start gap-3 rounded-lg p-3 transition-colors hover:bg-[#836ae41a]"
-									style="color: var(--midnight-blue);"
-									onclick={() => (activeDropdown = null)}
-									role="menuitem"
-								>
-									<img
-										src={service.icon}
-										alt=""
-										class="mt-0.5 h-8 w-8 flex-shrink-0"
-										aria-hidden="true"
-									/>
-									<div>
-										<div class="text-sm font-medium" style="color: var(--midnight-blue);">
-											{service.name}
-										</div>
-										<div
-											class="mt-0.5 text-xs leading-relaxed"
-											style="color: var(--light-slate-grey);"
-										>
-											{service.description}
-										</div>
-									</div>
-								</a>
-							{/each}
-						</div>
-						<div class="mt-3 border-t border-gray-100 pt-3">
+<svelte:window
+	onkeydown={escapeMenu}
+	onpointerdown={(event) => {
+		if (header && !header.contains(event.target)) closeMenus();
+	}}
+/>
+<header bind:this={header} class="site-header">
+	<div class="shell">
+		<a href="/" class="brand" aria-label="Dodonai home"
+			><img src="/images/brand/logo-main.webp" alt="Dodonai" width="163" height="29" /></a
+		>
+		<button
+			class="menu-toggle"
+			aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
+			aria-expanded={mobileOpen}
+			aria-controls="site-navigation"
+			onclick={() => {
+				if (mobileOpen) closeMenus();
+				else mobileOpen = true;
+			}}>{mobileOpen ? 'Close ✕' : 'Menu ☰'}</button
+		>
+		<nav id="site-navigation" aria-label="Main navigation" class:open={mobileOpen}>
+			<a
+				class="nav-item"
+				href="/ai-managed-services/how-it-works/"
+				aria-current={$page.url.pathname === '/ai-managed-services/how-it-works/'
+					? 'page'
+					: undefined}>How it works</a
+			>
+			{#each groups as group}
+				<details class="nav-group" name="site-nav">
+					<summary>{group.name}<span aria-hidden="true">⌄</span></summary>
+					<div class="dropdown">
+						{#each group.links as link}
 							<a
-								href="/pricing/"
-								class="flex items-center justify-between rounded-lg bg-[#216fed14] px-4 py-3 text-sm font-semibold transition-colors hover:bg-[#216fed24]"
-								style="color: var(--royal-blue);"
-								onclick={() => (activeDropdown = null)}
-								role="menuitem"
+								href={link.href}
+								aria-current={$page.url.pathname === link.href ? 'page' : undefined}>{link.name}</a
 							>
-								<span>See pricing &amp; plans</span>
-								<svg
-									class="h-4 w-4"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-								</svg>
-							</a>
-						</div>
+						{/each}
 					</div>
-				{/if}
-			</div>
-
-			<!-- Solutions Mega Dropdown -->
-			<div class="static">
-				<button
-					class="flex items-center gap-1 text-base font-medium transition-colors"
-					style="color: var(--midnight-blue);"
-					aria-haspopup="true"
-					aria-expanded={activeDropdown === 'solutions'}
-					onmouseenter={() => (activeDropdown = 'solutions')}
-					onmouseleave={() => {}}
-					onfocus={() => (activeDropdown = 'solutions')}
-					onclick={() => (activeDropdown = activeDropdown === 'solutions' ? null : 'solutions')}
-					onblur={() =>
-						setTimeout(() => {
-							if (activeDropdown === 'solutions') activeDropdown = null;
-						}, 200)}
-				>
-					Solutions
-					<svg
-						class="h-4 w-4 transition-transform {activeDropdown === 'solutions'
-							? 'rotate-180'
-							: ''}"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						stroke-width="2"
-					>
-						<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-					</svg>
-				</button>
-
-				{#if activeDropdown === 'solutions'}
-					<div
-						class="absolute left-1/2 top-full mt-2 -translate-x-1/2 bg-white p-5"
-						style="box-shadow: 0 10px 100px rgba(0, 0, 0, 0.05); border-radius: 10px; width: 880px; max-width: calc(100vw - 2rem);"
-						onmouseenter={() => (activeDropdown = 'solutions')}
-						onmouseleave={() => (activeDropdown = null)}
-						role="menu"
-					>
-						<div class="grid grid-cols-3 gap-6">
-							{#each solutionsColumns as column}
-								<div>
-									<div
-										class="mb-2 px-3 text-xs font-semibold uppercase tracking-wider"
-										style="color: var(--medium-slate-blue);"
-									>
-										{column.label}
-									</div>
-									<div class="grid grid-cols-1 gap-1">
-										{#each column.items as item}
-											<a
-												href={item.href}
-												class="rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-[#836ae41a]"
-												style="color: var(--midnight-blue);"
-												onclick={() => (activeDropdown = null)}
-												role="menuitem"
-											>
-												{item.name}
-											</a>
-										{/each}
-									</div>
-								</div>
-							{/each}
-						</div>
-						<div class="mt-3 border-t border-gray-100 pt-3">
-							<div
-								class="mb-2 px-3 text-xs font-semibold uppercase tracking-wider"
-								style="color: var(--medium-slate-blue);"
-							>
-								Compare
-							</div>
-							<div class="flex flex-wrap gap-x-4 gap-y-1 px-3">
-								{#each compare as item}
-									<a
-										href={item.href}
-										class="rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-[#836ae41a]"
-										style="color: var(--midnight-blue);"
-										onclick={() => (activeDropdown = null)}
-										role="menuitem"
-									>
-										{item.name}
-									</a>
-								{/each}
-							</div>
-						</div>
-					</div>
-				{/if}
-			</div>
-
-			<!-- AI Managed Services Mega Dropdown -->
-			<div class="static">
+				</details>
+			{/each}
+			<div class="actions">
+				<a class="login" href="https://app.dodon.ai/login">Log in</a>
 				<a
-					href="/ai-managed-services/"
-					class="flex items-center gap-1 text-base font-medium transition-colors"
-					style="color: var(--midnight-blue);"
-					aria-haspopup="true"
-					aria-expanded={activeDropdown === 'ai-services'}
-					onmouseenter={() => (activeDropdown = 'ai-services')}
-					onfocus={() => (activeDropdown = 'ai-services')}
+					class="site-cta"
+					href={servicesPage
+						? 'https://calendly.com/nick-dodonai'
+						: 'https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=header'}
+					>{servicesPage ? 'Book a call' : 'Start free trial'}</a
 				>
-					AI Managed Services
-					<svg
-						class="h-4 w-4 transition-transform {activeDropdown === 'ai-services'
-							? 'rotate-180'
-							: ''}"
-						fill="none"
-						viewBox="0 0 24 24"
-						stroke="currentColor"
-						stroke-width="2"
-					>
-						<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-					</svg>
-				</a>
-
-				{#if activeDropdown === 'ai-services'}
-					<div
-						class="absolute left-1/2 top-full mt-2 -translate-x-1/2 bg-white p-5"
-						style="box-shadow: 0 10px 100px rgba(0, 0, 0, 0.05); border-radius: 10px; width: 880px; max-width: calc(100vw - 2rem);"
-						onmouseenter={() => (activeDropdown = 'ai-services')}
-						onmouseleave={() => (activeDropdown = null)}
-						role="menu"
-					>
-						<div class="grid grid-cols-3 gap-6">
-							{#each aiServicesColumns as column}
-								<div>
-									<div
-										class="mb-2 px-3 text-xs font-semibold uppercase tracking-wider"
-										style="color: var(--medium-slate-blue);"
-									>
-										{column.label}
-									</div>
-									<div class="grid grid-cols-1 gap-1">
-										{#each column.items as item}
-											<a
-												href={item.href}
-												class="rounded-lg px-3 py-2 text-sm font-medium transition-colors hover:bg-[#836ae41a]"
-												style="color: var(--midnight-blue);"
-												onclick={() => (activeDropdown = null)}
-												role="menuitem"
-											>
-												{item.name}
-											</a>
-										{/each}
-									</div>
-								</div>
-							{/each}
-						</div>
-					</div>
-				{/if}
 			</div>
 		</nav>
-
-		<!-- Desktop CTA Buttons -->
-		<div class="hidden items-center gap-6 lg:flex">
-			<a
-				href="https://app.dodon.ai/login"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="nav-link text-base font-medium transition-colors"
-				style="color: var(--midnight-blue);"
-			>
-				Login
-			</a>
-			<a
-				href="https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=header"
-				target="_blank"
-				rel="noopener noreferrer"
-				class="btn-brand-nav"
-			>
-				Get Started
-			</a>
-		</div>
-
-		<!-- Mobile Hamburger Button -->
-		<button
-			class="p-2 lg:hidden"
-			style="color: var(--midnight-blue);"
-			onclick={() => (mobileMenuOpen = !mobileMenuOpen)}
-			aria-label="Toggle menu"
-		>
-			{#if mobileMenuOpen}
-				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12" />
-				</svg>
-			{:else}
-				<svg class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-					<path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16" />
-				</svg>
-			{/if}
-		</button>
 	</div>
-
-	<!-- Mobile Menu -->
-	{#if mobileMenuOpen}
-		<div
-			class="absolute left-0 right-0 top-full overflow-y-auto overscroll-contain border-t border-gray-200 bg-white shadow-lg lg:hidden"
-			style="max-height: calc(100dvh - 6rem);"
-		>
-			<nav class="mx-auto px-4 py-4 sm:px-6" style="width: 90%; max-width: 1250px;">
-				<!-- Services -->
-				<div class="border-b border-gray-100 pb-2">
-					<button
-						class="flex w-full items-center justify-between py-3 text-base font-medium"
-						style="color: var(--midnight-blue);"
-						aria-expanded={mobileActiveSection === 'services'}
-						onclick={() =>
-							(mobileActiveSection = mobileActiveSection === 'services' ? null : 'services')}
-					>
-						Platform
-						<svg
-							class="h-4 w-4 transition-transform {mobileActiveSection === 'services'
-								? 'rotate-180'
-								: ''}"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-						</svg>
-					</button>
-
-					{#if mobileActiveSection === 'services'}
-						<div class="ml-2 space-y-1 pb-2">
-							{#each services as service}
-								<a
-									href={service.href}
-									class="flex items-start gap-3 rounded-lg p-2 transition-colors hover:bg-[#836ae41a]"
-									onclick={closeMobileMenu}
-								>
-									<img
-										src={service.icon}
-										alt=""
-										class="mt-0.5 h-6 w-6 flex-shrink-0"
-										aria-hidden="true"
-									/>
-									<div>
-										<div class="text-sm font-medium" style="color: var(--midnight-blue);">
-											{service.name}
-										</div>
-										<div class="text-xs leading-relaxed" style="color: var(--light-slate-grey);">
-											{service.description}
-										</div>
-									</div>
-								</a>
-							{/each}
-							<a
-								href="/pricing/"
-								class="mt-1 flex items-center justify-between rounded-lg bg-[#216fed14] p-2 text-sm font-semibold transition-colors hover:bg-[#216fed24]"
-								style="color: var(--royal-blue);"
-								onclick={closeMobileMenu}
-							>
-								<span>See pricing &amp; plans</span>
-								<svg
-									class="h-4 w-4"
-									fill="none"
-									viewBox="0 0 24 24"
-									stroke="currentColor"
-									stroke-width="2"
-								>
-									<path stroke-linecap="round" stroke-linejoin="round" d="M9 5l7 7-7 7" />
-								</svg>
-							</a>
-						</div>
-					{/if}
-				</div>
-
-				<!-- Solutions Section -->
-				<div class="border-b border-gray-100 pb-2">
-					<button
-						class="flex w-full items-center justify-between py-3 text-base font-medium"
-						style="color: var(--midnight-blue);"
-						aria-expanded={mobileActiveSection === 'solutions'}
-						onclick={() =>
-							(mobileActiveSection = mobileActiveSection === 'solutions' ? null : 'solutions')}
-					>
-						Solutions
-						<svg
-							class="h-4 w-4 transition-transform {mobileActiveSection === 'solutions'
-								? 'rotate-180'
-								: ''}"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-						</svg>
-					</button>
-
-					{#if mobileActiveSection === 'solutions'}
-						<div class="ml-2 space-y-3 pb-2">
-							{#each solutionsColumns as column}
-								<div>
-									<div
-										class="px-2 pb-1 text-xs font-semibold uppercase tracking-wider"
-										style="color: var(--medium-slate-blue);"
-									>
-										{column.label}
-									</div>
-									{#each column.items as item}
-										<a
-											href={item.href}
-											class="block rounded-lg p-2 text-sm font-medium transition-colors hover:bg-[#836ae41a]"
-											style="color: var(--midnight-blue);"
-											onclick={closeMobileMenu}
-										>
-											{item.name}
-										</a>
-									{/each}
-								</div>
-							{/each}
-							<div class="mt-1 border-t border-gray-100 pt-2">
-								<div
-									class="px-2 pb-1 text-xs font-semibold uppercase tracking-wider"
-									style="color: var(--medium-slate-blue);"
-								>
-									Compare
-								</div>
-								{#each compare as item}
-									<a
-										href={item.href}
-										class="block rounded-lg p-2 text-sm font-medium transition-colors hover:bg-[#836ae41a]"
-										style="color: var(--midnight-blue);"
-										onclick={closeMobileMenu}
-									>
-										{item.name}
-									</a>
-								{/each}
-							</div>
-						</div>
-					{/if}
-				</div>
-
-				<!-- AI Managed Services Section -->
-				<div class="border-b border-gray-100 pb-2">
-					<button
-						class="flex w-full items-center justify-between py-3 text-base font-medium"
-						style="color: var(--midnight-blue);"
-						aria-expanded={mobileActiveSection === 'ai-services'}
-						onclick={() =>
-							(mobileActiveSection = mobileActiveSection === 'ai-services' ? null : 'ai-services')}
-					>
-						AI Managed Services
-						<svg
-							class="h-4 w-4 transition-transform {mobileActiveSection === 'ai-services'
-								? 'rotate-180'
-								: ''}"
-							fill="none"
-							viewBox="0 0 24 24"
-							stroke="currentColor"
-							stroke-width="2"
-						>
-							<path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7" />
-						</svg>
-					</button>
-
-					{#if mobileActiveSection === 'ai-services'}
-						<div class="ml-2 space-y-3 pb-2">
-							{#each aiServicesColumns as column}
-								<div>
-									<div
-										class="px-2 pb-1 text-xs font-semibold uppercase tracking-wider"
-										style="color: var(--medium-slate-blue);"
-									>
-										{column.label}
-									</div>
-									{#each column.items as item}
-										<a
-											href={item.href}
-											class="block rounded-lg p-2 text-sm font-medium transition-colors hover:bg-[#836ae41a]"
-											style="color: var(--midnight-blue);"
-											onclick={closeMobileMenu}
-										>
-											{item.name}
-										</a>
-									{/each}
-								</div>
-							{/each}
-						</div>
-					{/if}
-				</div>
-
-				<div class="mt-4 flex flex-col gap-3">
-					<a
-						href="https://app.dodon.ai/login"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="block py-2 text-center text-base font-medium"
-						style="color: var(--midnight-blue);"
-						onclick={closeMobileMenu}
-					>
-						Login
-					</a>
-					<a
-						href="https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=header_mobile"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="btn-brand-nav block text-center"
-						onclick={closeMobileMenu}
-					>
-						Get Started
-					</a>
-				</div>
-			</nav>
-		</div>
-	{/if}
 </header>
 
 <style>
-	.nav-link:hover {
-		color: #282876b3 !important;
+	.site-header {
+		background: rgba(255, 255, 255, 0.97);
+		border-bottom: 1px solid var(--site-line);
+		color: var(--midnight-blue);
+		backdrop-filter: blur(12px);
+	}
+	.shell {
+		max-width: 1160px;
+		padding: 0 28px;
+		margin: auto;
+		min-height: 72px;
+		display: flex;
+		align-items: center;
+		gap: 32px;
+	}
+	.brand {
+		flex-shrink: 0;
+	}
+	.brand img {
+		width: 145px;
+		height: auto;
+	}
+	nav {
+		display: flex;
+		align-items: center;
+		justify-content: flex-end;
+		gap: 24px;
+		flex: 1;
+		font-size: 14px;
+		line-height: 1.5;
+		font-weight: 700;
+	}
+	.nav-group {
+		position: relative;
+	}
+	summary {
+		cursor: pointer;
+		list-style: none;
+		display: flex;
+		gap: 7px;
+		align-items: center;
+		white-space: nowrap;
+		padding: 24px 0;
+	}
+	summary::-webkit-details-marker {
+		display: none;
+	}
+	summary span {
+		color: var(--site-muted);
+	}
+	a:hover,
+	summary:hover,
+	a[aria-current='page'] {
+		color: var(--royal-blue);
+	}
+	.dropdown {
+		position: absolute;
+		top: 100%;
+		left: -18px;
+		width: 280px;
+		padding: 10px;
+		border: 1px solid var(--site-line);
+		border-radius: 12px;
+		background: white;
+		box-shadow: 0 16px 40px #28287618;
+	}
+	.dropdown a {
+		display: block;
+		padding: 10px 12px;
+		border-radius: 7px;
+		font-size: 13px;
+	}
+	.dropdown a:hover {
+		background: var(--ghost-white);
+	}
+	.actions {
+		display: flex;
+		align-items: center;
+		gap: 20px;
+		margin-left: 8px;
+		white-space: nowrap;
+	}
+	.menu-toggle {
+		display: none;
+		font-size: 14px;
+		font-weight: 700;
+		padding: 10px;
+	}
+	:where(a, button, summary):focus-visible {
+		outline: 3px solid var(--royal-blue);
+		outline-offset: 4px;
+		border-radius: 4px;
+	}
+	@media (max-width: 1050px) {
+		.shell {
+			min-height: 68px;
+			justify-content: space-between;
+		}
+		.menu-toggle {
+			display: block;
+		}
+		nav {
+			display: none;
+			position: absolute;
+			top: 100%;
+			left: 0;
+			right: 0;
+			background: white;
+			padding: 16px 28px 24px;
+			border-bottom: 1px solid var(--site-line);
+			box-shadow: 0 20px 30px #28287612;
+			max-height: calc(100dvh - 100px);
+			overflow-y: auto;
+		}
+		nav.open {
+			display: block;
+		}
+		.nav-item {
+			display: block;
+			padding: 12px 0;
+		}
+		summary {
+			padding: 14px 0;
+			justify-content: space-between;
+			border-top: 1px solid var(--site-line);
+		}
+		.dropdown {
+			position: static;
+			width: auto;
+			box-shadow: none;
+			border: 0;
+			padding: 0 0 12px 8px;
+		}
+		.actions {
+			border-top: 1px solid var(--site-line);
+			padding-top: 20px;
+			margin: 8px 0 0;
+			justify-content: space-between;
+		}
 	}
 </style>
