@@ -1,4 +1,5 @@
 <script>
+	import BrandLogo from './BrandLogo.svelte';
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
 	import { aiServicesOverview } from '$lib/data/navigation.js';
@@ -62,9 +63,7 @@
 />
 <header bind:this={header} class="site-header">
 	<div class="shell">
-		<a href="/" class="brand" aria-label="Dodonai home"
-			><img src="/images/brand/logo-main.webp" alt="Dodonai" width="163" height="29" /></a
-		>
+		<a href="/" class="brand" aria-label="Dodonai home"><BrandLogo /></a>
 		<button
 			class="menu-toggle"
 			aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -128,10 +127,6 @@
 	}
 	.brand {
 		flex-shrink: 0;
-	}
-	.brand img {
-		width: 145px;
-		height: auto;
 	}
 	nav {
 		display: flex;

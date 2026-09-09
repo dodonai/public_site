@@ -1,4 +1,5 @@
 <script>
+	import BrandLogo from './BrandLogo.svelte';
 	import {
 		aiServicesOverview,
 		practiceAreas,
@@ -43,9 +44,7 @@
 	<div class="shell">
 		<div class="footer-grid">
 			<div class="identity">
-				<a href="/" aria-label="Dodonai home"
-					><img src="/images/brand/logo-main.webp" alt="Dodonai" width="163" height="29" /></a
-				>
+				<a href="/" aria-label="Dodonai home"><BrandLogo /></a>
 				<p>AI systems built and run for your firm.</p>
 				<a href="mailto:hello@dodon.ai">hello@dodon.ai</a>
 				<div class="social">
@@ -99,10 +98,6 @@
 		display: grid;
 		grid-template-columns: 1.2fr 1fr 1.2fr 0.75fr;
 		gap: 36px;
-	}
-	.identity img {
-		width: 145px;
-		height: auto;
 	}
 	.identity p {
 		max-width: 210px;
