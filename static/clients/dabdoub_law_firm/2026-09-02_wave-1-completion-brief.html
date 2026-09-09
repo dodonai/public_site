@@ -5,6 +5,17 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/clients/_assets/brief.css">
+<style>
+/* v2 additions: live flags for the 9/09 refresh */
+.live-flag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--green);padding:3px 8px;border-radius:6px;margin-left:8px;vertical-align:middle;white-space:nowrap}
+.live-flag.new{background:var(--purple-vivid)}
+.agent-card.went-live{box-shadow:inset 5px 0 0 var(--green)}
+.agent-card.went-live .agent-icon{background:var(--green);color:#fff}
+.am.live{background:var(--green);color:#fff;border-color:var(--green)}
+.changed .ci.live b{color:var(--green)}
+.delta-note{font-family:var(--mono);font-size:12px;color:var(--gray-meta-light);margin:6px 0 0}
+
+</style>
 </head><body>
 <header class="hero">
   <div class="wrap">
@@ -12,13 +23,13 @@
       <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
       <span class="vrule"></span>
       <span class="partner">Wave 1 Completion Brief</span>
-      <span class="tag">v1 · status as of 2026-09-02</span>
+      <span class="tag">v2 · status as of 2026-09-09 · refreshed from the 9/02 edition</span>
     </div>
     <span class="eyebrow">Prepared for Dabdoub Law Firm</span>
-    <h1>Twenty of thirty Appeals automations are live.<br><span class="soft">Here is exactly what is left, and what each item is waiting on.</span></h1>
-    <p class="lede">Since the 8/24 update: appeal-deadline calendaring is running for every open appeal, new claim files process on arrival, the claim-form follow-up and Notice of Representation triggers are live, and the governed filing loop surfaced its first genuine review card. What remains is ten Appeals items in risk-tiered go-live, the governed filing writes, the first live disbursement filing, and the appeal drafter's next reviewable letter. Only four of those are waiting on the firm.</p>
+    <h1>Five more Appeals automations went live since 9/02.<br><span class="soft">Eight remain, and the governed filing loop is now delivering four cards a cycle.</span></h1>
+    <p class="lede">In the week since the last meeting: the client copy of the filed appeal and the approval next-steps email are running hourly, the second-appeal restart and the LTD/STD dual-approval branch are live, the six deadline-ladder dates fill themselves in, second attorneys get their calendar reminders, and staff can now see why a request letter did or did not generate. The filing review loop went from one card per cycle to four, with its own auto-verified state. Eddie returned his redline on the AI appeal letter and walked the Lakhan evidence with us this morning. Of the eight Wave 1B items left, three are waiting on the firm.</p>
     <div class="meta-grid">
-      <div class="meta"><div class="label">Call</div><div class="value">Wed 9/02 · 9:15am ET</div></div>
+      <div class="meta"><div class="label">Refreshed</div><div class="value">Wed 9/09 · after the Eddie session</div></div>
       <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · Nick Chapleau</div></div>
       <div class="meta"><div class="label">Wave 1B close</div><div class="value">Target late September</div></div>
       <div class="meta"><div class="label">Closes on</div><div class="value">Bryn's adoption sign-off</div></div>
@@ -28,49 +39,58 @@
 
 <div class="changed">
   <div class="wrap">
-    <div class="ctitle">What changed since 8/24</div>
+    <div class="ctitle">What changed since 9/02 <span class="live-flag">live = switched on since the last brief</span></div>
     <div class="clist">
-      <div class="ci"><span class="tick">→</span><span><b>Deadline calendaring is live for the whole fleet.</b> Appeal 14/7/0-day, post-submission 45/90-day and initial-claim 45/105-day reminders: 149 created on 8/25, 442 reminders staff had already entered were detected and left alone.</span></div>
-      <div class="ci"><span class="tick">→</span><span><b>Three more letters switched on.</b> Claim-form follow-up (fleet), Notice of Representation (trigger live, first canary pending), client copy of the filed appeal (live on canary).</span></div>
-      <div class="ci"><span class="tick">→</span><span><b>Claim files process on arrival.</b> Eight of eight new arrivals summarized, indexed and published to the matter folder with an attorney task; zero failures.</span></div>
-      <div class="ci"><span class="tick">→</span><span><b>Governed filing surfaced its first real review card</b> with a verified source preview. Internal folder moves no longer post cards. Write gates stay closed until the fresh-document test.</span></div>
-      <div class="ci"><span class="tick">→</span><span><b>Disbursement statements file to Active Administrative.</b> The On Claims follow-ups built on that rail (overdue-payment digest, benefit-breakdown request and reminders, monthly recurrence, fee cap) are ready behind the accounting data load. Training Wed 9/09.</span></div>
-      <div class="ci"><span class="tick">→</span><span><b>Appeal drafter recalibrated on your own filed letter.</b> Seven pages is a target with a review prompt, not a hard stop. Every candidate now clears an absolute quality floor before anyone reads it; the next reviewable letter follows that floor.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>A-20 client copy of the filed appeal · live 9/02.</b> The sweep had no scheduler on 9/02, so four natural submissions had sat undrafted; it now runs hourly on business days. Six drafts produced, replay clean.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>A-27 approval next-steps email · live 9/02.</b> First canary failed on a CC bug (the attorney and on-claims CC were passed as one string); fixed, redeployed, then live on the same hourly sweep with both CCs.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>A-32 second-appeal restart and A-33 LTD/STD dual approval · live 9/02.</b> Both on their own HubSpot triggers with canaries verified. A-33 no longer spawns a Service; the 8/17 approval split already owns that. Only the portal display rule is still a manual step.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>Deadline ladder auto-fill · live 9/02.</b> The 1-week and 2-week pre-deadline dates and the +45 / +90 / +105 dates now fill from the anchor date on every Service (53 blank rungs backfilled, 80 hand-keyed mismatches left untouched). Two questions to Bryn: weekend rule, and the +90 keyed at +105 pattern.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>Second attorney on every reminder · live 9/04.</b> Bryn's rule: when a Service has an Attorney 2, both attorneys and the assistant get the Outlook reminders. 62 missing placements found and fixed going forward.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>Request-letter status on the Service · live 9/04.</b> After Bryn and Stephany reported letters that "did not generate", A-04 and A-05 now show a status and the exact missing field (the reported case was a blank Mr./Ms. and blank HR address). In-Appeal policy requests file beside the appeal.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>F-02 filing review loop · rebuilt through generation 68.</b> Unattributable mail (encrypted wrappers, voicemails, blank forms) no longer burns review slots; four focused card layouts (Ready, Matter needed, Folder needed, Possible mismatch) are live in the shared channel; cap raised from one card per cycle to four after the delivery runtime went from ~11 minutes to 4 seconds; a green informational "Auto-verified, no action needed" state ships for clean cards. Write gates remain closed.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>A-34 Notice of Representation trigger widened 9/02.</b> The first natural initial claim had no claim number, so the date-only trigger missed it; claim number is now a second trigger. Still waiting on the first natural canary and Bryn's no-claim-number answer.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>A-31 termination letters built offline 9/02.</b> Carrier notice and client copy as unsent Word files, Tier 5a guards fail closed. Go-live waits on Bryn's OK and Nick's go.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>A-21 and A-24 hit data gaps.</b> The CRM has no field for the client's SSDI attorney (A-21), and the deemed-exhaustion letter needs a policy number the Service does not carry (A-24). Both are now explicit firm asks with proposed fields.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Appeal drafter: Eddie's redline arrived 9/04</b> ("over all it is much better"; the evidence sections need rewriting) and the Lakhan evidence walkthrough happened this morning. The remediation plan from that meeting (conclusion-first evidence, simple headings, concise argument, a separate attorney note on denial issues) is written and awaiting Nick's go; no new letter is approved yet.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Claim files: the Hoffman index came back empty</b> because the observer swept the firm's own request letters as "the claim file". A name gate (only "OCR'd Claim File" PDFs) and a six-hour wait for multi-part files are built locally; fleet activation still capped at zero pending Nick's decision.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>Also live:</b> onboarding form collects the SSN for links issued after 9/08 (forward-only) · fee-agreement name-whitespace hotfix and status visibility restored 9/04 · Evaluations now display by claimant name instead of record ID · Egnyte token quota outage (9/02) diagnosed and fixed fleet-wide.</span></div>
+      <div class="ci"><span class="tick">→</span><span><b>Staffing change recorded 9/03:</b> Cynthia takes Sonya's appeals cases; Sonya takes the litigation cases. Bulk reassignment of the Services (full lists sent 9/03) is waiting on Bryn's go.</span></div>
     </div>
+    <p class="delta-note wrap">Not changed since 9/02: C-06 first live statement filing (write gate still off; accounting training is this afternoon), A-17/A-36 packets, A-28 (Julieth's address), the fresh-document filing test and confirmation step.</p>
   </div>
 </div>
 
 <div class="cliff">
   <div class="wrap">
-    <div class="ctitle">The number that matters<span class="big">20 / 30</span></div>
-    <div class="cbody">Wave 1B Appeals automations live for the firm today. <b>Ten remain, and nine of them are already coded.</b></div>
+    <div class="ctitle">The number that matters<span class="big">21 / 29</span></div>
+    <div class="cbody">Wave 1B Appeals build items live (A-03 folder-from-template was absorbed into folder provisioning, so the denominator is 29). <b>Eight remain: three wait on the firm, two are Tier 5a letters, two are packets, one is the F-02-gated ingest pair.</b></div>
   </div>
 </div>
 
 <section>
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">Live today</span><h2>What the appeals team <span class="soft">relies on now</span></h2>
-      <p class="sec-sub">Everything below runs in production behind a human review gate. Nothing sends, files or books on its own.</p></div>
+      <p class="sec-sub">Everything below runs in production behind a human review gate. Nothing sends, files or books on its own. Items flagged went live since the 9/02 brief.</p></div>
     <div class="role-grid">
       <div class="role-card reveal">
         <h3>Requests and homework</h3>
         <div class="sub">Stage 4 of the Appeals SOP</div>
-        <ul><li>A-04 claim-file request · A-05 policy request drafts, data-ready triggers</li><li>A-07 new-client setup email in the assistant's Outlook</li><li>A-08 receipt follow-up tasks · A-09 homework recap · A-10 weekly homework follow-up</li><li>A-15 homework-complete notification · A-35 claim-form follow-up nudge</li></ul>
+        <ul><li>A-04 claim-file request · A-05 policy request drafts, data-ready triggers, now with a visible status and missing-field detail <span class="live-flag">live 9/04</span></li><li>A-07 new-client setup email in the assistant's Outlook</li><li>A-08 receipt follow-up tasks · A-09 homework recap · A-10 weekly homework follow-up</li><li>A-15 homework-complete notification · A-35 claim-form follow-up nudge</li></ul>
       </div>
       <div class="role-card reveal">
         <h3>Deadlines and calendars</h3>
         <div class="sub">Stages 2 and 7</div>
-        <ul><li>A-02 appeal deadline 14/7/0 · A-18 post-submission 45/90 · A-37 initial claim 45/105, fleet-wide since 8/25</li><li>A-12 evaluation reminders 14/7/1, per Evaluation record</li><li>A-19 acknowledgement chase as a call task at +14 days</li><li>Second-action deadline ladders for STD + LTD matters</li></ul>
+        <ul><li>A-02 appeal deadline 14/7/0 · A-18 post-submission 45/90 · A-37 initial claim 45/105, fleet-wide since 8/25</li><li>Six ladder dates auto-filled from the anchor date on every Service <span class="live-flag">live 9/02</span></li><li>Attorney 2 included on every reminder <span class="live-flag">live 9/04</span></li><li>A-12 evaluation reminders 14/7/1 · A-19 acknowledgement call task · A-25 extension re-anchor · second-action ladders</li></ul>
       </div>
       <div class="role-card reveal">
-        <h3>Evaluations and packets</h3>
-        <div class="sub">Stage 4, A-11 to A-14</div>
-        <ul><li>A-11 referral generation and filing · A-13 cover letter + records packet · A-14 report follow-up cadence</li><li>One Evaluation record per referral, appointment, packet and report</li></ul>
+        <h3>Lifecycle letters and routing</h3>
+        <div class="sub">Stages 6 and 8</div>
+        <ul><li>A-20 client copy of the filed appeal, hourly <span class="live-flag">live 9/02</span></li><li>A-27 approval next-steps email with attorney + on-claims CC <span class="live-flag">live 9/02</span></li><li>A-32 second-appeal restart (start-clean reset) <span class="live-flag">live 9/02</span></li><li>A-33 LTD/STD dual-approval branch <span class="live-flag">live 9/02</span></li><li>A-26 approval workflow · A-29 denial next-steps · A-30 litigation route · A-34 Notice of Representation trigger</li></ul>
       </div>
       <div class="role-card reveal">
-        <h3>Routing, intake and accounting</h3>
-        <div class="sub">Stages 1 and 8, plus the rails</div>
-        <ul><li>A-26 approval workflow · A-29 denial next-steps · A-30 litigation route · A-34 Notice of Representation trigger</li><li>Fee agreement + onboarding (CO-01) · folder provisioning at intake and on signature · new-case notifications</li><li>Disbursement statement routing (C-06) · Medical Record Request tracker · claim-file processing on arrival · Egnyte observation of 282 folders</li></ul>
+        <h3>Evaluations, intake and rails</h3>
+        <div class="sub">A-11 to A-14 plus the substrate</div>
+        <ul><li>A-11 referral · A-13 cover letter + records packet · A-14 report follow-up; Evaluations now labeled by claimant <span class="live-flag">live 9/02</span></li><li>Fee agreement + onboarding (CO-01), onboarding form now collects the SSN forward-only <span class="live-flag">live 9/08</span></li><li>Folder provisioning at intake and on signature · new-case notifications · Medical Record Request tracker</li><li>Disbursement statement routing (C-06) · claim-file processing on arrival (capped) · F-02 review cards, four per cycle <span class="live-flag">gen 68</span></li></ul>
       </div>
     </div>
   </div>
@@ -79,59 +99,61 @@
 <section class="alt">
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">The remaining work</span><h2>Not yet live, <span class="soft">and what gates each one</span></h2>
-      <p class="sec-sub">Grouped by the lane it runs in. The badge on each card is the gate; the phase badge says who holds it.</p></div>
+      <p class="sec-sub">Green-edged cards went live since 9/02 and stay here only where a follow-up is still owed. The gate badge names the blocker; the phase badge says who holds it.</p></div>
 
-    <div class="pkg-category reveal"><div class="cat-label">Lane B · draft letters riding the live engine · quick wins</div></div>
+    <div class="pkg-category reveal"><div class="cat-label">Lane B · draft letters riding the live engine</div></div>
     <div class="agent-grid">
-      <div class="agent-card reveal"><div class="agent-icon">A-20</div><div class="agent-body"><h3 class="agent-name">Client copy of the filed appeal</h3><p class="agent-desc">Sweep live on canary since 8/25 (152 existing matters baselined, none re-drafted). <strong>Nothing to do; the first natural appeal submission produces the first draft.</strong></p><div class="agent-meta"><span class="am gate">gate: first natural submission</span><span class="am phase">waiting on caseload</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-27</div><div class="agent-body"><h3 class="agent-name">Approval next-steps email</h3><p class="agent-desc">Built and baselined on the same sweep. Switches on once A-20's first draft verifies.</p><div class="agent-meta"><span class="am gate">gate: widen the allowlist</span><span class="am phase">Nick</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-28</div><div class="agent-body"><h3 class="agent-name">Approval letters to marketing</h3><p class="agent-desc">Built and baselined. The recipient is fail-closed until the firm confirms it.</p><div class="agent-meta"><span class="am gate">gate: Julieth's email address</span><span class="am phase">firm</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-34</div><div class="agent-body"><h3 class="agent-name">Notice of Representation</h3><p class="agent-desc">Trigger workflow live 8/25 on initial claims. First natural Pre-Claim canary pending. One question: if a notice ever goes out before the carrier assigns a claim number, what should the RE block say?</p><div class="agent-meta"><span class="am gate">gate: first canary + Bryn's answer</span><span class="am phase">caseload + firm</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-21</div><div class="agent-body"><h3 class="agent-name">SSDI attorney evidence forward</h3><p class="agent-desc">Two variants coded (firm-referred vs client's own attorney). Needs the branch confirmed on a live matter, then a canary.</p><div class="agent-meta"><span class="am gate">gate: branch confirm + canary</span><span class="am phase">Nick</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon amber">A-24 · A-31</div><div class="agent-body"><h3 class="agent-name">Deemed-exhaustion letter · termination letters</h3><p class="agent-desc">Coded. These assert a legal posture or end a representation, so they get the extra canary scrutiny and an attorney reviews every send.</p><div class="agent-meta"><span class="am gate">gate: Tier 5a canary, attorney per send</span><span class="am phase">Nick + attorney</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-17 · A-36</div><div class="agent-body"><h3 class="agent-name">Appeal packet · initial-claim packet</h3><p class="agent-desc">Reuse the live A-13 packet engine. A-36's contents are still to be confirmed by the firm.</p><div class="agent-meta"><span class="am gate">gate: A-36 contents + canary</span><span class="am phase">firm + Nick</span></div></div></div>
+      <div class="agent-card went-live reveal"><div class="agent-icon">A-20</div><div class="agent-body"><h3 class="agent-name">Client copy of the filed appeal <span class="live-flag">live 9/02</span></h3><p class="agent-desc">Hourly business-day sweep; six drafts to date. Assistants attach the filed appeal and send. <strong>Done; watching only.</strong></p><div class="agent-meta"><span class="am live">live</span><span class="am fire">hourly, Mon to Fri</span></div></div></div>
+      <div class="agent-card went-live reveal"><div class="agent-icon">A-27</div><div class="agent-body"><h3 class="agent-name">Approval next-steps email <span class="live-flag">live 9/02</span></h3><p class="agent-desc">Reply on the approval thread with attorney and on-claims CC. Assistant adds the accounting CC and the approval letter, then sends. <strong>Done; watching only.</strong></p><div class="agent-meta"><span class="am live">live</span><span class="am fire">hourly, Mon to Fri</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">A-28</div><div class="agent-body"><h3 class="agent-name">Approval letters to marketing</h3><p class="agent-desc">Built and baselined; three approvals since 8/25 are waiting on it. The recipient is fail-closed until the firm confirms the address.</p><div class="agent-meta"><span class="am gate">gate: Julieth's email address</span><span class="am phase">firm</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">A-34</div><div class="agent-body"><h3 class="agent-name">Notice of Representation</h3><p class="agent-desc">Trigger live and widened 9/02 (claim number now also fires it). The 8/27 initial claim becomes the canary once staff enter its claim number. Open question: what the RE block says when no claim number exists yet.</p><div class="agent-meta"><span class="am gate">gate: first canary + Bryn's answer</span><span class="am phase">caseload + firm</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">A-21</div><div class="agent-body"><h3 class="agent-name">SSDI attorney evidence forward</h3><p class="agent-desc">Two variants coded, but the CRM has no field that says who the client's SSDI attorney is or whether the firm referred them. Proposed: two Service fields (SSDI attorney contact, referred-by-firm yes/no).</p><div class="agent-meta"><span class="am gate">gate: SSDI attorney fields</span><span class="am phase">firm decision</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon amber">A-24</div><div class="agent-body"><h3 class="agent-name">Deemed-exhaustion letter</h3><p class="agent-desc">Body sourced from the firm's template. Design settled 9/02: anchor on the staff-set deemed-denied date, not a computed +45 (54 undecided matters are past 45 days, extensions make the inference wrong). Blocked on a policy-number field the Service lacks.</p><div class="agent-meta"><span class="am gate">gate: policy number source + trigger confirm</span><span class="am phase">firm decision</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon amber">A-31</div><div class="agent-body"><h3 class="agent-name">Termination letters</h3><p class="agent-desc">Built offline 9/02: carrier notice and client copy as unsent Word files, fails closed on a set approval date or missing address. One matter on the Terminate route today. Ends a representation, so it needs Bryn's OK before the canary.</p><div class="agent-meta"><span class="am gate">gate: Bryn OK + Tier 5a canary</span><span class="am phase">firm + Nick</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">A-17 · A-36</div><div class="agent-body"><h3 class="agent-name">Appeal packet · initial-claim packet</h3><p class="agent-desc">Reuse the live A-13 packet engine. No movement since 8/24; A-36's contents are still to be confirmed by the firm.</p><div class="agent-meta"><span class="am gate">gate: A-36 contents + canary</span><span class="am phase">firm + Nick</span></div></div></div>
     </div>
 
-    <div class="pkg-category teal reveal"><div class="cat-label">Lane D · partial and gap items</div></div>
+    <div class="pkg-category teal reveal"><div class="cat-label">Lane D · partial and gap items · closed 9/02</div></div>
     <div class="agent-grid">
-      <div class="agent-card reveal"><div class="agent-icon teal">A-32</div><div class="agent-body"><h3 class="agent-name">Second-appeal restart</h3><p class="agent-desc">Built offline, selftest green. Needs its trigger published and a double-gated canary because it resets deadline fields on the system of record.</p><div class="agent-meta"><span class="am gate">gate: trigger + double-gated canary</span><span class="am phase">Nick</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon teal">A-33</div><div class="agent-body"><h3 class="agent-name">LTD / STD dual approval</h3><p class="agent-desc">The one true build gap in Wave 1B. The coded logic waits on a HubSpot conditional-display rule that has to be configured in the portal by hand.</p><div class="agent-meta"><span class="am gate">gate: HubSpot portal rule</span><span class="am phase">Nick, with Bryn</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon teal">A-03 · A-25</div><div class="agent-body"><h3 class="agent-name">Folder from template · extension re-calendar</h3><p class="agent-desc">A-03 is coded but has no production workload now that folder provisioning builds the bins on signature. A-25 rides the live A-02 engine; cancelling superseded reminders stays a human step.</p><div class="agent-meta"><span class="am phase">documented, low priority</span></div></div></div>
+      <div class="agent-card went-live reveal"><div class="agent-icon">A-32</div><div class="agent-body"><h3 class="agent-name">Second-appeal restart <span class="live-flag">live 9/02</span></h3><p class="agent-desc">Start-clean reset on its own HubSpot trigger, double-gated; canary verified, replay a no-op. The deadline ladder follows the kept deadline. Note: cycle-two follow-ups (A-19/A-20) stay manual because those flows do not re-enroll.</p><div class="agent-meta"><span class="am live">live</span></div></div></div>
+      <div class="agent-card went-live reveal"><div class="agent-icon">A-33</div><div class="agent-body"><h3 class="agent-name">LTD / STD dual approval <span class="live-flag">live 9/02</span></h3><p class="agent-desc">Both-approved branch live; the one-approved branch is owned by the 8/17 approval split, so A-33 never spawns a second Service. The HubSpot conditional-display rule for the card is still a manual portal step.</p><div class="agent-meta"><span class="am live">live</span><span class="am gate">follow-up: portal display rule</span><span class="am phase">Nick</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon teal">A-03 · A-25</div><div class="agent-body"><h3 class="agent-name">Folder from template · extension re-calendar</h3><p class="agent-desc">A-03 absorbed into folder provisioning (I-15 builds the bins on signature). A-25 live through the A-02 engine; cancelling superseded reminders stays a human step, the auto-cancel enhancement sits on the retainer backlog.</p><div class="agent-meta"><span class="am phase">closed</span></div></div></div>
     </div>
 
     <div class="pkg-category amber reveal"><div class="cat-label">Lane A · governed filing ramp · the long pole</div></div>
     <div class="agent-grid">
-      <div class="agent-card reveal"><div class="agent-icon amber">F-02</div><div class="agent-body"><h3 class="agent-name">Governed filing writes</h3><p class="agent-desc">Review cards are live (cap one per cycle, named reviewer). Writes open in order: fresh-document test → confirmation step → one exact-manifest canary → a five-document canary → capped ramp (5 files a day, 20 clean filings across 5 matters) → continuous. <strong>Each step is a separate approval and several are bound by real inbound mail, not build effort.</strong></p><div class="agent-meta"><span class="am gate">gate: Nick approvals + real documents</span><span class="am phase">caseload-bound</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon amber">A-01 · A-22</div><div class="agent-body"><h3 class="agent-name">Denial ingest → deadline · medical review → deadline</h3><p class="agent-desc">Coded. Both extract a deadline-bearing date from an inbound letter, so they go live only after the filing ramp proves the classification. A person still confirms every date.</p><div class="agent-meta"><span class="am gate">gate: trusted classification (after the ramp)</span><span class="am phase">follows F-02</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon amber">CF</div><div class="agent-body"><h3 class="agent-name">Claim-file processing, fleet-wide</h3><p class="agent-desc">The bounded rollout is complete (1 canary + 5 capped + 2 manual, zero failures). Opening the fleet beyond the cap is a policy decision, not a build.</p><div class="agent-meta"><span class="am gate">gate: rollout decision</span><span class="am phase">Nick</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon amber">F-02</div><div class="agent-body"><h3 class="agent-name">Governed filing writes</h3><p class="agent-desc">Review cards are now flowing at four per cycle with four focused layouts plus an auto-verified state (generation 68, 9/08). A 20-card cohort audit on 9/09 found 19 of 20 matter resolutions correct and no wrong-matter routing; the gaps are missing destinations and assignments, and 5 of 20 source links expired before staff opened them (immutable source snapshots built locally to fix that, not yet deployed). <strong>Writes still open in order: confirmation step → exact-manifest canary → five-document canary → capped ramp → continuous.</strong> Each is a separate approval.</p><div class="agent-meta"><span class="am gate">gate: Nick approvals + Bryn's card review</span><span class="am phase">next: confirmation step</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon amber">A-01 · A-22</div><div class="agent-body"><h3 class="agent-name">Denial ingest → deadline · medical review → deadline</h3><p class="agent-desc">Coded. Both extract a deadline-bearing date from an inbound letter, so they go live only after the filing ramp proves the classification. The ladder auto-fill means a confirmed anchor now propagates to all six dates instantly.</p><div class="agent-meta"><span class="am gate">gate: trusted classification (after the ramp)</span><span class="am phase">follows F-02</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon amber">CF</div><div class="agent-body"><h3 class="agent-name">Claim-file processing, fleet-wide</h3><p class="agent-desc">The bounded rollout stays complete and clean, but Hoffman exposed a gap: the observer indexed the firm's own request letters as the claim file. Fix built locally (only "OCR'd Claim File" PDFs qualify; six-hour wait so multi-part files process together). The real Hoffman file is held behind the exhausted cap.</p><div class="agent-meta"><span class="am gate">gate: deploy the name gate, then the fleet decision</span><span class="am phase">Nick</span></div></div></div>
     </div>
 
     <div class="pkg-category reveal"><div class="cat-label">Wave 1A · the two headline drafters</div></div>
     <div class="agent-grid">
-      <div class="agent-card reveal"><div class="agent-icon">A-16</div><div class="agent-body"><h3 class="agent-name">First-pass appeal letter</h3><p class="agent-desc">Built and live on the production tenant. The acceptance candidate was reset after the firm's filed Lakhan letter recalibrated the bar: length is a target with a review prompt, and every candidate must clear an absolute quality floor before comparison or review. None does yet. <strong>Next: owner-approved drafting plans for the two calibration matters, one correction to the controlling-standard reading, then one new reviewable letter (~mid September).</strong></p><div class="agent-meta"><span class="am gate">gate: quality floor</span><span class="am phase">Nick</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-23</div><div class="agent-body"><h3 class="agent-name">Medical-review rebuttal</h3><p class="agent-desc">Built, live on the same publication rail. Waits for the next legitimate reviewed publication.</p><div class="agent-meta"><span class="am gate">gate: next reviewed draft</span><span class="am phase">Nick</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">A-16</div><div class="agent-body"><h3 class="agent-name">First-pass appeal letter</h3><p class="agent-desc"><strong>The firm read happened.</strong> Eddie edited the Lakhan letter 9/04 ("over all it is much better"), asked for one more walkthrough, and we held it this morning with the reports in hand. His direction: bottom-line opinion before report detail, simple descriptive headings, a short forceful introduction, brief argument, and a separate attorney-facing note on denial issues rather than rebutting every reason in the letter. A remediation plan built on that is written; the latest candidate passed its automated review but not the editorial one, so it is the regression baseline, not the target. Paid testing since 9/02 is about $123 against the authorized cap.</p><div class="agent-meta"><span class="am gate">gate: implement the 9/09 plan, then one new reviewable letter</span><span class="am phase">Nick</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">A-23</div><div class="agent-body"><h3 class="agent-name">Medical-review rebuttal</h3><p class="agent-desc">Built, live on the same publication rail. Waits for the next legitimate reviewed publication; it inherits whatever the appeal drafter learns this week.</p><div class="agent-meta"><span class="am gate">gate: next reviewed draft</span><span class="am phase">Nick</span></div></div></div>
     </div>
 
     <div class="pkg-category teal reveal"><div class="cat-label">Accounting rail · Phase 1C and the On Claims quick wins</div></div>
     <div class="agent-grid">
-      <div class="agent-card reveal"><div class="agent-icon teal">C-06</div><div class="agent-body"><h3 class="agent-name">First live statement filing</h3><p class="agent-desc">Routing and all seven layouts are live; the file-write gate opens on the first real future-ready Disbursement with a confirmed canary. Destination is now the client's Active Administrative folder.</p><div class="agent-meta"><span class="am gate">gate: first real Disbursement + canary</span><span class="am phase">caseload + Nick</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon teal">O-04 · O-15 · O-16</div><div class="agent-body"><h3 class="agent-name">Benefit-breakdown request · overdue-payment digest · reminders</h3><p class="agent-desc">Built on the disbursement rail ahead of Phase 2, gated off. Need the poller deployed, the expected-payment dates loaded from the firm's on-claim spreadsheet, and one HubSpot trigger action.</p><div class="agent-meta"><span class="am gate">gate: on-claim spreadsheet + deploy</span><span class="am phase">firm + Nick</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon teal">C-06</div><div class="agent-body"><h3 class="agent-name">First live statement filing</h3><p class="agent-desc">Routing and all seven layouts are live; destination is the client's Active Administrative folder. The file-write gate opens on the first real future-ready Disbursement with a confirmed canary. Accounting training is today at 2pm; no change to the gate since 9/02.</p><div class="agent-meta"><span class="am gate">gate: first real Disbursement + canary</span><span class="am phase">caseload + Nick</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon teal">O-04 · O-15 · O-16</div><div class="agent-body"><h3 class="agent-name">Benefit-breakdown request · overdue-payment digest · reminders</h3><p class="agent-desc">Built on the disbursement rail ahead of Phase 2, gated off. Still need the poller deployed, the expected-payment dates loaded from the firm's on-claim spreadsheet, and one HubSpot trigger action.</p><div class="agent-meta"><span class="am gate">gate: on-claim spreadsheet + deploy</span><span class="am phase">firm + Nick</span></div></div></div>
     </div>
   </div>
 </section>
 
 <section>
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">To agree on the call</span><h2>What we need <span class="soft">from the firm</span></h2></div>
+    <div class="sec-head reveal"><span class="eyebrow">To agree with Bryn</span><h2>What we need <span class="soft">from the firm</span></h2></div>
     <div class="answered reveal d1">
-      <span class="ans"><b>Resolved without you:</b> disbursement statement destination and firm entity (9/01); Latanae's approval-task naming (8/27); the LTC fee-agreement wording (8/25); Last Date Worked sync to Services (8/25).</span>
+      <span class="ans"><b>Resolved since 9/02:</b> Attorney 2 calendaring rule (Bryn, 9/04) · the "letters didn't generate" report (root cause was blank Mr./Ms. and HR address; status now visible) · fee-agreement draft missing for a double-spaced name (hotfix live 9/04) · staff reassignment lists sent (9/03).</span>
     </div>
     <div class="qcards">
-      <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">Wave 1B adoption sign-off</p><p class="qcd">Your written sign-off once the team is using the live set. It closes the phase, starts the retainer, and unlocks the next SOW.</p></div></div>
-      <div class="qc reveal d2"><span class="qcn">2</span><div><p class="qct">On-claim client spreadsheet</p><p class="qcd">Clients on claim with last payment date, monthly benefit and disbursement details, so we load current expected dates and clear the stale ones in one pass. The overdue-payment digest is silent until then.</p></div></div>
-      <div class="qc reveal d3"><span class="qcn">3</span><div><p class="qct">Four small confirmations</p><p class="qcd">Julieth's email (A-28); the RE block when no claim number exists (A-34); initial-claim packet contents (A-36); the closure-holiday calendar and secure-link question.</p></div></div>
-      <div class="qc reveal d1"><span class="qcn">4</span><div><p class="qct">Two disbursement details, in plain words</p><p class="qcd">Cost basis: does the statement show costs still outstanding, or all costs to date? And keep the folder name DISBURSEMENTS under each client's admin folder?</p></div></div>
-      <div class="qc reveal d2"><span class="qcn">5</span><div><p class="qct">Existing claim files to process now</p><p class="qcd">The attorneys' list of matters whose claim files they want summarized and indexed today; new arrivals already process automatically.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">Wave 1B adoption sign-off</p><p class="qcd">Written sign-off once the team is using the live set. Closes the phase, starts the retainer, unlocks the next SOW.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">2</span><div><p class="qct">Go on the Service reassignments</p><p class="qcd">Cynthia takes Sonya's appeals Services, Sonya takes the litigation Services. Full lists were sent 9/03; the bulk move runs on your go.</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">3</span><div><p class="qct">Three data decisions that unblock three letters</p><p class="qcd">Where the SSDI attorney lives in HubSpot (A-21); where the policy number lives and confirming the deemed-denied trigger (A-24); Julieth's email (A-28). Plus the RE block when no claim number exists (A-34) and A-36 packet contents.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">4</span><div><p class="qct">Two deadline-ladder rules</p><p class="qcd">When a +45 / +90 / +105 date lands on a weekend, roll it or leave it? And is "Appeal + 90" keyed at submission + 105 on some records intentional?</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">5</span><div><p class="qct">On-claim client spreadsheet</p><p class="qcd">Clients on claim with last payment date, monthly benefit and disbursement details, so we load current expected dates in one pass. The overdue-payment digest is silent until then.</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">6</span><div><p class="qct">Bryn's look at the filing cards</p><p class="qcd">The four focused card layouts and the five re-reviewed test cards are in the shared Teams channel. Desktop and mobile feedback decides the correction interaction before the confirmation step opens.</p></div></div>
     </div>
   </div>
 </section>
@@ -141,9 +163,9 @@
     <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Closing <span class="soft">Wave 1</span></h2></div>
     <div class="timeline">
       <div class="tl-line"></div>
-      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">This call</div><div class="ph2">Status + asks</div><div class="pd2">Confirm the five asks above and the order for what comes next.</div></div>
-      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Now to mid Sep</div><div class="ph2">Quick wins</div><div class="pd2">A-20 first draft, A-34 canary, A-27 widen, A-21 canary; C-06 first live filing; On Claims follow-ups deployed; the next reviewable appeal letter.</div></div>
-      <div class="phase-t"><div class="pnode2">2</div><div class="ptagline">Mid to late Sep</div><div class="ph2">Tier 5a + packets + F-02</div><div class="pd2">A-24/A-31 canaries, A-17/A-36, A-32, the A-33 portal rule; F-02 confirmation step and canaries as documents arrive.</div></div>
+      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">9/02 to 9/09</div><div class="ph2">Lanes B and D</div><div class="pd2">A-20, A-27, A-32, A-33 live; ladder auto-fill, Attorney 2 reminders and request-letter status live; F-02 rebuilt to four cards a cycle.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Now to mid Sep</div><div class="ph2">Firm-gated letters</div><div class="pd2">A-34 canary, A-31 with Bryn's OK, A-28 with Julieth's address, A-21/A-24 once the fields exist; C-06 first live filing; On Claims follow-ups deployed; the drafter remediation plan implemented.</div></div>
+      <div class="phase-t"><div class="pnode2">2</div><div class="ptagline">Mid to late Sep</div><div class="ph2">Packets + F-02 writes</div><div class="pd2">A-17/A-36; F-02 confirmation step, exact-manifest canary, five-document canary; claim-file name gate deployed and the fleet decision.</div></div>
       <div class="phase-t future"><div class="pnode2">3</div><div class="ptagline">Late Sep</div><div class="ph2">Sign-off</div><div class="pd2">Bryn's adoption sign-off; retainer begins; next phase SOW (Litigation proposed, see the companion brief).</div></div>
     </div>
   </div>
@@ -153,9 +175,9 @@
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>The rule that <span class="soft">never changes</span></h2></div>
     <div class="gates">
-      <div class="gatecard reveal d1"><div class="gi">📅</div><h4>Every deadline</h4><p>Proposed by the system, confirmed by a person. Dates you already calendared are detected and respected.</p></div>
+      <div class="gatecard reveal d1"><div class="gi">📅</div><h4>Every deadline</h4><p>Anchor dates are entered by a person; the ladder and the calendars follow. Dates you already calendared are detected and respected.</p></div>
       <div class="gatecard reveal d2"><div class="gi">✉️</div><h4>Every send</h4><p>Letters land as unsent drafts in the right Outlook or as Word files in AI output. A person reviews and sends.</p></div>
-      <div class="gatecard reveal d3"><div class="gi">📂</div><h4>Every file move</h4><p>Governed filing surfaces one card at a time to a named reviewer. No approval, no move.</p></div>
+      <div class="gatecard reveal d3"><div class="gi">📂</div><h4>Every file move</h4><p>Governed filing surfaces cards to named reviewers. Auto-verified means "nothing to check", not "filed". No approval, no move.</p></div>
     </div>
   </div>
 </section>
@@ -163,7 +185,7 @@
 <footer>
   <div class="wrap">
     <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
-    Prepared for Dabdoub Law Firm · Wave 1 Completion Brief v1 · 2026-09-02 · Confidential
+    Prepared for Dabdoub Law Firm · Wave 1 Completion Brief v2 · 2026-09-09 · Confidential
   </div>
 </footer>
 
