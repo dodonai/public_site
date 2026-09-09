@@ -141,7 +141,7 @@
 		const sourcePath = window.location.pathname;
 		pendingCalendlyBooking = {
 			sourcePath,
-			isEnterprise: sourcePath.startsWith('/ai-managed-services')
+			isEnterprise: sourcePath === '/' || sourcePath.startsWith('/ai-managed-services')
 		};
 		calendlyBookingTracked = false;
 
@@ -222,6 +222,7 @@
 	{@html `<script type="application/ld+json">${JSON.stringify(websiteSchema)}</script>`}
 </svelte:head>
 
+<div id="top"></div>
 <a
 	href="#main-content"
 	class="sr-only focus:not-sr-only focus:absolute focus:z-[200] focus:bg-white focus:px-4 focus:py-2 focus:text-[#282876]"
@@ -229,8 +230,8 @@
 	Skip to main content
 </a>
 
-<div class="sticky top-0 z-[100]">
-	{#if !$page.url.pathname.startsWith('/ai-managed-services')}
+<div data-site-header class="sticky top-0 z-[100]">
+	{#if $page.url.pathname !== '/' && !$page.url.pathname.startsWith('/ai-managed-services')}
 		<a
 			href="https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=promo_banner"
 			target="_blank"

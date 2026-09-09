@@ -2,7 +2,8 @@ import { getBlogPosts } from '$lib/data/blog.server.js';
 import { aiServicesPracticeAreas, aiServicesFunctions } from '$lib/data/navigation.js';
 
 const staticPages = [
-	{ path: '', lastmod: '2026-02-18', priority: '1.0' },
+	{ path: '', lastmod: '2026-09-08', priority: '1.0' },
+	{ path: '/app', lastmod: '2026-09-08', priority: '0.9' },
 	{ path: '/pricing', lastmod: '2026-02-18', priority: '0.8' },
 	{ path: '/blog', lastmod: '2026-02-18', priority: '0.8' },
 	{ path: '/deposition-summary-software', lastmod: '2026-02-18', priority: '0.9' },
@@ -12,7 +13,7 @@ const staticPages = [
 	{ path: '/dodonai-extract-and-draft-agents', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/electronic-discovery-software', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/ai-managed-services', lastmod: '2026-06-04', priority: '0.9' },
-	{ path: '/ai-managed-services/how-it-works', lastmod: '2026-04-16', priority: '0.8' },
+	{ path: '/ai-managed-services/how-it-works', lastmod: '2026-09-08', priority: '0.8' },
 	{ path: '/ai-managed-services/results', lastmod: '2026-06-04', priority: '0.8' },
 	{ path: '/ai-managed-services/safety', lastmod: '2026-04-16', priority: '0.8' },
 	{ path: '/ai-managed-services/our-agents', lastmod: '2026-04-16', priority: '0.8' },

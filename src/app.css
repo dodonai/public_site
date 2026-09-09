@@ -57,6 +57,8 @@
 		--thistle: #f9e1ff;
 		--alice-blue: #e1f4ff;
 		--thistle-2: #ffe6e9;
+		--site-muted: #65658f;
+		--site-line: #e3e5f2;
 	}
 
 	html {
@@ -77,6 +79,20 @@
 }
 
 @layer components {
+	.site-cta {
+		display: inline-block;
+		background: var(--royal-blue);
+		color: white;
+		padding: 12px 22px;
+		border-radius: 999px;
+		font-size: 14px;
+		font-weight: 700;
+		line-height: 1.5;
+	}
+	.site-cta:hover {
+		background: var(--midnight-blue);
+		color: white;
+	}
 	/* Top promo banner - Webflow: var(--thistle) */
 	.promo-banner {
 		background-color: var(--thistle);

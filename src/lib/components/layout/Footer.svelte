@@ -1,301 +1,224 @@
 <script>
+	import BrandLogo from './BrandLogo.svelte';
 	import {
+		aiServicesOverview,
 		practiceAreas,
 		useCases,
-		compare,
 		industries,
-		aiServicesOverview
+		compare
 	} from '$lib/data/navigation.js';
-
-	const platformLinks = [
-		{ name: 'AI Deposition Summary', href: '/deposition-summary-software/' },
-		{ name: 'AI Deposition Software', href: '/ai-deposition-transcript-software/' },
-		{ name: 'AI E-Discovery Software', href: '/electronic-discovery-software/' },
-		{ name: 'AI Medical Record Summaries', href: '/ai-medical-record-summaries-chronologies/' },
-		{ name: 'AI-Powered PDF to Text OCR', href: '/ai-pdf-ocr/' },
-		{ name: 'Extract & Draft Agents', href: '/dodonai-extract-and-draft-agents/' }
-	];
-
-	const resourceLinks = [
-		{ name: 'Pricing', href: '/pricing/' },
-		{ name: 'Blog', href: '/blog/' },
-		{ name: 'Help Center', href: 'https://app.dodon.ai/help', external: true },
+	const columns = [
+		{ title: 'AI Services', links: aiServicesOverview },
 		{
-			name: 'Sign Up',
-			href: 'https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=footer',
-			external: true
+			title: 'Dodonai App',
+			links: [
+				{ name: 'App overview', href: '/app/' },
+				{ name: 'Deposition summaries', href: '/deposition-summary-software/' },
+				{ name: 'Medical record chronologies', href: '/ai-medical-record-summaries-chronologies/' },
+				{ name: 'Transcript management', href: '/ai-deposition-transcript-software/' },
+				{ name: 'Extract & draft agents', href: '/dodonai-extract-and-draft-agents/' },
+				{ name: 'E-discovery', href: '/electronic-discovery-software/' },
+				{ name: 'AI OCR', href: '/ai-pdf-ocr/' },
+				{ name: 'App pricing', href: '/pricing/' }
+			]
 		},
-		{ name: 'Log In', href: 'https://app.dodon.ai/login', external: true }
-	];
-
-	const legalLinks = [
-		{ name: 'Terms & Conditions', href: '/terms-and-conditions/' },
-		{ name: 'Privacy Policy', href: '/privacy-policy/' }
-	];
-
-	const blogPosts = [
 		{
-			name: "Writing Winning Deposition Summaries: Dodonai's Comprehensive Guide",
+			title: 'Resources',
+			links: [
+				{ name: 'Blog', href: '/blog/' },
+				{ name: 'Help center', href: 'https://app.dodon.ai/help' },
+				{ name: 'Log in', href: 'https://app.dodon.ai/login' },
+				{ name: 'Book a call', href: 'https://calendly.com/nick-dodonai' }
+			]
+		}
+	];
+	const directories = [
+		{ title: 'Practice areas', links: practiceAreas },
+		{ title: 'Use cases', links: useCases },
+		{ title: 'Industries', links: industries },
+		{ title: 'Compare software', links: compare }
+	];
+	const popularGuides = [
+		{
+			name: 'Writing winning deposition summaries',
 			href: '/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/'
 		},
 		{
-			name: '6 Ways Deposition Summaries Provide Value in Litigation',
+			name: '6 ways deposition summaries help litigation',
 			href: '/blog/6-ways-deposition-summaries-provide-value-in-litigation/'
 		},
 		{
-			name: 'How to Draft a Page-Line Deposition Summary',
+			name: 'How to draft a page-line deposition summary',
 			href: '/blog/how-to-draft-a-page-line-deposition-summary/'
 		},
 		{
-			name: 'How to Draft an Issue-Based Deposition Summary',
+			name: 'How to draft an issue-based deposition summary',
 			href: '/blog/how-to-draft-a-issue-based-deposition-summary/'
 		},
 		{
-			name: 'Understanding Depositions: A Comprehensive Guide',
+			name: 'Understanding depositions',
 			href: '/blog/understanding-depositions-a-comprehensive-guide/'
 		},
 		{
-			name: 'Crafting Effective Deposition Summaries: Expert Tips and Strategies',
+			name: 'Crafting effective deposition summaries',
 			href: '/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies/'
 		}
 	];
 </script>
 
-<footer class="relative z-40 overflow-hidden">
-	<div
-		class="mx-auto flex w-[85%] max-w-[1250px] flex-col items-stretch justify-between pt-10 pb-0"
-	>
-		<!-- Row 1: Logo + Services / Resources / Legal -->
-		<div
-			class="flex flex-wrap items-start justify-between pb-10 max-md:flex-wrap max-md:justify-between"
-		>
-			<!-- Logo + Email + Social -->
-			<div class="flex w-[25%] flex-col items-center justify-center max-lg:mb-[50px] max-lg:w-full">
-				<a href="/" class="inline-block max-w-[200px]">
-					<img
-						src="/images/brand/logo-purple.webp"
-						alt="Dodonai"
-						class="w-full"
-						width="200"
-						height="35"
-					/>
-				</a>
-				<a
-					href="mailto:hello@dodon.ai"
-					class="mt-5 block text-[16px] font-medium leading-[28px] text-[#282876] transition-colors duration-200 hover:text-[#282876b3]"
-				>
-					hello@dodon.ai
-				</a>
-				<div class="mt-5 flex w-[75%] max-w-[170px] items-center justify-between max-lg:w-[40%]">
-					<a
-						href="https://www.linkedin.com/company/dodon-ai"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="flex h-[24px] flex-col items-center justify-end transition-all duration-300 hover:mt-[-5px]"
-						aria-label="LinkedIn"
-					>
-						<img
-							src="/images/brand/linkedin.svg"
-							alt="LinkedIn"
-							class="h-full"
-							width="24"
-							height="24"
-						/>
-					</a>
-					<a
-						href="https://twitter.com/Dodon_ai"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="flex h-[24px] flex-col items-center justify-end transition-all duration-300 hover:mt-[-5px]"
-						aria-label="Twitter"
-					>
-						<img
-							src="/images/brand/twitter.svg"
-							alt="Twitter"
-							class="h-full"
-							width="24"
-							height="24"
-						/>
-					</a>
-					<a
-						href="https://www.youtube.com/@dodon-ai"
-						target="_blank"
-						rel="noopener noreferrer"
-						class="flex h-[24px] flex-col items-center justify-end transition-all duration-300 hover:mt-[-5px]"
-						aria-label="YouTube"
-					>
-						<img
-							src="/images/brand/youtube.webp"
-							alt="YouTube"
-							class="w-[21px]"
-							width="21"
-							height="15"
-						/>
-					</a>
+<footer class="site-footer">
+	<div class="shell">
+		<div class="footer-grid">
+			<div class="identity">
+				<a href="/" aria-label="Dodonai home"><BrandLogo /></a>
+				<p>AI systems built and run for your firm.</p>
+				<a href="mailto:hello@dodon.ai">hello@dodon.ai</a>
+				<div class="social">
+					<a href="https://www.linkedin.com/company/dodon-ai">LinkedIn</a><a
+						href="https://www.youtube.com/@dodon-ai">YouTube</a
+					><a href="https://twitter.com/Dodon_ai">X</a>
 				</div>
 			</div>
-
-			<!-- Footer grid: Platform / AI Managed Services / Resources / Legal -->
-			<div
-				class="grid w-[70%] max-w-[850px] grid-cols-[1.4fr_1.2fr_1fr_0.9fr] gap-x-4 gap-y-[37px] max-lg:w-full max-lg:gap-x-0 max-md:grid-cols-[1fr_1fr] max-sm:flex max-sm:flex-col max-sm:flex-wrap"
-			>
-				<!-- Platform -->
-				<div class="flex flex-col items-start justify-start">
-					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Platform</h2>
-					</div>
-					{#each platformLinks as link}
-						<a
-							href={link.href}
-							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-						>
-							{link.name}
-						</a>
-					{/each}
-				</div>
-
-				<!-- AI Managed Services -->
-				<div class="flex flex-col items-start justify-start">
-					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">AI Managed Services</h2>
-					</div>
-					{#each aiServicesOverview as link}
-						<a
-							href={link.href}
-							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-						>
-							{link.name}
-						</a>
-					{/each}
-				</div>
-
-				<!-- Resources -->
-				<div class="flex flex-col items-start justify-start">
-					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Resources</h2>
-					</div>
-					{#each resourceLinks as link}
-						<a
-							href={link.href}
-							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-							target={link.external ? '_blank' : undefined}
-							rel={link.external ? 'noopener noreferrer' : undefined}
-						>
-							{link.name}
-						</a>
-					{/each}
-				</div>
-
-				<!-- Legal -->
-				<div class="flex flex-col items-start justify-start">
-					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Legal</h2>
-					</div>
-					{#each legalLinks as link}
-						<a
-							href={link.href}
-							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-						>
-							{link.name}
-						</a>
-					{/each}
-				</div>
-			</div>
+			{#each columns as column}
+				<nav aria-label={column.title + ' footer'}>
+					<h2>{column.title}</h2>
+					{#each column.links as link}<a href={link.href}>{link.name}</a>{/each}
+				</nav>
+			{/each}
 		</div>
-
-		<!-- Row 2: Hub Pages — Practice Areas / Use Cases / Compare / Industries -->
-		<div class="pb-10">
-			<div
-				class="grid grid-cols-4 gap-x-4 gap-y-[37px] max-md:grid-cols-2 max-sm:flex max-sm:flex-col max-sm:flex-wrap"
-			>
-				<!-- Practice Areas -->
-				<div class="flex flex-col items-start justify-start">
-					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Practice Areas</h2>
-					</div>
-					{#each practiceAreas as link}
-						<a
-							href={link.href}
-							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-						>
-							{link.name}
-						</a>
-					{/each}
-				</div>
-
-				<!-- Use Cases -->
-				<div class="flex flex-col items-start justify-start">
-					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Use Cases</h2>
-					</div>
-					{#each useCases as link}
-						<a
-							href={link.href}
-							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-						>
-							{link.name}
-						</a>
-					{/each}
-				</div>
-
-				<!-- Compare -->
-				<div class="flex flex-col items-start justify-start">
-					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Compare</h2>
-					</div>
-					{#each compare as link}
-						<a
-							href={link.href}
-							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-						>
-							{link.name}
-						</a>
-					{/each}
-				</div>
-
-				<!-- Industries -->
-				<div class="flex flex-col items-start justify-start">
-					<div class="mb-[25px]">
-						<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Industries</h2>
-					</div>
-					{#each industries as link}
-						<a
-							href={link.href}
-							class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-						>
-							{link.name}
-						</a>
-					{/each}
-				</div>
-			</div>
+		<div class="directories">
+			{#each directories as directory}
+				<details>
+					<summary>{directory.title}</summary>
+					<nav aria-label={directory.title + ' directory'}>
+						{#each directory.links as link}<a href={link.href}>{link.name}</a>{/each}
+					</nav>
+				</details>
+			{/each}
 		</div>
-
-		<!-- Row 3: Selected Blog Posts -->
-		<div class="pb-10">
-			<div class="mb-[25px]">
-				<h2 class="text-[18px] font-medium leading-[28px] text-[#282876]">Selected Blog Posts</h2>
+		<details class="popular-guides">
+			<summary>Popular guides</summary>
+			<nav aria-label="Popular guides">
+				{#each popularGuides as link}<a href={link.href}>{link.name}</a>{/each}
+			</nav>
+		</details>
+		<div class="legal">
+			<span>© {new Date().getFullYear()} Dodonai. All rights reserved.</span>
+			<div>
+				<a href="/privacy-policy/">Privacy policy</a><a href="/terms-and-conditions/"
+					>Terms & conditions</a
+				><a href="#top">Back to top ↑</a>
 			</div>
-			<div
-				class="grid grid-flow-col grid-cols-3 grid-rows-2 gap-x-4 gap-y-0 max-md:grid-cols-2 max-md:grid-rows-3 max-sm:flex max-sm:flex-col"
-			>
-				{#each blogPosts as post}
-					<a
-						href={post.href}
-						class="mb-4 text-[16px] leading-[28px] text-[#8181ac] transition-colors duration-200 hover:text-[#282876]"
-					>
-						{post.name}
-					</a>
-				{/each}
-			</div>
-		</div>
-
-		<!-- Copyright -->
-		<div
-			class="mt-[80px] flex justify-between max-lg:flex-col max-lg:items-start max-sm:mt-[40px] max-sm:flex-col-reverse"
-		>
-			<p class="text-[14px] leading-[28px] text-[#8181ac]">
-				&copy; {new Date().getFullYear()} Dodonai. All rights reserved.
-			</p>
 		</div>
 	</div>
 </footer>
+
+<style>
+	.site-footer {
+		background: var(--ghost-white);
+		border-top: 1px solid var(--site-line);
+		color: var(--site-muted);
+		font-size: 13px;
+		line-height: 1.6;
+	}
+	.shell {
+		max-width: 1160px;
+		margin: auto;
+		padding: 56px 28px 24px;
+	}
+	.footer-grid {
+		display: grid;
+		grid-template-columns: 1.2fr 1fr 1.2fr 0.75fr;
+		gap: 36px;
+	}
+	.identity p {
+		max-width: 210px;
+		margin: 20px 0 14px;
+	}
+	h2 {
+		font-size: 14px;
+		font-weight: 700;
+		color: var(--midnight-blue);
+		margin-bottom: 18px;
+	}
+	nav a {
+		display: block;
+		margin: 10px 0;
+	}
+	a:hover {
+		color: var(--royal-blue);
+	}
+	.social {
+		display: flex;
+		gap: 14px;
+		margin-top: 20px;
+		font-size: 12px;
+	}
+	.directories {
+		display: grid;
+		grid-template-columns: repeat(4, 1fr);
+		gap: 24px;
+		border-top: 1px solid var(--site-line);
+		padding: 22px 0;
+		margin-top: 36px;
+	}
+	summary {
+		cursor: pointer;
+		color: var(--midnight-blue);
+		font-weight: 700;
+	}
+	.legal {
+		display: flex;
+		justify-content: space-between;
+		gap: 18px;
+		flex-wrap: wrap;
+		border-top: 1px solid var(--site-line);
+		padding-top: 20px;
+		font-size: 12px;
+	}
+	.popular-guides {
+		border-top: 1px solid var(--site-line);
+		padding: 20px 0;
+	}
+	.popular-guides nav {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0 24px;
+		margin-top: 12px;
+	}
+	@media (max-width: 800px) {
+		.popular-guides nav {
+			grid-template-columns: 1fr;
+		}
+	}
+	.legal div {
+		display: flex;
+		gap: 22px;
+		flex-wrap: wrap;
+	}
+	:where(a, summary):focus-visible {
+		outline: 3px solid var(--royal-blue);
+		outline-offset: 4px;
+	}
+	@media (max-width: 800px) {
+		.footer-grid {
+			grid-template-columns: 1fr 1fr;
+			gap: 32px;
+		}
+		.directories {
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	@media (max-width: 480px) {
+		.identity {
+			grid-column: 1/-1;
+		}
+		.footer-grid {
+			gap: 28px 18px;
+		}
+		.directories {
+			grid-template-columns: 1fr;
+			gap: 16px;
+		}
+	}
+</style>
