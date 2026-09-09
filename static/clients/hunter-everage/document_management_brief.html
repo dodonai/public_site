@@ -1,0 +1,1160 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex,nofollow">
+<title>Hunter &amp; Everage · Document Management Brief</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+/* ============================================================================
+   Dodonai Brief Engine — canonical stylesheet
+   ----------------------------------------------------------------------------
+   Single source of truth for the visual language behind every Dodonai client
+   brief (Firm OS Brief, AI Readiness Diagnostic, ROI Business Case, Workflow
+   Teardown, etc.). Maintained as the shared source for static and animated briefs.
+
+   Pair with brief-reveal.js for scroll-reveal + the animated trio.
+
+   USAGE
+   - Standalone mode (email/attachment): inline this file inside a style element.
+   - Published mode (public_site stage): link this file with a stylesheet link tag
+     (href="/clients/_assets/brief.css") and load brief-reveal.js with a deferred script tag.
+   NOTE: keep this comment free of literal HTML close-tag sequences (style/script). When
+   this file is inlined into a style element, a literal close-tag here would terminate the
+   block early and the rest of the CSS would not apply. Describe tags in prose, do not write them.
+   Fonts (load in the head either way): the Plus Jakarta Sans + Source Code Pro Google Fonts link.
+
+   Block families (see assets/blocks.html for copy-paste markup):
+     1. Chrome + hero + bands   — hero, brandbar, meta-grid, sec-head, pull-quote,
+                                   changed/cliff strips
+     2. Inventory + pillars + scope — keep/integrate/replace cards, pillars (numbered
+                                   + roadblock), flow-mini, scope-box, workflow lanes
+     3. Animated trio + value   — xform (scatter→hub), pipe (self-running pipeline),
+                                   dash (cockpit feed), outcome, gates, ROI, numbers
+     4. Catalog + conversion    — alternatives, compliance pills, questions,
+                                   timeline, package grid, software-stack
+                                   before/after, productized agent cards,
+                                   layered architecture SVG, by-role grid,
+                                   proof cards
+   ============================================================================ */
+
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  /* extended palette for catalog/conversion blocks */
+  --teal-bright:#06B6D4; --rose:#E11D48; --good:#16A34A;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+/* ===== SCROLL REVEAL (brief-reveal.js adds .in / .play) ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ===== HERO ===== */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:60px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+/* version/status pill at the end of the brandbar (.tag or .v2) */
+.brandbar .tag,.brandbar .v2{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:56px;line-height:1.02;letter-spacing:-.025em;margin:0 0 18px;max-width:17ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:20px;line-height:1.45;color:var(--purple-soft);max-width:60ch;margin:0 0 38px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+
+/* ===== SECTIONS ===== */
+section{padding:54px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:66ch;margin:0 0 30px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+.ink .eyebrow{color:var(--purple-soft)}
+
+/* ===== CHANGED STRIP (2-column tick list of deltas) ===== */
+.changed{background:var(--midnight);color:#fff;padding:30px 0}
+.changed .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.changed .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:130px;line-height:1.4}
+.changed .clist{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.changed .ci{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4}
+.changed .ci .tick{color:var(--purple-soft);font-weight:800;flex:0 0 auto}
+.changed .ci b{color:#fff}
+.changed .ci span{color:var(--purple-soft)}
+
+/* ===== CLIFF STRIP (big-number framing band) ===== */
+.cliff{background:var(--midnight);color:#fff;padding:30px 0}
+.cliff .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.cliff .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:150px;line-height:1.5}
+.cliff .ctitle .big{display:block;font-family:var(--sans);font-size:34px;letter-spacing:-.02em;color:#fff;margin-top:8px}
+.cliff .cbody{font-size:16px;line-height:1.55;color:var(--purple-soft)}
+.cliff .cbody b{color:#fff}
+
+/* ===== PULL QUOTE + definition ===== */
+.pull{position:relative;background:#fff;border-radius:14px;padding:36px 42px 32px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:22px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+.os-def{margin-top:24px;font-size:18px;line-height:1.6;max-width:76ch}
+.os-def strong{color:var(--purple-bold)}
+
+/* ===== WORKFLOW LANES (current-state phase flow charts) ===== */
+.phasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.phasecard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:20px 22px;position:relative}
+.phasecard .ph-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.phasecard .ph-n{flex:0 0 30px;height:30px;border-radius:9px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.phasecard .ph-name{font-weight:800;font-size:17px;letter-spacing:-.01em}
+.phasecard .ph-meta{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light)}
+.flow{display:flex;flex-direction:column;gap:7px}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4;position:relative;padding-left:2px}
+.step .sb{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:6px;background:var(--gray-meta)}
+.step.man .sb{background:var(--amber)}
+.step.gate .sb{background:var(--teal)}
+.step .stx{color:var(--midnight)}
+.step .stx .who{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.who.w-man{background:rgba(199,125,46,.14);color:var(--amber)}
+.who.w-gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.flow-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.flow-legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.flow-legend .dot{width:10px;height:10px;border-radius:50%}
+.tally{margin-top:26px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15px;line-height:1.6}
+.tally b{color:var(--amber)}
+
+/* ===== TRANSFORMATION ANIMATION (scatter today → OS hub) ===== */
+.xform{display:grid;grid-template-columns:1fr 64px 1fr;gap:8px;align-items:stretch;margin-top:10px}
+.xcol{background:rgba(255,255,255,.04);border:1px solid rgba(181,168,230,.22);border-radius:16px;padding:24px 22px 26px;position:relative;overflow:hidden}
+.xcol .xlabel{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.xcol.today .xlabel{color:var(--purple-soft)}
+.xcol.os .xlabel{color:#fff}
+.xcol.os{border-color:rgba(124,58,237,.6);background:radial-gradient(420px 240px at 70% 0%,rgba(124,58,237,.22),transparent 60%),rgba(124,58,237,.06)}
+.scatter{position:relative;height:300px}
+.tool-chip{position:absolute;font-family:var(--mono);font-size:11px;font-weight:600;background:var(--midnight-soft);color:var(--purple-soft);border:1px solid rgba(181,168,230,.3);border-radius:9px;padding:7px 10px;white-space:nowrap;opacity:0;transform:scale(.85)}
+.play .tool-chip{animation:chipIn .5s ease forwards}
+.tool-chip:nth-child(1){top:6%;left:4%}
+.tool-chip:nth-child(2){top:2%;left:54%}
+.tool-chip:nth-child(3){top:26%;left:30%}
+.tool-chip:nth-child(4){top:30%;left:66%}
+.tool-chip:nth-child(5){top:50%;left:8%}
+.tool-chip:nth-child(6){top:54%;left:44%}
+.tool-chip:nth-child(7){top:74%;left:22%}
+.tool-chip:nth-child(8){top:78%;left:60%}
+.play .tool-chip:nth-child(1){animation-delay:.05s}
+.play .tool-chip:nth-child(2){animation-delay:.13s}
+.play .tool-chip:nth-child(3){animation-delay:.21s}
+.play .tool-chip:nth-child(4){animation-delay:.29s}
+.play .tool-chip:nth-child(5){animation-delay:.37s}
+.play .tool-chip:nth-child(6){animation-delay:.45s}
+.play .tool-chip:nth-child(7){animation-delay:.53s}
+.play .tool-chip:nth-child(8){animation-delay:.61s}
+.scatter .runner{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px rgba(199,125,46,.22);opacity:0}
+.play .scatter .runner{animation:runnerFade .6s .7s ease forwards,runAround 6s 1.3s ease-in-out infinite}
+.scatter .handlabel{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--amber);font-weight:700;opacity:0;text-align:center;width:90%}
+.play .scatter .handlabel{animation:runnerFade .5s 1s ease forwards}
+@keyframes chipIn{to{opacity:1;transform:scale(1)}}
+@keyframes runnerFade{to{opacity:1}}
+@keyframes runAround{
+  0%{top:8%;left:8%}12%{top:6%;left:56%}25%{top:28%;left:32%}38%{top:32%;left:66%}
+  50%{top:52%;left:10%}62%{top:56%;left:46%}75%{top:76%;left:24%}88%{top:80%;left:60%}100%{top:8%;left:8%}}
+.hub{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+.hub-core{width:120px;height:120px;border-radius:24px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 0 rgba(124,58,237,.5);position:relative;z-index:3;opacity:0;transform:scale(.8)}
+.play .hub-core{animation:hubIn .6s 1.2s cubic-bezier(.2,1.3,.4,1) forwards,hubPulse 2.8s 1.9s ease-in-out infinite}
+.hub-core .hw{font-weight:800;font-size:15px;letter-spacing:-.01em}
+.hub-core .hs{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-soft);margin-top:4px}
+.spoke{position:absolute;font-family:var(--mono);font-size:10.5px;font-weight:600;background:var(--midnight-soft);color:#fff;border:1px solid rgba(181,168,230,.4);border-radius:8px;padding:6px 9px;white-space:nowrap;opacity:0;z-index:2}
+.play .spoke{animation:spokeIn .5s ease forwards}
+.spoke:nth-of-type(1){top:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(2){top:24%;right:2%}
+.spoke:nth-of-type(3){bottom:24%;right:0%}
+.spoke:nth-of-type(4){bottom:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(5){bottom:24%;left:0%}
+.spoke:nth-of-type(6){top:24%;left:2%}
+.play .spoke:nth-of-type(1){animation-delay:1.7s}
+.play .spoke:nth-of-type(2){animation-delay:1.85s}
+.play .spoke:nth-of-type(3){animation-delay:2.0s}
+.play .spoke:nth-of-type(4){animation-delay:2.15s}
+.play .spoke:nth-of-type(5){animation-delay:2.3s}
+.play .spoke:nth-of-type(6){animation-delay:2.45s}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:0}
+.play .hub svg.links{animation:runnerFade .6s 2.5s ease forwards}
+.hub svg.links line{stroke:rgba(181,168,230,.45);stroke-width:1.5;stroke-dasharray:4 5}
+.play .hub svg.links line{animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-18}}
+@keyframes hubIn{to{opacity:1;transform:scale(1)}}
+@keyframes spokeIn{from{opacity:0;transform:scale(.8) translateY(6px)}to{opacity:1}}
+@keyframes hubPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.45)}50%{box-shadow:0 0 0 14px rgba(124,58,237,0)}}
+.xarrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--purple-soft)}
+.xarrow .ah{font-size:30px;font-weight:800;line-height:1}
+.xarrow .at{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--purple-soft)}
+.xcaption{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+.xcaption .xc{font-size:14.5px;line-height:1.55}
+.xcaption .xc .h{font-weight:800;color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.xcaption .xc .h .pin{width:9px;height:9px;border-radius:50%}
+.xcaption .xc.l .h .pin{background:var(--amber)}
+.xcaption .xc.r .h .pin{background:var(--purple-vivid)}
+.xcaption .xc p{margin:0;color:var(--purple-soft)}
+
+/* ===== PIPELINE (self-running workflow) ===== */
+.pipe-wrap{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:30px 26px 26px;position:relative;overflow:hidden}
+.pipe{display:flex;align-items:stretch;gap:0;position:relative}
+.pnode{flex:1;text-align:center;position:relative;padding:0 6px}
+.pnode .pdot{width:54px;height:54px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--cream-deep);border:2px solid var(--cream-line);position:relative;z-index:2;transition:all .4s}
+.pnode .pttl{font-weight:700;font-size:13.5px;letter-spacing:-.01em;margin-bottom:4px}
+.pnode .pwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-bold)}
+.pnode.gate .pwho{color:var(--teal)}
+.pnode .pstatus{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:7px;padding:2px 8px;border-radius:10px;display:inline-block;background:var(--cream-deep);color:var(--gray-meta-light)}
+.pline{position:absolute;top:27px;height:3px;background:var(--cream-line);z-index:0;left:0;right:0}
+.pline .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft))}
+.play .pline .pfill{animation:fill 9s linear infinite}
+@keyframes fill{0%{width:0}90%,100%{width:100%}}
+.play .pnode .pdot{animation:nodeActivate 9s linear infinite}
+.play .pnode:nth-child(2) .pdot{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot{animation-delay:6.4s}
+@keyframes nodeActivate{0%,8%{background:var(--cream-deep);border-color:var(--cream-line);transform:scale(1)}
+  10%{background:rgba(124,58,237,.15);border-color:var(--purple-vivid);transform:scale(1.08)}
+  16%,100%{background:var(--purple-vivid);border-color:var(--purple-vivid)}}
+.play .pnode .pstatus{animation:statusFlip 9s linear infinite}
+.play .pnode:nth-child(2) .pstatus{animation-delay:0s}
+.play .pnode:nth-child(3) .pstatus{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pstatus{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pstatus{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pstatus{animation-delay:6.4s}
+@keyframes statusFlip{0%,8%{background:var(--cream-deep);color:var(--gray-meta-light)}
+  16%,100%{background:rgba(46,158,107,.14);color:var(--green)}}
+.pnode .pdot .ic-done{position:absolute;opacity:0}
+.play .pnode .pdot .ic-done{animation:doneShow 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-done{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-done{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-done{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-done{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-done{animation-delay:6.4s}
+@keyframes doneShow{0%,12%{opacity:0}16%,100%{opacity:1}}
+.play .pnode .pdot .ic-base{animation:baseHide 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-base{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-base{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-base{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-base{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-base{animation-delay:6.4s}
+@keyframes baseHide{0%,12%{opacity:1}16%,100%{opacity:0;color:#fff}}
+.pipe-foot{margin-top:22px;font-size:14px;color:var(--gray-meta-light);text-align:center;line-height:1.5}
+.pipe-foot b{color:var(--teal)}
+
+/* ===== MAIL SCENE (illustrated avatar animation, 16s loop) =====
+   Every moving element uses an outer STATIC <g transform="translate(...)"> for
+   position plus an inner CSS-animated <g class="..."> for motion. CSS `transform`
+   (even via animation) fully replaces an element's own `transform` attribute
+   rather than composing with it, so an animated group can never carry its own
+   position offset — the two-layer split is required, not decorative. ===== */
+.mailscene{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:26px 26px 20px;margin:0}
+.mailscene svg{width:100%;height:auto;display:block}
+.mailscene figcaption{font-size:13.5px;color:var(--gray-meta-light);text-align:center;line-height:1.5;margin-top:6px}
+.ms-floor{stroke:var(--cream-line);stroke-width:2}
+.ms-zonelabel{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;fill:var(--gray-meta-light)}
+.ms-desk{fill:var(--cream-deep);stroke:var(--cream-line)}
+.ms-tray{fill:#fff;stroke:var(--purple-soft);stroke-width:1.5}
+.ms-env{fill:var(--purple-soft);opacity:0;transform:translateY(6px)}
+.ms-env-fold{fill:var(--purple-bold);opacity:.55}
+.mailscene.play .ms-env{animation:msEnvIn .5s ease forwards}
+.mailscene.play .ms-env.e1{animation-delay:.1s}
+.mailscene.play .ms-env.e2{animation-delay:.5s}
+.mailscene.play .ms-env.e3{animation-delay:.9s}
+@keyframes msEnvIn{to{opacity:1;transform:translateY(0)}}
+.mailscene.play .ms-avatar{animation:msWalk 16s ease-in-out infinite}
+@keyframes msWalk{
+  0%,11%{transform:translate(0,0)}
+  16%{transform:translate(50px,-4px)}
+  22%{transform:translate(105px,0)}
+  28%,40%{transform:translate(160px,0)}
+  95%,100%{transform:translate(0,0)}
+}
+.av-head,.av-body,.av-arm{fill:url(#msAvatarGrad)}
+.ms-stack{fill:#fff;stroke:var(--purple-bold);stroke-width:1.5;opacity:0}
+.mailscene.play .ms-stack.carried{animation:msStackHand 16s ease-in-out infinite}
+@keyframes msStackHand{0%,12%{opacity:0}15%,39%{opacity:1}41%,100%{opacity:0}}
+.mailscene.play .ms-stack.onglass{animation:msStackGlass 16s ease-in-out infinite}
+@keyframes msStackGlass{0%,39%{opacity:0}42%,63%{opacity:1}70%,100%{opacity:0}}
+.ms-scanner-body{fill:var(--midnight);stroke:var(--midnight-soft)}
+.ms-scanner-glass{fill:rgba(255,255,255,.9);stroke:var(--purple-soft)}
+.ms-led{fill:var(--gray-meta)}
+.mailscene.play .ms-led{animation:msLed 16s linear infinite}
+@keyframes msLed{0%,43%{fill:var(--gray-meta)}46%,68%{fill:var(--green)}72%,100%{fill:var(--gray-meta)}}
+.ms-scanbar{opacity:0}
+.mailscene.play .ms-scanbar{animation:msScan 16s ease-in-out infinite}
+@keyframes msScan{
+  0%,43%{opacity:0;transform:translateX(0)}
+  46%{opacity:1;transform:translateX(0)}
+  56%{transform:translateX(104px)}
+  60%{transform:translateX(0)}
+  67%{opacity:1;transform:translateX(104px)}
+  69%,100%{opacity:0}
+}
+.ms-page{opacity:0}
+.mailscene.play .ms-page.p1{animation:msFly1 16s ease-in infinite}
+.mailscene.play .ms-page.p2{animation:msFly2 16s ease-in infinite}
+.mailscene.play .ms-page.p3{animation:msFly3 16s ease-in infinite}
+@keyframes msFly1{0%,68%{opacity:0;transform:translate(0,0) scale(1)}70%{opacity:1;transform:translate(0,0) scale(1)}86%{opacity:1;transform:translate(71px,-36px) scale(.5)}90%,100%{opacity:0;transform:translate(71px,-36px) scale(.4)}}
+@keyframes msFly2{0%,69%{opacity:0;transform:translate(0,0) scale(1)}71%{opacity:1;transform:translate(0,0) scale(1)}87%{opacity:1;transform:translate(65px,-44px) scale(.5)}91%,100%{opacity:0;transform:translate(65px,-44px) scale(.4)}}
+@keyframes msFly3{0%,67%{opacity:0;transform:translate(0,0) scale(1)}69%{opacity:1;transform:translate(0,0) scale(1)}85%{opacity:1;transform:translate(77px,-28px) scale(.5)}89%,100%{opacity:0;transform:translate(77px,-28px) scale(.4)}}
+.ms-card{fill:#fff;stroke:var(--purple-soft);stroke-width:1.5}
+.mailscene.play .ms-card{animation:msCardGlow 16s ease-in-out infinite}
+@keyframes msCardGlow{0%,64%{filter:none}68%,90%{filter:drop-shadow(0 0 8px rgba(124,58,237,.4))}96%,100%{filter:none}}
+.ms-procdot{fill:var(--green)}
+.mailscene.play .ms-procdot{animation:blink 1.6s ease-in-out infinite}
+.ms-matter,.ms-field{opacity:0;transform:translateY(4px)}
+.mailscene.play .ms-matter{animation:msMatter 16s ease-in-out infinite}
+.mailscene.play .ms-field.f1{animation:msField1 16s ease-in-out infinite}
+.mailscene.play .ms-field.f2{animation:msField2 16s ease-in-out infinite}
+.mailscene.play .ms-field.f3{animation:msField3 16s ease-in-out infinite}
+@keyframes msMatter{0%,68%{opacity:0;transform:translateY(4px)}72%,90%{opacity:1;transform:translateY(0)}96%,100%{opacity:0;transform:translateY(4px)}}
+@keyframes msField1{0%,73%{opacity:0;transform:translateY(4px)}76%,90%{opacity:1;transform:translateY(0)}96%,100%{opacity:0;transform:translateY(4px)}}
+@keyframes msField2{0%,76%{opacity:0;transform:translateY(4px)}79%,90%{opacity:1;transform:translateY(0)}96%,100%{opacity:0;transform:translateY(4px)}}
+@keyframes msField3{0%,79%{opacity:0;transform:translateY(4px)}82%,90%{opacity:1;transform:translateY(0)}96%,100%{opacity:0;transform:translateY(4px)}}
+.ms-link{stroke:var(--purple-soft);stroke-width:1.5;stroke-dasharray:4 5;opacity:0;fill:none}
+.mailscene.play .ms-link.l1{animation:msLinkReveal1 16s ease-in-out infinite,dash 1.4s linear infinite}
+.mailscene.play .ms-link.l2{animation:msLinkReveal2 16s ease-in-out infinite,dash 1.4s linear infinite}
+@keyframes msLinkReveal1{0%,79%{opacity:0}82%,92%{opacity:1}96%,100%{opacity:0}}
+@keyframes msLinkReveal2{0%,81%{opacity:0}84%,92%{opacity:1}96%,100%{opacity:0}}
+.ms-check{opacity:0;transform:scale(.4)}
+.mailscene.play .ms-check1{animation:msCheck1 16s ease-in-out infinite}
+.mailscene.play .ms-check2{animation:msCheck2 16s ease-in-out infinite}
+@keyframes msCheck1{0%,85%{opacity:0;transform:scale(.4)}88%,93%{opacity:1;transform:scale(1)}97%,100%{opacity:0;transform:scale(.4)}}
+@keyframes msCheck2{0%,87%{opacity:0;transform:scale(.4)}90%,93%{opacity:1;transform:scale(1)}97%,100%{opacity:0;transform:scale(.4)}}
+/* Camera: directs the shot like an edited video — establishing shot, cut to the
+   desk, follow-pan to the scanner, cut to the processing card, cut to Filed,
+   pull back out. Wraps every existing element; nothing else needed to move. */
+.ms-camera{transform:translate(0,0) scale(1)}
+.mailscene.play .ms-camera{animation:msCamera 16s ease-in-out infinite}
+@keyframes msCamera{
+  0%,6%{transform:translate(0,0) scale(1)}
+  10%,13%{transform:translate(160px,-200px) scale(2)}
+  22%{transform:translate(-80px,-200px) scale(2)}
+  30%,66%{transform:translate(-140px,-210px) scale(2)}
+  72%,82%{transform:translate(-480px,-130px) scale(2)}
+  88%,92%{transform:translate(-930px,-160px) scale(2)}
+  96%,100%{transform:translate(0,0) scale(1)}
+}
+@media(prefers-reduced-motion:reduce){
+  .mailscene.play .ms-camera,
+  .mailscene.play .ms-avatar,.mailscene.play .ms-stack.carried,.mailscene.play .ms-stack.onglass,
+  .mailscene.play .ms-led,.mailscene.play .ms-scanbar,.mailscene.play .ms-page,.mailscene.play .ms-card,
+  .mailscene.play .ms-procdot,.mailscene.play .ms-matter,.mailscene.play .ms-field,.mailscene.play .ms-link,
+  .mailscene.play .ms-check1,.mailscene.play .ms-check2{animation:none}
+  .mailscene.play .ms-stack.onglass,.mailscene.play .ms-matter,.mailscene.play .ms-field,
+  .mailscene.play .ms-link,.mailscene.play .ms-check1,.mailscene.play .ms-check2{opacity:1;transform:none}
+}
+
+/* ===== DEMO PLAYER CHROME (frames the mail scene + dashboard as one "video") ===== */
+.demoplayer{background:#0F0F2E;border-radius:20px;overflow:hidden;border:1px solid rgba(181,168,230,.25);box-shadow:0 40px 80px -50px rgba(0,0,0,.7)}
+.demoplayer-screen{background:var(--cream);margin:16px 16px 0;border-radius:12px;overflow:hidden;position:relative}
+.demoplayer-screen .mailscene{background:transparent;border:none;border-radius:0;padding:20px 20px 14px}
+.demoplayer-badge{position:absolute;top:12px;right:12px;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;background:rgba(20,20,58,.75);color:#fff;padding:4px 9px;border-radius:20px}
+.demoplayer-controls{display:flex;align-items:center;gap:12px;padding:14px 20px 18px}
+.demoplayer-play{width:26px;height:26px;border-radius:50%;background:rgba(255,255,255,.14);display:flex;align-items:center;justify-content:center;flex:0 0 auto}
+.demoplayer-play svg{width:9px;height:10px;fill:#fff;margin-left:1px}
+.demoplayer-time{font-family:var(--mono);font-size:10px;color:var(--purple-soft);flex:0 0 auto;min-width:30px}
+.demoplayer-track{flex:1;height:4px;border-radius:2px;background:rgba(255,255,255,.16);position:relative;overflow:hidden}
+.demoplayer-fill{position:absolute;inset:0 auto 0 0;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--teal-bright));border-radius:2px}
+.demoplayer.play .demoplayer-fill{animation:playerFill 16s linear infinite}
+@keyframes playerFill{0%{width:0}100%{width:100%}}
+@media(prefers-reduced-motion:reduce){.demoplayer.play .demoplayer-fill{animation:none;width:100%}}
+
+/* ===== COCKPIT DASHBOARD MOCKUP ===== */
+.dash{background:#0F0F2E;border-radius:18px;padding:0;overflow:hidden;border:1px solid rgba(181,168,230,.25);box-shadow:0 40px 80px -50px rgba(0,0,0,.7)}
+.dash-bar{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(181,168,230,.18)}
+.dash-bar .dots{display:flex;gap:6px}
+.dash-bar .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dash-bar .dots i:nth-child(1){background:#ff5f57}.dash-bar .dots i:nth-child(2){background:#febc2e}.dash-bar .dots i:nth-child(3){background:#28c840}
+.dash-bar .dtitle{font-family:var(--mono);font-size:12px;color:var(--purple-soft);letter-spacing:.06em;font-weight:600}
+.dash-bar .dlive{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:7px}
+.dash-bar .dlive::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dash-body{display:grid;grid-template-columns:1.35fr 1fr;gap:0}
+.dash-col{padding:20px 22px}
+.dash-col.left{border-right:1px solid rgba(181,168,230,.14)}
+.dash-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:14px;display:flex;justify-content:space-between}
+.dash-h .cnt{color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.16);border-radius:11px;padding:12px 13px}
+.kpi .kn{font-weight:800;font-size:24px;color:#fff;letter-spacing:-.02em;line-height:1}
+.kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta);margin-top:6px;line-height:1.3}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 13px;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;margin-bottom:8px}
+.mrow .mname{font-size:13px;color:#fff;font-weight:600}
+.mrow .mphase{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--purple-soft);margin-top:3px}
+.mrow .mpill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.mpill.run{background:rgba(124,58,237,.22);color:var(--purple-soft)}
+.mpill.wait{background:rgba(199,125,46,.2);color:#F0B366}
+.mpill.done{background:rgba(46,158,107,.18);color:#5FD6A0}
+.feed{position:relative;height:268px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent)}
+.feed-track{display:flex;flex-direction:column;gap:9px}
+.play .feed-track{animation:scrollfeed 16s linear infinite}
+@keyframes scrollfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.aevent{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;padding:10px 12px}
+.aevent .aic{flex:0 0 26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(124,58,237,.18)}
+.aevent.ok .aic{background:rgba(46,158,107,.18)}
+.aevent.gate .aic{background:rgba(14,116,137,.2)}
+.aevent .atx{font-size:12px;line-height:1.4;color:#E7E4F5}
+.aevent .atx b{color:#fff;font-weight:700}
+.aevent .atime{font-family:var(--mono);font-size:9px;color:var(--gray-meta);margin-top:3px;letter-spacing:.04em}
+.aevent .atx .agent{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple-soft);letter-spacing:.03em}
+.dash-cap{font-size:14px;color:var(--purple-soft);line-height:1.6;margin-top:26px;text-align:center;max-width:74ch;margin-left:auto;margin-right:auto}
+.dash-cap b{color:#fff}
+
+/* ===== KEEP / INTEGRATE / REPLACE inventory ===== */
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.int{background:var(--green)} .dot.rep{background:var(--purple-vivid)} .dot.add{background:var(--amber)} .dot.skip{background:var(--gray-meta)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 19px 16px;position:relative;overflow:hidden}
+.card.replace{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.card.add{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.card.skip{border:1.5px dashed var(--gray-meta)}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px}
+.card .name{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.badge.int{background:rgba(46,158,107,.13);color:var(--green)}
+.badge.rep{background:var(--purple-vivid);color:#fff}
+.badge.add{background:var(--amber);color:#fff}
+.badge.skip{background:var(--cream-deep);color:var(--gray-meta-light)}
+.card .why{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.card.replace .why,.card.add .why{color:var(--midnight)}
+.flag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--purple-vivid);color:#fff;padding:3px 8px;border-bottom-left-radius:8px}
+
+/* ===== PILLARS: numbered ===== */
+.pillars{display:flex;flex-direction:column;gap:18px}
+.pillar{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;position:relative}
+.pillar.hot{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.04))}
+.pillar .phead{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.pillar .pnum{flex:0 0 36px;height:36px;border-radius:10px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.pillar .picon{flex:0 0 40px;height:40px;border-radius:11px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center}
+.pillar .ptitle{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.pillar .ptag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:14px;margin-left:auto;background:var(--purple-vivid);color:#fff}
+.ptag.moved{background:rgba(124,58,237,.12);color:var(--purple-bold)}
+.ptag.new{background:var(--amber);color:#fff}
+.pillar p{font-size:14.5px;line-height:1.55;margin:.5em 0;color:var(--midnight)}
+.pillar .pbody{margin-top:6px}
+.flow-mini{font-family:var(--mono);font-size:11.5px;line-height:1.7;background:var(--midnight);color:var(--purple-soft);border-radius:10px;padding:16px 18px;margin:12px 0;overflow-x:auto;white-space:pre;display:block}
+.flow-mini b{color:#fff;font-weight:700}
+.flow-mini .ar{color:var(--purple-vivid);font-weight:700}
+.kills-line{font-size:13.5px;color:var(--purple-bold);font-weight:600;margin-top:6px}
+.feat{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.feat .f{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.feat .f .fm{color:var(--purple-vivid);font-weight:800;flex:0 0 auto}
+.feat .f b{color:var(--midnight)}
+
+/* ===== ROADBLOCK (now vs fix, inside a .pillar) ===== */
+.rblock{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:6px}
+.rb{background:var(--cream-deep);border-radius:11px;padding:16px 18px}
+.rb.fix{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.25)}
+.rb .rh{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:9px}
+.rb.now .rh{color:var(--red)} .rb.fix .rh{color:var(--purple-bold)}
+.rb ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6}
+.rb li{margin-bottom:4px}
+.rb-arrow{font-size:26px;font-weight:800;color:var(--purple-vivid)}
+
+/* ===== OUTCOME stat cards ===== */
+.ocards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ocard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-vivid)}
+.ocard .ostat{font-weight:800;font-size:32px;letter-spacing:-.02em;color:var(--purple-bold);line-height:1;margin-bottom:12px}
+.ocard .ostat .to{color:var(--purple-soft);font-weight:700;margin:0 2px}
+.ocard h4{font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin:0 0 7px;color:var(--midnight)}
+.ocard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--gray-meta-light)}
+.ocaveat{font-size:12.5px;color:var(--gray-meta-light);line-height:1.55;margin-top:18px;max-width:90ch}
+
+/* ===== HUMAN GATES ===== */
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gatecard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--teal)}
+.gatecard .gi{font-size:20px;margin-bottom:8px}
+.gatecard h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:0 0 7px;color:var(--teal)}
+.gatecard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+
+/* ===== SECURITY cards (top-bordered) ===== */
+.sec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.seccard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-bold)}
+.seccard .ic{font-size:22px;margin-bottom:10px}
+.seccard h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 8px;color:var(--purple-bold)}
+.seccard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.seccard p b{color:var(--midnight-deep)}
+
+/* ===== COMPLIANCE PILLS ===== */
+.compliance{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--midnight);color:#fff;padding:8px 16px;border-radius:24px;display:inline-flex;align-items:center;gap:8px}
+.pill .pk{color:var(--purple-soft)}
+
+/* ===== ALTERNATIVES (build-vs-buy comparison) ===== */
+.alt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.altc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 21px}
+.altc.us{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.altc .an{font-weight:800;font-size:16px;margin-bottom:3px}
+.altc .ashape{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:12px}
+.altc .agreat{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0 0 10px}
+.altc .agreat b{color:var(--green)}
+.altc .afit{font-size:13px;line-height:1.5;color:var(--midnight);margin:0;padding-top:10px;border-top:1px solid var(--cream-line)}
+.altc .afit b{color:var(--purple-bold)}
+
+/* ===== NUMBERS (CapEx phases + OpEx layers) ===== */
+.numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.numcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:26px 28px}
+.numcard h3{font-weight:800;font-size:18px;margin:0 0 4px}
+.numcard .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:14px}
+.paysplit{display:flex;gap:10px;margin:14px 0}
+.paysplit .half{flex:1;background:var(--cream-deep);border-radius:9px;padding:13px 15px;text-align:center}
+.paysplit .half .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.paysplit .half .v{font-weight:800;font-size:15px;color:var(--purple-bold)}
+.paysplit .arr{align-self:center;color:var(--purple-vivid);font-weight:800;font-size:18px}
+.numnote{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin-top:10px}
+.opex-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--cream-line)}
+.opex-row:last-of-type{border-bottom:none}
+.opex-row .ol .ot{font-weight:700;font-size:14.5px}
+.opex-row .ol .od{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin-top:3px}
+.opex-row .oa{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--purple-bold);white-space:nowrap;text-align:right;padding-top:2px}
+/* anchor callout under numbers: .value-anchor and .opex-anchor are aliases */
+.value-anchor,.opex-anchor{margin-top:16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.value-anchor b,.opex-anchor b{color:var(--purple-bold)}
+/* TERM TIERS */
+.term-tiers{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin:16px 0}
+.term-tier{position:relative;border:1px solid var(--cream-line);border-radius:12px;padding:16px 14px;text-align:center}
+.term-tier.rec{border-color:var(--purple-bold);background:rgba(124,58,237,.05)}
+.tt-badge{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--purple-bold);color:#fff;font-family:var(--mono);font-size:9px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;padding:3px 10px;border-radius:20px;white-space:nowrap}
+.tt-term{font-family:var(--mono);font-size:11px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.tt-price{font-weight:800;font-size:19px;color:var(--purple-bold)}
+.tt-note{font-size:11.5px;color:var(--gray-meta-light);margin-top:4px;line-height:1.35}
+@media(max-width:640px){.term-tiers{grid-template-columns:1fr}}
+
+/* ===== ROI stat strip (dark) ===== */
+.roi{margin-top:22px;background:linear-gradient(165deg,var(--midnight),var(--midnight-soft));border-radius:14px;padding:26px 30px;color:#fff}
+.roi .rlabel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:16px}
+.roi .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.roi .rstat .rn{font-weight:800;font-size:30px;letter-spacing:-.02em;color:#fff;line-height:1}
+.roi .rstat .rn small{font-size:16px;color:var(--purple-soft);font-weight:700}
+.roi .rstat .rd{font-size:13px;color:var(--purple-soft);line-height:1.4;margin-top:8px}
+.why-now{margin-top:18px;font-size:14px;color:var(--midnight);background:#fff;border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 18px;line-height:1.55}
+.why-now b{color:var(--red)}
+
+/* ===== OUT OF SCOPE ===== */
+.scope-box{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 26px;border-top:4px solid var(--gray-meta)}
+.scope-box h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 14px;color:var(--gray-meta-light)}
+.chips{display:flex;flex-direction:column;gap:11px}
+.chip{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.chip .mk{flex:0 0 auto;font-weight:800;font-family:var(--mono);color:var(--gray-meta)}
+.chip b{color:var(--midnight)}
+
+/* ===== QUESTIONS ===== */
+.answered{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.ans{font-size:13px;background:rgba(46,158,107,.1);border:1px solid rgba(46,158,107,.3);color:var(--green);border-radius:20px;padding:7px 14px;font-weight:600}
+.ans b{color:var(--green)}
+.qcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start}
+.qc .qcn{flex:0 0 34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qc .qct{font-weight:800;font-size:15px;margin:0 0 4px}
+.qc .qcd{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+
+/* ===== TIMELINE / PHASING ===== */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.tl-line{position:absolute;top:21px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));z-index:0}
+.phase-t{position:relative;z-index:1;padding:0 12px;text-align:center}
+.phase-t .pnode2{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;background:var(--purple-vivid);border:4px solid var(--cream)}
+.phase-t.future .pnode2{background:var(--midnight);color:var(--purple-soft)}
+.phase-t .ptagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phase-t .ph2{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+.phase-t .pd2{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5}
+
+/* ============================================================================
+   FAMILY 4 (extended) — CATALOG BLOCKS
+   ----------------------------------------------------------------------------
+   Ported from the Dodonai capabilities decks (capabilities.html / overview-
+   client.html). These are the catalog / conversion components the cold + post-
+   discovery briefs need: a productized package grid, a before/after software-
+   stack comparison, productized agent cards, a layered architecture SVG, a
+   by-role function grid, and proof cards. Continuous decorative animations are
+   guarded under prefers-reduced-motion at the bottom of this file.
+   ============================================================================ */
+
+/* ===== PACKAGE GRID (productized offerings, optionally categorized) ===== */
+.pkg-intro{display:grid;grid-template-columns:1.2fr 0.8fr;gap:32px;align-items:center;margin:24px 0 36px;padding:28px;background:linear-gradient(135deg,#fff 0%,var(--cream-deep) 100%);border:1px solid var(--cream-line);border-radius:14px}
+.pkg-intro .pi-copy h3{font-weight:800;font-size:22px;color:var(--midnight);margin:0 0 10px;letter-spacing:-.01em}
+.pkg-intro .pi-copy p{font-size:14.5px;line-height:1.6;color:var(--gray-meta-light);margin:0 0 8px}
+.pkg-intro .pi-copy p strong{color:var(--midnight-deep)}
+.pkg-category{margin:32px 0 12px}
+.pkg-category .cat-label{font-family:var(--mono);font-size:11px;color:var(--purple-bold);letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}
+.pkg-category .cat-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--purple-bold) 0%,transparent 100%)}
+.pkg-category.teal .cat-label{color:var(--teal)}
+.pkg-category.teal .cat-label::after{background:linear-gradient(90deg,var(--teal) 0%,transparent 100%)}
+.pkg-category.amber .cat-label{color:var(--amber)}
+.pkg-category.amber .cat-label::after{background:linear-gradient(90deg,var(--amber) 0%,transparent 100%)}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin:14px 0 24px}
+.pkg-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;display:flex;flex-direction:column}
+.pkg-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple-bold),var(--purple-vivid));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.pkg-card.teal::before{background:linear-gradient(90deg,var(--teal),var(--teal-bright))}
+.pkg-card.amber::before{background:linear-gradient(90deg,var(--amber),#f59e0b)}
+.pkg-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(20,20,58,.10);border-color:var(--purple-soft)}
+.pkg-card:hover::before{transform:scaleX(1)}
+.pkg-card .pkg-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.pkg-card .pkg-name{font-weight:800;font-size:17px;color:var(--midnight-deep);line-height:1.3;letter-spacing:-.01em;margin:0;flex:1}
+.pkg-card .pkg-dur{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.10em;text-transform:uppercase;font-weight:700;background:rgba(124,58,237,.08);padding:4px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.pkg-card.teal .pkg-dur{color:var(--teal);background:rgba(14,116,144,.08)}
+.pkg-card.amber .pkg-dur{color:var(--amber);background:rgba(180,83,9,.08)}
+.pkg-card .pkg-desc{font-size:13.5px;line-height:1.55;color:var(--gray-meta-light);margin:0;flex:1}
+.pkg-card .pkg-desc strong{color:var(--midnight-deep)}
+.pkg-card .pkg-desc em{color:var(--purple-bold)}
+.pkg-card.featured{border-color:var(--purple-vivid);background:linear-gradient(135deg,#fff 0%,rgba(124,58,237,.04) 100%)}
+.pkg-card.featured .pkg-dur{background:var(--purple-vivid);color:#fff}
+.pkg-card .pkg-tag{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9px;color:#fff;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:var(--purple-vivid);padding:3px 8px;border-radius:3px}
+
+/* ===== SOFTWARE-STACK BEFORE/AFTER (build-vs-buy / consolidation) ===== */
+.stack-compare{display:grid;grid-template-columns:1fr 80px 1fr;gap:0;align-items:stretch;margin:24px 0 8px}
+.stack-side{padding:24px;border-radius:12px;position:relative;overflow:hidden}
+.stack-before{background:linear-gradient(135deg,rgba(225,29,72,.06) 0%,rgba(225,29,72,.02) 100%);border:1px solid rgba(225,29,72,.2)}
+.stack-after{background:linear-gradient(135deg,rgba(14,116,144,.06) 0%,rgba(124,58,237,.04) 100%);border:1px solid var(--purple-soft)}
+.stack-side h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:0 0 4px}
+.stack-before h4{color:var(--rose)}
+.stack-after h4{color:var(--purple-bold)}
+.stack-side .stack-title{font-weight:800;font-size:18px;color:var(--midnight-deep);margin:0 0 16px;line-height:1.3}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.stack-chip{background:#fff;border:1px solid var(--cream-line);border-radius:6px;padding:8px 6px;text-align:center;font-size:10px;font-weight:600;color:var(--midnight-deep);font-family:var(--mono);line-height:1.2;letter-spacing:.02em;position:relative;transition:transform .3s ease}
+.stack-before .stack-chip{opacity:.85;animation:disconnected 4s ease-in-out infinite}
+@keyframes disconnected{0%,100%{transform:translate(0,0)}25%{transform:translate(-1px,2px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-2px,1px)}}
+.stack-after .stack-layer{background:#fff;border:1px solid var(--purple-soft);border-radius:6px;padding:10px 14px;margin-bottom:4px;font-size:11px;font-weight:700;color:var(--midnight-deep);font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.stack-after .stack-layer.l1{background:linear-gradient(90deg,rgba(124,58,237,.10),rgba(124,58,237,.02))}
+.stack-after .stack-layer.l2{background:linear-gradient(90deg,rgba(14,116,144,.10),rgba(14,116,144,.02));margin-left:10px}
+.stack-after .stack-layer.l3{background:linear-gradient(90deg,rgba(22,163,74,.10),rgba(22,163,74,.02));margin-left:20px}
+.stack-after .stack-layer .ln{color:var(--purple-bold);font-size:9px}
+.stack-after .stack-layer.l2 .ln{color:var(--teal)}
+.stack-after .stack-layer.l3 .ln{color:var(--good)}
+.stack-side .stack-meta{font-size:12px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.stack-before .stack-meta strong{color:var(--rose)}
+.stack-after .stack-meta strong{color:var(--purple-bold)}
+.stack-arrow{display:flex;align-items:center;justify-content:center;position:relative}
+.stack-arrow svg{width:60px;height:60px}
+
+/* ===== PRODUCTIZED AGENT CARDS (roster items) ===== */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:14px 0 28px}
+.agent-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 20px;transition:transform .3s ease,box-shadow .3s ease;display:flex;gap:14px;align-items:flex-start}
+.agent-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(20,20,58,.08)}
+.agent-icon{flex-shrink:0;width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;background:linear-gradient(135deg,var(--purple-bold),var(--purple-vivid))}
+.agent-grid.teal .agent-icon{background:linear-gradient(135deg,var(--teal),var(--teal-bright))}
+.agent-grid.amber .agent-icon{background:linear-gradient(135deg,var(--amber),#f59e0b)}
+.agent-body{flex:1;min-width:0}
+.agent-body .agent-name{font-weight:700;font-size:15px;color:var(--midnight-deep);margin:0 0 6px;line-height:1.3;letter-spacing:-.005em}
+.agent-body .agent-desc{font-size:12.5px;line-height:1.55;color:var(--gray-meta-light);margin:0}
+.agent-body .agent-desc strong{color:var(--midnight-deep)}
+/* agent-card meta line: watch / do / write / fire / human-gate badges */
+.agent-body .agent-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.agent-body .agent-meta .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.agent-body .agent-meta .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.agent-body .agent-meta .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.agent-body .agent-meta .am.phase{background:rgba(199,125,46,.16);color:var(--amber)}
+
+/* ===== LAYERED ARCHITECTURE SVG ===== */
+.arch-diagram{margin:24px 0 8px}
+.arch-diagram svg{width:100%;height:auto;max-height:380px}
+
+/* ===== BY-ROLE FUNCTION GRID ===== */
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0}
+.role-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 22px;box-shadow:0 1px 2px rgba(20,20,58,.04);transition:transform .3s ease,box-shadow .3s ease}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,20,58,.08)}
+.role-card h3{font-weight:700;font-size:17px;color:var(--midnight);margin:0 0 4px;letter-spacing:-.01em}
+.role-card .sub{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.role-card ul{margin:0;padding-left:18px}
+.role-card ul li{font-size:13.5px;line-height:1.55;margin:4px 0}
+.role-card ul li::marker{color:var(--purple-vivid)}
+.role-card ul li em{color:var(--purple-bold);font-style:italic}
+
+/* ===== FOOTER ===== */
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:880px){
+  .hero h1{font-size:38px}
+  .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .changed .wrap,.cliff .wrap{grid-template-columns:1fr;gap:16px}
+  .changed .clist{grid-template-columns:1fr}
+  .phasegrid,.cards,.alt-grid,.gates,.ocards,.sec-grid,.numbers-grid,.qcards{grid-template-columns:1fr}
+  .xform{grid-template-columns:1fr;gap:18px}.xarrow{flex-direction:row}.xarrow .at{writing-mode:horizontal-tb}.xcaption{grid-template-columns:1fr}
+  .pipe{flex-direction:column;gap:14px}.pline{display:none}
+  .dash-body{grid-template-columns:1fr}.dash-col.left{border-right:none;border-bottom:1px solid rgba(181,168,230,.14)}
+  .rblock{grid-template-columns:1fr;gap:12px}.rb-arrow{transform:rotate(90deg)}
+  .roi .rgrid{grid-template-columns:1fr;gap:18px}
+  .timeline{grid-template-columns:1fr;gap:26px}.tl-line{display:none}
+  /* family 4 — catalog blocks */
+  .pkg-intro{grid-template-columns:1fr}
+  .pkg-grid{grid-template-columns:1fr}
+  .stack-compare{grid-template-columns:1fr;gap:14px}.stack-arrow{transform:rotate(90deg)}
+  .agent-grid,.role-grid{grid-template-columns:1fr}
+}
+/* keep continuous catalog animations off for reduced-motion users */
+@media(prefers-reduced-motion:reduce){
+  .stack-before .stack-chip{animation:none}
+  .pkg-card,.agent-card,.role-card,.stack-chip{transition:none}
+  .arch-diagram svg animate,.stack-arrow svg animate{display:none}
+}
+@media print{
+  .hero{padding:40px 0}section{padding:28px 0;page-break-inside:avoid}
+  .reveal{opacity:1;transform:none}
+  .roi,.flow-mini,.dash{box-shadow:none}
+  .pkg-card,.agent-card,.role-card,.stack-side{page-break-inside:avoid}
+  .stack-before .stack-chip{animation:none}
+}
+
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="wrap">
+    <div class="brandbar">
+      <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
+      <span class="vrule"></span>
+      <span class="partner">Hunter &amp; Everage · Document Management Brief</span>
+      <span class="tag">draft · aug 28</span>
+    </div>
+    <span class="eyebrow">Prepared for Hunter &amp; Everage</span>
+    <h1>Every fax and email, <span class="soft">read once, filed everywhere it needs to be.</span></h1>
+    <p class="lede">One agent reads a dedicated mail and fax intake inbox, works out which matter and which person a document belongs to, and files it into Smart Advocate and Egnyte. It doesn't draft, reply, or send anything to a client, opposing counsel, or a court. That's the whole scope of this pilot.</p>
+    <div class="meta-grid">
+      <div class="meta"><div class="label">Last call</div><div class="value">Aug 12 check-in</div></div>
+      <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · James, Nick</div></div>
+      <div class="meta"><div class="label">Goal</div><div class="value">Charles's sign-off</div></div>
+      <div class="meta"><div class="label">Next reconnect</div><div class="value">Sept 4</div></div>
+    </div>
+  </div>
+</header>
+
+<div class="cliff">
+  <div class="wrap">
+    <div class="ctitle">The number that matters<span class="big">50+</span></div>
+    <div class="cbody">That's how many faxes and pieces of mail arrive every day, all needing someone to open it and decide where it goes. <b>This pilot gives all of it one dedicated intake inbox, so nothing waits behind someone else's backlog to get filed.</b></div>
+  </div>
+</div>
+
+<!-- WORKFLOW LANES -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What we mapped</span><h2>Document intake, <span class="soft">today</span></h2>
+      <p class="sec-sub">Fax, email, and mail all move the same way right now: someone happens to open it, and only then does it get filed. Amber dots are manual steps; teal dots are calls that stay yours either way.</p></div>
+    <div class="flow-legend reveal d1">
+      <span class="lg"><span class="dot" style="background:var(--gray-meta)"></span> Arrives / vendor</span>
+      <span class="lg"><span class="dot" style="background:var(--amber)"></span> Manual today</span>
+      <span class="lg"><span class="dot" style="background:var(--teal)"></span> Human judgment (stays yours)</span>
+    </div>
+    <div class="phasegrid">
+      <div class="phasecard reveal d1">
+        <div class="ph-top"><span class="ph-n">1</span><span class="ph-name">Fax intake</span><span class="ph-meta">20-30/day</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Medical-record faxes land in a shared inbox, mixed in with everything else<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">All 6 case managers and Sarah check the same stack to find the ones that are theirs<span class="who w-man">manual · redundant</span></span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Whoever finds it decides which matter it belongs to<span class="who w-gate">your call</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d1">
+        <div class="ph-top"><span class="ph-n">2</span><span class="ph-name">Physical mail</span><span class="ph-meta">10-20/day</span></div>
+        <div class="flow">
+          <div class="step"><span class="sb"></span><span class="stx">Mail arrives at the office</span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Opened, sorted, and routed to the right case by hand<span class="who w-man">manual</span></span></div>
+        </div>
+      </div>
+      <div class="phasecard reveal d2">
+        <div class="ph-top"><span class="ph-n">3</span><span class="ph-name">Filing</span><span class="ph-meta">after intake</span></div>
+        <div class="flow">
+          <div class="step man"><span class="sb"></span><span class="stx">Saved into Smart Advocate, Egnyte, or just one, depending on who filed it<span class="who w-man">manual · inconsistent</span></span></div>
+          <div class="step gate"><span class="sb"></span><span class="stx">Case manager confirms it landed in the right matter<span class="who w-gate">your call</span></span></div>
+        </div>
+      </div>
+    </div>
+    <div class="tally reveal d3"><b>50-plus documents a day</b> across fax, email, and mail, and the only thing deciding where each one ends up is whoever happens to open it first.</div>
+  </div>
+</section>
+
+<!-- ROADBLOCK -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The stuck point</span><h2>One inbox, <span class="soft">no owner</span></h2></div>
+    <div class="pillar hot reveal d1">
+      <div class="phead"><span class="picon">⛔</span><span class="ptitle">Everything lands in the same place</span><span class="ptag">pilot</span></div>
+      <div class="rblock">
+        <div class="rb now"><div class="rh">Today</div><ul><li>Every fax, referral, and piece of mail lands wherever someone happens to be checking, with no dedicated owner or inbox</li><li>Filing into Smart Advocate and Egnyte happens by hand, inconsistently, depending on who touched it</li></ul></div>
+        <div class="rb-arrow">→</div>
+        <div class="rb fix"><div class="rh">With the pilot</div><ul><li>The agent reads a dedicated mail and fax intake inbox, works out which matter and which person a document belongs to, and routes it</li><li>Every document gets filed into Smart Advocate and Egnyte the same way, every time</li></ul></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PIPE -->
+<section class="ink">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">How a document moves</span><h2>Read once, <span class="soft">filed everywhere</span></h2>
+      <p class="sec-sub">You set up one address, like mail@hunter-everage.com. Every fax routes there directly, and physical mail gets scanned to it at the printer, so nothing depends on which inbox someone happens to be checking. The agent reads that inbox and takes it from there.</p></div>
+    <div class="pipe-wrap reveal d1" id="pipe">
+      <div class="pipe">
+        <div class="pline"><div class="pfill"></div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📮</span><span class="ic-done">✓</span></div><div class="pttl">Fax or mail arrives</div><div class="pwho">You set up</div><div class="pstatus">one address</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">📨</span><span class="ic-done">✓</span></div><div class="pttl">Read at the intake inbox</div><div class="pwho">Agent</div><div class="pstatus">OCR + reads it</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">🗂️</span><span class="ic-done">✓</span></div><div class="pttl">Routed to the matter</div><div class="pwho">Agent</div><div class="pstatus">matched + queued</div></div>
+        <div class="pnode gate"><div class="pdot"><span class="ic-base">👤</span><span class="ic-done">✓</span></div><div class="pttl">Your team works the file</div><div class="pwho">You</div><div class="pstatus">nothing changes here</div></div>
+        <div class="pnode"><div class="pdot"><span class="ic-base">✓</span><span class="ic-done">✓</span></div><div class="pttl">Filed: Smart Advocate, Egnyte</div><div class="pwho">Agent</div><div class="pstatus">same copy, every system</div></div>
+      </div>
+      <div class="pipe-foot">The agent does the reading and the filing. <b>Your team still opens every file and decides what happens next.</b></div>
+    </div>
+  </div>
+</section>
+
+<!-- MAIL SCENE: PHYSICAL MAIL DEMO -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What you asked about</span><h2>Physical mail, <span class="soft">watch it work</span></h2>
+      <p class="sec-sub">You asked if there's an option for the mail Charles's son is sorting by hand. This is what it looks like end to end: one scan at the printer, read and matched by the agent, then filed. Not priced into this pilot &mdash; the shape of a phase 2.</p></div>
+
+    <div class="demoplayer reveal d1" id="demoplayer" data-play>
+      <div class="dash-bar">
+        <div class="dots"><i></i><i></i><i></i></div>
+        <div class="dtitle">mail-intake-demo &middot; dodon.ai</div>
+        <div class="dlive">live preview</div>
+      </div>
+
+      <div class="demoplayer-screen">
+        <span class="demoplayer-badge">illustrative</span>
+        <figure class="mailscene" id="mailscene" data-play>
+      <svg viewBox="0 0 760 220" role="img" aria-label="Animated scene: a staff member carries a stack of mail from the front desk to the office scanner and scans it in one batch. Dodonai reads the pages, matches them to Doe versus Acme Corp, populates the custom fields, and files the result into Smart Advocate and Egnyte.">
+        <defs>
+          <linearGradient id="msAvatarGrad" x1="0" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#8B7AB8"/><stop offset="1" stop-color="#6B46C1"/>
+          </linearGradient>
+          <linearGradient id="msScanGrad" x1="0" y1="0" x2="1" y2="0">
+            <stop offset="0" stop-color="#0E7490" stop-opacity="0"/><stop offset=".5" stop-color="#06B6D4"/><stop offset="1" stop-color="#0E7490" stop-opacity="0"/>
+          </linearGradient>
+        </defs>
+
+        <g class="ms-camera">
+        <line class="ms-floor" x1="20" y1="205" x2="740" y2="205"/>
+        <text class="ms-zonelabel" x="95" y="222" text-anchor="middle">Front desk</text>
+        <text class="ms-zonelabel" x="260" y="222" text-anchor="middle">Scanner</text>
+        <text class="ms-zonelabel" x="445" y="222" text-anchor="middle">Dodonai</text>
+        <text class="ms-zonelabel" x="655" y="222" text-anchor="middle">Filed</text>
+
+        <!-- ===== ZONE 1: desk + inbox tray ===== -->
+        <rect class="ms-desk" x="30" y="188" width="110" height="14" rx="2"/>
+        <rect class="ms-tray" x="45" y="156" width="50" height="34" rx="4"/>
+        <g>
+          <rect class="ms-env e1" x="50" y="178" width="40" height="10" rx="1"/>
+          <rect class="ms-env e2" x="50" y="170" width="40" height="10" rx="1"/>
+          <rect class="ms-env e3" x="50" y="162" width="40" height="10" rx="1"/>
+          <path class="ms-env-fold ms-env e3" d="M50,162 L70,169 L90,162 Z"/>
+        </g>
+
+        <!-- avatar carrying stack, walks desk -> scanner -->
+        <g transform="translate(95,188)">
+          <g class="ms-avatar">
+            <ellipse cx="0" cy="2" rx="14" ry="4" fill="rgba(20,20,58,.08)"/>
+            <rect class="av-body" x="-11" y="-40" width="22" height="30" rx="7"/>
+            <circle class="av-head" cx="0" cy="-50" r="10"/>
+            <rect class="av-arm" x="-16" y="-33" width="8" height="17" rx="4"/>
+            <g class="ms-stack carried" transform="translate(-24,-30)">
+              <rect x="-11" y="-18" width="22" height="4" rx="1"/>
+              <rect x="-10" y="-13" width="22" height="4" rx="1"/>
+              <rect x="-9" y="-8" width="22" height="4" rx="1"/>
+            </g>
+          </g>
+        </g>
+
+        <!-- ===== ZONE 2: scanner ===== -->
+        <rect class="ms-scanner-body" x="190" y="148" width="140" height="76" rx="10"/>
+        <rect class="ms-scanner-glass" x="200" y="136" width="120" height="16" rx="3"/>
+        <circle class="ms-led" cx="300" cy="186" r="4"/>
+        <rect class="ms-scanbar" x="202" y="136" width="16" height="16" rx="3" fill="url(#msScanGrad)"/>
+        <g transform="translate(258,144)">
+          <g class="ms-stack onglass">
+            <rect x="-32" y="-6" width="64" height="4" rx="1"/>
+            <rect x="-30" y="-1" width="60" height="4" rx="1"/>
+          </g>
+        </g>
+
+        <!-- pages streaming from scanner into the Dodonai card's doc icon (~371,79) -->
+        <g transform="translate(300,140)"><g class="ms-page p1">
+          <rect x="-11" y="-14" width="22" height="28" rx="2" fill="#fff" stroke="var(--purple-bold)" stroke-width="1.5"/>
+          <line x1="-6" y1="-6" x2="6" y2="-6" stroke="var(--purple-soft)" stroke-width="2"/>
+          <line x1="-6" y1="0" x2="6" y2="0" stroke="var(--purple-soft)" stroke-width="2"/>
+          <line x1="-6" y1="6" x2="2" y2="6" stroke="var(--purple-soft)" stroke-width="2"/>
+        </g></g>
+        <g transform="translate(306,148)"><g class="ms-page p2">
+          <rect x="-11" y="-14" width="22" height="28" rx="2" fill="#fff" stroke="var(--purple-bold)" stroke-width="1.5"/>
+          <line x1="-6" y1="-6" x2="6" y2="-6" stroke="var(--purple-soft)" stroke-width="2"/>
+          <line x1="-6" y1="0" x2="6" y2="0" stroke="var(--purple-soft)" stroke-width="2"/>
+        </g></g>
+        <g transform="translate(294,132)"><g class="ms-page p3">
+          <rect x="-11" y="-14" width="22" height="28" rx="2" fill="#fff" stroke="var(--purple-bold)" stroke-width="1.5"/>
+          <line x1="-6" y1="-6" x2="6" y2="-6" stroke="var(--purple-soft)" stroke-width="2"/>
+          <line x1="-6" y1="0" x2="2" y2="0" stroke="var(--purple-soft)" stroke-width="2"/>
+        </g></g>
+
+        <!-- ===== ZONE 3: Dodonai processing card ===== -->
+        <rect class="ms-card" x="350" y="55" width="190" height="140" rx="12"/>
+        <text x="362" y="75" font-family="var(--mono)" font-size="11" font-weight="700" letter-spacing=".06em" fill="var(--purple-bold)">DODON&middot;AI</text>
+        <circle class="ms-procdot" cx="528" cy="71" r="4"/>
+        <line x1="362" y1="83" x2="528" y2="83" stroke="var(--cream-line)" stroke-width="1"/>
+        <rect x="362" y="93" width="18" height="22" rx="2" fill="#fff" stroke="var(--purple-bold)" stroke-width="1.5"/>
+        <line x1="366" y1="100" x2="376" y2="100" stroke="var(--purple-soft)" stroke-width="1.5"/>
+        <line x1="366" y1="105" x2="376" y2="105" stroke="var(--purple-soft)" stroke-width="1.5"/>
+        <line x1="366" y1="110" x2="372" y2="110" stroke="var(--purple-soft)" stroke-width="1.5"/>
+        <text x="388" y="108" font-family="var(--sans)" font-size="12" fill="var(--gray-meta-light)">&#8594;</text>
+        <text class="ms-matter" x="404" y="108" font-family="var(--sans)" font-weight="800" font-size="12" fill="var(--midnight)">Doe v. Acme</text>
+        <g class="ms-field f1"><text x="362" y="137" font-family="var(--sans)" font-size="8" fill="var(--green)">&#10003;</text><text x="374" y="137" font-family="var(--sans)" font-size="10.5" fill="var(--midnight)">Patient &mdash; J. Doe</text></g>
+        <g class="ms-field f2"><text x="362" y="157" font-family="var(--sans)" font-size="8" fill="var(--green)">&#10003;</text><text x="374" y="157" font-family="var(--sans)" font-size="10.5" fill="var(--midnight)">DOB &mdash; 04/12/1985</text></g>
+        <g class="ms-field f3"><text x="362" y="177" font-family="var(--sans)" font-size="8" fill="var(--green)">&#10003;</text><text x="374" y="177" font-family="var(--sans)" font-size="10.5" fill="var(--midnight)">Pages &mdash; 12</text></g>
+
+        <!-- connector lines fanning out to both destinations -->
+        <line class="ms-link l1" x1="540" y1="110" x2="580" y2="97"/>
+        <line class="ms-link l2" x1="540" y1="160" x2="580" y2="177"/>
+
+        <!-- ===== ZONE 4: filed destinations ===== -->
+        <rect x="580" y="70" width="150" height="54" rx="10" fill="var(--midnight)"/>
+        <text x="594" y="101" font-family="var(--mono)" font-size="10.5" font-weight="700" letter-spacing=".04em" fill="#fff">SMART ADVOCATE</text>
+        <rect x="580" y="150" width="150" height="54" rx="10" fill="var(--midnight)"/>
+        <text x="594" y="181" font-family="var(--mono)" font-size="10.5" font-weight="700" letter-spacing=".04em" fill="#fff">EGNYTE</text>
+        <g transform="translate(712,97)"><g class="ms-check ms-check1">
+          <circle r="9" fill="var(--green)"/>
+          <path d="M-4,0 L-1,3 L4,-3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g></g>
+        <g transform="translate(712,177)"><g class="ms-check ms-check2">
+          <circle r="9" fill="var(--green)"/>
+          <path d="M-4,0 L-1,3 L4,-3" stroke="#fff" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </g></g>
+        </g>
+      </svg>
+      <figcaption>A staff member scans a stack of mail once at the printer. Dodonai reads it, matches it to the right matter, and formats it to your custom fields before filing.</figcaption>
+        </figure>
+      </div>
+
+      <div class="dash-body">
+        <div class="dash-col left">
+          <div class="dash-h">Today's batch <span class="cnt">94 pages</span></div>
+          <div class="kpis">
+            <div class="kpi"><div class="kn">94</div><div class="kl">pages scanned</div></div>
+            <div class="kpi"><div class="kn">91</div><div class="kl">matched automatically</div></div>
+            <div class="kpi"><div class="kn">3</div><div class="kl">flagged for review</div></div>
+          </div>
+          <div class="mrow"><div><div class="mname">Doe v. Acme Corp</div><div class="mphase">medical records &middot; 12 pages</div></div><div class="mpill done">filed</div></div>
+          <div class="mrow"><div><div class="mname">Whitfield v. RCX Transport</div><div class="mphase">referral letter &middot; 3 pages</div></div><div class="mpill done">filed</div></div>
+          <div class="mrow"><div><div class="mname">Alvarez v. Coastal Property</div><div class="mphase">unmatched sender</div></div><div class="mpill wait">flagged</div></div>
+        </div>
+        <div class="dash-col">
+          <div class="dash-h">Activity</div>
+          <div class="feed">
+            <div class="feed-track">
+              <div class="aevent ok"><div class="aic">📥</div><div class="atx"><span class="agent">SCAN</span><br><b>94 pages</b> batch-scanned at front desk<div class="atime">8:41 AM</div></div></div>
+              <div class="aevent"><div class="aic">🔎</div><div class="atx"><span class="agent">AGENT</span><br>Reading &amp; OCR in progress<div class="atime">8:41 AM</div></div></div>
+              <div class="aevent ok"><div class="aic">🗂️</div><div class="atx"><span class="agent">AGENT</span><br>Matched to <b>Doe v. Acme Corp</b><div class="atime">8:42 AM</div></div></div>
+              <div class="aevent ok"><div class="aic">📋</div><div class="atx"><span class="agent">AGENT</span><br>Formatted to custom field template<div class="atime">8:42 AM</div></div></div>
+              <div class="aevent ok"><div class="aic">✓</div><div class="atx"><span class="agent">FILED</span><br>Smart Advocate + Egnyte, same copy<div class="atime">8:42 AM</div></div></div>
+              <div class="aevent gate"><div class="aic">👤</div><div class="atx"><span class="agent">FLAGGED</span><br>Unmatched sender, routed to <b>you</b><div class="atime">8:43 AM</div></div></div>
+              <div class="aevent ok"><div class="aic">📥</div><div class="atx"><span class="agent">SCAN</span><br><b>94 pages</b> batch-scanned at front desk<div class="atime">8:41 AM</div></div></div>
+              <div class="aevent"><div class="aic">🔎</div><div class="atx"><span class="agent">AGENT</span><br>Reading &amp; OCR in progress<div class="atime">8:41 AM</div></div></div>
+              <div class="aevent ok"><div class="aic">🗂️</div><div class="atx"><span class="agent">AGENT</span><br>Matched to <b>Doe v. Acme Corp</b><div class="atime">8:42 AM</div></div></div>
+              <div class="aevent ok"><div class="aic">📋</div><div class="atx"><span class="agent">AGENT</span><br>Formatted to custom field template<div class="atime">8:42 AM</div></div></div>
+              <div class="aevent ok"><div class="aic">✓</div><div class="atx"><span class="agent">FILED</span><br>Smart Advocate + Egnyte, same copy<div class="atime">8:42 AM</div></div></div>
+              <div class="aevent gate"><div class="aic">👤</div><div class="atx"><span class="agent">FLAGGED</span><br>Unmatched sender, routed to <b>you</b><div class="atime">8:43 AM</div></div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="dash-cap">Mocked for illustration, based on the volumes and systems you described. <b>Not a live connection to your accounts.</b></div>
+
+      <div class="demoplayer-controls">
+        <div class="demoplayer-play"><svg viewBox="0 0 10 12"><polygon points="0,0 10,6 0,12"/></svg></div>
+        <div class="demoplayer-time">0:00</div>
+        <div class="demoplayer-track"><div class="demoplayer-fill"></div></div>
+        <div class="demoplayer-time">0:16</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- GATES -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What stays yours</span><h2>What this build <span class="soft">does not do</span></h2></div>
+    <div class="gates">
+      <div class="gatecard reveal d1"><div class="gi">👤</div><h4>Nothing gets drafted</h4><p>This pilot reads, routes, and files. It doesn't write a demand, a reply, or anything that goes to a client, opposing counsel, or a court. That's a separate, later conversation, not part of this build.</p></div>
+      <div class="gatecard reveal d2"><div class="gi">🔀</div><h4>Exceptions flag, they don't guess</h4><p>A fax the agent can't match to a matter, or a document that looks miscategorized, gets flagged for a person instead of filed on a guess.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- NUMBERS -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The decision input</span><h2>Fixed <span class="soft">pricing</span></h2>
+      <p class="sec-sub">Updated from the Sept 4 pricing review.</p></div>
+    <div class="numbers-grid">
+      <div class="numcard reveal d1">
+        <div class="nlabel">Build · fixed</div><h3>$4,000</h3>
+        <div class="opex-row"><div class="ol"><div class="ot">Inbox &amp; Fax Routing Agent</div><div class="od">Reads a dedicated mail and fax intake inbox, routes each item, files into Smart Advocate and Egnyte.</div></div><div class="oa">$4,000</div></div>
+        <div class="paysplit"><div class="half"><div class="h">Start</div><div class="v">50%</div></div><div class="arr">→</div><div class="half"><div class="h">On acceptance</div><div class="v">50%</div></div></div>
+        <p class="numnote">Fixed regardless of how the routing rules end up needing to work. Acceptance is judged as a first-draft-for-reaction pass on your own real inbox, not a demo.</p>
+      </div>
+      <div class="numcard reveal d2">
+        <div class="nlabel">Ongoing · pick a term</div><h3>Managed support</h3>
+        <div class="term-tiers">
+          <div class="term-tier"><div class="tt-term">Month-to-month</div><div class="tt-price">$1,300/mo</div><div class="tt-note">Cancel anytime</div></div>
+          <div class="term-tier rec"><span class="tt-badge">6-month</span><div class="tt-term">6-month minimum</div><div class="tt-price">$1,000/mo</div><div class="tt-note">Then month-to-month unless we agree otherwise</div></div>
+          <div class="term-tier"><div class="tt-term">Annual</div><div class="tt-price">$900/mo</div><div class="tt-note">12-month term, billed annually ($10,800/yr)</div></div>
+        </div>
+        <div class="opex-row"><div class="ol"><div class="ot">AI / API usage</div><div class="od">Included on our side. Whatever Egnyte or Smart Advocate charge for API access, if anything, is a cost on their platform, not ours.</div></div><div class="oa">Included</div></div>
+        <p class="numnote">Shorter terms cost more per month, longer terms cost less &mdash; you pick the trade-off between flexibility and price.</p>
+        <div class="value-anchor"><b>Below the alternative you looked at:</b> the $1,800/mo, 50-page-cap quote you mentioned for the OCR/scanning piece alone &mdash; this covers the full inbox, fax, and filing pipeline.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- COMPETITIVE -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What you found looking</span><h2>You went looking for a competitor. <span class="soft">Here's the honest comparison.</span></h2></div>
+    <div class="alt-grid reveal d1" style="grid-template-columns:1fr 1fr">
+      <div class="altc"><div class="an">Foundation AI</div><div class="ashape">point tool</div><p class="agreat">Great at: <b>reading a fax and pulling out the facts</b></p><p class="afit">Open question: <b>whether it reaches into Egnyte the way your filing already needs to work (that's what you're testing)</b></p></div>
+      <div class="altc us"><div class="an">Dodonai · build &amp; own</div><div class="ashape">implementation partner</div><p class="agreat">Great at: <b>built around the systems you already run: Smart Advocate and Egnyte together</b></p><p class="afit">Best fit when: <b>the answer needs to be "filed exactly where we already look," not "close, but not quite"</b></p></div>
+    </div>
+  </div>
+</section>
+
+<!-- OUTCOME -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">After the build</span><h2>What changes <span class="soft">for you</span></h2></div>
+    <div class="ocards">
+      <div class="ocard reveal d1"><div class="ostat">50+/day</div><h4>Every fax, email, and mail piece gets read once</h4><p>Instead of six people each checking the same inbox for what might be theirs.</p></div>
+      <div class="ocard reveal d2"><div class="ostat">2 systems</div><h4>One copy, filed the same way every time</h4><p>Smart Advocate and Egnyte both get the same document, without someone deciding by hand which ones to update.</p></div>
+    </div>
+    <p class="ocaveat reveal d2">These describe what changes structurally, not a measured time savings; we haven't run a time study. Actual hours saved get baselined against your real inbox volume during the pilot, not asserted here.</p>
+  </div>
+</section>
+
+<!-- SCOPE BOX -->
+<section>
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">What's next</span><h2>Opportunities for <span class="soft">future automation</span></h2>
+      <p class="sec-sub">Raised in earlier calls, intentionally sequenced after this pilot. Document management first, more automation next if you want it.</p></div>
+    <div class="scope-box reveal d1">
+      <h4>Future automation candidates</h4>
+      <div class="chips">
+        <div class="chip"><span class="mk">·</span><span><b>Still-treating flag:</b> surfacing "client still treating" from records and texts stays a separate build.</span></div>
+        <div class="chip"><span class="mk">·</span><span><b>Partner email handling beyond routing:</b> anything closer to drafting or replying on Charles's behalf.</span></div>
+        <div class="chip"><span class="mk">·</span><span><b>ChartSwap / MTVC portal automation:</b> raised July 8, unpriced.</span></div>
+        <div class="chip"><span class="mk">·</span><span><b>MedChron vs. EvenUp, Lexis-connected litigation drafting:</b> raised July 8, unpriced.</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- TIMELINE -->
+<section class="alt">
+  <div class="wrap">
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Suggested <span class="soft">phasing</span></h2></div>
+    <div class="timeline">
+      <div class="tl-line"></div>
+      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">This call</div><div class="ph2">Sept 4 reconnect</div><div class="pd2">Review this brief, the fixed pricing, and how Egnyte fits before Charles decides.</div></div>
+      <div class="phase-t"><div class="pnode2">0</div><div class="ptagline">After sign-off</div><div class="ph2">Access + scoping</div><div class="pd2">Read access to the dedicated mail intake inbox, Smart Advocate, and Egnyte, scoped narrowly for this pilot.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">The build</div><div class="ph2">Inbox &amp; Fax Routing Agent</div><div class="pd2">Built and tuned against a real week of your actual fax and email volume.</div></div>
+      <div class="phase-t future"><div class="pnode2">2</div><div class="ptagline">Later</div><div class="ph2">Expansion candidates</div><div class="pd2">Still-treating flag, portal automation, litigation drafting: priced separately if you want them.</div></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
+    Prepared for Hunter &amp; Everage · Draft v1 · Confidential
+  </div>
+</footer>
+
+<script>
+/* ============================================================================
+   Dodonai Brief Engine — scroll reveal + animation gating
+   ----------------------------------------------------------------------------
+   Pairs with brief.css. Two IntersectionObservers:
+     1. .reveal  -> adds .in when the element scrolls into view (fade + rise).
+     2. animated blocks (#xform, #pipe, #dash, or any [data-play]) -> adds .play
+        the first time they're visible, so the CSS keyframe animations stay idle
+        until seen (saves CPU + makes the reveal feel intentional).
+
+   No dependencies. Safe to load with `defer`. Honors prefers-reduced-motion via
+   brief.css (the .reveal rule no-ops; .play still applies but animations that
+   matter are decorative). To register a custom animated block, add the
+   `data-play` attribute to it OR push its id into PLAY_IDS below.
+   ============================================================================ */
+(function () {
+  var PLAY_IDS = ['xform', 'pipe', 'dash'];
+
+  function observe() {
+    // 1. Scroll-reveal
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealIO.unobserve(e.target); // reveal once, then stop watching
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+
+    // 2. Animation gating: add .play once visible.
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('play'); }
+      });
+    }, { threshold: 0.2 });
+
+    var targets = {};
+    PLAY_IDS.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) targets[id] = el;
+    });
+    document.querySelectorAll('[data-play]').forEach(function (el) {
+      targets[el.id || ('p' + Math.round(el.getBoundingClientRect().top))] = el;
+    });
+    Object.keys(targets).forEach(function (k) { playIO.observe(targets[k]); });
+  }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', observe);
+  } else {
+    observe();
+  }
+})();
+
+</script>
+
+
+</body></html>
