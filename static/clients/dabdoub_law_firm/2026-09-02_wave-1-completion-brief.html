@@ -4,8 +4,717 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/clients/_assets/brief.css">
 <style>
+/* ============================================================================
+   Dodonai Brief Engine — canonical stylesheet
+   ----------------------------------------------------------------------------
+   Single source of truth for the visual language behind every Dodonai client
+   brief (Firm OS Brief, AI Readiness Diagnostic, ROI Business Case, Workflow
+   Teardown, etc.). Extracted + merged from the two gold-standard exemplars:
+     - clients/rupprecht_law_pa/firm_os_brief_v2.html  (tight, CSS-only)
+     - clients/greenspoon_consulting/firm_os_brief.html (animated superset)
+
+   Pair with brief-reveal.js for scroll-reveal + the animated trio.
+
+   USAGE
+   - Standalone mode (email/attachment): inline this file inside a style element.
+   - Published mode (public_site stage): link this file with a stylesheet link tag
+     (href="/clients/_assets/brief.css") and load brief-reveal.js with a deferred script tag.
+   NOTE: keep this comment free of literal HTML close-tag sequences (style/script). When
+   this file is inlined into a style element, a literal close-tag here would terminate the
+   block early and the rest of the CSS would not apply. Describe tags in prose, do not write them.
+   Fonts (load in the head either way): the Plus Jakarta Sans + Source Code Pro Google Fonts link.
+
+   Block families (see assets/blocks.html for copy-paste markup):
+     1. Chrome + hero + bands   — hero, brandbar, meta-grid, sec-head, pull-quote,
+                                   changed/cliff strips
+     2. Inventory + pillars + scope — keep/integrate/replace cards, pillars (numbered
+                                   + roadblock), flow-mini, scope-box, workflow lanes
+     3. Animated trio + value   — xform (scatter→hub), pipe (self-running pipeline),
+                                   dash (cockpit feed), outcome, gates, ROI, numbers
+     4. Catalog + conversion    — alternatives, compliance pills, questions,
+                                   timeline, package grid, software-stack
+                                   before/after, productized agent cards,
+                                   layered architecture SVG, by-role grid,
+                                   proof cards
+   ============================================================================ */
+
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  /* extended palette for catalog/conversion blocks */
+  --teal-bright:#06B6D4; --rose:#E11D48; --good:#16A34A;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+/* ===== SCROLL REVEAL (brief-reveal.js adds .in / .play) ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ===== HERO ===== */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:60px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+/* version/status pill at the end of the brandbar (.tag or .v2) */
+.brandbar .tag,.brandbar .v2{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:56px;line-height:1.02;letter-spacing:-.025em;margin:0 0 18px;max-width:17ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:20px;line-height:1.45;color:var(--purple-soft);max-width:60ch;margin:0 0 38px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+
+/* ===== SECTIONS ===== */
+section{padding:54px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:66ch;margin:0 0 30px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+.ink .eyebrow{color:var(--purple-soft)}
+
+/* ===== CHANGED STRIP (Rupprecht: 2-col tick list of deltas) ===== */
+.changed{background:var(--midnight);color:#fff;padding:30px 0}
+.changed .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.changed .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:130px;line-height:1.4}
+.changed .clist{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.changed .ci{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4}
+.changed .ci .tick{color:var(--purple-soft);font-weight:800;flex:0 0 auto}
+.changed .ci b{color:#fff}
+.changed .ci span{color:var(--purple-soft)}
+
+/* ===== CLIFF STRIP (Greenspoon: big-number framing band) ===== */
+.cliff{background:var(--midnight);color:#fff;padding:30px 0}
+.cliff .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.cliff .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:150px;line-height:1.5}
+.cliff .ctitle .big{display:block;font-family:var(--sans);font-size:34px;letter-spacing:-.02em;color:#fff;margin-top:8px}
+.cliff .cbody{font-size:16px;line-height:1.55;color:var(--purple-soft)}
+.cliff .cbody b{color:#fff}
+
+/* ===== PULL QUOTE + definition ===== */
+.pull{position:relative;background:#fff;border-radius:14px;padding:36px 42px 32px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:22px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+.os-def{margin-top:24px;font-size:18px;line-height:1.6;max-width:76ch}
+.os-def strong{color:var(--purple-bold)}
+
+/* ===== WORKFLOW LANES (current-state phase flow charts) ===== */
+.phasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.phasecard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:20px 22px;position:relative}
+.phasecard .ph-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.phasecard .ph-n{flex:0 0 30px;height:30px;border-radius:9px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.phasecard .ph-name{font-weight:800;font-size:17px;letter-spacing:-.01em}
+.phasecard .ph-meta{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light)}
+.flow{display:flex;flex-direction:column;gap:7px}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4;position:relative;padding-left:2px}
+.step .sb{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:6px;background:var(--gray-meta)}
+.step.man .sb{background:var(--amber)}
+.step.gate .sb{background:var(--teal)}
+.step .stx{color:var(--midnight)}
+.step .stx .who{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.who.w-man{background:rgba(199,125,46,.14);color:var(--amber)}
+.who.w-gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.flow-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.flow-legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.flow-legend .dot{width:10px;height:10px;border-radius:50%}
+.tally{margin-top:26px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15px;line-height:1.6}
+.tally b{color:var(--amber)}
+
+/* ===== TRANSFORMATION ANIMATION (scatter today → OS hub) ===== */
+.xform{display:grid;grid-template-columns:1fr 64px 1fr;gap:8px;align-items:stretch;margin-top:10px}
+.xcol{background:rgba(255,255,255,.04);border:1px solid rgba(181,168,230,.22);border-radius:16px;padding:24px 22px 26px;position:relative;overflow:hidden}
+.xcol .xlabel{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.xcol.today .xlabel{color:var(--purple-soft)}
+.xcol.os .xlabel{color:#fff}
+.xcol.os{border-color:rgba(124,58,237,.6);background:radial-gradient(420px 240px at 70% 0%,rgba(124,58,237,.22),transparent 60%),rgba(124,58,237,.06)}
+.scatter{position:relative;height:300px}
+.tool-chip{position:absolute;font-family:var(--mono);font-size:11px;font-weight:600;background:var(--midnight-soft);color:var(--purple-soft);border:1px solid rgba(181,168,230,.3);border-radius:9px;padding:7px 10px;white-space:nowrap;opacity:0;transform:scale(.85)}
+.play .tool-chip{animation:chipIn .5s ease forwards}
+.tool-chip:nth-child(1){top:6%;left:4%}
+.tool-chip:nth-child(2){top:2%;left:54%}
+.tool-chip:nth-child(3){top:26%;left:30%}
+.tool-chip:nth-child(4){top:30%;left:66%}
+.tool-chip:nth-child(5){top:50%;left:8%}
+.tool-chip:nth-child(6){top:54%;left:44%}
+.tool-chip:nth-child(7){top:74%;left:22%}
+.tool-chip:nth-child(8){top:78%;left:60%}
+.play .tool-chip:nth-child(1){animation-delay:.05s}
+.play .tool-chip:nth-child(2){animation-delay:.13s}
+.play .tool-chip:nth-child(3){animation-delay:.21s}
+.play .tool-chip:nth-child(4){animation-delay:.29s}
+.play .tool-chip:nth-child(5){animation-delay:.37s}
+.play .tool-chip:nth-child(6){animation-delay:.45s}
+.play .tool-chip:nth-child(7){animation-delay:.53s}
+.play .tool-chip:nth-child(8){animation-delay:.61s}
+.scatter .runner{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px rgba(199,125,46,.22);opacity:0}
+.play .scatter .runner{animation:runnerFade .6s .7s ease forwards,runAround 6s 1.3s ease-in-out infinite}
+.scatter .handlabel{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--amber);font-weight:700;opacity:0;text-align:center;width:90%}
+.play .scatter .handlabel{animation:runnerFade .5s 1s ease forwards}
+@keyframes chipIn{to{opacity:1;transform:scale(1)}}
+@keyframes runnerFade{to{opacity:1}}
+@keyframes runAround{
+  0%{top:8%;left:8%}12%{top:6%;left:56%}25%{top:28%;left:32%}38%{top:32%;left:66%}
+  50%{top:52%;left:10%}62%{top:56%;left:46%}75%{top:76%;left:24%}88%{top:80%;left:60%}100%{top:8%;left:8%}}
+.hub{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+.hub-core{width:120px;height:120px;border-radius:24px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 0 rgba(124,58,237,.5);position:relative;z-index:3;opacity:0;transform:scale(.8)}
+.play .hub-core{animation:hubIn .6s 1.2s cubic-bezier(.2,1.3,.4,1) forwards,hubPulse 2.8s 1.9s ease-in-out infinite}
+.hub-core .hw{font-weight:800;font-size:15px;letter-spacing:-.01em}
+.hub-core .hs{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-soft);margin-top:4px}
+.spoke{position:absolute;font-family:var(--mono);font-size:10.5px;font-weight:600;background:var(--midnight-soft);color:#fff;border:1px solid rgba(181,168,230,.4);border-radius:8px;padding:6px 9px;white-space:nowrap;opacity:0;z-index:2}
+.play .spoke{animation:spokeIn .5s ease forwards}
+.spoke:nth-of-type(1){top:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(2){top:24%;right:2%}
+.spoke:nth-of-type(3){bottom:24%;right:0%}
+.spoke:nth-of-type(4){bottom:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(5){bottom:24%;left:0%}
+.spoke:nth-of-type(6){top:24%;left:2%}
+.play .spoke:nth-of-type(1){animation-delay:1.7s}
+.play .spoke:nth-of-type(2){animation-delay:1.85s}
+.play .spoke:nth-of-type(3){animation-delay:2.0s}
+.play .spoke:nth-of-type(4){animation-delay:2.15s}
+.play .spoke:nth-of-type(5){animation-delay:2.3s}
+.play .spoke:nth-of-type(6){animation-delay:2.45s}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:0}
+.play .hub svg.links{animation:runnerFade .6s 2.5s ease forwards}
+.hub svg.links line{stroke:rgba(181,168,230,.45);stroke-width:1.5;stroke-dasharray:4 5}
+.play .hub svg.links line{animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-18}}
+@keyframes hubIn{to{opacity:1;transform:scale(1)}}
+@keyframes spokeIn{from{opacity:0;transform:scale(.8) translateY(6px)}to{opacity:1}}
+@keyframes hubPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.45)}50%{box-shadow:0 0 0 14px rgba(124,58,237,0)}}
+.xarrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--purple-soft)}
+.xarrow .ah{font-size:30px;font-weight:800;line-height:1}
+.xarrow .at{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--purple-soft)}
+.xcaption{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+.xcaption .xc{font-size:14.5px;line-height:1.55}
+.xcaption .xc .h{font-weight:800;color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.xcaption .xc .h .pin{width:9px;height:9px;border-radius:50%}
+.xcaption .xc.l .h .pin{background:var(--amber)}
+.xcaption .xc.r .h .pin{background:var(--purple-vivid)}
+.xcaption .xc p{margin:0;color:var(--purple-soft)}
+
+/* ===== PIPELINE (self-running workflow) ===== */
+.pipe-wrap{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:30px 26px 26px;position:relative;overflow:hidden}
+.pipe{display:flex;align-items:stretch;gap:0;position:relative}
+.pnode{flex:1;text-align:center;position:relative;padding:0 6px}
+.pnode .pdot{width:54px;height:54px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--cream-deep);border:2px solid var(--cream-line);position:relative;z-index:2;transition:all .4s}
+.pnode .pttl{font-weight:700;font-size:13.5px;letter-spacing:-.01em;margin-bottom:4px}
+.pnode .pwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-bold)}
+.pnode.gate .pwho{color:var(--teal)}
+.pnode .pstatus{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:7px;padding:2px 8px;border-radius:10px;display:inline-block;background:var(--cream-deep);color:var(--gray-meta-light)}
+.pline{position:absolute;top:27px;height:3px;background:var(--cream-line);z-index:0;left:0;right:0}
+.pline .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft))}
+.play .pline .pfill{animation:fill 9s linear infinite}
+@keyframes fill{0%{width:0}90%,100%{width:100%}}
+.play .pnode .pdot{animation:nodeActivate 9s linear infinite}
+.play .pnode:nth-child(2) .pdot{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot{animation-delay:6.4s}
+@keyframes nodeActivate{0%,8%{background:var(--cream-deep);border-color:var(--cream-line);transform:scale(1)}
+  10%{background:rgba(124,58,237,.15);border-color:var(--purple-vivid);transform:scale(1.08)}
+  16%,100%{background:var(--purple-vivid);border-color:var(--purple-vivid)}}
+.play .pnode .pstatus{animation:statusFlip 9s linear infinite}
+.play .pnode:nth-child(2) .pstatus{animation-delay:0s}
+.play .pnode:nth-child(3) .pstatus{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pstatus{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pstatus{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pstatus{animation-delay:6.4s}
+@keyframes statusFlip{0%,8%{background:var(--cream-deep);color:var(--gray-meta-light)}
+  16%,100%{background:rgba(46,158,107,.14);color:var(--green)}}
+.pnode .pdot .ic-done{position:absolute;opacity:0}
+.play .pnode .pdot .ic-done{animation:doneShow 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-done{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-done{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-done{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-done{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-done{animation-delay:6.4s}
+@keyframes doneShow{0%,12%{opacity:0}16%,100%{opacity:1}}
+.play .pnode .pdot .ic-base{animation:baseHide 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-base{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-base{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-base{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-base{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-base{animation-delay:6.4s}
+@keyframes baseHide{0%,12%{opacity:1}16%,100%{opacity:0;color:#fff}}
+.pipe-foot{margin-top:22px;font-size:14px;color:var(--gray-meta-light);text-align:center;line-height:1.5}
+.pipe-foot b{color:var(--teal)}
+
+/* ===== COCKPIT DASHBOARD MOCKUP ===== */
+.dash{background:#0F0F2E;border-radius:18px;padding:0;overflow:hidden;border:1px solid rgba(181,168,230,.25);box-shadow:0 40px 80px -50px rgba(0,0,0,.7)}
+.dash-bar{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(181,168,230,.18)}
+.dash-bar .dots{display:flex;gap:6px}
+.dash-bar .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dash-bar .dots i:nth-child(1){background:#ff5f57}.dash-bar .dots i:nth-child(2){background:#febc2e}.dash-bar .dots i:nth-child(3){background:#28c840}
+.dash-bar .dtitle{font-family:var(--mono);font-size:12px;color:var(--purple-soft);letter-spacing:.06em;font-weight:600}
+.dash-bar .dlive{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:7px}
+.dash-bar .dlive::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dash-body{display:grid;grid-template-columns:1.35fr 1fr;gap:0}
+.dash-col{padding:20px 22px}
+.dash-col.left{border-right:1px solid rgba(181,168,230,.14)}
+.dash-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:14px;display:flex;justify-content:space-between}
+.dash-h .cnt{color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.16);border-radius:11px;padding:12px 13px}
+.kpi .kn{font-weight:800;font-size:24px;color:#fff;letter-spacing:-.02em;line-height:1}
+.kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta);margin-top:6px;line-height:1.3}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 13px;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;margin-bottom:8px}
+.mrow .mname{font-size:13px;color:#fff;font-weight:600}
+.mrow .mphase{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--purple-soft);margin-top:3px}
+.mrow .mpill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.mpill.run{background:rgba(124,58,237,.22);color:var(--purple-soft)}
+.mpill.wait{background:rgba(199,125,46,.2);color:#F0B366}
+.mpill.done{background:rgba(46,158,107,.18);color:#5FD6A0}
+.feed{position:relative;height:268px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent)}
+.feed-track{display:flex;flex-direction:column;gap:9px}
+.play .feed-track{animation:scrollfeed 16s linear infinite}
+@keyframes scrollfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.aevent{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;padding:10px 12px}
+.aevent .aic{flex:0 0 26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(124,58,237,.18)}
+.aevent.ok .aic{background:rgba(46,158,107,.18)}
+.aevent.gate .aic{background:rgba(14,116,137,.2)}
+.aevent .atx{font-size:12px;line-height:1.4;color:#E7E4F5}
+.aevent .atx b{color:#fff;font-weight:700}
+.aevent .atime{font-family:var(--mono);font-size:9px;color:var(--gray-meta);margin-top:3px;letter-spacing:.04em}
+.aevent .atx .agent{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple-soft);letter-spacing:.03em}
+.dash-cap{font-size:14px;color:var(--purple-soft);line-height:1.6;margin-top:26px;text-align:center;max-width:74ch;margin-left:auto;margin-right:auto}
+.dash-cap b{color:#fff}
+
+/* ===== KEEP / INTEGRATE / REPLACE inventory ===== */
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.int{background:var(--green)} .dot.rep{background:var(--purple-vivid)} .dot.add{background:var(--amber)} .dot.skip{background:var(--gray-meta)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 19px 16px;position:relative;overflow:hidden}
+.card.replace{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.card.add{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.card.skip{border:1.5px dashed var(--gray-meta)}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px}
+.card .name{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.badge.int{background:rgba(46,158,107,.13);color:var(--green)}
+.badge.rep{background:var(--purple-vivid);color:#fff}
+.badge.add{background:var(--amber);color:#fff}
+.badge.skip{background:var(--cream-deep);color:var(--gray-meta-light)}
+.card .why{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.card.replace .why,.card.add .why{color:var(--midnight)}
+.flag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--purple-vivid);color:#fff;padding:3px 8px;border-bottom-left-radius:8px}
+
+/* ===== PILLARS — numbered (Rupprecht) ===== */
+.pillars{display:flex;flex-direction:column;gap:18px}
+.pillar{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;position:relative}
+.pillar.hot{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.04))}
+.pillar .phead{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.pillar .pnum{flex:0 0 36px;height:36px;border-radius:10px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.pillar .picon{flex:0 0 40px;height:40px;border-radius:11px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center}
+.pillar .ptitle{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.pillar .ptag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:14px;margin-left:auto;background:var(--purple-vivid);color:#fff}
+.ptag.moved{background:rgba(124,58,237,.12);color:var(--purple-bold)}
+.ptag.new{background:var(--amber);color:#fff}
+.pillar p{font-size:14.5px;line-height:1.55;margin:.5em 0;color:var(--midnight)}
+.pillar .pbody{margin-top:6px}
+.flow-mini{font-family:var(--mono);font-size:11.5px;line-height:1.7;background:var(--midnight);color:var(--purple-soft);border-radius:10px;padding:16px 18px;margin:12px 0;overflow-x:auto;white-space:pre;display:block}
+.flow-mini b{color:#fff;font-weight:700}
+.flow-mini .ar{color:var(--purple-vivid);font-weight:700}
+.kills-line{font-size:13.5px;color:var(--purple-bold);font-weight:600;margin-top:6px}
+.feat{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.feat .f{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.feat .f .fm{color:var(--purple-vivid);font-weight:800;flex:0 0 auto}
+.feat .f b{color:var(--midnight)}
+
+/* ===== ROADBLOCK (now vs fix, inside a .pillar) ===== */
+.rblock{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:6px}
+.rb{background:var(--cream-deep);border-radius:11px;padding:16px 18px}
+.rb.fix{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.25)}
+.rb .rh{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:9px}
+.rb.now .rh{color:var(--red)} .rb.fix .rh{color:var(--purple-bold)}
+.rb ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6}
+.rb li{margin-bottom:4px}
+.rb-arrow{font-size:26px;font-weight:800;color:var(--purple-vivid)}
+
+/* ===== OUTCOME stat cards ===== */
+.ocards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ocard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-vivid)}
+.ocard .ostat{font-weight:800;font-size:32px;letter-spacing:-.02em;color:var(--purple-bold);line-height:1;margin-bottom:12px}
+.ocard .ostat .to{color:var(--purple-soft);font-weight:700;margin:0 2px}
+.ocard h4{font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin:0 0 7px;color:var(--midnight)}
+.ocard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--gray-meta-light)}
+.ocaveat{font-size:12.5px;color:var(--gray-meta-light);line-height:1.55;margin-top:18px;max-width:90ch}
+
+/* ===== HUMAN GATES ===== */
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gatecard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--teal)}
+.gatecard .gi{font-size:20px;margin-bottom:8px}
+.gatecard h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:0 0 7px;color:var(--teal)}
+.gatecard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+
+/* ===== SECURITY cards (top-bordered) ===== */
+.sec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.seccard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-bold)}
+.seccard .ic{font-size:22px;margin-bottom:10px}
+.seccard h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 8px;color:var(--purple-bold)}
+.seccard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.seccard p b{color:var(--midnight-deep)}
+
+/* ===== COMPLIANCE PILLS ===== */
+.compliance{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--midnight);color:#fff;padding:8px 16px;border-radius:24px;display:inline-flex;align-items:center;gap:8px}
+.pill .pk{color:var(--purple-soft)}
+
+/* ===== ALTERNATIVES (build-vs-buy comparison) ===== */
+.alt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.altc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 21px}
+.altc.us{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.altc .an{font-weight:800;font-size:16px;margin-bottom:3px}
+.altc .ashape{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:12px}
+.altc .agreat{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0 0 10px}
+.altc .agreat b{color:var(--green)}
+.altc .afit{font-size:13px;line-height:1.5;color:var(--midnight);margin:0;padding-top:10px;border-top:1px solid var(--cream-line)}
+.altc .afit b{color:var(--purple-bold)}
+
+/* ===== NUMBERS (CapEx phases + OpEx layers) ===== */
+.numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.numcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:26px 28px}
+.numcard h3{font-weight:800;font-size:18px;margin:0 0 4px}
+.numcard .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:14px}
+.paysplit{display:flex;gap:10px;margin:14px 0}
+.paysplit .half{flex:1;background:var(--cream-deep);border-radius:9px;padding:13px 15px;text-align:center}
+.paysplit .half .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.paysplit .half .v{font-weight:800;font-size:15px;color:var(--purple-bold)}
+.paysplit .arr{align-self:center;color:var(--purple-vivid);font-weight:800;font-size:18px}
+.numnote{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin-top:10px}
+.opex-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--cream-line)}
+.opex-row:last-of-type{border-bottom:none}
+.opex-row .ol .ot{font-weight:700;font-size:14.5px}
+.opex-row .ol .od{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin-top:3px}
+.opex-row .oa{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--purple-bold);white-space:nowrap;text-align:right;padding-top:2px}
+/* anchor callout under numbers — .value-anchor (Greenspoon) / .opex-anchor (Rupprecht) are aliases */
+.value-anchor,.opex-anchor{margin-top:16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.value-anchor b,.opex-anchor b{color:var(--purple-bold)}
+
+/* ===== ROI stat strip (dark) ===== */
+.roi{margin-top:22px;background:linear-gradient(165deg,var(--midnight),var(--midnight-soft));border-radius:14px;padding:26px 30px;color:#fff}
+.roi .rlabel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:16px}
+.roi .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.roi .rstat .rn{font-weight:800;font-size:30px;letter-spacing:-.02em;color:#fff;line-height:1}
+.roi .rstat .rn small{font-size:16px;color:var(--purple-soft);font-weight:700}
+.roi .rstat .rd{font-size:13px;color:var(--purple-soft);line-height:1.4;margin-top:8px}
+.why-now{margin-top:18px;font-size:14px;color:var(--midnight);background:#fff;border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 18px;line-height:1.55}
+.why-now b{color:var(--red)}
+
+/* ===== OUT OF SCOPE ===== */
+.scope-box{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 26px;border-top:4px solid var(--gray-meta)}
+.scope-box h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 14px;color:var(--gray-meta-light)}
+.chips{display:flex;flex-direction:column;gap:11px}
+.chip{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.chip .mk{flex:0 0 auto;font-weight:800;font-family:var(--mono);color:var(--gray-meta)}
+.chip b{color:var(--midnight)}
+
+/* ===== QUESTIONS ===== */
+.answered{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.ans{font-size:13px;background:rgba(46,158,107,.1);border:1px solid rgba(46,158,107,.3);color:var(--green);border-radius:20px;padding:7px 14px;font-weight:600}
+.ans b{color:var(--green)}
+.qcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start}
+.qc .qcn{flex:0 0 34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qc .qct{font-weight:800;font-size:15px;margin:0 0 4px}
+.qc .qcd{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+
+/* ===== TIMELINE / PHASING ===== */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.tl-line{position:absolute;top:21px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));z-index:0}
+.phase-t{position:relative;z-index:1;padding:0 12px;text-align:center}
+.phase-t .pnode2{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;background:var(--purple-vivid);border:4px solid var(--cream)}
+.phase-t.future .pnode2{background:var(--midnight);color:var(--purple-soft)}
+.phase-t .ptagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phase-t .ph2{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+.phase-t .pd2{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5}
+
+/* ============================================================================
+   FAMILY 4 (extended) — CATALOG BLOCKS
+   ----------------------------------------------------------------------------
+   Ported from the Dodonai capabilities decks (capabilities.html / overview-
+   client.html). These are the catalog / conversion components the cold + post-
+   discovery briefs need: a productized package grid, a before/after software-
+   stack comparison, productized agent cards, a layered architecture SVG, a
+   by-role function grid, and proof cards. Continuous decorative animations are
+   guarded under prefers-reduced-motion at the bottom of this file.
+   ============================================================================ */
+
+/* ===== PACKAGE GRID (productized offerings, optionally categorized) ===== */
+.pkg-intro{display:grid;grid-template-columns:1.2fr 0.8fr;gap:32px;align-items:center;margin:24px 0 36px;padding:28px;background:linear-gradient(135deg,#fff 0%,var(--cream-deep) 100%);border:1px solid var(--cream-line);border-radius:14px}
+.pkg-intro .pi-copy h3{font-weight:800;font-size:22px;color:var(--midnight);margin:0 0 10px;letter-spacing:-.01em}
+.pkg-intro .pi-copy p{font-size:14.5px;line-height:1.6;color:var(--gray-meta-light);margin:0 0 8px}
+.pkg-intro .pi-copy p strong{color:var(--midnight-deep)}
+.pkg-category{margin:32px 0 12px}
+.pkg-category .cat-label{font-family:var(--mono);font-size:11px;color:var(--purple-bold);letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}
+.pkg-category .cat-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--purple-bold) 0%,transparent 100%)}
+.pkg-category.teal .cat-label{color:var(--teal)}
+.pkg-category.teal .cat-label::after{background:linear-gradient(90deg,var(--teal) 0%,transparent 100%)}
+.pkg-category.amber .cat-label{color:var(--amber)}
+.pkg-category.amber .cat-label::after{background:linear-gradient(90deg,var(--amber) 0%,transparent 100%)}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin:14px 0 24px}
+.pkg-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;display:flex;flex-direction:column}
+.pkg-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple-bold),var(--purple-vivid));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.pkg-card.teal::before{background:linear-gradient(90deg,var(--teal),var(--teal-bright))}
+.pkg-card.amber::before{background:linear-gradient(90deg,var(--amber),#f59e0b)}
+.pkg-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(20,20,58,.10);border-color:var(--purple-soft)}
+.pkg-card:hover::before{transform:scaleX(1)}
+.pkg-card .pkg-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.pkg-card .pkg-name{font-weight:800;font-size:17px;color:var(--midnight-deep);line-height:1.3;letter-spacing:-.01em;margin:0;flex:1}
+.pkg-card .pkg-dur{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.10em;text-transform:uppercase;font-weight:700;background:rgba(124,58,237,.08);padding:4px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.pkg-card.teal .pkg-dur{color:var(--teal);background:rgba(14,116,144,.08)}
+.pkg-card.amber .pkg-dur{color:var(--amber);background:rgba(180,83,9,.08)}
+.pkg-card .pkg-desc{font-size:13.5px;line-height:1.55;color:var(--gray-meta-light);margin:0;flex:1}
+.pkg-card .pkg-desc strong{color:var(--midnight-deep)}
+.pkg-card .pkg-desc em{color:var(--purple-bold)}
+.pkg-card.featured{border-color:var(--purple-vivid);background:linear-gradient(135deg,#fff 0%,rgba(124,58,237,.04) 100%)}
+.pkg-card.featured .pkg-dur{background:var(--purple-vivid);color:#fff}
+.pkg-card .pkg-tag{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9px;color:#fff;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:var(--purple-vivid);padding:3px 8px;border-radius:3px}
+
+/* ===== SOFTWARE-STACK BEFORE/AFTER (build-vs-buy / consolidation) ===== */
+.stack-compare{display:grid;grid-template-columns:1fr 80px 1fr;gap:0;align-items:stretch;margin:24px 0 8px}
+.stack-side{padding:24px;border-radius:12px;position:relative;overflow:hidden}
+.stack-before{background:linear-gradient(135deg,rgba(225,29,72,.06) 0%,rgba(225,29,72,.02) 100%);border:1px solid rgba(225,29,72,.2)}
+.stack-after{background:linear-gradient(135deg,rgba(14,116,144,.06) 0%,rgba(124,58,237,.04) 100%);border:1px solid var(--purple-soft)}
+.stack-side h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:0 0 4px}
+.stack-before h4{color:var(--rose)}
+.stack-after h4{color:var(--purple-bold)}
+.stack-side .stack-title{font-weight:800;font-size:18px;color:var(--midnight-deep);margin:0 0 16px;line-height:1.3}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.stack-chip{background:#fff;border:1px solid var(--cream-line);border-radius:6px;padding:8px 6px;text-align:center;font-size:10px;font-weight:600;color:var(--midnight-deep);font-family:var(--mono);line-height:1.2;letter-spacing:.02em;position:relative;transition:transform .3s ease}
+.stack-before .stack-chip{opacity:.85;animation:disconnected 4s ease-in-out infinite}
+@keyframes disconnected{0%,100%{transform:translate(0,0)}25%{transform:translate(-1px,2px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-2px,1px)}}
+.stack-after .stack-layer{background:#fff;border:1px solid var(--purple-soft);border-radius:6px;padding:10px 14px;margin-bottom:4px;font-size:11px;font-weight:700;color:var(--midnight-deep);font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.stack-after .stack-layer.l1{background:linear-gradient(90deg,rgba(124,58,237,.10),rgba(124,58,237,.02))}
+.stack-after .stack-layer.l2{background:linear-gradient(90deg,rgba(14,116,144,.10),rgba(14,116,144,.02));margin-left:10px}
+.stack-after .stack-layer.l3{background:linear-gradient(90deg,rgba(22,163,74,.10),rgba(22,163,74,.02));margin-left:20px}
+.stack-after .stack-layer .ln{color:var(--purple-bold);font-size:9px}
+.stack-after .stack-layer.l2 .ln{color:var(--teal)}
+.stack-after .stack-layer.l3 .ln{color:var(--good)}
+.stack-side .stack-meta{font-size:12px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.stack-before .stack-meta strong{color:var(--rose)}
+.stack-after .stack-meta strong{color:var(--purple-bold)}
+.stack-arrow{display:flex;align-items:center;justify-content:center;position:relative}
+.stack-arrow svg{width:60px;height:60px}
+
+/* ===== PRODUCTIZED AGENT CARDS (roster items) ===== */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:14px 0 28px}
+.agent-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 20px;transition:transform .3s ease,box-shadow .3s ease;display:flex;gap:14px;align-items:flex-start}
+.agent-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(20,20,58,.08)}
+.agent-icon{flex-shrink:0;width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;background:linear-gradient(135deg,var(--purple-bold),var(--purple-vivid))}
+.agent-grid.teal .agent-icon{background:linear-gradient(135deg,var(--teal),var(--teal-bright))}
+.agent-grid.amber .agent-icon{background:linear-gradient(135deg,var(--amber),#f59e0b)}
+.agent-body{flex:1;min-width:0}
+.agent-body .agent-name{font-weight:700;font-size:15px;color:var(--midnight-deep);margin:0 0 6px;line-height:1.3;letter-spacing:-.005em}
+.agent-body .agent-desc{font-size:12.5px;line-height:1.55;color:var(--gray-meta-light);margin:0}
+.agent-body .agent-desc strong{color:var(--midnight-deep)}
+/* agent-card meta line: watch / do / write / fire / human-gate badges */
+.agent-body .agent-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.agent-body .agent-meta .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.agent-body .agent-meta .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.agent-body .agent-meta .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.agent-body .agent-meta .am.phase{background:rgba(199,125,46,.16);color:var(--amber)}
+
+/* ===== LAYERED ARCHITECTURE SVG ===== */
+.arch-diagram{margin:24px 0 8px}
+.arch-diagram svg{width:100%;height:auto;max-height:380px}
+
+/* ===== BY-ROLE FUNCTION GRID ===== */
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0}
+.role-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 22px;box-shadow:0 1px 2px rgba(20,20,58,.04);transition:transform .3s ease,box-shadow .3s ease}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,20,58,.08)}
+.role-card h3{font-weight:700;font-size:17px;color:var(--midnight);margin:0 0 4px;letter-spacing:-.01em}
+.role-card .sub{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.role-card ul{margin:0;padding-left:18px}
+.role-card ul li{font-size:13.5px;line-height:1.55;margin:4px 0}
+.role-card ul li::marker{color:var(--purple-vivid)}
+.role-card ul li em{color:var(--purple-bold);font-style:italic}
+
+/* ===== PROOF CARDS (named result + stat footer) ===== */
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:8px 0}
+.proof-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(20,20,58,.04);display:flex;flex-direction:column}
+.proof-card .p-head{padding:18px 24px;background:var(--cream-deep);border-bottom:1px solid var(--cream-line)}
+.proof-card .p-tag{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.proof-card .p-title{font-weight:700;font-size:17px;color:var(--midnight-deep);line-height:1.3;margin:0}
+.proof-card .p-body{padding:20px 24px;font-size:14px;line-height:1.6;flex:1}
+.proof-card .p-stats{display:flex;gap:18px;padding:14px 24px;background:var(--midnight);color:#fff;border-top:1px solid var(--midnight-soft)}
+.proof-card .p-stat{flex:1}
+.proof-card .p-stat .pn{font-weight:800;font-size:22px;color:#fff;line-height:1;letter-spacing:-.01em;background:linear-gradient(135deg,#fff 0%,var(--purple-soft) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.proof-card .p-stat .pl{font-family:var(--mono);font-size:9.5px;color:var(--purple-soft);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:4px;line-height:1.3}
+
+/* ===== FOOTER ===== */
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:880px){
+  .hero h1{font-size:38px}
+  .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .changed .wrap,.cliff .wrap{grid-template-columns:1fr;gap:16px}
+  .changed .clist{grid-template-columns:1fr}
+  .phasegrid,.cards,.alt-grid,.gates,.ocards,.sec-grid,.numbers-grid,.qcards{grid-template-columns:1fr}
+  .xform{grid-template-columns:1fr;gap:18px}.xarrow{flex-direction:row}.xarrow .at{writing-mode:horizontal-tb}.xcaption{grid-template-columns:1fr}
+  .pipe{flex-direction:column;gap:14px}.pline{display:none}
+  .dash-body{grid-template-columns:1fr}.dash-col.left{border-right:none;border-bottom:1px solid rgba(181,168,230,.14)}
+  .rblock{grid-template-columns:1fr;gap:12px}.rb-arrow{transform:rotate(90deg)}
+  .roi .rgrid{grid-template-columns:1fr;gap:18px}
+  .timeline{grid-template-columns:1fr;gap:26px}.tl-line{display:none}
+  /* family 4 — catalog blocks */
+  .pkg-intro{grid-template-columns:1fr}
+  .pkg-grid{grid-template-columns:1fr}
+  .stack-compare{grid-template-columns:1fr;gap:14px}.stack-arrow{transform:rotate(90deg)}
+  .agent-grid,.role-grid,.proof-grid{grid-template-columns:1fr}
+}
+/* keep continuous catalog animations off for reduced-motion users */
+@media(prefers-reduced-motion:reduce){
+  .stack-before .stack-chip{animation:none}
+  .pkg-card,.agent-card,.role-card,.stack-chip{transition:none}
+  .arch-diagram svg animate,.stack-arrow svg animate{display:none}
+}
+@media print{
+  .hero{padding:40px 0}section{padding:28px 0;page-break-inside:avoid}
+  .reveal{opacity:1;transform:none}
+  .roi,.flow-mini,.dash{box-shadow:none}
+  .pkg-card,.agent-card,.role-card,.proof-card,.stack-side{page-break-inside:avoid}
+  .stack-before .stack-chip{animation:none}
+}
+
+/* ============================================================================
+   FAMILY 5 — INTERACTIVE PRICED MENU
+   ----------------------------------------------------------------------------
+   A build-your-own-quote block for proposal artifacts: selectable automation
+   cards (each with a mini left-to-right mechanism diagram), package cards whose
+   discount applies automatically, and a sticky bottom bar that sums the
+   selection live. Keep the headline/hero stat grid on VALUE (hours back, matters
+   covered), never price — the price only appears once the buyer selects, in the
+   totbar. Wire the interactivity with data attributes (see blocks.html FAMILY 5)
+   + brief-reveal.js, which no-ops unless a [data-menu-total] bar is present, and
+   which also runs fitDiagrams() so no SVG label can ever spill its node box.
+   When a .totbar is on the page, give body `padding-bottom:96px` (130px mobile)
+   so the fixed bar never covers the footer.
+   ============================================================================ */
+
+/* ----- mini flow diagram (reusable automation-mechanism figure) ----- */
+/* SVG text never wraps; brief-reveal.js fitDiagrams() squeezes any label wider
+   than its node. Keep labels short anyway — the squeeze is a safety net. */
+.dg{margin:4px 0 2px;overflow-x:auto}
+.dg svg{width:100%;min-width:640px;height:auto;display:block}
+.dg .nd{fill:#fff;stroke:var(--cream-line);stroke-width:1.5}
+.dg .src{fill:#FBF4E7;stroke:#E5C89A}                 /* input / watched source */
+.dg .agn{fill:#F5F0FE;stroke:var(--purple-vivid)}     /* the agent */
+.dg .out{fill:#fff;stroke:var(--purple-mid)}          /* result / output */
+.dg .gat{fill:#EBF6F8;stroke:var(--teal)}             /* human gate */
+.dg text{font-family:var(--sans)}
+.dg .tt{font-size:13px;font-weight:700;fill:var(--midnight)}                                   /* node title */
+.dg .ts{font-size:10px;font-weight:600;fill:var(--gray-meta-light);font-family:var(--mono)}    /* node subtitle */
+.dg .tw{font-size:9.5px;font-weight:700;fill:var(--purple-bold);font-family:var(--mono);letter-spacing:.08em}  /* over-node kicker */
+.dg .tw.g{fill:var(--teal)}
+.dg .tw.s{fill:var(--amber)}
+.dg .ln{stroke:var(--purple-vivid);stroke-width:2;stroke-dasharray:5 5;fill:none;marker-end:url(#arw)}
+.dg .ln{animation:dashmove 1.1s linear infinite}
+@keyframes dashmove{to{stroke-dashoffset:-20}}
+
+/* ----- selectable automation card ----- */
+.acard{background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;padding:20px 24px 18px;margin-bottom:16px;transition:border-color .25s,box-shadow .25s,background .25s}
+.acard.sel{border-color:var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.045));box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
+.acard .ahead{display:flex;align-items:center;gap:13px;margin-bottom:6px;flex-wrap:wrap}
+.acard .rank{flex:0 0 30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.acard.alt2 .rank{background:linear-gradient(150deg,var(--teal),#0a9cb8)}   /* second tier / "also on the menu" */
+.acard .aname{font-weight:800;font-size:17.5px;letter-spacing:-.01em}
+.acard .aprice{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:16px;color:var(--midnight)}
+.acard .adesc{font-size:13.5px;color:var(--gray-meta-light);line-height:1.55;margin:2px 0 12px;max-width:88ch}
+.acard .adesc strong{color:var(--midnight)}
+.acard .afoot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.acard .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.acard .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.acard .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.acard input[type=checkbox]{position:absolute;opacity:0;pointer-events:none}
+.addbtn{margin-left:auto;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:8px 18px;cursor:pointer;transition:all .2s;user-select:none}
+.addbtn:hover{background:rgba(124,58,237,.08)}
+.acard.sel .addbtn{background:var(--purple-vivid);color:#fff}
+
+/* ----- foundation strip (the shared base, added once with the first pick) ----- */
+.found{background:var(--midnight);color:#fff;border-radius:14px;padding:18px 24px;margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.found .fic{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(181,168,230,.2);display:flex;align-items:center;justify-content:center;font-size:15px}
+.found .ft{font-weight:800;font-size:15.5px}
+.found .fd{font-size:12.5px;color:var(--purple-soft);flex-basis:100%;margin-left:44px;line-height:1.5}
+.found .fp{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--purple-soft)}
+.found .fp b{color:#fff}
+
+/* ----- package cards with auto-applied discount ----- */
+.phcard{background:#fff;border:1.5px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--purple-vivid);display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s}
+.phcard.sel{border-color:var(--purple-vivid);box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
+.phcard .pt{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phcard h4{font-size:16px;font-weight:800;margin:0 0 4px;letter-spacing:-.01em}
+.phcard .amt{font-family:var(--mono);font-weight:700;font-size:19px;color:var(--midnight);margin:6px 0 2px}
+.phcard .amt .was{color:var(--gray-meta);text-decoration:line-through;font-size:13px;font-weight:600;margin-right:8px}
+.phcard .save{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);margin-bottom:10px}
+.phcard p{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0 0 14px;flex:1}
+.phbtn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:9px 16px;cursor:pointer;transition:all .2s;align-self:flex-start}
+.phbtn:hover{background:rgba(124,58,237,.08)}
+.phcard.sel .phbtn{background:var(--purple-vivid);color:#fff}
+.bundle-note{margin-top:18px;background:rgba(46,158,107,.08);border:1px solid rgba(46,158,107,.3);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.bundle-note b{color:var(--green)}
+
+/* ----- sticky live-total bar (hidden math until the buyer selects) ----- */
+.totbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--midnight-deep);color:#fff;border-top:1px solid rgba(181,168,230,.3);box-shadow:0 -14px 40px -20px rgba(0,0,0,.5)}
+.totbar .wrap{display:flex;align-items:center;gap:18px;padding:14px 28px;flex-wrap:wrap}
+.totbar .tprompt{font-size:14.5px;color:var(--purple-soft)}
+.totbar .tprompt b{color:#fff}
+.totbar .tmath{font-family:var(--mono);font-size:12px;color:var(--purple-soft);display:none;align-items:center;gap:14px;flex-wrap:wrap}
+.totbar .tmath .seg b{color:#fff}
+.totbar .tmath .save{color:#5FD6A0}
+.totbar .ttotal{margin-left:auto;display:none;align-items:baseline;gap:10px}
+.totbar .ttotal .tl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700}
+.totbar .ttotal .tv{font-family:var(--mono);font-weight:700;font-size:23px;color:#fff}
+.totbar.active .tprompt{display:none}
+.totbar.active .tmath{display:flex}
+.totbar.active .ttotal{display:flex}
+
+@media(max-width:880px){
+  .acard .aprice{flex-basis:100%;margin-left:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  .dg .ln{animation:none}
+  .acard,.phcard,.addbtn,.phbtn{transition:none}
+}
+@media print{
+  .totbar{display:none}
+  .acard,.phcard{page-break-inside:avoid}
+  .dg .ln{animation:none}
+}
+
 /* v2 additions: live flags for the 9/09 refresh */
 .live-flag{display:inline-block;font-family:var(--mono);font-size:10.5px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;color:#fff;background:var(--green);padding:3px 8px;border-radius:6px;margin-left:8px;vertical-align:middle;white-space:nowrap}
 .live-flag.new{background:var(--purple-vivid)}
@@ -23,13 +732,13 @@
       <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
       <span class="vrule"></span>
       <span class="partner">Wave 1 Completion Brief</span>
-      <span class="tag">v2 · status as of 2026-09-09 · refreshed from the 9/02 edition</span>
+      <span class="tag">v3 · status as of 2026-09-09, end of day · Lane B complete</span>
     </div>
     <span class="eyebrow">Prepared for Dabdoub Law Firm</span>
-    <h1>Five more Appeals automations went live since 9/02.<br><span class="soft">Eight remain, and the governed filing loop is now delivering four cards a cycle.</span></h1>
-    <p class="lede">In the week since the last meeting: the client copy of the filed appeal and the approval next-steps email are running hourly, the second-appeal restart and the LTD/STD dual-approval branch are live, the six deadline-ladder dates fill themselves in, second attorneys get their calendar reminders, and staff can now see why a request letter did or did not generate. The filing review loop went from one card per cycle to four, with its own auto-verified state. Eddie returned his redline on the AI appeal letter and walked the Lakhan evidence with us this morning. Of the eight Wave 1B items left, three are waiting on the firm.</p>
+    <h1>Every lifecycle letter is now live. Twenty-five of twenty-nine Appeals automations are running.<br><span class="soft">Four remain: the two submission packets and the two ingest items behind the filing ramp.</span></h1>
+    <p class="lede">In the week since the last meeting: the client copy of the filed appeal and the approval next-steps email are running hourly, the second-appeal restart and the LTD/STD dual-approval branch are live, the six deadline-ladder dates fill themselves in, second attorneys get their calendar reminders, and staff can now see why a request letter did or did not generate. The filing review loop went from one card per cycle to four, with its own auto-verified state. Eddie returned his redline on the AI appeal letter and walked the Lakhan evidence with us this morning. Then, on Bryn's answers this afternoon, the last five letters went live the same day: marketing routing, the SSDI evidence forward, the deemed-denied letter, the termination pair, and the Notice of Representation without a claim number. Nothing left in Wave 1B waits on the firm.</p>
     <div class="meta-grid">
-      <div class="meta"><div class="label">Refreshed</div><div class="value">Wed 9/09 · after the Eddie session</div></div>
+      <div class="meta"><div class="label">Refreshed</div><div class="value">Wed 9/09 · end of day, after Bryn's answers</div></div>
       <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · Nick Chapleau</div></div>
       <div class="meta"><div class="label">Wave 1B close</div><div class="value">Target late September</div></div>
       <div class="meta"><div class="label">Closes on</div><div class="value">Bryn's adoption sign-off</div></div>
@@ -48,22 +757,25 @@
       <div class="ci live"><span class="tick">→</span><span><b>Second attorney on every reminder · live 9/04.</b> Bryn's rule: when a Service has an Attorney 2, both attorneys and the assistant get the Outlook reminders. 62 missing placements found and fixed going forward.</span></div>
       <div class="ci live"><span class="tick">→</span><span><b>Request-letter status on the Service · live 9/04.</b> After Bryn and Stephany reported letters that "did not generate", A-04 and A-05 now show a status and the exact missing field (the reported case was a blank Mr./Ms. and blank HR address). In-Appeal policy requests file beside the appeal.</span></div>
       <div class="ci live"><span class="tick">→</span><span><b>F-02 filing review loop · rebuilt through generation 68.</b> Unattributable mail (encrypted wrappers, voicemails, blank forms) no longer burns review slots; four focused card layouts (Ready, Matter needed, Folder needed, Possible mismatch) are live in the shared channel; cap raised from one card per cycle to four after the delivery runtime went from ~11 minutes to 4 seconds; a green informational "Auto-verified, no action needed" state ships for clean cards. Write gates remain closed.</span></div>
-      <div class="ci"><span class="tick">→</span><span><b>A-34 Notice of Representation trigger widened 9/02.</b> The first natural initial claim had no claim number, so the date-only trigger missed it; claim number is now a second trigger. Still waiting on the first natural canary and Bryn's no-claim-number answer.</span></div>
-      <div class="ci"><span class="tick">→</span><span><b>A-31 termination letters built offline 9/02.</b> Carrier notice and client copy as unsent Word files, Tier 5a guards fail closed. Go-live waits on Bryn's OK and Nick's go.</span></div>
-      <div class="ci"><span class="tick">→</span><span><b>A-21 and A-24 hit data gaps.</b> The CRM has no field for the client's SSDI attorney (A-21), and the deemed-exhaustion letter needs a policy number the Service does not carry (A-24). Both are now explicit firm asks with proposed fields.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>A-34 Notice of Representation · first natural draft 9/02, claim number optional 9/09.</b> The claim opened 8/10 drafted itself when its number was entered. Bryn confirmed an initiating notice normally predates any claim number (8 of 12 initiated claims have none), so the RE block now omits the line when it is absent and the trigger no longer requires it.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>A-28 approval letters to marketing · live 9/09.</b> Recipient confirmed as juliet@longtermdisability.net; one-approval canary and replay verified; on the same hourly sweep as A-20 and A-27.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>A-21 SSDI attorney evidence forward · live 9/09.</b> Per Bryn: the recipient comes from the HubSpot Referrals object (the client's accepted SSDI referral), then the contact's SSDI Referral Partner field, then two new contact fields for the client's own attorney (SSDI Attorney Name and Email). No referral on file means no draft.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>A-24 deemed-denied letter · live 9/09.</b> Per Bryn: drafts at 44 days after the appeal was submitted, RE block mirrors the appeal letter. Its own daily job; the 33 appeals already past day 44 were receipted as history, the first two crossings draft 9/10 for attorney review.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>A-31 termination letters · live 9/09.</b> Bryn attached the current templates; the carrier letter was newer than the one on file and was re-sourced before enabling. Carrier notice and client copy land as unsent Word files on the next Terminate Representation decision; an attorney reviews the first pair.</span></div>
+      <div class="ci live"><span class="tick">→</span><span><b>A-36 initial-claim packet contents frozen 9/09.</b> Claim forms when the carrier supplied them (never a blocker), medical records plus whatever the homework folder gathered, then the signed Authorization and DOP, as one PDF with a table of contents. A-17's evidence list widened to every evidence type present.</span></div>
       <div class="ci"><span class="tick">→</span><span><b>Appeal drafter: Eddie's redline arrived 9/04</b> ("over all it is much better"; the evidence sections need rewriting) and the Lakhan evidence walkthrough happened this morning. The remediation plan from that meeting (conclusion-first evidence, simple headings, concise argument, a separate attorney note on denial issues) is written and awaiting Nick's go; no new letter is approved yet.</span></div>
       <div class="ci"><span class="tick">→</span><span><b>Claim files: the Hoffman index came back empty</b> because the observer swept the firm's own request letters as "the claim file". A name gate (only "OCR'd Claim File" PDFs) and a six-hour wait for multi-part files are built locally; fleet activation still capped at zero pending Nick's decision.</span></div>
       <div class="ci live"><span class="tick">→</span><span><b>Also live:</b> onboarding form collects the SSN for links issued after 9/08 (forward-only) · fee-agreement name-whitespace hotfix and status visibility restored 9/04 · Evaluations now display by claimant name instead of record ID · Egnyte token quota outage (9/02) diagnosed and fixed fleet-wide.</span></div>
       <div class="ci"><span class="tick">→</span><span><b>Staffing change recorded 9/03:</b> Cynthia takes Sonya's appeals cases; Sonya takes the litigation cases. Bulk reassignment of the Services (full lists sent 9/03) is waiting on Bryn's go.</span></div>
     </div>
-    <p class="delta-note wrap">Not changed since 9/02: C-06 first live statement filing (write gate still off; accounting training is this afternoon), A-17/A-36 packets, A-28 (Julieth's address), the fresh-document filing test and confirmation step.</p>
+    <p class="delta-note wrap">Not changed since 9/02: C-06 first live statement filing (write gate still off; accounting was trained this afternoon), the A-17/A-36 bundle build itself, the fresh-document filing test and confirmation step.</p>
   </div>
 </div>
 
 <div class="cliff">
   <div class="wrap">
-    <div class="ctitle">The number that matters<span class="big">21 / 29</span></div>
-    <div class="cbody">Wave 1B Appeals build items live (A-03 folder-from-template was absorbed into folder provisioning, so the denominator is 29). <b>Eight remain: three wait on the firm, two are Tier 5a letters, two are packets, one is the F-02-gated ingest pair.</b></div>
+    <div class="ctitle">The number that matters<span class="big">25 / 29</span></div>
+    <div class="cbody">Wave 1B Appeals build items live (A-03 folder-from-template was absorbed into folder provisioning, so the denominator is 29). <b>Four remain: the two submission packets, whose contents are now frozen, and the two ingest items that wait on the filing ramp. None waits on the firm.</b></div>
   </div>
 </div>
 
@@ -85,7 +797,7 @@
       <div class="role-card reveal">
         <h3>Lifecycle letters and routing</h3>
         <div class="sub">Stages 6 and 8</div>
-        <ul><li>A-20 client copy of the filed appeal, hourly <span class="live-flag">live 9/02</span></li><li>A-27 approval next-steps email with attorney + on-claims CC <span class="live-flag">live 9/02</span></li><li>A-32 second-appeal restart (start-clean reset) <span class="live-flag">live 9/02</span></li><li>A-33 LTD/STD dual-approval branch <span class="live-flag">live 9/02</span></li><li>A-26 approval workflow · A-29 denial next-steps · A-30 litigation route · A-34 Notice of Representation trigger</li></ul>
+        <ul><li>A-20 client copy of the filed appeal, hourly <span class="live-flag">live 9/02</span></li><li>A-27 approval next-steps email with attorney + on-claims CC <span class="live-flag">live 9/02</span></li><li>A-32 second-appeal restart (start-clean reset) <span class="live-flag">live 9/02</span></li><li>A-33 LTD/STD dual-approval branch <span class="live-flag">live 9/02</span></li><li>A-28 approval letters to marketing <span class="live-flag">live 9/09</span></li><li>A-21 SSDI attorney evidence forward <span class="live-flag">live 9/09</span></li><li>A-24 deemed-denied letter at day 44 <span class="live-flag">live 9/09</span></li><li>A-31 termination letters, carrier + client <span class="live-flag">live 9/09</span></li><li>A-26 approval workflow · A-29 denial next-steps · A-30 litigation route · A-34 Notice of Representation, claim number optional <span class="live-flag">rev 4, 9/09</span></li></ul>
       </div>
       <div class="role-card reveal">
         <h3>Evaluations, intake and rails</h3>
@@ -105,12 +817,12 @@
     <div class="agent-grid">
       <div class="agent-card went-live reveal"><div class="agent-icon">A-20</div><div class="agent-body"><h3 class="agent-name">Client copy of the filed appeal <span class="live-flag">live 9/02</span></h3><p class="agent-desc">Hourly business-day sweep; six drafts to date. Assistants attach the filed appeal and send. <strong>Done; watching only.</strong></p><div class="agent-meta"><span class="am live">live</span><span class="am fire">hourly, Mon to Fri</span></div></div></div>
       <div class="agent-card went-live reveal"><div class="agent-icon">A-27</div><div class="agent-body"><h3 class="agent-name">Approval next-steps email <span class="live-flag">live 9/02</span></h3><p class="agent-desc">Reply on the approval thread with attorney and on-claims CC. Assistant adds the accounting CC and the approval letter, then sends. <strong>Done; watching only.</strong></p><div class="agent-meta"><span class="am live">live</span><span class="am fire">hourly, Mon to Fri</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-28</div><div class="agent-body"><h3 class="agent-name">Approval letters to marketing</h3><p class="agent-desc">Built and baselined; three approvals since 8/25 are waiting on it. The recipient is fail-closed until the firm confirms the address.</p><div class="agent-meta"><span class="am gate">gate: Julieth's email address</span><span class="am phase">firm</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-34</div><div class="agent-body"><h3 class="agent-name">Notice of Representation</h3><p class="agent-desc">Trigger live and widened 9/02 (claim number now also fires it). The 8/27 initial claim becomes the canary once staff enter its claim number. Open question: what the RE block says when no claim number exists yet.</p><div class="agent-meta"><span class="am gate">gate: first canary + Bryn's answer</span><span class="am phase">caseload + firm</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-21</div><div class="agent-body"><h3 class="agent-name">SSDI attorney evidence forward</h3><p class="agent-desc">Two variants coded, but the CRM has no field that says who the client's SSDI attorney is or whether the firm referred them. Proposed: two Service fields (SSDI attorney contact, referred-by-firm yes/no).</p><div class="agent-meta"><span class="am gate">gate: SSDI attorney fields</span><span class="am phase">firm decision</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon amber">A-24</div><div class="agent-body"><h3 class="agent-name">Deemed-exhaustion letter</h3><p class="agent-desc">Body sourced from the firm's template. Design settled 9/02: anchor on the staff-set deemed-denied date, not a computed +45 (54 undecided matters are past 45 days, extensions make the inference wrong). Blocked on a policy-number field the Service lacks.</p><div class="agent-meta"><span class="am gate">gate: policy number source + trigger confirm</span><span class="am phase">firm decision</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon amber">A-31</div><div class="agent-body"><h3 class="agent-name">Termination letters</h3><p class="agent-desc">Built offline 9/02: carrier notice and client copy as unsent Word files, fails closed on a set approval date or missing address. One matter on the Terminate route today. Ends a representation, so it needs Bryn's OK before the canary.</p><div class="agent-meta"><span class="am gate">gate: Bryn OK + Tier 5a canary</span><span class="am phase">firm + Nick</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">A-17 · A-36</div><div class="agent-body"><h3 class="agent-name">Appeal packet · initial-claim packet</h3><p class="agent-desc">Reuse the live A-13 packet engine. No movement since 8/24; A-36's contents are still to be confirmed by the firm.</p><div class="agent-meta"><span class="am gate">gate: A-36 contents + canary</span><span class="am phase">firm + Nick</span></div></div></div>
+      <div class="agent-card went-live reveal"><div class="agent-icon">A-28</div><div class="agent-body"><h3 class="agent-name">Approval letters to marketing <span class="live-flag">live 9/09</span></h3><p class="agent-desc">Internal draft to juliet@longtermdisability.net with the denial and appeal letters called out for the assistant to attach. Canary and replay verified; hourly sweep. <strong>Done; watching only.</strong></p><div class="agent-meta"><span class="am live">live</span><span class="am fire">hourly, Mon to Fri</span></div></div></div>
+      <div class="agent-card went-live reveal"><div class="agent-icon">A-34</div><div class="agent-body"><h3 class="agent-name">Notice of Representation <span class="live-flag">first draft 9/02 · rev 4 9/09</span></h3><p class="agent-desc">First natural draft landed 9/02. Bryn confirmed no claim number exists at initiation, so the letter now drafts without the Claim No. line and adds it when one is known. <strong>Done; watching only.</strong></p><div class="agent-meta"><span class="am live">live</span></div></div></div>
+      <div class="agent-card went-live reveal"><div class="agent-icon">A-21</div><div class="agent-body"><h3 class="agent-name">SSDI attorney evidence forward <span class="live-flag">live 9/09</span></h3><p class="agent-desc">Recipient resolves from the Referrals object, then the contact's SSDI Referral Partner field, then the two new contact fields (SSDI Attorney Name and Email). Firm-referred and client's-own variants both wired. First approved client with any of those on file is the canary.</p><div class="agent-meta"><span class="am live">live</span><span class="am gate">follow-up: staff fill the new contact fields</span><span class="am phase">firm</span></div></div></div>
+      <div class="agent-card went-live reveal"><div class="agent-icon">A-24</div><div class="agent-body"><h3 class="agent-name">Deemed-denied letter <span class="live-flag">live 9/09</span></h3><p class="agent-desc">Drafts at day 44 after submission when no decision is recorded; RE block mirrors the appeal letter. 33 already-past appeals receipted as history; the first two crossings draft 9/10 into the appeal folder for attorney review. Tier 5a: an attorney reviews every one.</p><div class="agent-meta"><span class="am live">live</span><span class="am gate">follow-up: verify the 9/10 pair, then unpin</span><span class="am phase">Nick</span></div></div></div>
+      <div class="agent-card went-live reveal"><div class="agent-icon">A-31</div><div class="agent-body"><h3 class="agent-name">Termination letters <span class="live-flag">live 9/09</span></h3><p class="agent-desc">Carrier notice (re-sourced to the template Bryn attached) and client copy as unsent Word files when Next Steps is set to Terminate Representation. Fails closed on a set approval date or a missing address. Tier 5a: an attorney reviews the first pair.</p><div class="agent-meta"><span class="am live">live</span><span class="am gate">follow-up: attorney review of the first pair</span><span class="am phase">firm</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">A-17 · A-36</div><div class="agent-body"><h3 class="agent-name">Appeal packet · initial-claim packet</h3><p class="agent-desc">Contents frozen 9/09 (A-36 per Bryn; A-17 evidence widened to every type present). The selection engine is the live A-13 one; what remains is the bundle step: fetch, concatenate into one PDF with a table of contents, file to AI output.</p><div class="agent-meta"><span class="am gate">gate: bundle build + canary</span><span class="am phase">Nick</span></div></div></div>
     </div>
 
     <div class="pkg-category teal reveal"><div class="cat-label">Lane D · partial and gap items · closed 9/02</div></div>
@@ -145,12 +857,12 @@
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">To agree with Bryn</span><h2>What we need <span class="soft">from the firm</span></h2></div>
     <div class="answered reveal d1">
-      <span class="ans"><b>Resolved since 9/02:</b> Attorney 2 calendaring rule (Bryn, 9/04) · the "letters didn't generate" report (root cause was blank Mr./Ms. and HR address; status now visible) · fee-agreement draft missing for a double-spaced name (hotfix live 9/04) · staff reassignment lists sent (9/03).</span>
+      <span class="ans"><b>Resolved since 9/02:</b> all six letter-battery questions (Bryn, 9/09: marketing recipient, no claim number at initiation, SSDI attorney via Referrals plus two new contact fields, deemed-denied at day 44 with the appeal-letter RE block, termination templates, initial-claim packet contents) · Attorney 2 calendaring rule (9/04) · the "letters didn't generate" report (root cause was blank Mr./Ms. and HR address; status now visible) · fee-agreement draft missing for a double-spaced name (hotfix 9/04) · staff reassignment lists sent (9/03).</span>
     </div>
     <div class="qcards">
       <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">Wave 1B adoption sign-off</p><p class="qcd">Written sign-off once the team is using the live set. Closes the phase, starts the retainer, unlocks the next SOW.</p></div></div>
       <div class="qc reveal d2"><span class="qcn">2</span><div><p class="qct">Go on the Service reassignments</p><p class="qcd">Cynthia takes Sonya's appeals Services, Sonya takes the litigation Services. Full lists were sent 9/03; the bulk move runs on your go.</p></div></div>
-      <div class="qc reveal d3"><span class="qcn">3</span><div><p class="qct">Three data decisions that unblock three letters</p><p class="qcd">Where the SSDI attorney lives in HubSpot (A-21); where the policy number lives and confirming the deemed-denied trigger (A-24); Julieth's email (A-28). Plus the RE block when no claim number exists (A-34) and A-36 packet contents.</p></div></div>
+      <div class="qc reveal d3"><span class="qcn">3</span><div><p class="qct">Attorney look at the first Tier 5a drafts</p><p class="qcd">The first two deemed-denied letters draft 9/10; the first termination pair drafts on the next Terminate decision. A named attorney reviews each before anything is sent, and tells us what to change.</p></div></div>
       <div class="qc reveal d1"><span class="qcn">4</span><div><p class="qct">Two deadline-ladder rules</p><p class="qcd">When a +45 / +90 / +105 date lands on a weekend, roll it or leave it? And is "Appeal + 90" keyed at submission + 105 on some records intentional?</p></div></div>
       <div class="qc reveal d2"><span class="qcn">5</span><div><p class="qct">On-claim client spreadsheet</p><p class="qcd">Clients on claim with last payment date, monthly benefit and disbursement details, so we load current expected dates in one pass. The overdue-payment digest is silent until then.</p></div></div>
       <div class="qc reveal d3"><span class="qcn">6</span><div><p class="qct">Bryn's look at the filing cards</p><p class="qcd">The four focused card layouts and the five re-reviewed test cards are in the shared Teams channel. Desktop and mobile feedback decides the correction interaction before the confirmation step opens.</p></div></div>
@@ -163,9 +875,9 @@
     <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Closing <span class="soft">Wave 1</span></h2></div>
     <div class="timeline">
       <div class="tl-line"></div>
-      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">9/02 to 9/09</div><div class="ph2">Lanes B and D</div><div class="pd2">A-20, A-27, A-32, A-33 live; ladder auto-fill, Attorney 2 reminders and request-letter status live; F-02 rebuilt to four cards a cycle.</div></div>
-      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Now to mid Sep</div><div class="ph2">Firm-gated letters</div><div class="pd2">A-34 canary, A-31 with Bryn's OK, A-28 with Julieth's address, A-21/A-24 once the fields exist; C-06 first live filing; On Claims follow-ups deployed; the drafter remediation plan implemented.</div></div>
-      <div class="phase-t"><div class="pnode2">2</div><div class="ptagline">Mid to late Sep</div><div class="ph2">Packets + F-02 writes</div><div class="pd2">A-17/A-36; F-02 confirmation step, exact-manifest canary, five-document canary; claim-file name gate deployed and the fleet decision.</div></div>
+      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">9/02 to 9/09</div><div class="ph2">Lanes B and D closed</div><div class="pd2">A-20, A-27, A-32, A-33 live 9/02; A-28, A-21, A-24, A-31 and A-34 rev 4 live 9/09 on Bryn's answers; ladder auto-fill, Attorney 2 reminders and request-letter status live; F-02 rebuilt to four cards a cycle.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Now to mid Sep</div><div class="ph2">Verify and watch</div><div class="pd2">First deemed-denied drafts 9/10 and the first termination pair under attorney review; C-06 first live filing; On Claims follow-ups deployed; the drafter remediation plan implemented.</div></div>
+      <div class="phase-t"><div class="pnode2">2</div><div class="ptagline">Mid to late Sep</div><div class="ph2">Packets + F-02 writes</div><div class="pd2">A-17/A-36 bundle build (contents frozen); F-02 confirmation step, exact-manifest canary, five-document canary; claim-file name gate deployed and the fleet decision.</div></div>
       <div class="phase-t future"><div class="pnode2">3</div><div class="ptagline">Late Sep</div><div class="ph2">Sign-off</div><div class="pd2">Bryn's adoption sign-off; retainer begins; next phase SOW (Litigation proposed, see the companion brief).</div></div>
     </div>
   </div>
@@ -185,9 +897,161 @@
 <footer>
   <div class="wrap">
     <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
-    Prepared for Dabdoub Law Firm · Wave 1 Completion Brief v2 · 2026-09-09 · Confidential
+    Prepared for Dabdoub Law Firm · Wave 1 Completion Brief v3 · 2026-09-09 · Confidential
   </div>
 </footer>
 
-<script src="/clients/_assets/brief-reveal.js" defer></script>
+<script>
+/* ============================================================================
+   Dodonai Brief Engine — scroll reveal + animation gating
+   ----------------------------------------------------------------------------
+   Pairs with brief.css. Two IntersectionObservers:
+     1. .reveal  -> adds .in when the element scrolls into view (fade + rise).
+     2. animated blocks (#xform, #pipe, #dash, or any [data-play]) -> adds .play
+        the first time they're visible, so the CSS keyframe animations stay idle
+        until seen (saves CPU + makes the reveal feel intentional).
+
+   No dependencies. Safe to load with `defer`. Honors prefers-reduced-motion via
+   brief.css (the .reveal rule no-ops; .play still applies but animations that
+   matter are decorative). To register a custom animated block, add the
+   `data-play` attribute to it OR push its id into PLAY_IDS below.
+   ============================================================================ */
+(function () {
+  var PLAY_IDS = ['xform', 'pipe', 'dash'];
+
+  function observe() {
+    // 1. Scroll-reveal
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealIO.unobserve(e.target); // reveal once, then stop watching
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+
+    // 2. Animation gating: add .play once visible.
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('play'); }
+      });
+    }, { threshold: 0.2 });
+
+    var targets = {};
+    PLAY_IDS.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) targets[id] = el;
+    });
+    document.querySelectorAll('[data-play]').forEach(function (el) {
+      targets[el.id || ('p' + Math.round(el.getBoundingClientRect().top))] = el;
+    });
+    Object.keys(targets).forEach(function (k) { playIO.observe(targets[k]); });
+  }
+
+  /* --------------------------------------------------------------------------
+     FAMILY 5 — mini flow diagrams (.dg): auto-fit labels.
+     SVG <text> never wraps, so squeeze any label wider than its node box.
+     Runs once; viewBox geometry is constant regardless of display scale.
+     -------------------------------------------------------------------------- */
+  function fitDiagrams() {
+    document.querySelectorAll('.dg svg').forEach(function (svg) {
+      var rects = [].map.call(svg.querySelectorAll('rect.nd'), function (r) {
+        return { x: +r.getAttribute('x'), w: +r.getAttribute('width'), y: +r.getAttribute('y'), h: +r.getAttribute('height') };
+      });
+      [].forEach.call(svg.querySelectorAll('text'), function (t) {
+        var bb; try { bb = t.getBBox(); } catch (e) { return; }
+        var cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2, node = null;
+        for (var i = 0; i < rects.length; i++) {
+          var r = rects[i];
+          if (cy >= r.y && cy <= r.y + r.h && cx >= r.x - 30 && cx <= r.x + r.w + 30) { node = r; break; }
+        }
+        if (!node) return;
+        var max = node.w - 16;
+        if (bb.width > max && max > 0) {
+          t.setAttribute('textLength', max);
+          t.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+        }
+      });
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     FAMILY 5 — interactive priced menu. Activates only when a [data-menu-total]
+     bar exists, so it is a no-op on ordinary briefs. Data-attribute driven:
+       - bar:  [data-menu-total][data-foundation="5000"][data-full-save="4000"]
+               with children [data-count] [data-sum] [data-save] [data-total]
+               and an optional [data-save-seg] wrapper for the savings line.
+       - item: .acard > input[type=checkbox][data-price]; its .addbtn[data-for=id]
+               toggles it. Optional [data-on]/[data-off] override button labels.
+       - phase: any [data-phase][data-items="a1,a2,.."][data-discount] holding a
+               .phbtn; the button selects/clears the whole set.
+     Total = foundation + sum(selected) - savings, where savings = full-build
+     save if every item is picked, else the sum of each fully-picked phase's save.
+     -------------------------------------------------------------------------- */
+  function initMenu() {
+    var bar = document.querySelector('[data-menu-total]');
+    if (!bar) return;
+    var foundation = +(bar.getAttribute('data-foundation') || 0);
+    var fullSave = +(bar.getAttribute('data-full-save') || 0);
+    var boxes = [].slice.call(document.querySelectorAll('.acard input[type=checkbox][data-price]'));
+    if (!boxes.length) return;
+    var phases = [].slice.call(document.querySelectorAll('[data-phase][data-items]'));
+    function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+    function box(id) { return document.getElementById(id); }
+    function items(p) { return (p.getAttribute('data-items') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean); }
+    function complete(p) { var ids = items(p); return ids.length > 0 && ids.every(function (id) { var b = box(id); return b && b.checked; }); }
+    function set(sel, v) { var el = bar.querySelector(sel); if (el) el.textContent = v; }
+    function recalc() {
+      var sum = 0, count = 0;
+      boxes.forEach(function (b) {
+        var card = b.closest('.acard');
+        if (b.checked) { sum += +b.dataset.price; count++; if (card) card.classList.add('sel'); }
+        else if (card) { card.classList.remove('sel'); }
+        var btn = document.querySelector('.addbtn[data-for="' + b.id + '"]');
+        if (btn) btn.textContent = b.checked ? (btn.getAttribute('data-on') || '✓ Added') : (btn.getAttribute('data-off') || '＋ Add to build');
+      });
+      var allSel = boxes.every(function (b) { return b.checked; });
+      var save = 0;
+      if (allSel) { save = fullSave; }
+      else { phases.forEach(function (p) { if (complete(p)) save += +(p.getAttribute('data-discount') || 0); }); }
+      phases.forEach(function (p) {
+        var done = complete(p);
+        p.classList.toggle('sel', done);
+        var pb = p.querySelector('.phbtn');
+        if (pb) pb.textContent = done ? (pb.getAttribute('data-on') || '✓ Selected') : (pb.getAttribute('data-off') || pb.textContent);
+      });
+      if (!count) { bar.classList.remove('active'); return; }
+      bar.classList.add('active');
+      set('[data-count]', count);
+      set('[data-sum]', fmt(sum));
+      var seg = bar.querySelector('[data-save-seg]');
+      if (seg) seg.style.display = save > 0 ? '' : 'none';
+      set('[data-save]', fmt(save));
+      set('[data-total]', fmt(foundation + sum - save));
+    }
+    document.querySelectorAll('.addbtn[data-for]').forEach(function (btn) {
+      btn.addEventListener('click', function () { var b = box(btn.getAttribute('data-for')); if (b) { b.checked = !b.checked; recalc(); } });
+    });
+    phases.forEach(function (p) {
+      var pb = p.querySelector('.phbtn'); if (!pb) return;
+      pb.addEventListener('click', function () {
+        var done = complete(p);
+        items(p).forEach(function (id) { var b = box(id); if (b) b.checked = !done; });
+        recalc();
+      });
+    });
+    recalc();
+  }
+
+  function boot() { observe(); fitDiagrams(); initMenu(); }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+})();
+
+</script>
 </body></html>

@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex,nofollow">
 <meta name="color-scheme" content="dark">
-<title>Dabdoub Appeals SOP Workflow Atlas</title>
+<title>Dabdoub Appeals Department Workflow Atlas</title>
 <style>
   :root {
     --bg: #0b0d1c;
@@ -239,6 +239,78 @@
 
   #tree { padding: 8px 10px 13px; }
 
+  details.branch {
+    margin-bottom: 9px;
+    border: 1px solid rgba(69, 77, 125, .72);
+    border-radius: 13px;
+    background: rgba(255, 255, 255, .012);
+    overflow: hidden;
+  }
+
+  details.branch:last-child { margin-bottom: 0; }
+
+  details.branch > summary {
+    list-style: none;
+    cursor: pointer;
+    display: grid;
+    grid-template-columns: 38px minmax(0, 1fr) auto;
+    gap: 10px;
+    align-items: center;
+    padding: 12px 11px;
+    background: linear-gradient(90deg, rgba(155, 135, 255, .11), rgba(86, 200, 255, .025));
+  }
+
+  details.branch > summary::-webkit-details-marker { display: none; }
+  details.branch > summary:hover { background: linear-gradient(90deg, rgba(155, 135, 255, .17), rgba(86, 200, 255, .045)); }
+
+  .branch-code {
+    width: 35px;
+    height: 35px;
+    display: grid;
+    place-items: center;
+    border: 1px solid rgba(155, 135, 255, .36);
+    border-radius: 10px;
+    color: var(--purple);
+    background: rgba(155, 135, 255, .09);
+    font-family: "SFMono-Regular", Consolas, "Liberation Mono", monospace;
+    font-size: 9px;
+    font-weight: 900;
+  }
+
+  .branch-label {
+    min-width: 0;
+    font-size: 12px;
+    font-weight: 850;
+    letter-spacing: .01em;
+  }
+
+  .branch-description {
+    display: block;
+    margin-top: 3px;
+    color: var(--muted);
+    font-size: 9.5px;
+    font-weight: 600;
+  }
+
+  .branch-count {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    color: var(--muted);
+    font-size: 9px;
+    font-weight: 800;
+  }
+
+  .branch-count::after {
+    content: "›";
+    font-size: 19px;
+    line-height: 1;
+    transition: transform .18s ease;
+  }
+
+  details.branch[open] > summary .branch-count::after { transform: rotate(90deg); }
+  .branch-groups { padding: 0 8px 5px; }
+
   details.sop {
     border-bottom: 1px solid rgba(48, 54, 95, .72);
   }
@@ -303,7 +375,7 @@
     transition: transform .18s ease;
   }
 
-  details[open] .sop-count::after { transform: rotate(90deg); }
+  details.sop[open] > summary .sop-count::after { transform: rotate(90deg); }
 
   .workflow-list {
     position: relative;
@@ -388,6 +460,7 @@
   .mini-status.live { background: var(--green); box-shadow: 0 0 0 3px rgba(73, 213, 162, .09); }
   .mini-status.tuning { background: var(--gold); box-shadow: 0 0 0 3px rgba(242, 199, 92, .09); }
   .mini-status.coded { background: var(--blue); box-shadow: 0 0 0 3px rgba(86, 200, 255, .09); }
+  .mini-status.partial { background: var(--pink); box-shadow: 0 0 0 3px rgba(255, 122, 168, .09); }
   .mini-status.shadow { background: var(--orange); box-shadow: 0 0 0 3px rgba(255, 154, 104, .09); }
 
   .detail {
@@ -471,6 +544,8 @@
   .status.tuning::before { background: var(--gold); }
   .status.coded { color: var(--blue); background: var(--blue-wash); border-color: rgba(86, 200, 255, .28); }
   .status.coded::before { background: var(--blue); }
+  .status.partial { color: var(--pink); background: var(--pink-wash); border-color: rgba(255, 122, 168, .28); }
+  .status.partial::before { background: var(--pink); }
   .status.shadow { color: var(--orange); background: var(--orange-wash); border-color: rgba(255, 154, 104, .28); }
   .status.shadow::before { background: var(--orange); }
 
@@ -816,6 +891,7 @@
   .legend-dot.live { background: var(--green); }
   .legend-dot.tuning { background: var(--gold); }
   .legend-dot.coded { background: var(--blue); }
+  .legend-dot.partial { background: var(--pink); }
   .legend-dot.shadow { background: var(--orange); }
 
   .source-note {
@@ -899,13 +975,14 @@
 <main class="page">
   <section class="hero" aria-labelledby="page-title">
     <div class="eyebrow">Dabdoub Law Firm · Appeals Department · Operating Map</div>
-    <h1 id="page-title">The Appeals SOP, from required data to owned action to destination</h1>
-    <p class="hero-copy">Open any of the 15 SOP steps, choose an individual workflow, and follow the complete data journey: what must exist before the workflow can fire, who or what owns every action, and exactly where the result lands. The opening step includes the fee-agreement handoff that creates and activates the matter.</p>
+    <h1 id="page-title">Appeals and initial claims, from required data to owned action to destination</h1>
+    <p class="hero-copy">Open either operating branch, choose an individual workflow, and follow the complete data journey: what must exist before the workflow can fire, who or what owns every action, and exactly where the result lands. The Appeals branch contains the 15-step SOP; Initial Claims is a parallel Wave 1B lifecycle containing A-34 through A-37 rather than a continuation after A-33.</p>
     <div class="metrics" aria-label="Atlas summary">
+      <span class="metric"><strong>2</strong> operating branches</span>
       <span class="metric"><strong>15</strong> Appeals SOP steps</span>
-      <span class="metric"><strong>42</strong> workflow views</span>
+      <span class="metric"><strong>46</strong> workflow views</span>
       <span class="metric"><strong>3</strong> mapped layers per view</span>
-      <span class="metric"><strong>2026-07-31</strong> source refresh</span>
+      <span class="metric"><strong>2026-08-24</strong> source refresh</span>
     </div>
     <div class="reading-key" aria-label="How to read the diagram">
       <div class="key-card key-input"><span class="key-icon">↓</span><span><strong>Inputs</strong><br>Required data and its system of record</span></div>
@@ -915,16 +992,16 @@
   </section>
 
   <section class="workspace">
-    <aside class="tree-panel" aria-label="Appeals SOP hierarchy">
+    <aside class="tree-panel" aria-label="Appeals Department workflow hierarchy">
       <div class="tree-top">
         <div class="tree-title-row">
-          <div class="tree-title">Appeals SOP hierarchy</div>
+          <div class="tree-title">Appeals Department hierarchy</div>
           <div class="tree-actions">
             <button class="tree-action" type="button" id="expandAll">Expand all</button>
             <button class="tree-action" type="button" id="collapseAll">Collapse</button>
           </div>
         </div>
-        <div class="tree-caption">SOP step → individual workflow → selected data-flow diagram</div>
+        <div class="tree-caption">Operating branch → lifecycle step → selected data-flow diagram</div>
       </div>
       <div id="tree"></div>
     </aside>
@@ -936,12 +1013,81 @@
     <span class="legend-item"><span class="legend-dot live"></span><strong>Live</strong> in firm production</span>
     <span class="legend-item"><span class="legend-dot tuning"></span><strong>In tuning</strong> or firm acceptance</span>
     <span class="legend-item"><span class="legend-dot coded"></span><strong>Coded</strong>, not yet enabled end to end</span>
+    <span class="legend-item"><span class="legend-dot partial"></span><strong>Partial</strong>, one or more required pieces remain unbuilt</span>
     <span class="legend-item"><span class="legend-dot shadow"></span><strong>Shadow</strong>, observing without downstream action</span>
   </div>
-  <p class="source-note">Internal planning view. Compiled from <code>deliverables/staff-sops/appeals-department-sop-automated.md</code>, <code>deliverables/staff-sops/fee-agreement-and-onboarding-sop.md</code>, <code>delivery.yaml</code>, and <code>planning/appeals-automation-stage-map.md</code>. “Required” means the workflow fails closed without the value. A human approves every external send and every legal deadline.</p>
+  <p class="source-note">Internal planning view. Compiled from <code>deliverables/staff-sops/appeals-department-sop-automated.md</code>, <code>deliverables/staff-sops/fee-agreement-and-onboarding-sop.md</code>, <code>deliverables/staff-sops/evaluation-scheduling-packet-and-report-sop.md</code>, <code>delivery.yaml</code>, and <code>planning/appeals-automation-stage-map.md</code>, including its parallel initial-claim sub-flow. A-11 through A-14 reflect the full-fleet associated-Evaluation cutover completed 2026-08-02; file-store references reflect the 2026-08-03 Egnyte migration. Status chips auto-sync from <code>delivery.yaml</code> — run <code>python3 ../gen_delivery.py</code> after editing statuses there. “Required” means the workflow fails closed without the value. A human approves every external send and every legal deadline.</p>
 </main>
 
 <script>
+  /* Automation statuses are auto-synced from ../delivery.yaml by ../gen_delivery.py
+     (run it after any status change there). The authored `status:` fields in the
+     SOPS data below are fallbacks for ids the yaml doesn't govern (e.g. FA-01). */
+  /* GEN:atlas-status */
+  const STATUS_OVERRIDES = {
+    "F-01": "live",
+    "F-01e": "live",
+    "F-02": "partial",
+    "summarizer": "poc",
+    "retrieval": "partial",
+    "I-14": "live",
+    "I-15": "live",
+    "I-16": "live",
+    "I-17": "live",
+    "I-18": "live",
+    "A-01": "poc",
+    "A-02": "live",
+    "A-03": "absorbed",
+    "A-04": "live",
+    "A-05": "live",
+    "A-06": "absorbed",
+    "X-05": "gap",
+    "A-07": "live",
+    "A-08": "live",
+    "A-09": "live",
+    "A-10": "live",
+    "A-11": "live",
+    "A-12": "live",
+    "A-13": "live",
+    "A-14": "live",
+    "A-38": "planned",
+    "A-15": "live",
+    "A-16": "poc",
+    "A-17": "coded",
+    "A-18": "live",
+    "A-19": "live",
+    "A-20": "live",
+    "A-21": "live",
+    "A-22": "coded",
+    "A-23": "poc",
+    "A-24": "live",
+    "A-25": "live",
+    "A-26": "live",
+    "A-27": "live",
+    "A-28": "live",
+    "A-29": "live",
+    "A-30": "live",
+    "A-31": "live",
+    "A-32": "live",
+    "A-33": "live",
+    "A-34": "live",
+    "A-35": "live",
+    "A-36": "coded",
+    "A-37": "live",
+    "O-01": "live",
+    "C-06": "live"
+  };
+/* /GEN:atlas-status */
+  const ATLAS_ID_ALIAS = { Summarizer: "summarizer", Grounding: "retrieval" };
+  const YAML_STATUS_TO_ATLAS = { live: "live", poc: "tuning", coded: "coded", partial: "partial" };
+  const ID_STATUS_EXCEPTION = { "F-02": { partial: "shadow" } };
+  function wfStatus(w) {
+    const o = STATUS_OVERRIDES[ATLAS_ID_ALIAS[w.id] || w.id];
+    if (!o) return w.status;
+    const exc = ID_STATUS_EXCEPTION[w.id];
+    if (exc && exc[o]) return exc[o];
+    return YAML_STATUS_TO_ATLAS[o] || w.status;
+  }
   const SOPS = [
     {
       number: 1,
@@ -963,18 +1109,18 @@
             { name: "CFA template + signer data", detail: "The approved Word template, client signer, firm signer, and standard CCs.", source: "Dodonai + DocuSign configuration", required: true }
           ],
           steps: [
-            { owner: "System", action: "Create the intake matter folder, ensure its ATTY NOTES child, and stamp the exact matter-folder item ID on the Deal.", where: "SharePoint · matter / ATTY NOTES" },
-            { owner: "System", action: "Render the editable agreement and save it in ATTY NOTES. Reuse legacy ATTORNEY NOTES when that folder already exists.", where: "SharePoint · ATTY NOTES / FA - Client.docx" },
+            { owner: "System", action: "Create the intake matter folder, ensure its ATTY NOTES child, and stamp the exact matter-folder item ID on the Deal.", where: "Egnyte · matter / ATTY NOTES" },
+            { owner: "System", action: "Render the editable agreement and save it in ATTY NOTES. Reuse legacy ATTORNEY NOTES when that folder already exists.", where: "Egnyte · ATTY NOTES / FA - Client.docx" },
             { owner: "System", action: "Create one pre-filled, unsent DocuSign envelope and open the Intake review task.", where: "DocuSign Drafts + HubSpot Tasks" },
             { owner: "Intake / Attorney", action: "Review the agreement, resolve any attorney flags, and send the envelope.", where: "DocuSign · human send gate" },
-            { owner: "System", action: "On completed signature, fetch the combined executed PDF and file it to the same ATTY NOTES child before matter-folder relocation.", where: "SharePoint · same stamped matter / ATTY NOTES / FA (executed) - Client (Insurer).pdf" },
-            { owner: "System", action: "Set the Deal to Closed Won, activate the exact matter folder, and build the governed Appeals bins.", where: "HubSpot + SharePoint · active matter" },
+            { owner: "System", action: "On completed signature, fetch the combined executed PDF and file it to the same ATTY NOTES child before matter-folder relocation.", where: "Egnyte · same stamped matter / ATTY NOTES / FA (executed) - Client (Insurer).pdf" },
+            { owner: "System", action: "Set the Deal to Closed Won, activate the exact matter folder, and build the governed Appeals bins.", where: "HubSpot + Egnyte · active matter" },
             { owner: "System", action: "Send the client the onboarding-form link and hand the matter to the Appeals staffing flow.", where: "Client email + HubSpot" }
           ],
           outputs: [
-            { name: "Editable FA before send", detail: "FA - Client.docx in the intake matter's ATTY NOTES folder.", source: "SharePoint · ATTY NOTES" },
-            { name: "Executed FA after signature", detail: "FA (executed) - Client (Insurer).pdf in ATTY NOTES. It is filed before activation and stays with the matter.", source: "SharePoint · ATTY NOTES" },
-            { name: "Active appeal handoff", detail: "Closed Won Deal, exact active-folder pointer, governed Appeals bins, and onboarding email.", source: "HubSpot + SharePoint + client inbox" }
+            { name: "Editable FA before send", detail: "FA - Client.docx in the intake matter's ATTY NOTES folder.", source: "Egnyte · ATTY NOTES" },
+            { name: "Executed FA after signature", detail: "FA (executed) - Client (Insurer).pdf in ATTY NOTES. It is filed before activation and stays with the matter.", source: "Egnyte · ATTY NOTES" },
+            { name: "Active appeal handoff", detail: "Closed Won Deal, exact active-folder pointer, governed Appeals bins, and onboarding email.", source: "HubSpot + Egnyte + client inbox" }
           ],
           gate: "The system prepares but never sends the fee agreement. Intake or the attorney reviews and sends the DocuSign envelope; unresolved attorney flags, an ambiguous folder, or unsupported multi-insurer terms fail closed for human handling."
         },
@@ -1014,18 +1160,18 @@
           inputs: [
             { name: "Exact Deal and client identity", detail: "One resolvable matter; ambiguous names are refused.", source: "HubSpot · Deal + Contact", required: true },
             { name: "Case-value tier", detail: "A, B, C, or Pro Bono; blank defaults to B at intake.", source: "HubSpot · Deal", required: true },
-            { name: "SharePoint item locator", detail: "The exact folder ID is used for the move, never a name guess.", source: "HubSpot · sharepoint_folder_item_id", required: true },
+            { name: "Egnyte folder locator", detail: "The exact provider-qualified folder reference is used for the move, never a name guess.", source: "HubSpot · v2 provider folder reference", required: true },
             { name: "Governed folder template", detail: "The ratified Appeals folder taxonomy.", source: "Dodonai · APPEAL_TEMPLATE", required: true }
           ],
           steps: [
-            { owner: "System", action: "Create the flat intake folder and stamp its exact item ID on the Deal.", where: "SharePoint + HubSpot" },
-            { owner: "System", action: "On signature completion, move that exact item into 1 - ACTIVE; refuse on collision.", where: "SharePoint" },
-            { owner: "System", action: "Scaffold the governed Appeals bins, including AI Output.", where: "SharePoint · matter/APPEAL" },
+            { owner: "System", action: "Create the flat intake folder and stamp its exact item ID on the Deal.", where: "Egnyte + HubSpot" },
+            { owner: "System", action: "On signature completion, move that exact item into 1 - ACTIVE; refuse on collision.", where: "Egnyte" },
+            { owner: "System", action: "Scaffold the governed Appeals bins, including AI Output.", where: "Egnyte · matter/APPEAL" },
             { owner: "Intake", action: "Work the exception task if the exact move or folder match is refused.", where: "HubSpot · task queue" }
           ],
           outputs: [
-            { name: "Active matter folder", detail: "One exact client folder under the active-matter root.", source: "SharePoint · 1 - ACTIVE" },
-            { name: "Governed Appeals folders", detail: "Pre-built evidence, control, and AI Output locations.", source: "SharePoint · matter/APPEAL" },
+            { name: "Active matter folder", detail: "One exact client folder under the active-matter root.", source: "Egnyte · 1 - ACTIVE" },
+            { name: "Governed Appeals folders", detail: "Pre-built evidence, control, and AI Output locations.", source: "Egnyte · matter/APPEAL" },
             { name: "Persistent folder pointer", detail: "The exact item ID carried on the Deal for downstream writes.", source: "HubSpot · Deal" }
           ],
           gate: "Folder moves are exact-item operations. A collision or ambiguous matter fails closed and creates human work instead of guessing."
@@ -1104,7 +1250,7 @@
           summary: "Extracts the denial date and key facts, computes the default 180-day appeal deadline, and holds it for human confirmation.",
           trigger: "F-02 classifies an inbound carrier letter as a denial.",
           inputs: [
-            { name: "Denial letter", detail: "Readable inbound carrier document.", source: "SharePoint/Outlook → F-02", required: true },
+            { name: "Denial letter", detail: "Readable inbound carrier document.", source: "Egnyte/Outlook → F-02", required: true },
             { name: "Exact matter association", detail: "The letter must resolve to one Appeals Service and folder.", source: "HubSpot + file-store locator", required: true },
             { name: "Denial date text", detail: "The date stated in the carrier letter.", source: "Document OCR", required: true },
             { name: "Deadline rule", detail: "Default denial date + 180 days.", source: "Dodonai rule set", required: true }
@@ -1165,18 +1311,18 @@
           summary: "Compares an existing matter folder with the ratified Appeals taxonomy and adds only missing governed locations.",
           trigger: "A matter opens or an existing matter is checked against the canonical template.",
           inputs: [
-            { name: "Exact matter folder", detail: "One unambiguous SharePoint matter locator.", source: "HubSpot · folder item ID", required: true },
+            { name: "Exact matter folder", detail: "One unambiguous Egnyte matter locator.", source: "HubSpot · folder item ID", required: true },
             { name: "Canonical Appeals taxonomy", detail: "The ratified operational bins plus AI Output.", source: "Dodonai · APPEAL_TEMPLATE", required: true },
-            { name: "Current child folders", detail: "The folder set already present in the matter.", source: "SharePoint", required: true }
+            { name: "Current child folders", detail: "The folder set already present in the matter.", source: "Egnyte", required: true }
           ],
           steps: [
             { owner: "System", action: "Read the current folder structure for the exact matter.", where: "Microsoft Graph" },
             { owner: "System", action: "Compare the live structure with the canonical Appeals template.", where: "Dodonai · folder planner" },
-            { owner: "System", action: "Add only missing folders; never delete or rename existing content.", where: "SharePoint" },
-            { owner: "Assistant", action: "File each document into the correct governed bin and use _EXCLUDED when appropriate.", where: "SharePoint · matter/APPEAL" }
+            { owner: "System", action: "Add only missing folders; never delete or rename existing content.", where: "Egnyte" },
+            { owner: "Assistant", action: "File each document into the correct governed bin and use _EXCLUDED when appropriate.", where: "Egnyte · matter/APPEAL" }
           ],
           outputs: [
-            { name: "Complete governed folder set", detail: "Evidence, control, and AI Output locations.", source: "SharePoint · matter/APPEAL" },
+            { name: "Complete governed folder set", detail: "Evidence, control, and AI Output locations.", source: "Egnyte · matter/APPEAL" },
             { name: "Stable drafting boundary", detail: "The folder location determines what downstream drafting sees.", source: "Dodonai · matter reader" }
           ],
           gate: "The system can add known folders; staff decide where each document belongs. It never moves evidence between bins on its own."
@@ -1187,26 +1333,27 @@
           status: "shadow",
           phase: "1B",
           primaryOwner: "System + Assistant",
-          summary: "Observes inbound carrier material, classifies it, and proposes the correct downstream route and governed bin.",
-          trigger: "The scheduled folder/mail watcher detects a new document after its no-event baseline.",
+          summary: "Observes inbound carrier material, classifies it, and delivers at most one Nick-only Teams review card per scheduled cycle proposing the correct downstream route and governed bin. Write gates stay closed: an approved card cannot yet move or upload a file.",
+          trigger: "The scheduled Egnyte folder watcher (10,40 cadence, 282 mapped targets) and Outlook mailbox watcher detect a new document after the no-event baseline; the 30-minute delivery pilot Scheduler (live since 2026-08-24) surfaces the next eligible reviewed arrival.",
           inputs: [
-            { name: "Provider-qualified watch target", detail: "Exact matter folder and/or firm mailbox lane.", source: "SharePoint/Outlook", required: true },
+            { name: "Provider-qualified watch target", detail: "Exact matter folder and/or firm mailbox lane.", source: "Egnyte/Outlook", required: true },
             { name: "Baseline state", detail: "Prevents historical files from becoming new events.", source: "Dodonai · durable state", required: true },
-            { name: "Inbound document", detail: "Carrier letter, medical review, approval, denial, extension, or other supported type.", source: "SharePoint/Outlook", required: true },
+            { name: "Inbound document", detail: "Carrier letter, medical review, approval, denial, extension, or other supported type.", source: "Egnyte/Outlook", required: true },
             { name: "Exact matter resolver", detail: "One associated Service and Deal folder.", source: "HubSpot", required: true }
           ],
           steps: [
             { owner: "System", action: "Diff the current target against the durable baseline and identify new arrivals.", where: "Dodonai · folder/mail watcher" },
             { owner: "System", action: "OCR the document and classify it into the carrier-letter taxonomy.", where: "Dodonai · classifier" },
             { owner: "System", action: "Resolve the document to one matter and propose its governed file bin and downstream workflow.", where: "Dodonai · router" },
-            { owner: "Assistant", action: "Confirm the document identity and final file location; correct uncertain classifications.", where: "SharePoint + HubSpot" }
+            { owner: "Nick (named reviewer)", action: "Review the Teams card — enriched with HubSpot/document identity comparison, the exact proposed Egnyte route, document date, summary, provenance, and an authenticated source preview — and confirm or correct it.", where: "Teams review card + authenticated source preview" }
           ],
           outputs: [
             { name: "Classification event", detail: "Denial, medical review, approval, extension, information request, and more.", source: "Dodonai · routing event" },
-            { name: "Governed-bin suggestion", detail: "A proposed SharePoint destination for staff confirmation.", source: "Matter filing queue" },
+            { name: "Cap-one review card", detail: "At most one new Nick-only Teams card per 30-minute cycle, with a durable delivery receipt and exact-once replay.", source: "Teams · governed review loop" },
+            { name: "Governed-bin suggestion", detail: "A proposed Egnyte destination for named-reviewer confirmation; cards fail closed when the matter binding, identity, or target is not exact.", source: "Matter filing queue" },
             { name: "Downstream trigger", detail: "Feeds A-01, A-22, or a resolution path after acceptance.", source: "HubSpot/Dodonai" }
           ],
-          gate: "The file watcher remains shadow-first. Classification must prove an effectively zero denial false-negative rate before it is allowed to drive high-consequence actions."
+          gate: "Live cap-one review delivery behind closed write gates: the confirmation consumer and every file-write gate remain disabled, so no card approval can move or upload a file. The remaining ramp is first card → confirmation consumer → exact-manifest activation canary → five-document ordinary-filing canary → five files/day with 20 clean filings across five matters → continuous filing, each behind its own approval. Classification must also prove an effectively zero denial false-negative rate before it drives high-consequence actions."
         }
       ]
     },
@@ -1229,18 +1376,18 @@
             { name: "Claimant", detail: "Correct associated client identity.", source: "HubSpot · Contact", required: true },
             { name: "Insurer + claim number", detail: "Carrier and claim identifiers.", source: "HubSpot · Service", required: true },
             { name: "Claims representative address", detail: "Complete carrier mailing destination.", source: "HubSpot · Service", required: true },
-            { name: "Exact Deal folder", detail: "Exactly one resolvable matter output location.", source: "HubSpot → SharePoint", required: true }
+            { name: "Exact Deal folder", detail: "Exactly one resolvable matter output location.", source: "HubSpot → Egnyte", required: true }
           ],
           steps: [
             { owner: "System", action: "Re-read the full Service when the last readiness field changes.", where: "HubSpot workflow 1856568603" },
             { owner: "System", action: "Validate stage, claim type, team, claimant, carrier data, and exact folder.", where: "Dodonai · dispatch" },
-            { owner: "System", action: "Render the Claim File request and save the editable Word draft.", where: "SharePoint · matter/AI Output" },
+            { owner: "System", action: "Render the Claim File request and save the editable Word draft.", where: "Egnyte · matter/AI Output" },
             { owner: "System", action: "Stamp the draft timestamp and URL for replay protection.", where: "HubSpot · Service" },
             { owner: "Assistant", action: "Verify the letter, add the executed authorization and Direction of Payment when required, and obtain approval.", where: "Word draft + HubSpot task" },
             { owner: "Assistant", action: "Send through the approved carrier channel and complete the task only after the request is made.", where: "Firm-approved carrier channel" }
           ],
           outputs: [
-            { name: "Claim File request .docx", detail: "Editable, human-reviewed draft.", source: "SharePoint · exact matter/AI Output" },
+            { name: "Claim File request .docx", detail: "Editable, human-reviewed draft.", source: "Egnyte · exact matter/AI Output" },
             { name: "Replay/audit fields", detail: "Draft-created timestamp and document URL.", source: "HubSpot · Service" },
             { name: "Carrier request", detail: "External only after staff approval and manual send.", source: "Carrier channel" }
           ],
@@ -1262,14 +1409,14 @@
           ],
           steps: [
             { owner: "System", action: "Create Receive & OCR Claim File due at +14 days with a +13-day reminder.", where: "HubSpot workflow 1708197803" },
-            { owner: "Assistant", action: "Check the matter folder, inbox, fax channel, and Service before contacting the carrier.", where: "SharePoint + Outlook + HubSpot" },
-            { owner: "Assistant", action: "If received, confirm the file belongs to the client, save/OCR it, update receipt, and complete the task.", where: "SharePoint · Claim File bin" },
+            { owner: "Assistant", action: "Check the matter folder, inbox, fax channel, and Service before contacting the carrier.", where: "Egnyte + Outlook + HubSpot" },
+            { owner: "Assistant", action: "If received, confirm the file belongs to the client, save/OCR it, update receipt, and complete the task.", where: "Egnyte · Claim File bin" },
             { owner: "Assistant", action: "If missing, follow up manually through the approved channel and keep receipt tracking active.", where: "Carrier channel + case notes" },
             { owner: "System", action: "Raise the existing timeout notice if the receive task remains incomplete after the configured wait.", where: "HubSpot · internal notification" }
           ],
           outputs: [
             { name: "Receive & OCR task", detail: "Assistant-owned task and reminder.", source: "HubSpot · Appeals queue" },
-            { name: "Verified Claim File", detail: "Saved and OCR'd in the governed location.", source: "SharePoint · Claim File bin" },
+            { name: "Verified Claim File", detail: "Saved and OCR'd in the governed location.", source: "Egnyte · Claim File bin" },
             { name: "Manual follow-up record", detail: "Communication and receipt status remain on the matter.", source: "HubSpot · notes/task history" }
           ],
           gate: "A due task does not mean the system contacted the carrier. Staff verify receipt first and perform any follow-up manually."
@@ -1295,18 +1442,18 @@
             { name: "Date of birth", detail: "Claimant DOB.", source: "HubSpot · Contact", required: true },
             { name: "HR street address", detail: "Employer/HR mailing street.", source: "HubSpot · Contact", required: true },
             { name: "HR city, state, and ZIP", detail: "Complete employer/HR locality.", source: "HubSpot · Contact", required: true },
-            { name: "Exact Deal folder", detail: "Exactly one resolvable matter output location.", source: "HubSpot → SharePoint", required: true }
+            { name: "Exact Deal folder", detail: "Exactly one resolvable matter output location.", source: "HubSpot → Egnyte", required: true }
           ],
           steps: [
             { owner: "System", action: "Compare the current record with the readiness baseline every 15 minutes.", where: "Cloud Scheduler + readiness sweep" },
             { owner: "System", action: "On a new ready transition, validate the Service, Contact, team, carrier, and exact folder.", where: "Dodonai · dispatch" },
-            { owner: "System", action: "Render the Policy and Plan Documents request and save the Word draft.", where: "SharePoint · matter/AI Output" },
+            { owner: "System", action: "Render the Policy and Plan Documents request and save the Word draft.", where: "Egnyte · matter/AI Output" },
             { owner: "System", action: "Stamp the A-05 draft timestamp and URL.", where: "HubSpot · Service" },
             { owner: "Assistant", action: "Verify claimant, employer/plan administrator, DOB, plan type, address, and attorney; add only known HR contact details.", where: "Word draft + HubSpot task" },
             { owner: "Assistant", action: "Approve, send through the firm channel, record the communication, and complete the request task.", where: "Employer/plan-administrator channel" }
           ],
           outputs: [
-            { name: "Policy request .docx", detail: "Editable firm-reviewed request.", source: "SharePoint · exact matter/AI Output" },
+            { name: "Policy request .docx", detail: "Editable firm-reviewed request.", source: "Egnyte · exact matter/AI Output" },
             { name: "Replay/audit fields", detail: "A-05 timestamp and document URL.", source: "HubSpot · Service" },
             { name: "Employer/plan request", detail: "External only after human review and send.", source: "Approved employer channel" }
           ],
@@ -1328,13 +1475,13 @@
           ],
           steps: [
             { owner: "System", action: "Create Receive Policy due at +14 days with a +13-day reminder.", where: "HubSpot workflow 1708197803" },
-            { owner: "Assistant", action: "Check the matter folder and communication channels before following up.", where: "SharePoint + Outlook + HubSpot" },
-            { owner: "Assistant", action: "If received, verify the document set, file it in the governed Policy location, update the Service, and complete the task.", where: "SharePoint · Policy bin" },
+            { owner: "Assistant", action: "Check the matter folder and communication channels before following up.", where: "Egnyte + Outlook + HubSpot" },
+            { owner: "Assistant", action: "If received, verify the document set, file it in the governed Policy location, update the Service, and complete the task.", where: "Egnyte · Policy bin" },
             { owner: "Assistant", action: "If missing, follow up manually and keep the receive task active.", where: "Employer/plan channel + case notes" }
           ],
           outputs: [
             { name: "Receive Policy task", detail: "Assistant-owned task and reminder.", source: "HubSpot · Appeals queue" },
-            { name: "Verified policy/plan documents", detail: "The drafting source saved in the governed location.", source: "SharePoint · Policy bin" },
+            { name: "Verified policy/plan documents", detail: "The drafting source saved in the governed location.", source: "Egnyte · Policy bin" },
             { name: "Manual follow-up record", detail: "Communication captured in normal case history.", source: "HubSpot" }
           ],
           gate: "The workflow creates staff work, not an outbound message. Staff confirm the policy is actually missing before contacting the employer or administrator."
@@ -1444,56 +1591,65 @@
         },
         {
           id: "A-11",
-          name: "Create the three-way evaluation scheduling task",
+          name: "Create the Evaluation, referral, and scheduling handoff",
           status: "live",
           phase: "1B",
           primaryOwner: "System + Assistant",
-          summary: "Detects a new IME, FCE, or CPET requirement and creates one internal scheduling task with three business-day options.",
-          trigger: "A future evaluation-checklist value is added after the durable baseline.",
+          summary: "Creates one associated Evaluation lifecycle, generates and files its required referral form, and opens scheduling only after staff record that exact referral as sent.",
+          trigger: "A future evaluation-checklist value is added after the durable baseline, or staff intentionally create a separate Evaluation from the Service's Evaluations card.",
           inputs: [
-            { name: "Evaluation checklist change", detail: "One of the mapped IME/FCE/CPET values.", source: "HubSpot · Internal Homework Tasks", required: true },
-            { name: "Assigned assistant", detail: "Task owner and coordinator.", source: "HubSpot · Service", required: true },
-            { name: "Matter identity", detail: "Exact Service and client.", source: "HubSpot", required: true },
-            { name: "Business-day calendar", detail: "Used to propose three coordination dates.", source: "Dodonai scheduling rules", required: true }
+            { name: "Evaluation request", detail: "A new mapped IME/FCE/CPET checklist occurrence or an intentionally staff-created lifecycle.", source: "HubSpot · Service / Evaluations card", required: true },
+            { name: "Exact Service association", detail: "The matter-level parent; one Service may own many Evaluations.", source: "HubSpot · Evaluation association", required: true },
+            { name: "Evaluation type + referral route", detail: "Type/subtype, form selection, and internal, Impact, or combined route.", source: "HubSpot · Evaluation", required: true },
+            { name: "Exact matter folder", detail: "Required to create an isolated Evaluation subfolder and file the referral.", source: "HubSpot Deal → Egnyte", required: true },
+            { name: "Assigned assistant + attorney", detail: "Owners inherited from the Service and used for review/scheduling work.", source: "HubSpot · Evaluation", required: true },
+            { name: "Provider / examiner details", detail: "Used when known; missing required route data stops preparation rather than guessing.", source: "HubSpot · Evaluation", required: false }
           ],
           steps: [
-            { owner: "System", action: "Detect a new evaluation lifecycle after the no-backfill baseline.", where: "Daily evaluation sweep" },
-            { owner: "System", action: "Generate three business-day scheduling options.", where: "Dodonai · scheduling" },
-            { owner: "System", action: "Create one replay-safe assistant-owned internal task.", where: "HubSpot · Appeals queue" },
-            { owner: "Assistant", action: "Coordinate the vendor, client, and firm; no outreach is generated automatically.", where: "Firm-approved communication channels" },
-            { owner: "Assistant", action: "Enter the confirmed evaluation date and details on the Service.", where: "HubSpot · Service" }
+            { owner: "System", action: "Create or recognize one immutable Evaluation record and associate it to the exact Service without backfilling historical checklist work.", where: "HubSpot · Evaluations association" },
+            { owner: "System", action: "Resolve the exact matter and create an Evaluation-isolated folder; generate the selected referral form and stamp its URL.", where: "Egnyte + HubSpot · Evaluation" },
+            { owner: "System", action: "Create one replay-safe referral-review task for the assigned assistant.", where: "HubSpot · Appeals queue" },
+            { owner: "Assistant", action: "Verify the Service, Evaluation, route, provider, and entire referral; send through the firm's approved channel.", where: "HubSpot Evaluation + firm-approved channel" },
+            { owner: "Assistant", action: "Set Referral Status to Sent and record Referral Sent Date on this Evaluation.", where: "HubSpot · Evaluation" },
+            { owner: "System", action: "Only after the sent gate, create the exact-Evaluation scheduling task with business-day options.", where: "HubSpot · Appeals queue" },
+            { owner: "Assistant", action: "Coordinate client, provider, and firm, then record the confirmed date/time and time zone on this Evaluation.", where: "HubSpot · Evaluation" }
           ],
           outputs: [
-            { name: "Scheduling task", detail: "Three proposed business-day options and coordination instructions.", source: "HubSpot · Appeals queue" },
-            { name: "Confirmed evaluation date", detail: "The human-agreed date that unlocks A-12 and A-13.", source: "HubSpot · evaluation_date" }
+            { name: "Associated Evaluation record", detail: "One isolated referral, appointment, packet, and report lifecycle.", source: "HubSpot · Evaluations card" },
+            { name: "Filed referral form + URL", detail: "The selected form in this Evaluation's folder, ready for human review/send.", source: "Egnyte + HubSpot · Evaluation" },
+            { name: "Referral-review task", detail: "Assistant-owned review work tied to the exact Evaluation.", source: "HubSpot · Appeals queue" },
+            { name: "Scheduling task", detail: "Created only after Referral Sent Date exists for this Evaluation.", source: "HubSpot · Appeals queue" },
+            { name: "Confirmed Evaluation schedule", detail: "Human-agreed date/time and time zone that unlock A-12 and A-13 for this record only.", source: "HubSpot · Evaluation" }
           ],
-          gate: "A-11 creates an internal task only. Staff own all vendor and client coordination and must enter the agreed date."
+          gate: "Nothing auto-sends or books. Scheduling cannot open before the exact referral is reviewed, sent, and stamped. Staff work on the specific Evaluation record, never the Service's legacy scalar fields."
         },
         {
           id: "A-12",
-          name: "Create evaluation reminders",
+          name: "Create Evaluation-keyed reminders",
           status: "live",
           phase: "1B",
           primaryOwner: "System + Assistant",
-          summary: "Creates 14-day, 7-day, and 1-day Outlook reminders from the human-confirmed evaluation date.",
-          trigger: "Evaluation Date is set after A-11 coordination.",
+          summary: "Projects 14-day, 7-day, and 1-day reminders from one Evaluation's confirmed schedule and keeps concurrent reminder sets isolated by immutable Graph IDs.",
+          trigger: "Scheduled Date/Time and Time Zone are saved on an active Evaluation after its referral-sent gate.",
           inputs: [
-            { name: "Confirmed evaluation date", detail: "Human-entered anchor date.", source: "HubSpot · Service", required: true },
-            { name: "Resolvable attendees", detail: "Attorney and assistant calendar identities.", source: "HubSpot + Microsoft Graph", required: true },
-            { name: "Matter identity", detail: "Client surname or case ID for exact reminder matching.", source: "HubSpot", required: true },
-            { name: "A-12 allowlist", detail: "The production job is hard-scoped to this calendar item.", source: "Dodonai deployment config", required: true }
+            { name: "Exact Evaluation identity", detail: "Immutable Evaluation ID and associated Service distinguish concurrent and same-type appointments.", source: "HubSpot · Evaluation", required: true },
+            { name: "Scheduled date/time + time zone", detail: "Human-confirmed anchor for this Evaluation only.", source: "HubSpot · Evaluation", required: true },
+            { name: "Resolvable attendees", detail: "Assigned attorney and assistant calendar identities inherited by the Evaluation.", source: "HubSpot + Microsoft Graph", required: true },
+            { name: "Evaluation-keyed Graph receipts", detail: "Exact automation-owned event IDs used for replay, reschedule, and cancellation.", source: "Dodonai · GCS receipt store", required: true }
           ],
           steps: [
-            { owner: "Assistant", action: "Confirm the evaluation date and attendee assignments.", where: "HubSpot · Service" },
+            { owner: "Assistant", action: "Confirm the scheduled date/time, time zone, and owners on the correct Evaluation.", where: "HubSpot · Evaluation" },
             { owner: "System", action: "Compute T−14, T−7, and T−1 reminder dates.", where: "Dodonai · calendar engine" },
-            { owner: "System", action: "Check durable state and existing matter-matched Outlook events.", where: "GCS state + Microsoft Graph" },
-            { owner: "System", action: "Create only missing events; skip unresolved attendees rather than guessing.", where: "Outlook calendars" }
+            { owner: "System", action: "Read this Evaluation's durable Graph-ID receipts and verify any owned events before changing them.", where: "GCS state + Microsoft Graph" },
+            { owner: "System", action: "Create only missing reminders; on reschedule, patch only this Evaluation's exact owned IDs.", where: "Outlook · attorney/assistant calendars" },
+            { owner: "System", action: "On cancellation, delete only read-back-verified reminders owned by this Evaluation.", where: "Outlook + GCS receipt store" }
           ],
           outputs: [
-            { name: "Evaluation reminder events", detail: "Three matter-scoped reminders per resolvable attendee.", source: "Outlook · attorney/assistant calendars" },
-            { name: "Replay state", detail: "Prevents duplicate event creation.", source: "Dodonai · durable state" }
+            { name: "Evaluation-specific reminders", detail: "Up to three reminders per resolvable attendee, visibly tied to one Evaluation.", source: "Outlook · attorney/assistant calendars" },
+            { name: "Immutable Graph-ID receipts", detail: "Disjoint IDs for replay-safe update/deletion of this Evaluation's reminders only.", source: "Dodonai · GCS receipt store" },
+            { name: "Clean reschedule/cancellation", detail: "Other Evaluations and the real provider appointment remain untouched.", source: "Outlook + HubSpot · Evaluation" }
           ],
-          gate: "The workflow fails closed if dedup reads or the exact A-12 allowlist are unavailable."
+          gate: "The workflow fails closed if the Evaluation, mailbox, receipt, or Graph read-back is ambiguous. It never creates or edits the provider/client appointment, and one Evaluation can never mutate another's reminders."
         },
         {
           id: "A-13",
@@ -1501,29 +1657,31 @@
           status: "live",
           phase: "1B",
           primaryOwner: "System + Attorney",
-          summary: "Creates a source index, requires explicit ordered-row selection, and assembles only the attorney-approved records.",
-          trigger: "The evaluation enters the T−7 through T−0 preparation window.",
+          summary: "Creates an isolated cover/index workspace for one Evaluation, requires explicit ordered-row selection, and assembles only that Evaluation's attorney-approved records.",
+          trigger: "One scheduled Evaluation enters the T−7 through T−0 preparation window.",
           inputs: [
-            { name: "Confirmed evaluation date", detail: "Anchors the T−7 preparation window.", source: "HubSpot · Service", required: true },
-            { name: "Exact matter folder", detail: "Source and destination boundary.", source: "HubSpot → SharePoint", required: true },
-            { name: "Candidate medical records", detail: "Eligible governed documents; generated AI Output and suppressed files are excluded.", source: "SharePoint · matter bins", required: true },
-            { name: "Ordered row selection", detail: "Unique candidate row numbers in delivery order.", source: "HubSpot · staff entry", required: true },
-            { name: "Attorney approval", detail: "Approval of the exact selected subset.", source: "HubSpot · Service", required: true }
+            { name: "Exact Evaluation identity", detail: "The lifecycle whose schedule, provider, selection, approval, and packet are being prepared.", source: "HubSpot · Evaluation", required: true },
+            { name: "Confirmed scheduled date/time", detail: "Anchors this Evaluation's T−7 preparation window.", source: "HubSpot · Evaluation", required: true },
+            { name: "Exact matter + Evaluation folder", detail: "Source boundary and isolated destination for this Evaluation.", source: "HubSpot → Egnyte", required: true },
+            { name: "Candidate medical records", detail: "Eligible governed documents; generated AI Output and suppressed files are excluded.", source: "Egnyte · matter bins", required: true },
+            { name: "Ordered row selection", detail: "Unique candidate row numbers in delivery order for this Evaluation.", source: "HubSpot · Evaluation", required: true },
+            { name: "Attorney approval", detail: "Approval of this Evaluation's exact selected subset and current source signature.", source: "HubSpot · Evaluation", required: true }
           ],
           steps: [
-            { owner: "System", action: "Generate the sourced examiner cover-letter draft and candidate-records index.", where: "SharePoint · matter/AI Output" },
-            { owner: "System", action: "Reset prior approval and create the packet-review task.", where: "HubSpot · Appeals queue" },
-            { owner: "Assistant", action: "Review the index and enter the exact unique row numbers in delivery order.", where: "HubSpot · Service" },
-            { owner: "Attorney", action: "Approve that exact ordered subset.", where: "HubSpot · Service" },
-            { owner: "System", action: "Copy only the approved records into the deterministic packet and verify the inventory.", where: "SharePoint · exact matter packet" },
+            { owner: "System", action: "Generate the sourced cover-letter draft and candidate-records index in this Evaluation's isolated folder.", where: "Egnyte · Evaluation workspace" },
+            { owner: "System", action: "Stamp both URLs on the Evaluation, reset only its prior approval, and create its packet-review task.", where: "HubSpot · Evaluation + Appeals queue" },
+            { owner: "Assistant", action: "Confirm type, examiner, and date; review the index and enter exact unique row numbers in delivery order.", where: "HubSpot · Evaluation" },
+            { owner: "Attorney", action: "Approve that exact ordered subset for this Evaluation only.", where: "HubSpot · Evaluation" },
+            { owner: "System", action: "Copy only the approved records into this Evaluation's deterministic packet, verify inventory, and stamp the packet URL.", where: "Egnyte + HubSpot · Evaluation" },
             { owner: "Assistant", action: "Perform final QA and send through the approved channel when appropriate.", where: "Firm-controlled external send" }
           ],
           outputs: [
-            { name: "Examiner cover-letter draft", detail: "Editable sourced draft.", source: "SharePoint · matter/AI Output" },
-            { name: "Candidate-records index", detail: "Numbered source list for explicit selection.", source: "SharePoint · matter/AI Output" },
-            { name: "Selected-only records packet", detail: "Only the ordered, attorney-approved documents.", source: "SharePoint · exact matter packet" }
+            { name: "Evaluation-isolated cover draft", detail: "Editable sourced draft with its URL on the correct Evaluation.", source: "Egnyte + HubSpot · Evaluation" },
+            { name: "Evaluation-isolated candidate index", detail: "Numbered source list for this Evaluation's explicit selection.", source: "Egnyte + HubSpot · Evaluation" },
+            { name: "Selected-only records packet", detail: "Only this Evaluation's ordered, attorney-approved documents, with a stamped packet URL.", source: "Egnyte + HubSpot · Evaluation" },
+            { name: "Per-Evaluation approval audit", detail: "Selection, source signature, approval, and packet receipt cannot authorize a sibling Evaluation.", source: "HubSpot + GCS state" }
           ],
-          gate: "No automatic send path exists. Packet assembly does not begin until staff select exact rows and the attorney approves the subset."
+          gate: "No automatic send path exists. Packet assembly waits for the exact Evaluation's current selection and attorney approval; approval or invalidation on one Evaluation never authorizes or alters another."
         },
         {
           id: "A-14",
@@ -1531,27 +1689,28 @@
           status: "live",
           phase: "1B",
           primaryOwner: "System + Assistant",
-          summary: "Starts a weekly internal follow-up cadence at T+7 and stops when the report-received state is recorded.",
-          trigger: "Seven days pass after the evaluation date and no report-received stop condition is present.",
+          summary: "Runs an independent weekly internal follow-up cadence for each Evaluation and stops only the lifecycle whose report receipt is recorded.",
+          trigger: "Seven days pass after one Evaluation's scheduled date and its Report Received Date is still blank.",
           inputs: [
-            { name: "Evaluation date", detail: "Timer anchor.", source: "HubSpot · Service", required: true },
-            { name: "Assigned assistant", detail: "Owner of the follow-up work.", source: "HubSpot · Service", required: true },
-            { name: "Report received date", detail: "Stops the cadence when populated.", source: "HubSpot · Service", required: false },
-            { name: "Matching received checklist item", detail: "Alternate stop signal.", source: "HubSpot · Service", required: false }
+            { name: "Exact Evaluation identity", detail: "Separates this report and cadence from every sibling Evaluation on the Service.", source: "HubSpot · Evaluation", required: true },
+            { name: "Scheduled date/time", detail: "Timer anchor for this Evaluation.", source: "HubSpot · Evaluation", required: true },
+            { name: "Assigned assistant", detail: "Owner of this Evaluation's follow-up work.", source: "HubSpot · Evaluation", required: true },
+            { name: "Report Received Date", detail: "Blank while pending; stops only this Evaluation when staff record receipt.", source: "HubSpot · Evaluation", required: false },
+            { name: "Exact Evaluation folder", detail: "Destination for the identified report and report URL.", source: "Egnyte · Evaluation folder", required: true }
           ],
           steps: [
-            { owner: "System", action: "At T+7, check whether the report-received stop condition is present.", where: "Daily evaluation sweep" },
-            { owner: "System", action: "If still missing, create one replay-safe assistant-owned follow-up task for the elapsed week.", where: "HubSpot · Appeals queue" },
+            { owner: "System", action: "At T+7 and each elapsed week, check this exact Evaluation's report-received stop condition.", where: "Daily evaluation sweep" },
+            { owner: "System", action: "If still missing, create one replay-safe assistant-owned follow-up task tied to this Evaluation.", where: "HubSpot · Appeals queue" },
             { owner: "Assistant", action: "Use firm-approved wording to follow up with the provider; no provider draft is generated.", where: "Approved provider channel" },
-            { owner: "Assistant", action: "File the report and enter Evaluation Report Received Date when it arrives.", where: "SharePoint + HubSpot" },
-            { owner: "System", action: "Stop creating tasks when the date or matching checklist receipt is present.", where: "HubSpot + durable state" }
+            { owner: "Assistant", action: "Identify the correct Evaluation, file the report in its folder, and record Report URL and Report Received Date on that record.", where: "Egnyte + HubSpot · Evaluation" },
+            { owner: "System", action: "Mark only that Evaluation Completed and stop its cadence; keep every other pending Evaluation active.", where: "HubSpot + durable state" }
           ],
           outputs: [
-            { name: "Weekly report-follow-up task", detail: "One internal task per elapsed week while missing.", source: "HubSpot · Appeals queue" },
-            { name: "Filed evaluation report", detail: "Verified report in the governed matter location.", source: "SharePoint · evaluation/report bin" },
-            { name: "Cadence stop state", detail: "Report-received date or matching checklist item.", source: "HubSpot · Service" }
+            { name: "Evaluation-linked follow-up task", detail: "One internal task per elapsed week while this report is missing.", source: "HubSpot · Appeals queue" },
+            { name: "Filed Evaluation report + URL", detail: "Verified report in the exact Evaluation folder and linked from that record.", source: "Egnyte + HubSpot · Evaluation" },
+            { name: "Independent Completed state", detail: "Report date stops this Evaluation only; sibling report cadences continue.", source: "HubSpot · Evaluation" }
           ],
-          gate: "A-14 never contacts the provider automatically. Staff own the follow-up and must record receipt to stop the cadence."
+          gate: "A-14 never contacts the provider automatically and never guesses which Evaluation owns a report. Staff file and stamp the exact record; one received report cannot stop another Evaluation's cadence."
         }
       ]
     },
@@ -1569,14 +1728,14 @@
           summary: "Uses the existing Homework Complete checkbox as the explicit human signal that the appeal file is ready to write.",
           trigger: "The assistant checks Homework Complete on the Service.",
           inputs: [
-            { name: "Complete claim file", detail: "Carrier file is received and usable.", source: "SharePoint · governed bins", required: true },
-            { name: "Policy and plan documents", detail: "The controlling plan material is present.", source: "SharePoint · governed bins", required: true },
-            { name: "Medical records and evaluations", detail: "Required homework and reports are in.", source: "SharePoint · governed bins", required: true },
+            { name: "Complete claim file", detail: "Carrier file is received and usable.", source: "Egnyte · governed bins", required: true },
+            { name: "Policy and plan documents", detail: "The controlling plan material is present.", source: "Egnyte · governed bins", required: true },
+            { name: "Medical records and evaluations", detail: "Required homework and reports are in.", source: "Egnyte · governed bins", required: true },
             { name: "Homework Complete", detail: "The explicit human-ready signal.", source: "HubSpot · Service", required: true },
             { name: "Assigned attorney", detail: "Notification recipient and drafting owner.", source: "HubSpot · Service", required: true }
           ],
           steps: [
-            { owner: "Assistant", action: "Confirm the file is genuinely complete; do not use the checkbox as a placeholder.", where: "SharePoint + HubSpot" },
+            { owner: "Assistant", action: "Confirm the file is genuinely complete; do not use the checkbox as a placeholder.", where: "Egnyte + HubSpot" },
             { owner: "Assistant", action: "Set Homework Complete to Yes.", where: "HubSpot · Service" },
             { owner: "System", action: "Notify the assigned attorney that the matter is ready to write.", where: "HubSpot workflow" },
             { owner: "System", action: "Fan the same ready signal into the summarizer and drafting pipeline.", where: "Dodonai · drafting trigger" }
@@ -1593,13 +1752,13 @@
           status: "tuning",
           phase: "1A",
           primaryOwner: "System",
-          summary: "Reads the complete governed file and produces the structured claim facts the first-pass appeal needs.",
-          trigger: "The Homework Complete event starts the drafting pipeline.",
+          summary: "Reads the complete governed file and produces the structured claim facts the first-pass appeal needs, published as a verified three-PDF package in the client's Egnyte Appeal/Claim File folder with an attorney review task. Rule Set 116 detection/indexing is the deterministic source-acceptance boundary; both Bryn-requested manual matters (Kramer, Lopez) are complete and attorney-notified as of 2026-08-22.",
+          trigger: "A future claim-file arrival after the immutable activation cutoff (armed no-backfill policy — historical files can never auto-enroll; existing matters run only from the attorneys' explicit list). The Homework Complete event also starts the drafting pipeline.",
           inputs: [
-            { name: "Claim File", detail: "Full carrier record.", source: "SharePoint · governed Claim File bin", required: true },
-            { name: "Denial letter", detail: "Carrier decision and rationale.", source: "SharePoint · carrier correspondence", required: true },
-            { name: "Policy/plan documents", detail: "Controlling definitions, limitations, and standards.", source: "SharePoint · Policy bin", required: true },
-            { name: "Treating records and evaluations", detail: "Medical and vocational evidence selected by the file taxonomy.", source: "SharePoint · governed evidence bins", required: true }
+            { name: "Claim File", detail: "Full carrier record.", source: "Egnyte · governed Claim File bin", required: true },
+            { name: "Denial letter", detail: "Carrier decision and rationale.", source: "Egnyte · carrier correspondence", required: true },
+            { name: "Policy/plan documents", detail: "Controlling definitions, limitations, and standards.", source: "Egnyte · Policy bin", required: true },
+            { name: "Treating records and evaluations", detail: "Medical and vocational evidence selected by the file taxonomy.", source: "Egnyte · governed evidence bins", required: true }
           ],
           steps: [
             { owner: "System", action: "Resolve the exact matter and read the governed source set.", where: "Dodonai · matter reader" },
@@ -1654,24 +1813,24 @@
           trigger: "Homework Complete starts the summarizer; a successful matter read advances into A-16.",
           inputs: [
             { name: "Structured claim summary", detail: "Dates, denial rationale, policy provisions, treating evidence, and reviews.", source: "Dodonai · summarizer", required: true },
-            { name: "Denial + policy", detail: "Primary carrier and plan sources.", source: "SharePoint · governed bins", required: true },
-            { name: "Approved matter evidence", detail: "Documents included by the governed taxonomy.", source: "SharePoint · evidence bins", required: true },
+            { name: "Denial + policy", detail: "Primary carrier and plan sources.", source: "Egnyte · governed bins", required: true },
+            { name: "Approved matter evidence", detail: "Documents included by the governed taxonomy.", source: "Egnyte · evidence bins", required: true },
             { name: "Firm exemplar library", detail: "Carrier- and condition-relevant drafting context.", source: "Dodonai · agentic pack 426", required: true },
-            { name: "Exact matter output folder", detail: "The correct AI Output location.", source: "HubSpot → SharePoint", required: true }
+            { name: "Exact matter output folder", detail: "The correct AI Output location.", source: "HubSpot → Egnyte", required: true }
           ],
           steps: [
             { owner: "System", action: "Assemble the full claim context and firm-grounding package.", where: "Dodonai · agentic drafter" },
             { owner: "System", action: "Generate the carrier- and condition-aware first-pass appeal.", where: "Dodonai · template 426" },
             { owner: "System", action: "Self-check the draft, attach source traceability, and render the Word document.", where: "Dodonai · drafting harness" },
-            { owner: "System", action: "Save the .docx to the exact matter and alert the assigned attorney with a deep link.", where: "SharePoint + Teams/email" },
+            { owner: "System", action: "Save the .docx to the exact matter and alert the assigned attorney with a deep link.", where: "Egnyte + Teams/email" },
             { owner: "Attorney", action: "Review the evidence, strategy, law, tone, exclusions, and every factual assertion; edit to final.", where: "Microsoft Word" }
           ],
           outputs: [
-            { name: "First-pass appeal .docx", detail: "Firm-voice draft with source traceability.", source: "SharePoint · matter/AI Output" },
+            { name: "First-pass appeal .docx", detail: "Firm-voice draft with source traceability.", source: "Egnyte · matter/AI Output" },
             { name: "Attorney alert + mobile deep link", detail: "Direct path to the draft from anywhere.", source: "Teams/email" },
             { name: "Attorney-approved appeal letter", detail: "The final legal work product after human revision.", source: "Matter file → A-17" }
           ],
-          gate: "The attorney owns the final letter. The first pass is measured against the firm's 70% quality bar and never goes directly to a carrier."
+          gate: "The attorney owns the final letter. The first pass is measured against the firm's 70% quality bar and never goes directly to a carrier. Current acceptance state: the run-23 letter (first to meet Eddie's 7-page rule, first-pass hard gates PASS) is in the firm read alongside the run-15/16 candidates; publication auto-binds durable Egnyte receipts and staff links."
         }
       ]
     },
@@ -1689,22 +1848,22 @@
           summary: "Builds one indexed packet from the final appeal and the human-approved evidence plan while hard-excluding suppressed material.",
           trigger: "The attorney-approved appeal is ready to file and the packet plan is complete.",
           inputs: [
-            { name: "Final appeal letter", detail: "Attorney-approved filing version.", source: "SharePoint · matter file", required: true },
+            { name: "Final appeal letter", detail: "Attorney-approved filing version.", source: "Egnyte · matter file", required: true },
             { name: "Approved evidence plan", detail: "The exact documents and order for filing.", source: "Attorney/coordinator selection", required: true },
-            { name: "RFI, DOP, and Authorization", detail: "Required filing components when applicable.", source: "SharePoint · governed bins", required: true },
-            { name: "Suppressed/excluded set", detail: "Documents that must never enter the packet.", source: "SharePoint · _EXCLUDED + rules", required: true }
+            { name: "RFI, DOP, and Authorization", detail: "Required filing components when applicable.", source: "Egnyte · governed bins", required: true },
+            { name: "Suppressed/excluded set", detail: "Documents that must never enter the packet.", source: "Egnyte · _EXCLUDED + rules", required: true }
           ],
           steps: [
             { owner: "Assistant", action: "Prepare the proposed packet plan and source inventory.", where: "Matter file + packet review" },
             { owner: "Attorney", action: "Approve the final letter and exact packet plan.", where: "Packet review gate" },
             { owner: "System", action: "Apply hard exclusions and assemble the approved items in order.", where: "Dodonai · packet engine" },
-            { owner: "System", action: "Generate the indexed submission bundle and verify its inventory.", where: "SharePoint · matter packet" },
+            { owner: "System", action: "Generate the indexed submission bundle and verify its inventory.", where: "Egnyte · matter packet" },
             { owner: "Assistant", action: "Perform final QA, submit through the carrier-approved channel, and preserve proof of filing.", where: "Carrier channel + matter file" }
           ],
           outputs: [
-            { name: "Indexed appeal packet", detail: "Appeal letter, approved evidence, and required forms.", source: "SharePoint · exact matter" },
+            { name: "Indexed appeal packet", detail: "Appeal letter, approved evidence, and required forms.", source: "Egnyte · exact matter" },
             { name: "Filed submission", detail: "External only after attorney approval and coordinator QA.", source: "Carrier channel" },
-            { name: "Proof of filing", detail: "Transmission evidence retained with the matter.", source: "SharePoint/HubSpot" }
+            { name: "Proof of filing", detail: "Transmission evidence retained with the matter.", source: "Egnyte/HubSpot" }
           ],
           gate: "A human signs the packet plan before assembly and a person submits it. Suppressed evidence is non-overridable."
         },
@@ -1743,12 +1902,12 @@
           summary: "Prepares the client-facing email that transmits the filed appeal letter after submission.",
           trigger: "The appeal is filed and the filed A-16 letter is available.",
           inputs: [
-            { name: "Filed appeal letter", detail: "The exact final version sent to the carrier.", source: "SharePoint · matter file", required: true },
+            { name: "Filed appeal letter", detail: "The exact final version sent to the carrier.", source: "Egnyte · matter file", required: true },
             { name: "Client email", detail: "Exact associated client recipient.", source: "HubSpot · Contact", required: true },
             { name: "Submission confirmation", detail: "Confirms the appeal was actually filed.", source: "HubSpot/matter record", required: true }
           ],
           steps: [
-            { owner: "System", action: "Resolve the exact filed appeal document and client recipient.", where: "HubSpot + SharePoint" },
+            { owner: "System", action: "Resolve the exact filed appeal document and client recipient.", where: "HubSpot + Egnyte" },
             { owner: "System", action: "Create the client-copy email and attach the filed appeal.", where: "Outlook Drafts" },
             { owner: "Assistant", action: "Verify the attachment is the filed version, review the message, and send.", where: "Outlook" }
           ],
@@ -1769,12 +1928,12 @@
           inputs: [
             { name: "SSDI attorney identity", detail: "Exact recipient and contact details.", source: "HubSpot/matter record", required: true },
             { name: "Referral relationship", detail: "Firm-referred or the client's own attorney.", source: "HubSpot/matter record", required: true },
-            { name: "Approved evidence set", detail: "The material permitted for the SSDI forward.", source: "SharePoint · matter file", required: true },
+            { name: "Approved evidence set", detail: "The material permitted for the SSDI forward.", source: "Egnyte · matter file", required: true },
             { name: "Delivery mechanism", detail: "CD-enclosed or reviewed secure-link variant.", source: "Workflow branch", required: true }
           ],
           steps: [
             { owner: "System", action: "Select the referred-attorney or client-selected-attorney template.", where: "Dodonai · letter renderer" },
-            { owner: "System", action: "Resolve the approved evidence references and delivery language.", where: "SharePoint + workflow data" },
+            { owner: "System", action: "Resolve the approved evidence references and delivery language.", where: "Egnyte + workflow data" },
             { owner: "System", action: "Create an unsent forward draft.", where: "Outlook Drafts" },
             { owner: "Attorney", action: "Review the recipient, evidence scope, disclaimer, and message; send manually.", where: "Outlook" }
           ],
@@ -1834,7 +1993,7 @@
           summary: "Turns a newly arrived carrier medical review into a matter-linked received date, proposed response deadline, and attorney notice.",
           trigger: "F-02 classifies an inbound document as a peer review, IME, FCE, or other medical review.",
           inputs: [
-            { name: "Inbound medical review", detail: "Readable carrier document.", source: "SharePoint/Outlook → F-02", required: true },
+            { name: "Inbound medical review", detail: "Readable carrier document.", source: "Egnyte/Outlook → F-02", required: true },
             { name: "Exact matter association", detail: "One Service and matter folder.", source: "HubSpot + file-store locator", required: true },
             { name: "Received date", detail: "The date the review reached the firm.", source: "Inbound event/document", required: true },
             { name: "Response-deadline language", detail: "Carrier-stated timing or applicable workflow rule.", source: "Document OCR", required: true }
@@ -1843,7 +2002,7 @@
             { owner: "System", action: "Classify the inbound document as a medical review and resolve it to the matter.", where: "Dodonai · F-02 router" },
             { owner: "System", action: "Record the received date and extract any response-deadline language.", where: "HubSpot + document parser" },
             { owner: "System", action: "Propose the response deadline and notify the assigned attorney.", where: "HubSpot/notification channel" },
-            { owner: "Assistant", action: "Read the actual review, confirm or correct the deadline, and file it in the correct carrier-review bin.", where: "SharePoint + HubSpot" }
+            { owner: "Assistant", action: "Read the actual review, confirm or correct the deadline, and file it in the correct carrier-review bin.", where: "Egnyte + HubSpot" }
           ],
           outputs: [
             { name: "Medical Review Received Date", detail: "Matter-level receipt control.", source: "HubSpot · Service" },
@@ -1862,21 +2021,21 @@
           summary: "Retargets the firm-grounded appeal engine at the carrier review and produces a source-traceable first-pass rebuttal.",
           trigger: "A-22 supplies a confirmed medical-review event and the attorney requests rebuttal drafting.",
           inputs: [
-            { name: "Carrier medical review", detail: "Peer review, IME, FCE, or related carrier analysis.", source: "SharePoint · 10 Carrier Reviews", required: true },
+            { name: "Carrier medical review", detail: "Peer review, IME, FCE, or related carrier analysis.", source: "Egnyte · 10 Carrier Reviews", required: true },
             { name: "Current claim context", detail: "Policy, denial, medical evidence, and prior submissions.", source: "Dodonai · matter context", required: true },
             { name: "Attorney strategy", detail: "The legal and evidentiary direction for the response.", source: "Assigned attorney", required: true },
             { name: "Firm rebuttal exemplars", detail: "Prior firm work relevant to the review type.", source: "Dodonai · agentic pack 427", required: true },
-            { name: "Exact matter output folder", detail: "The correct AI Output location.", source: "HubSpot → SharePoint", required: true }
+            { name: "Exact matter output folder", detail: "The correct AI Output location.", source: "HubSpot → Egnyte", required: true }
           ],
           steps: [
             { owner: "Attorney", action: "Set the rebuttal strategy and identify the review points that require response.", where: "Matter review" },
             { owner: "System", action: "Assemble the medical review, current evidence, and relevant firm exemplars.", where: "Dodonai · agentic drafter" },
             { owner: "System", action: "Generate the first-pass rebuttal with source traceability.", where: "Dodonai · template 427" },
-            { owner: "System", action: "Render and save the .docx to the exact matter.", where: "SharePoint · matter/AI Output" },
+            { owner: "System", action: "Render and save the .docx to the exact matter.", where: "Egnyte · matter/AI Output" },
             { owner: "Attorney", action: "Verify the medical analysis, evidence, citations, and legal posture; revise and approve.", where: "Microsoft Word" }
           ],
           outputs: [
-            { name: "First-pass rebuttal .docx", detail: "Firm-grounded, source-traceable draft.", source: "SharePoint · matter/AI Output" },
+            { name: "First-pass rebuttal .docx", detail: "Firm-grounded, source-traceable draft.", source: "Egnyte · matter/AI Output" },
             { name: "Attorney-approved rebuttal", detail: "Final legal work product after strategy and revision.", source: "Matter file → carrier send path" }
           ],
           gate: "The attorney sets the strategy and owns the final rebuttal. The system does not decide which medical arguments the firm adopts."
@@ -1898,19 +2057,19 @@
           trigger: "The confirmed 45/90-day deadline is approaching or blown and no proper carrier notice resolves it.",
           inputs: [
             { name: "Confirmed decision deadlines", detail: "Human-verified 45-day and 90-day dates.", source: "HubSpot + Outlook", required: true },
-            { name: "Carrier correspondence", detail: "Decision, extension, or notice record through the current date.", source: "SharePoint · carrier correspondence", required: true },
+            { name: "Carrier correspondence", detail: "Decision, extension, or notice record through the current date.", source: "Egnyte · carrier correspondence", required: true },
             { name: "Matter + claim identifiers", detail: "Client, carrier, claim number, and handling attorney.", source: "HubSpot", required: true },
             { name: "Legal posture confirmation", detail: "Attorney decision that deemed exhaustion is the right path.", source: "Assigned attorney", required: true }
           ],
           steps: [
-            { owner: "Assistant", action: "Verify the calendar, matter file, and recent carrier communications are current.", where: "HubSpot + Outlook + SharePoint" },
+            { owner: "Assistant", action: "Verify the calendar, matter file, and recent carrier communications are current.", where: "HubSpot + Outlook + Egnyte" },
             { owner: "Attorney", action: "Decide whether the firm should assert deemed exhaustion or pursue another path.", where: "Legal strategy review" },
             { owner: "System", action: "Render the 45-day deemed-exhaustion draft from the confirmed matter facts.", where: "Dodonai · letter renderer" },
-            { owner: "System", action: "Save the editable draft to the exact matter.", where: "SharePoint · matter/AI Output" },
+            { owner: "System", action: "Save the editable draft to the exact matter.", where: "Egnyte · matter/AI Output" },
             { owner: "Attorney", action: "Review the law, dates, posture, and recipient; edit and authorize any send.", where: "Microsoft Word" }
           ],
           outputs: [
-            { name: "Deemed-exhaustion draft", detail: "Editable legal-position letter.", source: "SharePoint · matter/AI Output" },
+            { name: "Deemed-exhaustion draft", detail: "Editable legal-position letter.", source: "Egnyte · matter/AI Output" },
             { name: "Carrier communication", detail: "External only if the attorney approves and staff sends.", source: "Carrier channel" }
           ],
           gate: "This letter asserts a legal posture. The attorney decides whether it is appropriate and approves every date and sentence before use."
@@ -1924,13 +2083,13 @@
           summary: "Creates the new deadline cadence from a confirmed extension while leaving superseded-event cleanup visible to a person.",
           trigger: "A carrier or firm extension is logged and the new date is human-confirmed.",
           inputs: [
-            { name: "Extension record", detail: "Who granted it and the supporting correspondence.", source: "SharePoint + HubSpot", required: true },
+            { name: "Extension record", detail: "Who granted it and the supporting correspondence.", source: "Egnyte + HubSpot", required: true },
             { name: "Confirmed new deadline", detail: "Human-approved replacement anchor.", source: "HubSpot · Service", required: true },
             { name: "Existing deadline events", detail: "The now-superseded calendar series.", source: "Outlook calendars", required: true },
             { name: "Assigned calendars", detail: "Attorney and assistant recipients.", source: "HubSpot + Microsoft Graph", required: true }
           ],
           steps: [
-            { owner: "Assistant", action: "Read the extension source and confirm the replacement deadline.", where: "SharePoint + HubSpot" },
+            { owner: "Assistant", action: "Read the extension source and confirm the replacement deadline.", where: "Egnyte + HubSpot" },
             { owner: "System", action: "Recompute the decision cadence from the new anchor date.", where: "Dodonai · calendar engine" },
             { owner: "System", action: "Create the new matter-scoped calendar events.", where: "Outlook calendars" },
             { owner: "Assistant", action: "Identify and cancel the superseded events after verifying the new series.", where: "Outlook calendars" }
@@ -1958,12 +2117,12 @@
           summary: "Turns the verified carrier approval into the HubSpot approval state that drives handoff and follow-on work.",
           trigger: "Staff receive an approval letter and log the approval.",
           inputs: [
-            { name: "Carrier approval letter", detail: "Verified decision document.", source: "SharePoint · carrier correspondence", required: true },
+            { name: "Carrier approval letter", detail: "Verified decision document.", source: "Egnyte · carrier correspondence", required: true },
             { name: "Appeal approval date", detail: "The date confirmed from the letter.", source: "HubSpot · Service", required: true },
             { name: "Claim type", detail: "LTD, STD, or dual-claim context.", source: "HubSpot · Service", required: true }
           ],
           steps: [
-            { owner: "Assistant", action: "Verify the approval letter, file it, and enter the approval date.", where: "SharePoint + HubSpot" },
+            { owner: "Assistant", action: "Verify the approval letter, file it, and enter the approval date.", where: "Egnyte + HubSpot" },
             { owner: "System", action: "Set the Service approval state and fire the approval workflow.", where: "HubSpot workflow" },
             { owner: "System", action: "Fan the event into On Claims handoff, client next steps, marketing routing, and dual-approval logic as applicable.", where: "HubSpot/Dodonai" }
           ],
@@ -2032,12 +2191,12 @@
           trigger: "A-26 records the approval.",
           inputs: [
             { name: "Approved matter", detail: "Confirmed approval event.", source: "HubSpot · Service", required: true },
-            { name: "Filed denial letter", detail: "The source carrier denial.", source: "SharePoint · matter file", required: true },
-            { name: "Filed appeal letter", detail: "The final submitted appeal.", source: "SharePoint · matter file", required: true },
+            { name: "Filed denial letter", detail: "The source carrier denial.", source: "Egnyte · matter file", required: true },
+            { name: "Filed appeal letter", detail: "The final submitted appeal.", source: "Egnyte · matter file", required: true },
             { name: "Designated recipient", detail: "The confirmed internal marketing owner.", source: "Workflow configuration", required: true }
           ],
           steps: [
-            { owner: "System", action: "Resolve the exact denial and appeal documents for the approved matter.", where: "SharePoint" },
+            { owner: "System", action: "Resolve the exact denial and appeal documents for the approved matter.", where: "Egnyte" },
             { owner: "System", action: "Compose the internal handoff with links or attachments.", where: "Internal email" },
             { owner: "Marketing", action: "Receive the materials and apply the firm's separate marketing review rules.", where: "Marketing workflow" }
           ],
@@ -2056,12 +2215,12 @@
           summary: "Captures the denial date and uses the attorney's next-steps decision to route the case into Litigation, Second Appeal, or Termination.",
           trigger: "Staff receive and log the appeal denial.",
           inputs: [
-            { name: "Carrier denial letter", detail: "Verified appeal decision.", source: "SharePoint · carrier correspondence", required: true },
+            { name: "Carrier denial letter", detail: "Verified appeal decision.", source: "Egnyte · carrier correspondence", required: true },
             { name: "Appeal denial date", detail: "Confirmed from the source letter.", source: "HubSpot · Service", required: true },
             { name: "Attorney next-steps decision", detail: "Litigation, Second Appeal, or Terminate.", source: "Assigned attorney", required: true }
           ],
           steps: [
-            { owner: "Assistant", action: "Verify and file the denial, then enter the denial date.", where: "SharePoint + HubSpot" },
+            { owner: "Assistant", action: "Verify and file the denial, then enter the denial date.", where: "Egnyte + HubSpot" },
             { owner: "Attorney", action: "Choose the legal next step for the client.", where: "Case strategy review" },
             { owner: "Assistant", action: "Set the Denial — Next Steps dropdown to the attorney's decision.", where: "HubSpot · Service" },
             { owner: "System", action: "Dispatch the matching Litigation, Second Appeal, or Termination branch.", where: "HubSpot workflow" }
@@ -2113,13 +2272,13 @@
           steps: [
             { owner: "System", action: "Select the carrier-notice and client-letter variants.", where: "Dodonai · letter renderer" },
             { owner: "System", action: "Merge the matter and representation facts into both drafts.", where: "Dodonai · letter renderer" },
-            { owner: "System", action: "Save or stage the two unsent drafts.", where: "SharePoint/Outlook" },
+            { owner: "System", action: "Save or stage the two unsent drafts.", where: "Egnyte/Outlook" },
             { owner: "Attorney", action: "Review the legal effect, dates, recipients, and client obligations; approve or revise.", where: "Word/Outlook" },
             { owner: "Assistant", action: "Send through the approved channels only after attorney approval and record the closure work.", where: "Carrier + client channels" }
           ],
           outputs: [
-            { name: "Carrier termination draft", detail: "Notice ending representation to the insurer.", source: "SharePoint/Outlook" },
-            { name: "Client termination draft", detail: "Client-facing representation closure letter.", source: "SharePoint/Outlook" },
+            { name: "Carrier termination draft", detail: "Notice ending representation to the insurer.", source: "Egnyte/Outlook" },
+            { name: "Client termination draft", detail: "Client-facing representation closure letter.", source: "Egnyte/Outlook" },
             { name: "Closed representation record", detail: "Documented only after approved sends.", source: "HubSpot + matter file" }
           ],
           gate: "Termination is high consequence. The attorney reviews both recipient variants and authorizes every send."
@@ -2184,10 +2343,144 @@
     }
   ];
 
+  const INITIAL_CLAIM_GROUPS = [
+    {
+      number: "IC",
+      title: "Initial-claim lifecycle",
+      stage: "Parallel Wave 1B · Intake to carrier decision",
+      workflows: [
+        {
+          id: "A-34",
+          name: "Draft the Notice of Intent",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Prepares the carrier notice of representation and intent to file the disability claim when an initial-claim matter opens.",
+          trigger: "An initial-claim matter opens and the claim-initiation context is available.",
+          inputs: [
+            { name: "Initial-claim Service", detail: "One exact matter in the initial-claim lifecycle.", source: "HubSpot · Service", required: true },
+            { name: "Client + carrier facts", detail: "Claimant, carrier, claim type, plan type, and representation details.", source: "HubSpot · Service + Contact", required: true },
+            { name: "Exact matter destination", detail: "The governed folder that will own the reviewed draft.", source: "HubSpot → Egnyte locator", required: true },
+            { name: "Firm-approved notice language", detail: "The controlling representation/intent template.", source: "Dabdoub template library", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Resolve the exact initial-claim Service, client, carrier, and matter destination.", where: "HubSpot + Egnyte" },
+            { owner: "System", action: "Merge the claim facts into the Notice of Intent draft.", where: "Dodonai · A-34 letter renderer" },
+            { owner: "System", action: "Place the editable draft in the exact matter's review location.", where: "Egnyte · matter / AI Output" },
+            { owner: "Assistant / Attorney", action: "Review the legal and claim facts, edit as needed, and send through the firm's normal channel.", where: "Matter review + human send" }
+          ],
+          outputs: [
+            { name: "Editable Notice of Intent", detail: "Carrier-facing representation and claim-intent draft.", source: "Egnyte · exact matter / AI Output" },
+            { name: "Human-reviewed send decision", detail: "Staff decide whether and when the notice leaves the firm.", source: "Firm-controlled send channel" }
+          ],
+          gate: "A-34 is coded but not enabled end to end. The firm template remains pending final approval; the system may prepare a draft, but a person reviews and sends it."
+        },
+        {
+          id: "A-35",
+          name: "Follow up on outstanding claim forms",
+          status: "partial",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Uses the confirmed client-nudge language at one and two weeks when required claim forms remain outstanding.",
+          trigger: "The claim-initiation date reaches +7 or +14 days and the required client claim forms are still outstanding.",
+          inputs: [
+            { name: "Confirmed claim-initiation date", detail: "Anchor for the one-week and two-week checks.", source: "HubSpot · claim_initiated_date", required: true },
+            { name: "Outstanding-form state", detail: "Evidence that required client claim forms have not been received.", source: "HubSpot · Service", required: true },
+            { name: "Client + assigned assistant", detail: "Recipient and human owner of the follow-up.", source: "HubSpot · Contact + Service", required: true },
+            { name: "Approved client nudge", detail: "Firm-sourced language asking the client to complete the forms.", source: "Dodonai · A-35 template body", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "At each cadence point, re-read the Service and stop if the forms are no longer outstanding.", where: "HubSpot · Service" },
+            { owner: "System", action: "Create the client follow-up as an editable, unsent draft or assistant task.", where: "Outlook Drafts / HubSpot Tasks" },
+            { owner: "Assistant", action: "Confirm the forms are still missing, review the wording, and send or contact the client.", where: "Outlook + client record" },
+            { owner: "Assistant", action: "Handle any carrier-side follow-up by phone rather than an automated carrier letter.", where: "Firm phone workflow" }
+          ],
+          outputs: [
+            { name: "One-week follow-up", detail: "Reviewable client nudge when forms remain outstanding.", source: "Assistant work queue" },
+            { name: "Two-week follow-up", detail: "Second reviewable nudge only if the outstanding condition persists.", source: "Assistant work queue" },
+            { name: "Stop condition", detail: "Receipt of the forms prevents later cadence actions.", source: "HubSpot · Service" }
+          ],
+          gate: "The client wording is sourced, but the 1-week/2-week cadence timer is not yet built. Nothing auto-sends; the assistant re-confirms the outstanding condition before contact."
+        },
+        {
+          id: "A-36",
+          name: "Assemble the initial-claim submission packet",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Attorney",
+          summary: "Builds a reviewable initial-claim packet from the cover, claim forms, and approved medical records using the shared governed packet engine.",
+          trigger: "Staff mark the initial claim ready to file and request packet assembly.",
+          inputs: [
+            { name: "Final cover document", detail: "The attorney-approved filing cover or representation notice.", source: "Egnyte · exact matter", required: true },
+            { name: "Completed claim forms", detail: "The forms approved for inclusion in the submission.", source: "Egnyte · governed matter folders", required: true },
+            { name: "Approved medical records", detail: "Only the records intentionally selected for this filing.", source: "Egnyte · governed matter folders", required: true },
+            { name: "Signed packet plan", detail: "Human-approved selection and ordering; suppressed material is never eligible.", source: "Dodonai · A-36 plan", required: true }
+          ],
+          steps: [
+            { owner: "System", action: "Read the current governed manifest without performing a new unrestricted crawl.", where: "Dodonai · case manifest" },
+            { owner: "System", action: "Propose the ordered cover, claim-form, and medical-record selection and flag any gaps.", where: "Dodonai · A-36 packet profile" },
+            { owner: "Attorney / Assistant", action: "Approve, correct, or reject the exact selection and order.", where: "Packet review" },
+            { owner: "System", action: "Assemble the indexed packet from only the approved items and preserve the selection audit.", where: "Dodonai → Egnyte · exact matter" }
+          ],
+          outputs: [
+            { name: "Initial-claim submission packet", detail: "Cover, claim forms, and approved medical records in reviewed order.", source: "Egnyte · exact matter" },
+            { name: "Gap + selection audit", detail: "What was included, skipped, suppressed, or missing.", source: "Dodonai · packet receipt" }
+          ],
+          gate: "The shared packet engine is coded, but the A-36 contents and order remain pending firm confirmation. Assembly requires a signed selection plan and never includes suppressed material."
+        },
+        {
+          id: "A-37",
+          name: "Calendar the 45-day and 105-day decision controls",
+          status: "coded",
+          phase: "1B",
+          primaryOwner: "System + Assistant",
+          summary: "Turns the human-confirmed claim-initiation date into visible 45-day and 105-day Outlook decision controls for the assigned team.",
+          trigger: "A person confirms the initial claim was submitted and records the claim-initiation date.",
+          inputs: [
+            { name: "Confirmed claim-initiation date", detail: "The actual submission/initiation date that anchors both controls.", source: "HubSpot · claim_initiated_date", required: true },
+            { name: "Assigned attorney", detail: "Calendar recipient for both decision controls.", source: "HubSpot · Service", required: true },
+            { name: "Assigned assistant", detail: "Calendar recipient for both decision controls.", source: "HubSpot · Service", required: true },
+            { name: "Client name + case ID", detail: "Lead text that identifies the matter on every event.", source: "HubSpot", required: true }
+          ],
+          steps: [
+            { owner: "Assistant", action: "Confirm the actual claim-initiation date from the submission record.", where: "HubSpot + source filing" },
+            { owner: "System", action: "Calculate the +45-day and +105-day control dates using the shared cadence engine.", where: "Dodonai · A-37 calendar cadence" },
+            { owner: "System", action: "Check each recipient's calendar for matching owned or manual events.", where: "Microsoft Graph" },
+            { owner: "System", action: "Create only missing events for the assigned attorney and assistant.", where: "Outlook calendars" }
+          ],
+          outputs: [
+            { name: "45-day decision control", detail: "Matter-labeled calendar event for the first carrier decision window.", source: "Outlook calendars" },
+            { name: "105-day decision control", detail: "Matter-labeled calendar event for the extended outside control.", source: "Outlook calendars" },
+            { name: "Replay protection", detail: "Stable signatures prevent the same anchor from creating duplicate events.", source: "Dodonai · calendar state" }
+          ],
+          gate: "A-37 is coded but not activated. The engine may calendar only a human-confirmed initiation date; missing recipients, an ambiguous matter, or an unconfirmed date fails closed."
+        }
+      ]
+    }
+  ];
+
+  const BRANCHES = [
+    {
+      id: "appeals",
+      code: "APL",
+      title: "Appeals",
+      description: "15-step Appeals SOP",
+      groups: SOPS
+    },
+    {
+      id: "initial-claims",
+      code: "IC",
+      title: "Initial Claims",
+      description: "Parallel Wave 1B lifecycle · A-34–A-37",
+      groups: INITIAL_CLAIM_GROUPS
+    }
+  ];
+
   const STATUS_LABELS = {
     live: "Live",
     tuning: "In tuning",
     coded: "Coded",
+    partial: "Partial",
     shadow: "Shadow"
   };
 
@@ -2214,30 +2507,49 @@
 
   function buildTree() {
     const tree = document.getElementById("tree");
-    tree.innerHTML = SOPS.map((sop, sopIndex) => `
-      <details class="sop" data-sop="${sop.number}" ${sopIndex === 0 ? "open" : ""}>
-        <summary>
-          <span class="sop-number">${sop.number}</span>
-          <span class="sop-label">${esc(sop.title)}<span class="sop-stage">${esc(sop.stage)}</span></span>
-          <span class="sop-count">${sop.workflows.length}</span>
-        </summary>
-        <div class="workflow-list">
-          ${sop.workflows.map((workflow, workflowIndex) => `
-            <button type="button" class="workflow-btn${sopIndex === 0 && workflowIndex === 0 ? " is-active" : ""}"
-              data-sop-index="${sopIndex}" data-workflow-index="${workflowIndex}"
-              aria-label="Open ${esc(workflow.id)} ${esc(workflow.name)}">
-              <span class="workflow-code">${esc(workflow.id)}</span>
-              <span class="workflow-name">${esc(workflow.name)}</span>
-              <span class="mini-status ${workflow.status}" aria-hidden="true"></span>
-            </button>
-          `).join("")}
-        </div>
-      </details>
-    `).join("");
+    tree.innerHTML = BRANCHES.map((branch, branchIndex) => {
+      const workflowCount = branch.groups.reduce((total, group) => total + group.workflows.length, 0);
+      return `
+        <details class="branch" data-branch="${esc(branch.id)}" ${branchIndex === 0 ? "open" : ""}>
+          <summary>
+            <span class="branch-code">${esc(branch.code)}</span>
+            <span class="branch-label">${esc(branch.title)}<span class="branch-description">${esc(branch.description)}</span></span>
+            <span class="branch-count">${workflowCount}</span>
+          </summary>
+          <div class="branch-groups">
+            ${branch.groups.map((sop, sopIndex) => `
+              <details class="sop" data-sop="${esc(sop.number)}" ${branchIndex === 0 && sopIndex === 0 ? "open" : ""}>
+                <summary>
+                  <span class="sop-number">${esc(sop.number)}</span>
+                  <span class="sop-label">${esc(sop.title)}<span class="sop-stage">${esc(sop.stage)}</span></span>
+                  <span class="sop-count">${sop.workflows.length}</span>
+                </summary>
+                <div class="workflow-list">
+                  ${sop.workflows.map((workflow, workflowIndex) => `
+                    <button type="button" class="workflow-btn${branchIndex === 0 && sopIndex === 0 && workflowIndex === 0 ? " is-active" : ""}"
+                      data-branch-index="${branchIndex}" data-sop-index="${sopIndex}" data-workflow-index="${workflowIndex}"
+                      aria-label="Open ${esc(workflow.id)} ${esc(workflow.name)}">
+                      <span class="workflow-code">${esc(workflow.id)}</span>
+                      <span class="workflow-name">${esc(workflow.name)}</span>
+                      <span class="mini-status ${wfStatus(workflow)}" aria-hidden="true"></span>
+                    </button>
+                  `).join("")}
+                </div>
+              </details>
+            `).join("")}
+          </div>
+        </details>
+      `;
+    }).join("");
 
     tree.querySelectorAll(".workflow-btn").forEach(button => {
       button.addEventListener("click", () => {
-        selectWorkflow(Number(button.dataset.sopIndex), Number(button.dataset.workflowIndex), button);
+        selectWorkflow(
+          Number(button.dataset.branchIndex),
+          Number(button.dataset.sopIndex),
+          Number(button.dataset.workflowIndex),
+          button
+        );
       });
     });
   }
@@ -2271,12 +2583,15 @@
     `;
   }
 
-  function renderDetail(sop, workflow) {
+  function renderDetail(branch, sop, workflow) {
     const detail = document.getElementById("detail");
+    const position = branch.id === "appeals"
+      ? `<span class="meta-chip"><strong>SOP</strong> ${esc(sop.number)} of ${branch.groups.length}</span>`
+      : `<span class="meta-chip"><strong>Branch</strong> ${esc(branch.title)}</span>`;
     detail.innerHTML = `
       <header class="detail-head">
         <div class="breadcrumb">
-          <span class="crumb-strong">Appeals SOP ${sop.number}</span>
+          <span class="crumb-strong">${esc(branch.title)}</span>
           <span>›</span>
           <span>${esc(sop.title)}</span>
           <span>›</span>
@@ -2284,11 +2599,11 @@
         </div>
         <div class="detail-title-row">
           <h2><span class="workflow-id-large">${esc(workflow.id)}</span>${esc(workflow.name)}</h2>
-          <span class="status ${workflow.status}">${STATUS_LABELS[workflow.status]}</span>
+          <span class="status ${wfStatus(workflow)}">${STATUS_LABELS[wfStatus(workflow)]}</span>
         </div>
         <p class="detail-summary">${esc(workflow.summary)}</p>
         <div class="detail-meta">
-          <span class="meta-chip"><strong>SOP</strong> ${sop.number} of 15</span>
+          ${position}
           <span class="meta-chip"><strong>Stage</strong> ${esc(sop.stage.replace(/^Stage \d+ · /, ""))}</span>
           <span class="meta-chip"><strong>Primary owner</strong> ${esc(workflow.primaryOwner)}</span>
           <span class="meta-chip"><strong>Rollout</strong> ${esc(workflow.phase)}</span>
@@ -2327,30 +2642,35 @@
     `;
   }
 
-  function selectWorkflow(sopIndex, workflowIndex, button) {
-    const sop = SOPS[sopIndex];
+  function selectWorkflow(branchIndex, sopIndex, workflowIndex, button) {
+    const branch = BRANCHES[branchIndex];
+    const sop = branch.groups[sopIndex];
     const workflow = sop.workflows[workflowIndex];
     document.querySelectorAll(".workflow-btn").forEach(item => item.classList.remove("is-active"));
     button.classList.add("is-active");
-    button.closest("details").open = true;
-    renderDetail(sop, workflow);
+    button.closest("details.sop").open = true;
+    button.closest("details.branch").open = true;
+    renderDetail(branch, sop, workflow);
     if (window.innerWidth < 941) {
       document.getElementById("detail").scrollIntoView({ behavior: "smooth", block: "start" });
     }
   }
 
   document.getElementById("expandAll").addEventListener("click", () => {
-    document.querySelectorAll("details.sop").forEach(item => { item.open = true; });
+    document.querySelectorAll("details.branch, details.sop").forEach(item => { item.open = true; });
   });
 
   document.getElementById("collapseAll").addEventListener("click", () => {
-    document.querySelectorAll("details.sop").forEach(item => { item.open = false; });
+    document.querySelectorAll("details.branch, details.sop").forEach(item => { item.open = false; });
     const active = document.querySelector(".workflow-btn.is-active");
-    if (active) active.closest("details").open = true;
+    if (active) {
+      active.closest("details.sop").open = true;
+      active.closest("details.branch").open = true;
+    }
   });
 
   buildTree();
-  renderDetail(SOPS[0], SOPS[0].workflows[0]);
+  renderDetail(BRANCHES[0], BRANCHES[0].groups[0], BRANCHES[0].groups[0].workflows[0]);
 </script>
 </body>
 </html>
