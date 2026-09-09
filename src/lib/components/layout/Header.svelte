@@ -93,9 +93,11 @@
 	<div class="shell">
 		<div class="brand-group">
 			<a href="/" class="brand" aria-label="Dodonai home"><BrandLogo /></a>
-			<a class="greek" href="/#origin" aria-label="Dodona: where the name comes from"
-				><span aria-hidden="true">:</span><span lang="el">Δωδώνη</span></a
-			>
+			{#if $page.url.pathname === '/'}
+				<a class="greek" href="#origin" aria-label="Dodona: where the name comes from"
+					><span aria-hidden="true">:</span><span lang="el">Δωδώνη</span></a
+				>
+			{/if}
 		</div>
 		<button
 			class="menu-toggle"
