@@ -61,9 +61,21 @@
 		if (header && !header.contains(event.target)) closeMenus();
 	}}
 />
+<svelte:head>
+	<link
+		rel="stylesheet"
+		href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&amp;text=%CE%94%CF%89%CE%B4%CF%8E%CE%BD%CE%B7&amp;display=swap"
+	/>
+</svelte:head>
+
 <header bind:this={header} class="site-header">
 	<div class="shell">
-		<a href="/" class="brand" aria-label="Dodonai home"><BrandLogo /></a>
+		<div class="brand-group">
+			<a href="/" class="brand" aria-label="Dodonai home"><BrandLogo /></a>
+			<a class="greek" href="/#origin" aria-label="Dodona: where the name comes from"
+				><span aria-hidden="true">:</span><span lang="el">Δωδώνη</span></a
+			>
+		</div>
 		<button
 			class="menu-toggle"
 			aria-label={mobileOpen ? 'Close menu' : 'Open menu'}
@@ -127,6 +139,45 @@
 	}
 	.brand {
 		flex-shrink: 0;
+	}
+	.brand-group {
+		display: flex;
+		align-items: center;
+		flex-shrink: 0;
+		gap: 4px;
+	}
+	.greek {
+		display: inline-flex;
+		align-items: baseline;
+		gap: 6px;
+		font-family: 'Noto Sans', system-ui, sans-serif;
+		font-size: 16px;
+		font-weight: 800;
+		line-height: 1.5;
+		color: #a5a9c8;
+		border-bottom: 1px dotted #cfd3e8;
+	}
+	.greek > span:first-child {
+		color: #cfd3e8;
+		font-weight: 400;
+	}
+	.greek:hover {
+		color: var(--midnight-blue);
+		border-bottom-color: var(--midnight-blue);
+	}
+	@media (max-width: 380px) {
+		.brand-group {
+			flex-direction: column;
+			align-items: flex-start;
+			gap: 0;
+		}
+		.greek {
+			margin-left: 39px;
+			font-size: 13px;
+		}
+		.greek > span:first-child {
+			display: none;
+		}
 	}
 	nav {
 		display: flex;
