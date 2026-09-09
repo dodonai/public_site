@@ -38,6 +38,32 @@
 		{ title: 'Industries', links: industries },
 		{ title: 'Compare software', links: compare }
 	];
+	const popularGuides = [
+		{
+			name: 'Writing winning deposition summaries',
+			href: '/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/'
+		},
+		{
+			name: '6 ways deposition summaries help litigation',
+			href: '/blog/6-ways-deposition-summaries-provide-value-in-litigation/'
+		},
+		{
+			name: 'How to draft a page-line deposition summary',
+			href: '/blog/how-to-draft-a-page-line-deposition-summary/'
+		},
+		{
+			name: 'How to draft an issue-based deposition summary',
+			href: '/blog/how-to-draft-a-issue-based-deposition-summary/'
+		},
+		{
+			name: 'Understanding depositions',
+			href: '/blog/understanding-depositions-a-comprehensive-guide/'
+		},
+		{
+			name: 'Crafting effective deposition summaries',
+			href: '/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies/'
+		}
+	];
 </script>
 
 <footer class="site-footer">
@@ -70,6 +96,12 @@
 				</details>
 			{/each}
 		</div>
+		<details class="popular-guides">
+			<summary>Popular guides</summary>
+			<nav aria-label="Popular guides">
+				{#each popularGuides as link}<a href={link.href}>{link.name}</a>{/each}
+			</nav>
+		</details>
 		<div class="legal">
 			<span>© {new Date().getFullYear()} Dodonai. All rights reserved.</span>
 			<div>
@@ -143,6 +175,21 @@
 		border-top: 1px solid var(--site-line);
 		padding-top: 20px;
 		font-size: 12px;
+	}
+	.popular-guides {
+		border-top: 1px solid var(--site-line);
+		padding: 20px 0;
+	}
+	.popular-guides nav {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 0 24px;
+		margin-top: 12px;
+	}
+	@media (max-width: 800px) {
+		.popular-guides nav {
+			grid-template-columns: 1fr;
+		}
 	}
 	.legal div {
 		display: flex;

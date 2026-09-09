@@ -8,9 +8,8 @@
 <svelte:head>
 	<link
 		rel="stylesheet"
-		href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Source+Code+Pro:wght@400;500&family=Noto+Sans:wght@800&display=swap"
+		href="https://fonts.googleapis.com/css2?family=Caveat:wght@700&family=Source+Code+Pro:wght@400;500&display=swap"
 	/>
-	{@html `<style>${content.css}</style>`}
 </svelte:head>
 
 <div bind:this={root} id={content.id} class:home={content.home} class="approved-page">

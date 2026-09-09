@@ -1,4 +1,5 @@
 <script>
+	import { organization } from '$lib/data/organization.js';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import HeroSection from '$lib/components/hero/HeroSection.svelte';
 	import TestimonialSection from '$lib/components/testimonials/TestimonialSection.svelte';
@@ -37,35 +38,7 @@
 				url: 'https://www.dodon.ai'
 			}
 		},
-		{
-			'@context': 'https://schema.org',
-			'@type': 'Organization',
-			name: 'Dodonai, Inc.',
-			url: 'https://www.dodon.ai',
-			logo: 'https://www.dodon.ai/images/brand/logo-main.webp',
-			description:
-				'AI-powered document processing platform built for legal professionals. Summarize depositions, medical records, and legal documents in minutes.',
-			sameAs: [
-				'https://www.linkedin.com/company/dodon-ai',
-				'https://twitter.com/Dodon_ai',
-				'https://www.youtube.com/@dodon-ai'
-			],
-			areaServed: 'US',
-			knowsAbout: [
-				'Deposition Summaries',
-				'Medical Record Summaries',
-				'Medical Chronologies',
-				'Legal Document Processing',
-				'AI OCR',
-				'E-Discovery',
-				'Legal AI Tools'
-			],
-			contactPoint: {
-				'@type': 'ContactPoint',
-				email: 'hello@dodon.ai',
-				contactType: 'customer support'
-			}
-		},
+		organization,
 		{
 			'@context': 'https://schema.org',
 			'@type': 'FAQPage',

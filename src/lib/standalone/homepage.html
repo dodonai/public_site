@@ -1014,6 +1014,11 @@ body{font-size:17px}
 /* v30: drop the decorative quote mark; make Be unique pop */
 .whyquote blockquote::before{content:none}
 .handwrite{color:#7C3AED}
+#app .product-link{color:var(--indigo);text-decoration:underline;text-decoration-color:var(--line-2);text-underline-offset:4px}
+#app .product-link:hover{color:var(--blue);text-decoration-color:var(--blue)}
+#app .product-pill{display:inline-block;transition:background .18s,color .18s}
+#app .product-pill:hover{background:var(--indigo);color:#fff}
+#app .product-link:focus-visible,#app .product-pill:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
 </style>
 </head>
 <body class="home">
@@ -1658,13 +1663,13 @@ body{font-size:17px}
     <div>
       <span class="eyebrow">Need document analysis now?</span>
       <h2 class="disp">Try the <span class="grad">Dodonai App.</span></h2>
-      <p class="lede">Upload a deposition or medical record today. Get a cited summary, chronology, OCR, or discovery workspace without waiting for a custom build.</p>
+      <p class="lede">Turn medical records into <a href="/ai-medical-record-summaries-chronologies/" class="product-link">AI medical record summaries and chronologies</a>, or get <a href="/deposition-summary-software/" class="product-link">cited deposition summaries</a>. Start analyzing documents today, without waiting for a custom build.</p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-lg" href="https://app.dodon.ai/signup">Start a free trial</a>
         <a class="btn btn-ghost btn-lg" href="/app/">Explore the app &rarr;</a>
       </div>
       <div class="pills">
-        <span class="pill">Deposition summaries</span><span class="pill">Medical chronologies</span><span class="pill">AI OCR</span><span class="pill">E-discovery</span>
+        <a class="pill product-pill" href="/ai-medical-record-summaries-chronologies/">Medical summaries &amp; chronologies &rarr;</a><a class="pill product-pill" href="/deposition-summary-software/">Deposition summaries &rarr;</a><a class="pill product-pill" href="/ai-deposition-transcript-software/">Transcript management &rarr;</a><a class="pill product-pill" href="/ai-pdf-ocr/">AI OCR &rarr;</a><a class="pill product-pill" href="/electronic-discovery-software/">E-discovery &rarr;</a>
       </div>
     </div>
     <div class="appwin" aria-label="Illustration of the Dodonai App">
