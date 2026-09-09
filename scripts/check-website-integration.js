@@ -8,6 +8,13 @@ import * as navigation from '../src/lib/data/navigation.js';
 for (const route of ['/', '/app/', '/ai-managed-services/how-it-works/']) {
 	const html = readFileSync(`build${route}index.html`, 'utf8');
 	const $ = load(html);
+	assert.equal(new URL($('link[rel="icon"][type="image/svg+xml"]').attr('href'), 'https://www.dodon.ai' + route).pathname, '/favicon.svg');
+	assert.equal(new URL($('link[rel="apple-touch-icon"]').attr('href'), 'https://www.dodon.ai' + route).pathname, '/apple-touch-icon.png');
+	assert.equal($('header a.greek').length, route === '/' ? 1 : 0, route + ' homepage-only origin link');
+	if (route === '/') {
+		assert.equal($('header a.greek').attr('href'), '#origin');
+		assert.equal($('#origin').length, 1);
+	}
 	assert.equal($('main').length, 1, route + ' main landmark');
 	assert.equal($('h1').length, 1, route + ' primary heading');
 	assert.equal($('link[rel="canonical"]').length, 1);
