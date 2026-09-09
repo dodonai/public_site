@@ -2,7 +2,15 @@
 	import BrandLogo from './BrandLogo.svelte';
 	import { page } from '$app/stores';
 	import { afterNavigate } from '$app/navigation';
-	import { aiServicesOverview } from '$lib/data/navigation.js';
+	import {
+		aiServicesOverview,
+		aiServicesPracticeAreas,
+		aiServicesFunctions,
+		practiceAreas,
+		useCases,
+		industries,
+		compare
+	} from '$lib/data/navigation.js';
 	let mobileOpen = $state(false);
 	let header;
 	const servicesPage = $derived(
@@ -11,7 +19,11 @@
 	const groups = [
 		{
 			name: 'AI Services',
-			links: aiServicesOverview.filter((link) => !link.href.includes('/how-it-works'))
+			columns: [
+				{ title: 'Overview', links: aiServicesOverview },
+				{ title: 'By practice area', links: aiServicesPracticeAreas },
+				{ title: 'By function', links: aiServicesFunctions }
+			]
 		},
 		{
 			name: 'Dodonai App',
@@ -25,6 +37,15 @@
 				{ name: 'AI OCR', href: '/ai-pdf-ocr/' },
 				{ name: 'App pricing', href: '/pricing/' }
 			]
+		},
+		{
+			name: 'Solutions',
+			columns: [
+				{ title: 'Practice areas', links: practiceAreas },
+				{ title: 'Use cases', links: useCases },
+				{ title: 'Industries', links: industries }
+			],
+			comparisons: compare
 		},
 		{
 			name: 'Resources',
@@ -95,15 +116,47 @@
 					: undefined}>How it works</a
 			>
 			{#each groups as group}
-				<details class="nav-group" name="site-nav">
+				<details class="nav-group" class:mega={!!group.columns} name="site-nav">
 					<summary>{group.name}<span aria-hidden="true">⌄</span></summary>
 					<div class="dropdown">
-						{#each group.links as link}
-							<a
-								href={link.href}
-								aria-current={$page.url.pathname === link.href ? 'page' : undefined}>{link.name}</a
-							>
-						{/each}
+						{#if group.columns}
+							<div class="menu-columns">
+								{#each group.columns as column}
+									<div>
+										<h2>{column.title}</h2>
+										{#each column.links as link}
+											<a
+												href={link.href}
+												aria-current={$page.url.pathname === link.href ? 'page' : undefined}
+												>{link.name}</a
+											>
+										{/each}
+									</div>
+								{/each}
+							</div>
+							{#if group.comparisons}
+								<div class="comparisons">
+									<h2>Compare</h2>
+									<div class="menu-columns">
+										{#each group.comparisons as link}
+											<a
+												href={link.href}
+												aria-current={$page.url.pathname === link.href ? 'page' : undefined}
+												>{link.name}</a
+											>
+										{/each}
+									</div>
+								</div>
+							{/if}
+						{:else}
+							{#each group.links as link}
+								<a
+									href={link.href}
+									aria-current={$page.url.pathname === link.href ? 'page' : undefined}
+									>{link.name}</a
+								>
+							{/each}
+						{/if}
 					</div>
 				</details>
 			{/each}
@@ -129,13 +182,14 @@
 		backdrop-filter: blur(12px);
 	}
 	.shell {
+		position: relative;
 		max-width: 1160px;
 		padding: 0 28px;
 		margin: auto;
 		min-height: 72px;
 		display: flex;
 		align-items: center;
-		gap: 32px;
+		gap: 24px;
 	}
 	.brand {
 		flex-shrink: 0;
@@ -183,7 +237,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
-		gap: 24px;
+		gap: 18px;
 		flex: 1;
 		font-size: 14px;
 		line-height: 1.5;
@@ -232,6 +286,38 @@
 	.dropdown a:hover {
 		background: var(--ghost-white);
 	}
+	.nav-group.mega {
+		position: static;
+	}
+	.mega .dropdown {
+		left: 28px;
+		width: calc(100% - 56px);
+		padding: 24px;
+		max-height: calc(100dvh - 140px);
+		overflow-y: auto;
+	}
+	.menu-columns {
+		display: grid;
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+		gap: 24px;
+	}
+	.dropdown h2 {
+		margin: 0 12px 12px;
+		font-size: 11px;
+		line-height: 1.5;
+		font-weight: 700;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		color: var(--medium-slate-blue);
+	}
+	.comparisons {
+		border-top: 1px solid var(--site-line);
+		margin-top: 20px;
+		padding-top: 20px;
+	}
+	.comparisons .menu-columns {
+		row-gap: 0;
+	}
 	.actions {
 		display: flex;
 		align-items: center;
@@ -250,7 +336,7 @@
 		outline-offset: 4px;
 		border-radius: 4px;
 	}
-	@media (max-width: 1050px) {
+	@media (max-width: 1150px) {
 		.shell {
 			min-height: 68px;
 			justify-content: space-between;
@@ -289,6 +375,16 @@
 			box-shadow: none;
 			border: 0;
 			padding: 0 0 12px 8px;
+		}
+		.mega .dropdown {
+			width: auto;
+			padding: 8px 0 16px 8px;
+			max-height: none;
+			overflow: visible;
+		}
+		.menu-columns {
+			grid-template-columns: 1fr;
+			gap: 20px;
 		}
 		.actions {
 			border-top: 1px solid var(--site-line);

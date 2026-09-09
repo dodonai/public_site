@@ -27,6 +27,8 @@ Both approved pages now render inside the normal Svelte layout. Their reviewed H
 
 ## Follow-on design work
 
+The shared header retains the full AI Services mega menu (overview, seven practice areas, six functions) and Solutions mega menu (practice areas, use cases, industries, comparisons). All 43 destination links are rendered as ordinary HTML anchors, including when their disclosure is closed. These restore the previous header's internal-link coverage while using the new shell styling; on smaller screens the columns stack inside the scrollable menu.
+
 The older product/service pages still use their original larger spacing, purple decorations and softer secondary text. That is now a difference between content templates, not two unrelated navigation systems. A later pass can bring those templates toward the new spacing and contrast without rewriting their content or URLs.
 
 The How it works hero currently promises “60 minutes” while nearby copy offers a 30-minute introductory call. Those are in the supplied design; clarify whether they describe two distinct stages before changing approved copy.
