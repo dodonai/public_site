@@ -89,12 +89,8 @@ export function loadAnalytics() {
 	ahrefsScript.dataset.key = 'iBa8GWwcAjnGrGexuszH7w';
 	document.body.appendChild(ahrefsScript);
 
-	// HubSpot
-	const hsScript = document.createElement('script');
-	hsScript.type = 'text/javascript';
-	hsScript.id = 'hs-script-loader';
-	hsScript.async = true;
-	hsScript.defer = true;
-	hsScript.src = '//js-na1.hs-scripts.com/39849981.js';
-	document.body.appendChild(hsScript);
+	// HubSpot chat/tracking (portal 39849981) — REMOVED: replaced by the in-house chat widget
+	// (static/chat-widget.js, loaded in app.html). This drops the HubSpot script entirely (chat +
+	// its tracking). If HubSpot analytics is still wanted for prod, disable only the chat in the
+	// HubSpot portal instead of re-adding this loader.
 }
