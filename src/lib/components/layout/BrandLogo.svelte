@@ -18,18 +18,18 @@
 		height: 30px;
 		flex-shrink: 0;
 		border-radius: 9px;
-		background: linear-gradient(145deg, var(--royal-blue), var(--midnight-blue));
-		box-shadow: 0 6px 14px -9px #282876a6;
+		background: linear-gradient(145deg, #9333ea, #4c1d95);
+		box-shadow: 0 6px 14px -9px #4c1d95a6;
 	}
 	.word {
-		color: var(--midnight-blue);
+		color: #4c1d95;
 		font-size: 20px;
 		font-weight: 800;
 		letter-spacing: -0.03em;
 		line-height: 1;
 	}
 	b {
-		color: var(--royal-blue);
+		color: #9333ea;
 		font-weight: 800;
 	}
 </style>
