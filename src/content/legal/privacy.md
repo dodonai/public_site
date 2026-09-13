@@ -51,7 +51,7 @@ Personal information you disclose to us
 
 In Short: We collect personal information that you provide to us.
 
-We collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, or otherwise when you contact us.
+We collect personal information that you voluntarily provide to us when you register on the Services, express an interest in obtaining information about us or our products and Services, when you participate in activities on the Services, contact us through the live chat or on-site messaging feature on our website, or otherwise when you contact us.
 
 Personal Information Provided by You. The personal information that we collect depends on the context of your interactions with us and the Services, the choices you make, and the products and features you use. The personal information we collect may include the following:
 
@@ -76,6 +76,8 @@ Personal Information Provided by You. The personal information that we collect d
 • debit/credit
 
 • card numbers
+
+• message content and inquiries — the content of the messages, questions, and information you submit to us, including through our website's live chat or on-site messaging feature
 
 Payment Data. We may collect data necessary to process your payment if you make purchases, such as your payment instrument number, and the security code associated with your payment instrument. All payment data is stored by Stripe. You may find their privacy notice link(s) here: https://stripe.com/privacy.
 
@@ -109,6 +111,10 @@ To evaluate and improve our Services, products, marketing, and your experience. 
 
 To determine the effectiveness of our marketing and promotional campaigns. We may process your information to better understand how to provide marketing and promotional campaigns that are most relevant to you.
 
+To respond to your inquiries and provide support. We process the contact details and message content you provide — including through the live chat or on-site messaging feature on our website — to respond to your questions, follow up on your inquiry, and communicate with you.
+
+To send you marketing and promotional communications. We may use the contact information you provide — including an email address you submit through live chat or on-site messaging — to send you marketing or promotional communications about our products and Services, where permitted by applicable law. You can opt out of our marketing communications at any time (see "WHAT ARE YOUR PRIVACY RIGHTS?" below).
+
 3\. WHEN AND WITH WHOM DO WE SHARE YOUR PERSONAL INFORMATION?
 
 In Short: We may share information in specific situations described in this section and/or with the following third parties.
@@ -132,6 +138,8 @@ share your personal information, and how you can set your privacy preferences on
 In Short: We keep your information for as long as necessary to fulfill the purposes outlined in this privacy notice unless otherwise required by law.
 
 We will only keep your personal information for as long as it is necessary for the purposes set out in this privacy notice, unless a longer retention period is required or permitted by law (such as tax, accounting, or other legal requirements). No purpose in this notice will require us keeping your personal information for longer than three (3) months past the termination of the user's account.
+
+Where we collect personal information from prospective customers or website visitors who do not have an account with us — for example, the contact details and message content you submit through the live chat or on-site messaging feature on our website — we will retain that information for no longer than one (1) year from your most recent interaction with us, unless a longer retention period is required or permitted by law.
 
 When we have no ongoing legitimate business need to process your personal information, we will either delete or anonymize such information, or, if this is not possible (for example, because your personal information has been stored in backup archives), then we will securely store your personal information and isolate it from any further processing until deletion is possible.
 
