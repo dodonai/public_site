@@ -739,7 +739,7 @@ a:focus-visible,button:focus-visible,summary:focus-visible{outline:3px solid #79
 .flow-rail{height:2px;background:var(--line-2);position:relative;overflow:visible}.flow-rail::after{content:"";position:absolute;right:-1px;top:-3px;border-left:5px solid var(--line-2);border-top:3px solid transparent;border-bottom:3px solid transparent}.flow-rail i{position:absolute;top:-3px;width:8px;height:8px;border-radius:50%;background:var(--blue);box-shadow:0 0 9px rgba(33,111,237,.65);animation:flowParticle 2.3s linear infinite}.flow-rail i+ i{animation-delay:1.15s}
 @keyframes flowParticle{from{left:0;opacity:0}15%{opacity:1}85%{opacity:1}to{left:calc(100% - 7px);opacity:0}}
 .flow-corebox{text-align:center;padding:13px 8px;border:1px solid rgba(33,111,237,.26);border-radius:14px;background:rgba(244,245,253,.92);box-shadow:0 15px 30px -25px rgba(33,111,237,.7)}.flow-corebox .flow-label{color:var(--blue)}
-.flow-coremark{width:88px;height:88px;margin:0 auto 12px;border-radius:24px;background:linear-gradient(145deg,var(--blue),var(--indigo));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;animation:corePulse 3s ease-in-out infinite}.flow-coremark b{font-size:25px;line-height:1}.flow-coremark span{font-family:var(--mono);font-size:6.5px;letter-spacing:.05em;text-transform:uppercase;color:#DCE7FF;margin-top:5px}
+.flow-coremark{width:88px;height:88px;margin:0 auto 12px;border-radius:24px;background:linear-gradient(145deg,#9333EA,#4C1D95);display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;animation:corePulse 3s ease-in-out infinite}.flow-coremark b{font-size:25px;line-height:1}.flow-coremark span{font-family:var(--mono);font-size:6.5px;letter-spacing:.05em;text-transform:uppercase;color:#DCE7FF;margin-top:5px}
 @keyframes corePulse{50%{box-shadow:0 0 0 10px rgba(33,111,237,.08)}}
 .flow-rule{font-family:var(--mono);font-size:7px;color:var(--indigo);padding:4px 3px;border-top:1px solid var(--line)}
 .flow-foot{padding:11px 15px;border-top:1px solid var(--line);color:var(--muted);background:var(--wash)}.flow-foot b{font-weight:500;color:var(--teal)}
@@ -1067,13 +1067,12 @@ body{font-size:17px}
           <span class="flow-label">Your firm</span>
           <div class="flow-row r1"><b>Matter files</b><small>SharePoint</small></div>
           <div class="flow-row r2"><b>New email</b><small>Outlook</small></div>
-          <div class="flow-row r3"><b>Matter data</b><small>Case system</small></div>
-          <div class="flow-row r4"><b>Precedent</b><small>Approved work</small></div>
+          <div class="flow-row r3"><b>Precedent</b></div>
         </div>
         <div class="flow-rail rail-l"><i></i><i></i></div>
         <div class="flow-corebox">
           <span class="flow-label">Custom layer</span>
-          <div class="flow-coremark"><svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#fff" stroke-linecap="round" fill="none"><line x1="16" y1="16" x2="48" y2="16" stroke-width="5"/><line x1="23" y1="24" x2="23" y2="40" stroke-width="7"/><line x1="32" y1="24" x2="32" y2="50" stroke-width="7"/><line x1="41" y1="24" x2="41" y2="35" stroke-width="7"/></g><circle cx="32" cy="57" r="4.5" fill="#A9B8FF"/></svg><span>Operating layer</span></div>
+          <div class="flow-coremark"><svg viewBox="0 0 64 64" aria-hidden="true"><g stroke="#fff" stroke-linecap="round" fill="none"><line x1="16" y1="16" x2="48" y2="16" stroke-width="5"/><line x1="23" y1="24" x2="23" y2="40" stroke-width="7"/><line x1="32" y1="24" x2="32" y2="50" stroke-width="7"/><line x1="41" y1="24" x2="41" y2="35" stroke-width="7"/></g><circle cx="32" cy="57" r="4.5" fill="#C4B5FD"/></svg><span>Operating layer</span></div>
           <div class="flow-rule">Your precedent</div><div class="flow-rule">Firm rules</div><div class="flow-rule">Review gates</div>
         </div>
         <div class="flow-rail rail-r"><i></i><i></i></div>
@@ -1094,7 +1093,7 @@ body{font-size:17px}
   <div class="wrap case-layout">
     <div class="case-copy">
       <span class="eyebrow">In production</span>
-      <h2 id="case-title" class="disp">Proven first in legal. Built for work where mistakes are expensive.</h2>
+      <h2 id="case-title" class="disp">Proven in legal work where precision matters.</h2>
       <p>For a benefits practice, we connected the systems the team already used and built a controlled path from incoming claim files to cited work packages and attorney review.</p>
       <div class="case-proof">
         <div class="pstat"><b>250+</b><span>Firms running Dodonai software</span></div>
@@ -1726,7 +1725,8 @@ body{font-size:17px}
     <div class="faq">
       <details open>
         <summary>What do you actually need from our people?</summary>
-        <p>Time from the people who do the work, and not much of it. The Blueprint runs on interviews; after that the build is on us. We also need access to the work your firm has already approved, because a system that has never seen your standards cannot meet them.</p>
+        <p>We need two things from you: a little time with the people who do the work, and access to the work product your firm already trusts.</p>
+        <p>Through short interviews, we design the automation and turn that design into your Blueprint. You choose what to build from it. From there, the build is on us. Your approved forms, exemplars and finished work show us what good looks like, so the system learns your standards instead of guessing at them.</p>
       </details>
       <details>
         <summary>How long until something is actually running?</summary>
@@ -1893,12 +1893,11 @@ if(pen&&penBox&&!reduce&&'IntersectionObserver' in window){
     }],
     [700,()=>inputs[0].classList.add('set')],
     [1300,()=>inputs[1].classList.add('set')],
-    [1900,()=>inputs[2].classList.add('set')],
-    [2500,()=>{inputs[3].classList.add('set');say('1,000+ page claim files indexed and mapped')}],
-    [4100,()=>{phase(2);say('Connecting SharePoint, Outlook, and the case system');ping(inputs[0]);fire(railL)}],
-    [5000,()=>{rules[0].classList.add('lit');ping(inputs[1]);fire(railL)}],
-    [5900,()=>{rules[1].classList.add('lit');ping(inputs[2]);fire(railL)}],
-    [6800,()=>{rules[2].classList.add('lit');ping(inputs[3]);fire(railL);say('Every system feeding one operating layer')}],
+    [2500,()=>{inputs[2].classList.add('set');say('1,000+ page claim files indexed and mapped')}],
+    [4100,()=>{phase(2);say('Connecting SharePoint, Outlook, and your case data');ping(inputs[0]);fire(railL)}],
+    [5200,()=>{rules[0].classList.add('lit');ping(inputs[1]);fire(railL)}],
+    [6400,()=>{rules[1].classList.add('lit');ping(inputs[2]);fire(railL)}],
+    [7200,()=>{rules[2].classList.add('lit');fire(railL);say('Every system feeding one operating layer')}],
     [8600,()=>{phase(3);say('Drafting appeal from your own precedent');fire(railR)}],
     [9500,()=>outputs[0].classList.add('born')],
     [10400,()=>fire(railR)],
