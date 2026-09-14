@@ -138,7 +138,13 @@
 							</div>
 							{#if group.comparisons}
 								<div class="comparisons">
-									<h2>Compare</h2>
+									<h2>
+										<a
+											href="/compare/"
+											aria-current={$page.url.pathname === '/compare/' ? 'page' : undefined}
+											>Compare</a
+										>
+									</h2>
 									<div class="menu-columns">
 										{#each group.comparisons as link}
 											<a
@@ -316,6 +322,14 @@
 		border-top: 1px solid var(--site-line);
 		margin-top: 20px;
 		padding-top: 20px;
+	}
+	.comparisons h2 a {
+		color: inherit;
+		text-decoration: none;
+		transition: color 0.15s ease;
+	}
+	.comparisons h2 a:hover {
+		color: var(--royal-blue);
 	}
 	.comparisons .menu-columns {
 		row-gap: 0;

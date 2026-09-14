@@ -12,6 +12,7 @@ const staticPages = [
 	{ path: '/ai-pdf-ocr', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/dodonai-extract-and-draft-agents', lastmod: '2026-02-18', priority: '0.9' },
 	{ path: '/electronic-discovery-software', lastmod: '2026-02-18', priority: '0.9' },
+	{ path: '/compare', lastmod: '2026-09-14', priority: '0.8' },
 	{ path: '/ai-managed-services', lastmod: '2026-06-04', priority: '0.9' },
 	{ path: '/ai-managed-services/how-it-works', lastmod: '2026-09-08', priority: '0.8' },
 	{ path: '/ai-managed-services/results', lastmod: '2026-06-04', priority: '0.8' },
