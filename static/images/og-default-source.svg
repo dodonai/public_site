@@ -1,0 +1,115 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="630" viewBox="0 0 1200 630">
+  <defs>
+    <style>
+      @font-face {
+        font-family: 'Plus Jakarta Display';
+        src: url('../fonts/PlusJakartaDisplay-Regular.woff2') format('woff2');
+        font-weight: 400;
+      }
+      @font-face {
+        font-family: 'Plus Jakarta Display';
+        src: url('../fonts/PlusJakartaDisplay-Bold.woff2') format('woff2');
+        font-weight: 700;
+      }
+      text { font-family: 'Plus Jakarta Display', Arial, sans-serif; }
+    </style>
+    <linearGradient id="brand" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#9333EA"/>
+      <stop offset="1" stop-color="#4C1D95"/>
+    </linearGradient>
+    <linearGradient id="headline" x1="70" y1="0" x2="540" y2="0">
+      <stop stop-color="#2B287D"/>
+      <stop offset="1" stop-color="#3478E5"/>
+    </linearGradient>
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="160%">
+      <feDropShadow dx="0" dy="12" stdDeviation="18" flood-color="#25246E" flood-opacity="0.12"/>
+    </filter>
+  </defs>
+
+  <image href="og-background.webp" x="0" y="0" width="1200" height="630" preserveAspectRatio="xMidYMid slice"/>
+  <rect x="0" y="0" width="1200" height="630" fill="#FAFAF7" opacity="0.20"/>
+
+  <g transform="translate(70 56)">
+    <rect width="48" height="48" rx="15" fill="url(#brand)"/>
+    <g transform="translate(8 8) scale(.5)" fill="none" stroke="#fff" stroke-linecap="round">
+      <path d="M16 16h32" stroke-width="5"/>
+      <path d="M23 24v16M32 24v26M41 24v11" stroke-width="7"/>
+      <circle cx="32" cy="57" r="4.5" fill="#C4B5FD" stroke="none"/>
+    </g>
+    <text x="62" y="34" fill="#2B287D" font-size="28" font-weight="700">Dodonai</text>
+  </g>
+
+  <text x="70" y="174" fill="#3478E5" font-size="15" font-weight="700" letter-spacing="4">AI SYSTEMS BUILT AND RUN FOR YOUR FIRM</text>
+  <text x="70" y="258" fill="#25246E" font-size="56" font-weight="700" letter-spacing="-2.2">Putting AI to work</text>
+  <text x="70" y="324" fill="url(#headline)" font-size="56" font-weight="700" letter-spacing="-2.2">is our work.</text>
+
+  <text x="70" y="390" fill="#5B5A72" font-size="22">We organize, connect, automate, and run</text>
+  <text x="70" y="422" fill="#5B5A72" font-size="22">firm-owned AI systems around your work.</text>
+
+  <g transform="translate(70 488)">
+    <rect width="204" height="48" rx="24" fill="#F4F3FB" stroke="#D9D6EA"/>
+    <circle cx="24" cy="24" r="6" fill="#58B7A4"/>
+    <text x="40" y="31" fill="#25246E" font-size="16" font-weight="700">You own the code</text>
+    <rect x="218" width="196" height="48" rx="24" fill="#F4F3FB" stroke="#D9D6EA"/>
+    <circle cx="242" cy="24" r="6" fill="#58B7A4"/>
+    <text x="258" y="31" fill="#25246E" font-size="16" font-weight="700">Human reviewed</text>
+  </g>
+
+  <g transform="translate(680 88)" filter="url(#shadow)">
+    <rect width="450" height="456" rx="26" fill="#FFFFFF" fill-opacity="0.91" stroke="#DADDEA" stroke-width="1.5"/>
+    <line x1="0" y1="62" x2="450" y2="62" stroke="#E4E5EF"/>
+    <circle cx="24" cy="31" r="5" fill="#58B7A4"/>
+    <text x="38" y="36" fill="#6B6A80" font-size="13" font-weight="700" letter-spacing="2.4">LIVE SYSTEM</text>
+    <text x="244" y="36" fill="#58B7A4" font-size="11" font-weight="700" letter-spacing="1.7">ORGANIZE</text>
+    <text x="316" y="36" fill="#8A89A1" font-size="11">→</text>
+    <text x="338" y="36" fill="#3478E5" font-size="11" font-weight="700" letter-spacing="1.7">AUTOMATE</text>
+
+    <text x="24" y="104" fill="#7C7B91" font-size="11" font-weight="700" letter-spacing="2">YOUR FIRM</text>
+    <g fill="#FFFFFF" stroke="#DADDEA">
+      <rect x="24" y="120" width="130" height="54" rx="10"/>
+      <rect x="24" y="186" width="130" height="54" rx="10"/>
+      <rect x="24" y="252" width="130" height="54" rx="10"/>
+    </g>
+    <g fill="#25246E" font-size="15" font-weight="700">
+      <text x="40" y="153">Matter files</text>
+      <text x="40" y="219">Email</text>
+      <text x="40" y="285">Precedent</text>
+    </g>
+
+    <path d="M154 147H188M154 213H188M154 279H188" stroke="#B7C9ED" stroke-width="2"/>
+    <path d="M188 147V279" stroke="#B7C9ED" stroke-width="2"/>
+    <path d="M188 213H208" stroke="#B7C9ED" stroke-width="2"/>
+
+    <g transform="translate(208 134)">
+      <rect width="114" height="158" rx="22" fill="#F2F0FB" stroke="#CFCBE8"/>
+      <rect x="25" y="18" width="64" height="64" rx="20" fill="url(#brand)"/>
+      <g transform="translate(41 34) scale(.5)" fill="none" stroke="#fff" stroke-linecap="round">
+        <path d="M16 16h32" stroke-width="5"/>
+        <path d="M23 24v16M32 24v26M41 24v11" stroke-width="7"/>
+        <circle cx="32" cy="57" r="4.5" fill="#C4B5FD" stroke="none"/>
+      </g>
+      <text x="57" y="108" fill="#25246E" text-anchor="middle" font-size="12" font-weight="700">AI OPERATING</text>
+      <text x="57" y="126" fill="#25246E" text-anchor="middle" font-size="12" font-weight="700">LAYER</text>
+    </g>
+
+    <path d="M322 213H342" stroke="#B7C9ED" stroke-width="2"/>
+    <text x="342" y="104" fill="#7C7B91" font-size="11" font-weight="700" letter-spacing="2">REVIEW READY</text>
+    <g fill="#FFFFFF" stroke="#DADDEA">
+      <rect x="342" y="120" width="84" height="76" rx="10"/>
+      <rect x="342" y="210" width="84" height="76" rx="10"/>
+    </g>
+    <rect x="342" y="120" width="4" height="76" rx="2" fill="#58B7A4"/>
+    <rect x="342" y="210" width="4" height="76" rx="2" fill="#3478E5"/>
+    <text x="356" y="147" fill="#25246E" font-size="12" font-weight="700">Cited</text>
+    <text x="356" y="164" fill="#25246E" font-size="12" font-weight="700">draft</text>
+    <text x="356" y="237" fill="#25246E" font-size="12" font-weight="700">Matter</text>
+    <text x="356" y="254" fill="#25246E" font-size="12" font-weight="700">update</text>
+
+    <rect x="24" y="348" width="402" height="72" rx="14" fill="#F5F7FD" stroke="#E1E5F1"/>
+    <circle cx="47" cy="373" r="5" fill="#58B7A4"/>
+    <text x="61" y="378" fill="#25246E" font-size="14" font-weight="700">Nothing sent without approval</text>
+    <text x="42" y="402" fill="#74738A" font-size="13">Your systems · Your rules · Your review gates</text>
+  </g>
+
+  <text x="70" y="592" fill="#77768A" font-size="15">dodon.ai</text>
+</svg>

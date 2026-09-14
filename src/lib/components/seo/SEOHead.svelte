@@ -8,7 +8,8 @@
 		title,
 		description,
 		url,
-		image = '/images/og-default.webp',
+		image = '/images/og-home-2026.webp',
+		imageAlt = 'Dodonai — Putting AI to work is our work.',
 		type = 'website',
 		jsonLd = null
 	} = $props();
@@ -45,6 +46,9 @@
 	<meta property="og:description" content={description} />
 	<meta property="og:url" content={fullUrl} />
 	<meta property="og:image" content={fullImage} />
+	<meta property="og:image:width" content="1200" />
+	<meta property="og:image:height" content="630" />
+	<meta property="og:image:alt" content={imageAlt} />
 	<meta property="og:type" content={type} />
 	<meta property="og:site_name" content="Dodonai" />
 
@@ -53,6 +57,7 @@
 	<meta name="twitter:title" content={fullTitle} />
 	<meta name="twitter:description" content={description} />
 	<meta name="twitter:image" content={fullImage} />
+	<meta name="twitter:image:alt" content={imageAlt} />
 
 	<!-- JSON-LD Structured Data -->
 	{#if Array.isArray(jsonLd)}
