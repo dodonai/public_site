@@ -1,7 +1,7 @@
 <script>
 	import { env } from '$env/dynamic/public';
 
-	const BASE_URL = 'https://www.dodon.ai';
+	const BASE_URL = env.PUBLIC_SITE_URL || 'https://www.dodon.ai';
 	const noindex = env.PUBLIC_NOINDEX === 'true';
 
 	let {

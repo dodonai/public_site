@@ -29,6 +29,7 @@ jobs:
         run: npm run build
         env:
           PUBLIC_NOINDEX: 'true'
+          PUBLIC_SITE_URL: 'https://landing.dodonai.com'
 
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
