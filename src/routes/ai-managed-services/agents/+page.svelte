@@ -93,7 +93,7 @@
 
 	<ServiceHero
 		headline="Pick the agents your firm needs"
-		subheadline="This is the full catalog, but no firm runs all of it. Most start with the two or three workflows that hurt most every week, then add from here. Each agent is built around your matter mix, your case acceptance criteria, and your team's review habits. Filter by practice area or function to find your starting set."
+		subheadline="This is not a catalog. It is a starting point. Most firms begin with the two or three workflows that create the most friction, then build from there. Each automation is shaped around your matter mix, your standards, and the way your team actually reviews the work. Use these examples for inspiration."
 		ctaText="Book an intro call"
 		ctaUrl="https://calendly.com/nick-dodonai"
 		secondaryCtaText="How It Works"

@@ -129,5 +129,5 @@
 
 <CTASection
 	headline="Want to see what this looks like for your firm?"
-	description="Start with a 45-minute working call. We walk through your stack and your top workflows — no pitch deck."
+	description="Start with a 30-minute call. We walk through your stack and your top workflows — no pitch deck."
 />
