@@ -18,8 +18,25 @@ const NS = (_local && _p.get("ns")) ? "_" + _p.get("ns") : "";
 const K_TOKEN = "chat_token" + NS, K_NAME = "chat_lead_name" + NS, K_EMAIL = "chat_lead_email" + NS;
 const OVERLAP_MS = 3000, ACTIVE_MS = 2500, MAX_MS = 10000;   // MAX_MS = idle-backoff cap (visible, idle mid-convo)
 function simHeaders() { return SIM_REGION ? { "X-Client-Region": SIM_REGION } : {}; }
-let token = localStorage.getItem(K_TOKEN);
+// Storage can be denied by browser privacy settings. Keep this tab usable in memory.
+const memoryStorage = new Map();
+const storage = {
+  getItem(key) {
+    if (memoryStorage.has(key)) return memoryStorage.get(key);
+    try { return localStorage.getItem(key); } catch { return null; }
+  },
+  setItem(key, value) {
+    memoryStorage.set(key, value);
+    try { localStorage.setItem(key, value); } catch {}
+  },
+  removeItem(key) {
+    memoryStorage.set(key, null);
+    try { localStorage.removeItem(key); } catch {}
+  },
+};
+let token = storage.getItem(K_TOKEN);
 let sourceSent = false;
+let showOptin = true, contactSending = false;
 let lastSeen = 0;
 const seen = new Set();
 let interval = ACTIVE_MS, timer = null;
@@ -27,7 +44,7 @@ const HIDDEN_MS = 10000, ACTIVE_WINDOW_MS = 120000;  // backgrounded poll rate; 
 let lastActivity = Date.now();
 let emailAckShown = false, ackShown = false, awaitingReply = false;
 let unread = 0, flashTimer = null, audioCtx = null;
-const baseTitle = document.title;
+let titleBeforeAlert = null, lastAlertTitle = null;
 const ACK_TEXT = "Thanks — your message is with the Dodonai team. Keep this tab open for our reply.";
 const EMAIL_ACK_TEXT = "If we miss you here, we'll follow up by email.";
 const CONSENT_VERSION = "chat-optin-v1";               // stamped with an express marketing opt-in
@@ -59,8 +76,13 @@ function failStatus(retryFn) {                          // REV-C3: real <button>
 }
 function resetSession() {                                // REV-A3: session gone (TTL/purge) → drop it, re-mint on next send
   token = null; lastSeen = 0; seen.clear(); sourceSent = false;
-  localStorage.removeItem(K_TOKEN);
-  localStorage.removeItem(K_NAME); localStorage.removeItem(K_EMAIL);
+  storage.removeItem(K_TOKEN);
+  storage.removeItem(K_NAME); storage.removeItem(K_EMAIL);
+  ["name", "email", "leadstrip", "privacyline"].forEach(id => { $(id).hidden = false; });
+  $("leadchip").hidden = true;
+  $("optin").hidden = !showOptin;
+  emailAckShown = false; ackShown = false; awaitingReply = false;
+  updateContactButton();
 }
 
 // ---- visitor-side reply alert: only when the tab is NOT active (no noise while focused) ----
@@ -81,11 +103,17 @@ function playPing() {
 function notifyAway() {                                 // reply arrived while tab not active
   unread++; playPing();
   if (!flashTimer) { let on = false; flashTimer = setInterval(() => {
-    on = !on; document.title = on ? ("💬 New reply" + (unread > 1 ? " (" + unread + ")" : "")) : baseTitle; }, 1000); }
+    // A route may change the title while an alert is flashing.
+    if (lastAlertTitle === null || document.title !== lastAlertTitle) titleBeforeAlert = document.title;
+    on = !on;
+    lastAlertTitle = on ? ("💬 New reply" + (unread > 1 ? " (" + unread + ")" : "")) : titleBeforeAlert;
+    document.title = lastAlertTitle;
+  }, 1000); }
 }
 function clearAway() {                                   // back in view: stop flashing, reset title
   if (flashTimer) { clearInterval(flashTimer); flashTimer = null; }
-  document.title = baseTitle; unread = 0;
+  if (lastAlertTitle !== null && document.title === lastAlertTitle) document.title = titleBeforeAlert;
+  titleBeforeAlert = null; lastAlertTitle = null; unread = 0;
 }
 
 function sourceContext() {
@@ -110,12 +138,12 @@ function applyLeadState(lead) {
   // Collapse fields PER FIELD: a captured field disappears; a still-empty one stays.
   if (!lead) return;
   const nameEl = $("name"), emailEl = $("email");
-  if (lead.name)  { nameEl.hidden = true;  localStorage.setItem(K_NAME, "1"); }
+  if (lead.name)  { nameEl.hidden = true;  storage.setItem(K_NAME, "1"); }
   // Only a SELF-ENTERED (field) email is treated as confirmed. A body-extracted ('message') email
   // may be a third party's → keep the field visible so they can correct it, and don't ack it (REV-A7/C4).
   const emailConfirmed = lead.email && lead.email_source === "field";
   if (emailConfirmed) {
-    emailEl.hidden = true; localStorage.setItem(K_EMAIL, "1");
+    emailEl.hidden = true; storage.setItem(K_EMAIL, "1");
     const pl = $("privacyline"); if (pl) pl.hidden = true;
     const oi = $("optin"); if (oi) oi.hidden = true;   // consent moment passed with the email
   }
@@ -123,9 +151,10 @@ function applyLeadState(lead) {
   if (chipBits.length) { const chip = $("leadchip"); chip.textContent = "✓ " + chipBits.join(" · "); chip.hidden = false; }
   if (emailConfirmed && !emailAckShown) { emailAckShown = true; sysline(EMAIL_ACK_TEXT); }   // "we'll follow up by email" (once)
   maybeHideStrip();
+  updateContactButton();
 }
 
-async function sendMessage(text, cid) {
+async function sendMessage(text, cid, recovered = false) {
   cid = cid || genId();                            // REV-A1: stable across retries → server dedupes
   lastActivity = Date.now();
   const body = { session_token: token, client_msg_id: cid, message: text, ...currentLead(), ...sourceContext() };
@@ -137,7 +166,7 @@ async function sendMessage(text, cid) {
     });
     if (!r.ok) throw new Error(r.status);
     const j = await r.json();
-    if (!token) { token = j.session_token; localStorage.setItem(K_TOKEN, token); }
+    if (!token) { token = j.session_token; storage.setItem(K_TOKEN, token); }
     if (j.message_id) seen.add(j.message_id);      // dedupe our own message vs the poll echo
     sourceSent = true;
     if (j.relayed === false) {                     // BE-1: reached us but NOT delivered to the team
@@ -150,8 +179,8 @@ async function sendMessage(text, cid) {
     }
     if (j.lead) applyLeadState(j.lead);            // Option C: collapse captured fields (+ email follow-up line)
   } catch (e) {
-    if (String(e.message) === "404") {             // REV-A3: dead/TTL'd session → drop it + re-mint fresh
-      st.remove(); el.remove(); resetSession(); return sendMessage(text, cid);
+    if (String(e.message) === "404" && token && !recovered) {
+      st.remove(); el.remove(); resetSession(); return sendMessage(text, cid, true);
     }
     st.remove();
     const fb = failStatus(() => { fb.remove(); el.remove(); sendMessage(text, cid); });
@@ -224,9 +253,40 @@ function setOpen(open) {
 $("launcher").onclick = () => setOpen(!$("panel").classList.contains("open"));
 $("close").onclick = () => setOpen(false);
 document.addEventListener("keydown", (e) => { if (e.key === "Escape" && $("panel").classList.contains("open")) setOpen(false); });
+function validContactEmail() {
+  const email = $("email");
+  const value = email.value.trim();
+  email.setCustomValidity(value && !/^[A-Za-z0-9._%+\-]+@[A-Za-z0-9.\-]+\.[A-Za-z]{2,}$/.test(value)
+    ? "Enter a valid email address." : "");
+  return email.reportValidity();
+}
+function updateContactButton() {
+  $("send-contact").disabled = contactSending || !["name", "email"].some(id => !$(id).hidden && $(id).value.trim());
+}
+["name", "email"].forEach(id => $(id).addEventListener("input", () => {
+  $("email").setCustomValidity("");
+  updateContactButton();
+}));
+$("contact-form").onsubmit = async (e) => {
+  e.preventDefault();
+  if ($("send-contact").disabled || !validContactEmail()) return;
+  const button = $("send-contact");
+  contactSending = true;
+  unlockAudio();
+  button.disabled = true;
+  button.textContent = "Sending…";
+  try {
+    await sendMessage("Please use these contact details to reply to me.");
+    interval = ACTIVE_MS; loop();
+  } finally {
+    contactSending = false;
+    button.textContent = "Send contact details";
+    updateContactButton();
+  }
+};
 $("composer").onsubmit = async (e) => {
   e.preventDefault();
-  const text = $("msg").value.trim(); if (!text) return;
+  const text = $("msg").value.trim(); if (!text || !validContactEmail()) return;
   unlockAudio();                                       // user gesture -> unlock the reply ping for later
   $("msg").value = "";
   await sendMessage(text);
@@ -234,13 +294,16 @@ $("composer").onsubmit = async (e) => {
 };
 
 // returning visitor: restore per-field captured state (booleans only — no PII in localStorage)
-if (localStorage.getItem(K_NAME)  === "1") $("name").hidden = true;
-if (localStorage.getItem(K_EMAIL) === "1") { $("email").hidden = true; $("privacyline").hidden = true; }
+if (storage.getItem(K_NAME)  === "1") $("name").hidden = true;
+if (storage.getItem(K_EMAIL) === "1") { $("email").hidden = true; $("privacyline").hidden = true; }
 if ($("name").hidden || $("email").hidden) { $("leadchip").textContent = "✓ details saved"; $("leadchip").hidden = false; }
 maybeHideStrip();
+updateContactButton();
+$("optin").hidden = $("email").hidden;
 // non-US visitors get the optional CASL express-consent checkbox; fail-open shows it on unknown region
 fetch(API + "/site-chat/api/hello", { headers: simHeaders() }).then(r => r.json()).then(j => {
-  if (j && j.show_optin && !$("email").hidden) $("optin").hidden = false;
+  showOptin = j?.show_optin !== false;
+  $("optin").hidden = !showOptin || $("email").hidden;
 }).catch(() => {});
 if (token) { $("intro").hidden = true; loop(); }     // returning visitor: skip the initial greeting, resume history + polling
 })();

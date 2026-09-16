@@ -10,7 +10,8 @@
     "format": "prettier --write .",
     "migrate": "node scripts/migrate-webflow.js",
     "build:chat": "node scripts/build-chat-widget.js",
-    "test:launch": "node scripts/test-launch.js",
+    "test:launch": "node scripts/test-launch.js && npm run test:chat",
+    "test:chat": "node --test scripts/test-chat-widget.js",
     "validate:prod": "node scripts/validate-build.js prod",
     "validate:stage": "node scripts/validate-build.js stage"
   },
