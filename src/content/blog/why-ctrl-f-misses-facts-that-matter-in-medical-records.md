@@ -75,12 +75,12 @@ A practical approach follows three steps:
 **1\. Create a collection  
 **Group all relevant medical records into a single review set, regardless of provider or file type.
 
-![](/images/blog/inline/696f6b79c48aa1fac41a78bf_1e18c3bd.webp)
+<img src="/images/blog/inline/696f6b79c48aa1fac41a78bf_1e18c3bd.webp" alt="Collections item selected in the matter navigation" width="410" height="832" loading="lazy" decoding="async" />
 
 **2\. Chat with documents  
 **Ask questions in plain language instead of guessing keywords: "What prior treatment is documented for lower back pain?" or "When was diabetes first diagnosed?"
 
-![](/images/blog/inline/696f6b79c48aa1fac41a78c2_5bd707d2.webp)
+<img src="/images/blog/inline/696f6b79c48aa1fac41a78c2_5bd707d2.webp" alt="Document collection with a Start Chat button and included document" width="1580" height="492" loading="lazy" decoding="async" />
 
 **3\. Review cited responses  
 ****Responses and presented chronologies are tied back to the original record locations via page-level citations, so you can click through to verify the exact source.**

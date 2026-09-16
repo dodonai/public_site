@@ -1,4 +1,5 @@
 ---
+dateModified: "2026-09-15"
 title: "3 Mistakes in Manual Summaries (and How to Avoid Them)‍"
 date: "2025-11-18"
 author: "Dodonai Team"
@@ -48,7 +49,7 @@ Summaries are saved to your account so you can reference them later.
 
 ‍
 
-![](/images/blog/inline/68f108036cbe2e587fa0da13_d32972b9.webp)
+<img src="/images/blog/inline/68f108036cbe2e587fa0da13_d32972b9.webp" alt="Source transcript beside a cited page-line summary table" width="1600" height="969" loading="lazy" decoding="async" />
 
 ‍
 
@@ -58,7 +59,7 @@ A well-defined deposition summary workflow should reduce fatigue, ensure citatio
 
 By combining automation with attorney oversight, litigation teams can maintain high accuracy while reducing total prep time from hours to minutes.
 
-![](/images/blog/inline/68f108036cbe2e587fa0da0d_bb4032c6.webp)
+<img src="/images/blog/inline/68f108036cbe2e587fa0da0d_bb4032c6.webp" alt="Deposition source text and generated narrative summary shown side by side" width="1600" height="970" loading="lazy" decoding="async" />
 
 ‍
 
@@ -67,3 +68,6 @@ By combining automation with attorney oversight, litigation teams can maintain h
 See how Dodon.ai [Deposition Summary Software](/deposition-summary-software/) automates citation-ready summaries, or explore how it extends to [AI Medical Record Summaries and Chronologies](/ai-medical-record-summaries-chronologies/) for full-case prep efficiency. For a comparison of leading tools, see our guide to the [best deposition summary software](/compare/best-deposition-summary-software/).
 
 ### [**Start your 7-day trial today at Dodon.ai.**](/)
+
+
+[Explore litigation cost management workflows for reducing repetitive document review.](/use-cases/litigation-cost-management/)

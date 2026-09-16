@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
@@ -29,12 +30,12 @@
 			description: data.seo.description,
 			author: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			publisher: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			mainEntityOfPage: {
@@ -119,13 +120,9 @@
 						<div
 							class="rounded-2xl border border-[#dcddf340] bg-white p-6 shadow-brand-card sm:p-8"
 						>
-							<div
-								class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1"
-							>
+							<div class="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1">
 								<h3 class="text-lg font-bold text-[#282876]">{event.agent}</h3>
-								<span
-									class="text-sm font-semibold uppercase tracking-wider text-[#836ae4]"
-								>
+								<span class="text-sm font-semibold uppercase tracking-wider text-[#836ae4]">
 									{event.time}
 								</span>
 							</div>
@@ -167,12 +164,17 @@
 				/>
 			</div>
 			<div class="max-w-xl">
-				<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">Built on real practice</p>
+				<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">
+					Built on real practice
+				</p>
 				<blockquote class="mt-4 text-2xl font-bold leading-snug text-[#282876] sm:text-3xl">
-					"We don't sell workflows we drew on a whiteboard. Every agent in this catalog runs inside our own company, every morning."
+					"We don't sell workflows we drew on a whiteboard. Every agent in this catalog runs inside
+					our own company, every morning."
 				</blockquote>
 				<p class="mt-5 text-base text-[#8181ac]">
-					The playbook we give your firm is the same one we've stress-tested on our own inbox, account health signals, and client ops — with real data, real edge cases, and real consequences when it breaks. That's the proof you can't get from a demo.
+					The playbook we give your firm is the same one we've stress-tested on our own inbox,
+					account health signals, and client ops — with real data, real edge cases, and real
+					consequences when it breaks. That's the proof you can't get from a demo.
 				</p>
 				<p class="mt-5 text-sm font-semibold text-[#282876]">
 					The Dodonai Team
@@ -186,7 +188,4 @@
 <!-- Lead magnet: Going (AI) Native guide -->
 <LeadMagnetSection background="bg-[#f4f5fd]" />
 
-<CTASection
-	headline="Want this architecture inside your firm?"
-	description="Email hello@dodon.ai or book an intro call. We'll start by figuring out which 1 workflow makes you groan every week. That's your first agent."
-/>
+<CTASection offer="services" />

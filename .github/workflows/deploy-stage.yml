@@ -1,36 +1,58 @@
-name: Deploy Staging to GCS
-
+name: Deploy stage to GCS
 on:
   push:
-    branches:
-      - stage
-
+    branches: [stage]
+  workflow_dispatch:
+    inputs:
+      rollback_run_id:
+        description: 'Previous successful run ID to restore (blank builds current commit)'
+        required: false
+        type: string
+concurrency:
+  group: public-site-stage
+  cancel-in-progress: false
 jobs:
   build-and-deploy:
     runs-on: ubuntu-latest
     permissions:
-      contents: 'read'
-      id-token: 'write'
-
+      contents: read
+      actions: read
+      id-token: write
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v4
-
-      - name: Set up Node.js
-        uses: actions/setup-node@v4
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
         with:
-          node-version: '20'
-          cache: 'npm'
-
-      - name: Install dependencies
-        run: npm ci
-
-      - name: Build static site
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - name: Test launch behavior
+        run: |
+          npm run test:launch
+      - name: Build release
+        if: ${{ !inputs.rollback_run_id }}
         run: npm run build
         env:
           PUBLIC_NOINDEX: 'true'
           PUBLIC_SITE_URL: 'https://landing.dodonai.com'
-
+      - name: Restore previous release
+        if: ${{ inputs.rollback_run_id }}
+        uses: actions/download-artifact@v4
+        with:
+          name: public-site-stage
+          path: build
+          run-id: ${{ inputs.rollback_run_id }}
+          github-token: ${{ github.token }}
+      - name: Validate release
+        run: node scripts/validate-build.js stage
+      - name: Test deployment safeguards
+        run: python3 scripts/test-deployment.py
+      - name: Preserve rollback artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: public-site-stage
+          path: build/
+          retention-days: 30
+          if-no-files-found: error
       - name: Authenticate to Google Cloud
         uses: google-github-actions/auth@v2
         with:
@@ -42,28 +64,7 @@ jobs:
 
       - name: Set up Cloud SDK
         uses: google-github-actions/setup-gcloud@v2
-
-      - name: Deploy to Google Cloud Storage (gzip in flight)
-        run: |
-          echo "Deploying build output to gs://stage-landing"
-          gsutil -m rsync -d -r -j html,css,js,json,xml,txt,svg build/ gs://stage-landing
-
-      - name: Set Cache Control for HTML files
-        run: |
-          gsutil -m setmeta -h "Cache-Control:no-cache" gs://stage-landing/**/*.html || true
-
-      - name: Set Cache Control for immutable assets
-        run: |
-          gsutil -m setmeta -h "Cache-Control:public, max-age=31536000, immutable" \
-            "gs://stage-landing/_app/immutable/**" || true
-
-      - name: Set Cache Control for images
-        run: |
-          for ext in png jpg jpeg gif svg webp; do
-            gsutil -m setmeta -h "Cache-Control:public, max-age=2592000" gs://stage-landing/images/**/*.$ext || true
-          done
-
-      - name: Set Cache Control for fonts
-        run: |
-          gsutil -m setmeta -h "Cache-Control:public, max-age=31536000, immutable" \
-            "gs://stage-landing/fonts/**" || true
+      - name: Upload assets, then entry files
+        run: python3 scripts/deploy-gcs.py --bucket stage-landing
+      - name: Verify public delivery
+        run: python3 scripts/verify-delivery.py https://landing.dodonai.com

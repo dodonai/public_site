@@ -1,11 +1,14 @@
 ---
 title: "Website Privacy Policy"
-lastUpdated: "2026-02-14"
+lastUpdated: "2023-04-15"
 ---
 
-Last updated April 15, 2023
+<script>
+import { company } from '$lib/data/company.js';
+</script>
 
-This privacy notice for Dodonai, LLC ("Company," "we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
+
+This privacy notice for {company.name} ("Company," "we," "us," or "our"), describes how and why we might collect, store, use, and/or share ("process") your information when you use our services ("Services"), such as when you:
 
 • Visit our website at https://www.dodon.ai, or any website of ours that links to this privacy notice
 
@@ -263,7 +266,7 @@ We may disclose your personal information with our service providers pursuant to
 
 We may use your personal information for our own business purposes, such as for undertaking internal research for technological development and demonstration. This is not considered to be "selling" of your personal information.
 
-Dodonai, LLC has not disclosed, sold, or shared any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months. Dodonai, LLC will not sell or share personal information in the future belonging to website visitors, users, and other consumers.
+{company.name} has not disclosed, sold, or shared any personal information to third parties for a business or commercial purpose in the preceding twelve (12) months. {company.name} will not sell or share personal information in the future belonging to website visitors, users, and other consumers.
 
 Your rights with respect to your personal data
 
@@ -335,7 +338,7 @@ Under the Virginia Consumer Data Protection Act (CDPA):
 
 If this definition "consumer" applies to you, we must adhere to certain rights and obligations regarding your personal data.
 
-The information we collect, use, and disclose about you will vary depending on how you interact with Dodonai, LLC and our Services. To find out more, please see the sections above:
+The information we collect, use, and disclose about you will vary depending on how you interact with {company.name} and our Services. To find out more, please see the sections above:
 
 • Personal data we collect
 
@@ -355,13 +358,13 @@ Right to correct inaccuracies in your personal data Right to request deletion of
 
 • Right to opt out of the processing of your personal data if it is used for targeted advertising, the sale of personal data, or profiling in furtherance of decisions that produce legal or similarly significant effects ("profiling")
 
-Dodonai, LLC has not sold any personal data to third parties for business or commercial purposes. Dodonai, LLC will not sell personal data in the future belonging to website visitors, users, and other consumers.
+{company.name} has not sold any personal data to third parties for business or commercial purposes. {company.name} will not sell personal data in the future belonging to website visitors, users, and other consumers.
 
 Exercise your rights provided under the Virginia CDPA
 
 More information about our data collection and sharing practices can be found in this privacy notice.
 
-You may contact us by email at hello@dodon.ai, by visiting https://www.dodon.ai/#contact, or by referring to the contact details at the bottom of this document.
+You may contact us by email at hello@dodon.ai, by [emailing hello@dodon.ai](mailto:hello@dodon.ai), or by referring to the contact details at the bottom of this document.
 
 If you are using an authorized agent to exercise your rights, we may deny a request if the authorized agent does not submit proof that they have been validly authorized to act on your behalf.
 

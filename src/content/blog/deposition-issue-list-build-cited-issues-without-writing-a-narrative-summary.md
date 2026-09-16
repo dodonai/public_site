@@ -18,7 +18,7 @@ A deposition issue list helps litigation teams identify disputed facts, themes, 
 
 Dodon.ai offers a deposition prep workflow that transforms how legal teams approach issue spotting. Instead of spending hours crafting prose summaries, you can upload a transcript and immediately start collecting cited issues in a structured table format.
 
-![](/images/blog/inline/6965a3397e8e9d47ffb0c489_26e5304a.webp)
+<img src="/images/blog/inline/6965a3397e8e9d47ffb0c489_26e5304a.webp" alt="Dodonai collection search for dog bite, with relevance score and source document" width="1754" height="1376" loading="lazy" decoding="async" />
 
 ## **How to Build a Deposition Issue List From a Transcript**
 
@@ -36,11 +36,11 @@ Here's where the workflow diverges from traditional deposition transcript review
 
 ‍
 
-![](/images/blog/inline/6965a3397e8e9d47ffb0c483_18cae5bd.webp)
+<img src="/images/blog/inline/6965a3397e8e9d47ffb0c483_18cae5bd.webp" alt="Collection search results showing source document text" width="1718" height="1350" loading="lazy" decoding="async" />
 
 **Chat with Documents:** For more nuanced issue spotting, the Chat feature allows natural language queries against your transcript collection. Ask about specific topics and receive software-generated responses grounded in the actual testimony.
 
-![](/images/blog/inline/6965a3397e8e9d47ffb0c486_d9c44ee5.webp)
+<img src="/images/blog/inline/6965a3397e8e9d47ffb0c486_d9c44ee5.webp" alt="Deposition collection ready to open in document chat" width="1746" height="840" loading="lazy" decoding="async" />
 
 ### **Step 3: Collect Cited Issues**
 
@@ -52,7 +52,7 @@ The platform generates structured summaries that skip the narrative and get stra
 
 This format maps directly to what you need for motion practice, specific testimony tied to specific issues, with citations ready for motion planning and litigation preparation. For a ready-to-use layout with sample entries, see our [page-line deposition summary template for motion practice](/blog/deposition-summary-template-page-line-format-for-motion-practice/).
 
-![](/images/blog/inline/6965a3397e8e9d47ffb0c480_d1989a9b.webp)
+<img src="/images/blog/inline/6965a3397e8e9d47ffb0c480_d1989a9b.webp" alt="Generated deposition narrative summary beside the source transcript" width="2048" height="1571" loading="lazy" decoding="async" />
 
 ### **Step 4: Export Your Issue Table**
 

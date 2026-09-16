@@ -21,15 +21,15 @@
     "heading": "Why AI fits casework and drafting",
     "paragraphs": [
       "Drafting work is structurally identical across matters within a practice area. An MSJ has the same skeleton every time. Demand packages: same sections. Deposition outlines follow the same logic. Facts change, precedent cases change, case theory changes. Structure doesn't.",
-      "Agents draft the structure with the facts populated. The attorney shapes the argument, sharpens the theory, catches what the agent missed, and signs the final. That's the workflow Dodonai runs on our own consulting engagements, with our own drafting agents, and it's what we stand up for law firms. The attorney gets their time back for the judgment work. The firm's precedent library compounds with every brief. Agents run in your account on SOC 2 and HIPAA-aligned infrastructure, with zero data retention from our LLM providers and drafts-only output. Same stack we run on our own drafting work."
+      "Agents draft the structure with the facts populated. The attorney shapes the argument, sharpens the theory, catches what the agent missed, and signs the final. That's the workflow Dodonai runs on our own consulting engagements, with our own drafting agents, and it's what we stand up for law firms. The attorney gets their time back for the judgment work. The firm's precedent library compounds with every brief. Agents run in the hosting arrangement agreed in your Blueprint, with provider-retention terms documented in the Blueprint and drafts-only output. Same stack we run on our own drafting work."
     ]
   },
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
       "Blueprint is 2 to 3 weeks. We audit your drafting workload, review 3 or 4 recent briefs or demand packages, and map where the agents would land. You leave with a prioritized roadmap.",
-      "Build is 4 to 8 weeks. The first drafting agent is usually the one that maps to your highest-volume work product: the demand package for a PI firm, the motion drafter for a commercial litigation firm, the appellate brief drafter for an appeals practice. We load your precedent library, connect to your document storage and practice management system, and run in shadow mode on a real matter while we tune.",
-      "Managed is the ongoing operating mode. We monitor the agents, refine templates and precedent weighting as the firm's voice evolves, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
+      "Orchestrate and Automate make up the Build, typically 4 to 8 weeks. The first drafting agent is usually the one that maps to your highest-volume work product: the demand package for a PI firm, the motion drafter for a commercial litigation firm, the appellate brief drafter for an appeals practice. We load your precedent library, connect to your document storage and practice management system, and run in shadow mode on a real matter while we tune.",
+      "Optimize is optional ongoing operation under the Run service. You may instead operate the completed build yourself. We monitor the agents, refine templates and precedent weighting as the firm's voice evolves, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
     ]
   },
   "faq": [
@@ -43,7 +43,7 @@
     },
     {
       "question": "What about work product privilege if the agent is analyzing our case materials?",
-      "answer": "The agent runs in your account, on your infrastructure, with your data. Nothing leaves. Nothing is used to train models. The agent is inside the attorney-client and work product privilege envelope for the same reason your associates are: it's working on the matter for your attorneys. Every AI-assisted work product is logged in an audit trail that supports ABA Opinion 512's supervision requirement."
+      "answer": "The agent runs in your cloud account or Dodonai’s, as agreed. Approved service providers may process the relevant data under the engagement’s data-handling terms. Nothing is used to train models. The agent is inside the attorney-client and work product privilege envelope for the same reason your associates are: it's working on the matter for your attorneys. Every AI-assisted work product is logged in an audit trail that supports ABA Opinion 512's supervision requirement."
     },
     {
       "question": "How much of the drafting does the agent actually do?",

@@ -3,9 +3,13 @@ title: "Terms & Conditions"
 lastUpdated: "2026-02-14"
 ---
 
+<script>
+import { company } from '$lib/data/company.js';
+</script>
+
 Thank you for using Dodon.ai!
 
-These Terms & Conditions apply when you use the services of Dodonai, LLC or our affiliates, including our application, software, tools, developer services, data, documentation, and websites (“Services”). For purposes of these Terms, “LLM partners” will refer to any companies or organizations that own the large language models that Dodon.ai utilizes ins the provision of the Services. The Terms include any other documentation, guidelines, or policies we may provide in writing. By using our Services, you agree to these Terms. Our Privacy Policy explains how we collect and use personal information. 
+These Terms & Conditions apply when you use the services of {company.name} or our affiliates, including our application, software, tools, developer services, data, documentation, and websites (“Services”). For purposes of these Terms, “LLM partners” will refer to any companies or organizations that own the large language models that Dodon.ai utilizes ins the provision of the Services. The Terms include any other documentation, guidelines, or policies we may provide in writing. By using our Services, you agree to these Terms. Our Privacy Policy explains how we collect and use personal information. 
 
 **1\. Registration and Access**
 

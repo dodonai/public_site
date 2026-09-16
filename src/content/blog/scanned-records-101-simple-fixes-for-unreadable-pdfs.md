@@ -1,4 +1,5 @@
 ---
+dateModified: "2026-09-15"
 title: "Scanned Records 101: Simple fixes for unreadable PDFs"
 date: "2025-11-18"
 author: "Dodonai Team"
@@ -109,9 +110,9 @@ Clear pages let you present dates, providers, diagnoses, treatments, and events 
 
 _Handwriting transcription works best when the writing is reasonably legible; as with any automation, verify important excerpts against the original page._
 
-![](/images/blog/inline/69033e4c231d535bebfa8fe0_2dd8b749.webp)
+<img src="/images/blog/inline/69033e4c231d535bebfa8fe0_2dd8b749.webp" alt="OCR text extracted from handwritten notes about machine learning" width="889" height="511" loading="lazy" decoding="async" />
 
-![](/images/blog/inline/69033e4c231d535bebfa8fe3_93825d2e.webp)
+<img src="/images/blog/inline/69033e4c231d535bebfa8fe3_93825d2e.webp" alt="Handwritten machine-learning notes beside the Dodonai OCR selection" width="1502" height="1036" loading="lazy" decoding="async" />
 
 **Quick reference checklist**
 
@@ -145,3 +146,6 @@ A few scan habits at intake save hours in discovery. Clean, upright, legible pag
 
 [**See how our software reads scanned documents & handwriting →**  
 ](/ai-pdf-ocr/)[**Ready to roll this out for your team? Check our pricing.**](/pricing/)
+
+
+[See the legal-document OCR workflow for making scanned records searchable.](/use-cases/ocr-for-legal-documents/)

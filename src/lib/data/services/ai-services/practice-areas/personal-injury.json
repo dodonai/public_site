@@ -21,7 +21,7 @@
     "heading": "Why AI fits personal injury practice",
     "paragraphs": [
       "PI work is repetitive document intake at scale. Records arrive in waves, deadlines count down from incident dates, and every case follows the same workflow: providers send records, chronology gets built, gaps get flagged, demand gets drafted, a lien is negotiated, a settlement statement is prepared. The vocabulary changes case to case. The structure does not.",
-      "That structure is exactly what agents handle well. The SOL is computable from the incident date and jurisdiction. Treatment gaps are visible in the dates. Demand components are formulaic. The legal judgment, picking the cases, pressing the theory, negotiating the settlement, stays with the attorney. The production work, the part that eats paralegal hours and burns during volume spikes, moves to the agents. PI means PHI, so agents run in your account under SOC 2 and HIPAA controls, with BAAs where needed and zero data retention from our model providers. Medical records aren't retained downstream. Drafts only, never auto-sends."
+      "That structure is exactly what agents handle well. The SOL is computable from the incident date and jurisdiction. Treatment gaps are visible in the dates. Demand components are formulaic. The legal judgment, picking the cases, pressing the theory, negotiating the settlement, stays with the attorney. The production work, the part that eats paralegal hours and burns during volume spikes, moves to the agents. PI means PHI, so agents run under the hosting and data-handling arrangements agreed in your Blueprint, with BAAs where needed and provider-retention terms documented in the Blueprint. Application storage, backups, and provider processing are addressed separately. Drafts only, never auto-sends."
     ]
   },
   "agentRelevance": {
@@ -31,9 +31,9 @@
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
-      "We start with Blueprint, a 2 to 3 week engagement where we sit with your team, watch 3 or 4 real matters move through intake, records, and demand, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
-      "Build is 4 to 8 weeks. We stand up your first 2 or 3 agents in your account, connect them to your practice management system, your intake sources, and your document storage, and run them in shadow mode while we tune. Every agent ships with an audit trail that supports ABA Opinion 512's supervision requirement.",
-      "Managed is the ongoing operating mode. We monitor the agents, refine skill files as your intake criteria evolve, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+      "Organize produces the Blueprint, a 2 to 3 week engagement where we sit with your team, watch 3 or 4 real matters move through intake, records, and demand, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Orchestrate and Automate make up the Build, typically 4 to 8 weeks. We stand up your first 2 or 3 agents in the agreed cloud account, connect them to your practice management system, your intake sources, and your document storage, and run them in shadow mode while we tune. Every agent ships with an audit trail that supports ABA Opinion 512's supervision requirement.",
+      "Optimize is optional ongoing operation under the Run service. You may instead operate the completed build yourself. We monitor the agents, refine skill files as your intake criteria evolve, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
     ]
   },
   "faq": [

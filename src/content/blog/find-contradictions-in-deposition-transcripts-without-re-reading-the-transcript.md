@@ -29,7 +29,7 @@ Manual review depends on memory, notes, and repeated reading. Once multiple depo
 
 A structured deposition review workflow removes guesswork and replaces rereading with targeted comparison.
 
-![](/images/blog/inline/6946569819f1d4d157893fb6_9f290c84.webp)
+<img src="/images/blog/inline/6946569819f1d4d157893fb6_9f290c84.webp" alt="Matter source documents with document type and date columns" width="2048" height="1099" loading="lazy" decoding="async" />
 
 ‍
 
@@ -53,7 +53,7 @@ This creates a shared reference point for searching and comparison.
 
 **With Dodon.ai:** Related deposition transcripts can be grouped into a single **collection** with no setup, making them searchable together out of the box.
 
-![](/images/blog/inline/6946569819f1d4d157893fbf_f9db3442.webp)
+<img src="/images/blog/inline/6946569819f1d4d157893fbf_f9db3442.webp" alt="Deposition collection selected with a Start Chat button" width="2048" height="758" loading="lazy" decoding="async" />
 
 ‍
 
@@ -71,7 +71,7 @@ This approach surfaces answers that describe the same fact using different langu
 
 **With Dodon.ai:** The software surfaces relevant testimony across deposition transcripts using semantic search, presenting results with citations to the original pages.
 
-![](/images/blog/inline/6946569819f1d4d157893fb9_47403453.webp)
+<img src="/images/blog/inline/6946569819f1d4d157893fb9_47403453.webp" alt="Search Collection form with a testimony query and Search button" width="2048" height="764" loading="lazy" decoding="async" />
 
 ‍
 
@@ -85,7 +85,7 @@ Cited deposition testimony, broken into comparable statements for review
 -   Same event, different timelines
 -   Same treatment, conflicting descriptions
 
-![](/images/blog/inline/6946569819f1d4d157893fbc_684ee944.webp)
+<img src="/images/blog/inline/6946569819f1d4d157893fbc_684ee944.webp" alt="Page-line summary table beside the deposition source text" width="2048" height="1171" loading="lazy" decoding="async" />
 
 Because citations are attached, teams can confirm differences immediately.
 
@@ -99,7 +99,7 @@ Every contradiction should be confirmed on the source page. Verification protect
 
 **With Dodon.ai:** Clicking a citation opens the exact transcript page, so verification stays part of the normal review flow.
 
-![](/images/blog/inline/6946569819f1d4d157893fb3_b549f275.webp)
+<img src="/images/blog/inline/6946569819f1d4d157893fb3_b549f275.webp" alt="Linked page-line citation highlighted in the deposition summary" width="2048" height="1306" loading="lazy" decoding="async" />
 
 ‍
 

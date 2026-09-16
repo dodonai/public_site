@@ -69,13 +69,13 @@ Based on Dodon.ai's official demo, you can see these steps on the platform:
 
 1\. Upload the 80-page deposition transcript (accepts PDF, TXT or DOC) and hit the Summarize button.
 
-![](/images/blog/inline/68f108036cbe2e587fa0da0d_bb4032c6.webp)
+<img src="/images/blog/inline/68f108036cbe2e587fa0da0d_bb4032c6.webp" alt="Deposition source text and generated narrative summary shown side by side" width="1600" height="970" loading="lazy" decoding="async" />
 
 ‍
 
 2\. Dodon.ai processes and presents an AI-generated summary with citations that is ready to download in various formats (DOC, PDF, TXT)
 
-![Deposition summary, created by Dodonai's software and screenshotted](/images/blog/inline/68f113cee4e8707f1f57d0e8_6439efde9232c848dd5c019a_summarizer.webp)
+<img src="/images/blog/inline/68f113cee4e8707f1f57d0e8_6439efde9232c848dd5c019a_summarizer.webp" alt="Deposition summary, created by Dodonai&#x27;s software and screenshotted" width="1386" height="1520" loading="lazy" decoding="async" />
 
 ‍
 
@@ -84,11 +84,11 @@ Based on Dodon.ai's official demo, you can see these steps on the platform:
 -   Select format type and enter key topics
 -   View the Page-Line Summary with Citations, Summary, Topics
 
-![](/images/blog/inline/68f108036cbe2e587fa0da13_d32972b9.webp)
+<img src="/images/blog/inline/68f108036cbe2e587fa0da13_d32972b9.webp" alt="Source transcript beside a cited page-line summary table" width="1600" height="969" loading="lazy" decoding="async" />
 
 ‍
 
-![](/images/blog/inline/68f108036cbe2e587fa0da10_92361c4d.webp)
+<img src="/images/blog/inline/68f108036cbe2e587fa0da10_92361c4d.webp" alt="PDF export of a page-line deposition summary with linked citations" width="1577" height="1600" loading="lazy" decoding="async" />
 
 ‍
 
@@ -106,7 +106,7 @@ Manual review ensures accuracy, but it kills momentum.
 
 Dodon.ai delivers the same professional standard **in minutes instead of hours**, freeing legal teams to spend more time on strategy and client work.
 
-![](/images/blog/inline/68f1156fca3b2393bac0b5fd_CleanShot-2025-10-16-at-23.54.58-2x.webp)
+<img src="/images/blog/inline/68f1156fca3b2393bac0b5fd_CleanShot-2025-10-16-at-23.54.58-2x.webp" alt="Illustrative manual versus Dodonai comparison of time, cost, and summary output for 80 pages" width="1112" height="298" loading="lazy" decoding="async" />
 
 ## **From Hours to Seconds Without Losing the Facts That Matter**
 

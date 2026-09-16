@@ -21,15 +21,15 @@
     "heading": "Why AI fits practice intelligence",
     "paragraphs": [
       "Practice intelligence is aggregation, pattern recognition, and signal surfacing on data you already have. Matter records, time entries, invoices, referral sources, calendar entries, email threads. The data lives in your practice management system, your accounting platform, your CRM, and your email. The challenge is pulling it together and turning it into weekly decisions.",
-      "Agents do this well because the work is repetitive and the outputs are templated. The same weekly dashboard, the same monthly referral report, the same quarterly profitability review. Run once a month by hand, these reports eat a week of ops time and go stale on arrival. An agent runs them nightly and the dashboard is live when the partner opens it Monday. Data stays in your account. SOC 2 and HIPAA controls, zero data retention with our LLM providers, full audit trail on every access. Same posture we run on our own firm data."
+      "Agents do this well because the work is repetitive and the outputs are templated. The same weekly dashboard, the same monthly referral report, the same quarterly profitability review. Run once a month by hand, these reports eat a week of ops time and go stale on arrival. An agent runs them nightly and the dashboard is live when the partner opens it Monday. Hosting and provider processing follow the terms agreed in your Blueprint, with an audit trail on every access. Same posture we run on our own firm data."
     ]
   },
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
       "Blueprint is 2 to 3 weeks. We audit your current reporting (most firms have one or two dashboards that are months out of date), interview the managing partner and office manager on what decisions need what data, and map where the agents would land. You leave with a prioritized roadmap.",
-      "Build is 4 to 8 weeks. The practice intelligence dashboard agent usually stands up first because it integrates the most data sources. We connect to your practice management system, accounting platform, CRM, and email, encode the metrics you want to see, and run in shadow mode while we tune. Matter profitability, pipeline, and referral ROI follow in the same engagement or the next one.",
-      "Managed is the ongoing operating mode. We monitor the agents, refine metrics as your priorities shift, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
+      "Orchestrate and Automate make up the Build, typically 4 to 8 weeks. The practice intelligence dashboard agent usually stands up first because it integrates the most data sources. We connect to your practice management system, accounting platform, CRM, and email, encode the metrics you want to see, and run in shadow mode while we tune. Matter profitability, pipeline, and referral ROI follow in the same engagement or the next one.",
+      "Optimize is optional ongoing operation under the Run service. You may instead operate the completed build yourself. We monitor the agents, refine metrics as your priorities shift, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
     ]
   },
   "faq": [
@@ -43,7 +43,7 @@
     },
     {
       "question": "What about confidentiality if we give an agent access to all this data?",
-      "answer": "The agent runs in your account, on your infrastructure, with your data. Nothing leaves. Nothing is used to train models. Every access is logged in an audit trail that supports ABA Opinion 512's supervision requirement. Treat it as a dedicated analyst inside your environment, with every access logged for supervision."
+      "answer": "The agent runs in your cloud account or Dodonai’s, as agreed. Approved service providers may process the relevant data under the engagement’s data-handling terms. Nothing is used to train models. Every access is logged in an audit trail that supports ABA Opinion 512's supervision requirement. Treat it as a dedicated analyst inside your environment, with every access logged for supervision."
     },
     {
       "question": "Can this help with strategic decisions, like which practice areas to grow?",

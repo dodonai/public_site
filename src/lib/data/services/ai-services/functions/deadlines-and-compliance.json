@@ -21,15 +21,15 @@
     "heading": "Why AI fits deadlines and compliance",
     "paragraphs": [
       "Deadline computation is explicit-rules work. The rules live in the statute. Trigger events sit in the matter record. Escalation is arithmetic on the deadline date and today. Computation and escalation are both mechanical. The legal judgment, how to respond, whether to request an extension, how to structure a filing, stays with the attorney.",
-      "Compliance is audit-trail work. ABA Opinion 512 requires supervision of AI-assisted work product. That means a log: what was generated, what was reviewed, who signed off. Agents do this as a side effect of doing the work. The audit trail is the free byproduct. A clean log is what every ethics inquiry eventually asks for. Agents run in your account under SOC 2 and HIPAA controls, with zero data retention from our LLM providers and drafts-only output; the log writes itself as a byproduct."
+      "Compliance is audit-trail work. ABA Opinion 512 requires supervision of AI-assisted work product. That means a log: what was generated, what was reviewed, who signed off. Agents do this as a side effect of doing the work. The audit trail is the free byproduct. A clean log is what every ethics inquiry eventually asks for. Agents run under the hosting, access, and provider-retention terms agreed in your Blueprint, with drafts-only output; the log writes itself as a byproduct."
     ]
   },
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
       "Blueprint is 2 to 3 weeks. We walk through your current docketing, trust account, and compliance processes, review how AI is used in the firm today, and map where the agents would land. You leave with a prioritized roadmap.",
-      "Build is 4 to 8 weeks. The docketing and SOL tracker agent is usually the first to stand up because it pays back immediately. We connect it to your practice management system, encode the jurisdictions you practice, and run it in shadow mode against your existing calendar while we tune. Trust account and ethics guardian follow in the same engagement or the next one.",
-      "Managed is the ongoing operating mode. We monitor the agents, update jurisdiction rules as statutes and court rules change, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
+      "Orchestrate and Automate make up the Build, typically 4 to 8 weeks. The docketing and SOL tracker agent is usually the first to stand up because it pays back immediately. We connect it to your practice management system, encode the jurisdictions you practice, and run it in shadow mode against your existing calendar while we tune. Trust account and ethics guardian follow in the same engagement or the next one.",
+      "Optimize is optional ongoing operation under the Run service. You may instead operate the completed build yourself. We monitor the agents, update jurisdiction rules as statutes and court rules change, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review."
     ]
   },
   "faq": [

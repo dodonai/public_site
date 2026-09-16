@@ -29,31 +29,6 @@
 	<body>
 		<div style="display: contents">%sveltekit.body%</div>
 		<!-- In-house website chat widget (replaces HubSpot chat) — self-contained, same-origin (/site-chat/* via the LB) -->
-		<script src="%sveltekit.assets%/chat-widget.js?v=6b0a99c7" defer></script>
-		<!-- GA4 with Consent Mode v2: deferred to end of body so it doesn't compete
-		     with CSS/fonts for bandwidth on slow connections. The inline script
-		     executes before SvelteKit's module scripts, so window.gtag is available
-		     when hydration runs. -->
-		<script>
-			window.dataLayer = window.dataLayer || [];
-			function gtag() {
-				dataLayer.push(arguments);
-			}
-			window.gtag = gtag;
-			gtag('consent', 'default', {
-				analytics_storage: 'denied',
-				ad_storage: 'denied',
-				ad_user_data: 'denied',
-				ad_personalization: 'denied'
-			});
-			gtag('js', new Date());
-			gtag('config', 'G-S2VLXV89DL', {
-				linker: { domains: ['dodon.ai', 'www.dodon.ai', 'app.dodon.ai'] }
-			});
-			gtag('config', 'AW-17511150141', {
-				linker: { domains: ['dodon.ai', 'www.dodon.ai', 'app.dodon.ai'] }
-			});
-		</script>
-		<script async src="https://www.googletagmanager.com/gtag/js?id=G-S2VLXV89DL"></script>
+		<script src="%sveltekit.assets%/chat-widget.js?v=launch-20260915" defer></script>
 	</body>
 </html>

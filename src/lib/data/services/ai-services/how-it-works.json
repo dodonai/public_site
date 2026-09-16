@@ -7,8 +7,8 @@
   "hero": {
     "headline": "How an AI Managed Services engagement runs",
     "subheadline": "We start with the work, not the model. If your team can write the procedure, we can ship the agent. Here's how the architecture, the engagement, and the safety layer fit together.",
-    "ctaText": "Book an intro call",
-    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "ctaText": "Book a 30-minute intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min",
     "secondaryCtaText": "Browse the Agent Catalog",
     "secondaryCtaUrl": "/ai-managed-services/agents/"
   },
@@ -63,7 +63,7 @@
       {
         "title": "Build",
         "duration": "4 to 8 weeks",
-        "summary": "We deploy the agents, in your account, tuned to how your firm actually operates.",
+        "summary": "We deploy the agents in the agreed cloud account, tuned to how your firm actually operates.",
         "details": [
           "3 to 6 custom agents in the first cycle, scoped from the Blueprint",
           "Integrations wired: practice management, email, calendar, document management",
@@ -111,8 +111,8 @@
       "answer": "No. The Blueprint is the part where we figure that out together. Most firms come in with a vague sense of what hurts and a clear sense of what they don't want to keep doing. We work backwards from there."
     },
     {
-      "question": "What does 'in your account' actually mean?",
-      "answer": "The skills, configurations, and prompts live in infrastructure your firm controls. If we ever part ways, your agents keep running and your team keeps working. You aren't renting the playbook from us."
+      "question": "Where does the system run?",
+      "answer": "You own the completed build; hosting and optional ongoing operation are agreed separately. If we ever part ways, your agents keep running and your team keeps working. You aren't renting the playbook from us."
     },
     {
       "question": "Who writes the skill files?",

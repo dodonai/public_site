@@ -73,7 +73,7 @@ This loop is how teams maintain AI deposition summary accuracy under real deadli
 
 ### **1\. Review the summary with page-line citations visible**
 
-![](/images/blog/inline/693c55696fbf41ee02250e86_7d075a00.webp)
+<img src="/images/blog/inline/693c55696fbf41ee02250e86_7d075a00.webp" alt="Page-line transcript summary settings with a custom-instructions field" width="2048" height="1348" loading="lazy" decoding="async" />
 
 ‍
 
@@ -83,7 +83,7 @@ Page-line citations aren’t a nice-to-have. They’re the entry point to verifi
 
 ### **2\. Click the citation to confirm testimony on the source page**
 
-![](/images/blog/inline/65971b63deedb95ebd6f1a7d_Chat-with-Transcript.webp)
+<img src="/images/blog/inline/65971b63deedb95ebd6f1a7d_Chat-with-Transcript.webp" alt="Document chat answer with a citation and highlighted source testimony" width="1114" height="768" loading="lazy" decoding="async" />
 
 Instead of scrolling or searching manually, reviewers open the cited page directly and read the testimony in context. This is where assumptions get corrected and wording is confirmed.
 
@@ -117,7 +117,7 @@ Dodon.ai is built around this verification workflow, not around blind trust. Tea
     **Teams review and spot-check first, then export summaries in the formats they already use for litigation prep and discovery.  
     
 
-![](/images/blog/inline/67db12925629728b1c53e132_Screenshot-2025-03-19-at-2.46.33-PM.webp)
+<img src="/images/blog/inline/67db12925629728b1c53e132_Screenshot-2025-03-19-at-2.46.33-PM.webp" alt="Diagram connecting source documents, extracted facts, templates, and export formats" width="1119" height="719" loading="lazy" decoding="async" />
 
 This keeps the trust boundary clear: summaries are verified before they leave the system. For teams handling sensitive medico-legal content, Dodon.ai also enforces [zero data retention and strict privacy safeguards](/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/) throughout the process.
 

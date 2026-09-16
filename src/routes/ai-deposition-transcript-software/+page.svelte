@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
@@ -34,7 +35,7 @@
 			description: data.seo.description,
 			provider: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			serviceType: 'AI Deposition Transcript Management'
@@ -56,7 +57,12 @@
 			'@type': 'BreadcrumbList',
 			itemListElement: [
 				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
-				{ '@type': 'ListItem', position: 2, name: 'Deposition Transcript Software', item: `https://www.dodon.ai${data.seo.canonical}` }
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: 'Deposition Transcript Software',
+					item: `https://www.dodon.ai${data.seo.canonical}`
+				}
 			]
 		},
 		{
@@ -142,4 +148,4 @@
 </BlobBackground>
 
 <!-- 8. CTA -->
-<CTASection />
+<CTASection offer="app" />

@@ -21,7 +21,7 @@
     "heading": "Why AI fits tax dispute practice",
     "paragraphs": [
       "Tax dispute work is pure deadline computation on incoming correspondence. The legal analysis per notice is usually clear on its face. The statutes are explicit about response windows. The risk isn't legal judgment. It's tracking dozens of overlapping deadlines across a 100-plus file caseload without letting one slip through a busy week.",
-      "That's the shape agents handle well. The statute rules go into a skill file. The precedent library lives in your document storage. The practice management system holds the matter data. The agent orchestrates across them and catches every notice the moment it arrives. Client tax data stays in your account: SOC 2 and HIPAA controls, zero data retention from our LLM providers, full audit trail, ABA Opinion 512 supervision logged on every work product. Drafts only, never auto-sends."
+      "That's the shape agents handle well. The statute rules go into a skill file. The precedent library lives in your document storage. The practice management system holds the matter data. The agent orchestrates across them and catches every notice the moment it arrives. Client tax data is handled under the hosting and provider-retention terms agreed in your Blueprint, with a full audit trail, ABA Opinion 512 supervision logged on every work product. Drafts only, never auto-sends."
     ]
   },
   "agentRelevance": {
@@ -31,9 +31,9 @@
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
-      "We start with Blueprint, a 2 to 3 week engagement where we walk through 3 or 4 recent matters, review your objection precedents, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
-      "Build is 4 to 8 weeks. We encode the deadline rules for CRA and IRS notices, connect the agent to your mail intake, email, and document storage, and run it in shadow mode while we tune. Objection drafts ship from your firm's templates in your voice.",
-      "Managed is the ongoing operating mode. We monitor the agents, update rules as CRA and IRS procedures evolve, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+      "Organize produces the Blueprint, a 2 to 3 week engagement where we walk through 3 or 4 recent matters, review your objection precedents, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Orchestrate and Automate make up the Build, typically 4 to 8 weeks. We encode the deadline rules for CRA and IRS notices, connect the agent to your mail intake, email, and document storage, and run it in shadow mode while we tune. Objection drafts ship from your firm's templates in your voice.",
+      "Optimize is optional ongoing operation under the Run service. You may instead operate the completed build yourself. We monitor the agents, update rules as CRA and IRS procedures evolve, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
     ]
   },
   "faq": [

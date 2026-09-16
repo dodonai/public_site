@@ -44,7 +44,7 @@ Here’s a practical checklist of essential do’s and critical don’ts to ensu
 
 ‍
 
-![](/images/blog/inline/68ca97f2afcf4d500eaffac6_d9c18070.webp)
+<img src="/images/blog/inline/68ca97f2afcf4d500eaffac6_d9c18070.webp" alt="Medical Record content type and optional topic field in the summary form" width="1080" height="766" loading="lazy" decoding="async" />
 
 ## **HIPAA Don’ts for Chronologies**
 
@@ -77,7 +77,7 @@ Document automation doesn’t remove your compliance responsibilities, but it el
     
 -   **Ready to use**: Upload text, handwriting, or scanned documents, and receive a structured [medical chronology](/ai-medical-record-summaries-chronologies/) in minutes. See [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/) for a hands-on walkthrough.
 
-![](/images/blog/inline/68ca97f2afcf4d500eaffac9_995ad115.webp)
+<img src="/images/blog/inline/68ca97f2afcf4d500eaffac9_995ad115.webp" alt="Generated medical record summary with PDF export selected" width="1600" height="982" loading="lazy" decoding="async" />
 
 ## **The Bottom Line**
 

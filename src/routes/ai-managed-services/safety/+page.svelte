@@ -1,4 +1,6 @@
 <script>
+	import EditorialText from '$lib/components/content/EditorialText.svelte';
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
@@ -30,12 +32,12 @@
 			description: data.seo.description,
 			author: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			publisher: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			mainEntityOfPage: {
@@ -99,6 +101,56 @@
 		{/if}
 	</ServiceHero>
 
+	<section class="mx-auto max-w-5xl px-4 py-16 text-[#282876]" aria-labelledby="offer-security">
+		<h2 id="offer-security" class="text-3xl font-bold">
+			Security depends on the offer and deployment
+		</h2>
+		<div class="mt-8 grid gap-8 md:grid-cols-2">
+			<div>
+				<h3 class="text-xl font-bold">Dodonai App</h3>
+				<p class="mt-3">
+					The App is self-service document-processing software. Dodonai and approved service
+					providers process documents to deliver the requested work. Encryption in transit and at
+					rest, access controls, application storage, backups, and model-provider retention are
+					separate parts of that workflow.
+				</p>
+				<p class="mt-3">
+					Review the <a class="underline" href="/terms-and-conditions/"
+						>App terms and data-processing information</a
+					>. Contact us to arrange an applicable BAA before uploading PHI and to confirm retention,
+					deletion, and export requirements for your account.
+				</p>
+			</div>
+			<div>
+				<h3 class="text-xl font-bold">Custom AI deployments</h3>
+				<p class="mt-3">
+					Your system can run in your cloud account or Dodonai’s. The Blueprint specifies hosting
+					location, Dodonai access, model processors, record and backup retention, export, and
+					termination arrangements. You own the completed build and can operate it yourself;
+					optional Run service, hosting, and model costs are agreed separately.
+				</p>
+			</div>
+			<div>
+				<h3 class="text-xl font-bold">SOC 2 report information</h3>
+				<p class="mt-3">
+					Dodonai is covered by SOC 2. <a
+						class="underline"
+						href="mailto:hello@dodon.ai?subject=SOC%202%20report%20request"
+						>Request report information</a
+					> to confirm the covered system, reporting period, and access conditions relevant to your purchase.
+					A custom deployment’s configuration and responsibilities must be assessed separately.
+				</p>
+			</div>
+			<div>
+				<h3 class="text-xl font-bold">Attorney review</h3>
+				<p class="mt-3">
+					AI output is draft work product. Your team verifies source citations, facts, dates, and
+					current legal authority before use or release. Automated source links do not replace
+					Shepardizing, KeyCiting, or your firm’s legal research and supervision.
+				</p>
+			</div>
+		</div>
+	</section>
 	<ContentSection
 		heading={data.stakes.heading}
 		paragraphs={data.stakes.paragraphs}
@@ -119,9 +171,13 @@
 
 			<div class="mt-16 grid gap-6 md:grid-cols-3">
 				{#each data.hallucinationPatterns.cards as card}
-					<div class="flex h-full flex-col rounded-2xl border border-[#dcddf340] bg-white p-8 shadow-brand-card">
+					<div
+						class="flex h-full flex-col rounded-2xl border border-[#dcddf340] bg-white p-8 shadow-brand-card"
+					>
 						<h3 class="text-lg font-bold text-[#282876]">{card.title}</h3>
-						<p class="mt-3 text-sm leading-relaxed text-[#8181ac]">{card.description}</p>
+						<p class="mt-3 text-sm leading-relaxed text-[#8181ac]">
+							<EditorialText text={card.description} />
+						</p>
 					</div>
 				{/each}
 			</div>
@@ -149,14 +205,22 @@
 					/>
 				</div>
 				<div class="max-w-xl">
-					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">Designed for accountability</p>
+					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">
+						Designed for accountability
+					</p>
 					<h2 class="mt-4 text-2xl font-extrabold leading-snug text-[#282876] sm:text-3xl">
 						We designed these guardrails as if a bar examiner was the first reader.
 					</h2>
 					<p class="mt-5 text-base leading-7 text-[#8181ac]">
-						Every draft an agent produces goes through your attorneys — not around them. The agent's job is to surface and prepare. Yours is to decide and sign. That line never moves. No action is taken, no document is sent, no filing is made without explicit attorney review and approval.
+						Every draft an agent produces goes through your attorneys — not around them. The agent's
+						job is to surface and prepare. Yours is to decide and sign. That line never moves. No
+						action is taken, no document is sent, no filing is made without explicit attorney review
+						and approval.
 					</p>
-					<a href="/ai-managed-services/how-it-works/" class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[#216fed] hover:underline">
+					<a
+						href="/ai-managed-services/how-it-works/"
+						class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[#216fed] hover:underline"
+					>
 						See how we build the safeguards in →
 					</a>
 				</div>
@@ -178,15 +242,31 @@
 
 			<div class="mt-16 grid gap-6 md:grid-cols-2">
 				{#each data.framework.cards as card}
-					<div class="flex h-full gap-5 rounded-2xl border border-[#dcddf340] bg-white p-8 shadow-brand-card">
-						<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#216fed1a]">
-							<svg class="h-6 w-6 text-[#216fed]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" />
+					<div
+						class="flex h-full gap-5 rounded-2xl border border-[#dcddf340] bg-white p-8 shadow-brand-card"
+					>
+						<div
+							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#216fed1a]"
+						>
+							<svg
+								class="h-6 w-6 text-[#216fed]"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="1.5"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M9 12.75 11.25 15 15 9.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+								/>
 							</svg>
 						</div>
 						<div>
 							<h3 class="text-lg font-bold text-[#282876]">{card.title}</h3>
-							<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{card.description}</p>
+							<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">
+								<EditorialText text={card.description} />
+							</p>
 						</div>
 					</div>
 				{/each}
@@ -209,4 +289,4 @@
 	<FAQAccordion items={data.faq} background="bg-transparent" />
 </BlobBackground>
 
-<CTASection />
+<CTASection offer="services" />

@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { page } from '$app/state';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
@@ -57,7 +58,7 @@
 			},
 			publisher: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				logo: {
 					'@type': 'ImageObject',
 					url: 'https://www.dodon.ai/images/brand/logo-main.webp'

@@ -66,11 +66,10 @@ async function processHtml(filePath) {
 		if (!hrefMatch) continue;
 
 		const href = hrefMatch[1];
+		if (/^(https?:)?\/\//.test(href)) continue;
 
 		// Resolve the CSS file path relative to the HTML file
-		const cssPath = href.startsWith('/')
-			? join(BUILD_DIR, href)
-			: resolve(htmlDir, href);
+		const cssPath = href.startsWith('/') ? join(BUILD_DIR, href) : resolve(htmlDir, href);
 
 		const css = await readCssFile(cssPath);
 		if (!css) continue;

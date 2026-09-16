@@ -1,4 +1,6 @@
 <script>
+	import EditorialText from '$lib/components/content/EditorialText.svelte';
+	import { company } from '$lib/data/company.js';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
 	import BlobBackground from '$lib/components/layout/BlobBackground.svelte';
@@ -30,8 +32,8 @@
 			headline: study.headline,
 			description: study.summary,
 			about: `AI Managed Services engagement for a ${study.practiceArea.toLowerCase()} firm`,
-			author: { '@type': 'Organization', name: 'Dodonai, Inc.', url: 'https://www.dodon.ai' },
-			publisher: { '@type': 'Organization', name: 'Dodonai, Inc.', url: 'https://www.dodon.ai' }
+			author: { '@type': 'Organization', name: company.name, url: 'https://www.dodon.ai' },
+			publisher: { '@type': 'Organization', name: company.name, url: 'https://www.dodon.ai' }
 		},
 		{
 			'@context': 'https://schema.org',
@@ -58,8 +60,8 @@
 	<ServiceHero
 		headline={study.headline}
 		subheadline={study.descriptor}
-		ctaText="Book a working call"
-		ctaUrl="https://calendly.com/nick-dodonai"
+		ctaText="Book a 30-minute intro call"
+		ctaUrl="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min"
 		secondaryCtaText="See how engagements run"
 		secondaryCtaUrl="/ai-managed-services/how-it-works/"
 		background="bg-transparent"
@@ -85,7 +87,9 @@
 			<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
 				{study.built.heading}
 			</h2>
-			<p class="mt-8 text-base leading-7 text-[#8181ac] sm:text-lg">{study.built.intro}</p>
+			<p class="mt-8 text-base leading-7 text-[#8181ac] sm:text-lg">
+				<EditorialText text={study.built.intro} />
+			</p>
 			<div class="mt-8 flex flex-wrap gap-3">
 				{#each study.built.agents as agent}
 					{#if agent.slug}
@@ -131,7 +135,7 @@
 							class="mt-1 h-5 w-5 flex-shrink-0"
 							aria-hidden="true"
 						/>
-						<span class="text-base leading-7 sm:text-lg">{item}</span>
+						<span class="text-base leading-7 sm:text-lg"><EditorialText text={item} /></span>
 					</li>
 				{/each}
 			</ul>
@@ -173,7 +177,4 @@
 	</section>
 </BlobBackground>
 
-<CTASection
-	headline="Could this be your firm?"
-	description="Start with a 45-minute working call. We walk through your stack and your top workflows, then scope a Discovery Audit if it's a fit."
-/>
+<CTASection offer="services" />

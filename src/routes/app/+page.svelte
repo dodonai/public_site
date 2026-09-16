@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { organization } from '$lib/data/organization.js';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import HeroSection from '$lib/components/hero/HeroSection.svelte';
@@ -34,7 +35,7 @@
 			operatingSystem: 'Web',
 			creator: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			}
 		},
@@ -250,6 +251,7 @@
 <FAQAccordion items={faqItems} />
 
 <CTASection
+	offer="app"
 	headline="Start saving time and money on Day 1 with Dodonai"
 	description="Learn how Dodonai can help take your law practice to the next level."
 />

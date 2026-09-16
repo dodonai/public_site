@@ -1,4 +1,5 @@
 ---
+dateModified: "2026-09-15"
 title: "How IME Companies Use AI to Process Medical Records"
 date: "2026-03-02"
 author: "Dodonai Team"
@@ -135,3 +136,6 @@ The operational lift during the transition (running manual and AI workflows in p
 The carriers and attorneys referring cases to IME companies are starting to notice the difference. Faster turnaround and more structured deliverables are becoming selection criteria, not just nice-to-haves. IME companies still running a fully manual preparation model will face increasing pressure as referral sources compare timelines across vendors.
 
 **Dodon.ai provides HIPAA-compliant, AI-powered medical record summarization with page-line citations, built for high-volume [IME and medical record review](/use-cases/ime-reports/) operations.** [**Start a free 7-day trial**](/) **and process your first record set today.**
+
+
+[Medical malpractice defense teams can use source-cited chronologies to review the treatment timeline.](/practice-areas/medical-malpractice-defense/)

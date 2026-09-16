@@ -1,82 +1,27 @@
 <script>
+	import {
+		plans,
+		billing,
+		perCredit,
+		formatRate,
+		monthlyEquivalent,
+		pricingDescription,
+		pricingSchema,
+		pricingFaq,
+		annualExplanation
+	} from '$lib/data/pricing.js';
+	import { company } from '$lib/data/company.js';
 	import { slide } from 'svelte/transition';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
 
 	let isYearly = $state(true);
 
-	const plans = [
-		{
-			credits: 200,
-			monthly: 30,
-			yearly: 300,
-			yCredits: 4800,
-			desc: 'For solo practitioners and small teams getting started.',
-			support: 'Chat & email support'
-		},
-		{
-			credits: 1000,
-			monthly: 60,
-			yearly: 600,
-			yCredits: 24000,
-			desc: 'For growing teams that need more capacity.',
-			support: 'Chat & email support'
-		},
-		{
-			credits: 5000,
-			monthly: 100,
-			yearly: 1000,
-			yCredits: 120000,
-			desc: 'For teams handling high-volume workloads with demanding deadlines.',
-			support: 'Chat, email & phone support',
-			recommended: true
-		}
-	];
-
-	function perPage(plan) {
-		return isYearly ? plan.yearly / plan.yCredits : plan.monthly / plan.credits;
-	}
-
-	function fmtPerPage(val) {
-		return '$' + val.toFixed(val < 0.01 ? 3 : 2);
-	}
-
-	const decimals = $derived(isYearly ? 3 : 2);
-	const pps = $derived(plans.map((p) => perPage(p)));
-
-	function fmt(perCredit, multiplier) {
-		const cost = perCredit * multiplier;
-		const factor = Math.pow(10, decimals);
-		return '$' + (Math.round(cost * factor) / factor).toFixed(decimals);
-	}
-
-	const faqItems = [
-		{
-			question: 'What is a credit?',
-			answer:
-				'A credit is the universal unit for all Dodonai processing. 1 credit equals approximately 1 page, or roughly 400 tokens of text. Your monthly or annual credit allocation can be used across any combination of process types.'
-		},
-		{
-			question: 'How do credits work with different process types?',
-			answer:
-				'Standard summaries (deposition, medical record, and general document) use 1 credit per page. Custom summaries use 2 credits per page. Advanced and index-based analysis uses 3 credits per page. Audio transcription is billed per audio minute: 2 credits per minute on subscription plans, or $0.25 per minute on invoice billing. OCR is always free and included with every plan.'
-		},
-		{
-			question: 'Do unused credits roll over?',
-			answer:
-				'Monthly plan credits reset each billing cycle and do not roll over. Annual plan credits roll over — any unused credits at the end of your annual billing period carry forward to the following year.'
-		},
-		{
-			question: 'Can I upgrade my plan mid-cycle?',
-			answer:
-				'Yes, you can upgrade your plan at any time. When you upgrade, you will receive the additional credits from the new plan immediately, prorated for the remainder of your billing period.'
-		},
-		{
-			question: 'What happens if I run out of credits?',
-			answer:
-				'If you exhaust your credits before the end of your billing period, you can purchase additional credits or upgrade to a higher plan. You will not be charged automatically — processing simply pauses until credits are available.'
-		}
-	];
+	const perPage = (plan) => perCredit(plan, isYearly);
+	const fmtPerPage = formatRate;
+	const pps = $derived(plans.map(perPage));
+	const fmt = (rate, multiplier) => formatRate(rate * multiplier);
+	const faqItems = pricingFaq;
 
 	let faqOpen = $state(faqItems.map(() => false));
 
@@ -94,7 +39,7 @@
 		{ title: 'AI-Powered OCR', desc: 'Always free with every plan', icon: 'scan' },
 		{
 			title: 'Extract & Draft Agents',
-			desc: 'Custom AI agents for your workflows',
+			desc: 'Document extraction and drafting templates inside the App',
 			icon: 'agent'
 		},
 		{ title: 'E-Discovery Tools', desc: 'Search, tag, and organize collections', icon: 'search' },
@@ -113,132 +58,7 @@
 	];
 </script>
 
-<SEOHead
-	title="Pricing"
-	description="Simple, usage-based pricing for AI-powered document processing. Every feature included in every plan. Starting at 2 cents per page."
-	url="/pricing/"
-	jsonLd={[
-		{
-			'@context': 'https://schema.org',
-			'@type': 'BreadcrumbList',
-			itemListElement: [
-				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
-				{ '@type': 'ListItem', position: 2, name: 'Pricing', item: 'https://www.dodon.ai/pricing/' }
-			]
-		},
-		{
-			'@context': 'https://schema.org',
-			'@type': 'Product',
-			name: 'Dodonai',
-			description:
-				'AI-powered document processing platform for legal professionals. Summarize depositions, medical records, and legal documents.',
-			brand: {
-				'@type': 'Organization',
-				name: 'Dodonai, Inc.'
-			},
-			offers: {
-				'@type': 'AggregateOffer',
-				priceCurrency: 'USD',
-				lowPrice: '25',
-				highPrice: '100',
-				offerCount: '7',
-				offers: [
-					{
-						'@type': 'Offer',
-						name: 'Lite (Monthly)',
-						price: '30',
-						priceCurrency: 'USD',
-						priceSpecification: {
-							'@type': 'UnitPriceSpecification',
-							price: '30',
-							priceCurrency: 'USD',
-							billingDuration: 'P1M'
-						},
-						description: 'For solo practitioners and small teams. 200 credits per month.',
-						url: 'https://app.dodon.ai/signup'
-					},
-					{
-						'@type': 'Offer',
-						name: 'Lite (Annual)',
-						price: '25',
-						priceCurrency: 'USD',
-						priceSpecification: {
-							'@type': 'UnitPriceSpecification',
-							price: '25',
-							priceCurrency: 'USD',
-							billingDuration: 'P1Y'
-						},
-						description:
-							'For solo practitioners and small teams. 200 credits per month, billed annually.',
-						url: 'https://app.dodon.ai/signup'
-					},
-					{
-						'@type': 'Offer',
-						name: 'Basic (Monthly)',
-						price: '60',
-						priceCurrency: 'USD',
-						priceSpecification: {
-							'@type': 'UnitPriceSpecification',
-							price: '60',
-							priceCurrency: 'USD',
-							billingDuration: 'P1M'
-						},
-						description: 'For growing firms. 1,000 credits per month.',
-						url: 'https://app.dodon.ai/signup'
-					},
-					{
-						'@type': 'Offer',
-						name: 'Basic (Annual)',
-						price: '50',
-						priceCurrency: 'USD',
-						priceSpecification: {
-							'@type': 'UnitPriceSpecification',
-							price: '50',
-							priceCurrency: 'USD',
-							billingDuration: 'P1Y'
-						},
-						description: 'For growing firms. 1,000 credits per month, billed annually.',
-						url: 'https://app.dodon.ai/signup'
-					},
-					{
-						'@type': 'Offer',
-						name: 'Pro (Monthly)',
-						price: '100',
-						priceCurrency: 'USD',
-						priceSpecification: {
-							'@type': 'UnitPriceSpecification',
-							price: '100',
-							priceCurrency: 'USD',
-							billingDuration: 'P1M'
-						},
-						description: 'For high-volume teams. 5,000 credits per month.',
-						url: 'https://app.dodon.ai/signup'
-					},
-					{
-						'@type': 'Offer',
-						name: 'Pro (Annual)',
-						price: '84',
-						priceCurrency: 'USD',
-						priceSpecification: {
-							'@type': 'UnitPriceSpecification',
-							price: '84',
-							priceCurrency: 'USD',
-							billingDuration: 'P1Y'
-						},
-						description: 'For high-volume teams. 5,000 credits per month, billed annually.',
-						url: 'https://app.dodon.ai/signup'
-					},
-					{
-						'@type': 'Offer',
-						name: 'Enterprise',
-						description: 'Custom pricing for large organizations.',
-						url: 'https://app.dodon.ai/signup'
-					}
-				]
-			}
-		}
-	]}
-/>
+<SEOHead title="Pricing" description={pricingDescription} url="/pricing/" jsonLd={pricingSchema} />
 
 <!-- Hero -->
 <section class="bg-[#f4f5fd] pb-5 pt-28 sm:pt-36">
@@ -247,8 +67,7 @@
 			Usage-Based Pricing
 		</p>
 		<h1 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl lg:text-5xl">
-			Every Feature. Every Plan.<br />Starting at
-			<span class="text-[#836ae4]">2&cent; per page.</span>
+			Every feature. Choose the capacity you need.
 		</h1>
 		<p class="mx-auto mt-4 max-w-xl text-base text-[#8181ac] sm:text-lg">
 			No per-seat fees. No feature gates. Choose the volume that fits your workload — the more you
@@ -291,23 +110,27 @@
 		class="rounded px-2.5 py-0.5 text-[0.7rem] font-bold tracking-wide text-[#836ae4]"
 		style="background: rgba(131, 106, 228, 0.06)"
 	>
-		Save up to 58%
+		Lower cost per credit
 	</span>
 </div>
+
+<p class="mx-auto max-w-3xl px-4 pb-8 text-center text-sm text-[#282876]">{annualExplanation}</p>
 
 <!-- Pricing cards -->
 <section class="bg-[#f4f5fd] px-4 pb-16 sm:px-6 lg:px-8">
 	<div class="mx-auto grid max-w-[1080px] grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-4">
 		{#each plans as plan}
 			{@const pp = perPage(plan)}
-			{@const price = isYearly ? Math.round(plan.yearly / 12) : plan.monthly}
-			{@const savings = isYearly ? Math.round((1 - plan.yearly / (plan.monthly * 12)) * 100) : 0}
+			{@const price = isYearly ? monthlyEquivalent(plan) : plan.monthlyPrice}
+			{@const savings = isYearly
+				? Math.round((1 - plan.yearlyPrice / (plan.monthlyPrice * 12)) * 100)
+				: 0}
 			<div
-				class="relative flex flex-col rounded-[10px] border bg-white p-7 transition-all sm:p-8 {plan.recommended
+				class="relative flex flex-col rounded-[10px] border bg-white p-7 transition-all sm:p-8 {plan.popular
 					? 'border-[#836ae4] shadow-[0_1px_24px_rgba(131,106,228,0.1)]'
 					: 'border-[#e8e8f0] hover:border-[#d0d0e0]'}"
 			>
-				{#if plan.recommended}
+				{#if plan.popular}
 					<span
 						class="absolute -top-2.5 left-7 rounded bg-[#836ae4] px-3 py-0.5 text-[0.7rem] font-bold tracking-wide text-white"
 					>
@@ -315,6 +138,7 @@
 					</span>
 				{/if}
 
+				<h2 class="mb-3 text-xl font-bold text-[#282876]">{plan.name}</h2>
 				<div class="mb-1">
 					<span class="text-xl font-extrabold text-[#836ae4] sm:text-2xl">{fmtPerPage(pp)}</span>
 					<span class="text-sm text-[#9898b8]"> / page*</span>
@@ -322,8 +146,8 @@
 				</div>
 				<p class="mb-1 text-xs text-[#9898b8]">
 					{isYearly
-						? plan.yCredits.toLocaleString() + ' credits per year'
-						: plan.credits.toLocaleString() + ' credits per month'}
+						? plan.yearlyCredits.toLocaleString() + ' credits per year'
+						: plan.monthlyCredits.toLocaleString() + ' credits per month'}
 				</p>
 
 				<div class="my-5 h-px bg-[#f0f0f4]"></div>
@@ -331,19 +155,23 @@
 				<div class="text-[2.5rem] font-extrabold leading-none tracking-tight text-[#282876]">
 					${price}<span class="text-sm font-medium text-[#9898b8]"> /mo</span>
 				</div>
-				<div class="mt-1 min-h-[36px] text-xs text-[#9898b8]">
-					{isYearly ? `Billed annually at $${plan.yearly}` : 'Billed monthly'}
+				<div class="mt-2 min-h-[36px] text-sm font-semibold text-[#282876]">
+					{isYearly
+						? `Full annual charge: $${plan.yearlyPrice.toLocaleString()}`
+						: 'Billed monthly'}
 					{#if savings > 0}
-						&middot; <span class="font-semibold text-[#836ae4]">Save {savings}%</span>
+						&middot; <span class="font-semibold text-[#836ae4]"
+							>Save {savings}% on the subscription price</span
+						>
 					{/if}
 				</div>
 
-				<p class="mt-3 flex-1 text-sm leading-relaxed text-[#8181ac]">{plan.desc}</p>
+				<p class="mt-3 flex-1 text-sm leading-relaxed text-[#8181ac]">{plan.description}</p>
 				<p class="mt-3 mb-5 text-xs font-semibold text-[#282876]">{plan.support}</p>
 
 				<a
 					href="https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=pricing_page"
-					class="block rounded-md py-2.5 text-center text-sm font-bold transition-colors {plan.recommended
+					class="block rounded-md py-2.5 text-center text-sm font-bold transition-colors {plan.popular
 						? 'bg-[#836ae4] text-white hover:bg-[#7059cc]'
 						: 'bg-[#216fed] text-white hover:bg-[#1b5ad4]'}"
 				>
@@ -364,7 +192,7 @@
 			<div class="my-5 h-px bg-[#f0f0f4]"></div>
 
 			<div class="text-2xl font-bold text-[#282876]">Let's talk</div>
-			<div class="mt-1 min-h-[36px] text-xs text-[#9898b8]">
+			<div class="mt-2 min-h-[36px] text-sm font-semibold text-[#282876]">
 				Custom integrations &middot; SLA guarantees
 			</div>
 
@@ -377,7 +205,7 @@
 			</p>
 
 			<a
-				href="https://calendly.com/nick-dodonai"
+				href="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min"
 				target="_blank"
 				rel="noopener noreferrer"
 				class="block rounded-md border-[1.5px] border-[#d0d0e0] py-2.5 text-center text-sm font-bold text-[#282876] transition-colors hover:border-[#282876]"
@@ -395,7 +223,8 @@
 			Every Plan Includes
 		</h2>
 		<p class="mx-auto mt-2 max-w-lg text-center text-sm text-[#9898b8]">
-			No feature gates. No upsells. Everything below from day one.
+			Every feature below is included. Custom integrations and managed workflow builds are scoped
+			separately.
 		</p>
 
 		<div class="mt-9 grid grid-cols-1 gap-3 sm:grid-cols-2 lg:grid-cols-3">
@@ -542,85 +371,44 @@
 		</p>
 
 		<div class="mt-8 overflow-x-auto rounded-lg border border-[#e8e8f0]">
-			<table class="w-full">
-				<thead>
-					<tr>
-						<th
-							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-left text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
-						>
-							Process
-						</th>
-						<th
-							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
-						>
-							Multiplier*
-						</th>
-						<th
-							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
-						>
-							{isYearly ? '4,800 cr/yr' : '200 cr/mo'}
-						</th>
-						<th
-							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
-						>
-							{isYearly ? '24,000 cr/yr' : '1,000 cr/mo'}
-						</th>
-						<th
-							class="border-b border-[#e8e8f0] bg-[#fafafe] px-4 py-3 text-center text-xs font-bold uppercase tracking-wide text-[#282876] sm:px-5"
-						>
-							{isYearly ? '120,000 cr/yr' : '5,000 cr/mo'}
-						</th>
-					</tr>
-				</thead>
-				<tbody>
-					<tr class="border-b border-[#f0f0f4]">
-						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
-							>Standard Summaries</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">1x</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[0], 1)}</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[1], 1)}</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[2], 1)}</td>
-					</tr>
-					<tr class="border-b border-[#f0f0f4]">
-						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
-							>Custom Summaries</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">2x</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[0], 2)}</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[1], 2)}</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[2], 2)}</td>
-					</tr>
-					<tr class="border-b border-[#f0f0f4]">
-						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
-							>Advanced Analysis</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">3x</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[0], 3)}</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[1], 3)}</td>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">{fmt(pps[2], 3)}</td>
-					</tr>
-					<tr>
-						<td class="px-4 py-3.5 text-sm font-semibold text-[#282876] sm:px-5"
-							>OCR & Transcription</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm text-[#8181ac] sm:px-5">—</td>
-						<td class="px-4 py-3.5 text-center text-sm font-semibold text-[#16a34a] sm:px-5"
-							>Free</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm font-semibold text-[#16a34a] sm:px-5"
-							>Free</td
-						>
-						<td class="px-4 py-3.5 text-center text-sm font-semibold text-[#16a34a] sm:px-5"
-							>Free</td
-						>
-					</tr>
+			<table class="w-full text-left text-sm text-[#282876]">
+				<thead
+					><tr
+						><th class="p-4">Process</th><th class="p-4">Credits / billable page</th>
+						{#each plans as plan}<th class="p-4"
+								>{plan.name}<br />{(isYearly
+									? plan.yearlyCredits
+									: plan.monthlyCredits
+								).toLocaleString()} cr/{isYearly ? 'yr' : 'mo'}</th
+							>{/each}</tr
+					></thead
+				>
+				<tbody
+					>{#each billing.processes as process}<tr class="border-t border-[#e8e8f0]"
+							><th class="p-4">{process.name}</th><td class="p-4">{process.multiplier}</td
+							>{#each pps as rate}<td class="p-4">{fmt(rate, process.multiplier)}</td>{/each}</tr
+						>{/each}
+					<tr class="border-t border-[#e8e8f0]"
+						><th class="p-4">OCR</th><td class="p-4">{billing.ocrCredits}</td><td
+							class="p-4"
+							colspan="3">Free</td
+						></tr
+					>
 				</tbody>
 			</table>
 		</div>
-		<p class="mt-4 text-center text-xs text-[#9898b8]">*1 "page" ≈ 400 tokens of text.</p>
+		<p class="mt-4 text-center text-xs text-[#9898b8]">
+			A billable page ≈ {billing.tokensPerPage} tokens of text; it may differ from a physical PDF page.
+			Rates are rounded to three decimal places.
+		</p>
 	</div>
 </section>
+
+<p class="mx-auto max-w-3xl px-4 py-8 text-center text-sm text-[#282876]">
+	Audio transcription is billed separately: {billing.audioCreditsPerMinute} credits per audio minute on
+	subscriptions, or ${billing.audioInvoiceRate.toFixed(2)} per minute on invoice billing. Uploaded transcript
+	documents use the selected document-processing rate above.
+</p>
 
 <!-- Full Service -->
 <section class="bg-white px-4 py-16 sm:px-6 sm:py-20 lg:px-8">
@@ -690,6 +478,7 @@
 
 <!-- CTA -->
 <CTASection
+	offer="app"
 	headline="Ready to Get Started?"
 	description="Try Dodonai free and see how AI-powered document processing can save your team hours on every case."
 />

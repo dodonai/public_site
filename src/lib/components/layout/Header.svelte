@@ -39,7 +39,7 @@
 			]
 		},
 		{
-			name: 'Solutions',
+			name: 'App solutions',
 			columns: [
 				{ title: 'Practice areas', links: practiceAreas },
 				{ title: 'Use cases', links: useCases },
@@ -173,9 +173,9 @@
 				<a
 					class="site-cta"
 					href={servicesPage
-						? 'https://calendly.com/nick-dodonai'
+						? 'https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min'
 						: 'https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=header'}
-					>{servicesPage ? 'Book a call' : 'Start free trial'}</a
+					>{servicesPage ? 'Book a 30-minute intro call' : 'Start free trial'}</a
 				>
 			</div>
 		</nav>

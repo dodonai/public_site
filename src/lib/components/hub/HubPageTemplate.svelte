@@ -26,9 +26,7 @@
 			});
 	}
 
-	const comparisonSection = $derived(
-		data.sections?.find((s) => s.type === 'comparison')
-	);
+	const comparisonSection = $derived(data.sections?.find((s) => s.type === 'comparison'));
 
 	const jsonLd = $derived(() => {
 		const schemas = [
@@ -131,10 +129,7 @@
 						</a>
 					{/if}
 					{#if data.hero.secondaryCtaText}
-						<a
-							href={data.hero.secondaryCtaUrl}
-							class="btn-brand-outline"
-						>
+						<a href={data.hero.secondaryCtaUrl} class="btn-brand-outline">
 							{data.hero.secondaryCtaText}
 						</a>
 					{/if}
@@ -167,10 +162,7 @@
 					background="bg-transparent"
 				/>
 			{:else if section.type === 'howItWorks'}
-				<HowItWorks
-					steps={section.items}
-					background="bg-transparent"
-				/>
+				<HowItWorks steps={section.items} background="bg-transparent" />
 			{/if}
 		{/each}
 	{/if}
@@ -189,7 +181,9 @@
 	{#if data.relatedBlogPosts && data.relatedBlogPosts.length > 0}
 		<section class="bg-transparent py-20 sm:py-28">
 			<div class="mx-auto max-w-3xl px-4 sm:px-6 lg:px-8">
-				<h2 class="mb-8 text-center text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
+				<h2
+					class="mb-8 text-center text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl"
+				>
 					Related Articles
 				</h2>
 				<ul class="space-y-4">
@@ -199,10 +193,22 @@
 								href={postHref}
 								class="flex items-center gap-3 rounded-xl border border-[#dcddf340] bg-white p-5 shadow-brand-card transition-shadow hover:shadow-lg"
 							>
-								<svg class="h-5 w-5 shrink-0 text-[#216fed]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25" />
+								<svg
+									class="h-5 w-5 shrink-0 text-[#216fed]"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="1.5"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M12 6.042A8.967 8.967 0 0 0 6 3.75c-1.052 0-2.062.18-3 .512v14.25A8.987 8.987 0 0 1 6 18c2.305 0 4.408.867 6 2.292m0-14.25a8.966 8.966 0 0 1 6-2.292c1.052 0 2.062.18 3 .512v14.25A8.987 8.987 0 0 0 18 18a8.967 8.967 0 0 0-6 2.292m0-14.25v14.25"
+									/>
 								</svg>
-								<span class="text-sm font-medium text-[#282876] group-hover:text-[#216fed]">{blogTitle(postHref)}</span>
+								<span class="text-sm font-medium text-[#282876] group-hover:text-[#216fed]"
+									>{blogTitle(postHref)}</span
+								>
 							</a>
 						</li>
 					{/each}
@@ -214,7 +220,11 @@
 
 <!-- CTA outside blob background -->
 {#if data.ctaOverride}
-	<CTASection headline={data.ctaOverride.headline} description={data.ctaOverride.description} />
+	<CTASection
+		offer="app"
+		headline={data.ctaOverride.headline}
+		description={data.ctaOverride.description}
+	/>
 {:else}
-	<CTASection />
+	<CTASection offer="app" />
 {/if}

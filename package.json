@@ -4,11 +4,15 @@
   "private": true,
   "scripts": {
     "dev": "vite dev",
-    "build": "vite build && node scripts/critical-css.js",
+    "build": "npm run build:chat && vite build && node scripts/critical-css.js",
     "preview": "vite preview",
     "lint": "prettier --check . && eslint .",
     "format": "prettier --write .",
-    "migrate": "node scripts/migrate-webflow.js"
+    "migrate": "node scripts/migrate-webflow.js",
+    "build:chat": "node scripts/build-chat-widget.js",
+    "test:launch": "node scripts/test-launch.js",
+    "validate:prod": "node scripts/validate-build.js prod",
+    "validate:stage": "node scripts/validate-build.js stage"
   },
   "devDependencies": {
     "@sveltejs/adapter-static": "^3.0.0",

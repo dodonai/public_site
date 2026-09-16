@@ -3,7 +3,6 @@
 		name,
 		monthlyPrice,
 		yearlyPrice,
-		yearlyMonthlyPrice,
 		monthlyCredits,
 		yearlyCredits,
 		features,
@@ -13,7 +12,9 @@
 	} = $props();
 
 	const isEnterprise = $derived(monthlyPrice === null);
-	const displayPrice = $derived(isYearly ? yearlyMonthlyPrice : monthlyPrice);
+	const displayPrice = $derived(
+		isYearly ? (yearlyPrice / 12).toFixed(2).replace(/\.00$/, '') : monthlyPrice
+	);
 	const displayCredits = $derived(isYearly ? yearlyCredits : monthlyCredits);
 	const creditsLabel = $derived(isYearly ? 'credits per year' : 'credits per month');
 	const ctaText = $derived(isEnterprise ? 'Contact Sales' : 'Get Started');
@@ -46,17 +47,24 @@
 					<span class="text-sm text-[#8181ac]">/month</span>
 				</div>
 				{#if isYearly}
-					<p class="mt-1 text-sm text-[#8181ac]">billed ${yearlyPrice?.toLocaleString()} annually</p>
+					<p class="mt-2 text-base font-bold text-[#282876]">
+						Full annual charge: ${yearlyPrice?.toLocaleString()}
+					</p>
 				{/if}
 			{/if}
 		</div>
 
 		{#if !isEnterprise}
-			<div class="rounded-lg bg-[#f4f5fd] px-4 py-2.5 text-center text-sm font-medium text-[#8181ac]">
-				{displayCredits?.toLocaleString()} {creditsLabel}
+			<div
+				class="rounded-lg bg-[#f4f5fd] px-4 py-2.5 text-center text-sm font-medium text-[#8181ac]"
+			>
+				{displayCredits?.toLocaleString()}
+				{creditsLabel}
 			</div>
 		{:else}
-			<div class="rounded-lg bg-[#f4f5fd] px-4 py-2.5 text-center text-sm font-medium text-[#8181ac]">
+			<div
+				class="rounded-lg bg-[#f4f5fd] px-4 py-2.5 text-center text-sm font-medium text-[#8181ac]"
+			>
 				Unlimited credits
 			</div>
 		{/if}
@@ -64,7 +72,12 @@
 		<ul class="flex flex-col gap-3">
 			{#each features as feature}
 				<li class="flex items-start gap-3">
-					<img src="/images/brand/checkmark.svg" alt="" class="mt-0.5 h-5 w-5 flex-shrink-0" aria-hidden="true" />
+					<img
+						src="/images/brand/checkmark.svg"
+						alt=""
+						class="mt-0.5 h-5 w-5 flex-shrink-0"
+						aria-hidden="true"
+					/>
 					<span class="text-sm text-[#8181ac]">{feature}</span>
 				</li>
 			{/each}

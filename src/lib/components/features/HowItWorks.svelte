@@ -11,7 +11,11 @@
 			</h2>
 		</div>
 
-		<div class="relative grid gap-12 md:grid-cols-3 md:gap-8">
+		<div
+			class="relative grid gap-12 {steps.length === 4
+				? 'md:grid-cols-2 lg:grid-cols-4'
+				: 'md:grid-cols-3'} md:gap-8"
+		>
 			{#each steps as step, i}
 				<div class="relative flex flex-col items-center text-center">
 					{#if i < steps.length - 1}
@@ -27,8 +31,13 @@
 						{i + 1}
 					</div>
 
-					<h3 class="mt-6 text-lg font-bold text-[#282876]">{step.title}</h3>
-					<p class="mt-3 text-sm leading-relaxed text-[#8181ac]">{@html linkify(step.description)}</p>
+					<h3 class="mt-6 text-lg font-bold text-[#282876]">
+						{#if step.href}<a href={step.href} class="underline underline-offset-4">{step.title}</a
+							>{:else}{step.title}{/if}
+					</h3>
+					<p class="mt-3 text-sm leading-relaxed text-[#8181ac]">
+						{@html linkify(step.description)}
+					</p>
 				</div>
 			{/each}
 		</div>

@@ -7,8 +7,8 @@
   "hero": {
     "headline": "The safety layer every law firm needs",
     "subheadline": "AI never sends an email. It creates drafts. You review. You send. Every action is logged. If the agent isn't confident, it asks instead of guessing.",
-    "ctaText": "Book an intro call",
-    "ctaUrl": "https://calendly.com/nick-dodonai",
+    "ctaText": "Book a 30-minute intro call",
+    "ctaUrl": "https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min",
     "secondaryCtaText": "How It Works",
     "secondaryCtaUrl": "/ai-managed-services/how-it-works/"
   },
@@ -37,7 +37,7 @@
       {
         "icon": "warning",
         "title": "Outdated or overruled authority",
-        "description": "The case was good law when the model was trained but has since been overruled, distinguished, or superseded. Detection: every legal authority gets Shepardized or KeyCited as part of the agent's pipeline, with subsequent history surfaced in the output."
+        "description": "The case was good law when the model was trained but has since been overruled, distinguished, or superseded. Review: your legal team must check current authority and subsequent history using its authorized research tools before relying on a citation."
       }
     ]
   },
@@ -93,7 +93,7 @@
   "faq": [
     {
       "question": "Does this work with our existing client confidentiality posture?",
-      "answer": "Yes. Agents run inside infrastructure your firm controls. Where needed, we route work to LLM partners under zero data retention, so client data isn't stored after processing or used to train models. We sign a BAA where the work touches PHI. SOC 2 controls apply to every engagement. For more on how we handle confidentiality, see {{link:/ai-managed-services/how-it-works/|how it works}}."
+      "answer": "Yes. Custom agents run in your cloud account or Dodonai’s, as agreed in the Blueprint. Your Blueprint documents application storage, backups, model-provider processing and retention, access, export, and termination. Client data is not used to train models. Arrange the applicable BAA before PHI handling. Dodonai has SOC 2 coverage; request the report to assess covered systems and the reporting period. For more on how we handle confidentiality, see {{link:/ai-managed-services/how-it-works/|how it works}}."
     },
     {
       "question": "How is the audit trail surfaced if we ever need it?",

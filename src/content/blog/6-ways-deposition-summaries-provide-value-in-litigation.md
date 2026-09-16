@@ -1,4 +1,5 @@
 ---
+dateModified: "2026-09-15"
 title: "6 Ways Deposition Summaries Provide Value in Litigation"
 date: "2024-05-01"
 author: "Dodonai Team"
@@ -57,3 +58,6 @@ When your deposition summaries are organized and searchable, you can adapt in re
 Deposition summaries aren't going away, even as search tools get better. Search finds keywords. Summaries capture meaning, context, and contradictions.
 
 The question isn't whether to use them. It's whether you're still spending 6 hours per transcript doing it manually. [Dodonai's deposition summary software](/deposition-summary-software/) generates page-line and topic-based summaries in minutes, with citations back to the original transcript. That's less time on document review, more time on the work that wins cases.
+
+
+[Product liability teams can connect document review with injury and causation analysis.](/practice-areas/product-liability/)

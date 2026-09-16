@@ -28,7 +28,10 @@
 				{ name: 'Blog', href: '/blog/' },
 				{ name: 'Help center', href: 'https://app.dodon.ai/help' },
 				{ name: 'Log in', href: 'https://app.dodon.ai/login' },
-				{ name: 'Book a call', href: 'https://calendly.com/nick-dodonai' }
+				{
+					name: 'Book a 30-minute intro call',
+					href: 'https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min'
+				}
 			]
 		}
 	];
@@ -107,6 +110,10 @@
 			<div>
 				<a href="/privacy-policy/">Privacy policy</a><a href="/terms-and-conditions/"
 					>Terms & conditions</a
+				><button
+					type="button"
+					onclick={() => window.dispatchEvent(new Event('open-cookie-preferences'))}
+					>Cookie preferences</button
 				><a href="#top">Back to top ↑</a>
 			</div>
 		</div>

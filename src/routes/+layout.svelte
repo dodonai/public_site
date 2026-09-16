@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import '../app.css';
 	import { afterNavigate } from '$app/navigation';
 	import { browser } from '$app/environment';
@@ -7,7 +8,7 @@
 	import Header from '$lib/components/layout/Header.svelte';
 	import Footer from '$lib/components/layout/Footer.svelte';
 	import CookieConsent from '$lib/components/layout/CookieConsent.svelte';
-	import { trackPageView } from '$lib/utils/analytics.js';
+	import { trackPageView, hasOptionalConsent, canTrack } from '$lib/utils/analytics.js';
 
 	let { children } = $props();
 
@@ -20,7 +21,7 @@
 		'utm_term',
 		'utm_content'
 	];
-	if (browser) {
+	if (browser && hasOptionalConsent()) {
 		const urlParams = new URLSearchParams(window.location.search);
 		for (const p of AD_PARAMS) {
 			const v = urlParams.get(p);
@@ -29,6 +30,7 @@
 	}
 
 	function decorateAppLinks() {
+		if (!hasOptionalConsent()) return;
 		const params = {};
 		for (const p of AD_PARAMS) {
 			const v = sessionStorage.getItem(`_ad_${p}`);
@@ -111,6 +113,7 @@
 
 	// Forward captured paid params to Calendly so the booking carries attribution.
 	function calendlyUtms() {
+		if (!hasOptionalConsent()) return {};
 		const map = {
 			utm_source: 'utmSource',
 			utm_medium: 'utmMedium',
@@ -135,7 +138,16 @@
 		} catch {
 			return;
 		}
-		if (url.hostname !== 'calendly.com') return;
+		if (
+			url.hostname !== 'calendly.com' ||
+			e.defaultPrevented ||
+			e.button !== 0 ||
+			e.metaKey ||
+			e.ctrlKey ||
+			e.shiftKey ||
+			e.altKey
+		)
+			return;
 
 		e.preventDefault();
 		const sourcePath = window.location.pathname;
@@ -158,7 +170,9 @@
 	}
 
 	function handleCalendlyMessage(e) {
-		if (e.origin !== 'https://calendly.com') return;
+		if (e.origin !== 'https://calendly.com' || !canTrack()) return;
+		const frame = document.querySelector('.calendly-overlay iframe');
+		if (!frame || e.source !== frame.contentWindow) return;
 		if (
 			e.data?.event !== 'calendly.event_scheduled' ||
 			!window.gtag ||
@@ -196,7 +210,7 @@
 	});
 
 	afterNavigate(({ from, to }) => {
-		// Skip initial page load — GA4 config in app.html handles that
+		// Initial page view is recorded when consent permits analytics to load.
 		if (from && to?.url) {
 			trackPageView(to.url.pathname);
 		}
@@ -212,7 +226,7 @@
 		url: 'https://www.dodon.ai',
 		publisher: {
 			'@type': 'Organization',
-			name: 'Dodonai, Inc.',
+			name: company.name,
 			url: 'https://www.dodon.ai'
 		}
 	};

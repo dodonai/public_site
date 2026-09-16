@@ -22,7 +22,7 @@ There are two main formats:
     
 -   A **narrative chronology** – the same sequence of events, written in paragraph form.
 
-![](/images/blog/inline/68ad13f5c53d7f847b64a1cb_AD_4nXfO-ukCNkc02sjZQ2LJCux5enX995vx2phi-i-wMqW8UJoboQZ2Cu8fAdRad-EGQV5Hv9TwfyIhGG7ns9cdXE6hFno-nbavBRUxOIohVgHQpkDKT6B2dm5hm6oXJLAd2YhwKazc.webp)
+<img src="/images/blog/inline/68ad13f5c53d7f847b64a1cb_AD_4nXfO-ukCNkc02sjZQ2LJCux5enX995vx2phi-i-wMqW8UJoboQZ2Cu8fAdRad-EGQV5Hv9TwfyIhGG7ns9cdXE6hFno-nbavBRUxOIohVgHQpkDKT6B2dm5hm6oXJLAd2YhwKazc.webp" alt="Document summary setup with narrative, page-line, and full-page format options" width="1600" height="834" loading="lazy" decoding="async" />
 
 Dodon.ai Matters
 
@@ -45,7 +45,7 @@ Attorneys and litigation teams use this format to:
 
 **With Dodon.ai:** Upload your records once and get a ready-to-review table with page-line citations included.
 
-![](/images/blog/inline/68ad142102390e12a43b83f4_AD_4nXdlE0PJSBjlxOLOxmh2sGQKoTA7gBROYbOK4HYWecZUmn6EqbuQrPIh2qALdZcFNeZC1UVAgYjl8A8ysPcGlfa2gjCYuygjpWozThkgxY9___YDGhF96j_Sne70ur3FWtSwxzgt.webp)
+<img src="/images/blog/inline/68ad142102390e12a43b83f4_AD_4nXdlE0PJSBjlxOLOxmh2sGQKoTA7gBROYbOK4HYWecZUmn6EqbuQrPIh2qALdZcFNeZC1UVAgYjl8A8ysPcGlfa2gjCYuygjpWozThkgxY9___YDGhF96j_Sne70ur3FWtSwxzgt.webp" alt="Medical chronology listing dated events from a record" width="1600" height="853" loading="lazy" decoding="async" />
 
 Table Chronology
 
@@ -66,7 +66,7 @@ A narrative chronology covers the same ground but tells the story in paragraph f
 
 **With Dodon.ai:** The same upload can present a flowing narrative, accurate and shareable, in minutes.
 
-![](/images/blog/inline/68ad142ddbeef78855ecf2cd_AD_4nXfqJHvr7mcm6H6LdMB85ZLR_D83LfNz4ve_nTqESimJfDpofDQldbtRiRPDLn-206jnpvoxJrhZlVQbJbSNCX23-YlJ-AlkwRFGaa-BfrfuQ5nzMKVNVV3z9Oxtv_gzCSFm6OUkUg.webp)
+<img src="/images/blog/inline/68ad142ddbeef78855ecf2cd_AD_4nXfqJHvr7mcm6H6LdMB85ZLR_D83LfNz4ve_nTqESimJfDpofDQldbtRiRPDLn-206jnpvoxJrhZlVQbJbSNCX23-YlJ-AlkwRFGaa-BfrfuQ5nzMKVNVV3z9Oxtv_gzCSFm6OUkUg.webp" alt="Medical record narrative summary with Word, PDF, and text export options" width="1600" height="982" loading="lazy" decoding="async" />
 
 Narrative Chronology
 
@@ -82,7 +82,7 @@ Different roles often need different outputs. Attorneys lean on the table versio
 
 ## **Comparison at a glance**
 
-![](/images/blog/inline/68ad182ca258c2a8cbf119e4_CleanShot-2025-08-26-at-10.12.30-2x.webp)
+<img src="/images/blog/inline/68ad182ca258c2a8cbf119e4_CleanShot-2025-08-26-at-10.12.30-2x.webp" alt="Table versus narrative chronology comparison by audience, purpose, review style, and output" width="2146" height="246" loading="lazy" decoding="async" />
 
 Comparison Chart
 

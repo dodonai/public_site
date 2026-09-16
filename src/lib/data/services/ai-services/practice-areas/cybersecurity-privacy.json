@@ -2,7 +2,7 @@
   "slug": "cybersecurity-privacy",
   "seo": {
     "title": "AI for Cybersecurity & Privacy Law Firms | Dodonai",
-    "description": "Custom AI agents for cyber and privacy firms. Run the 50-state breach matrix, draft per-jurisdiction letters, and track every filing. Blueprint 2-3 weeks.",
+    "description": "Custom AI agents for cyber and privacy firms. Run the 50-state breach matrix, draft per-jurisdiction letters, and track every filing. Blueprint scoped to your firm.",
     "canonical": "/ai-managed-services/for/cybersecurity-privacy/"
   },
   "hero": {
@@ -21,7 +21,7 @@
     "heading": "Why AI fits cybersecurity and privacy practice",
     "paragraphs": [
       "Breach notification is among the most jurisdiction-complex problems in legal practice. The legal analysis per state is usually clear on its face. The challenge is orchestrating 50-state tracking without dropping a jurisdiction, a deadline, or a content requirement. That orchestration is exactly where agents excel.",
-      "The same pattern applies across the privacy practice. GDPR Article 33 notifications with their 72-hour window. State-specific AI governance rules. Vendor incident response coordination. Compliance audit tracking across SOC 2, ISO 27001, and industry frameworks. Every one is document-intensive, deadline-driven, and structurally identical across incidents. We know this audience audits for a living: agents run in your account on SOC 2-aligned infrastructure, zero data retention with our LLM providers, HIPAA BAA available where the work touches health data, drafts only, full audit trail on every action."
+      "The same pattern applies across the privacy practice. GDPR Article 33 notifications with their 72-hour window. State-specific AI governance rules. Vendor incident response coordination. Compliance audit tracking across SOC 2, ISO 27001, and industry frameworks. Every one is document-intensive, deadline-driven, and structurally identical across incidents. We know this audience audits for a living: agents run in the agreed cloud account with provider-retention terms documented in the Blueprint and a BAA arranged before handling PHI, drafts only, full audit trail on every action."
     ]
   },
   "agentRelevance": {
@@ -31,9 +31,9 @@
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
-      "We start with Blueprint, a 2 to 3 week engagement where we walk through 2 or 3 recent incidents, review your notification templates and matrix, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
-      "Build is 4 to 8 weeks. We encode the 50-state matrix with your firm's interpretations and templates, connect the agent to your case management system and document storage, and run it in shadow mode on a simulated incident while we tune. Notification drafts ship in your voice.",
-      "Managed is the ongoing operating mode. We monitor the agents, update state rules as statutes and AG guidance change (which they do), add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+      "Organize produces the Blueprint, a 2 to 3 week engagement where we walk through 2 or 3 recent incidents, review your notification templates and matrix, and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Orchestrate and Automate make up the Build, typically 4 to 8 weeks. We encode the 50-state matrix with your firm's interpretations and templates, connect the agent to your case management system and document storage, and run it in shadow mode on a simulated incident while we tune. Notification drafts ship in your voice.",
+      "Optimize is optional ongoing operation under the Run service. You may instead operate the completed build yourself. We monitor the agents, update state rules as statutes and AG guidance change (which they do), add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
     ]
   },
   "faq": [

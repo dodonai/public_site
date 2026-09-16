@@ -3,15 +3,25 @@
 	import PhaseWrapper from '$lib/components/hero/PhaseWrapper.svelte';
 
 	const safetyChecks = [
-		{ label: 'Citation verified', detail: 'Shepard + Lexis pass' },
+		{ label: 'Citation review', detail: 'Attorney checks current authority' },
 		{ label: 'ABA Opinion 512 audit', detail: 'Competence, candor, supervision' },
 		{ label: 'Confidentiality scope', detail: 'No data left your tenant' },
 		{ label: 'Reviewer gate', detail: 'Attorney approval required' }
 	];
 
 	const auditEntries = [
-		{ time: '08:14', model: 'Claude Sonnet 4.5', action: 'Drafted demand letter', matter: 'Matter #1429' },
-		{ time: '08:16', model: 'Claude Sonnet 4.5', action: 'Verified 4 citations', matter: 'Matter #1429' },
+		{
+			time: '08:14',
+			model: 'Claude Sonnet 4.5',
+			action: 'Drafted demand letter',
+			matter: 'Matter #1429'
+		},
+		{
+			time: '08:16',
+			model: 'Claude Sonnet 4.5',
+			action: 'Verified 4 citations',
+			matter: 'Matter #1429'
+		},
 		{ time: '08:17', model: 'Reviewer', action: 'Approved, 1 edit', matter: 'K. Parks' },
 		{ time: '08:18', model: 'System', action: 'Draft routed to client', matter: 'Sent manually' }
 	];
@@ -21,7 +31,9 @@
 	{#snippet children(step)}
 		<!-- Phase 0: Gate — draft flows into safety layer -->
 		{#if step === 0}
-			<PhaseWrapper caption="Every draft passes through the safety layer before a person reviews it.">
+			<PhaseWrapper
+				caption="Every draft passes through the safety layer before a person reviews it."
+			>
 				<div class="scene">
 					<div class="gate-card">
 						<div class="card-header">
@@ -31,27 +43,79 @@
 						<div class="flow">
 							<div class="flow-node source" style="animation-delay: 150ms">
 								<div class="flow-icon">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z" /><polyline points="14 2 14 8 20 8" /></svg>
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.8"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										><path
+											d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"
+										/><polyline points="14 2 14 8 20 8" /></svg
+									>
 								</div>
 								<div class="flow-label">Draft</div>
 								<div class="flow-sub">Agent output</div>
 							</div>
 							<div class="flow-arrow" style="animation-delay: 500ms">
-								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="5" y1="12" x2="19" y2="12" /><polyline
+										points="12 5 19 12 12 19"
+									/></svg
+								>
 							</div>
 							<div class="flow-node gate" style="animation-delay: 900ms">
 								<div class="flow-icon gate-icon">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline points="9 12 11 14 15 10" /></svg>
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.8"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" /><polyline
+											points="9 12 11 14 15 10"
+										/></svg
+									>
 								</div>
 								<div class="flow-label">Safety Gate</div>
 								<div class="flow-sub">4 checks</div>
 							</div>
 							<div class="flow-arrow" style="animation-delay: 1400ms">
-								<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="5" y1="12" x2="19" y2="12" /><polyline points="12 5 19 12 12 19" /></svg>
+								<svg
+									viewBox="0 0 24 24"
+									fill="none"
+									stroke="currentColor"
+									stroke-width="2"
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									><line x1="5" y1="12" x2="19" y2="12" /><polyline
+										points="12 5 19 12 12 19"
+									/></svg
+								>
 							</div>
 							<div class="flow-node review" style="animation-delay: 1800ms">
 								<div class="flow-icon review-icon">
-									<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle cx="12" cy="7" r="4" /></svg>
+									<svg
+										viewBox="0 0 24 24"
+										fill="none"
+										stroke="currentColor"
+										stroke-width="1.8"
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2" /><circle
+											cx="12"
+											cy="7"
+											r="4"
+										/></svg
+									>
 								</div>
 								<div class="flow-label">You</div>
 								<div class="flow-sub">Attorney review</div>
@@ -59,7 +123,9 @@
 						</div>
 						<div class="footer-line" style="animation-delay: 2400ms">
 							<span class="footer-dot"></span>
-							<span class="footer-note">Nothing reaches a client, court, or outside party without approval.</span>
+							<span class="footer-note"
+								>Nothing reaches a client, court, or outside party without approval.</span
+							>
 						</div>
 					</div>
 				</div>
@@ -82,7 +148,14 @@
 							{#each safetyChecks as check, i}
 								<div class="check-row" style="animation-delay: {250 + i * 700}ms">
 									<span class="check-badge" style="animation-delay: {600 + i * 700}ms">
-										<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg>
+										<svg
+											viewBox="0 0 24 24"
+											fill="none"
+											stroke="currentColor"
+											stroke-width="3"
+											stroke-linecap="round"
+											stroke-linejoin="round"><polyline points="20 6 9 17 4 12" /></svg
+										>
 									</span>
 									<div class="check-body">
 										<div class="check-label">{check.label}</div>
@@ -132,24 +205,52 @@
 
 <style>
 	@keyframes fadeInUp {
-		from { opacity: 0; transform: translateY(10px); }
-		to { opacity: 1; transform: translateY(0); }
+		from {
+			opacity: 0;
+			transform: translateY(10px);
+		}
+		to {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	@keyframes fadeInScale {
-		from { opacity: 0; transform: scale(0.95); }
-		to { opacity: 1; transform: scale(1); }
+		from {
+			opacity: 0;
+			transform: scale(0.95);
+		}
+		to {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 
 	@keyframes badgePop {
-		0% { opacity: 0; transform: scale(0.2); }
-		70% { opacity: 1; transform: scale(1.15); }
-		100% { opacity: 1; transform: scale(1); }
+		0% {
+			opacity: 0;
+			transform: scale(0.2);
+		}
+		70% {
+			opacity: 1;
+			transform: scale(1.15);
+		}
+		100% {
+			opacity: 1;
+			transform: scale(1);
+		}
 	}
 
 	@keyframes livePulse {
-		0%, 100% { opacity: 1; box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4); }
-		50% { opacity: 0.85; box-shadow: 0 0 0 4px rgba(16, 185, 129, 0); }
+		0%,
+		100% {
+			opacity: 1;
+			box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.4);
+		}
+		50% {
+			opacity: 0.85;
+			box-shadow: 0 0 0 4px rgba(16, 185, 129, 0);
+		}
 	}
 
 	.scene {
@@ -166,7 +267,9 @@
 	.audit-card {
 		background: white;
 		border-radius: 14px;
-		box-shadow: 0 10px 40px rgba(40, 40, 118, 0.08), 0 2px 8px rgba(40, 40, 118, 0.04);
+		box-shadow:
+			0 10px 40px rgba(40, 40, 118, 0.08),
+			0 2px 8px rgba(40, 40, 118, 0.04);
 		padding: 18px 20px;
 		width: 100%;
 		max-width: 420px;

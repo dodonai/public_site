@@ -22,7 +22,7 @@ This article explains **why medical record gaps happen in litigation**, how team
 
 Most record sets are built from a standard **Medical Records Request**. Requests go out to known providers based on disclosures, intake forms, or early discovery. That approach assumes the provider list is already complete.
 
-![](/images/blog/inline/6952a7884b6556f0cacaaa70_c4646b6c.webp)
+<img src="/images/blog/inline/6952a7884b6556f0cacaaa70_c4646b6c.webp" alt="Medical chronology table with provider information and indexed source references" width="1230" height="935" loading="lazy" decoding="async" />
 
 It rarely is.
 
@@ -117,7 +117,7 @@ A defensible provider cross-reference pass includes:
     
 4.  Issuing follow-up Medical Records Requests early
 
-![](/images/blog/inline/6952a7884b6556f0cacaaa70_c4646b6c.webp)
+<img src="/images/blog/inline/6952a7884b6556f0cacaaa70_c4646b6c.webp" alt="Medical chronology table with provider information and indexed source references" width="1230" height="935" loading="lazy" decoding="async" />
 
 Done correctly, this step prevents downstream surprises.
 
@@ -136,7 +136,7 @@ When records are structured chronologically, provider patterns become visible:
 
 This is where provider-level review belongs during chronology prep, not after expert review. For a step-by-step example of building a chronology that surfaces these gaps, see [how to build a provider timeline in 10 minutes](/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/).
 
-![](/images/blog/inline/6952a7884b6556f0cacaaa76_fee1fc93.webp)
+<img src="/images/blog/inline/6952a7884b6556f0cacaaa76_fee1fc93.webp" alt="Medical event timeline beneath the summary indexes" width="1230" height="935" loading="lazy" decoding="async" />
 
 ‍
 
@@ -159,7 +159,7 @@ With **Dodon.ai**:
 
 This supports verification workflows without replacing legal judgment.
 
-![](/images/blog/inline/6952a7884b6556f0cacaaa79_cdd7351d.webp)
+<img src="/images/blog/inline/6952a7884b6556f0cacaaa79_cdd7351d.webp" alt="Medical chronology table with dated events, source details, and filters" width="1230" height="935" loading="lazy" decoding="async" />
 
 ## **Verification is the real issue, not volume**
 

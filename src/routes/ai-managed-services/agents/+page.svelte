@@ -6,10 +6,7 @@
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
 	import CTASection from '$lib/components/cta/CTASection.svelte';
 	import AgentCard from '$lib/components/ai-managed-services/AgentCard.svelte';
-	import {
-		aiServicesPracticeAreas,
-		aiServicesFunctions
-	} from '$lib/data/navigation.js';
+	import { aiServicesPracticeAreas, aiServicesFunctions } from '$lib/data/navigation.js';
 
 	let HeroAnimation = $state(null);
 	onMount(async () => {
@@ -94,8 +91,8 @@
 	<ServiceHero
 		headline="Pick the agents your firm needs"
 		subheadline="This is not a catalog. It is a starting point. Most firms begin with the two or three workflows that create the most friction, then build from there. Each automation is shaped around your matter mix, your standards, and the way your team actually reviews the work. Use these examples for inspiration."
-		ctaText="Book an intro call"
-		ctaUrl="https://calendly.com/nick-dodonai"
+		ctaText="Book a 30-minute intro call"
+		ctaUrl="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min"
 		secondaryCtaText="How It Works"
 		secondaryCtaUrl="/ai-managed-services/how-it-works/"
 		background="bg-transparent"
@@ -137,9 +134,7 @@
 				</div>
 
 				<div class="mt-6">
-					<div class="text-sm font-semibold uppercase tracking-wider text-[#216fed]">
-						Function
-					</div>
+					<div class="text-sm font-semibold uppercase tracking-wider text-[#216fed]">Function</div>
 					<div class="mt-3 flex flex-wrap gap-2">
 						<button
 							type="button"
@@ -151,7 +146,9 @@
 						{#each aiServicesFunctions as fn}
 							<button
 								type="button"
-								class="filter-chip filter-chip-function {functionFilter === fn.slug ? 'active' : ''}"
+								class="filter-chip filter-chip-function {functionFilter === fn.slug
+									? 'active'
+									: ''}"
 								onclick={() => (functionFilter = fn.slug)}
 							>
 								{fn.name}
@@ -188,7 +185,9 @@
 					{/each}
 				</div>
 			{:else}
-				<div class="mx-auto max-w-md rounded-2xl border border-[#dcddf340] bg-white p-8 text-center shadow-brand-card">
+				<div
+					class="mx-auto max-w-md rounded-2xl border border-[#dcddf340] bg-white p-8 text-center shadow-brand-card"
+				>
 					<p class="text-[#282876]">No agents match that combination yet.</p>
 					<button
 						type="button"
@@ -203,7 +202,7 @@
 	</section>
 </BlobBackground>
 
-<CTASection />
+<CTASection offer="services" />
 
 <style>
 	.filter-chip {

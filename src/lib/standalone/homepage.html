@@ -1019,6 +1019,7 @@ body{font-size:17px}
 #app .product-pill{display:inline-block;transition:background .18s,color .18s}
 #app .product-pill:hover{background:var(--indigo);color:#fff}
 #app .product-link:focus-visible,#app .product-pill:focus-visible{outline:3px solid var(--blue);outline-offset:4px}
+@media(max-width:480px){.faqhead{grid-template-columns:minmax(0,1fr)}.askbox .btn{white-space:normal}.flow-head{flex-wrap:wrap}.flow-phases{flex-wrap:wrap}}
 </style>
 </head>
 <body class="home">
@@ -1034,7 +1035,7 @@ body{font-size:17px}
       <a href="#app">The app</a>
       <a href="#security">Security</a>
     </div>
-    <a class="btn btn-primary" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+    <a class="btn btn-primary" href="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min">Book a 30-minute intro call</a>
     <details class="mnav"><summary aria-label="Open navigation"><i></i><i></i><i></i></summary><nav><a href="/ai-managed-services/how-it-works/">How it works</a><a href="#app">The app</a><a href="#security">Security</a></nav></details>
   </div>
 </nav>
@@ -1050,7 +1051,7 @@ body{font-size:17px}
       <h1>Putting AI to work<br>is <span class="alt">our work.</span></h1>
       <p class="sub">Scattered data, systems that don&rsquo;t talk, workflows that live in people&rsquo;s heads? Perfect. We organize, connect, and automate it all, then run it for you. The result: a firm automated on code you own, not another tool your team groans at.</p>
       <div class="hero-cta">
-        <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Bring us one painful task</a>
+        <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min">Book a 30-minute intro call</a>
         <a class="btn btn-ghost btn-lg" href="/ai-managed-services/how-it-works/">See how the build works</a>
       </div>
       <div class="chips">
@@ -1060,14 +1061,14 @@ body{font-size:17px}
       </div>
     </div>
     <div class="flowdemo" id="flowdemo" aria-label="Demo: firm data is organized, systems are orchestrated through a custom AI operating layer, and work is automated into review-ready output">
-      <div class="flow-head"><span><i></i>LIVE DEMO</span><b class="flow-phases"><em>Organize</em><s>&rarr;</s><em>Orchestrate</em><s>&rarr;</s><em>Automate</em></b></div>
+      <div class="flow-head"><span><i></i>EXAMPLE WORKFLOW</span><b class="flow-phases"><em>Organize</em><s>&rarr;</s><em>Orchestrate</em><s>&rarr;</s><em>Automate</em></b></div>
       <div class="flow-progress"><i id="flowProg"></i></div>
       <div class="flow-grid">
         <div class="flow-col flow-inputs">
           <span class="flow-label">Your firm</span>
-          <div class="flow-row r1"><b>Matter files</b><small>SharePoint</small></div>
-          <div class="flow-row r2"><b>New email</b><small>Outlook</small></div>
-          <div class="flow-row r3"><b>Precedent</b></div>
+          <div class="flow-row r1" data-flow="matter-files"><b>Matter files</b><small>SharePoint</small></div>
+          <div class="flow-row r2" data-flow="new-email"><b>New email</b><small>Outlook</small></div>
+          <div class="flow-row r3" data-flow="precedent"><b>Precedent</b></div>
         </div>
         <div class="flow-rail rail-l"><i></i><i></i></div>
         <div class="flow-corebox">
@@ -1139,7 +1140,7 @@ body{font-size:17px}
     </a>
     <a class="pt-row" href="/ai-managed-services/how-it-works/#optimize">
       <span class="pt-left"><span class="pic"><svg viewBox="0 0 20 20"><path d="M3 15l4.5-4.5 3 3L17 6"/><path d="M13 6h4v4"/></svg></span><span><span class="pn">STAGE 04</span><span class="pt2">Optimize</span></span></span>
-      <span class="pt-blurb">We run it in our cloud and improve it every month from what actually happens.</span>
+      <span class="pt-blurb">Choose ongoing operation and improvement from Dodonai, or run the completed build yourself.</span>
       <span class="pt-go">Explore &rarr;</span>
     </a>
   </div></div>
@@ -1699,9 +1700,9 @@ body{font-size:17px}
       <p class="lede" style="color:#C7CCEF">Automate the work. Keep the authority to release it.</p>
     </div>
     <div class="sec-grid">
-      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-soc2.svg" alt=""><h4>SOC 2 certified</h4><p>Audited controls across the platform and every environment we run.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-soc2.svg" alt=""><h4>SOC 2 certified</h4><p>Dodonai is covered by SOC 2. Ask us about the report and the scope relevant to your engagement.</p></div>
       <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-hipaa.svg" alt=""><h4>HIPAA compliant</h4><p>Medical records handled the way your clients' providers are required to handle them.</p></div>
-      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-encryption.svg" alt=""><h4>Your cloud, your data</h4><p>Everything runs in infrastructure you own. No second copy in our vault.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-encryption.svg" alt=""><h4>Your choice of hosting</h4><p>Your custom system can run in your cloud account or in Dodonai’s. Your Blueprint specifies hosting, access, AI providers, and retention. Buy the completed build and run it yourself, or choose optional Dodonai operation.</p></div>
       <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-access-control.svg" alt=""><h4>No training on your work</h4><p>Your work product improves nothing for anyone else, not even anonymized.</p></div>
       <div class="sec-card"><img src="https://www.dodon.ai/images/brand/checkmark.svg" alt=""><h4>A person releases everything</h4><p>Nothing reaches a client, court, or counterparty until your team sends it.</p></div>
     </div>
@@ -1719,7 +1720,7 @@ body{font-size:17px}
       <aside class="askbox">
         <h4>Not on this list?</h4>
         <p>Ask it on the call. Thirty minutes, no deck, and you will leave knowing whether an agent can take the task.</p>
-        <a class="btn btn-primary" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+        <a class="btn btn-primary" href="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min">Book a 30-minute intro call</a>
       </aside>
     </div>
     <div class="faq">
@@ -1738,7 +1739,7 @@ body{font-size:17px}
       </details>
       <details>
         <summary>Where does our data go, and does it train anything?</summary>
-        <p>Your systems of record stay where they are, and the environment we build runs in infrastructure you control. Generating output means sending the relevant material to the model providers you approve, under your agreements with them. Your work product is never used to train models for anyone else.</p>
+        <p>Your systems of record stay where they are, and your Blueprint specifies whether the custom environment runs in your cloud account or Dodonai’s. Generating output means sending the relevant material to the model providers you approve, under your agreements with them. Your work product is never used to train models for anyone else.</p>
       </details>
       <details>
         <summary>What happens when the output is wrong?</summary>
@@ -1746,11 +1747,11 @@ body{font-size:17px}
       </details>
       <details>
         <summary>What does it cost?</summary>
-        <p>Three things, matching how we work: a fixed fee for the Blueprint, a fixed Build price per automation approved before development starts, and a monthly Run fee for operating and improving what is in production. Model usage is passed through at cost. Exact numbers come with your Blueprint.</p>
+        <p>Three things, matching how we work: a fixed fee for the Blueprint, a fixed Build price per automation approved before development starts, and an optional Run fee for operating and improving what is in production. Model usage is passed through at cost. Exact numbers come with your Blueprint.</p>
       </details>
       <details>
         <summary>What if we want to stop?</summary>
-        <p>You keep the system. Full source, running in infrastructure you control, no long-term contract to exit. Stopping after one automation that works is a perfectly good outcome.</p>
+        <p>You keep the system. Full source, with the hosting arrangement and handover agreed in your Blueprint. No long-term contract to exit. Stopping after one automation that works is a perfectly good outcome.</p>
       </details>
     </div>
   </div>
@@ -1760,8 +1761,8 @@ body{font-size:17px}
   <div class="wrap">
     <span class="eyebrow">Start here</span>
     <h2>Bring us one painful task.</h2>
-    <p>Thirty minutes tells you whether an agent can take it, what the build costs, and how fast it goes live.</p>
-    <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+    <p>Walk us through one recurring task. We’ll discuss what could be automated, what needs human review, and the next step.</p>
+    <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min">Book a 30-minute intro call</a>
     <p class="fineprint">No pitch deck · No long-term contract · SOC 2 certified · HIPAA compliant</p>
   </div>
 </section>
@@ -1874,6 +1875,8 @@ if(pen&&penBox&&!reduce&&'IntersectionObserver' in window){
   const inputs=$$('.flow-inputs .flow-row'), outputs=$$('.flow-outputs .flow-row');
   const rules=$$('.flow-rule'), phEls=$$('.flow-phases em');
   const railL=$('.rail-l'), railR=$('.rail-r'), apr=$('.apr');
+  const matterFiles=$('.flow-inputs [data-flow="matter-files"]'), newEmail=$('.flow-inputs [data-flow="new-email"]'), precedent=$('.flow-inputs [data-flow="precedent"]');
+  if(![prog,status,note,railL,railR,apr,matterFiles,newEmail,precedent].every(Boolean)||outputs.length!==4||rules.length!==3||phEls.length!==3)return;
   const T=16600;
   demo.classList.add('anim');
   const say=t=>{status.style.opacity=0;setTimeout(()=>{status.textContent=t;status.style.opacity=1},240)};
@@ -1891,12 +1894,12 @@ if(pen&&penBox&&!reduce&&'IntersectionObserver' in window){
       prog.style.transition='none';prog.style.width='0%';void prog.offsetWidth;
       prog.style.transition='width '+T/1000+'s linear';prog.style.width='100%';
     }],
-    [700,()=>inputs[0].classList.add('set')],
-    [1300,()=>inputs[1].classList.add('set')],
-    [2500,()=>{inputs[2].classList.add('set');say('1,000+ page claim files indexed and mapped')}],
-    [4100,()=>{phase(2);say('Connecting SharePoint, Outlook, and your case data');ping(inputs[0]);fire(railL)}],
-    [5200,()=>{rules[0].classList.add('lit');ping(inputs[1]);fire(railL)}],
-    [6400,()=>{rules[1].classList.add('lit');ping(inputs[2]);fire(railL)}],
+    [700,()=>matterFiles.classList.add('set')],
+    [1300,()=>newEmail.classList.add('set')],
+    [2500,()=>{precedent.classList.add('set');say('1,000+ page claim files indexed and mapped')}],
+    [4100,()=>{phase(2);say('Connecting SharePoint, Outlook, and your case data');ping(matterFiles);fire(railL)}],
+    [5200,()=>{rules[0].classList.add('lit');ping(newEmail);fire(railL)}],
+    [6400,()=>{rules[1].classList.add('lit');ping(precedent);fire(railL)}],
     [7200,()=>{rules[2].classList.add('lit');fire(railL);say('Every system feeding one operating layer')}],
     [8600,()=>{phase(3);say('Drafting appeal from your own precedent');fire(railR)}],
     [9500,()=>outputs[0].classList.add('born')],

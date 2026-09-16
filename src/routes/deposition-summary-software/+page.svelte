@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
@@ -35,7 +36,7 @@
 			description: data.seo.description,
 			provider: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			serviceType: 'AI Deposition Summary Software'
@@ -57,7 +58,12 @@
 			'@type': 'BreadcrumbList',
 			itemListElement: [
 				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
-				{ '@type': 'ListItem', position: 2, name: 'Deposition Summary Software', item: `https://www.dodon.ai${data.seo.canonical}` }
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: 'Deposition Summary Software',
+					item: `https://www.dodon.ai${data.seo.canonical}`
+				}
 			]
 		},
 		{
@@ -162,10 +168,7 @@
 				</div>
 				{#if data.service.ctaText}
 					<div class="mt-10 text-center">
-						<a
-							href={data.service.ctaUrl}
-							class="btn-brand-primary inline-block"
-						>
+						<a href={data.service.ctaUrl} class="btn-brand-primary inline-block">
 							{data.service.ctaText}
 						</a>
 					</div>
@@ -185,7 +188,11 @@
 
 	<!-- 10. FAQ -->
 	{#if data.faq.length > 0}
-		<FAQAccordion items={data.faq} sectionTitle="Deposition Summarizer: Asked & Answered" background="bg-transparent" />
+		<FAQAccordion
+			items={data.faq}
+			sectionTitle="Deposition Summarizer: Asked & Answered"
+			background="bg-transparent"
+		/>
 	{/if}
 
 	<!-- 11. Related Services -->
@@ -195,4 +202,4 @@
 </BlobBackground>
 
 <!-- 11. CTA -->
-<CTASection />
+<CTASection offer="app" />

@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
@@ -48,7 +49,7 @@
 			serviceType: `AI ${fn.name} Services for Legal Teams`,
 			provider: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			}
 		},
@@ -88,8 +89,8 @@
 	<ServiceHero
 		headline={heroHeadline}
 		subheadline={heroSubheadline}
-		ctaText="Book an intro call"
-		ctaUrl="https://calendly.com/nick-dodonai"
+		ctaText="Book a 30-minute intro call"
+		ctaUrl="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min"
 		secondaryCtaText="Browse Agents"
 		secondaryCtaUrl="/ai-managed-services/agents/"
 		background="bg-transparent"
@@ -125,7 +126,8 @@
 					{customData?.agentRelevance?.heading ?? `${fn.name} agents`}
 				</h2>
 				<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
-					{customData?.agentRelevance?.intro ?? `${agents.length} ${agents.length === 1 ? 'agent' : 'agents'} in this function. Each is tuned to how your firm already operates.`}
+					{customData?.agentRelevance?.intro ??
+						`${agents.length} ${agents.length === 1 ? 'agent' : 'agents'} in this function. Each is tuned to how your firm already operates.`}
 				</p>
 			</div>
 
@@ -137,7 +139,10 @@
 				</div>
 			{:else}
 				<p class="mt-16 text-center text-[#8181ac]">
-					Agents in this function are being added. Email <a href="mailto:hello@dodon.ai" class="font-medium text-[#216fed] hover:underline">hello@dodon.ai</a> if you want to talk through what would fit your firm.
+					Agents in this function are being added. Email <a
+						href="mailto:hello@dodon.ai"
+						class="font-medium text-[#216fed] hover:underline">hello@dodon.ai</a
+					> if you want to talk through what would fit your firm.
 				</p>
 			{/if}
 		</div>
@@ -156,4 +161,4 @@
 	{/if}
 </BlobBackground>
 
-<CTASection />
+<CTASection offer="services" />

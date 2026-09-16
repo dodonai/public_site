@@ -1,4 +1,5 @@
 ---
+dateModified: "2026-09-15"
 title: "Summary of the 2023 Year-End Report on the Federal Judiciary"
 date: "2024-05-01"
 author: "Dodonai Team"
@@ -12,7 +13,7 @@ cardText: "A summary, created by Dodonai's Summarizer feature, of the 2023 Year-
 imageAlt: "Image of the Chief Justice Roberts of the US Supreme Court"
 ---
 
-# Summary - Chief Justice Roberts's Year-End Report on the Federal Judiciary 2023
+## Summary - Chief Justice Roberts's Year-End Report on the Federal Judiciary 2023
 
 Below is a summary, created by [Dodonai's Summarizer](/deposition-summary-software/) feature, of the 2023 Year-End Report on the Federal Judiciary. The quotes were added for this post. This report was released during the same Supreme Court term that featured several high-profile cases — see our [overview of the Fall 2023 SCOTUS cases to watch](/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/), as well as our AI analyses of oral arguments in [Loper Bright Enterprises v. Raimondo](/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/) and [Relentless v. Dept. of Commerce](/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/).
 

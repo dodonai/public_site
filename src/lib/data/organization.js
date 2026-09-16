@@ -1,8 +1,9 @@
+import { company } from './company.js';
 export const organization = {
 	'@context': 'https://schema.org',
 	'@type': 'Organization',
 	'@id': 'https://www.dodon.ai/#organization',
-	name: 'Dodonai, Inc.',
+	name: company.name,
 	url: 'https://www.dodon.ai/',
 	logo: 'https://www.dodon.ai/images/brand/logo-chime.svg',
 	description:

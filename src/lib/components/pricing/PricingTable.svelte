@@ -17,7 +17,6 @@
 				name={tier.name}
 				monthlyPrice={tier.monthlyPrice}
 				yearlyPrice={tier.yearlyPrice}
-				yearlyMonthlyPrice={tier.yearlyMonthlyPrice}
 				monthlyCredits={tier.monthlyCredits}
 				yearlyCredits={tier.yearlyCredits}
 				features={tier.features}

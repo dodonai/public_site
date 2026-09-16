@@ -87,8 +87,8 @@
 	<ServiceHero
 		headline="What we've built for firms like yours"
 		subheadline="Engagements across practice areas, firm sizes, and tech stacks — each one a bundle of agents tuned to how that firm actually works."
-		ctaText="Book a working call"
-		ctaUrl="https://calendly.com/nick-dodonai"
+		ctaText="Book a 30-minute intro call"
+		ctaUrl="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min"
 		secondaryCtaText="See how engagements run"
 		secondaryCtaUrl="/ai-managed-services/how-it-works/"
 		background="bg-transparent"
@@ -127,7 +127,4 @@
 	<TestimonialSection {testimonials} />
 </BlobBackground>
 
-<CTASection
-	headline="Want to see what this looks like for your firm?"
-	description="Start with a 30-minute call. We walk through your stack and your top workflows — no pitch deck."
-/>
+<CTASection offer="services" />

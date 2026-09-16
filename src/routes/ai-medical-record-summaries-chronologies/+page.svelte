@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
@@ -34,7 +35,7 @@
 			description: data.seo.description,
 			provider: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			serviceType: 'AI Medical Record Summarization'
@@ -56,7 +57,12 @@
 			'@type': 'BreadcrumbList',
 			itemListElement: [
 				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
-				{ '@type': 'ListItem', position: 2, name: 'Medical Record Summaries', item: `https://www.dodon.ai${data.seo.canonical}` }
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: 'Medical Record Summaries',
+					item: `https://www.dodon.ai${data.seo.canonical}`
+				}
 			]
 		},
 		{
@@ -114,15 +120,31 @@
 	{#if data.definition}
 		<section class="pt-4 pb-12 sm:pt-8 sm:pb-16" aria-labelledby="definition-heading">
 			<div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
-				<div class="rounded-2xl border-2 border-[#836ae440] bg-[#836ae40d] p-8 shadow-brand-card sm:p-10">
+				<div
+					class="rounded-2xl border-2 border-[#836ae440] bg-[#836ae40d] p-8 shadow-brand-card sm:p-10"
+				>
 					<div class="flex items-start gap-5">
-						<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#836ae41a]">
-							<svg class="h-6 w-6 text-[#836ae4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-								<path stroke-linecap="round" stroke-linejoin="round" d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z" />
+						<div
+							class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#836ae41a]"
+						>
+							<svg
+								class="h-6 w-6 text-[#836ae4]"
+								fill="none"
+								viewBox="0 0 24 24"
+								stroke="currentColor"
+								stroke-width="2"
+							>
+								<path
+									stroke-linecap="round"
+									stroke-linejoin="round"
+									d="M9.879 7.519c1.171-1.025 3.071-1.025 4.242 0 1.172 1.025 1.172 2.687 0 3.712-.203.179-.43.326-.67.442-.745.361-1.45.999-1.45 1.827v.75M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Zm-9 5.25h.008v.008H12v-.008Z"
+								/>
 							</svg>
 						</div>
 						<div>
-							<h2 id="definition-heading" class="text-2xl font-bold text-[#282876] sm:text-3xl">{data.definition.term}</h2>
+							<h2 id="definition-heading" class="text-2xl font-bold text-[#282876] sm:text-3xl">
+								{data.definition.term}
+							</h2>
 							<p class="mt-3 text-base leading-relaxed text-[#282876]">{data.definition.body}</p>
 						</div>
 					</div>
@@ -165,18 +187,44 @@
 
 				<div class="mt-16 grid gap-8 sm:grid-cols-2">
 					{#each data.educationalContent as card}
-						<div class="flex gap-5 rounded-2xl border border-[#dcddf340] bg-white p-8 shadow-brand-card">
-							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#836ae41a]">
+						<div
+							class="flex gap-5 rounded-2xl border border-[#dcddf340] bg-white p-8 shadow-brand-card"
+						>
+							<div
+								class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#836ae41a]"
+							>
 								{#if card.icon}
-									<svg class="h-6 w-6 text-[#836ae4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
+									<svg
+										class="h-6 w-6 text-[#836ae4]"
+										fill="none"
+										viewBox="0 0 24 24"
+										stroke="currentColor"
+										stroke-width="1.5"
+									>
 										{#if card.icon === 'document'}
-											<path stroke-linecap="round" stroke-linejoin="round" d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z" />
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M19.5 14.25v-2.625a3.375 3.375 0 0 0-3.375-3.375h-1.5A1.125 1.125 0 0 1 13.5 7.125v-1.5a3.375 3.375 0 0 0-3.375-3.375H8.25m2.25 0H5.625c-.621 0-1.125.504-1.125 1.125v17.25c0 .621.504 1.125 1.125 1.125h12.75c.621 0 1.125-.504 1.125-1.125V11.25a9 9 0 0 0-9-9Z"
+											/>
 										{:else if card.icon === 'calendar'}
-											<path stroke-linecap="round" stroke-linejoin="round" d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5" />
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M6.75 3v2.25M17.25 3v2.25M3 18.75V7.5a2.25 2.25 0 0 1 2.25-2.25h13.5A2.25 2.25 0 0 1 21 7.5v11.25m-18 0A2.25 2.25 0 0 0 5.25 21h13.5A2.25 2.25 0 0 0 21 18.75m-18 0v-7.5A2.25 2.25 0 0 1 5.25 9h13.5A2.25 2.25 0 0 1 21 11.25v7.5"
+											/>
 										{:else if card.icon === 'briefcase'}
-											<path stroke-linecap="round" stroke-linejoin="round" d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0" />
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M20.25 14.15v4.25c0 1.094-.787 2.036-1.872 2.18-2.087.277-4.216.42-6.378.42s-4.291-.143-6.378-.42c-1.085-.144-1.872-1.086-1.872-2.18v-4.25m16.5 0a2.18 2.18 0 0 0 .75-1.661V8.706c0-1.081-.768-2.015-1.837-2.175a48.114 48.114 0 0 0-3.413-.387m4.5 8.006c-.194.165-.42.295-.673.38A23.978 23.978 0 0 1 12 15.75c-2.648 0-5.195-.429-7.577-1.22a2.016 2.016 0 0 1-.673-.38m0 0A2.18 2.18 0 0 1 3 12.489V8.706c0-1.081.768-2.015 1.837-2.175a48.111 48.111 0 0 1 3.413-.387m7.5 0V5.25A2.25 2.25 0 0 0 13.5 3h-3a2.25 2.25 0 0 0-2.25 2.25v.894m7.5 0a48.667 48.667 0 0 0-7.5 0"
+											/>
 										{:else if card.icon === 'warning'}
-											<path stroke-linecap="round" stroke-linejoin="round" d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z" />
+											<path
+												stroke-linecap="round"
+												stroke-linejoin="round"
+												d="M12 9v3.75m-9.303 3.376c-.866 1.5.217 3.374 1.948 3.374h14.71c1.73 0 2.813-1.874 1.948-3.374L13.949 3.378c-.866-1.5-3.032-1.5-3.898 0L2.697 16.126ZM12 15.75h.007v.008H12v-.008Z"
+											/>
 										{/if}
 									</svg>
 								{:else}
@@ -187,7 +235,9 @@
 							</div>
 							<div>
 								<h3 class="text-lg font-bold text-[#282876]">{card.title}</h3>
-								<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{@html linkify(card.description)}</p>
+								<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">
+									{@html linkify(card.description)}
+								</p>
 							</div>
 						</div>
 					{/each}
@@ -195,11 +245,25 @@
 
 				<!-- AI Solution card spanning full width -->
 				{#if data.aiOverview}
-					<div class="mt-8 rounded-2xl border border-[#836ae430] bg-[#836ae408] p-10 shadow-brand-card">
+					<div
+						class="mt-8 rounded-2xl border border-[#836ae430] bg-[#836ae408] p-10 shadow-brand-card"
+					>
 						<div class="flex items-start gap-6">
-							<div class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#836ae41a]">
-								<svg class="h-6 w-6 text-[#836ae4]" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="1.5">
-									<path stroke-linecap="round" stroke-linejoin="round" d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z" />
+							<div
+								class="flex h-12 w-12 shrink-0 items-center justify-center rounded-xl bg-[#836ae41a]"
+							>
+								<svg
+									class="h-6 w-6 text-[#836ae4]"
+									fill="none"
+									viewBox="0 0 24 24"
+									stroke="currentColor"
+									stroke-width="1.5"
+								>
+									<path
+										stroke-linecap="round"
+										stroke-linejoin="round"
+										d="M9.813 15.904 9 18.75l-.813-2.846a4.5 4.5 0 0 0-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 0 0 3.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 0 0 3.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 0 0-3.09 3.09ZM18.259 8.715 18 9.75l-.259-1.035a3.375 3.375 0 0 0-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 0 0 2.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 0 0 2.455 2.456L21.75 6l-1.036.259a3.375 3.375 0 0 0-2.455 2.456ZM16.894 20.567 16.5 21.75l-.394-1.183a2.25 2.25 0 0 0-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 0 0 1.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 0 0 1.423 1.423l1.183.394-1.183.394a2.25 2.25 0 0 0-1.423 1.423Z"
+									/>
 								</svg>
 							</div>
 							<div>
@@ -262,4 +326,4 @@
 </BlobBackground>
 
 <!-- 10. CTA -->
-<CTASection />
+<CTASection offer="app" />

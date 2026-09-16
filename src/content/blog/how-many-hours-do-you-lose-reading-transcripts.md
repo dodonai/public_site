@@ -46,7 +46,7 @@ Dodon.ai's [deposition summary software](/deposition-summary-software/) was buil
 
 -   Upload the full transcript (PDF, scanned, or typed).
 
-![](/images/blog/inline/68deabcaa7bde794170b78b9_5df2bd53.webp)
+<img src="/images/blog/inline/68deabcaa7bde794170b78b9_5df2bd53.webp" alt="Deposition transcript beside its generated narrative summary in Dodonai" width="2048" height="1241" loading="lazy" decoding="async" />
 
 -   The software surfaces testimony, events, and speaker exchanges automatically.  
       
@@ -54,7 +54,7 @@ Dodon.ai's [deposition summary software](/deposition-summary-software/) was buil
 -   Every excerpt includes page-line citations back to the transcript, ensuring accuracy and auditability.  
     
 
-![](/images/blog/inline/68deabcaa7bde794170b78bf_348c4756.webp)
+<img src="/images/blog/inline/68deabcaa7bde794170b78bf_348c4756.webp" alt="Exported page-line summary with citation, testimony summary, and topic columns" width="1784" height="1810" loading="lazy" decoding="async" />
 
 -   Search and filter instantly by witness, topic, or date, turning hours of reading into minutes of review.
 
@@ -66,7 +66,7 @@ By shifting transcript analysis into structured, searchable outputs, firms recla
 
 Deposition testimony often anchors causation, damages, and credibility in cases ranging from [personal injury](/practice-areas/personal-injury/) to [medical malpractice](/practice-areas/medical-malpractice/). If you're new to the deposition process, our guide on [how depositions work](/blog/how-do-depositions-work-an-in-depth-exploration/) covers the full lifecycle from scheduling to transcript use. Missing a line can change settlement leverage. But over-investing staff time erodes margins and slows case progression. Firms using Dodon.ai report cutting review time by 80–90%, while still working with documents that meet litigation prep standards.
 
-![](/images/blog/inline/68deabcaa7bde794170b78bc_dbfbaa13.webp)
+<img src="/images/blog/inline/68deabcaa7bde794170b78bc_dbfbaa13.webp" alt="Deposition transcript beside a page-line summary table" width="2048" height="1240" loading="lazy" decoding="async" />
 
 ## **Final Word**
 

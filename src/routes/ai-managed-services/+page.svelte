@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
@@ -33,7 +34,7 @@
 			description: data.seo.description,
 			provider: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			serviceType: 'AI Implementation Services for Legal Teams'
@@ -470,4 +471,4 @@
 <LeadMagnetSection />
 
 <!-- CTA -->
-<CTASection />
+<CTASection offer="services" />

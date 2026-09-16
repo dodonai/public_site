@@ -21,7 +21,7 @@
     "heading": "Why AI fits estates and probate practice",
     "paragraphs": [
       "Estates work is pure lifecycle automation. The workflow is predictable, the stages are known, the outputs are templated, and the deadlines are computable from jurisdiction rules and filing dates. The only variable is the facts of the estate: who the executor is, what the assets are, who the beneficiaries are, which jurisdiction's rules apply.",
-      "That's exactly the shape agents handle well. The jurisdiction rules go into a skill file. The templates live in your document storage. The practice management system holds the matter data. The agent orchestrates across them and runs the lifecycle on every active file in parallel. The judgment, which estate needs a careful hand, which beneficiary is going to contest, which asset valuation needs to be defended, stays with the attorney. Probate touches sensitive beneficiary and medical data, so agents run in your account under SOC 2 and HIPAA controls, with BAAs where needed and zero data retention from our model providers. Drafts only, with an audit trail on every action."
+      "That's exactly the shape agents handle well. The jurisdiction rules go into a skill file. The templates live in your document storage. The practice management system holds the matter data. The agent orchestrates across them and runs the lifecycle on every active file in parallel. The judgment, which estate needs a careful hand, which beneficiary is going to contest, which asset valuation needs to be defended, stays with the attorney. Probate touches sensitive beneficiary and medical data, so agents run under the hosting and data-handling arrangements agreed in your Blueprint, with BAAs where needed and provider-retention terms documented in the Blueprint. Drafts only, with an audit trail on every action."
     ]
   },
   "agentRelevance": {
@@ -31,9 +31,9 @@
   "engagementPath": {
     "heading": "How we'd build this for your firm",
     "paragraphs": [
-      "We start with Blueprint, a 2 to 3 week engagement where we walk through 3 or 4 active files at different lifecycle stages and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
-      "Build is 4 to 8 weeks. We encode your jurisdiction rules, template library, and notification preferences, then stand up the lifecycle agent in your account, connected to your practice management system and document storage. We run it in shadow mode while we tune, comparing the agent's timeline output against how your attorneys actually track files today.",
-      "Managed is the ongoing operating mode. We monitor the agent, update jurisdiction rules as they change, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
+      "Organize produces the Blueprint, a 2 to 3 week engagement where we walk through 3 or 4 active files at different lifecycle stages and map where agents would land. You leave with a prioritized roadmap and a written scope for the first build.",
+      "Orchestrate and Automate make up the Build, typically 4 to 8 weeks. We encode your jurisdiction rules, template library, and notification preferences, then stand up the lifecycle agent in the agreed cloud account, connected to your practice management system and document storage. We run it in shadow mode while we tune, comparing the agent's timeline output against how your attorneys actually track files today.",
+      "Optimize is optional ongoing operation under the Run service. You may instead operate the completed build yourself. We monitor the agent, update jurisdiction rules as they change, add new agents as your needs grow, and absorb the work of keeping the fleet running. You get a monthly review with what the agents handled, where they escalated, and what we'd change next."
     ]
   },
   "faq": [

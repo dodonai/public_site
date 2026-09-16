@@ -12,10 +12,7 @@
 	const seoDescription =
 		'Compare deposition summary, medical chronology, and eDiscovery software by cost, turnaround, citations, and security. Side-by-side breakdowns for litigation teams.';
 
-	const breadcrumbs = [
-		{ name: 'Home', href: '/' },
-		{ name: 'Compare' }
-	];
+	const breadcrumbs = [{ name: 'Home', href: '/' }, { name: 'Compare' }];
 
 	const jsonLd = $derived([
 		{
@@ -78,4 +75,4 @@
 	<HubNav pages={data.comparisons} heading="Browse Comparisons" background="bg-transparent" />
 </BlobBackground>
 
-<CTASection />
+<CTASection offer="app" />

@@ -1,18 +1,24 @@
 {
   "seo": {
-    "title": "Medical Chronology Software for Attorneys: 99% Accurate AI",
-    "description": "Turn 1,000+ pages of records into a date-ordered medical chronology in minutes, with citations you can verify. 99% accurate, SOC 2 + HIPAA. Free trial.",
+    "title": "Medical Chronology Software for Attorneys",
+    "description": "Turn medical records into a date-ordered chronology with source citations. Review diagnoses, treatments, providers, and dates. Start a free trial.",
     "canonical": "/ai-medical-record-summaries-chronologies/"
   },
   "hero": {
-    "headline": "AI Medical Chronology Software — 99% Accurate, Built for Attorneys",
+    "headline": "AI Medical Chronology Software \u2014 Built for Attorney Review",
     "subheadline": "Turn 1,000+ pages of medical records into a date-ordered timeline in minutes, with page citations to every source. From $0.02 per page. Personal injury, med-mal, workers' comp, and disability benefits teams.",
     "bullets": [],
-    "ctaText": "Start Free — 100 Pages, No Card",
+    "ctaText": "Start Free \u2014 100 Pages, No Card",
     "ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=medical-chronology-page",
     "secondaryCtaText": "See Pricing",
     "secondaryCtaUrl": "/pricing/",
-    "badges": ["HIPAA Compliant", "SOC-2 Certified", "99% Accuracy", "AES-256 Encryption", "BAA Available"]
+    "badges": [
+      "HIPAA Compliant",
+      "SOC-2 Certified",
+      "Source citations",
+      "AES-256 Encryption",
+      "BAA Available"
+    ]
   },
   "definition": {
     "term": "What is a medical chronology?",
@@ -22,7 +28,7 @@
   "howItWorks": [
     {
       "title": "Upload the Medical Records",
-      "description": "Upload your medical records file to Dodonai and select the Medical Record summary type. Enter any key topics, diagnoses, or providers you want the summary to highlight. Dodonai accepts PDFs — including scanned documents — and handles multi-hundred-page files with ease."
+      "description": "Upload your medical records file to Dodonai and select the Medical Record summary type. Enter any key topics, diagnoses, or providers you want the summary to highlight. Dodonai accepts PDFs \u2014 including scanned documents \u2014 and handles multi-hundred-page files with ease."
     },
     {
       "title": "Process the Records",
@@ -52,7 +58,7 @@
     {
       "title": "Records Dodonai Processes",
       "icon": "document",
-      "description": "Physician office notes, emergency room records, hospital discharge summaries, surgical and operative reports, IME (independent medical examination) reports, physical therapy notes, lab results, imaging reports including MRI and X-ray, pharmacy and prescription records, and provider correspondence. Scanned, handwritten, and faxed records are processed alongside digital files through built-in {{link:/ai-pdf-ocr/|AI OCR}}. The output: a single chronology covering every provider, every visit, every event — with page citations to the original source for {{link:/use-cases/medical-record-review/|review of individual medical records}} on demand."
+      "description": "Physician office notes, emergency room records, hospital discharge summaries, surgical and operative reports, IME (independent medical examination) reports, physical therapy notes, lab results, imaging reports including MRI and X-ray, pharmacy and prescription records, and provider correspondence. Scanned, handwritten, and faxed records are processed alongside digital files through built-in {{link:/ai-pdf-ocr/|AI OCR}}. The output: a single chronology covering every provider, every visit, every event \u2014 with page citations to the original source for {{link:/use-cases/medical-record-review/|review of individual medical records}} on demand."
     }
   ],
   "aiOverview": {
@@ -63,7 +69,7 @@
   },
   "workflowComparison": {
     "heading": "Medical Record Summaries Built for Your Workflow",
-    "description": "Attorneys and medical professionals are particular about how their {{link:/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/|medical record summaries}} are formatted — and they should be. Every firm has its own preferences for layout, detail level, and terminology. Dodonai is built to match the way you already work, not force you into a one-size-fits-all template.",
+    "description": "Attorneys and medical professionals are particular about how their {{link:/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/|medical record summaries}} are formatted \u2014 and they should be. Every firm has its own preferences for layout, detail level, and terminology. Dodonai is built to match the way you already work, not force you into a one-size-fits-all template.",
     "basicFeatures": [
       "Upload & auto-summarize medical documents",
       "Standard data field extraction",
@@ -132,7 +138,7 @@
       {
         "title": "Accuracy and Consistency",
         "icon": "shield",
-        "description": "Dodonai's software extracts crucial medical information — diagnoses, treatments, procedural outcomes — with 99% accuracy and full page citations back to source records. Consistency across reviewers, minimized human error, and a reliable basis for case evaluation and strategy."
+        "description": "Dodonai's software extracts crucial medical information \u2014 diagnoses, treatments, procedural outcomes \u2014 with page citations back to source records for your team to verify. Consistency across reviewers, minimized human error, and a reliable basis for case evaluation and strategy."
       },
       {
         "title": "Access and Usability",
@@ -216,7 +222,7 @@
     },
     {
       "question": "How long does it take to generate a medical chronology?",
-      "answer": "Manually building a medical chronology from a 200–500 page record set takes a paralegal hours; complex cases with thousands of pages can take days. Dodonai's AI generates a complete medical chronology and narrative summary in minutes regardless of record volume, with page citations to every source. For attorneys comparing options, see our {{link:/compare/best-medical-chronology-software/|comparison of medical chronology software}}."
+      "answer": "Manually building a medical chronology from a 200\u2013500 page record set takes a paralegal hours; complex cases with thousands of pages can take days. Dodonai's AI generates a complete medical chronology and narrative summary in minutes regardless of record volume, with page citations to every source. For attorneys comparing options, see our {{link:/compare/best-medical-chronology-software/|comparison of medical chronology software}}."
     },
     {
       "question": "What is the difference between a medical record summary and a medical chronology?",
@@ -224,7 +230,7 @@
     },
     {
       "question": "Can Dodonai handle scanned or handwritten medical records?",
-      "answer": "Yes. Built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} processes scanned PDFs, image-based documents, faxed records, and handwritten provider notes. There is no separate OCR step — upload the file as-is and the AI extracts text accurately so nothing gets missed during chronology generation."
+      "answer": "Yes. Built-in {{link:/ai-pdf-ocr/|AI-powered OCR}} processes scanned PDFs, image-based documents, faxed records, and handwritten provider notes. There is no separate OCR step \u2014 upload the file as-is and the AI extracts text accurately so nothing gets missed during chronology generation."
     },
     {
       "question": "What file formats does Dodonai accept for medical records?",

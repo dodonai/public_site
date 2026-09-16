@@ -150,6 +150,16 @@ export function initialize(root) {
 		const railL = $('.rail-l'),
 			railR = $('.rail-r'),
 			apr = $('.apr');
+		const matterFiles = $('.flow-inputs [data-flow="matter-files"]');
+		const newEmail = $('.flow-inputs [data-flow="new-email"]');
+		const precedent = $('.flow-inputs [data-flow="precedent"]');
+		if (
+			![prog, status, note, railL, railR, apr, matterFiles, newEmail, precedent].every(Boolean) ||
+			outputs.length !== 4 ||
+			rules.length !== 3 ||
+			phEls.length !== 3
+		)
+			return;
 		const T = 16600;
 		demo.classList.add('anim');
 		const say = (t) => {
@@ -194,13 +204,12 @@ export function initialize(root) {
 					prog.style.width = '100%';
 				}
 			],
-			[700, () => inputs[0].classList.add('set')],
-			[1300, () => inputs[1].classList.add('set')],
-			[1900, () => inputs[2].classList.add('set')],
+			[700, () => matterFiles.classList.add('set')],
+			[1300, () => newEmail.classList.add('set')],
+			[1900, () => precedent.classList.add('set')],
 			[
 				2500,
 				() => {
-					inputs[3].classList.add('set');
 					say('1,000+ page claim files indexed and mapped');
 				}
 			],
@@ -209,7 +218,7 @@ export function initialize(root) {
 				() => {
 					phase(2);
 					say('Connecting SharePoint, Outlook, and the case system');
-					ping(inputs[0]);
+					ping(matterFiles);
 					fire(railL);
 				}
 			],
@@ -217,7 +226,7 @@ export function initialize(root) {
 				5000,
 				() => {
 					rules[0].classList.add('lit');
-					ping(inputs[1]);
+					ping(newEmail);
 					fire(railL);
 				}
 			],
@@ -225,7 +234,7 @@ export function initialize(root) {
 				5900,
 				() => {
 					rules[1].classList.add('lit');
-					ping(inputs[2]);
+					ping(precedent);
 					fire(railL);
 				}
 			],
@@ -233,7 +242,7 @@ export function initialize(root) {
 				6800,
 				() => {
 					rules[2].classList.add('lit');
-					ping(inputs[3]);
+					ping(precedent);
 					fire(railL);
 					say('Every system feeding one operating layer');
 				}

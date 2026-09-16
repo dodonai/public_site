@@ -1,0 +1,24 @@
+{
+  "tokensPerPage": 400,
+  "processes": [
+    {
+      "name": "Standard Summaries",
+      "multiplier": 1
+    },
+    {
+      "name": "Custom Summaries",
+      "multiplier": 2
+    },
+    {
+      "name": "Advanced Analysis",
+      "multiplier": 3
+    }
+  ],
+  "audioCreditsPerMinute": 2,
+  "audioInvoiceRate": 0.25,
+  "ocrCredits": 0,
+  "monthlyRollover": false,
+  "annualRollover": true,
+  "sourceReviewDate": "2026-09-15",
+  "sourceNotes": "App backend pricing.py TOKENS_PER_CREDIT/CREDITS_PER_AUDIO_MINUTE; billing_service.py DEFAULT_RATES; users.py PLAN_LIMITS; stripeWebhook annual rollover. Subscription prices retained from current public pricing; not a Stripe API verification."
+}

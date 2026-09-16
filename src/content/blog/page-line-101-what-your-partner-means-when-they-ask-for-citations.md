@@ -35,9 +35,9 @@ A page-line citation looks like:
 
 It’s a fast way to navigate directly to the testimony being referenced. In litigation prep, this is the difference between _believing a summary_ and _verifying it instantly._
 
-![](/images/blog/inline/6920adc13bbd87d4ea0b8a0a_19013522.webp)
+<img src="/images/blog/inline/6920adc13bbd87d4ea0b8a0a_19013522.webp" alt="Medical chronology entry with a page-range reference highlighted" width="1600" height="574" loading="lazy" decoding="async" />
 
-![](/images/blog/inline/6920adc13bbd87d4ea0b8a10_01e863ab.webp)
+<img src="/images/blog/inline/6920adc13bbd87d4ea0b8a10_01e863ab.webp" alt="Medical chronology detail drawer with provider, date, and source information" width="1600" height="842" loading="lazy" decoding="async" />
 
 ## **Why Partners Insist on Page-Line Citations**
 
@@ -94,7 +94,7 @@ The summary becomes a navigable index of testimony, with every point mapped back
 
 This is still litigation prep, not a courtroom filing, but it removes hours of grunt work from the review cycle.
 
-![](/images/blog/inline/6920adc13bbd87d4ea0b8a13_24b25879.webp)
+<img src="/images/blog/inline/6920adc13bbd87d4ea0b8a13_24b25879.webp" alt="Provider index and diagnosis index shown side by side" width="1600" height="1249" loading="lazy" decoding="async" />
 
 ## **The Bottom Line**
 
@@ -105,7 +105,7 @@ If your firm is still typing page-lines by hand, you’re spending partner-level
 
 Dodon.ai presents page-line summaries automatically, linking every point back to the transcript so you can verify quickly, prepare stronger outlines, and move through motions and strategy work faster.
 
-![](/images/blog/inline/6920adc13bbd87d4ea0b8a0d_8d247342.webp)
+<img src="/images/blog/inline/6920adc13bbd87d4ea0b8a0d_8d247342.webp" alt="Medical record summary with provider, diagnosis, personnel, and event indexes" width="1600" height="1005" loading="lazy" decoding="async" />
 
 ‍
 

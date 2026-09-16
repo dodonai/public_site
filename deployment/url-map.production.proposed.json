@@ -1,0 +1,3658 @@
+{
+  "defaultService": "https://www.googleapis.com/compute/v1/projects/dodonai/global/backendBuckets/stage-landing",
+  "fingerprint": "KMEKfHtUWck=",
+  "hostRules": [
+    {
+      "hosts": [
+        "app.dodon.ai"
+      ],
+      "pathMatcher": "prod-frontend-matcher"
+    },
+    {
+      "hosts": [
+        "api.dodon.ai"
+      ],
+      "pathMatcher": "prod-backend-matcher"
+    },
+    {
+      "hosts": [
+        "eu-api.dodon.ai"
+      ],
+      "pathMatcher": "eu-backend-path-matcher"
+    },
+    {
+      "hosts": [
+        "eu-app.dodon.ai"
+      ],
+      "pathMatcher": "eu-frontend-path-matcher"
+    },
+    {
+      "hosts": [
+        "landing.dodonai.com"
+      ],
+      "pathMatcher": "landing-dodonai-com-matcher"
+    },
+    {
+      "hosts": [
+        "www.dodon.ai",
+        "dodon.ai"
+      ],
+      "pathMatcher": "dodonai-path-matcher"
+    }
+  ],
+  "name": "dodonai-landing",
+  "pathMatchers": [
+    {
+      "defaultService": "https://www.googleapis.com/compute/v1/projects/dodonai/global/backendServices/prod-frontend-backend",
+      "name": "prod-frontend-matcher"
+    },
+    {
+      "defaultService": "https://www.googleapis.com/compute/v1/projects/dodonai/global/backendServices/prod-backend-backend",
+      "name": "prod-backend-matcher"
+    },
+    {
+      "defaultService": "https://www.googleapis.com/compute/v1/projects/dodonai/global/backendServices/eu-backend-backend",
+      "name": "eu-backend-path-matcher"
+    },
+    {
+      "defaultService": "https://www.googleapis.com/compute/v1/projects/dodonai/global/backendServices/eu-frontend-backend",
+      "name": "eu-frontend-path-matcher"
+    },
+    {
+      "defaultService": "https://www.googleapis.com/compute/v1/projects/dodonai/global/backendBuckets/stage-landing",
+      "name": "landing-dodonai-com-matcher",
+      "pathRules": [
+        {
+          "paths": [
+            "/site-chat",
+            "/site-chat/*"
+          ],
+          "service": "https://www.googleapis.com/compute/v1/projects/dodonai/global/backendServices/chat-relay-backend"
+        },
+        {
+          "paths": [
+            "/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-deposition-transcript-software",
+            "/ai-deposition-transcript-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-deposition-transcript-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services",
+            "/ai-managed-services/index.html",
+            "/ai-marketing-operations-services",
+            "/ai-marketing-operations-services/",
+            "/ai-marketing-operations-services/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents",
+            "/ai-managed-services/agents/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/appellate-brief-drafter",
+            "/ai-managed-services/agents/appellate-brief-drafter/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/appellate-brief-drafter/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/bilingual-translator",
+            "/ai-managed-services/agents/bilingual-translator/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/bilingual-translator/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/billing-reconciler",
+            "/ai-managed-services/agents/billing-reconciler/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/billing-reconciler/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/case-viability-screener",
+            "/ai-managed-services/agents/case-viability-screener/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/case-viability-screener/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/client-communications",
+            "/ai-managed-services/agents/client-communications/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/client-communications/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/closing-binder",
+            "/ai-managed-services/agents/closing-binder/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/closing-binder/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/conflict-check",
+            "/ai-managed-services/agents/conflict-check/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/conflict-check/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/court-date-reminders",
+            "/ai-managed-services/agents/court-date-reminders/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/court-date-reminders/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/court-rules-monitor",
+            "/ai-managed-services/agents/court-rules-monitor/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/court-rules-monitor/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/demand-package",
+            "/ai-managed-services/agents/demand-package/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/demand-package/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/deposition-prep",
+            "/ai-managed-services/agents/deposition-prep/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/deposition-prep/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/discovery-builder",
+            "/ai-managed-services/agents/discovery-builder/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/discovery-builder/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/discovery-response",
+            "/ai-managed-services/agents/discovery-response/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/discovery-response/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/docketing-deadlines",
+            "/ai-managed-services/agents/docketing-deadlines/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/docketing-deadlines/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/ethics-guardian",
+            "/ai-managed-services/agents/ethics-guardian/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/ethics-guardian/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/fee-agreement-drafter",
+            "/ai-managed-services/agents/fee-agreement-drafter/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/fee-agreement-drafter/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/filing-readiness",
+            "/ai-managed-services/agents/filing-readiness/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/filing-readiness/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/inbox-meetings",
+            "/ai-managed-services/agents/inbox-meetings/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/inbox-meetings/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/intake-triage",
+            "/ai-managed-services/agents/intake-triage/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/intake-triage/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/matter-profitability",
+            "/ai-managed-services/agents/matter-profitability/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/matter-profitability/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/mediation-settlement-prep",
+            "/ai-managed-services/agents/mediation-settlement-prep/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/mediation-settlement-prep/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/medical-records-requester",
+            "/ai-managed-services/agents/medical-records-requester/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/medical-records-requester/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/meeting-prep-brief",
+            "/ai-managed-services/agents/meeting-prep-brief/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/meeting-prep-brief/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/motion-drafter",
+            "/ai-managed-services/agents/motion-drafter/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/motion-drafter/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/pipeline-forecasting",
+            "/ai-managed-services/agents/pipeline-forecasting/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/pipeline-forecasting/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/pleading-drafter",
+            "/ai-managed-services/agents/pleading-drafter/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/pleading-drafter/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/practice-intelligence",
+            "/ai-managed-services/agents/practice-intelligence/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/practice-intelligence/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/referral-engine",
+            "/ai-managed-services/agents/referral-engine/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/referral-engine/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/referral-source-roi",
+            "/ai-managed-services/agents/referral-source-roi/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/referral-source-roi/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/reviews-reputation",
+            "/ai-managed-services/agents/reviews-reputation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/reviews-reputation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/settlement-explainer",
+            "/ai-managed-services/agents/settlement-explainer/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/settlement-explainer/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/sol-tracker",
+            "/ai-managed-services/agents/sol-tracker/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/sol-tracker/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/subpoena-manager",
+            "/ai-managed-services/agents/subpoena-manager/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/subpoena-manager/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/time-capture",
+            "/ai-managed-services/agents/time-capture/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/time-capture/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/trial-prep",
+            "/ai-managed-services/agents/trial-prep/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/trial-prep/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/trust-account-reconciler",
+            "/ai-managed-services/agents/trust-account-reconciler/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/trust-account-reconciler/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/vendor-coordination",
+            "/ai-managed-services/agents/vendor-coordination/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/vendor-coordination/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/workload-balancer",
+            "/ai-managed-services/agents/workload-balancer/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/workload-balancer/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/casework-and-drafting",
+            "/ai-managed-services/by-function/casework-and-drafting/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/casework-and-drafting/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/client-communications",
+            "/ai-managed-services/by-function/client-communications/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/client-communications/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/deadlines-and-compliance",
+            "/ai-managed-services/by-function/deadlines-and-compliance/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/deadlines-and-compliance/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/intake-and-growth",
+            "/ai-managed-services/by-function/intake-and-growth/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/intake-and-growth/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/operations-and-billing",
+            "/ai-managed-services/by-function/operations-and-billing/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/operations-and-billing/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/practice-intelligence",
+            "/ai-managed-services/by-function/practice-intelligence/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/practice-intelligence/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/cybersecurity-privacy",
+            "/ai-managed-services/for/cybersecurity-privacy/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/cybersecurity-privacy/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/estates-probate",
+            "/ai-managed-services/for/estates-probate/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/estates-probate/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/family-law",
+            "/ai-managed-services/for/family-law/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/family-law/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/immigration",
+            "/ai-managed-services/for/immigration/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/immigration/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/personal-injury",
+            "/ai-managed-services/for/personal-injury/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/personal-injury/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/real-estate",
+            "/ai-managed-services/for/real-estate/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/real-estate/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/tax",
+            "/ai-managed-services/for/tax/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/tax/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/how-it-works",
+            "/ai-managed-services/how-it-works/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/how-it-works/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/our-agents",
+            "/ai-managed-services/our-agents/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/our-agents/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results",
+            "/ai-managed-services/results/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/estates-probate-solo",
+            "/ai-managed-services/results/estates-probate-solo/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/estates-probate-solo/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/family-law-boutique",
+            "/ai-managed-services/results/family-law-boutique/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/family-law-boutique/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/litigation-multi-practice",
+            "/ai-managed-services/results/litigation-multi-practice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/litigation-multi-practice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/personal-injury-firm",
+            "/ai-managed-services/results/personal-injury-firm/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/personal-injury-firm/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/ssd-disability-practice",
+            "/ai-managed-services/results/ssd-disability-practice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/ssd-disability-practice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/safety",
+            "/ai-managed-services/safety/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/safety/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-medical-record-summaries-chronologies",
+            "/ai-medical-record-summaries-chronologies/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-medical-record-summaries-chronologies/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-pdf-ocr",
+            "/ai-pdf-ocr/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-pdf-ocr/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/app",
+            "/app/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/app/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/Blog",
+            "/Blog/",
+            "/Blog/index.html",
+            "/blog",
+            "/blog-3",
+            "/blog-3/",
+            "/blog-3/index.html",
+            "/blog/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them",
+            "/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/6-ways-deposition-summaries-provide-value-in-litigation",
+            "/blog/6-ways-deposition-summaries-provide-value-in-litigation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/6-ways-deposition-summaries-provide-value-in-litigation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/80-pages-in-seconds-a-real-transcript-walkthrough",
+            "/blog/80-pages-in-seconds-a-real-transcript-walkthrough/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/80-pages-in-seconds-a-real-transcript-walkthrough/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/ai-ediscovery-for-small-law-firms",
+            "/blog/ai-ediscovery-for-small-law-firms/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/ai-ediscovery-for-small-law-firms/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/ai-tools-every-paralegal-should-know-for-case-preparation",
+            "/blog/ai-tools-every-paralegal-should-know-for-case-preparation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/ai-tools-every-paralegal-should-know-for-case-preparation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/building-medical-chronologies-for-ssdi-disability-claims",
+            "/blog/building-medical-chronologies-for-ssdi-disability-claims/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/building-medical-chronologies-for-ssdi-disability-claims/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/choosing-deposition-summary-software-litigators-guide",
+            "/blog/choosing-deposition-summary-software-litigators-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/choosing-deposition-summary-software-litigators-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies",
+            "/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary",
+            "/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/deposition-summary-software-what-reviewers-check",
+            "/blog/deposition-summary-software-what-reviewers-check/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/deposition-summary-software-what-reviewers-check/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/deposition-summary-template-page-line-format-for-motion-practice",
+            "/blog/deposition-summary-template-page-line-format-for-motion-practice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/deposition-summary-template-page-line-format-for-motion-practice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/devillier-v-texas-ai-analysis-of-oral-argument",
+            "/blog/devillier-v-texas-ai-analysis-of-oral-argument/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/devillier-v-texas-ai-analysis-of-oral-argument/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/document-summary-table-101-a-one-page-starter-you-can-reuse",
+            "/blog/document-summary-table-101-a-one-page-starter-you-can-reuse/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/document-summary-table-101-a-one-page-starter-you-can-reuse/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/ediscovery-ai-how-semantic-search-changes-document-review",
+            "/blog/ediscovery-ai-how-semantic-search-changes-document-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/ediscovery-ai-how-semantic-search-changes-document-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/find-contradictions-in-deposition-transcripts-without-re-reading-the-transcript",
+            "/blog/find-contradictions-in-deposition-transcripts-without-re-reading-the-transcript/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/find-contradictions-in-deposition-transcripts-without-re-reading-the-transcript/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/florida-bar-prudent-use-of-ai-in-practice",
+            "/blog/florida-bar-prudent-use-of-ai-in-practice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/florida-bar-prudent-use-of-ai-in-practice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know",
+            "/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams",
+            "/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-do-depositions-work-an-in-depth-exploration",
+            "/blog/how-do-depositions-work-an-in-depth-exploration/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-do-depositions-work-an-in-depth-exploration/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows",
+            "/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-ime-companies-use-ai-to-process-medical-records",
+            "/blog/how-ime-companies-use-ai-to-process-medical-records/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-ime-companies-use-ai-to-process-medical-records/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-many-hours-do-you-lose-reading-transcripts",
+            "/blog/how-many-hours-do-you-lose-reading-transcripts/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-many-hours-do-you-lose-reading-transcripts/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-review-teams-verify-ai-deposition-summaries-before-use",
+            "/blog/how-review-teams-verify-ai-deposition-summaries-before-use/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-review-teams-verify-ai-deposition-summaries-before-use/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-draft-a-issue-based-deposition-summary",
+            "/blog/how-to-draft-a-issue-based-deposition-summary/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-draft-a-issue-based-deposition-summary/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-draft-a-page-line-deposition-summary",
+            "/blog/how-to-draft-a-page-line-deposition-summary/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-draft-a-page-line-deposition-summary/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-extract-key-clauses-from-contracts",
+            "/blog/how-to-extract-key-clauses-from-contracts/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-extract-key-clauses-from-contracts/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-organize-medical-records-for-personal-injury-demand-package",
+            "/blog/how-to-organize-medical-records-for-personal-injury-demand-package/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-organize-medical-records-for-personal-injury-demand-package/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide",
+            "/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-write-demand-letter-documentation-strategy",
+            "/blog/how-to-write-demand-letter-documentation-strategy/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-write-demand-letter-documentation-strategy/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/lawyering-in-the-age-of-artificial-intelligence",
+            "/blog/lawyering-in-the-age-of-artificial-intelligence/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/lawyering-in-the-age-of-artificial-intelligence/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus",
+            "/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/mass-tort-document-management-processing-claimant-records",
+            "/blog/mass-tort-document-management-processing-claimant-records/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/mass-tort-document-management-processing-claimant-records/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week",
+            "/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology",
+            "/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep",
+            "/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-malpractice-deposition-prep-chronology-examination-outline",
+            "/blog/medical-malpractice-deposition-prep-chronology-examination-outline/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-malpractice-deposition-prep-chronology-examination-outline/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-malpractice-record-review-standard-of-care",
+            "/blog/medical-malpractice-record-review-standard-of-care/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-malpractice-record-review-standard-of-care/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-record-summarization-guide",
+            "/blog/medical-record-summarization-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-record-summarization-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations",
+            "/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/product-update-document-summary-table",
+            "/blog/product-update-document-summary-table/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/product-update-document-summary-table/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/real-cost-of-outsourcing-medical-record-summaries",
+            "/blog/real-cost-of-outsourcing-medical-record-summaries/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/real-cost-of-outsourcing-medical-record-summaries/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument",
+            "/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/rules-governing-depositions-navigating-the-legal-framework",
+            "/blog/rules-governing-depositions-navigating-the-legal-framework/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/rules-governing-depositions-navigating-the-legal-framework/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs",
+            "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/search-vs-scroll-the-faster-way-to-pull-facts-from-transcripts",
+            "/blog/search-vs-scroll-the-faster-way-to-pull-facts-from-transcripts/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/search-vs-scroll-the-faster-way-to-pull-facts-from-transcripts/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use",
+            "/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary",
+            "/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23",
+            "/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/the-role-of-depositions-in-litigation-a-closer-look",
+            "/blog/the-role-of-depositions-in-litigation-a-closer-look/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/the-role-of-depositions-in-litigation-a-closer-look/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/understanding-depositions-a-comprehensive-guide",
+            "/blog/understanding-depositions-a-comprehensive-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/understanding-depositions-a-comprehensive-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/understanding-medical-chronology-clear-actionable-timelines",
+            "/blog/understanding-medical-chronology-clear-actionable-timelines/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/understanding-medical-chronology-clear-actionable-timelines/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/using-depositions-as-evidence-a-deep-dive",
+            "/blog/using-depositions-as-evidence-a-deep-dive/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/using-depositions-as-evidence-a-deep-dive/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/what-actually-slows-down-medical-chronology-review",
+            "/blog/what-actually-slows-down-medical-chronology-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/what-actually-slows-down-medical-chronology-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records",
+            "/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/why-medical-records-look-complete-but-still-miss-providers",
+            "/blog/why-medical-records-look-complete-but-still-miss-providers/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/why-medical-records-look-complete-but-still-miss-providers/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/workers-compensation-medical-records-attorneys-adjusters",
+            "/blog/workers-compensation-medical-records-attorneys-adjusters/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/workers-compensation-medical-records-attorneys-adjusters/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide",
+            "/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare",
+            "/compare/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/ai-for-personal-injury-firms",
+            "/compare/ai-for-personal-injury-firms/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/ai-for-personal-injury-firms/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/best-deposition-summary-software",
+            "/compare/best-deposition-summary-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/best-deposition-summary-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/best-medical-chronology-software",
+            "/compare/best-medical-chronology-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/best-medical-chronology-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/deposition-software-comparison",
+            "/compare/deposition-software-comparison/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/deposition-software-comparison/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/ediscovery-alternatives-for-document-review",
+            "/compare/ediscovery-alternatives-for-document-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/ediscovery-alternatives-for-document-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/ediscovery-software-review",
+            "/compare/ediscovery-software-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/ediscovery-software-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/legal-transcription-alternatives",
+            "/compare/legal-transcription-alternatives/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/legal-transcription-alternatives/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-deposition-summary-services-dodonai",
+            "/ai-deposition-summary-services-dodonai/",
+            "/ai-deposition-summary-services-dodonai/index.html",
+            "/deposition-summary-software",
+            "/deposition-summary-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/deposition-summary-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/dodonai-extract-and-draft-agents",
+            "/dodonai-extract-and-draft-agents/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/dodonai-extract-and-draft-agents/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/electronic-discovery-software",
+            "/electronic-discovery-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/electronic-discovery-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/court-reporters",
+            "/industries/court-reporters/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/court-reporters/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/document-management-law-firms",
+            "/industries/document-management-law-firms/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/document-management-law-firms/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/ime-companies",
+            "/industries/ime-companies/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/ime-companies/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/ime-doctors",
+            "/industries/ime-doctors/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/ime-doctors/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/law-firm-case-management",
+            "/industries/law-firm-case-management/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/law-firm-case-management/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/medical-record-retrieval",
+            "/industries/medical-record-retrieval/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/medical-record-retrieval/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/disability-benefits",
+            "/practice-areas/disability-benefits/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/disability-benefits/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/mass-tort",
+            "/practice-areas/mass-tort/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/mass-tort/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/medical-malpractice-defense",
+            "/practice-areas/medical-malpractice-defense/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/medical-malpractice-defense/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/medical-malpractice",
+            "/practice-areas/medical-malpractice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/medical-malpractice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/personal-injury",
+            "/practice-areas/personal-injury/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/personal-injury/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/product-liability",
+            "/practice-areas/product-liability/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/product-liability/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/workers-compensation",
+            "/practice-areas/workers-compensation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/workers-compensation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/pricing",
+            "/pricing/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/pricing/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/privacy-policy",
+            "/privacy-policy/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/privacy-policy/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/terms-and-conditions",
+            "/terms-and-conditions/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/terms-and-conditions/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/contract-review-extraction",
+            "/use-cases/contract-review-extraction/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/contract-review-extraction/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/demand-letters",
+            "/use-cases/demand-letters/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/demand-letters/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/expert-witness-preparation",
+            "/use-cases/expert-witness-preparation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/expert-witness-preparation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/ime-reports",
+            "/use-cases/ime-reports/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/ime-reports/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/legal-ai-for-paralegals",
+            "/use-cases/legal-ai-for-paralegals/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/legal-ai-for-paralegals/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/litigation-cost-management",
+            "/use-cases/litigation-cost-management/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/litigation-cost-management/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/medical-record-review",
+            "/use-cases/medical-record-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/medical-record-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/ocr-for-legal-documents",
+            "/use-cases/ocr-for-legal-documents/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/ocr-for-legal-documents/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/sign-up",
+            "/sign-up/",
+            "/sign-up/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/signup",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false,
+            "hostRedirect": "app.dodon.ai",
+            "httpsRedirect": true
+          }
+        }
+      ]
+    },
+    {
+      "defaultService": "https://www.googleapis.com/compute/v1/projects/dodonai/global/backendBuckets/dodonai-landing",
+      "name": "dodonai-path-matcher",
+      "pathRules": [
+        {
+          "paths": [
+            "/site-chat",
+            "/site-chat/*"
+          ],
+          "service": "https://www.googleapis.com/compute/v1/projects/dodonai/global/backendServices/chat-relay-backend"
+        },
+        {
+          "paths": [
+            "/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-deposition-transcript-software",
+            "/ai-deposition-transcript-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-deposition-transcript-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services",
+            "/ai-managed-services/index.html",
+            "/ai-marketing-operations-services",
+            "/ai-marketing-operations-services/",
+            "/ai-marketing-operations-services/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents",
+            "/ai-managed-services/agents/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/appellate-brief-drafter",
+            "/ai-managed-services/agents/appellate-brief-drafter/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/appellate-brief-drafter/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/bilingual-translator",
+            "/ai-managed-services/agents/bilingual-translator/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/bilingual-translator/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/billing-reconciler",
+            "/ai-managed-services/agents/billing-reconciler/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/billing-reconciler/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/case-viability-screener",
+            "/ai-managed-services/agents/case-viability-screener/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/case-viability-screener/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/client-communications",
+            "/ai-managed-services/agents/client-communications/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/client-communications/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/closing-binder",
+            "/ai-managed-services/agents/closing-binder/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/closing-binder/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/conflict-check",
+            "/ai-managed-services/agents/conflict-check/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/conflict-check/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/court-date-reminders",
+            "/ai-managed-services/agents/court-date-reminders/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/court-date-reminders/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/court-rules-monitor",
+            "/ai-managed-services/agents/court-rules-monitor/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/court-rules-monitor/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/demand-package",
+            "/ai-managed-services/agents/demand-package/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/demand-package/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/deposition-prep",
+            "/ai-managed-services/agents/deposition-prep/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/deposition-prep/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/discovery-builder",
+            "/ai-managed-services/agents/discovery-builder/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/discovery-builder/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/discovery-response",
+            "/ai-managed-services/agents/discovery-response/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/discovery-response/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/docketing-deadlines",
+            "/ai-managed-services/agents/docketing-deadlines/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/docketing-deadlines/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/ethics-guardian",
+            "/ai-managed-services/agents/ethics-guardian/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/ethics-guardian/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/fee-agreement-drafter",
+            "/ai-managed-services/agents/fee-agreement-drafter/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/fee-agreement-drafter/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/filing-readiness",
+            "/ai-managed-services/agents/filing-readiness/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/filing-readiness/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/inbox-meetings",
+            "/ai-managed-services/agents/inbox-meetings/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/inbox-meetings/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/intake-triage",
+            "/ai-managed-services/agents/intake-triage/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/intake-triage/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/matter-profitability",
+            "/ai-managed-services/agents/matter-profitability/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/matter-profitability/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/mediation-settlement-prep",
+            "/ai-managed-services/agents/mediation-settlement-prep/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/mediation-settlement-prep/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/medical-records-requester",
+            "/ai-managed-services/agents/medical-records-requester/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/medical-records-requester/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/meeting-prep-brief",
+            "/ai-managed-services/agents/meeting-prep-brief/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/meeting-prep-brief/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/motion-drafter",
+            "/ai-managed-services/agents/motion-drafter/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/motion-drafter/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/pipeline-forecasting",
+            "/ai-managed-services/agents/pipeline-forecasting/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/pipeline-forecasting/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/pleading-drafter",
+            "/ai-managed-services/agents/pleading-drafter/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/pleading-drafter/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/practice-intelligence",
+            "/ai-managed-services/agents/practice-intelligence/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/practice-intelligence/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/referral-engine",
+            "/ai-managed-services/agents/referral-engine/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/referral-engine/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/referral-source-roi",
+            "/ai-managed-services/agents/referral-source-roi/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/referral-source-roi/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/reviews-reputation",
+            "/ai-managed-services/agents/reviews-reputation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/reviews-reputation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/settlement-explainer",
+            "/ai-managed-services/agents/settlement-explainer/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/settlement-explainer/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/sol-tracker",
+            "/ai-managed-services/agents/sol-tracker/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/sol-tracker/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/subpoena-manager",
+            "/ai-managed-services/agents/subpoena-manager/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/subpoena-manager/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/time-capture",
+            "/ai-managed-services/agents/time-capture/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/time-capture/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/trial-prep",
+            "/ai-managed-services/agents/trial-prep/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/trial-prep/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/trust-account-reconciler",
+            "/ai-managed-services/agents/trust-account-reconciler/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/trust-account-reconciler/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/vendor-coordination",
+            "/ai-managed-services/agents/vendor-coordination/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/vendor-coordination/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/agents/workload-balancer",
+            "/ai-managed-services/agents/workload-balancer/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/agents/workload-balancer/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/casework-and-drafting",
+            "/ai-managed-services/by-function/casework-and-drafting/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/casework-and-drafting/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/client-communications",
+            "/ai-managed-services/by-function/client-communications/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/client-communications/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/deadlines-and-compliance",
+            "/ai-managed-services/by-function/deadlines-and-compliance/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/deadlines-and-compliance/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/intake-and-growth",
+            "/ai-managed-services/by-function/intake-and-growth/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/intake-and-growth/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/operations-and-billing",
+            "/ai-managed-services/by-function/operations-and-billing/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/operations-and-billing/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/by-function/practice-intelligence",
+            "/ai-managed-services/by-function/practice-intelligence/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/by-function/practice-intelligence/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/cybersecurity-privacy",
+            "/ai-managed-services/for/cybersecurity-privacy/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/cybersecurity-privacy/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/estates-probate",
+            "/ai-managed-services/for/estates-probate/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/estates-probate/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/family-law",
+            "/ai-managed-services/for/family-law/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/family-law/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/immigration",
+            "/ai-managed-services/for/immigration/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/immigration/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/personal-injury",
+            "/ai-managed-services/for/personal-injury/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/personal-injury/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/real-estate",
+            "/ai-managed-services/for/real-estate/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/real-estate/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/for/tax",
+            "/ai-managed-services/for/tax/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/for/tax/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/how-it-works",
+            "/ai-managed-services/how-it-works/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/how-it-works/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/our-agents",
+            "/ai-managed-services/our-agents/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/our-agents/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results",
+            "/ai-managed-services/results/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/estates-probate-solo",
+            "/ai-managed-services/results/estates-probate-solo/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/estates-probate-solo/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/family-law-boutique",
+            "/ai-managed-services/results/family-law-boutique/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/family-law-boutique/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/litigation-multi-practice",
+            "/ai-managed-services/results/litigation-multi-practice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/litigation-multi-practice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/personal-injury-firm",
+            "/ai-managed-services/results/personal-injury-firm/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/personal-injury-firm/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/results/ssd-disability-practice",
+            "/ai-managed-services/results/ssd-disability-practice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/results/ssd-disability-practice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-managed-services/safety",
+            "/ai-managed-services/safety/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-managed-services/safety/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-medical-record-summaries-chronologies",
+            "/ai-medical-record-summaries-chronologies/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-medical-record-summaries-chronologies/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-pdf-ocr",
+            "/ai-pdf-ocr/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/ai-pdf-ocr/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/app",
+            "/app/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/app/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/Blog",
+            "/Blog/",
+            "/Blog/index.html",
+            "/blog",
+            "/blog-3",
+            "/blog-3/",
+            "/blog-3/index.html",
+            "/blog/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them",
+            "/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/3-mistakes-in-manual-summaries-and-how-to-avoid-them/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/6-ways-deposition-summaries-provide-value-in-litigation",
+            "/blog/6-ways-deposition-summaries-provide-value-in-litigation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/6-ways-deposition-summaries-provide-value-in-litigation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/80-pages-in-seconds-a-real-transcript-walkthrough",
+            "/blog/80-pages-in-seconds-a-real-transcript-walkthrough/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/80-pages-in-seconds-a-real-transcript-walkthrough/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/ai-ediscovery-for-small-law-firms",
+            "/blog/ai-ediscovery-for-small-law-firms/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/ai-ediscovery-for-small-law-firms/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/ai-tools-every-paralegal-should-know-for-case-preparation",
+            "/blog/ai-tools-every-paralegal-should-know-for-case-preparation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/ai-tools-every-paralegal-should-know-for-case-preparation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/building-medical-chronologies-for-ssdi-disability-claims",
+            "/blog/building-medical-chronologies-for-ssdi-disability-claims/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/building-medical-chronologies-for-ssdi-disability-claims/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/choosing-deposition-summary-software-litigators-guide",
+            "/blog/choosing-deposition-summary-software-litigators-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/choosing-deposition-summary-software-litigators-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies",
+            "/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/crafting-effective-deposition-summaries-expert-tips-and-strategies/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary",
+            "/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/deposition-issue-list-build-cited-issues-without-writing-a-narrative-summary/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/deposition-summary-software-what-reviewers-check",
+            "/blog/deposition-summary-software-what-reviewers-check/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/deposition-summary-software-what-reviewers-check/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/deposition-summary-template-page-line-format-for-motion-practice",
+            "/blog/deposition-summary-template-page-line-format-for-motion-practice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/deposition-summary-template-page-line-format-for-motion-practice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/devillier-v-texas-ai-analysis-of-oral-argument",
+            "/blog/devillier-v-texas-ai-analysis-of-oral-argument/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/devillier-v-texas-ai-analysis-of-oral-argument/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/document-summary-table-101-a-one-page-starter-you-can-reuse",
+            "/blog/document-summary-table-101-a-one-page-starter-you-can-reuse/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/document-summary-table-101-a-one-page-starter-you-can-reuse/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/ediscovery-ai-how-semantic-search-changes-document-review",
+            "/blog/ediscovery-ai-how-semantic-search-changes-document-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/ediscovery-ai-how-semantic-search-changes-document-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/find-contradictions-in-deposition-transcripts-without-re-reading-the-transcript",
+            "/blog/find-contradictions-in-deposition-transcripts-without-re-reading-the-transcript/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/find-contradictions-in-deposition-transcripts-without-re-reading-the-transcript/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/florida-bar-prudent-use-of-ai-in-practice",
+            "/blog/florida-bar-prudent-use-of-ai-in-practice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/florida-bar-prudent-use-of-ai-in-practice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know",
+            "/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/hipaa-compliance-checklist-for-medical-chronologies-what-busy-teams-need-to-know/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams",
+            "/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/hipaa-compliant-medical-chronologies-a-simple-checklist-for-busy-teams/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-do-depositions-work-an-in-depth-exploration",
+            "/blog/how-do-depositions-work-an-in-depth-exploration/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-do-depositions-work-an-in-depth-exploration/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows",
+            "/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-dodon-ai-protects-data-privacy-when-using-llms-in-medico-legal-workflows/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-ime-companies-use-ai-to-process-medical-records",
+            "/blog/how-ime-companies-use-ai-to-process-medical-records/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-ime-companies-use-ai-to-process-medical-records/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-many-hours-do-you-lose-reading-transcripts",
+            "/blog/how-many-hours-do-you-lose-reading-transcripts/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-many-hours-do-you-lose-reading-transcripts/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-review-teams-verify-ai-deposition-summaries-before-use",
+            "/blog/how-review-teams-verify-ai-deposition-summaries-before-use/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-review-teams-verify-ai-deposition-summaries-before-use/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-draft-a-issue-based-deposition-summary",
+            "/blog/how-to-draft-a-issue-based-deposition-summary/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-draft-a-issue-based-deposition-summary/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-draft-a-page-line-deposition-summary",
+            "/blog/how-to-draft-a-page-line-deposition-summary/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-draft-a-page-line-deposition-summary/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-extract-key-clauses-from-contracts",
+            "/blog/how-to-extract-key-clauses-from-contracts/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-extract-key-clauses-from-contracts/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-organize-medical-records-for-personal-injury-demand-package",
+            "/blog/how-to-organize-medical-records-for-personal-injury-demand-package/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-organize-medical-records-for-personal-injury-demand-package/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide",
+            "/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-prepare-a-medical-chronology-thats-ready-for-primetime-a-lawyers-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/how-to-write-demand-letter-documentation-strategy",
+            "/blog/how-to-write-demand-letter-documentation-strategy/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/how-to-write-demand-letter-documentation-strategy/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/lawyering-in-the-age-of-artificial-intelligence",
+            "/blog/lawyering-in-the-age-of-artificial-intelligence/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/lawyering-in-the-age-of-artificial-intelligence/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus",
+            "/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/loper-bright-enterprises-v-raimondo-ai-analysis-of-oral-argument-to-scotus/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/mass-tort-document-management-processing-claimant-records",
+            "/blog/mass-tort-document-management-processing-claimant-records/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/mass-tort-document-management-processing-claimant-records/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week",
+            "/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-chronologies-without-burnout-how-teams-save-hours-every-week/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology",
+            "/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-chronology-provider-timeline-in-10-minutes-from-mixed-pdfs-to-a-usable-chronology/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep",
+            "/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-chronology-vs-narrative-summary-which-format-fits-your-case-prep/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-malpractice-deposition-prep-chronology-examination-outline",
+            "/blog/medical-malpractice-deposition-prep-chronology-examination-outline/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-malpractice-deposition-prep-chronology-examination-outline/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-malpractice-record-review-standard-of-care",
+            "/blog/medical-malpractice-record-review-standard-of-care/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-malpractice-record-review-standard-of-care/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/medical-record-summarization-guide",
+            "/blog/medical-record-summarization-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/medical-record-summarization-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations",
+            "/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/page-line-101-what-your-partner-means-when-they-ask-for-citations/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/product-update-document-summary-table",
+            "/blog/product-update-document-summary-table/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/product-update-document-summary-table/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/real-cost-of-outsourcing-medical-record-summaries",
+            "/blog/real-cost-of-outsourcing-medical-record-summaries/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/real-cost-of-outsourcing-medical-record-summaries/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument",
+            "/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/relentless-v-dept-of-commerce-ai-analysis-of-oral-argument/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/rules-governing-depositions-navigating-the-legal-framework",
+            "/blog/rules-governing-depositions-navigating-the-legal-framework/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/rules-governing-depositions-navigating-the-legal-framework/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs",
+            "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/scanned-records-101-simple-fixes-for-unreadable-pdfs/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/search-vs-scroll-the-faster-way-to-pull-facts-from-transcripts",
+            "/blog/search-vs-scroll-the-faster-way-to-pull-facts-from-transcripts/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/search-vs-scroll-the-faster-way-to-pull-facts-from-transcripts/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use",
+            "/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/sending-summaries-safely-simple-phi-safe-handoffs-that-teams-actually-use/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary",
+            "/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/summary-of-the-2023-year-end-report-on-the-federal-judiciary/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23",
+            "/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/summary-supreme-court-cases-to-watch-nyt-10-10-23/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/the-role-of-depositions-in-litigation-a-closer-look",
+            "/blog/the-role-of-depositions-in-litigation-a-closer-look/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/the-role-of-depositions-in-litigation-a-closer-look/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/understanding-depositions-a-comprehensive-guide",
+            "/blog/understanding-depositions-a-comprehensive-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/understanding-depositions-a-comprehensive-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/understanding-medical-chronology-clear-actionable-timelines",
+            "/blog/understanding-medical-chronology-clear-actionable-timelines/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/understanding-medical-chronology-clear-actionable-timelines/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/using-depositions-as-evidence-a-deep-dive",
+            "/blog/using-depositions-as-evidence-a-deep-dive/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/using-depositions-as-evidence-a-deep-dive/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/what-actually-slows-down-medical-chronology-review",
+            "/blog/what-actually-slows-down-medical-chronology-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/what-actually-slows-down-medical-chronology-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records",
+            "/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/why-ctrl-f-misses-facts-that-matter-in-medical-records/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/why-medical-records-look-complete-but-still-miss-providers",
+            "/blog/why-medical-records-look-complete-but-still-miss-providers/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/why-medical-records-look-complete-but-still-miss-providers/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/workers-compensation-medical-records-attorneys-adjusters",
+            "/blog/workers-compensation-medical-records-attorneys-adjusters/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/workers-compensation-medical-records-attorneys-adjusters/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide",
+            "/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/blog/writing-winning-deposition-summaries-dodonai-comprehensive-guide/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare",
+            "/compare/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/ai-for-personal-injury-firms",
+            "/compare/ai-for-personal-injury-firms/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/ai-for-personal-injury-firms/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/best-deposition-summary-software",
+            "/compare/best-deposition-summary-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/best-deposition-summary-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/best-medical-chronology-software",
+            "/compare/best-medical-chronology-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/best-medical-chronology-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/deposition-software-comparison",
+            "/compare/deposition-software-comparison/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/deposition-software-comparison/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/ediscovery-alternatives-for-document-review",
+            "/compare/ediscovery-alternatives-for-document-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/ediscovery-alternatives-for-document-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/ediscovery-software-review",
+            "/compare/ediscovery-software-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/ediscovery-software-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/compare/legal-transcription-alternatives",
+            "/compare/legal-transcription-alternatives/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/compare/legal-transcription-alternatives/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/ai-deposition-summary-services-dodonai",
+            "/ai-deposition-summary-services-dodonai/",
+            "/ai-deposition-summary-services-dodonai/index.html",
+            "/deposition-summary-software",
+            "/deposition-summary-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/deposition-summary-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/dodonai-extract-and-draft-agents",
+            "/dodonai-extract-and-draft-agents/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/dodonai-extract-and-draft-agents/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/electronic-discovery-software",
+            "/electronic-discovery-software/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/electronic-discovery-software/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/court-reporters",
+            "/industries/court-reporters/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/court-reporters/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/document-management-law-firms",
+            "/industries/document-management-law-firms/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/document-management-law-firms/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/ime-companies",
+            "/industries/ime-companies/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/ime-companies/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/ime-doctors",
+            "/industries/ime-doctors/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/ime-doctors/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/law-firm-case-management",
+            "/industries/law-firm-case-management/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/law-firm-case-management/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/industries/medical-record-retrieval",
+            "/industries/medical-record-retrieval/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/industries/medical-record-retrieval/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/disability-benefits",
+            "/practice-areas/disability-benefits/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/disability-benefits/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/mass-tort",
+            "/practice-areas/mass-tort/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/mass-tort/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/medical-malpractice-defense",
+            "/practice-areas/medical-malpractice-defense/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/medical-malpractice-defense/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/medical-malpractice",
+            "/practice-areas/medical-malpractice/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/medical-malpractice/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/personal-injury",
+            "/practice-areas/personal-injury/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/personal-injury/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/product-liability",
+            "/practice-areas/product-liability/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/product-liability/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/practice-areas/workers-compensation",
+            "/practice-areas/workers-compensation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/practice-areas/workers-compensation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/pricing",
+            "/pricing/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/pricing/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/privacy-policy",
+            "/privacy-policy/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/privacy-policy/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/terms-and-conditions",
+            "/terms-and-conditions/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/terms-and-conditions/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/contract-review-extraction",
+            "/use-cases/contract-review-extraction/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/contract-review-extraction/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/demand-letters",
+            "/use-cases/demand-letters/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/demand-letters/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/expert-witness-preparation",
+            "/use-cases/expert-witness-preparation/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/expert-witness-preparation/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/ime-reports",
+            "/use-cases/ime-reports/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/ime-reports/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/legal-ai-for-paralegals",
+            "/use-cases/legal-ai-for-paralegals/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/legal-ai-for-paralegals/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/litigation-cost-management",
+            "/use-cases/litigation-cost-management/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/litigation-cost-management/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/medical-record-review",
+            "/use-cases/medical-record-review/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/medical-record-review/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/use-cases/ocr-for-legal-documents",
+            "/use-cases/ocr-for-legal-documents/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/use-cases/ocr-for-legal-documents/",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false
+          }
+        },
+        {
+          "paths": [
+            "/sign-up",
+            "/sign-up/",
+            "/sign-up/index.html"
+          ],
+          "urlRedirect": {
+            "pathRedirect": "/signup",
+            "redirectResponseCode": "MOVED_PERMANENTLY_DEFAULT",
+            "stripQuery": false,
+            "hostRedirect": "app.dodon.ai",
+            "httpsRedirect": true
+          }
+        }
+      ]
+    }
+  ]
+}

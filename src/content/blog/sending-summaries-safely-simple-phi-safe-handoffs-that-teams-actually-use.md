@@ -53,7 +53,7 @@ Some tools retain prompts and outputs to train future models, creating unnecessa
 
 Data residency matters. Dodon.ai’s enterprise configuration routes processing through US-only servers, keeping PHI under domestic privacy frameworks and reducing cross-border complications.
 
-![](/images/blog/inline/6931d590ef22bc44656fd63f_26244b99.webp)
+<img src="/images/blog/inline/6931d590ef22bc44656fd63f_26244b99.webp" alt="Recently completed summaries listed in the Dodonai matters view" width="2048" height="1057" loading="lazy" decoding="async" />
 
 ## **Least-Privilege Access: Controls Teams Can Apply Today**
 
@@ -82,7 +82,7 @@ These practices integrate cleanly into standard litigation and med-legal scenari
 
 Export a structured chronology (Word, PDF, or TXT) with page-line citations. Use encrypted transfer methods rather than standard email attachments.
 
-![](/images/blog/inline/6931d590ef22bc44656fd642_849cd18f.webp)
+<img src="/images/blog/inline/6931d590ef22bc44656fd642_849cd18f.webp" alt="Medical record executive summary with download format buttons" width="2048" height="1170" loading="lazy" decoding="async" />
 
 ‍
 
@@ -90,13 +90,13 @@ Export a structured chronology (Word, PDF, or TXT) with page-line citations. Use
 
 Generate page-line or narrative summaries, then share through a secure channel with view-only access. Revoke access at the end of the engagement.
 
-![](/images/blog/inline/6931d590ef22bc44656fd64b_1da7ab8b.webp)
+<img src="/images/blog/inline/6931d590ef22bc44656fd64b_1da7ab8b.webp" alt="Medical chronology in narrative view beneath the summary indexes" width="2030" height="780" loading="lazy" decoding="async" />
 
 ### **Handoff to IME providers**
 
 Upload the record set, generate a chronology, and share only the essential portions required for opinion work. This limits unnecessary PHI exposure. Learn more about how [IME companies](/industries/ime-companies/) use AI to streamline their workflows.
 
-![](/images/blog/inline/6931d590ef22bc44656fd648_3b01cacd.webp)
+<img src="/images/blog/inline/6931d590ef22bc44656fd648_3b01cacd.webp" alt="Medical chronology table with dated events and source page references" width="2048" height="1180" loading="lazy" decoding="async" />
 
 ‍
 
@@ -117,7 +117,7 @@ Dodon.ai incorporates safeguards that support compliance-minded legal and medica
 
 These controls protect PHI during processing, the point where AI-assisted workflows introduce the most scrutiny.
 
-![](/images/blog/inline/6931d590ef22bc44656fd645_3c8f2ab7.webp)
+<img src="/images/blog/inline/6931d590ef22bc44656fd645_3c8f2ab7.webp" alt="Document table listing files, status, size, upload date, and actions" width="2048" height="779" loading="lazy" decoding="async" />
 
 ## **What We’re Not Promising**
 

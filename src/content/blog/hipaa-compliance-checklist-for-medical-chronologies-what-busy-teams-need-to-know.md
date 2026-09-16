@@ -59,7 +59,7 @@ Here’s a practical checklist of HIPAA compliance do’s and don’ts, plus how
       
     
 
-![](/images/blog/inline/68ca97f2afcf4d500eaffac6_d9c18070.webp)
+<img src="/images/blog/inline/68ca97f2afcf4d500eaffac6_d9c18070.webp" alt="Medical Record content type and optional topic field in the summary form" width="1080" height="766" loading="lazy" decoding="async" />
 
 ## **Where Dodon.ai Fits**
 
@@ -81,7 +81,7 @@ Dodon.ai is **built to align with HIPAA requirements** and eliminate common risk
       
     
 
-![](/images/blog/inline/68ca97f2afcf4d500eaffac9_995ad115.webp)
+<img src="/images/blog/inline/68ca97f2afcf4d500eaffac9_995ad115.webp" alt="Generated medical record summary with PDF export selected" width="1600" height="982" loading="lazy" decoding="async" />
 
 ## **The Bottom Line**
 

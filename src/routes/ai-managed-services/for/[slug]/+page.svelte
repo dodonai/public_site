@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
@@ -18,29 +19,67 @@
 	});
 
 	const AREA_PHOTOS = {
-		'personal-injury':      { src: '/images/people/attorney-serious-1.webp',       alt: 'Personal injury attorney reviewing a case file', portrait: true },
-		'family-law':           { src: '/images/people/attorney-consultation-1.webp',   alt: 'Family law attorney consulting with a client',   portrait: false },
-		'immigration':          { src: '/images/people/attorney-headshot-2.webp',       alt: 'Immigration attorney professional headshot',     portrait: true },
-		'real-estate':          { src: '/images/people/attorney-office-1.webp',         alt: 'Real estate attorney at their desk',             portrait: false },
-		'estates-probate':      { src: '/images/people/attorney-headshot-1.webp',       alt: 'Estates and probate attorney',                   portrait: true },
-		'tax':                  { src: '/images/people/attorney-serious-1.webp',        alt: 'Tax attorney reviewing documents',               portrait: true },
-		'cybersecurity-privacy':{ src: '/images/people/legal-team-meeting-1.webp',      alt: 'Legal team reviewing cybersecurity obligations', portrait: false },
+		'personal-injury': {
+			src: '/images/people/attorney-serious-1.webp',
+			alt: 'Personal injury attorney reviewing a case file',
+			portrait: true
+		},
+		'family-law': {
+			src: '/images/people/attorney-consultation-1.webp',
+			alt: 'Family law attorney consulting with a client',
+			portrait: false
+		},
+		immigration: {
+			src: '/images/people/attorney-headshot-2.webp',
+			alt: 'Immigration attorney professional headshot',
+			portrait: true
+		},
+		'real-estate': {
+			src: '/images/people/attorney-office-1.webp',
+			alt: 'Real estate attorney at their desk',
+			portrait: false
+		},
+		'estates-probate': {
+			src: '/images/people/attorney-headshot-1.webp',
+			alt: 'Estates and probate attorney',
+			portrait: true
+		},
+		tax: {
+			src: '/images/people/attorney-serious-1.webp',
+			alt: 'Tax attorney reviewing documents',
+			portrait: true
+		},
+		'cybersecurity-privacy': {
+			src: '/images/people/legal-team-meeting-1.webp',
+			alt: 'Legal team reviewing cybersecurity obligations',
+			portrait: false
+		}
 	};
 
 	let { data } = $props();
 	const area = $derived(data.area);
 	const customData = $derived(data.customData);
 	const agents = $derived(data.agents);
-	const areaPhoto = $derived(AREA_PHOTOS[area.slug] ?? { src: '/images/people/attorney-headshot-1.webp', alt: 'Legal professional', portrait: true });
+	const areaPhoto = $derived(
+		AREA_PHOTOS[area.slug] ?? {
+			src: '/images/people/attorney-headshot-1.webp',
+			alt: 'Legal professional',
+			portrait: true
+		}
+	);
 
-	const title = $derived(customData?.seo?.title ?? `AI Managed Services for ${area.name} Firms | Dodonai`);
+	const title = $derived(
+		customData?.seo?.title ?? `AI Managed Services for ${area.name} Firms | Dodonai`
+	);
 	const description = $derived(
 		customData?.seo?.description ??
 			`Custom AI agents designed around how ${area.name.toLowerCase()} firms actually operate. Intake, deadlines, client comms, casework, drafting.`
 	);
 	const canonical = $derived(`/ai-managed-services/for/${area.slug}/`);
 
-	const heroHeadline = $derived(customData?.hero?.headline ?? `AI Managed Services for ${area.name} Firms`);
+	const heroHeadline = $derived(
+		customData?.hero?.headline ?? `AI Managed Services for ${area.name} Firms`
+	);
 	const heroSubheadline = $derived(
 		customData?.hero?.subheadline ??
 			`We design, build, and run custom AI agents tuned to ${area.name.toLowerCase()} practice. You get the workflows your team actually needs, deployed with the same safety guardrails we use on ourselves.`
@@ -76,7 +115,7 @@
 			serviceType: `AI Implementation Services for ${area.name} Firms`,
 			provider: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			}
 		},
@@ -116,8 +155,8 @@
 	<ServiceHero
 		headline={heroHeadline}
 		subheadline={heroSubheadline}
-		ctaText="Book an intro call"
-		ctaUrl="https://calendly.com/nick-dodonai"
+		ctaText="Book a 30-minute intro call"
+		ctaUrl="https://calendly.com/nick-dodonai/dodon-ai-intro-call-30-min"
 		secondaryCtaText="Browse Agents"
 		secondaryCtaUrl="/ai-managed-services/agents/"
 		background="bg-transparent"
@@ -172,14 +211,22 @@
 					{/if}
 				</div>
 				<div class="max-w-xl">
-					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">Legal expertise first. AI second.</p>
+					<p class="text-sm font-semibold uppercase tracking-widest text-[#836ae4]">
+						Legal expertise first. AI second.
+					</p>
 					<h2 class="mt-4 text-2xl font-extrabold leading-snug text-[#282876] sm:text-3xl">
 						Built around how {area.name.toLowerCase()} firms actually work.
 					</h2>
 					<p class="mt-5 text-base leading-7 text-[#8181ac]">
-						The agents below aren't generic. They're scoped to your intake patterns, your matter mix, and your team's review habits. We spend the first two weeks inside your workflows before we write a single prompt — because agents that don't fit how you work don't get used.
+						The agents below aren't generic. They're scoped to your intake patterns, your matter
+						mix, and your team's review habits. We spend the first two weeks inside your workflows
+						before we write a single prompt — because agents that don't fit how you work don't get
+						used.
 					</p>
-					<a href="/ai-managed-services/how-it-works/" class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[#216fed] hover:underline">
+					<a
+						href="/ai-managed-services/how-it-works/"
+						class="mt-6 inline-flex items-center gap-1 text-sm font-semibold text-[#216fed] hover:underline"
+					>
 						See how an engagement works →
 					</a>
 				</div>
@@ -192,10 +239,12 @@
 		<div class="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
 			<div class="mx-auto max-w-3xl text-center">
 				<h2 class="text-3xl font-extrabold tracking-tight text-[#282876] sm:text-4xl">
-					{customData?.agentRelevance?.heading ?? `Agents we've built for ${area.name.toLowerCase()} practices`}
+					{customData?.agentRelevance?.heading ??
+						`Agents we've built for ${area.name.toLowerCase()} practices`}
 				</h2>
 				<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
-					{customData?.agentRelevance?.intro ?? `${agents.length} agents apply to ${area.name.toLowerCase()} firms. Most teams start with 2 or 3 and expand from there.`}
+					{customData?.agentRelevance?.intro ??
+						`${agents.length} agents apply to ${area.name.toLowerCase()} firms. Most teams start with 2 or 3 and expand from there.`}
 				</p>
 			</div>
 
@@ -204,10 +253,7 @@
 					<div>
 						<div class="mb-6 flex items-baseline justify-between">
 							<h3 class="text-xl font-bold text-[#282876]">{group.info.name}</h3>
-							<a
-								href={group.info.href}
-								class="text-sm font-medium text-[#216fed] hover:underline"
-							>
+							<a href={group.info.href} class="text-sm font-medium text-[#216fed] hover:underline">
 								See function overview →
 							</a>
 						</div>
@@ -238,4 +284,4 @@
 <!-- Lead magnet: Going (AI) Native guide -->
 <LeadMagnetSection />
 
-<CTASection />
+<CTASection offer="services" />

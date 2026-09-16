@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import BreadcrumbNav from '$lib/components/seo/BreadcrumbNav.svelte';
@@ -56,7 +57,7 @@
 			serviceType: 'AI Agent for Legal Teams',
 			provider: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			url: `https://www.dodon.ai${agent.seo.canonical}`
@@ -337,4 +338,4 @@
 	{/if}
 </BlobBackground>
 
-<CTASection />
+<CTASection offer="services" />

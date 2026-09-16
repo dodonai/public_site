@@ -2,25 +2,25 @@ import { getBlogPosts } from '$lib/data/blog.server.js';
 import { aiServicesPracticeAreas, aiServicesFunctions } from '$lib/data/navigation.js';
 
 const staticPages = [
-	{ path: '', lastmod: '2026-09-08', priority: '1.0' },
-	{ path: '/app', lastmod: '2026-09-08', priority: '0.9' },
-	{ path: '/pricing', lastmod: '2026-02-18', priority: '0.8' },
-	{ path: '/blog', lastmod: '2026-02-18', priority: '0.8' },
-	{ path: '/deposition-summary-software', lastmod: '2026-02-18', priority: '0.9' },
-	{ path: '/ai-deposition-transcript-software', lastmod: '2026-02-18', priority: '0.9' },
-	{ path: '/ai-medical-record-summaries-chronologies', lastmod: '2026-02-18', priority: '0.9' },
-	{ path: '/ai-pdf-ocr', lastmod: '2026-02-18', priority: '0.9' },
-	{ path: '/dodonai-extract-and-draft-agents', lastmod: '2026-02-18', priority: '0.9' },
-	{ path: '/electronic-discovery-software', lastmod: '2026-02-18', priority: '0.9' },
-	{ path: '/compare', lastmod: '2026-09-14', priority: '0.8' },
-	{ path: '/ai-managed-services', lastmod: '2026-06-04', priority: '0.9' },
-	{ path: '/ai-managed-services/how-it-works', lastmod: '2026-09-08', priority: '0.8' },
-	{ path: '/ai-managed-services/results', lastmod: '2026-06-04', priority: '0.8' },
-	{ path: '/ai-managed-services/safety', lastmod: '2026-04-16', priority: '0.8' },
-	{ path: '/ai-managed-services/our-agents', lastmod: '2026-04-16', priority: '0.8' },
-	{ path: '/ai-managed-services/agents', lastmod: '2026-04-16', priority: '0.8' },
-	{ path: '/terms-and-conditions', lastmod: '2026-01-01', priority: '0.3' },
-	{ path: '/privacy-policy', lastmod: '2026-01-01', priority: '0.3' }
+	{ path: '', lastmod: '2026-09-15', priority: '1.0' },
+	{ path: '/app', priority: '0.9' },
+	{ path: '/pricing', lastmod: '2026-09-15', priority: '0.8' },
+	{ path: '/blog', priority: '0.8' },
+	{ path: '/deposition-summary-software', priority: '0.9' },
+	{ path: '/ai-deposition-transcript-software', priority: '0.9' },
+	{ path: '/ai-medical-record-summaries-chronologies', lastmod: '2026-09-15', priority: '0.9' },
+	{ path: '/ai-pdf-ocr', priority: '0.9' },
+	{ path: '/dodonai-extract-and-draft-agents', priority: '0.9' },
+	{ path: '/electronic-discovery-software', priority: '0.9' },
+	{ path: '/compare', priority: '0.8' },
+	{ path: '/ai-managed-services', lastmod: '2026-09-15', priority: '0.9' },
+	{ path: '/ai-managed-services/how-it-works', lastmod: '2026-09-15', priority: '0.8' },
+	{ path: '/ai-managed-services/results', priority: '0.8' },
+	{ path: '/ai-managed-services/safety', lastmod: '2026-09-15', priority: '0.8' },
+	{ path: '/ai-managed-services/our-agents', priority: '0.8' },
+	{ path: '/ai-managed-services/agents', priority: '0.8' },
+	{ path: '/terms-and-conditions', priority: '0.3' },
+	{ path: '/privacy-policy', priority: '0.3' }
 ];
 
 export const prerender = true;
@@ -29,7 +29,7 @@ export const prerender = true;
 function discoverHubPages(paths) {
 	return paths.map((p) => ({
 		path: p,
-		lastmod: '2026-02-18',
+
 		priority: '0.8'
 	}));
 }
@@ -47,11 +47,13 @@ export async function GET() {
 	}
 
 	const hubPages = discoverHubPages(
-		Object.keys(hubPageModules).map((filePath) => {
-			const match = filePath.match(/\/hub-pages\/(.+)\/(.+)\.json$/);
-			if (match) return `/${match[1]}/${match[2]}`;
-			return null;
-		}).filter(Boolean)
+		Object.keys(hubPageModules)
+			.map((filePath) => {
+				const match = filePath.match(/\/hub-pages\/(.+)\/(.+)\.json$/);
+				if (match) return `/${match[1]}/${match[2]}`;
+				return null;
+			})
+			.filter(Boolean)
 	);
 
 	// Auto-discover ai-services agent pages
@@ -63,21 +65,12 @@ export async function GET() {
 	} catch {
 		agentModules = {};
 	}
-	// Agents re-titled in the 2026-06-04 SEO keyword repositioning pass
-	const updatedAgents = new Set([
-		'trust-account-reconciler',
-		'billing-reconciler',
-		'intake-triage',
-		'docketing-deadlines',
-		'conflict-check',
-		'time-capture'
-	]);
 	const agentPages = Object.keys(agentModules)
 		.map((filePath) => {
 			const match = filePath.match(/\/agents\/(.+)\.json$/);
 			if (!match) return null;
-			const lastmod = updatedAgents.has(match[1]) ? '2026-06-04' : '2026-04-16';
-			return { path: `/ai-managed-services/agents/${match[1]}`, lastmod, priority: '0.7' };
+
+			return { path: `/ai-managed-services/agents/${match[1]}`, priority: '0.7' };
 		})
 		.filter(Boolean);
 
@@ -93,20 +86,10 @@ export async function GET() {
 	const caseStudyPages = Object.keys(caseStudyModules)
 		.map((filePath) => {
 			const match = filePath.match(/\/case-studies\/(.+)\.json$/);
-			return match ? { path: `/ai-managed-services/results/${match[1]}`, lastmod: '2026-06-04', priority: '0.7' } : null;
+			return match ? { path: `/ai-managed-services/results/${match[1]}`, priority: '0.7' } : null;
 		})
 		.filter(Boolean);
 
-	// Practice areas + functions re-titled in the 2026-06-04 SEO repositioning pass
-	const updatedTaxonomy = new Set([
-		'family-law',
-		'personal-injury',
-		'real-estate',
-		'estates-probate',
-		'immigration',
-		'cybersecurity-privacy',
-		'casework-and-drafting'
-	]);
 	const aiServicesTaxonomy = [
 		...aiServicesPracticeAreas.map((a) => a.href),
 		...aiServicesFunctions.map((f) => f.href)
@@ -115,7 +98,7 @@ export async function GET() {
 		const slug = path.split('/').pop();
 		return {
 			path,
-			lastmod: updatedTaxonomy.has(slug) ? '2026-06-04' : '2026-04-16',
+
 			priority: '0.7'
 		};
 	});
@@ -139,7 +122,7 @@ export async function GET() {
 			(page) =>
 				`<url>
     <loc>${baseUrl}${trail(page.path)}</loc>
-    <lastmod>${page.lastmod}</lastmod>
+    ${page.lastmod ? `<lastmod>${page.lastmod}</lastmod>` : ''}
     <priority>${page.priority}</priority>
   </url>`
 		)
@@ -149,16 +132,16 @@ export async function GET() {
 			(post) =>
 				`<url>
     <loc>${baseUrl}/blog/${post.slug}/</loc>
-    <lastmod>${post.date}</lastmod>
+    <lastmod>${post.dateModified || post.date}</lastmod>
     <priority>0.6</priority>${
-		post.image
-			? `
+			post.image
+				? `
     <image:image>
       <image:loc>${baseUrl}${post.image}</image:loc>
       <image:title>${post.title.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;')}</image:title>
     </image:image>`
-			: ''
-	}
+				: ''
+		}
   </url>`
 		)
 		.join('\n  ')}

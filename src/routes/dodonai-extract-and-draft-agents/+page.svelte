@@ -1,4 +1,5 @@
 <script>
+	import { company } from '$lib/data/company.js';
 	import { onMount } from 'svelte';
 	import SEOHead from '$lib/components/seo/SEOHead.svelte';
 	import ServiceHero from '$lib/components/hero/ServiceHero.svelte';
@@ -33,7 +34,7 @@
 			description: data.seo.description,
 			provider: {
 				'@type': 'Organization',
-				name: 'Dodonai, Inc.',
+				name: company.name,
 				url: 'https://www.dodon.ai'
 			},
 			serviceType: 'AI Document Extraction & Report Drafting'
@@ -55,7 +56,12 @@
 			'@type': 'BreadcrumbList',
 			itemListElement: [
 				{ '@type': 'ListItem', position: 1, name: 'Home', item: 'https://www.dodon.ai/' },
-				{ '@type': 'ListItem', position: 2, name: 'Extract & Draft Agents', item: `https://www.dodon.ai${data.seo.canonical}` }
+				{
+					'@type': 'ListItem',
+					position: 2,
+					name: 'Extract & Draft Agents',
+					item: `https://www.dodon.ai${data.seo.canonical}`
+				}
 			]
 		},
 		{
@@ -113,7 +119,9 @@
 				</h2>
 				{#if data.educationalContent?.[0]?.paragraphs}
 					{#each data.educationalContent[0].paragraphs as paragraph}
-						<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">{@html linkify(paragraph)}</p>
+						<p class="mt-6 text-base leading-7 text-[#8181ac] sm:text-lg">
+							{@html linkify(paragraph)}
+						</p>
 					{/each}
 				{/if}
 			</div>
@@ -139,10 +147,14 @@
 				</h3>
 				<div class="mt-10 grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
 					{#each data.useCases.cards as card}
-						<div class="flex gap-5 rounded-2xl border border-[#dcddf340] bg-white p-7 shadow-brand-card">
+						<div
+							class="flex gap-5 rounded-2xl border border-[#dcddf340] bg-white p-7 shadow-brand-card"
+						>
 							<div>
 								<h4 class="text-base font-bold text-[#282876]">{card.title}</h4>
-								<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">{@html linkify(card.description)}</p>
+								<p class="mt-2 text-sm leading-relaxed text-[#8181ac]">
+									{@html linkify(card.description)}
+								</p>
 							</div>
 						</div>
 					{/each}
@@ -178,4 +190,4 @@
 </BlobBackground>
 
 <!-- 10. CTA -->
-<CTASection />
+<CTASection offer="app" />
