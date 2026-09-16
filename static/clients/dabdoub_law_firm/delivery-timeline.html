@@ -80,6 +80,21 @@
   .s-prog{background:rgba(216,148,58,.15);color:var(--amber)}
   .s-plan{background:#f0eef5;color:var(--slate)}
 
+  /* Scoreboard */
+  .scoreboard{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-top:6px}
+  .sc-tile{background:#fff;border:1px solid var(--line);border-top:3px solid var(--purple);border-radius:14px;padding:20px 18px;box-shadow:0 8px 30px rgba(45,39,64,.05)}
+  .sc-tile.sc-green{border-top-color:var(--green)}
+  .sc-tile.sc-amber{border-top-color:var(--amber)}
+  .sc-tile.sc-purple{border-top-color:var(--purple)}
+  .sc-value{font-size:34px;font-weight:800;letter-spacing:-.02em;line-height:1}
+  .sc-green .sc-value{color:var(--green)}
+  .sc-amber .sc-value{color:var(--amber)}
+  .sc-purple .sc-value{color:var(--purple)}
+  .sc-label{font-size:13.5px;font-weight:700;color:var(--ink);margin-top:11px;line-height:1.3}
+  .sc-note{font-size:12.5px;color:var(--muted);margin-top:7px;line-height:1.45}
+  @media(max-width:760px){.scoreboard{grid-template-columns:repeat(2,1fr)}}
+  @media(max-width:430px){.scoreboard{grid-template-columns:1fr}}
+
   /* Checklist: what we asked the firm for */
   .check-list{background:#fff;border:1px solid var(--line);border-radius:14px;padding:8px 24px;box-shadow:0 8px 30px rgba(45,39,64,.05)}
   .check-item{display:flex;gap:15px;align-items:flex-start;padding:15px 0;border-bottom:1px solid var(--line)}
@@ -122,6 +137,38 @@ September 16, 2026
   </div>
 </header>
 
+<!-- GEN:scoreboard -->
+<section style="padding-bottom:8px">
+  <div class="wrap">
+    <div class="kicker">Progress at a glance</div>
+    <h2>Most of the Appeals build is already live</h2>
+    <p class="sub">Where the engagement stands today, in numbers. The detail behind each figure is in the roadmap below.</p>
+    <div class="scoreboard">
+        <div class="sc-tile sc-green">
+          <div class="sc-value">27 / 29</div>
+          <div class="sc-label">Appeals automations live</div>
+          <div class="sc-note">The final two are held for your review, not still being built.</div>
+        </div>
+        <div class="sc-tile sc-green">
+          <div class="sc-value">4</div>
+          <div class="sc-label">Workstreams producing live client work</div>
+          <div class="sc-note">Appeal letters, calendaring and referrals, fee agreements and onboarding, disbursement statements.</div>
+        </div>
+        <div class="sc-tile sc-amber">
+          <div class="sc-value">2</div>
+          <div class="sc-label">Items in final firm review</div>
+          <div class="sc-note">The revised appeal letter with Eddie, and automated filing with Bryn.</div>
+        </div>
+        <div class="sc-tile sc-purple">
+          <div class="sc-value">Nov 26</div>
+          <div class="sc-label">On track for firm-wide AI-native</div>
+          <div class="sc-note">Appeals first, then the rest of the firm by Thanksgiving.</div>
+        </div>
+    </div>
+  </div>
+</section>
+<!-- /GEN:scoreboard -->
+
 <!-- GEN:current-status -->
 <section>
   <div class="wrap">
@@ -135,7 +182,7 @@ September 16, 2026
         <li>Second-appeal restart and the LTD/STD dual-approval branch are live. The six deadline-ladder dates fill from the anchor date on every Service, and both attorneys on a matter now receive the calendar reminders.</li>
         <li>Staff can see on the Service why a claim-file or policy request letter did or did not generate, and which field to complete.</li>
         <li>The governed filing review loop now delivers up to four cards per cycle with focused layouts (Ready, Matter needed, Folder needed, Possible mismatch) and an informational auto-verified state. A 20-card audit found 19 of 20 matters resolved correctly. No file moves or uploads happen without named approval; write gates remain closed.</li>
-        <li>{'The appeal and initial-claim submission packets are live': 'each assembles the selected evidence into one combined PDF with a table of contents. Staff trigger a packet per matter with a checkbox on the Service, and nothing sends automatically.'}</li>
+        <li>The appeal and initial-claim submission packets are live. Each assembles the selected evidence into one combined PDF with a table of contents; staff trigger a packet per matter with a checkbox on the Service, and nothing sends automatically.</li>
         <li>Eddie's redline on the AI appeal letter and the Lakhan evidence walkthrough set the direction for the drafter (bottom-line opinion first, simple headings, concise argument, a separate attorney note on denial issues). The drafter has been rebuilt to that plan and the revised letter is now with Eddie for review.</li>
         <li>The disbursement statement generator files to the client's Active Administrative folder; accounting training was held 9/09; the On Claims follow-ups built on that rail wait on the accounting data load.</li>
         <li>Next milestone: the governed filing writes, then Wave 1B adoption sign-off and the decision on which department comes next (Litigation proposed, SOP-first).</li>
@@ -228,8 +275,8 @@ September 16, 2026
               <span class="spill s-built">Live</span>
             </div>
             <div class="sub-item">
-              <div class="lbl">Remaining Appeals automations <em>The letter battery, the second-appeal restart, the dual-approval branch, and the appeal and initial-claim submission packets are all live. What remains is the governed filing loop that files approved cards automatically, and the denial and medical-review deadline ingest that follows it.</em></div>
-              <span class="spill s-tune">In progress</span>
+              <div class="lbl">Automated document filing (the final step) <em>This is the last piece of Wave 1B. It means letting the system file an approved document on its own, and it stays switched off until you review the filing cards in Teams and the safety checks pass. Everything up to the human approval is already live, so this is a gate on your sign-off, not remaining build work. The denial and medical-review deadline ingest follows once filing is on.</em></div>
+              <span class="spill s-prog">Held for your review</span>
             </div>
           </div>
         </div>
@@ -419,7 +466,7 @@ September 16, 2026
       </div>
       <div class="check-item">
         <span class="cbox done">&#10003;</span>
-        <span class="ctext">Intro email (email B) inputs — treating-provider sheet + attorney booking links <em>Both inputs in hand — treating-provider info sheet received, and the intro email can now auto-pull each attorney''s booking link.</em></span>
+        <span class="ctext">Intro email (email B) inputs — treating-provider sheet + attorney booking links <em>Both inputs in hand — treating-provider info sheet received, and the intro email can now auto-pull each attorney's booking link.</em></span>
         <span class="ctag t-done">Provided</span>
       </div>
       <div class="check-item">
