@@ -61,7 +61,7 @@
 				name: company.name,
 				logo: {
 					'@type': 'ImageObject',
-					url: 'https://www.dodon.ai/images/brand/logo-main.webp'
+					url: 'https://www.dodon.ai/images/brand/logo-signature.png'
 				}
 			}
 		},
