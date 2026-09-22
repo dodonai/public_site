@@ -1,0 +1,142 @@
+{
+	"seo": {
+		"title": "AI Record Review for Forensic Psychologists | Dodonai",
+		"description": "Forensic psychologists compress pre-evaluation chart review: psychiatric chronologies, medication histories, and prior hospitalizations, all cited.",
+		"canonical": "/industries/forensic-psychology/"
+	},
+	"breadcrumbs": [
+		{ "name": "Home", "href": "/" },
+		{ "name": "Industries", "href": null },
+		{ "name": "Forensic Psychology" }
+	],
+	"hero": {
+		"headline": "Pre-Evaluation Record Review, Compressed From Days to Minutes",
+		"subheadline": "Forensic psychologists conducting IME evaluations and expert-witness work spend more time on chart review than on the exam itself. Dodonai reads decades of intake notes, medication logs, and hospitalization records and returns the structured psychiatric chronology you need before the evaluation begins.",
+		"ctaText": "Try It With a Case File",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=forensic-psychology",
+		"secondaryCtaText": "See How It Works",
+		"secondaryCtaUrl": "/ai-medical-record-summaries-chronologies/"
+	},
+	"sections": [
+		{
+			"type": "content",
+			"heading": "The Forensic Psych Record Review Problem",
+			"paragraphs": [
+				"Forensic psychiatric and psychological evaluations are built on the record. Competency, criminal responsibility, psychological damages in civil cases, disability opinions, fitness-for-duty determinations, custody evaluations — every referral question sits on top of a psychiatric history that often spans decades. Intake notes from a dozen therapists, discharge summaries from three or four hospitalizations, medication trials that changed every few months, ER visits, involuntary holds, substance use treatment records, school and military records touching mental status.",
+				"You can't skim this material. A missed prior hospitalization can undo a competency opinion at cross. A missed medication trial can change your causation analysis. So you read it all, and pre-eval prep quietly eats an entire day per case.",
+				"Dodonai's {{link:/ai-medical-record-summaries-chronologies/|AI medical chronologies}} were built for this. Upload the entire record set — decades of outpatient notes, inpatient stays, pharmacy records, ER visits — and Dodonai returns a structured psychiatric chronology with every diagnosis dated, every psychotropic medication trial extracted with prescriber and duration, every prior hospitalization surfaced with admission date, length of stay, and discharge diagnosis. Each finding cites back to its source page so you verify before you cite the record in a report.",
+				"You still form the opinion. Dodonai just does the mechanical reading that keeps you from getting to the opinion."
+			]
+		},
+		{
+			"type": "features",
+			"heading": "Built for Forensic Psychology and Psychiatric IME Work",
+			"cards": [
+				{
+					"icon": "calendar",
+					"title": "Psychiatric History Chronologies",
+					"description": "Decades of intake notes, therapy episodes, and diagnostic revisions organized on a single timeline. See how presentations and diagnoses evolved over the full history before you sit down with the examinee."
+				},
+				{
+					"icon": "heart",
+					"title": "Medication Trial Extraction",
+					"description": "Every psychotropic medication trial pulled from the record with dosage, prescriber, indication, duration, and reason for discontinuation where documented. The medication history a forensic report needs, without paging through years of med rec sheets."
+				},
+				{
+					"icon": "document",
+					"title": "Prior Hospitalizations Surfaced",
+					"description": "Every inpatient psychiatric admission, involuntary hold, and ER psych visit surfaced with admission and discharge dates, length of stay, discharge diagnoses, and disposition. Critical for competency, dangerousness, and civil-commitment context."
+				},
+				{
+					"icon": "adjustments",
+					"title": "Customizable to the Referral Question",
+					"description": "Focus the chronology around the specific question in front of you: competency, criminal responsibility, psychological damages, disability, or fitness for duty. {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} let you save reusable templates for each evaluation type you handle."
+				},
+				{
+					"icon": "shield",
+					"title": "HIPAA-Compliant PHI Handling",
+					"description": "Forensic records include some of the most sensitive PHI in medicine. A BAA is available before PHI upload, SOC 2 certified infrastructure, AES-256 encryption. Nothing trains the models, and deletion runs on your schedule."
+				},
+				{
+					"icon": "dollar",
+					"title": "Per-Page Pricing That Fits Expert Work",
+					"description": "Dodonai processes pages for from $0.008 per page at volume. On the multi-thousand-page files common in forensic evaluations, that changes the math on what a case is worth to take."
+				}
+			]
+		},
+		{
+			"type": "howItWorks",
+			"items": [
+				{
+					"title": "Upload the Full Psychiatric Record Set",
+					"description": "Upload outpatient notes, inpatient discharge summaries, pharmacy records, ER visits, substance treatment records, prior forensic reports, and any collateral records. Large PDFs, including scanned and handwritten notes, with built-in AI OCR."
+				},
+				{
+					"title": "Dodonai Builds the Structured Psychiatric Chronology",
+					"description": "The AI reads the entire file and returns a timeline with diagnoses, medication trials, hospitalizations, treatment episodes, and mental status findings extracted and cited to the source page. Add focus areas around the specific referral question to sharpen the output."
+				},
+				{
+					"title": "Review, Verify, and Prepare Your Evaluation",
+					"description": "Scan the chronology to understand the full psychiatric trajectory. Click through to source pages to verify anything you plan to cite in your report. Export as PDF, Word, or Excel for the file and for use at deposition or trial."
+				}
+			]
+		}
+	],
+	"faq": [
+		{
+			"question": "Can Dodonai handle a record set that spans 20+ years of psychiatric treatment?",
+			"answer": "Yes. A record set covering decades of outpatient notes, multiple hospitalizations, and years of medication trials is chronologized in minutes, and every finding cites back to the source page so you can verify what you plan to cite in your report."
+		},
+		{
+			"question": "Does the AI accurately extract medication trials and prior hospitalizations?",
+			"answer": "Yes. Psychotropic medication trials are pulled with prescriber, dosage, duration, and documented reason for discontinuation where available. Prior inpatient stays, involuntary holds, and ER psychiatric visits are surfaced with admission and discharge dates, length of stay, and discharge diagnosis. You can verify any entry against the source page in one click."
+		},
+		{
+			"question": "Can I focus the chronology around a specific referral question?",
+			"answer": "Yes. You can tailor the output to the question in front of you — competency, criminal responsibility, psychological damages, disability, fitness for duty — so the chronology surfaces what's relevant. Reusable templates via {{link:/dodonai-extract-and-draft-agents/|Extract and Draft Agents}} let you save your preferred structure per evaluation type."
+		},
+		{
+			"question": "Is Dodonai secure enough for sensitive forensic mental health records?",
+			"answer": "Forensic mental health PHI is among the most sensitive material in medicine, and the platform is built for that standard. A BAA is available before PHI upload, SOC 2 certified infrastructure, AES-256 encryption on every file. Records never enter a training pipeline, and deletion runs on your schedule."
+		},
+		{
+			"question": "Can the AI handle handwritten intake notes and older paper records?",
+			"answer": "Yes. Dodonai's {{link:/ai-pdf-ocr/|AI OCR engine}} processes handwritten therapist notes, scanned admission records, and faxed hospital discharges. Older paper records and low-quality scans are handled without a separate OCR step."
+		},
+		{
+			"question": "What does it cost to run a typical forensic evaluation record set?",
+			"answer": "Per-page pricing. Even the multi-thousand-page files common in serious forensic work run a small fraction of manual review time and outsourced summarization vendor rates. See {{link:/pricing/|pricing}} for current rates."
+		}
+	],
+	"relatedPages": [
+		{
+			"title": "AI Medical Record Summaries & Chronologies",
+			"href": "/ai-medical-record-summaries-chronologies/",
+			"description": "Organized chronologies with page-level source citations. Verify any data point in seconds."
+		},
+		{
+			"title": "IME Doctors",
+			"href": "/industries/ime-doctors/",
+			"description": "Pre-exam prep chronologies for physicians conducting IME evaluations."
+		},
+		{
+			"title": "Expert Witness Preparation",
+			"href": "/use-cases/expert-witness-preparation/",
+			"description": "Record chronologies, transcript summaries, and issue lists for expert testimony."
+		},
+		{
+			"title": "IME Reports",
+			"href": "/use-cases/ime-reports/",
+			"description": "Structured summaries ready for your evaluation report."
+		}
+	],
+	"relatedBlogPosts": [
+		"/blog/understanding-medical-chronology-clear-actionable-timelines/",
+		"/blog/how-ime-companies-use-ai-to-process-medical-records/",
+		"/blog/why-medical-records-look-complete-but-still-miss-providers/"
+	],
+	"ctaOverride": {
+		"headline": "Prep Your Next Forensic Evaluation From a Chronology, Not a Stack",
+		"description": "Upload the full psychiatric record set and get a structured chronology with medications and hospitalizations extracted in minutes. No credit card required."
+	}
+}
