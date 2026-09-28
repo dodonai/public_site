@@ -71,8 +71,9 @@ body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-
 .brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
 /* version/status pill at the end of the brandbar (.tag or .v2) */
 .brandbar .tag,.brandbar .v2{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
-.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
-.hero h1{font-weight:800;font-size:56px;line-height:1.02;letter-spacing:-.025em;margin:0 0 18px;max-width:17ch}
+/* block, not inline: an inline eyebrow ignores its margin and the h1 glyphs ride up into it */
+.hero .eyebrow{display:block;color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:56px;line-height:1.08;letter-spacing:-.025em;margin:0 0 18px;max-width:17ch}
 .hero h1 .soft{color:var(--purple-soft)}
 .hero .lede{font-size:20px;line-height:1.45;color:var(--purple-soft);max-width:60ch;margin:0 0 38px;font-weight:400}
 .meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
@@ -106,7 +107,10 @@ h2 .soft{color:var(--purple-bold)}
 .cliff{background:var(--midnight);color:#fff;padding:30px 0}
 .cliff .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
 .cliff .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:150px;line-height:1.5}
-.cliff .ctitle .big{display:block;font-family:var(--sans);font-size:34px;letter-spacing:-.02em;color:#fff;margin-top:8px}
+.cliff .ctitle .big{display:block;font-family:var(--sans);font-size:34px;letter-spacing:-.02em;color:#fff;margin-top:8px;text-transform:none;line-height:1.1;overflow-wrap:anywhere}
+/* the figure can be a phrase, not just a number: never let it spill into the body column */
+.cliff .ctitle:has(.big){max-width:280px}
+.cliff .wrap>*{min-width:0}
 .cliff .cbody{font-size:16px;line-height:1.55;color:var(--purple-soft)}
 .cliff .cbody b{color:#fff}
 
@@ -572,7 +576,11 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 
 /* ===== RESPONSIVE ===== */
 @media(max-width:880px){
-  .hero h1{font-size:38px}
+  .hero h1{font-size:38px;line-height:1.1}
+  /* let the brandbar wrap: wordmark + label on one row, the status pill on its own */
+  .brandbar{flex-wrap:wrap;gap:10px 14px;margin-bottom:28px}
+  .brandbar .vrule{display:none}
+  .brandbar .tag,.brandbar .v2{margin-left:0}
   .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
   .changed .wrap,.cliff .wrap{grid-template-columns:1fr;gap:16px}
   .changed .clist{grid-template-columns:1fr}
@@ -614,8 +622,13 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
    totbar. Wire the interactivity with data attributes (see blocks.html FAMILY 5)
    + brief-reveal.js, which no-ops unless a [data-menu-total] bar is present, and
    which also runs fitDiagrams() so no SVG label can ever spill its node box.
-   When a .totbar is on the page, give body `padding-bottom:96px` (130px mobile)
-   so the fixed bar never covers the footer.
+   A .totbar that is a direct child of body pads the page itself (body:has), so
+   the fixed bar never covers the footer.
+   Monthly run cost (optional): give each checkbox data-mlo/data-mhi (est. AI
+   usage $/mo, low and high) and the bar data-host-lo/data-host-hi plus a
+   [data-mseg] segment; brief-reveal.js sums the selection into [data-mrun]
+   (hosting + AI) and [data-mai] (AI only) and highlights .runtable rows. Every
+   figure it shows is an estimate; label it so on the page.
    ============================================================================ */
 
 /* ----- mini flow diagram (reusable automation-mechanism figure) ----- */
@@ -694,9 +707,88 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 .totbar.active .tprompt{display:none}
 .totbar.active .tmath{display:flex}
 .totbar.active .ttotal{display:flex}
+.totbar .seg.mo{color:#F5B971}                                 /* est. monthly run cost segment */
+/* the fixed bar must never cover the footer */
+body:has(> .totbar){padding-bottom:96px}
+
+/* ----- card extras for a closing (priced) menu ----- */
+.acard .acode{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--gray-meta-light);border:1px solid var(--cream-line);border-radius:6px;padding:2px 6px}  /* line code: L2, O4 */
+.acard .aneeds{font-size:12.5px;color:var(--gray-meta-light);margin:10px 0 0;max-width:92ch}   /* what we need from the firm to build it */
+.acard .aneeds b{color:var(--midnight)}
+.acard .am.proof{background:rgba(22,163,74,.12);color:#15803d}   /* already runs on the firm's own material */
+.acard .am.run{background:rgba(217,119,6,.12);color:#b45309}      /* est. monthly run cost */
+.acard .am.reads{background:rgba(37,99,235,.10);color:#1d4ed8}    /* what it reads (the diagram's source) */
+/* chip key: one line under the menu head that names what each card chip means */
+.chipkey{display:flex;flex-wrap:wrap;align-items:center;gap:8px 14px;margin:-4px 0 18px;font-size:12.5px;color:var(--gray-meta-light)}
+.chipkey .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;margin-right:4px}
+.chipkey .am.reads{background:rgba(37,99,235,.10);color:#1d4ed8}
+.chipkey .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.chipkey .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.chipkey .am.run{background:rgba(217,119,6,.12);color:#b45309}
+.chipkey .am.proof{background:rgba(22,163,74,.12);color:#15803d}
+.found .fd b{color:#fff}
+
+/* ----- expected return (optional): hours back per line, valued at an editable rate ----- */
+.acard .aroi{display:inline-block;margin:0 0 10px;font-family:var(--mono);font-size:11.5px;font-weight:700;color:#047857;background:rgba(4,120,87,.08);border:1px solid rgba(4,120,87,.22);border-radius:8px;padding:4px 10px}
+.totbar .seg.ret{color:#5FD6A0}   /* expected return; not .roi, which is the Family 3 stat strip */
+/* grouped bar: one row each for build, run cost and return (.trow), and a second big figure (.tsave) */
+.totbar .tmath:has(> .trow){flex-direction:column;align-items:flex-start;gap:5px}
+.totbar .trow{display:block}                         /* inline flow: no flex, which split the text into gapped pieces */
+.totbar .trow > .seg + .seg{margin-left:14px}
+.totbar .ttotals{margin-left:auto;display:flex;flex-direction:column;align-items:flex-end;gap:4px}
+.totbar .ttotals .ttotal{margin-left:0}
+.totbar .ttotals .tl{min-width:128px;text-align:right}
+.totbar .ttotal.tsave .tv{color:#5FD6A0}
+.rateline{display:flex;align-items:center;flex-wrap:wrap;gap:10px 14px;background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;padding:14px 18px;margin:4px 0 16px;font-size:14px}
+.rateline label{font-weight:700;color:var(--midnight)}
+.rateline .ri{display:inline-flex;align-items:center;border:2px solid var(--purple-vivid);border-radius:10px;padding:4px 10px;font-family:var(--mono);font-weight:700}
+.rateline input{width:72px;border:0;outline:0;font:inherit;color:var(--midnight);background:transparent}
+.rateline .rn{color:var(--gray-meta-light);font-size:12.5px;flex-basis:100%}
+.roitable td.g{font-family:var(--mono);font-weight:700;color:#047857;white-space:nowrap}
+
+/* ----- heardbox: their quote beside what we heard (opens each team's band) ----- */
+.heardbox{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:22px;background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;padding:20px 24px;margin:6px 0 20px}
+.heardbox .hq{font-size:19px;font-weight:700;line-height:1.35;color:var(--midnight);position:relative;padding-left:4px}
+.heardbox .hq .qm{color:var(--purple-vivid);font-size:34px;line-height:0;vertical-align:-10px;margin-right:4px}
+.heardbox .hq .qa{display:block;margin-top:10px;font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light)}
+.heardbox .hk{font-family:var(--mono);font-size:10.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);margin-bottom:8px}
+.heardbox .hk span{color:var(--gray-meta-light);text-transform:none;letter-spacing:0;font-weight:600}
+.heardbox ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.55;color:var(--gray-meta-light)}
+.heardbox li{margin-bottom:5px}
+
+/* ----- runtable: est. monthly run cost per line; rows highlight as the buyer selects ----- */
+.runwrap{overflow-x:auto;margin-top:18px}
+.runtable{width:100%;border-collapse:collapse;font-size:13.5px;background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;overflow:hidden}
+.runtable th{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light);text-align:left;padding:10px 14px;background:var(--cream-deep)}
+.runtable td{padding:9px 14px;border-top:1px solid var(--cream-line);vertical-align:top}
+.runtable td.n{font-family:var(--mono);font-weight:700;white-space:nowrap}
+.runtable td.c{font-family:var(--mono);color:var(--gray-meta-light);white-space:nowrap}
+.runtable tr.sel td{background:rgba(124,58,237,.05)}
+
+/* ----- steps3: three-step "how this works" strip (pick, prove, build) ----- */
+.steps3{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:8px}
+.steps3 .st{background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;padding:18px 20px}
+.steps3 .sn{font-family:var(--mono);font-weight:800;color:var(--purple-vivid);font-size:12px;letter-spacing:.08em}
+.steps3 h4{margin:6px 0 6px;font-size:16px}
+.steps3 p{margin:0;font-size:13.5px;color:var(--gray-meta-light);line-height:1.55}
+
+/* package row width: .timeline is 4 columns; match the number of package cards */
+.timeline.cols2{grid-template-columns:repeat(2,1fr)}
+.timeline.cols3{grid-template-columns:repeat(3,1fr)}
+.timeline.cols5{grid-template-columns:repeat(5,1fr)}
 
 @media(max-width:880px){
   .acard .aprice{flex-basis:100%;margin-left:44px}
+  body:has(> .totbar){padding-bottom:130px}
+  /* phone: keep the bar short. Totals side by side, drop the detail in brackets */
+  .totbar .wrap{padding:10px 16px;gap:8px}
+  .totbar .tmath{font-size:11px}
+  .totbar .tsplit{display:none}
+  .totbar .ttotals{margin-left:0;flex-direction:row;align-items:baseline;gap:18px;flex-wrap:wrap}
+  .totbar .ttotals .tl{min-width:0;text-align:left}
+  .totbar .ttotal .tv{font-size:18px}
+  .heardbox,.steps3{grid-template-columns:1fr}
+  .timeline.cols2,.timeline.cols3,.timeline.cols5{grid-template-columns:1fr}
 }
 @media(prefers-reduced-motion:reduce){
   .dg .ln{animation:none}
@@ -704,6 +796,7 @@ footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom
 }
 @media print{
   .totbar{display:none}
+  body{padding-bottom:0!important}
   .acard,.phcard{page-break-inside:avoid}
   .dg .ln{animation:none}
 }
