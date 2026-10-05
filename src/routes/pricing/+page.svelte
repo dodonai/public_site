@@ -77,7 +77,7 @@
 </section>
 
 <!-- Billing toggle -->
-<div class="flex items-center justify-center gap-3 bg-[#f4f5fd] pb-10 pt-8">
+<div class="flex items-center justify-center gap-3 bg-[#f4f5fd] pb-4 pt-8">
 	<button
 		type="button"
 		class="text-sm font-semibold transition-colors {isYearly ? 'text-[#9898b8]' : 'text-[#282876]'}"
@@ -114,7 +114,9 @@
 	</span>
 </div>
 
-<p class="mx-auto max-w-3xl px-4 pb-8 text-center text-sm text-[#282876]">{annualExplanation}</p>
+<div class="bg-[#f4f5fd] px-4 pb-10">
+	<p class="mx-auto max-w-2xl text-center text-sm text-[#8181ac]">{annualExplanation}</p>
+</div>
 
 <!-- Pricing cards -->
 <section class="bg-[#f4f5fd] px-4 pb-16 sm:px-6 lg:px-8">

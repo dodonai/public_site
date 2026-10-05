@@ -8,7 +8,7 @@ export const perCredit = (p, annual) =>
 	annual ? p.yearlyPrice / p.yearlyCredits : p.monthlyPrice / p.monthlyCredits;
 export const formatRate = (rate) => '$' + rate.toFixed(3);
 export const pricingDescription = `App plans from $${Math.min(...plans.map((p) => p.monthlyPrice))}/month, or $${Math.min(...plans.map((p) => p.yearlyPrice))}/year. Every feature included. Compare credits, annual billing, and processing rates.`;
-export const annualExplanation = `Annual billing costs about ${Math.round((1 - plans[0].yearlyPrice / (12 * plans[0].monthlyPrice)) * 100)}% less than twelve monthly payments and includes ${plans[0].yearlyCredits / (12 * plans[0].monthlyCredits)}× the credits—about ${Math.round((1 - perCredit(plans[0], true) / perCredit(plans[0], false)) * 100)}% less per credit.`;
+export const annualExplanation = `Annual billing costs about ${Math.round((1 - plans[0].yearlyPrice / (12 * plans[0].monthlyPrice)) * 100)}% less than twelve monthly payments and includes ${plans[0].yearlyCredits / (12 * plans[0].monthlyCredits)}× the credits, about ${Math.round((1 - perCredit(plans[0], true) / perCredit(plans[0], false)) * 100)}% less per credit.`;
 export const pricingFaq = [
 	{
 		question: 'What is a credit?',
