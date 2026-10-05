@@ -4,7 +4,741 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500;600;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="/clients/_assets/brief.css">
+<style>
+/* ============================================================================
+   Dodonai Brief Engine — canonical stylesheet
+   ----------------------------------------------------------------------------
+   Single source of truth for the visual language behind every Dodonai client
+   brief (Firm OS Brief, AI Readiness Diagnostic, ROI Business Case, Workflow
+   Teardown, etc.). Extracted + merged from the two gold-standard exemplars:
+     - clients/rupprecht_law_pa/firm_os_brief_v2.html  (tight, CSS-only)
+     - clients/greenspoon_consulting/firm_os_brief.html (animated superset)
+
+   Pair with brief-reveal.js for scroll-reveal + the animated trio.
+
+   USAGE
+   - Standalone mode (email/attachment): inline this file inside a style element.
+   - Published mode (public_site stage): link this file with a stylesheet link tag
+     (href="/clients/_assets/brief.css") and load brief-reveal.js with a deferred script tag.
+   NOTE: keep this comment free of literal HTML close-tag sequences (style/script). When
+   this file is inlined into a style element, a literal close-tag here would terminate the
+   block early and the rest of the CSS would not apply. Describe tags in prose, do not write them.
+   Fonts (load in the head either way): the Plus Jakarta Sans + Source Code Pro Google Fonts link.
+
+   Block families (see assets/blocks.html for copy-paste markup):
+     1. Chrome + hero + bands   — hero, brandbar, meta-grid, sec-head, pull-quote,
+                                   changed/cliff strips
+     2. Inventory + pillars + scope — keep/integrate/replace cards, pillars (numbered
+                                   + roadblock), flow-mini, scope-box, workflow lanes
+     3. Animated trio + value   — xform (scatter→hub), pipe (self-running pipeline),
+                                   dash (cockpit feed), outcome, gates, ROI, numbers
+     4. Catalog + conversion    — alternatives, compliance pills, questions,
+                                   timeline, package grid, software-stack
+                                   before/after, productized agent cards,
+                                   layered architecture SVG, by-role grid,
+                                   proof cards
+   ============================================================================ */
+
+:root{
+  --midnight:#1A1A45; --midnight-deep:#14143A; --midnight-soft:#252556;
+  --purple-soft:#B5A8E6; --purple-mid:#8B7AB8; --purple-bold:#6B46C1; --purple-vivid:#7C3AED;
+  --cream:#F4F1E8; --cream-deep:#EBE6D7; --cream-line:#D8D3C2;
+  --gray-meta:#9B9BB8; --gray-meta-light:#6B6B85;
+  --green:#2E9E6B; --amber:#C77D2E; --red:#C2410C; --teal:#0E7490;
+  /* extended palette for catalog/conversion blocks */
+  --teal-bright:#06B6D4; --rose:#E11D48; --good:#16A34A;
+  --sans:'Plus Jakarta Sans',-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;
+  --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);background:var(--cream);color:var(--midnight);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+.wrap{max-width:1040px;margin:0 auto;padding:0 28px}
+.eyebrow{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;color:var(--purple-bold)}
+
+/* ===== SCROLL REVEAL (brief-reveal.js adds .in / .play) ===== */
+.reveal{opacity:0;transform:translateY(22px);transition:opacity .7s cubic-bezier(.2,.7,.2,1),transform .7s cubic-bezier(.2,.7,.2,1)}
+.reveal.in{opacity:1;transform:none}
+.reveal.d1{transition-delay:.08s}.reveal.d2{transition-delay:.16s}.reveal.d3{transition-delay:.24s}.reveal.d4{transition-delay:.32s}.reveal.d5{transition-delay:.40s}
+@media(prefers-reduced-motion:reduce){.reveal{opacity:1;transform:none;transition:none}}
+
+/* ===== HERO ===== */
+.hero{background:
+    radial-gradient(1100px 520px at 78% -10%, rgba(124,58,237,.42), transparent 60%),
+    radial-gradient(760px 460px at 8% 115%, rgba(107,70,193,.32), transparent 55%),
+    linear-gradient(160deg,var(--midnight-deep),var(--midnight) 55%,var(--midnight-soft));
+  color:#fff;padding:60px 0 64px;position:relative;overflow:hidden}
+.hero::after{content:"";position:absolute;inset:0;background:repeating-linear-gradient(90deg,rgba(255,255,255,.025) 0 1px,transparent 1px 64px);pointer-events:none}
+.hero .wrap{position:relative;z-index:1}
+.brandbar{display:flex;align-items:center;gap:16px;margin-bottom:38px}
+.wordmark{font-weight:800;font-size:25px;letter-spacing:-.01em;line-height:1}
+.wordmark .glyph{color:var(--purple-soft)}
+.vrule{width:1px;height:24px;background:rgba(255,255,255,.28)}
+.brandbar .partner{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--purple-soft);font-weight:600}
+/* version/status pill at the end of the brandbar (.tag or .v2) */
+.brandbar .tag,.brandbar .v2{margin-left:auto;font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.12em;background:var(--purple-vivid);color:#fff;padding:5px 11px;border-radius:20px}
+.hero .eyebrow{color:var(--purple-soft);margin-bottom:18px}
+.hero h1{font-weight:800;font-size:56px;line-height:1.02;letter-spacing:-.025em;margin:0 0 18px;max-width:17ch}
+.hero h1 .soft{color:var(--purple-soft)}
+.hero .lede{font-size:20px;line-height:1.45;color:var(--purple-soft);max-width:60ch;margin:0 0 38px;font-weight:400}
+.meta-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:24px;border-top:1px solid rgba(255,255,255,.16);padding-top:24px}
+.meta .label{font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:600;margin-bottom:7px}
+.meta .value{font-size:15px;font-weight:600;line-height:1.3}
+
+/* ===== SECTIONS ===== */
+section{padding:54px 0}
+section.alt{background:var(--cream-deep)}
+section.ink{background:linear-gradient(165deg,var(--midnight-deep),var(--midnight) 60%,var(--midnight-soft));color:#fff}
+h2{font-weight:800;font-size:32px;letter-spacing:-.02em;margin:0 0 6px;line-height:1.1}
+h2 .soft{color:var(--purple-bold)}
+.ink h2 .soft{color:var(--purple-soft)}
+.sec-sub{font-size:17px;color:var(--gray-meta-light);max-width:66ch;margin:0 0 30px}
+.ink .sec-sub{color:var(--purple-soft)}
+.sec-head{margin-bottom:28px}
+.sec-head .eyebrow{display:block;margin-bottom:12px}
+.ink .eyebrow{color:var(--purple-soft)}
+
+/* ===== CHANGED STRIP (Rupprecht: 2-col tick list of deltas) ===== */
+.changed{background:var(--midnight);color:#fff;padding:30px 0}
+.changed .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.changed .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:130px;line-height:1.4}
+.changed .clist{display:grid;grid-template-columns:1fr 1fr;gap:12px 26px}
+.changed .ci{display:flex;gap:10px;align-items:flex-start;font-size:14px;line-height:1.4}
+.changed .ci .tick{color:var(--purple-soft);font-weight:800;flex:0 0 auto}
+.changed .ci b{color:#fff}
+.changed .ci span{color:var(--purple-soft)}
+
+/* ===== CLIFF STRIP (Greenspoon: big-number framing band) ===== */
+.cliff{background:var(--midnight);color:#fff;padding:30px 0}
+.cliff .wrap{display:grid;grid-template-columns:auto 1fr;gap:28px;align-items:center}
+.cliff .ctitle{font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;max-width:150px;line-height:1.5}
+.cliff .ctitle .big{display:block;font-family:var(--sans);font-size:34px;letter-spacing:-.02em;color:#fff;margin-top:8px}
+.cliff .cbody{font-size:16px;line-height:1.55;color:var(--purple-soft)}
+.cliff .cbody b{color:#fff}
+
+/* ===== PULL QUOTE + definition ===== */
+.pull{position:relative;background:#fff;border-radius:14px;padding:36px 42px 32px;box-shadow:0 1px 0 var(--cream-line),0 18px 40px -28px rgba(26,26,69,.4);border-left:5px solid var(--purple-vivid)}
+.pull .qm{font-size:64px;line-height:.4;color:var(--purple-soft);font-weight:800;display:block;height:30px}
+.pull .qt{font-size:22px;line-height:1.42;font-weight:500;font-style:italic;color:var(--midnight);margin:0}
+.pull .qa{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-top:18px}
+.os-def{margin-top:24px;font-size:18px;line-height:1.6;max-width:76ch}
+.os-def strong{color:var(--purple-bold)}
+
+/* ===== WORKFLOW LANES (current-state phase flow charts) ===== */
+.phasegrid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.phasecard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:20px 22px;position:relative}
+.phasecard .ph-top{display:flex;align-items:center;gap:12px;margin-bottom:14px}
+.phasecard .ph-n{flex:0 0 30px;height:30px;border-radius:9px;background:var(--midnight);color:var(--purple-soft);font-family:var(--mono);font-weight:700;font-size:14px;display:flex;align-items:center;justify-content:center}
+.phasecard .ph-name{font-weight:800;font-size:17px;letter-spacing:-.01em}
+.phasecard .ph-meta{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta-light)}
+.flow{display:flex;flex-direction:column;gap:7px}
+.step{display:flex;gap:10px;align-items:flex-start;font-size:13px;line-height:1.4;position:relative;padding-left:2px}
+.step .sb{flex:0 0 auto;width:7px;height:7px;border-radius:50%;margin-top:6px;background:var(--gray-meta)}
+.step.man .sb{background:var(--amber)}
+.step.gate .sb{background:var(--teal)}
+.step .stx{color:var(--midnight)}
+.step .stx .who{font-family:var(--mono);font-size:9.5px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:1px 6px;border-radius:10px;margin-left:6px;vertical-align:middle}
+.who.w-man{background:rgba(199,125,46,.14);color:var(--amber)}
+.who.w-gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.flow-legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:22px}
+.flow-legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.flow-legend .dot{width:10px;height:10px;border-radius:50%}
+.tally{margin-top:26px;background:#fff;border:1px solid var(--cream-line);border-left:4px solid var(--amber);border-radius:0 12px 12px 0;padding:18px 22px;font-size:15px;line-height:1.6}
+.tally b{color:var(--amber)}
+
+/* ===== TRANSFORMATION ANIMATION (scatter today → OS hub) ===== */
+.xform{display:grid;grid-template-columns:1fr 64px 1fr;gap:8px;align-items:stretch;margin-top:10px}
+.xcol{background:rgba(255,255,255,.04);border:1px solid rgba(181,168,230,.22);border-radius:16px;padding:24px 22px 26px;position:relative;overflow:hidden}
+.xcol .xlabel{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:18px;display:flex;align-items:center;gap:9px}
+.xcol.today .xlabel{color:var(--purple-soft)}
+.xcol.os .xlabel{color:#fff}
+.xcol.os{border-color:rgba(124,58,237,.6);background:radial-gradient(420px 240px at 70% 0%,rgba(124,58,237,.22),transparent 60%),rgba(124,58,237,.06)}
+.scatter{position:relative;height:300px}
+.tool-chip{position:absolute;font-family:var(--mono);font-size:11px;font-weight:600;background:var(--midnight-soft);color:var(--purple-soft);border:1px solid rgba(181,168,230,.3);border-radius:9px;padding:7px 10px;white-space:nowrap;opacity:0;transform:scale(.85)}
+.play .tool-chip{animation:chipIn .5s ease forwards}
+.tool-chip:nth-child(1){top:6%;left:4%}
+.tool-chip:nth-child(2){top:2%;left:54%}
+.tool-chip:nth-child(3){top:26%;left:30%}
+.tool-chip:nth-child(4){top:30%;left:66%}
+.tool-chip:nth-child(5){top:50%;left:8%}
+.tool-chip:nth-child(6){top:54%;left:44%}
+.tool-chip:nth-child(7){top:74%;left:22%}
+.tool-chip:nth-child(8){top:78%;left:60%}
+.play .tool-chip:nth-child(1){animation-delay:.05s}
+.play .tool-chip:nth-child(2){animation-delay:.13s}
+.play .tool-chip:nth-child(3){animation-delay:.21s}
+.play .tool-chip:nth-child(4){animation-delay:.29s}
+.play .tool-chip:nth-child(5){animation-delay:.37s}
+.play .tool-chip:nth-child(6){animation-delay:.45s}
+.play .tool-chip:nth-child(7){animation-delay:.53s}
+.play .tool-chip:nth-child(8){animation-delay:.61s}
+.scatter .runner{position:absolute;width:13px;height:13px;border-radius:50%;background:var(--amber);box-shadow:0 0 0 5px rgba(199,125,46,.22);opacity:0}
+.play .scatter .runner{animation:runnerFade .6s .7s ease forwards,runAround 6s 1.3s ease-in-out infinite}
+.scatter .handlabel{position:absolute;bottom:6px;left:50%;transform:translateX(-50%);font-family:var(--mono);font-size:10px;letter-spacing:.06em;color:var(--amber);font-weight:700;opacity:0;text-align:center;width:90%}
+.play .scatter .handlabel{animation:runnerFade .5s 1s ease forwards}
+@keyframes chipIn{to{opacity:1;transform:scale(1)}}
+@keyframes runnerFade{to{opacity:1}}
+@keyframes runAround{
+  0%{top:8%;left:8%}12%{top:6%;left:56%}25%{top:28%;left:32%}38%{top:32%;left:66%}
+  50%{top:52%;left:10%}62%{top:56%;left:46%}75%{top:76%;left:24%}88%{top:80%;left:60%}100%{top:8%;left:8%}}
+.hub{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+.hub-core{width:120px;height:120px;border-radius:24px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;box-shadow:0 0 0 0 rgba(124,58,237,.5);position:relative;z-index:3;opacity:0;transform:scale(.8)}
+.play .hub-core{animation:hubIn .6s 1.2s cubic-bezier(.2,1.3,.4,1) forwards,hubPulse 2.8s 1.9s ease-in-out infinite}
+.hub-core .hw{font-weight:800;font-size:15px;letter-spacing:-.01em}
+.hub-core .hs{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--purple-soft);margin-top:4px}
+.spoke{position:absolute;font-family:var(--mono);font-size:10.5px;font-weight:600;background:var(--midnight-soft);color:#fff;border:1px solid rgba(181,168,230,.4);border-radius:8px;padding:6px 9px;white-space:nowrap;opacity:0;z-index:2}
+.play .spoke{animation:spokeIn .5s ease forwards}
+.spoke:nth-of-type(1){top:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(2){top:24%;right:2%}
+.spoke:nth-of-type(3){bottom:24%;right:0%}
+.spoke:nth-of-type(4){bottom:4%;left:50%;transform:translateX(-50%)}
+.spoke:nth-of-type(5){bottom:24%;left:0%}
+.spoke:nth-of-type(6){top:24%;left:2%}
+.play .spoke:nth-of-type(1){animation-delay:1.7s}
+.play .spoke:nth-of-type(2){animation-delay:1.85s}
+.play .spoke:nth-of-type(3){animation-delay:2.0s}
+.play .spoke:nth-of-type(4){animation-delay:2.15s}
+.play .spoke:nth-of-type(5){animation-delay:2.3s}
+.play .spoke:nth-of-type(6){animation-delay:2.45s}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1;opacity:0}
+.play .hub svg.links{animation:runnerFade .6s 2.5s ease forwards}
+.hub svg.links line{stroke:rgba(181,168,230,.45);stroke-width:1.5;stroke-dasharray:4 5}
+.play .hub svg.links line{animation:dash 1.4s linear infinite}
+@keyframes dash{to{stroke-dashoffset:-18}}
+@keyframes hubIn{to{opacity:1;transform:scale(1)}}
+@keyframes spokeIn{from{opacity:0;transform:scale(.8) translateY(6px)}to{opacity:1}}
+@keyframes hubPulse{0%,100%{box-shadow:0 0 0 0 rgba(124,58,237,.45)}50%{box-shadow:0 0 0 14px rgba(124,58,237,0)}}
+.xarrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;color:var(--purple-soft)}
+.xarrow .ah{font-size:30px;font-weight:800;line-height:1}
+.xarrow .at{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;writing-mode:vertical-rl;color:var(--purple-soft)}
+.xcaption{display:grid;grid-template-columns:1fr 1fr;gap:28px;margin-top:24px}
+.xcaption .xc{font-size:14.5px;line-height:1.55}
+.xcaption .xc .h{font-weight:800;color:#fff;margin-bottom:5px;display:flex;align-items:center;gap:8px}
+.xcaption .xc .h .pin{width:9px;height:9px;border-radius:50%}
+.xcaption .xc.l .h .pin{background:var(--amber)}
+.xcaption .xc.r .h .pin{background:var(--purple-vivid)}
+.xcaption .xc p{margin:0;color:var(--purple-soft)}
+
+/* ===== PIPELINE (self-running workflow) ===== */
+.pipe-wrap{background:#fff;border:1px solid var(--cream-line);border-radius:16px;padding:30px 26px 26px;position:relative;overflow:hidden}
+.pipe{display:flex;align-items:stretch;gap:0;position:relative}
+.pnode{flex:1;text-align:center;position:relative;padding:0 6px}
+.pnode .pdot{width:54px;height:54px;border-radius:14px;margin:0 auto 12px;display:flex;align-items:center;justify-content:center;font-size:22px;background:var(--cream-deep);border:2px solid var(--cream-line);position:relative;z-index:2;transition:all .4s}
+.pnode .pttl{font-weight:700;font-size:13.5px;letter-spacing:-.01em;margin-bottom:4px}
+.pnode .pwho{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.05em;text-transform:uppercase;color:var(--purple-bold)}
+.pnode.gate .pwho{color:var(--teal)}
+.pnode .pstatus{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;margin-top:7px;padding:2px 8px;border-radius:10px;display:inline-block;background:var(--cream-deep);color:var(--gray-meta-light)}
+.pline{position:absolute;top:27px;height:3px;background:var(--cream-line);z-index:0;left:0;right:0}
+.pline .pfill{height:100%;width:0;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft))}
+.play .pline .pfill{animation:fill 9s linear infinite}
+@keyframes fill{0%{width:0}90%,100%{width:100%}}
+.play .pnode .pdot{animation:nodeActivate 9s linear infinite}
+.play .pnode:nth-child(2) .pdot{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot{animation-delay:6.4s}
+@keyframes nodeActivate{0%,8%{background:var(--cream-deep);border-color:var(--cream-line);transform:scale(1)}
+  10%{background:rgba(124,58,237,.15);border-color:var(--purple-vivid);transform:scale(1.08)}
+  16%,100%{background:var(--purple-vivid);border-color:var(--purple-vivid)}}
+.play .pnode .pstatus{animation:statusFlip 9s linear infinite}
+.play .pnode:nth-child(2) .pstatus{animation-delay:0s}
+.play .pnode:nth-child(3) .pstatus{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pstatus{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pstatus{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pstatus{animation-delay:6.4s}
+@keyframes statusFlip{0%,8%{background:var(--cream-deep);color:var(--gray-meta-light)}
+  16%,100%{background:rgba(46,158,107,.14);color:var(--green)}}
+.pnode .pdot .ic-done{position:absolute;opacity:0}
+.play .pnode .pdot .ic-done{animation:doneShow 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-done{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-done{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-done{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-done{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-done{animation-delay:6.4s}
+@keyframes doneShow{0%,12%{opacity:0}16%,100%{opacity:1}}
+.play .pnode .pdot .ic-base{animation:baseHide 9s linear infinite}
+.play .pnode:nth-child(2) .pdot .ic-base{animation-delay:0s}
+.play .pnode:nth-child(3) .pdot .ic-base{animation-delay:1.6s}
+.play .pnode:nth-child(4) .pdot .ic-base{animation-delay:3.2s}
+.play .pnode:nth-child(5) .pdot .ic-base{animation-delay:4.8s}
+.play .pnode:nth-child(6) .pdot .ic-base{animation-delay:6.4s}
+@keyframes baseHide{0%,12%{opacity:1}16%,100%{opacity:0;color:#fff}}
+.pipe-foot{margin-top:22px;font-size:14px;color:var(--gray-meta-light);text-align:center;line-height:1.5}
+.pipe-foot b{color:var(--teal)}
+
+/* ===== COCKPIT DASHBOARD MOCKUP ===== */
+.dash{background:#0F0F2E;border-radius:18px;padding:0;overflow:hidden;border:1px solid rgba(181,168,230,.25);box-shadow:0 40px 80px -50px rgba(0,0,0,.7)}
+.dash-bar{display:flex;align-items:center;gap:10px;padding:14px 20px;background:rgba(255,255,255,.04);border-bottom:1px solid rgba(181,168,230,.18)}
+.dash-bar .dots{display:flex;gap:6px}
+.dash-bar .dots i{width:11px;height:11px;border-radius:50%;display:block}
+.dash-bar .dots i:nth-child(1){background:#ff5f57}.dash-bar .dots i:nth-child(2){background:#febc2e}.dash-bar .dots i:nth-child(3){background:#28c840}
+.dash-bar .dtitle{font-family:var(--mono);font-size:12px;color:var(--purple-soft);letter-spacing:.06em;font-weight:600}
+.dash-bar .dlive{margin-left:auto;font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--green);display:flex;align-items:center;gap:7px}
+.dash-bar .dlive::before{content:"";width:8px;height:8px;border-radius:50%;background:var(--green);animation:blink 1.6s ease-in-out infinite}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:.25}}
+.dash-body{display:grid;grid-template-columns:1.35fr 1fr;gap:0}
+.dash-col{padding:20px 22px}
+.dash-col.left{border-right:1px solid rgba(181,168,230,.14)}
+.dash-h{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:14px;display:flex;justify-content:space-between}
+.dash-h .cnt{color:#fff}
+.kpis{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-bottom:20px}
+.kpi{background:rgba(255,255,255,.05);border:1px solid rgba(181,168,230,.16);border-radius:11px;padding:12px 13px}
+.kpi .kn{font-weight:800;font-size:24px;color:#fff;letter-spacing:-.02em;line-height:1}
+.kpi .kl{font-family:var(--mono);font-size:9px;letter-spacing:.06em;text-transform:uppercase;color:var(--gray-meta);margin-top:6px;line-height:1.3}
+.mrow{display:grid;grid-template-columns:1fr auto;gap:10px;align-items:center;padding:11px 13px;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;margin-bottom:8px}
+.mrow .mname{font-size:13px;color:#fff;font-weight:600}
+.mrow .mphase{font-family:var(--mono);font-size:9.5px;letter-spacing:.04em;text-transform:uppercase;color:var(--purple-soft);margin-top:3px}
+.mrow .mpill{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.mpill.run{background:rgba(124,58,237,.22);color:var(--purple-soft)}
+.mpill.wait{background:rgba(199,125,46,.2);color:#F0B366}
+.mpill.done{background:rgba(46,158,107,.18);color:#5FD6A0}
+.feed{position:relative;height:268px;overflow:hidden;mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent);-webkit-mask-image:linear-gradient(180deg,transparent,#000 8%,#000 88%,transparent)}
+.feed-track{display:flex;flex-direction:column;gap:9px}
+.play .feed-track{animation:scrollfeed 16s linear infinite}
+@keyframes scrollfeed{0%{transform:translateY(0)}100%{transform:translateY(-50%)}}
+.aevent{display:flex;gap:11px;align-items:flex-start;background:rgba(255,255,255,.035);border:1px solid rgba(181,168,230,.12);border-radius:10px;padding:10px 12px}
+.aevent .aic{flex:0 0 26px;height:26px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:13px;background:rgba(124,58,237,.18)}
+.aevent.ok .aic{background:rgba(46,158,107,.18)}
+.aevent.gate .aic{background:rgba(14,116,137,.2)}
+.aevent .atx{font-size:12px;line-height:1.4;color:#E7E4F5}
+.aevent .atx b{color:#fff;font-weight:700}
+.aevent .atime{font-family:var(--mono);font-size:9px;color:var(--gray-meta);margin-top:3px;letter-spacing:.04em}
+.aevent .atx .agent{font-family:var(--mono);font-size:9px;font-weight:700;color:var(--purple-soft);letter-spacing:.03em}
+.dash-cap{font-size:14px;color:var(--purple-soft);line-height:1.6;margin-top:26px;text-align:center;max-width:74ch;margin-left:auto;margin-right:auto}
+.dash-cap b{color:#fff}
+
+/* ===== KEEP / INTEGRATE / REPLACE inventory ===== */
+.legend{display:flex;gap:18px;flex-wrap:wrap;margin-bottom:24px}
+.legend .lg{display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:600;color:var(--gray-meta-light)}
+.dot{width:11px;height:11px;border-radius:50%}
+.dot.int{background:var(--green)} .dot.rep{background:var(--purple-vivid)} .dot.add{background:var(--amber)} .dot.skip{background:var(--gray-meta)}
+.cards{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 19px 16px;position:relative;overflow:hidden}
+.card.replace{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.card.add{border:1.5px solid var(--amber);background:linear-gradient(180deg,#fff,rgba(199,125,46,.05))}
+.card.skip{border:1.5px dashed var(--gray-meta)}
+.card .top{display:flex;align-items:center;justify-content:space-between;margin-bottom:8px;gap:10px}
+.card .name{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.badge{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;padding:4px 9px;border-radius:20px;white-space:nowrap}
+.badge.int{background:rgba(46,158,107,.13);color:var(--green)}
+.badge.rep{background:var(--purple-vivid);color:#fff}
+.badge.add{background:var(--amber);color:#fff}
+.badge.skip{background:var(--cream-deep);color:var(--gray-meta-light)}
+.card .why{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.card.replace .why,.card.add .why{color:var(--midnight)}
+.flag{position:absolute;top:0;right:0;font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.06em;background:var(--purple-vivid);color:#fff;padding:3px 8px;border-bottom-left-radius:8px}
+
+/* ===== PILLARS — numbered (Rupprecht) ===== */
+.pillars{display:flex;flex-direction:column;gap:18px}
+.pillar{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:24px 26px;position:relative}
+.pillar.hot{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.04))}
+.pillar .phead{display:flex;align-items:center;gap:14px;margin-bottom:8px}
+.pillar .pnum{flex:0 0 36px;height:36px;border-radius:10px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:17px;display:flex;align-items:center;justify-content:center}
+.pillar .picon{flex:0 0 40px;height:40px;border-radius:11px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-size:20px;display:flex;align-items:center;justify-content:center}
+.pillar .ptitle{font-weight:800;font-size:19px;letter-spacing:-.01em}
+.pillar .ptag{font-family:var(--mono);font-size:10px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 9px;border-radius:14px;margin-left:auto;background:var(--purple-vivid);color:#fff}
+.ptag.moved{background:rgba(124,58,237,.12);color:var(--purple-bold)}
+.ptag.new{background:var(--amber);color:#fff}
+.pillar p{font-size:14.5px;line-height:1.55;margin:.5em 0;color:var(--midnight)}
+.pillar .pbody{margin-top:6px}
+.flow-mini{font-family:var(--mono);font-size:11.5px;line-height:1.7;background:var(--midnight);color:var(--purple-soft);border-radius:10px;padding:16px 18px;margin:12px 0;overflow-x:auto;white-space:pre;display:block}
+.flow-mini b{color:#fff;font-weight:700}
+.flow-mini .ar{color:var(--purple-vivid);font-weight:700}
+.kills-line{font-size:13.5px;color:var(--purple-bold);font-weight:600;margin-top:6px}
+.feat{display:flex;flex-direction:column;gap:9px;margin-top:10px}
+.feat .f{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.feat .f .fm{color:var(--purple-vivid);font-weight:800;flex:0 0 auto}
+.feat .f b{color:var(--midnight)}
+
+/* ===== ROADBLOCK (now vs fix, inside a .pillar) ===== */
+.rblock{display:grid;grid-template-columns:1fr auto 1fr;gap:16px;align-items:center;margin-top:6px}
+.rb{background:var(--cream-deep);border-radius:11px;padding:16px 18px}
+.rb.fix{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.25)}
+.rb .rh{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin-bottom:9px}
+.rb.now .rh{color:var(--red)} .rb.fix .rh{color:var(--purple-bold)}
+.rb ul{margin:0;padding-left:18px;font-size:13.5px;line-height:1.6}
+.rb li{margin-bottom:4px}
+.rb-arrow{font-size:26px;font-weight:800;color:var(--purple-vivid)}
+
+/* ===== OUTCOME stat cards ===== */
+.ocards{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.ocard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-vivid)}
+.ocard .ostat{font-weight:800;font-size:32px;letter-spacing:-.02em;color:var(--purple-bold);line-height:1;margin-bottom:12px}
+.ocard .ostat .to{color:var(--purple-soft);font-weight:700;margin:0 2px}
+.ocard h4{font-size:16.5px;font-weight:800;letter-spacing:-.01em;margin:0 0 7px;color:var(--midnight)}
+.ocard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--gray-meta-light)}
+.ocaveat{font-size:12.5px;color:var(--gray-meta-light);line-height:1.55;margin-top:18px;max-width:90ch}
+
+/* ===== HUMAN GATES ===== */
+.gates{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.gatecard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--teal)}
+.gatecard .gi{font-size:20px;margin-bottom:8px}
+.gatecard h4{font-family:var(--mono);font-size:12px;letter-spacing:.06em;text-transform:uppercase;font-weight:700;margin:0 0 7px;color:var(--teal)}
+.gatecard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+
+/* ===== SECURITY cards (top-bordered) ===== */
+.sec-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+.seccard{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;border-top:4px solid var(--purple-bold)}
+.seccard .ic{font-size:22px;margin-bottom:10px}
+.seccard h4{font-family:var(--mono);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700;margin:0 0 8px;color:var(--purple-bold)}
+.seccard p{font-size:13.5px;line-height:1.55;margin:0;color:var(--midnight)}
+.seccard p b{color:var(--midnight-deep)}
+
+/* ===== COMPLIANCE PILLS ===== */
+.compliance{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.pill{font-family:var(--mono);font-size:12px;font-weight:700;letter-spacing:.06em;background:var(--midnight);color:#fff;padding:8px 16px;border-radius:24px;display:inline-flex;align-items:center;gap:8px}
+.pill .pk{color:var(--purple-soft)}
+
+/* ===== ALTERNATIVES (build-vs-buy comparison) ===== */
+.alt-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:18px}
+.altc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:20px 21px}
+.altc.us{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.05))}
+.altc .an{font-weight:800;font-size:16px;margin-bottom:3px}
+.altc .ashape{font-family:var(--mono);font-size:10px;letter-spacing:.06em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:12px}
+.altc .agreat{font-size:13px;line-height:1.5;color:var(--gray-meta-light);margin:0 0 10px}
+.altc .agreat b{color:var(--green)}
+.altc .afit{font-size:13px;line-height:1.5;color:var(--midnight);margin:0;padding-top:10px;border-top:1px solid var(--cream-line)}
+.altc .afit b{color:var(--purple-bold)}
+
+/* ===== NUMBERS (CapEx phases + OpEx layers) ===== */
+.numbers-grid{display:grid;grid-template-columns:1fr 1fr;gap:20px;align-items:start}
+.numcard{background:#fff;border:1px solid var(--cream-line);border-radius:14px;padding:26px 28px}
+.numcard h3{font-weight:800;font-size:18px;margin:0 0 4px}
+.numcard .nlabel{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:14px}
+.paysplit{display:flex;gap:10px;margin:14px 0}
+.paysplit .half{flex:1;background:var(--cream-deep);border-radius:9px;padding:13px 15px;text-align:center}
+.paysplit .half .h{font-family:var(--mono);font-size:9.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--gray-meta-light);font-weight:700;margin-bottom:6px}
+.paysplit .half .v{font-weight:800;font-size:15px;color:var(--purple-bold)}
+.paysplit .arr{align-self:center;color:var(--purple-vivid);font-weight:800;font-size:18px}
+.numnote{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin-top:10px}
+.opex-row{display:flex;justify-content:space-between;align-items:flex-start;gap:14px;padding:13px 0;border-bottom:1px solid var(--cream-line)}
+.opex-row:last-of-type{border-bottom:none}
+.opex-row .ol .ot{font-weight:700;font-size:14.5px}
+.opex-row .ol .od{font-size:12.5px;color:var(--gray-meta-light);line-height:1.4;margin-top:3px}
+.opex-row .oa{font-family:var(--mono);font-size:12px;font-weight:700;color:var(--purple-bold);white-space:nowrap;text-align:right;padding-top:2px}
+/* anchor callout under numbers — .value-anchor (Greenspoon) / .opex-anchor (Rupprecht) are aliases */
+.value-anchor,.opex-anchor{margin-top:16px;background:rgba(124,58,237,.06);border:1px solid rgba(124,58,237,.25);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.value-anchor b,.opex-anchor b{color:var(--purple-bold)}
+
+/* ===== ROI stat strip (dark) ===== */
+.roi{margin-top:22px;background:linear-gradient(165deg,var(--midnight),var(--midnight-soft));border-radius:14px;padding:26px 30px;color:#fff}
+.roi .rlabel{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--purple-soft);font-weight:700;margin-bottom:16px}
+.roi .rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:24px}
+.roi .rstat .rn{font-weight:800;font-size:30px;letter-spacing:-.02em;color:#fff;line-height:1}
+.roi .rstat .rn small{font-size:16px;color:var(--purple-soft);font-weight:700}
+.roi .rstat .rd{font-size:13px;color:var(--purple-soft);line-height:1.4;margin-top:8px}
+.why-now{margin-top:18px;font-size:14px;color:var(--midnight);background:#fff;border-left:4px solid var(--amber);border-radius:0 10px 10px 0;padding:14px 18px;line-height:1.55}
+.why-now b{color:var(--red)}
+
+/* ===== OUT OF SCOPE ===== */
+.scope-box{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 26px;border-top:4px solid var(--gray-meta)}
+.scope-box h4{font-family:var(--mono);font-size:12px;letter-spacing:.1em;text-transform:uppercase;font-weight:700;margin:0 0 14px;color:var(--gray-meta-light)}
+.chips{display:flex;flex-direction:column;gap:11px}
+.chip{display:flex;gap:11px;align-items:flex-start;font-size:14px;line-height:1.45}
+.chip .mk{flex:0 0 auto;font-weight:800;font-family:var(--mono);color:var(--gray-meta)}
+.chip b{color:var(--midnight)}
+
+/* ===== QUESTIONS ===== */
+.answered{display:flex;gap:12px;flex-wrap:wrap;margin-bottom:22px}
+.ans{font-size:13px;background:rgba(46,158,107,.1);border:1px solid rgba(46,158,107,.3);color:var(--green);border-radius:20px;padding:7px 14px;font-weight:600}
+.ans b{color:var(--green)}
+.qcards{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.qc{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:18px 20px;display:flex;gap:15px;align-items:flex-start}
+.qc .qcn{flex:0 0 34px;height:34px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:16px;display:flex;align-items:center;justify-content:center}
+.qc .qct{font-weight:800;font-size:15px;margin:0 0 4px}
+.qc .qcd{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0}
+
+/* ===== TIMELINE / PHASING ===== */
+.timeline{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;margin-top:10px}
+.tl-line{position:absolute;top:21px;left:8%;right:8%;height:3px;background:linear-gradient(90deg,var(--purple-vivid),var(--purple-soft));z-index:0}
+.phase-t{position:relative;z-index:1;padding:0 12px;text-align:center}
+.phase-t .pnode2{width:44px;height:44px;border-radius:50%;margin:0 auto 16px;display:flex;align-items:center;justify-content:center;font-family:var(--mono);font-weight:700;font-size:15px;color:#fff;background:var(--purple-vivid);border:4px solid var(--cream)}
+.phase-t.future .pnode2{background:var(--midnight);color:var(--purple-soft)}
+.phase-t .ptagline{font-family:var(--mono);font-size:10.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phase-t .ph2{font-weight:800;font-size:15px;margin-bottom:8px;letter-spacing:-.01em}
+.phase-t .pd2{font-size:12.5px;color:var(--gray-meta-light);line-height:1.5}
+
+/* ============================================================================
+   FAMILY 4 (extended) — CATALOG BLOCKS
+   ----------------------------------------------------------------------------
+   Ported from the Dodonai capabilities decks (capabilities.html / overview-
+   client.html). These are the catalog / conversion components the cold + post-
+   discovery briefs need: a productized package grid, a before/after software-
+   stack comparison, productized agent cards, a layered architecture SVG, a
+   by-role function grid, and proof cards. Continuous decorative animations are
+   guarded under prefers-reduced-motion at the bottom of this file.
+   ============================================================================ */
+
+/* ===== PACKAGE GRID (productized offerings, optionally categorized) ===== */
+.pkg-intro{display:grid;grid-template-columns:1.2fr 0.8fr;gap:32px;align-items:center;margin:24px 0 36px;padding:28px;background:linear-gradient(135deg,#fff 0%,var(--cream-deep) 100%);border:1px solid var(--cream-line);border-radius:14px}
+.pkg-intro .pi-copy h3{font-weight:800;font-size:22px;color:var(--midnight);margin:0 0 10px;letter-spacing:-.01em}
+.pkg-intro .pi-copy p{font-size:14.5px;line-height:1.6;color:var(--gray-meta-light);margin:0 0 8px}
+.pkg-intro .pi-copy p strong{color:var(--midnight-deep)}
+.pkg-category{margin:32px 0 12px}
+.pkg-category .cat-label{font-family:var(--mono);font-size:11px;color:var(--purple-bold);letter-spacing:.16em;text-transform:uppercase;font-weight:700;display:flex;align-items:center;gap:10px}
+.pkg-category .cat-label::after{content:"";flex:1;height:1px;background:linear-gradient(90deg,var(--purple-bold) 0%,transparent 100%)}
+.pkg-category.teal .cat-label{color:var(--teal)}
+.pkg-category.teal .cat-label::after{background:linear-gradient(90deg,var(--teal) 0%,transparent 100%)}
+.pkg-category.amber .cat-label{color:var(--amber)}
+.pkg-category.amber .cat-label::after{background:linear-gradient(90deg,var(--amber) 0%,transparent 100%)}
+.pkg-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(320px,1fr));gap:18px;margin:14px 0 24px}
+.pkg-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;padding:22px 24px;position:relative;overflow:hidden;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;display:flex;flex-direction:column}
+.pkg-card::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--purple-bold),var(--purple-vivid));transform:scaleX(0);transform-origin:left;transition:transform .4s ease}
+.pkg-card.teal::before{background:linear-gradient(90deg,var(--teal),var(--teal-bright))}
+.pkg-card.amber::before{background:linear-gradient(90deg,var(--amber),#f59e0b)}
+.pkg-card:hover{transform:translateY(-4px);box-shadow:0 10px 28px rgba(20,20,58,.10);border-color:var(--purple-soft)}
+.pkg-card:hover::before{transform:scaleX(1)}
+.pkg-card .pkg-head{display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:12px}
+.pkg-card .pkg-name{font-weight:800;font-size:17px;color:var(--midnight-deep);line-height:1.3;letter-spacing:-.01em;margin:0;flex:1}
+.pkg-card .pkg-dur{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.10em;text-transform:uppercase;font-weight:700;background:rgba(124,58,237,.08);padding:4px 8px;border-radius:4px;white-space:nowrap;flex-shrink:0}
+.pkg-card.teal .pkg-dur{color:var(--teal);background:rgba(14,116,144,.08)}
+.pkg-card.amber .pkg-dur{color:var(--amber);background:rgba(180,83,9,.08)}
+.pkg-card .pkg-desc{font-size:13.5px;line-height:1.55;color:var(--gray-meta-light);margin:0;flex:1}
+.pkg-card .pkg-desc strong{color:var(--midnight-deep)}
+.pkg-card .pkg-desc em{color:var(--purple-bold)}
+.pkg-card.featured{border-color:var(--purple-vivid);background:linear-gradient(135deg,#fff 0%,rgba(124,58,237,.04) 100%)}
+.pkg-card.featured .pkg-dur{background:var(--purple-vivid);color:#fff}
+.pkg-card .pkg-tag{position:absolute;top:14px;right:14px;font-family:var(--mono);font-size:9px;color:#fff;letter-spacing:.12em;text-transform:uppercase;font-weight:700;background:var(--purple-vivid);padding:3px 8px;border-radius:3px}
+
+/* ===== SOFTWARE-STACK BEFORE/AFTER (build-vs-buy / consolidation) ===== */
+.stack-compare{display:grid;grid-template-columns:1fr 80px 1fr;gap:0;align-items:stretch;margin:24px 0 8px}
+.stack-side{padding:24px;border-radius:12px;position:relative;overflow:hidden}
+.stack-before{background:linear-gradient(135deg,rgba(225,29,72,.06) 0%,rgba(225,29,72,.02) 100%);border:1px solid rgba(225,29,72,.2)}
+.stack-after{background:linear-gradient(135deg,rgba(14,116,144,.06) 0%,rgba(124,58,237,.04) 100%);border:1px solid var(--purple-soft)}
+.stack-side h4{font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin:0 0 4px}
+.stack-before h4{color:var(--rose)}
+.stack-after h4{color:var(--purple-bold)}
+.stack-side .stack-title{font-weight:800;font-size:18px;color:var(--midnight-deep);margin:0 0 16px;line-height:1.3}
+.stack-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:6px;margin-bottom:14px}
+.stack-chip{background:#fff;border:1px solid var(--cream-line);border-radius:6px;padding:8px 6px;text-align:center;font-size:10px;font-weight:600;color:var(--midnight-deep);font-family:var(--mono);line-height:1.2;letter-spacing:.02em;position:relative;transition:transform .3s ease}
+.stack-before .stack-chip{opacity:.85;animation:disconnected 4s ease-in-out infinite}
+@keyframes disconnected{0%,100%{transform:translate(0,0)}25%{transform:translate(-1px,2px)}50%{transform:translate(2px,-1px)}75%{transform:translate(-2px,1px)}}
+.stack-after .stack-layer{background:#fff;border:1px solid var(--purple-soft);border-radius:6px;padding:10px 14px;margin-bottom:4px;font-size:11px;font-weight:700;color:var(--midnight-deep);font-family:var(--mono);letter-spacing:.04em;text-transform:uppercase;display:flex;align-items:center;justify-content:space-between}
+.stack-after .stack-layer.l1{background:linear-gradient(90deg,rgba(124,58,237,.10),rgba(124,58,237,.02))}
+.stack-after .stack-layer.l2{background:linear-gradient(90deg,rgba(14,116,144,.10),rgba(14,116,144,.02));margin-left:10px}
+.stack-after .stack-layer.l3{background:linear-gradient(90deg,rgba(22,163,74,.10),rgba(22,163,74,.02));margin-left:20px}
+.stack-after .stack-layer .ln{color:var(--purple-bold);font-size:9px}
+.stack-after .stack-layer.l2 .ln{color:var(--teal)}
+.stack-after .stack-layer.l3 .ln{color:var(--good)}
+.stack-side .stack-meta{font-size:12px;line-height:1.5;color:var(--gray-meta-light);margin:0}
+.stack-before .stack-meta strong{color:var(--rose)}
+.stack-after .stack-meta strong{color:var(--purple-bold)}
+.stack-arrow{display:flex;align-items:center;justify-content:center;position:relative}
+.stack-arrow svg{width:60px;height:60px}
+
+/* ===== PRODUCTIZED AGENT CARDS (roster items) ===== */
+.agent-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:14px;margin:14px 0 28px}
+.agent-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 20px;transition:transform .3s ease,box-shadow .3s ease;display:flex;gap:14px;align-items:flex-start}
+.agent-card:hover{transform:translateY(-2px);box-shadow:0 6px 20px rgba(20,20,58,.08)}
+.agent-icon{flex-shrink:0;width:40px;height:40px;border-radius:8px;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:16px;color:#fff;background:linear-gradient(135deg,var(--purple-bold),var(--purple-vivid))}
+.agent-grid.teal .agent-icon{background:linear-gradient(135deg,var(--teal),var(--teal-bright))}
+.agent-grid.amber .agent-icon{background:linear-gradient(135deg,var(--amber),#f59e0b)}
+.agent-body{flex:1;min-width:0}
+.agent-body .agent-name{font-weight:700;font-size:15px;color:var(--midnight-deep);margin:0 0 6px;line-height:1.3;letter-spacing:-.005em}
+.agent-body .agent-desc{font-size:12.5px;line-height:1.55;color:var(--gray-meta-light);margin:0}
+.agent-body .agent-desc strong{color:var(--midnight-deep)}
+/* agent-card meta line: watch / do / write / fire / human-gate badges */
+.agent-body .agent-meta{display:flex;flex-wrap:wrap;gap:6px;margin-top:9px}
+.agent-body .agent-meta .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.agent-body .agent-meta .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.agent-body .agent-meta .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.agent-body .agent-meta .am.phase{background:rgba(199,125,46,.16);color:var(--amber)}
+
+/* ===== LAYERED ARCHITECTURE SVG ===== */
+.arch-diagram{margin:24px 0 8px}
+.arch-diagram svg{width:100%;height:auto;max-height:380px}
+
+/* ===== BY-ROLE FUNCTION GRID ===== */
+.role-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px;margin:18px 0}
+.role-card{background:#fff;border:1px solid var(--cream-line);border-radius:10px;padding:18px 22px;box-shadow:0 1px 2px rgba(20,20,58,.04);transition:transform .3s ease,box-shadow .3s ease}
+.role-card:hover{transform:translateY(-2px);box-shadow:0 6px 18px rgba(20,20,58,.08)}
+.role-card h3{font-weight:700;font-size:17px;color:var(--midnight);margin:0 0 4px;letter-spacing:-.01em}
+.role-card .sub{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.role-card ul{margin:0;padding-left:18px}
+.role-card ul li{font-size:13.5px;line-height:1.55;margin:4px 0}
+.role-card ul li::marker{color:var(--purple-vivid)}
+.role-card ul li em{color:var(--purple-bold);font-style:italic}
+
+/* ===== PROOF CARDS (named result + stat footer) ===== */
+.proof-grid{display:grid;grid-template-columns:1fr 1fr;gap:22px;margin:8px 0}
+.proof-card{background:#fff;border:1px solid var(--cream-line);border-radius:12px;overflow:hidden;box-shadow:0 1px 2px rgba(20,20,58,.04);display:flex;flex-direction:column}
+.proof-card .p-head{padding:18px 24px;background:var(--cream-deep);border-bottom:1px solid var(--cream-line)}
+.proof-card .p-tag{font-family:var(--mono);font-size:10px;color:var(--purple-bold);letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:6px}
+.proof-card .p-title{font-weight:700;font-size:17px;color:var(--midnight-deep);line-height:1.3;margin:0}
+.proof-card .p-body{padding:20px 24px;font-size:14px;line-height:1.6;flex:1}
+.proof-card .p-stats{display:flex;gap:18px;padding:14px 24px;background:var(--midnight);color:#fff;border-top:1px solid var(--midnight-soft)}
+.proof-card .p-stat{flex:1}
+.proof-card .p-stat .pn{font-weight:800;font-size:22px;color:#fff;line-height:1;letter-spacing:-.01em;background:linear-gradient(135deg,#fff 0%,var(--purple-soft) 100%);-webkit-background-clip:text;background-clip:text;-webkit-text-fill-color:transparent}
+.proof-card .p-stat .pl{font-family:var(--mono);font-size:9.5px;color:var(--purple-soft);letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-top:4px;line-height:1.3}
+
+/* ===== FOOTER ===== */
+footer{background:var(--midnight-deep);color:var(--purple-soft);padding:34px 0;text-align:center;font-family:var(--mono);font-size:11px;letter-spacing:.1em;text-transform:uppercase}
+footer .wordmark{font-family:var(--sans);font-size:18px;color:#fff;margin-bottom:10px;letter-spacing:-.01em}
+
+/* ===== RESPONSIVE ===== */
+@media(max-width:880px){
+  .hero h1{font-size:38px}
+  .meta-grid{grid-template-columns:1fr 1fr;gap:18px}
+  .changed .wrap,.cliff .wrap{grid-template-columns:1fr;gap:16px}
+  .changed .clist{grid-template-columns:1fr}
+  .phasegrid,.cards,.alt-grid,.gates,.ocards,.sec-grid,.numbers-grid,.qcards{grid-template-columns:1fr}
+  .xform{grid-template-columns:1fr;gap:18px}.xarrow{flex-direction:row}.xarrow .at{writing-mode:horizontal-tb}.xcaption{grid-template-columns:1fr}
+  .pipe{flex-direction:column;gap:14px}.pline{display:none}
+  .dash-body{grid-template-columns:1fr}.dash-col.left{border-right:none;border-bottom:1px solid rgba(181,168,230,.14)}
+  .rblock{grid-template-columns:1fr;gap:12px}.rb-arrow{transform:rotate(90deg)}
+  .roi .rgrid{grid-template-columns:1fr;gap:18px}
+  .timeline{grid-template-columns:1fr;gap:26px}.tl-line{display:none}
+  /* family 4 — catalog blocks */
+  .pkg-intro{grid-template-columns:1fr}
+  .pkg-grid{grid-template-columns:1fr}
+  .stack-compare{grid-template-columns:1fr;gap:14px}.stack-arrow{transform:rotate(90deg)}
+  .agent-grid,.role-grid,.proof-grid{grid-template-columns:1fr}
+}
+/* keep continuous catalog animations off for reduced-motion users */
+@media(prefers-reduced-motion:reduce){
+  .stack-before .stack-chip{animation:none}
+  .pkg-card,.agent-card,.role-card,.stack-chip{transition:none}
+  .arch-diagram svg animate,.stack-arrow svg animate{display:none}
+}
+@media print{
+  .hero{padding:40px 0}section{padding:28px 0;page-break-inside:avoid}
+  .reveal{opacity:1;transform:none}
+  .roi,.flow-mini,.dash{box-shadow:none}
+  .pkg-card,.agent-card,.role-card,.proof-card,.stack-side{page-break-inside:avoid}
+  .stack-before .stack-chip{animation:none}
+}
+
+/* ============================================================================
+   FAMILY 5 — INTERACTIVE PRICED MENU
+   ----------------------------------------------------------------------------
+   A build-your-own-quote block for proposal artifacts: selectable automation
+   cards (each with a mini left-to-right mechanism diagram), package cards whose
+   discount applies automatically, and a sticky bottom bar that sums the
+   selection live. Keep the headline/hero stat grid on VALUE (hours back, matters
+   covered), never price — the price only appears once the buyer selects, in the
+   totbar. Wire the interactivity with data attributes (see blocks.html FAMILY 5)
+   + brief-reveal.js, which no-ops unless a [data-menu-total] bar is present, and
+   which also runs fitDiagrams() so no SVG label can ever spill its node box.
+   When a .totbar is on the page, give body `padding-bottom:96px` (130px mobile)
+   so the fixed bar never covers the footer.
+   ============================================================================ */
+
+/* ----- mini flow diagram (reusable automation-mechanism figure) ----- */
+/* SVG text never wraps; brief-reveal.js fitDiagrams() squeezes any label wider
+   than its node. Keep labels short anyway — the squeeze is a safety net. */
+.dg{margin:4px 0 2px;overflow-x:auto}
+.dg svg{width:100%;min-width:640px;height:auto;display:block}
+.dg .nd{fill:#fff;stroke:var(--cream-line);stroke-width:1.5}
+.dg .src{fill:#FBF4E7;stroke:#E5C89A}                 /* input / watched source */
+.dg .agn{fill:#F5F0FE;stroke:var(--purple-vivid)}     /* the agent */
+.dg .out{fill:#fff;stroke:var(--purple-mid)}          /* result / output */
+.dg .gat{fill:#EBF6F8;stroke:var(--teal)}             /* human gate */
+.dg text{font-family:var(--sans)}
+.dg .tt{font-size:13px;font-weight:700;fill:var(--midnight)}                                   /* node title */
+.dg .ts{font-size:10px;font-weight:600;fill:var(--gray-meta-light);font-family:var(--mono)}    /* node subtitle */
+.dg .tw{font-size:9.5px;font-weight:700;fill:var(--purple-bold);font-family:var(--mono);letter-spacing:.08em}  /* over-node kicker */
+.dg .tw.g{fill:var(--teal)}
+.dg .tw.s{fill:var(--amber)}
+.dg .ln{stroke:var(--purple-vivid);stroke-width:2;stroke-dasharray:5 5;fill:none;marker-end:url(#arw)}
+.dg .ln{animation:dashmove 1.1s linear infinite}
+@keyframes dashmove{to{stroke-dashoffset:-20}}
+
+/* ----- selectable automation card ----- */
+.acard{background:#fff;border:1.5px solid var(--cream-line);border-radius:14px;padding:20px 24px 18px;margin-bottom:16px;transition:border-color .25s,box-shadow .25s,background .25s}
+.acard.sel{border-color:var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.045));box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
+.acard .ahead{display:flex;align-items:center;gap:13px;margin-bottom:6px;flex-wrap:wrap}
+.acard .rank{flex:0 0 30px;height:30px;border-radius:9px;background:linear-gradient(150deg,var(--purple-bold),var(--purple-vivid));color:#fff;font-weight:800;font-size:14px;display:flex;align-items:center;justify-content:center}
+.acard.alt2 .rank{background:linear-gradient(150deg,var(--teal),#0a9cb8)}   /* second tier / "also on the menu" */
+.acard .aname{font-weight:800;font-size:17.5px;letter-spacing:-.01em}
+.acard .aprice{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:16px;color:var(--midnight)}
+.acard .adesc{font-size:13.5px;color:var(--gray-meta-light);line-height:1.55;margin:2px 0 12px;max-width:88ch}
+.acard .adesc strong{color:var(--midnight)}
+.acard .afoot{display:flex;align-items:center;gap:8px;flex-wrap:wrap;margin-top:12px}
+.acard .am{font-family:var(--mono);font-size:9px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;padding:3px 8px;border-radius:10px;background:var(--cream-deep);color:var(--gray-meta-light)}
+.acard .am.fire{background:rgba(124,58,237,.10);color:var(--purple-bold)}
+.acard .am.gate{background:rgba(14,116,137,.13);color:var(--teal)}
+.acard input[type=checkbox]{position:absolute;opacity:0;pointer-events:none}
+.addbtn{margin-left:auto;font-family:var(--mono);font-size:11.5px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:8px 18px;cursor:pointer;transition:all .2s;user-select:none}
+.addbtn:hover{background:rgba(124,58,237,.08)}
+.acard.sel .addbtn{background:var(--purple-vivid);color:#fff}
+
+/* ----- foundation strip (the shared base, added once with the first pick) ----- */
+.found{background:var(--midnight);color:#fff;border-radius:14px;padding:18px 24px;margin-bottom:20px;display:flex;align-items:center;gap:14px;flex-wrap:wrap}
+.found .fic{flex:0 0 30px;height:30px;border-radius:9px;background:rgba(181,168,230,.2);display:flex;align-items:center;justify-content:center;font-size:15px}
+.found .ft{font-weight:800;font-size:15.5px}
+.found .fd{font-size:12.5px;color:var(--purple-soft);flex-basis:100%;margin-left:44px;line-height:1.5}
+.found .fp{margin-left:auto;font-family:var(--mono);font-weight:700;font-size:14px;color:var(--purple-soft)}
+.found .fp b{color:#fff}
+
+/* ----- package cards with auto-applied discount ----- */
+.phcard{background:#fff;border:1.5px solid var(--cream-line);border-radius:12px;padding:20px 22px;border-top:4px solid var(--purple-vivid);display:flex;flex-direction:column;transition:border-color .25s,box-shadow .25s}
+.phcard.sel{border-color:var(--purple-vivid);box-shadow:0 10px 28px -18px rgba(124,58,237,.45)}
+.phcard .pt{font-family:var(--mono);font-size:10px;letter-spacing:.08em;text-transform:uppercase;color:var(--purple-bold);font-weight:700;margin-bottom:6px}
+.phcard h4{font-size:16px;font-weight:800;margin:0 0 4px;letter-spacing:-.01em}
+.phcard .amt{font-family:var(--mono);font-weight:700;font-size:19px;color:var(--midnight);margin:6px 0 2px}
+.phcard .amt .was{color:var(--gray-meta);text-decoration:line-through;font-size:13px;font-weight:600;margin-right:8px}
+.phcard .save{font-family:var(--mono);font-size:11px;font-weight:700;color:var(--green);margin-bottom:10px}
+.phcard p{font-size:13px;color:var(--gray-meta-light);line-height:1.5;margin:0 0 14px;flex:1}
+.phbtn{font-family:var(--mono);font-size:11px;font-weight:700;letter-spacing:.06em;text-transform:uppercase;border:2px solid var(--purple-vivid);color:var(--purple-bold);background:#fff;border-radius:22px;padding:9px 16px;cursor:pointer;transition:all .2s;align-self:flex-start}
+.phbtn:hover{background:rgba(124,58,237,.08)}
+.phcard.sel .phbtn{background:var(--purple-vivid);color:#fff}
+.bundle-note{margin-top:18px;background:rgba(46,158,107,.08);border:1px solid rgba(46,158,107,.3);border-radius:10px;padding:14px 18px;font-size:13.5px;line-height:1.55}
+.bundle-note b{color:var(--green)}
+
+/* ----- sticky live-total bar (hidden math until the buyer selects) ----- */
+.totbar{position:fixed;left:0;right:0;bottom:0;z-index:50;background:var(--midnight-deep);color:#fff;border-top:1px solid rgba(181,168,230,.3);box-shadow:0 -14px 40px -20px rgba(0,0,0,.5)}
+.totbar .wrap{display:flex;align-items:center;gap:18px;padding:14px 28px;flex-wrap:wrap}
+.totbar .tprompt{font-size:14.5px;color:var(--purple-soft)}
+.totbar .tprompt b{color:#fff}
+.totbar .tmath{font-family:var(--mono);font-size:12px;color:var(--purple-soft);display:none;align-items:center;gap:14px;flex-wrap:wrap}
+.totbar .tmath .seg b{color:#fff}
+.totbar .tmath .save{color:#5FD6A0}
+.totbar .ttotal{margin-left:auto;display:none;align-items:baseline;gap:10px}
+.totbar .ttotal .tl{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--purple-soft);font-weight:700}
+.totbar .ttotal .tv{font-family:var(--mono);font-weight:700;font-size:23px;color:#fff}
+.totbar.active .tprompt{display:none}
+.totbar.active .tmath{display:flex}
+.totbar.active .ttotal{display:flex}
+
+@media(max-width:880px){
+  .acard .aprice{flex-basis:100%;margin-left:44px}
+}
+@media(prefers-reduced-motion:reduce){
+  .dg .ln{animation:none}
+  .acard,.phcard,.addbtn,.phbtn{transition:none}
+}
+@media print{
+  .totbar{display:none}
+  .acard,.phcard{page-break-inside:avoid}
+  .dg .ln{animation:none}
+}
+
+/* ===== REVISION STATES (dated revision of an issued brief) =====
+   Marks what changed since the first issue: .is-new items (purple outline, like
+   .card.replace) and .is-cut items (dashed grey, struck name, like .card.skip).
+   Badges reuse .badge.rep (new) and .badge.skip (descoped); the key reuses .legend. */
+.rev-note{display:flex;gap:12px;align-items:flex-start;flex-wrap:wrap;max-width:74ch;margin:-14px 0 32px;background:rgba(124,58,237,.2);border:1px solid rgba(181,168,230,.45);border-radius:12px;padding:14px 18px;font-size:15px;line-height:1.5;color:#E7E4F5}
+.rev-note b{color:#fff}
+.rev-note .badge{flex:0 0 auto;margin-top:1px}
+.agent-card.is-new{border:1.5px solid var(--purple-vivid);background:linear-gradient(180deg,#fff,rgba(124,58,237,.07));box-shadow:0 10px 28px -20px rgba(124,58,237,.55)}
+.agent-card.is-cut{border:1.5px dashed var(--gray-meta);background:var(--cream)}
+.agent-card.is-cut .agent-icon{background:var(--gray-meta)}
+.agent-card.is-cut .agent-name{text-decoration:line-through;text-decoration-color:var(--gray-meta);color:var(--gray-meta-light)}
+.agent-card .badge{display:inline-block;margin:0 0 7px}
+.agent-grid .agent-icon{width:auto;min-width:48px;padding:0 7px;font-size:14px;white-space:nowrap}
+.agent-desc .cut-why{display:block;color:var(--midnight)}
+.feat .f.is-new{background:rgba(124,58,237,.07);border:1px solid rgba(124,58,237,.35);border-radius:8px;padding:6px 10px;margin:0 -10px}
+.feat .f.is-cut{color:var(--gray-meta-light)}
+.feat .f.is-cut s{text-decoration-color:var(--gray-meta)}
+.feat .f.is-cut b{color:var(--gray-meta-light)}
+.badge.sm{font-size:9px;padding:2px 7px;margin-left:4px;vertical-align:1px}
+.legend .badge{margin-right:2px}
+@media print{.agent-card.is-new{box-shadow:none}}
+
+
+</style>
 </head><body>
 <header class="hero">
   <div class="wrap">
@@ -12,16 +746,17 @@
       <span class="wordmark">dodon<span class="glyph">·</span>ai</span>
       <span class="vrule"></span>
       <span class="partner">Litigation Wave Roadmap Brief</span>
-      <span class="tag">v1 · 2026-09-02 · for decision</span>
+      <span class="tag">v2 · updated 2026-10-05</span>
     </div>
     <span class="eyebrow">Prepared for Dabdoub Law Firm</span>
     <h1>Every denied appeal becomes a lawsuit.<br><span class="soft">Put litigation on rails before the new paralegal has to learn it by hand.</span></h1>
-    <p class="lede">Litigation is the least-automated department in the firm: 1 of 22 workflows live, one paralegal seat that just turned over, complaints still drafted by attorneys from scratch, deadlines keyed into three calendars by hand. It is also the department that rides most directly on what Wave 1 built, which is why Phase 3 was priced the way it was. Promoting it to the next slot costs nothing extra and turns the staffing gap into a documented, automated process.</p>
+    <p class="lede">Litigation is the least-automated department in the firm: 1 of 25 workflows live, one paralegal seat that just turned over, complaints still drafted by attorneys from scratch, deadlines keyed into three calendars by hand. It is also the department that rides most directly on what Wave 1 built, which is why Phase 3 was priced the way it was. Promoting it to the next slot costs nothing extra and turns the staffing gap into a documented, automated process.</p>
+    <div class="rev-note"><span class="badge rep">Updated October 5, 2026</span><span>Revised after the <b>October 5 walkthrough with the litigation team</b>. Six workflows added and three dropped at the firm's request, so the list is now 25. <b>The paralegal paperwork moves to the front of the build</b>: the small templated filings Sonya prepares by hand ship in weeks 1 and 2. Same seven weeks, same price.</span></div>
     <div class="meta-grid">
-      <div class="meta"><div class="label">Call</div><div class="value">Wed 9/02 · 9:15am ET</div></div>
+      <div class="meta"><div class="label">First issued</div><div class="value">Wed 9/02 call · Litigation proposed next, SOP-first</div></div>
+      <div class="meta"><div class="label">Updated</div><div class="value">Mon 10/05 · after the workflow walkthrough</div></div>
       <div class="meta"><div class="label">Prepared by</div><div class="value">Dodonai · Nick Chapleau</div></div>
-      <div class="meta"><div class="label">Goal today</div><div class="value">Agree the order: Litigation next, SOP-first</div></div>
-      <div class="meta"><div class="label">Your decision</div><div class="value">Which department gets the next seven weeks</div></div>
+      <div class="meta"><div class="label">Your decision</div><div class="value">Written go-ahead on the revised Phase 3 list</div></div>
     </div>
   </div>
 </header>
@@ -47,6 +782,11 @@
       <div class="qa">Bryn Natland, workflow session, 2026-05-05</div>
     </div>
     <p class="os-def reveal d2">Phase 3 takes the litigation lifecycle the firm already runs, from handoff to dismissal, and gives every step the same treatment Appeals got: the system drafts, files, calendars and reminds; a person decides, reviews and files. The difference this time is <strong>SOP-first</strong>: each workflow is written down and agreed with Sonya and a litigation attorney before it is built, so the procedure survives the seat and the automation is built to a contract, not a guess.</p>
+    <div class="pull reveal d3" style="margin-top:26px">
+      <span class="qm">&ldquo;</span>
+      <p class="qt">If all of that could be drafted for her and all she has to do is go in and check it&hellip; it'd be huge.</p>
+      <div class="qa">The litigation team on Sonya's paperwork, workflow walkthrough, 2026-10-05</div>
+    </div>
   </div>
 </section>
 
@@ -66,24 +806,26 @@
           <div class="step"><span class="sb"></span><span class="stx">Deemed denied or appeal denied routes to In Litigation (live)</span></div>
           <div class="step gate"><span class="sb"></span><span class="stx">Attorney advises the litigation decision<span class="who w-gate">your call</span></span></div>
           <div class="step man"><span class="sb"></span><span class="stx">Deadline to file suit keyed into 3 calendars<span class="who w-man">manual</span></span></div>
-          <div class="step man"><span class="sb"></span><span class="stx">Paralegal requests claim file, policy, HR contact<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Paralegal asks the assistant to request the claim file and the policy<span class="who w-man">manual</span></span></div>
         </div>
       </div>
       <div class="phasecard reveal d2">
-        <div class="ph-top"><span class="ph-n">2</span><span class="ph-name">Complaint + filing</span><span class="ph-meta">L-04 · L-05 · L-06</span></div>
+        <div class="ph-top"><span class="ph-n">2</span><span class="ph-name">Complaint + filing</span><span class="ph-meta">L-04 to L-06 · L-23 · L-26</span></div>
         <div class="flow">
           <div class="step man"><span class="sb"></span><span class="stx">Attorney drafts the complaint from scratch, 20 to 40 pages<span class="who w-man">manual</span></span></div>
           <div class="step man"><span class="sb"></span><span class="stx">Civil cover sheet + summons prepared<span class="who w-man">manual</span></span></div>
           <div class="step gate"><span class="sb"></span><span class="stx">Attorney signs and files<span class="who w-gate">your call</span></span></div>
-          <div class="step man"><span class="sb"></span><span class="stx">Filing and service tracked in the lit list<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Filing and service tracked in the lit list; notice of service of process prepared from the proof of service<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Middle District cases: notice of lead counsel and the district's disclosure form<span class="who w-man">manual</span></span></div>
         </div>
       </div>
       <div class="phasecard reveal d3">
-        <div class="ph-top"><span class="ph-n">3</span><span class="ph-name">Post-filing calendar</span><span class="ph-meta">L-07 · L-08 · L-11</span></div>
+        <div class="ph-top"><span class="ph-n">3</span><span class="ph-name">Post-filing calendar</span><span class="ph-meta">L-07 · L-08 · L-11 · L-24 · L-25 · L-27</span></div>
         <div class="flow">
           <div class="step man"><span class="sb"></span><span class="stx">ECF email names judge + magistrate; paralegal picks the judge or district template folder<span class="who w-man">manual</span></span></div>
-          <div class="step man"><span class="sb"></span><span class="stx">Initial disclosures email to the client<span class="who w-man">manual</span></span></div>
-          <div class="step man"><span class="sb"></span><span class="stx">Answer deadline + extensions tracked<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Initial disclosures email to the client, then the disclosures themselves drafted<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Answer deadline + extensions tracked; Certificate of Interested Persons drafted after the answer<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Defendant's administrative record and privilege log reviewed; objection deadline tracked<span class="who w-man">manual</span></span></div>
           <div class="step man"><span class="sb"></span><span class="stx">Scheduling order: every date calendared 1w / 2w / 30d / 75d out<span class="who w-man">manual</span></span></div>
         </div>
       </div>
@@ -105,16 +847,16 @@
         </div>
       </div>
       <div class="phasecard reveal d3">
-        <div class="ph-top"><span class="ph-n">6</span><span class="ph-name">Resolution</span><span class="ph-meta">L-15 to L-17 · L-20 to L-22</span></div>
+        <div class="ph-top"><span class="ph-n">6</span><span class="ph-name">Resolution</span><span class="ph-meta">L-15 to L-17 · L-20 to L-22 · L-28</span></div>
         <div class="flow">
-          <div class="step man"><span class="sb"></span><span class="stx">Demand letter; notice of settlement; accounting told<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Demand letter, valued by hand; notice of settlement; accounting told<span class="who w-man">manual</span></span></div>
           <div class="step gate"><span class="sb"></span><span class="stx">The settlement number<span class="who w-gate">your call</span></span></div>
-          <div class="step man"><span class="sb"></span><span class="stx">Release from OC to client signature; check received; notice of resolution + joint stipulation<span class="who w-man">manual</span></span></div>
+          <div class="step man"><span class="sb"></span><span class="stx">Release from opposing counsel to client signature; check received; notice of resolution + joint stipulation<span class="who w-man">manual</span></span></div>
           <div class="step man"><span class="sb"></span><span class="stx">Friday-before-noon report to accounting, every week<span class="who w-man">manual</span></span></div>
         </div>
       </div>
     </div>
-    <div class="tally reveal d2"><b>22 workflows</b>, 20 by hand today, one paralegal seat and one shared lit list holding it together.</div>
+    <div class="tally reveal d2"><b>25 workflows</b> after October 5 (the 22 mapped in May, plus 6 added and less 3 dropped on the walkthrough), 23 by hand today, one paralegal seat and one shared lit list holding it together.</div>
   </div>
 </section>
 
@@ -127,7 +869,7 @@
       <div class="rblock">
         <div class="rb now"><div class="rh">Today</div><ul><li>Complaint filed; judge unknown until the ECF assignment email arrives.</li><li>Paralegal reads the email, opens the judge folder, picks the scheduling-order and filing templates by memory.</li><li>Southern and Middle District differ; each judge may add their own rules on top of local rules.</li></ul></div>
         <div class="rb-arrow">→</div>
-        <div class="rb fix"><div class="rh">With the OS</div><ul><li>ECF assignment email is read; court, judge and magistrate are written to the Service.</li><li>The judge-folder library becomes data: every later draft (JSR, PSO, disclosures, filings) resolves its template set automatically, falling back to the local-rule template when the judge has none.</li><li>Sonya reviews the resolved set once per case instead of remembering it.</li></ul></div>
+        <div class="rb fix"><div class="rh">With the OS</div><ul><li>ECF assignment email is read; court, judge and magistrate are written to the Service.</li><li>Your judge folders become data: the JSR (or the Middle District CMR) and its proposed order use the template the court names, else the judge's own form, else the firm's default form. Every date is computed from that judge's anchor dates (for example, trial so many days after the dispositive-motion deadline).</li><li>A wrong pick is caught at review, as today; Sonya checks the resolved set once per case instead of remembering it.</li></ul></div>
       </div>
     </div>
   </div>
@@ -135,26 +877,45 @@
 
 <section class="alt">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">Phase 3 scope</span><h2>Four clusters, <span class="soft">one path</span></h2></div>
+    <div class="sec-head reveal"><span class="eyebrow">Phase 3 scope</span><h2>Four clusters, <span class="soft">one path</span></h2>
+      <p class="sec-sub">Updated after the October 5 walkthrough. Six workflows were added, all small templated filings or the valuation behind the demand. Three were dropped because the firm does them better by hand. The additions and the drops roughly trade off, so the price holds.</p></div>
+    <div class="legend reveal d1">
+      <span class="lg"><span class="badge rep">New, Oct 5</span> added on the walkthrough</span>
+      <span class="lg"><span class="badge skip">Descoped Oct 5</span> <s>struck through</s>: dropped at the firm's request</span>
+    </div>
     <div class="pillars">
       <div class="pillar reveal d1">
-        <div class="phead"><span class="pnum">A</span><span class="ptitle">Calendar and tracking</span><span class="ptag">weeks 1 to 2</span></div>
+        <div class="phead"><span class="pnum">A</span><span class="ptitle">Calendar and tracking</span><span class="ptag">weeks 1 to 3</span></div>
         <div class="pbody">
           <div class="feat">
-            <div class="f"><span class="fm">→</span><span><b>L-02</b> deadline to file suit, 1w / 2w reminders on the attorney, Eddie and assistant calendars.</span></div>
-            <div class="f"><span class="fm">→</span><span><b>L-08</b> answer deadline + extension tracking · <b>L-11</b> scheduling order read, every deadline calendared 1w / 2w / 30d / 75d.</span></div>
-            <div class="f"><span class="fm">→</span><span><b>L-13</b> mediation calendar: statement, cancel-fee and report deadlines · <b>L-06</b> filing + service tracking · <b>L-12</b> mediation scheduling.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>L-02</b> your internal deadlines: complaint filed within 3 weeks of the case moving to litigation, demand out within 3 months of the complaint. Every litigation date lands on the attorney's, Sonya's and Eddie's calendars.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>L-08</b> answer due 21 days from service, extensions tracked; if it passes with nothing filed, the attorney gets an alert (never a default motion) · <b>L-11</b> Rule 26, meet-and-confer and JSR dates from the firm's rules; a scheduling order overrides only what it states.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>L-13</b> mediation date confirmed: the event on the three calendars and the statement 30 days out · <b>L-06</b> court emails filed to the docket folder by entry number; service stays with Sonya, prompted by a task.</span></div>
+            <div class="f is-new"><span class="fm">→</span><span><b>L-24</b> defendant's initial disclosures (the administrative record) saved to the case folder: the attorney is alerted to review the privilege log, and the 30-day deadline to object or move to compel is calendared from the date they were due. <span class="badge rep sm">New, Oct 5</span></span></div>
+            <div class="f is-cut"><span class="fm">×</span><span><s><b>L-10</b> meet-and-confer coordination</s> <span class="badge skip sm">Descoped Oct 5</span> These emails are casual and some judges want in-person conferral; they stay with the attorney. Its deadlines move into L-11.</span></div>
+            <div class="f is-cut"><span class="fm">×</span><span><s><b>L-12</b> mediation scheduling</s> <span class="badge skip sm">Descoped Oct 5</span> Every mediator books differently. Once a date is confirmed, L-13 puts it on the calendars.</span></div>
           </div>
           <p class="kills-line">Kills: re-keying every date into three calendars. Same engine that calendared 149 appeal deadlines on 8/25 and skipped the 442 you had already entered.</p>
         </div>
       </div>
       <div class="pillar reveal d2">
-        <div class="phead"><span class="pnum">B</span><span class="ptitle">Drafting</span><span class="ptag">weeks 2 to 6</span></div>
+        <div class="phead"><span class="pnum">B</span><span class="ptitle">Drafting</span><span class="ptag">weeks 1 to 6</span></div>
         <div class="pbody">
+          <p><b>First, Sonya's templated filings (weeks 1 to 2).</b> The firm's top priority on October 5.</p>
           <div class="feat">
-            <div class="f"><span class="fm">→</span><span><b>L-04</b> complaint draft from the claim file summary, the denial and your own filed complaints per district and claim type. The long pole. <b>L-05</b> cover sheet + summons.</span></div>
-            <div class="f"><span class="fm">→</span><span><b>L-09</b> JSR / PSO per district · <b>L-14</b> mediation statement, mediator-only and party-shared variants · <b>L-15</b> demand letter on the claim-value engine.</span></div>
-            <div class="f"><span class="fm">→</span><span><b>L-22</b> notice of resolution + joint stipulation · <b>L-03 / L-07 / L-16</b> the transactional emails.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>L-07</b> Rule 26 email to the client, drafted into Sonya's mailbox when the complaint is filed, with the doctors pre-filled from the claim file's Rule 26 provider list.</span></div>
+            <div class="f is-new"><span class="fm">→</span><span><b>L-27</b> the Rule 26 initial disclosures themselves (fact and expert witness lists), checked against the client's reply, plus the service email to opposing counsel. <span class="badge rep sm">New, Oct 5</span></span></div>
+            <div class="f is-new"><span class="fm">→</span><span><b>L-23</b> notice of service of process, drafted when Sonya saves the proof of service to the case folder; a new HubSpot service date starts the answer clock. <span class="badge rep sm">New, Oct 5</span></span></div>
+            <div class="f is-new"><span class="fm">→</span><span><b>L-25</b> Certificate of Interested Persons, drafted when the answer is filed. <span class="badge rep sm">New, Oct 5</span></span></div>
+            <div class="f is-new"><span class="fm">→</span><span><b>L-26</b> Middle District notice of lead counsel and disclosure form, drafted when the case number issues. <span class="badge rep sm">New, Oct 5</span></span></div>
+          </div>
+          <p><b>Then the drafters (weeks 2 to 6).</b></p>
+          <div class="feat">
+            <div class="f"><span class="fm">→</span><span><b>L-04</b> complaint, <b>L-05</b> civil cover sheet + summons: one package, drafted as soon as the case enters litigation. Deemed-denied variant first (filed within a day or two). Southern District by default, Middle District by the client's county. The long pole.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>L-09</b> JSR or CMR + proposed scheduling order in every case at answer, from the judge's template with the dates computed · <b>L-03</b> claim file and policy requests.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>L-15</b> demand letter when the administrative record arrives, number left blank for the attorney · <b>L-14</b> one mediation statement (no longer two variants), 30 days before mediation.</span></div>
+            <div class="f is-new"><span class="fm">→</span><span><b>L-28</b> present-value valuation calculator behind the demand, built from the attorney's worked examples. <span class="badge rep sm">New, Oct 5</span></span></div>
+            <div class="f"><span class="fm">→</span><span><b>L-16</b> settlement email + notice of settlement · <b>L-22</b> joint stipulation on check received; notice of resolution once opposing counsel agrees to pay fees.</span></div>
           </div>
           <p class="kills-line">Every draft lands as editable Word in the matter's LITIGATION / AI output folder. The attorney reviews, rates and files. Nothing sends itself.</p>
         </div>
@@ -163,19 +924,20 @@
         <div class="phead"><span class="pnum">C</span><span class="ptitle">Judge and district resolution</span><span class="ptag">weeks 1 to 3</span></div>
         <div class="pbody">
           <div class="feat">
-            <div class="f"><span class="fm">→</span><span>The judge folders become a library keyed by court + judge; the ECF assignment populates the Service; every cluster-B draft resolves its templates from it.</span></div>
+            <div class="f"><span class="fm">→</span><span>Your judge folders become a library keyed by court + judge; the ECF assignment populates the Service; the JSR, CMR and proposed order take the template the court names, else the judge's form, else the firm default, with dates computed from that judge's anchor dates.</span></div>
           </div>
           <p class="kills-line">Kills: the memory-based template pick that walked out with the seat.</p>
         </div>
       </div>
       <div class="pillar reveal d4">
-        <div class="phead"><span class="pnum">D</span><span class="ptitle">Reporting and handoffs</span><span class="ptag">weeks 5 to 6</span></div>
+        <div class="phead"><span class="pnum">D</span><span class="ptitle">Reporting and handoffs</span><span class="ptag">last · week 6</span></div>
         <div class="pbody">
           <div class="feat">
-            <div class="f"><span class="fm">→</span><span><b>L-20</b> Friday 11am accounting status report, auto-generated in the format the paralegal team gives us.</span></div>
-            <div class="f"><span class="fm">→</span><span><b>L-21</b> approval during litigation hands back to On Claims (finish the partial) · <b>L-17</b> release to client signature on the same DocuSign rail as the fee agreement.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>L-20</b> the Friday check-tracking email for Sonya and accounting, driven by the settlement card; built once your reply on the card arrives.</span></div>
+            <div class="f"><span class="fm">→</span><span><b>L-21</b> approval during litigation hands back to On Claims (finish the partial).</span></div>
+            <div class="f is-cut"><span class="fm">×</span><span><s><b>L-17</b> release to client signature by DocuSign</s> <span class="badge skip sm">Descoped Oct 5</span> Releases are signed in wet ink most of the time, so review and signature stay manual.</span></div>
           </div>
-          <p class="kills-line">Deferred to the retainer by the signed plan: L-18 discovery decision support and L-19 MSJ briefing (chat-assist, not a pipeline).</p>
+          <p class="kills-line">Unchanged, on the retainer: L-18 discovery and L-19 MSJ briefing (an MSJ drafter is a later conversation with Eddie).</p>
         </div>
       </div>
     </div>
@@ -202,36 +964,53 @@
 
 <section>
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">The roster</span><h2>Twenty-two workflows, <span class="soft">where each lands</span></h2></div>
+    <div class="sec-head reveal"><span class="eyebrow">The roster</span><h2>Twenty-five workflows, <span class="soft">where each lands</span></h2>
+      <p class="sec-sub">After October 5 the list holds 25: the 22 from September, plus 6 added and less 3 dropped on the walkthrough. L-01 is already live and L-18 / L-19 sit on the retainer, so Phase 3 builds 22 (L-21 finishes a partial). Every other card was updated to the design agreed on the walkthrough.</p></div>
+    <div class="legend reveal d1">
+      <span class="lg"><span class="badge rep">New, Oct 5</span> added on the walkthrough</span>
+      <span class="lg"><span class="badge skip">Descoped Oct 5</span> greyed out: dropped at the firm's request</span>
+    </div>
     <div class="pkg-category reveal"><div class="cat-label">Live or partial today</div></div>
     <div class="agent-grid">
-      <div class="agent-card reveal"><div class="agent-icon">L-01</div><div class="agent-body"><h3 class="agent-name">Deem Denied to Litigation</h3><p class="agent-desc">Moves the Service to In Litigation and notifies the team. <strong>Live.</strong> Phase 3 sweeps the second-action edge case.</p><div class="agent-meta"><span class="am">HubSpot flow 1779187845</span><span class="am phase">live</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">L-21</div><div class="agent-body"><h3 class="agent-name">Approval during litigation to On Claims</h3><p class="agent-desc">Hands an approved matter back to On Claims. <strong>Partial; finished in cluster D.</strong></p><div class="agent-meta"><span class="am">HubSpot + draft</span><span class="am phase">cluster D</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-01</div><div class="agent-body"><h3 class="agent-name">Deemed denied to Litigation</h3><p class="agent-desc">Moves the Service to In Litigation, notifies the team and assigns Sonya. <strong>Live.</strong> Phase 3 adds one step: the same deemed-denied date starts the deemed-denied complaint draft (L-04).</p><div class="agent-meta"><span class="am">HubSpot flow 1779187845</span><span class="am phase">live</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-21</div><div class="agent-body"><h3 class="agent-name">Approval during litigation to On Claims</h3><p class="agent-desc">An appeal approved after suit is filed (mostly deemed-denied cases) goes back to On Claims. Who chases the past-due benefits depends on whether opposing counsel allows direct contact with the carrier. <strong>Partial; finished last, with reporting.</strong></p><div class="agent-meta"><span class="am">HubSpot + draft</span><span class="am phase">cluster D</span></div></div></div>
     </div>
-    <div class="pkg-category teal reveal"><div class="cat-label">Cluster A · calendar and tracking</div></div>
-    <div class="agent-grid">
-      <div class="agent-card reveal"><div class="agent-icon teal">L-02</div><div class="agent-body"><h3 class="agent-name">Deadline to file suit</h3><p class="agent-desc">Attorney enters the litigation decision; 1w and 2w reminders land on three calendars, skipping dates already there.</p><div class="agent-meta"><span class="am">reads deadline_to_file_suit</span><span class="am gate">human confirms the date</span><span class="am phase">weeks 1 to 2</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon teal">L-08</div><div class="agent-body"><h3 class="agent-name">Answer deadline + extensions</h3><p class="agent-desc">Calendars the opposing-counsel answer date from service and tracks extensions. Fields already exist.</p><div class="agent-meta"><span class="am">reads answer_date, answer_note</span><span class="am phase">weeks 1 to 2</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon teal">L-11</div><div class="agent-body"><h3 class="agent-name">Scheduling order to calendar</h3><p class="agent-desc">Reads the scheduling order, proposes every deadline (discovery, MSJ, mediation), calendars 1w / 2w / 30d / 75d after a person confirms.</p><div class="agent-meta"><span class="am">reads the order PDF</span><span class="am gate">human confirms each date</span><span class="am phase">weeks 1 to 3</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon teal">L-13</div><div class="agent-body"><h3 class="agent-name">Mediation calendar</h3><p class="agent-desc">Statement deadline, cancel-fee deadline and report deadline on the right calendars once the mediation date is set.</p><div class="agent-meta"><span class="am">reads mediation_date</span><span class="am phase">weeks 1 to 2</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon teal">L-06</div><div class="agent-body"><h3 class="agent-name">Filing + service tracking</h3><p class="agent-desc">Status properties and reminders from complaint filed to service complete.</p><div class="agent-meta"><span class="am">HubSpot</span><span class="am phase">weeks 1 to 2</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon teal">L-10 · L-12</div><div class="agent-body"><h3 class="agent-name">Conference + mediation coordination</h3><p class="agent-desc">Meet-and-confer and mediation scheduling emails drafted, tasks tracked; staff send.</p><div class="agent-meta"><span class="am">HubSpot + draft</span><span class="am gate">staff send</span><span class="am phase">weeks 1 to 2</span></div></div></div>
+    <div class="pkg-category teal reveal"><div class="cat-label">Cluster A · calendar and tracking · weeks 1 to 3</div></div>
+    <div class="agent-grid teal">
+      <div class="agent-card reveal"><div class="agent-icon teal">L-02</div><div class="agent-body"><h3 class="agent-name">Internal deadlines</h3><p class="agent-desc">Complaint filed within 3 weeks of the case moving to litigation (unless the attorney wants the claim file first); demand out within 3 months of the complaint. Reminders on the attorney's, Sonya's and Eddie's calendars, skipping dates already there.</p><div class="agent-meta"><span class="am">reads the litigation dates</span><span class="am gate">human confirms the date</span><span class="am phase">weeks 1 to 3</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon teal">L-08</div><div class="agent-body"><h3 class="agent-name">Answer deadline + extensions</h3><p class="agent-desc">Answer due 21 days from service; extensions tracked. If the date passes with nothing filed, the attorney gets an alert to reach out to opposing counsel. No default motion, no automated email.</p><div class="agent-meta"><span class="am">reads the service date</span><span class="am gate">attorney writes to opposing counsel</span><span class="am phase">weeks 1 to 2</span></div></div></div>
+      <div class="agent-card reveal is-new"><div class="agent-icon teal">L-24</div><div class="agent-body"><span class="badge rep">New, Oct 5</span><h3 class="agent-name">Defendant's initial disclosures</h3><p class="agent-desc">When the carrier's administrative record is saved to the case folder, the attorney is alerted to review the privilege log, and the 30-day deadline to object or move to compel is calendared from the date the disclosures were due, not the date they arrived.</p><div class="agent-meta"><span class="am">watches the case folder</span><span class="am gate">attorney decides to challenge</span><span class="am phase">weeks 1 to 2</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon teal">L-11</div><div class="agent-body"><h3 class="agent-name">Rule 26, JSR and scheduling-order dates</h3><p class="agent-desc">Meet-and-confer, disclosure and JSR dates computed from the firm's rules (JSR 90 days after service or 60 after appearance; meet-and-confer 21 days before it). A scheduling order overrides only what it states; the rules fill the rest. Each date lands after a person confirms.</p><div class="agent-meta"><span class="am">reads the order PDF</span><span class="am gate">human confirms each date</span><span class="am phase">weeks 1 to 3</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon teal">L-13</div><div class="agent-body"><h3 class="agent-name">Mediation calendar</h3><p class="agent-desc">Once a mediation date is confirmed: the event on the three calendars and the statement draft 30 days ahead. After a notice of settlement, the joint stipulation deadline (usually 30 days).</p><div class="agent-meta"><span class="am">reads mediation_date</span><span class="am phase">weeks 1 to 3</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon teal">L-06</div><div class="agent-body"><h3 class="agent-name">Filing + service tracking</h3><p class="agent-desc">Court emails filed to the docket folder by entry (DE 1 complaint, DE 2 judge assignment, DE 3 signed summons). Service through the Department of Financial Services site stays with Sonya; the signed summons gives her the task (L-23).</p><div class="agent-meta"><span class="am">reads court emails</span><span class="am phase">weeks 1 to 2</span></div></div></div>
+      <div class="agent-card reveal is-cut"><div class="agent-icon teal">L-10</div><div class="agent-body"><span class="badge skip">Descoped Oct 5</span><h3 class="agent-name">Meet-and-confer coordination</h3><p class="agent-desc"><span class="cut-why">These emails are casual and some judges require in-person or video conferral, so they stay with the attorney.</span> The deadlines move into L-11; the JSR still reaches opposing counsel before the conference (L-09).</p><div class="agent-meta"><span class="am">not built</span></div></div></div>
+      <div class="agent-card reveal is-cut"><div class="agent-icon teal">L-12</div><div class="agent-body"><span class="badge skip">Descoped Oct 5</span><h3 class="agent-name">Mediation scheduling</h3><p class="agent-desc"><span class="cut-why">Every mediator books differently, so scheduling stays by hand.</span> Once a date is confirmed, L-13 puts it on the calendars.</p><div class="agent-meta"><span class="am">not built</span></div></div></div>
     </div>
-    <div class="pkg-category reveal"><div class="cat-label">Cluster B · drafting</div></div>
+    <div class="pkg-category reveal"><div class="cat-label">Cluster B · first: Sonya's templated filings · weeks 1 to 2</div></div>
     <div class="agent-grid">
-      <div class="agent-card reveal"><div class="agent-icon">L-04</div><div class="agent-body"><h3 class="agent-name">Complaint draft</h3><p class="agent-desc">From the claim-file summary, the denial, the case facts and your own filed complaints per district and claim type. <strong>The long pole and the highest-value draft on the roadmap.</strong></p><div class="agent-meta"><span class="am">reads claim file + denial + exemplars</span><span class="am gate">attorney reviews and files</span><span class="am phase">weeks 2 to 5</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">L-05</div><div class="agent-body"><h3 class="agent-name">Cover sheet + summons</h3><p class="agent-desc">Civil cover sheet and summons pre-filled for the resolved court (SDFL, MDFL, state court variants).</p><div class="agent-meta"><span class="am">reads court + parties</span><span class="am phase">weeks 2 to 5</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">L-09</div><div class="agent-body"><h3 class="agent-name">JSR / PSO</h3><p class="agent-desc">Joint scheduling report and proposed scheduling order from the case facts, per-district and per-judge template.</p><div class="agent-meta"><span class="am">reads judge template set</span><span class="am gate">attorney approves</span><span class="am phase">weeks 4 to 5</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">L-14</div><div class="agent-body"><h3 class="agent-name">Mediation statement</h3><p class="agent-desc">Two variants, mediator-only and party-shared, from the case file, denial, medical evidence and the claim-value calculation.</p><div class="agent-meta"><span class="am">fires at mediation minus 14d</span><span class="am gate">attorney sets the position</span><span class="am phase">weeks 4 to 5</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">L-15</div><div class="agent-body"><h3 class="agent-name">Settlement demand</h3><p class="agent-desc">Past benefits, future benefits and fees on the firm's claim-value method; attorney sets the number.</p><div class="agent-meta"><span class="am">attorney triggers</span><span class="am gate">the number is yours</span><span class="am phase">weeks 5 to 6</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">L-22</div><div class="agent-body"><h3 class="agent-name">Notice of resolution + dismissal</h3><p class="agent-desc">On check receipt: notice of resolution and joint stipulation of dismissal for the right jurisdiction.</p><div class="agent-meta"><span class="am">fires on check received</span><span class="am gate">attorney files</span><span class="am phase">weeks 5 to 6</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon">L-03 · L-07 · L-16</div><div class="agent-body"><h3 class="agent-name">Transactional emails</h3><p class="agent-desc">Paralegal request for claim file, policy and HR contact; Rule 26 initial-disclosures email to the client (provider list already built); settlement notice + accounting email.</p><div class="agent-meta"><span class="am">Outlook drafts</span><span class="am gate">staff send</span><span class="am phase">weeks 2 to 6</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-07</div><div class="agent-body"><h3 class="agent-name">Rule 26 email to the client</h3><p class="agent-desc">Drafted into Sonya's mailbox when the complaint is filed: asks for up to five witnesses and the client's doctors, with the doctors pre-filled from the claim file's Rule 26 provider list when there is one.</p><div class="agent-meta"><span class="am fire">fires on complaint filed</span><span class="am gate">staff send</span><span class="am phase">weeks 1 to 2</span></div></div></div>
+      <div class="agent-card reveal is-new"><div class="agent-icon">L-27</div><div class="agent-body"><span class="badge rep">New, Oct 5</span><h3 class="agent-name">Rule 26 initial disclosures</h3><p class="agent-desc">The disclosures themselves (fact and expert witness lists), cross-checked against the client's reply and the claim-file list, plus the service email to opposing counsel. Served, not filed. Sonya checks and sends.</p><div class="agent-meta"><span class="am fire">fires on the client's reply or the deadline</span><span class="am gate">Sonya reviews</span><span class="am phase">weeks 1 to 2</span></div></div></div>
+      <div class="agent-card reveal is-new"><div class="agent-icon">L-23</div><div class="agent-body"><span class="badge rep">New, Oct 5</span><h3 class="agent-name">Notice of service of process</h3><p class="agent-desc">Signed summons received: Sonya gets the "serve complaint" task. When she saves the proof of service to the case folder, the notice is drafted with the dates filled in and the service date is written to a new HubSpot field, which starts the answer clock.</p><div class="agent-meta"><span class="am">watches the case folder</span><span class="am gate">attorney files</span><span class="am phase">weeks 1 to 2</span></div></div></div>
+      <div class="agent-card reveal is-new"><div class="agent-icon">L-25</div><div class="agent-body"><span class="badge rep">New, Oct 5</span><h3 class="agent-name">Certificate of Interested Persons</h3><p class="agent-desc">Drafted when the answer is filed, once opposing counsel is known: the client, our attorneys and firm, opposing counsel and their firm, the insurer.</p><div class="agent-meta"><span class="am fire">fires on answer filed</span><span class="am gate">attorney files</span><span class="am phase">weeks 1 to 2</span></div></div></div>
+      <div class="agent-card reveal is-new"><div class="agent-icon">L-26</div><div class="agent-body"><span class="badge rep">New, Oct 5</span><h3 class="agent-name">Middle District filings</h3><p class="agent-desc">Middle District cases only: the notice of lead counsel from the signing attorney's own template, plus the district's disclosure form, drafted as soon as the case number issues.</p><div class="agent-meta"><span class="am fire">fires on case number</span><span class="am gate">attorney files</span><span class="am phase">weeks 1 to 2</span></div></div></div>
     </div>
-    <div class="pkg-category amber reveal"><div class="cat-label">Cluster D · reporting and handoffs</div></div>
+    <div class="pkg-category reveal"><div class="cat-label">Cluster B · then the drafters · weeks 2 to 6</div></div>
     <div class="agent-grid">
-      <div class="agent-card reveal"><div class="agent-icon amber">L-20</div><div class="agent-body"><h3 class="agent-name">Friday accounting report</h3><p class="agent-desc">Every Friday 11am: litigation cases with their accounting state, in the format the paralegal team gives us.</p><div class="agent-meta"><span class="am fire">Fri 11am ET</span><span class="am phase">weeks 5 to 6</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon amber">L-17</div><div class="agent-body"><h3 class="agent-name">Release to client signature</h3><p class="agent-desc">Release received from opposing counsel, attorney reviews, client signs on the fee-agreement DocuSign rail, executed copy filed.</p><div class="agent-meta"><span class="am">DocuSign Connect</span><span class="am gate">attorney reviews first</span><span class="am phase">weeks 5 to 6</span></div></div></div>
-      <div class="agent-card reveal"><div class="agent-icon amber">L-18 · L-19</div><div class="agent-body"><h3 class="agent-name">Discovery decision support · MSJ briefing</h3><p class="agent-desc">Deferred to the retainer by the signed plan; better served by the chat surface than a drafting pipeline.</p><div class="agent-meta"><span class="am phase">retainer</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-04</div><div class="agent-body"><h3 class="agent-name">Complaint draft</h3><p class="agent-desc">Drafted as soon as the case enters litigation, from the appeal denial letter and your own recent complaints. The deemed-denied variant comes first (filed within a day or two). Southern District by default; Middle District when the client lives in one of its counties. <strong>The long pole and the highest-value draft on the roadmap.</strong></p><div class="agent-meta"><span class="am fire">fires on entry to litigation</span><span class="am gate">attorney reviews and files</span><span class="am phase">weeks 2 to 6</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-05</div><div class="agent-body"><h3 class="agent-name">Cover sheet + summons</h3><p class="agent-desc">The federal civil cover sheet and the proposed summons, pre-filled and filed as one package with the complaint.</p><div class="agent-meta"><span class="am">with the complaint</span><span class="am phase">weeks 2 to 6</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-03</div><div class="agent-body"><h3 class="agent-name">Claim file and policy requests</h3><p class="agent-desc">On entry to litigation, Sonya's request to the assistant: the post-appeal claim file, and the policy through HR only for cases that come straight to litigation.</p><div class="agent-meta"><span class="am">Outlook draft</span><span class="am gate">staff send</span><span class="am phase">weeks 2 to 6</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-09</div><div class="agent-body"><h3 class="agent-name">JSR or CMR + proposed order</h3><p class="agent-desc">Drafted in every case when the answer is filed: Joint Scheduling Report (Southern District) or Case Management Report (Middle District) with its proposed scheduling order, or a Joint Conferral Report when the court orders one. Dates computed from the judge's form; goes to opposing counsel before the meet-and-confer.</p><div class="agent-meta"><span class="am fire">fires on answer filed</span><span class="am gate">attorney approves</span><span class="am phase">weeks 2 to 6</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-15</div><div class="agent-body"><h3 class="agent-name">Settlement demand</h3><p class="agent-desc">Drafted when the defendant's administrative record arrives, so the updated claim file is in hand. One to two pages: your standard opening and closing, one-line highlights of the strongest evidence, and how the value was reached. The amount stays blank for the attorney until L-28 is in.</p><div class="agent-meta"><span class="am fire">fires on the administrative record</span><span class="am gate">the number is yours</span><span class="am phase">weeks 2 to 6</span></div></div></div>
+      <div class="agent-card reveal is-new"><div class="agent-icon">L-28</div><div class="agent-body"><span class="badge rep">New, Oct 5</span><h3 class="agent-name">Case valuation calculator</h3><p class="agent-desc">Present value for the demand: past-due benefits plus the remaining months through the maximum benefit period, discounted at 5%, with the dependents' Social Security step-down, offsets and overpayments. Built from the attorney's worked examples; needs a new maximum-benefit-period field. Always attorney-checked.</p><div class="agent-meta"><span class="am">feeds the demand</span><span class="am gate">attorney checks the number</span><span class="am phase">after the worked examples</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-14</div><div class="agent-body"><h3 class="agent-name">Mediation statement</h3><p class="agent-desc">One short statement, no longer two variants: who the client is, what stopped them working, that the carrier denied the claim and the appeal, demand letter enclosed. Drafted 30 days before the mediation.</p><div class="agent-meta"><span class="am fire">fires 30 days before mediation</span><span class="am gate">attorney sets the position</span><span class="am phase">weeks 2 to 6</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-16</div><div class="agent-body"><h3 class="agent-name">Settlement notice</h3><p class="agent-desc">The "settled for" email to accounting and Sonya (with who covers the mediation cost), then the notice of settlement to the court; the joint stipulation deadline goes on the calendar.</p><div class="agent-meta"><span class="am">attorney triggers</span><span class="am gate">attorney files</span><span class="am phase">weeks 2 to 6</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon">L-22</div><div class="agent-body"><h3 class="agent-name">Joint stipulation + notice of resolution</h3><p class="agent-desc">Joint stipulation of dismissal drafted when accounting marks the settlement check received. Notice of resolution (claim approved, no settlement) only after opposing counsel confirms the carrier will pay fees.</p><div class="agent-meta"><span class="am fire">fires on check received</span><span class="am gate">attorney files</span><span class="am phase">weeks 2 to 6</span></div></div></div>
+    </div>
+    <div class="pkg-category amber reveal"><div class="cat-label">Cluster D · reporting and handoffs · last</div></div>
+    <div class="agent-grid amber">
+      <div class="agent-card reveal"><div class="agent-icon amber">L-20</div><div class="agent-body"><h3 class="agent-name">Friday check-tracking email</h3><p class="agent-desc">Every Friday: which settlement checks arrived and which to expect, for Sonya and accounting. Marking the check received on the settlement card drops the case off the list. Built once your reply on the settlement card arrives.</p><div class="agent-meta"><span class="am fire">Fridays</span><span class="am phase">week 6</span></div></div></div>
+      <div class="agent-card reveal is-cut"><div class="agent-icon amber">L-17</div><div class="agent-body"><span class="badge skip">Descoped Oct 5</span><h3 class="agent-name">Release to client signature (DocuSign)</h3><p class="agent-desc"><span class="cut-why">Releases are signed in wet ink most of the time, so there is no e-signature route.</span> Release review stays with the attorney and the client.</p><div class="agent-meta"><span class="am">not built</span></div></div></div>
+      <div class="agent-card reveal"><div class="agent-icon amber">L-18 · L-19</div><div class="agent-body"><h3 class="agent-name">Discovery · MSJ briefing</h3><p class="agent-desc">Unchanged: on the retainer. Discovery is rare in these cases; an MSJ drafter is a later conversation with Eddie.</p><div class="agent-meta"><span class="am phase">retainer</span></div></div></div>
     </div>
   </div>
 </section>
@@ -239,19 +1018,19 @@
 <section class="alt">
   <div class="wrap">
     <div class="sec-head reveal"><span class="eyebrow">The method</span><h2>SOP first, <span class="soft">then build</span></h2>
-      <p class="sec-sub">Wave 1 built first and wrote the staff SOP afterwards. Litigation flips that. Each cluster gets a pre-build SOP written with Sonya and a litigation attorney, ratified by Bryn, then built to and accepted against. The same file becomes Sonya's training manual on day one.</p></div>
+      <p class="sec-sub">Wave 1 built first and wrote the staff SOP afterwards. Litigation flips that. Each cluster gets a pre-build SOP written with Sonya and a litigation attorney, ratified by Bryn, then built to and accepted against. The same file becomes Sonya's training manual on day one. The October 5 walkthrough already answered most of the attorney-side questions; new workflows are in bold below.</p></div>
     <div class="pillars">
       <div class="pillar reveal d1">
         <div class="phead"><span class="pnum">1</span><span class="ptitle">Seven pre-build SOPs</span></div>
         <div class="pbody">
           <div class="feat">
-            <div class="f"><span class="fm">1</span><span>Litigation intake and the deadline to file suit (L-01, L-02, L-03)</span></div>
-            <div class="f"><span class="fm">2</span><span>Complaint and filing package (L-04, L-05, L-06)</span></div>
-            <div class="f"><span class="fm">3</span><span>Judge and district template resolution + post-filing calendar (L-07, L-08, L-11)</span></div>
-            <div class="f"><span class="fm">4</span><span>JSR / PSO and the scheduling conference (L-09, L-10)</span></div>
-            <div class="f"><span class="fm">5</span><span>Mediation (L-12, L-13, L-14)</span></div>
-            <div class="f"><span class="fm">6</span><span>Settlement and closeout (L-15, L-16, L-17, L-22)</span></div>
-            <div class="f"><span class="fm">7</span><span>Friday report and litigation approval handoff (L-20, L-21)</span></div>
+            <div class="f"><span class="fm">1</span><span>Litigation intake and the internal deadlines (L-01, L-02, L-03)</span></div>
+            <div class="f"><span class="fm">2</span><span>Complaint, filing and service package (L-04, L-05, L-06, <b>L-23</b>, <b>L-26</b>)</span></div>
+            <div class="f"><span class="fm">3</span><span>Disclosures, answer and the post-filing calendar (L-07, L-08, L-11, <b>L-24</b>, <b>L-25</b>, <b>L-27</b>)</span></div>
+            <div class="f"><span class="fm">4</span><span>JSR / CMR and the proposed scheduling order (L-09; <s>L-10</s> dropped)</span></div>
+            <div class="f"><span class="fm">5</span><span>Mediation (L-13, L-14; <s>L-12</s> dropped)</span></div>
+            <div class="f"><span class="fm">6</span><span>Demand, settlement and closeout (L-15, L-16, L-22, <b>L-28</b>; <s>L-17</s> dropped)</span></div>
+            <div class="f"><span class="fm">7</span><span>Friday check report and litigation approval handoff (L-20, L-21)</span></div>
           </div>
         </div>
       </div>
@@ -262,7 +1041,7 @@
             <div class="f"><span class="fm">→</span><span>Trigger, required facts, and what stops the workflow when a fact is missing (it never guesses).</span></div>
             <div class="f"><span class="fm">→</span><span>Each step marked <b>You do</b>, <b>The system does</b>, or <b>Stays your call</b>, with the output and exactly where it lands.</span></div>
             <div class="f"><span class="fm">→</span><span>Data model: fields read, fields stamped, Egnyte folder and filename pattern, which calendars.</span></div>
-            <div class="f"><span class="fm">→</span><span>The firm's decisions and inputs, with an owner, and a <b>definition of done</b> the canary is accepted against.</span></div>
+            <div class="f"><span class="fm">→</span><span>The firm's decisions and inputs, with an owner, and a <b>definition of done</b> the live test is accepted against.</span></div>
           </div>
         </div>
       </div>
@@ -272,32 +1051,50 @@
 
 <section>
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Seven weeks, <span class="soft">the contracted window</span></h2></div>
+    <div class="sec-head reveal"><span class="eyebrow">The path</span><h2>Seven weeks, <span class="soft">the contracted window</span></h2>
+      <p class="sec-sub">Reordered on October 5. The small filings Sonya prepares by hand ship first; the complaint is still the long pole, but it is no longer the first thing you see.</p></div>
     <div class="timeline">
       <div class="tl-line"></div>
-      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">This call</div><div class="ph2">Order agreed</div><div class="pd2">Litigation next after Wave 1B; SOP-first; Phase 3 SOW countersigned.</div></div>
-      <div class="phase-t"><div class="pnode2">0</div><div class="ptagline">Wave 1B sign-off</div><div class="ph2">SOP capture sprint</div><div class="pd2">Two days on-site with Sonya, one litigation attorney and Bryn. Judge folders, lit list, Friday report format and filed exemplars collected. Seven SOPs ratified.</div></div>
-      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Weeks 1 to 2</div><div class="ph2">Clusters A + C</div><div class="pd2">Calendar engine on litigation dates, judge/district resolver, filing tracking. First live value inside two weeks.</div></div>
-      <div class="phase-t"><div class="pnode2">2</div><div class="ptagline">Weeks 2 to 5</div><div class="ph2">Cluster B</div><div class="pd2">Complaint drafter, JSR/PSO, mediation statement, demand, dismissal. Attorney review rounds like the appeal drafter.</div></div>
-      <div class="phase-t"><div class="pnode2">3</div><div class="ptagline">Weeks 5 to 6</div><div class="ph2">Cluster D</div><div class="pd2">Friday report, On Claims handoff, release signature rail.</div></div>
-      <div class="phase-t future"><div class="pnode2">4</div><div class="ptagline">Week 7</div><div class="ph2">Canary + sign-off</div><div class="pd2">One real matter through each cluster; 30-day adoption check-in scheduled; Bryn signs off.</div></div>
+      <div class="phase-t"><div class="pnode2">✓</div><div class="ptagline">October 5</div><div class="ph2">Walkthrough done</div><div class="pd2">Every workflow walked with the litigation team. Triggers settled, six workflows added, three dropped, the paralegal paperwork moved to the front.</div></div>
+      <div class="phase-t"><div class="pnode2">0</div><div class="ptagline">Week 0</div><div class="ph2">SOPs ratified</div><div class="pd2">Your written go-ahead on the revised list. Finish the capture with Sonya, collect the templates and samples you are sending, ratify the seven SOPs.</div></div>
+      <div class="phase-t"><div class="pnode2">1</div><div class="ptagline">Weeks 1 to 2</div><div class="ph2">Sonya's filings + calendar engine</div><div class="pd2">Rule 26 email and disclosures, Certificate of Interested Persons, notice of service, Middle District notices, answer alert, administrative-record watch. In parallel (weeks 1 to 3), every litigation date on the three calendars.</div></div>
+      <div class="phase-t"><div class="pnode2">2</div><div class="ptagline">Weeks 2 to 6</div><div class="ph2">The drafters</div><div class="pd2">Complaint package (deemed-denied first), JSR / CMR with judge templates and computed dates, demand with the number left blank, mediation statement, settlement and dismissal filings. Attorney review rounds like the appeal drafter.</div></div>
+      <div class="phase-t"><div class="pnode2">3</div><div class="ptagline">Once the worked examples arrive</div><div class="ph2">Valuation calculator</div><div class="pd2">Present value with the dependents' step-down and offsets, checked line by line against the attorney's examples, then wired into the demand.</div></div>
+      <div class="phase-t"><div class="pnode2">4</div><div class="ptagline">Week 6</div><div class="ph2">Reporting, last</div><div class="pd2">Settlement card and the Friday check email (after your reply on the card); approval during litigation hands back to On Claims.</div></div>
+      <div class="phase-t future"><div class="pnode2">5</div><div class="ptagline">Week 7</div><div class="ph2">Live test + sign-off</div><div class="pd2">One real matter through each cluster; 30-day adoption check-in scheduled; Bryn signs off.</div></div>
     </div>
   </div>
 </section>
 
 <section class="alt">
   <div class="wrap">
-    <div class="sec-head reveal"><span class="eyebrow">To agree on the call</span><h2>What we need <span class="soft">from the firm</span></h2></div>
+    <div class="sec-head reveal"><span class="eyebrow">Updated October 5</span><h2>What we need <span class="soft">from the firm</span></h2>
+      <p class="sec-sub">What the firm said on October 5 it would send, then what is still open. Most of the original list is now covered.</p></div>
     <div class="answered reveal d1">
-      <span class="ans"><b>Already in hand:</b> the firm's litigation template library (complaints, Rule 26 disclosures in five fact patterns, summons for SDFL / MDFL / state court, mediation briefs, demand template), the claim-value calculator, and every HubSpot litigation field.</span>
+      <span class="ans"><b>Already in hand:</b> the firm's litigation template library (complaints, Rule 26 disclosures in five fact patterns, summons for SDFL / MDFL / state court, mediation briefs, demand template) and every HubSpot litigation field.</span>
+      <span class="ans"><b>Settled on October 5:</b> the trigger for every draft, the venue rule, the internal deadlines, the three calendars, one mediation statement, wet-ink releases, dismissal on check received.</span>
     </div>
+    <div class="pkg-category reveal"><div class="cat-label">Promised on October 5</div></div>
     <div class="qcards">
-      <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">The judge folders and the litigation SOP</p><p class="qcd">The per-judge and per-district template folders, and the paralegal's written procedure if one exists. This is the knowledge concentrated in the seat that turned over; capturing it is week 0.</p></div></div>
-      <div class="qc reveal d2"><span class="qcn">2</span><div><p class="qct">The lit list and the data-model litigation block</p><p class="qcd">The litigation-list spreadsheet the HubSpot fields were mirrored from, and the litigation rows of the firm data model on Drive.</p></div></div>
-      <div class="qc reveal d3"><span class="qcn">3</span><div><p class="qct">Friday report format and recipients</p><p class="qcd">Open since June. The exact layout and who receives it.</p></div></div>
-      <div class="qc reveal d1"><span class="qcn">4</span><div><p class="qct">Exemplars</p><p class="qcd">Three to five filed complaints per district (SDFL, MDFL, one non-ERISA state court), two JSR/PSO sets, two mediation statements, two demands. Best work only; they ground the drafters.</p></div></div>
-      <div class="qc reveal d2"><span class="qcn">5</span><div><p class="qct">Test matters</p><p class="qcd">One live litigation matter per cluster for the canary week.</p></div></div>
-      <div class="qc reveal d3"><span class="qcn">6</span><div><p class="qct">Three decisions</p><p class="qcd">Named sender of drafts (paralegal or attorney); reminder cadence per calendar; whether In Litigation matters join the watched Egnyte folders (one configuration line).</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">1</span><div><p class="qct">Recent complaint packages</p><p class="qcd">About three each of the complaint, summons and civil cover sheet from recent filings (two deemed-denied and two regular complaints), by Egnyte link.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">2</span><div><p class="qct">Middle District county list</p><p class="qcd">The counties that put a client's case in the Middle District, for the venue rule.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">3</span><div><p class="qct">The internal-deadlines email</p><p class="qcd">Three weeks to file the complaint, three months to send the demand.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">4</span><div><p class="qct">Rule 26 and JSR deadline rules</p><p class="qcd">The training diagram or calculator the team uses today.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">5</span><div><p class="qct">Notice of service of process samples <span class="badge rep sm">Received Oct 5</span></p><p class="qcd">A filed notice with its proof of service, plus the service email Sonya gets from the state. Thank you.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">6</span><div><p class="qct">CIP and Middle District templates</p><p class="qcd">The Certificate of Interested Persons template; the Middle District notice of lead counsel (one per attorney) and its disclosure form.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">7</span><div><p class="qct">Default Southern District JSR</p><p class="qcd">The form used when the court names none. The judge-specific forms are already in your judge folders.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">8</span><div><p class="qct">Mediation statement templates</p><p class="qcd">The attorneys' current statements, for the one generic draft.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">9</span><div><p class="qct">Demand letter samples</p><p class="qcd">Recent demands, best work only; they ground the drafter.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">10</span><div><p class="qct">Worked valuation examples</p><p class="qcd">Step by step, with and without children, with and without an overpayment. The calculator is built and tested against these.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">11</span><div><p class="qct">Settlement card reply + Friday email template</p><p class="qcd">Your answers on the settlement card questions and the current Friday check email.</p></div></div>
+    </div>
+    <div class="pkg-category amber reveal"><div class="cat-label">Still needed</div></div>
+    <div class="qcards">
+      <div class="qc reveal d1"><span class="qcn">12</span><div><p class="qct">Access to the judge template folders</p><p class="qcd">Read access to the Egnyte folder of joint scheduling reports and case management reports is enough.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">13</span><div><p class="qct">The lit list and the data-model litigation block</p><p class="qcd">The litigation-list spreadsheet the HubSpot fields were mirrored from, and the litigation rows of the firm data model on Drive.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">14</span><div><p class="qct">The Rule 26 client email template <span class="badge rep sm">Received Oct 5</span></p><p class="qcd">The email Sonya sends and its blank witness and doctor table. Thank you.</p></div></div>
+      <div class="qc reveal d2"><span class="qcn">15</span><div><p class="qct">Test matters</p><p class="qcd">One live litigation matter per cluster for the week-7 live test.</p></div></div>
+      <div class="qc reveal d1"><span class="qcn">16</span><div><p class="qct">Four small decisions</p><p class="qcd">Reminder cadence per deadline type; who signs the complaint; where opposing counsel's contact details live; where the settlement amount lives (the settlement card is the likely home).</p></div></div>
     </div>
   </div>
 </section>
@@ -309,9 +1106,9 @@
       <div class="numcard reveal d1">
         <div class="nlabel">Phase 3 · Litigation</div><h3>$25,000 · unchanged</h3>
         <div class="opex-row"><div class="ol"><div class="ot">Signed plan</div><div class="od">Weeks 17 to 23, after On Claims</div></div><div class="oa">$25,000</div></div>
-        <div class="opex-row"><div class="ol"><div class="ot">Proposed</div><div class="od">Next slot: SOP week 0 on Wave 1B sign-off (late Sep), finish mid Nov</div></div><div class="oa">same</div></div>
+        <div class="opex-row"><div class="ol"><div class="ot">Proposed</div><div class="od">Next slot: week 0 starts on your written go-ahead on the revised list; seven weeks from there</div></div><div class="oa">same</div></div>
         <div class="paysplit"><div class="half"><div class="h">At start</div><div class="v">50%</div></div><div class="arr">→</div><div class="half"><div class="h">On sign-off</div><div class="v">50%</div></div></div>
-        <p class="numnote">30-day acceptance window per the CSA. The reorder changes no price, term or acceptance rule; it only changes which SOW is countersigned next.</p>
+        <p class="numnote">30-day acceptance window per the CSA. The reorder changes no price, term or acceptance rule; it only changes which SOW is countersigned next. The October 5 changes add six small workflows and drop three; they roughly trade off, so the price is unchanged and the revised list goes into the SOW.</p>
       </div>
       <div class="numcard reveal d2">
         <div class="nlabel">What moves behind it</div><h3>On Claims is not idle</h3>
@@ -321,7 +1118,7 @@
         <div class="value-anchor"><b>Retainer:</b> $2,500/month begins at Wave 1B close regardless of order.</div>
       </div>
     </div>
-    <p class="why-now reveal d3"><b>Why now:</b> the seat turned over this week; every complaint drafted by hand between now and Phase 3 is a template the drafter never learns from, and every deadline keyed by hand is a risk during the ramp.</p>
+    <p class="why-now reveal d3"><b>Why now:</b> the seat turned over in early September, and on October 5 the team named Sonya's paperwork as the first thing to take off her desk; every complaint drafted by hand between now and Phase 3 is a template the drafter never learns from, and every deadline keyed by hand is a risk during the ramp.</p>
   </div>
 </section>
 
@@ -356,9 +1153,161 @@
 <footer>
   <div class="wrap">
     <div class="wordmark">dodon<span style="color:var(--purple-soft)">·</span>ai</div>
-    Prepared for Dabdoub Law Firm · Litigation Wave Roadmap Brief v1 · 2026-09-02 · Confidential
+    Prepared for Dabdoub Law Firm · Litigation Wave Roadmap Brief v2 · first issued 2026-09-02 · updated 2026-10-05 · Confidential
   </div>
 </footer>
 
-<script src="/clients/_assets/brief-reveal.js" defer></script>
+<script>
+/* ============================================================================
+   Dodonai Brief Engine — scroll reveal + animation gating
+   ----------------------------------------------------------------------------
+   Pairs with brief.css. Two IntersectionObservers:
+     1. .reveal  -> adds .in when the element scrolls into view (fade + rise).
+     2. animated blocks (#xform, #pipe, #dash, or any [data-play]) -> adds .play
+        the first time they're visible, so the CSS keyframe animations stay idle
+        until seen (saves CPU + makes the reveal feel intentional).
+
+   No dependencies. Safe to load with `defer`. Honors prefers-reduced-motion via
+   brief.css (the .reveal rule no-ops; .play still applies but animations that
+   matter are decorative). To register a custom animated block, add the
+   `data-play` attribute to it OR push its id into PLAY_IDS below.
+   ============================================================================ */
+(function () {
+  var PLAY_IDS = ['xform', 'pipe', 'dash'];
+
+  function observe() {
+    // 1. Scroll-reveal
+    var revealIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) {
+          e.target.classList.add('in');
+          revealIO.unobserve(e.target); // reveal once, then stop watching
+        }
+      });
+    }, { threshold: 0.14, rootMargin: '0px 0px -8% 0px' });
+    document.querySelectorAll('.reveal').forEach(function (el) { revealIO.observe(el); });
+
+    // 2. Animation gating: add .play once visible.
+    var playIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) {
+        if (e.isIntersecting) { e.target.classList.add('play'); }
+      });
+    }, { threshold: 0.2 });
+
+    var targets = {};
+    PLAY_IDS.forEach(function (id) {
+      var el = document.getElementById(id);
+      if (el) targets[id] = el;
+    });
+    document.querySelectorAll('[data-play]').forEach(function (el) {
+      targets[el.id || ('p' + Math.round(el.getBoundingClientRect().top))] = el;
+    });
+    Object.keys(targets).forEach(function (k) { playIO.observe(targets[k]); });
+  }
+
+  /* --------------------------------------------------------------------------
+     FAMILY 5 — mini flow diagrams (.dg): auto-fit labels.
+     SVG <text> never wraps, so squeeze any label wider than its node box.
+     Runs once; viewBox geometry is constant regardless of display scale.
+     -------------------------------------------------------------------------- */
+  function fitDiagrams() {
+    document.querySelectorAll('.dg svg').forEach(function (svg) {
+      var rects = [].map.call(svg.querySelectorAll('rect.nd'), function (r) {
+        return { x: +r.getAttribute('x'), w: +r.getAttribute('width'), y: +r.getAttribute('y'), h: +r.getAttribute('height') };
+      });
+      [].forEach.call(svg.querySelectorAll('text'), function (t) {
+        var bb; try { bb = t.getBBox(); } catch (e) { return; }
+        var cx = bb.x + bb.width / 2, cy = bb.y + bb.height / 2, node = null;
+        for (var i = 0; i < rects.length; i++) {
+          var r = rects[i];
+          if (cy >= r.y && cy <= r.y + r.h && cx >= r.x - 30 && cx <= r.x + r.w + 30) { node = r; break; }
+        }
+        if (!node) return;
+        var max = node.w - 16;
+        if (bb.width > max && max > 0) {
+          t.setAttribute('textLength', max);
+          t.setAttribute('lengthAdjust', 'spacingAndGlyphs');
+        }
+      });
+    });
+  }
+
+  /* --------------------------------------------------------------------------
+     FAMILY 5 — interactive priced menu. Activates only when a [data-menu-total]
+     bar exists, so it is a no-op on ordinary briefs. Data-attribute driven:
+       - bar:  [data-menu-total][data-foundation="5000"][data-full-save="4000"]
+               with children [data-count] [data-sum] [data-save] [data-total]
+               and an optional [data-save-seg] wrapper for the savings line.
+       - item: .acard > input[type=checkbox][data-price]; its .addbtn[data-for=id]
+               toggles it. Optional [data-on]/[data-off] override button labels.
+       - phase: any [data-phase][data-items="a1,a2,.."][data-discount] holding a
+               .phbtn; the button selects/clears the whole set.
+     Total = foundation + sum(selected) - savings, where savings = full-build
+     save if every item is picked, else the sum of each fully-picked phase's save.
+     -------------------------------------------------------------------------- */
+  function initMenu() {
+    var bar = document.querySelector('[data-menu-total]');
+    if (!bar) return;
+    var foundation = +(bar.getAttribute('data-foundation') || 0);
+    var fullSave = +(bar.getAttribute('data-full-save') || 0);
+    var boxes = [].slice.call(document.querySelectorAll('.acard input[type=checkbox][data-price]'));
+    if (!boxes.length) return;
+    var phases = [].slice.call(document.querySelectorAll('[data-phase][data-items]'));
+    function fmt(n) { return '$' + n.toLocaleString('en-US'); }
+    function box(id) { return document.getElementById(id); }
+    function items(p) { return (p.getAttribute('data-items') || '').split(',').map(function (s) { return s.trim(); }).filter(Boolean); }
+    function complete(p) { var ids = items(p); return ids.length > 0 && ids.every(function (id) { var b = box(id); return b && b.checked; }); }
+    function set(sel, v) { var el = bar.querySelector(sel); if (el) el.textContent = v; }
+    function recalc() {
+      var sum = 0, count = 0;
+      boxes.forEach(function (b) {
+        var card = b.closest('.acard');
+        if (b.checked) { sum += +b.dataset.price; count++; if (card) card.classList.add('sel'); }
+        else if (card) { card.classList.remove('sel'); }
+        var btn = document.querySelector('.addbtn[data-for="' + b.id + '"]');
+        if (btn) btn.textContent = b.checked ? (btn.getAttribute('data-on') || '✓ Added') : (btn.getAttribute('data-off') || '＋ Add to build');
+      });
+      var allSel = boxes.every(function (b) { return b.checked; });
+      var save = 0;
+      if (allSel) { save = fullSave; }
+      else { phases.forEach(function (p) { if (complete(p)) save += +(p.getAttribute('data-discount') || 0); }); }
+      phases.forEach(function (p) {
+        var done = complete(p);
+        p.classList.toggle('sel', done);
+        var pb = p.querySelector('.phbtn');
+        if (pb) pb.textContent = done ? (pb.getAttribute('data-on') || '✓ Selected') : (pb.getAttribute('data-off') || pb.textContent);
+      });
+      if (!count) { bar.classList.remove('active'); return; }
+      bar.classList.add('active');
+      set('[data-count]', count);
+      set('[data-sum]', fmt(sum));
+      var seg = bar.querySelector('[data-save-seg]');
+      if (seg) seg.style.display = save > 0 ? '' : 'none';
+      set('[data-save]', fmt(save));
+      set('[data-total]', fmt(foundation + sum - save));
+    }
+    document.querySelectorAll('.addbtn[data-for]').forEach(function (btn) {
+      btn.addEventListener('click', function () { var b = box(btn.getAttribute('data-for')); if (b) { b.checked = !b.checked; recalc(); } });
+    });
+    phases.forEach(function (p) {
+      var pb = p.querySelector('.phbtn'); if (!pb) return;
+      pb.addEventListener('click', function () {
+        var done = complete(p);
+        items(p).forEach(function (id) { var b = box(id); if (b) b.checked = !done; });
+        recalc();
+      });
+    });
+    recalc();
+  }
+
+  function boot() { observe(); fitDiagrams(); initMenu(); }
+
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', boot);
+  } else {
+    boot();
+  }
+})();
+
+</script>
 </body></html>
