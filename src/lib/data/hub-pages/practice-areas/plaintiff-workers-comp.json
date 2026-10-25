@@ -1,0 +1,142 @@
+{
+	"seo": {
+		"title": "Plaintiff Workers' Comp: AI Medical Record Review | Dodonai",
+		"description": "Claimant-side fees are often regulated by statute or rule. Dodonai cuts medical record review from hours to minutes, so you keep more of the fee you earn.",
+		"canonical": "/practice-areas/plaintiff-workers-comp/"
+	},
+	"breadcrumbs": [
+		{ "name": "Home", "href": "/" },
+		{ "name": "Practice Areas", "href": null },
+		{ "name": "Plaintiff Workers' Compensation" }
+	],
+	"hero": {
+		"headline": "Your Comp Fee Is Capped. Recover More of It With Faster Record Review.",
+		"subheadline": "Claimant-side fees are often regulated by statute, rule, or adjudicator approval, so every hour of manual medical record review comes straight out of your margin. Dodonai builds the chronology, IME summary, and prescription history for a fraction of the time and cost of doing it by hand.",
+		"ctaText": "Try It With a Comp File",
+		"ctaUrl": "https://app.dodon.ai/signup?utm_source=website&utm_medium=cta&utm_campaign=plaintiff-workers-comp",
+		"secondaryCtaText": "See Pricing",
+		"secondaryCtaUrl": "/pricing/"
+	},
+	"sections": [
+		{
+			"type": "content",
+			"heading": "How Plaintiff Comp Firms Use AI to Protect Margin",
+			"paragraphs": [
+				"Plaintiff workers' comp is a volume practice with limited fee upside. Claimant-side fees are often regulated by statute, rule, or adjudicator approval — specifics vary by jurisdiction — and that ceiling doesn't move because a treating provider disappeared for six months or the carrier sent you a 900-page IME record dump the day before hearing. Every hour of paralegal or attorney time on manual record review is a direct hit to the margin on that case.",
+				"The math is unforgiving. On a modest indemnity file where a statutory fee cap or schedule limits the firm's fee, a paralegal spending two full days chronologizing records can eat a meaningful share of what the firm ever sees. High-volume solos and small firms feel it most: you're carrying dozens of open files, each with medical records that keep arriving, and every one needs a defensible chronology before the hearing.",
+				"Dodonai builds the underlying documentation for a fraction of the time and cost. Upload a claimant's file and receive a {{link:/ai-medical-record-summaries-chronologies/|medical chronology}} with treatment sequence, work restrictions, and MMI status extracted with source citations. Upload the carrier's IME report and get a summary flagging causation opinions, disputed diagnoses, and the return-to-work assessment. Prescription histories are pulled across pharmacies with dosages and prescribers. PT utilization is tracked visit by visit. Your paralegals spend hearing prep on strategy, not stapling records together.",
+				"HIPAA compliant with a BAA available before PHI upload, SOC 2 certified, AES-256 encrypted."
+			]
+		},
+		{
+			"type": "features",
+			"heading": "Dodonai for Plaintiff Workers' Comp Firms",
+			"cards": [
+				{
+					"icon": "dollar",
+					"title": "Fee-Cap Math That Actually Works",
+					"description": "Outsourced chronology vendors often charge several dollars per page, and paralegal hours at internal cost both eat directly into a regulated fee. Dodonai processes pages for from $0.008 per page at volume. The margin difference on a typical 600-page comp file is real money you keep."
+				},
+				{
+					"icon": "calendar",
+					"title": "Treatment Chronologies With Work Status",
+					"description": "Injury date, initial treatment, referral sequence, surgery, PT, permanent restrictions, and MMI extracted in order with page citations. Every entry you need for a hearing brief or a stipulation, without a paralegal reading 800 pages to get it."
+				},
+				{
+					"icon": "document",
+					"title": "IME Report Summaries",
+					"description": "Upload the carrier's IME and get a summary flagging causation opinions, disputed diagnoses, apportionment, and the return-to-work assessment. Ready to cross-reference against the treating provider's records for the impeachment points."
+				},
+				{
+					"icon": "heart",
+					"title": "PT and Prescription Tracking",
+					"description": "Physical therapy visit counts, injection intervals, and prescription histories across pharmacies extracted and dated. The evidentiary spine of an ongoing-disability argument or a future-medicals reservation."
+				},
+				{
+					"icon": "shield",
+					"title": "HIPAA-Compliant Handling",
+					"description": "Claimant PHI handled under a BAA available before PHI upload, SOC 2 certified infrastructure, and AES-256 encryption. Files never train the models, and deletion runs on your schedule."
+				},
+				{
+					"icon": "growth",
+					"title": "Scale a High-Volume Book Without Adding Headcount",
+					"description": "The comp practice hinges on how many files a paralegal can move through in a week. Dodonai compresses medical record review from hours to minutes so the same team carries more files without a hiring bottleneck."
+				}
+			]
+		},
+		{
+			"type": "howItWorks",
+			"items": [
+				{
+					"title": "Upload Records as They Arrive",
+					"description": "Upload treating provider records, PT logs, carrier IME reports, pharmacy records, and prior comp files as they come in. Large PDFs, including scanned and faxed records, with built-in AI OCR."
+				},
+				{
+					"title": "Dodonai Builds the Chronology and IME Summary",
+					"description": "The AI extracts injury date, treatment sequence, work restrictions, PT visits, medications, and MMI status into a chronology with page citations. Carrier IMEs are summarized with causation and return-to-work findings flagged for cross-reference."
+				},
+				{
+					"title": "Prep for Hearing or Mediation",
+					"description": "Review outputs in the interactive viewer with side-by-side source linking. Export as PDF, Word, or Excel for hearing briefs, stipulations, mediation packages, or life-care projections in permanent-and-total cases."
+				}
+			]
+		}
+	],
+	"faq": [
+		{
+			"question": "How does Dodonai help protect margin on a workers' comp case?",
+			"answer": "Claimant-side fees are often regulated by statute, rule, or adjudicator approval, so every hour of manual medical record review reduces what the firm actually keeps. Dodonai processes pages for from $0.008 per page at volume and compresses the underlying record review from hours to minutes, which means more of the capped fee lands as margin instead of getting spent on the mechanical work."
+		},
+		{
+			"question": "Can Dodonai summarize the carrier's IME report?",
+			"answer": "Yes. Upload the IME report and get a summary that flags causation opinions, apportionment, disputed diagnoses, and return-to-work findings. That lets you cross-reference the IME against the treating provider records quickly to find the impeachment points before hearing or deposition."
+		},
+		{
+			"question": "Does the chronology capture work restrictions and MMI status?",
+			"answer": "Yes. Work status changes, permanent restrictions, functional capacity findings, and MMI determinations are extracted and dated in the chronology with source citations. That's the evidentiary spine of an indemnity claim, and it comes back organized instead of scattered across 900 pages."
+		},
+		{
+			"question": "Can we track prescription history and PT utilization across the treatment period?",
+			"answer": "Yes. Prescription histories are pulled across pharmacies and prescribers with dosage and dates, and PT utilization is tracked visit by visit. Both feed directly into future-medicals arguments and ongoing-disability positions."
+		},
+		{
+			"question": "Is the platform secure enough for claimant PHI?",
+			"answer": "Yes. A BAA is available before PHI upload, SOC 2 certified infrastructure, and AES-256 encryption on every file. Records never enter a training pipeline, and deletion runs on the schedule you set."
+		},
+		{
+			"question": "How does the pricing work for a high-volume comp practice?",
+			"answer": "Per-page pricing, which fits a practice where files arrive constantly and vary in size. Small solos and mid-size firms both use it because the cost scales with what you actually process. See the {{link:/pricing/|pricing page}} for current rates."
+		}
+	],
+	"relatedPages": [
+		{
+			"title": "Workers' Compensation (Defense)",
+			"href": "/practice-areas/workers-compensation/",
+			"description": "AI record review for workers' comp defense and carrier-side work."
+		},
+		{
+			"title": "AI Medical Record Summaries & Chronologies",
+			"href": "/ai-medical-record-summaries-chronologies/",
+			"description": "Organized chronologies with page-level source citations. Verify any data point in seconds."
+		},
+		{
+			"title": "Personal Injury",
+			"href": "/practice-areas/personal-injury/",
+			"description": "AI document processing for plaintiff PI firms building demand packages."
+		},
+		{
+			"title": "Disability Benefits",
+			"href": "/practice-areas/disability-benefits/",
+			"description": "Chronologies and record summaries for SSDI, LTD, and VA claims."
+		}
+	],
+	"relatedBlogPosts": [
+		"/blog/workers-compensation-medical-records-attorneys-adjusters/",
+		"/blog/how-to-organize-medical-records-for-personal-injury-demand-package/",
+		"/blog/real-cost-of-outsourcing-medical-record-summaries/"
+	],
+	"ctaOverride": {
+		"headline": "Keep More of Your Capped Comp Fee",
+		"description": "Upload a claimant file and get a chronology and IME summary in minutes. No credit card required to start."
+	}
+}
