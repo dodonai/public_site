@@ -1,0 +1,649 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dodonai — V4 AI Native (outline rework)</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#282876; --indigo-dk:#1E1E5A; --indigo-deep:#15154A;
+  --blue:#216FED; --muted:#8181AC; --ink:#282876;
+  --bg:#FFFFFF; --wash:#F4F5FD; --line:#E3E5F2; --line-2:#CFD3E8;
+  --teal:#0FA383; --amber:#B9821F; --lav:#A9B8FF;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif; --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#3A3A6B;font-family:var(--sans);font-size:16px;line-height:1.58;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--indigo);letter-spacing:-.02em;line-height:1.08;font-weight:800}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:13px;font-weight:500}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:26px;height:68px}
+.logo{font-weight:800;font-size:21px;color:var(--indigo);letter-spacing:-.02em}
+.logo em{font-style:normal;color:var(--blue)}
+.nav-links{display:flex;gap:22px;margin-left:auto;font-size:14px;font-weight:600;color:var(--muted)}
+.nav-links a:hover{color:var(--indigo)}
+.btn{display:inline-block;font-size:14.5px;font-weight:700;padding:12px 26px;border-radius:999px;border:1px solid transparent;transition:.18s;white-space:nowrap}
+.btn-primary{background:var(--indigo);color:#fff;box-shadow:0 8px 20px -10px rgba(40,40,118,.55)}
+.btn-primary:hover{background:var(--indigo-dk);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line-2);color:var(--indigo)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-lg{padding:15px 32px;font-size:15.5px}
+.btn-inverse{background:#fff;color:var(--indigo)}
+.btn-inverse:hover{background:var(--lav)}
+
+.hero{padding:84px 0 90px;background:
+  radial-gradient(700px 360px at 85% -10%, rgba(33,111,237,.08), transparent 70%),
+  radial-gradient(560px 320px at 0% 100%, rgba(40,40,118,.06), transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.2vw,64px)}
+.hero h1 .alt{color:var(--blue)}
+.hero .sub{margin:22px 0 0;font-size:18px;color:var(--muted);max-width:34em;line-height:1.62}
+.hero-cta{display:flex;gap:12px;margin:32px 0 26px;flex-wrap:wrap}
+.chips{display:flex;gap:9px;flex-wrap:wrap}
+.chip{font-size:12.5px;font-weight:700;color:var(--indigo);border:1px solid rgba(40,40,118,.12);background:var(--wash);border-radius:999px;padding:8px 15px}
+.chip i{font-style:normal;color:var(--teal);margin-right:6px}
+
+.console{background:linear-gradient(180deg,var(--indigo-dk),var(--indigo-deep));border:1px solid rgba(40,40,118,.35);border-radius:16px;overflow:hidden;box-shadow:0 32px 64px -32px rgba(40,40,118,.55)}
+.console-bar{display:flex;align-items:center;gap:10px;padding:13px 17px;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--lav)}
+.dot{width:7px;height:7px;border-radius:50%;background:#5EE6C4;animation:pulse 2.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(94,230,196,.4)}70%{box-shadow:0 0 0 7px rgba(94,230,196,0)}}
+.console-bar b{color:#fff;font-weight:500}
+.crow{display:grid;grid-template-columns:52px 1fr;gap:13px;padding:13px 17px;border-bottom:1px solid rgba(255,255,255,.06);opacity:0;transform:translateY(7px);animation:rise .55s ease forwards}
+.crow:nth-child(1){animation-delay:.25s}.crow:nth-child(2){animation-delay:.5s}
+.crow:nth-child(3){animation-delay:.75s}.crow:nth-child(4){animation-delay:1s}
+.crow:nth-child(5){animation-delay:1.25s}
+@keyframes rise{to{opacity:1;transform:none}}
+.crow .t{font-family:var(--mono);font-size:11.5px;color:#8FB3FF;padding-top:2px}
+.crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#9A9AC6;margin-bottom:3px}
+.crow .d{font-size:13.5px;color:#E6E8FA;line-height:1.45}
+.tag{display:inline-block;margin-top:7px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#F0C87E;border:1px solid rgba(240,200,126,.35);border-radius:4px;padding:2px 8px}
+.tag.done{color:#5EE6C4;border-color:rgba(94,230,196,.35)}
+.console-foot{padding:14px 17px;background:rgba(33,111,237,.15);border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#C9D2F4;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.console-foot b{color:#fff;font-weight:600}
+.ill{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9A9AC6}
+
+section{padding:92px 0}
+.head{max-width:46rem;margin-bottom:48px}
+.head h2{font-size:clamp(30px,3.8vw,46px)}
+.head p{margin-top:14px;color:var(--muted);font-size:17px}
+.wash{background:var(--wash)}
+
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px;transition:.2s}
+.card:hover{border-color:rgba(33,111,237,.5);transform:translateY(-3px);box-shadow:0 18px 36px -22px rgba(40,40,118,.35)}
+.card h3{font-size:19px;margin-bottom:8px;font-weight:800}
+.card p{font-size:14px;color:var(--muted);line-height:1.55}
+.card .go{display:block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--indigo)}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 26px}
+.step .n{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--indigo);color:#fff;font-weight:800;font-size:15px}
+.step h3{font-size:21px;margin:14px 0 9px;font-weight:800}
+.step p{font-size:14.5px;color:var(--muted)}
+.step .when{margin-top:16px;display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);background:var(--wash);border-radius:999px;padding:6px 12px}
+
+.builds{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.build{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;justify-content:space-between;transition:.18s}
+.build:hover{border-color:rgba(33,111,237,.5)}
+.build h3{font-size:17.5px;font-weight:800;margin-bottom:5px}
+.build p{font-size:13.5px;color:var(--muted)}
+.dur{font-family:var(--mono);font-size:10.5px;color:var(--teal);white-space:nowrap;border:1px solid rgba(15,163,131,.3);border-radius:999px;padding:4px 11px;flex:none;margin-top:3px}
+
+.shape{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.shape > div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+.shape .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.shape h4{font-size:16px;font-weight:800;color:var(--indigo);margin-bottom:6px}
+.shape p{font-size:13.5px;color:var(--muted);line-height:1.5}
+
+.hitl{background:linear-gradient(135deg,var(--indigo),var(--indigo-dk));border-radius:24px;padding:56px;color:#fff}
+.hitl .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.hitl h2{color:#fff;font-size:clamp(28px,3.4vw,42px)}
+.hitl .eyebrow{color:var(--lav)}
+.hitl .lead{margin-top:16px;color:#C9D2F4;font-size:16.5px;line-height:1.6}
+.rules{display:grid;gap:14px}
+.rule{border-left:3px solid var(--lav);padding-left:18px}
+.rule h4{font-size:15.5px;font-weight:800;color:#fff;margin-bottom:4px}
+.rule p{font-size:13.5px;color:#C9D2F4}
+
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:600;color:var(--muted);background:#fff;transition:.15s}
+.pill:hover{border-color:var(--blue);color:var(--blue)}
+.explore-note{margin-top:22px;font-size:15px;color:var(--muted);max-width:40em}
+.explore-note b{color:var(--indigo);font-weight:700}
+
+.appstrip{border:1px solid var(--line);border-radius:20px;padding:42px;background:var(--wash)}
+.appstrip h3{font-size:24px;margin:10px 0}
+.appstrip p{color:var(--muted);max-width:44rem;font-size:15.5px}
+.applinks{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;align-items:center}
+
+.final{text-align:center;padding:104px 0;background:linear-gradient(180deg,#fff,var(--wash))}
+.final h2{font-size:clamp(32px,4.4vw,52px);margin:14px auto 18px;max-width:18ch}
+.final p{color:var(--muted);max-width:34rem;margin:0 auto 32px;font-size:17px}
+.final .fineprint{margin-top:26px;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:980px){
+  .hero-grid,.hitl .split{grid-template-columns:1fr;gap:40px}
+  .fgrid{grid-template-columns:repeat(2,1fr)}
+  .steps,.shape{grid-template-columns:1fr}
+  .builds{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hitl{padding:36px 28px}
+}
+@media (max-width:600px){.fgrid{grid-template-columns:1fr}section{padding:62px 0}.appstrip{padding:28px 22px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.crow{opacity:1;transform:none}}
+
+/* v4 additions */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.blob{position:absolute;pointer-events:none;opacity:.5;z-index:0}
+.cycle{display:inline-block;min-width:7.5ch;color:var(--blue);transition:opacity .35s}
+.path-band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:16px 0}
+.path-in{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.path-in b{color:var(--indigo);font-weight:500}
+.path-in i{font-style:normal;color:var(--line-2)}
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.bp-flow{display:grid;gap:10px}
+.bp-in{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo);background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:10px 18px;width:max-content}
+.bp-arrow{font-family:var(--mono);color:var(--muted);padding-left:18px}
+.bp-doc{background:linear-gradient(135deg,var(--indigo),var(--indigo-dk));color:#fff;border-radius:14px;padding:20px 22px;max-width:340px}
+.bp-doc .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--lav);display:block;margin-bottom:6px}
+.bp-doc p{font-size:13.5px;color:#C9D2F4}
+.flow-svg,.fs-svg{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 10px 6px;box-shadow:0 24px 48px -30px rgba(40,40,118,.35)}
+.flow-svg svg,.fs-svg svg{width:100%;height:auto;display:block}
+.ants{stroke-dasharray:5 6;animation:ants 1.1s linear infinite}
+@keyframes ants{to{stroke-dashoffset:-11}}
+.flow-ticker{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.flow-ticker b{color:var(--blue);font-weight:500;transition:opacity .3s}
+.fs-mono{font-family:'Source Code Pro',monospace;letter-spacing:1.2px}
+.arch{background:linear-gradient(135deg,#15154A,var(--indigo));border-radius:24px;padding:46px}
+.arch svg{width:100%;height:auto;display:block}
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:15px 0;overflow:hidden;position:relative;margin-top:44px}
+.marq::before,.marq::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2}
+.marq::before{left:0;background:linear-gradient(90deg,#fff,transparent)}
+.marq::after{right:0;background:linear-gradient(270deg,#fff,transparent)}
+.marq-track{display:flex;white-space:nowrap;animation:scroll 60s linear infinite;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.marq-track b{font-weight:400;padding:0 20px;position:relative}
+.marq-track b::after{content:"";position:absolute;right:0;top:50%;width:4px;height:4px;border-radius:50%;background:var(--blue);opacity:.7;transform:translateY(-50%)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.marq-note{text-align:center;font-size:13.5px;color:var(--muted);margin-top:14px}
+.marq-note b{color:var(--indigo);font-weight:700}
+.vp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vp{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px}
+.vp h3{font-size:18px;margin-bottom:8px}
+.vp p{font-size:13.5px;color:var(--muted)}
+.opt-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.opt-rules > div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.opt-rules h4{font-size:15px;font-weight:800;color:var(--indigo);margin-bottom:5px}
+.opt-rules p{font-size:13.5px;color:var(--muted)}
+@media (max-width:980px){.split2{grid-template-columns:1fr;gap:36px}.vp-grid{grid-template-columns:repeat(2,1fr)}.opt-rules{grid-template-columns:1fr}.arch{padding:28px 20px}}
+@media (max-width:600px){.vp-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ants{animation:none}.marq-track{animation:none}svg animate,svg animateMotion,svg animateTransform{display:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#" aria-label="Dodonai"><img src="https://www.dodon.ai/images/brand/logo-main.webp" alt="Dodonai" style="height:32px;width:auto;display:block"></a>
+    <div class="nav-links">
+      <a href="#blueprint">How it works</a>
+      <a href="#orchestrate">Integrations</a>
+      <a href="#app">The app</a>
+      <a href="#security">Security</a>
+    </div>
+    <a class="btn btn-primary" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <img class="blob" src="https://www.dodon.ai/images/brand/ellipse-blue.webp" alt="" style="width:520px;top:-160px;right:-120px">
+  <img class="blob" src="https://www.dodon.ai/images/brand/ellipse-lavender.webp" alt="" style="width:420px;bottom:-140px;left:-120px">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Dodonai · AI services + software for firms</span>
+      <h1>Go AI Native<br>with Dodonai.</h1>
+      <div style="margin-top:10px;font-size:clamp(22px,2.6vw,30px);font-weight:800;color:var(--indigo)"><span class="cycle" id="cycleWord">Organize.</span></div>
+      <p class="sub">One partner for the blueprint, the system, and the agents that run it. Built around how your firm already works, with a person approving every output.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+        <a class="btn btn-ghost btn-lg" href="#blueprint">How it works</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><img src="https://www.dodon.ai/images/brand/icon-soc2.svg" alt="" style="height:15px;vertical-align:-3px;margin-right:6px">SOC 2 certified</span>
+        <span class="chip"><img src="https://www.dodon.ai/images/brand/icon-hipaa.svg" alt="" style="height:15px;vertical-align:-3px;margin-right:6px">HIPAA compliant</span>
+        <span class="chip"><i>&#10003;</i>You own what we build</span>
+      </div>
+    </div>
+      <div class="console" aria-label="Example overnight agent activity">
+        <div class="console-bar"><span class="dot"></span> <b>Overnight run</b> · Tuesday 7:12 AM</div>
+        <div>
+          <div class="crow"><div class="t">04:12</div><div><div class="k">Intake triage</div><div class="d">Seven new leads scored against your criteria. Two flagged high value, engagement letters drafted.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow"><div class="t">05:03</div><div><div class="k">Deadline monitor</div><div class="d">Three new orders parsed. Eleven dates staged for your calendar, two conflicts flagged.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow"><div class="t">05:40</div><div><div class="k">Demand package</div><div class="d">1,847 pages reduced to a dated treatment timeline, a records gap list, and a draft demand.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow"><div class="t">06:15</div><div><div class="k">Deposition prep</div><div class="d">A 30(b)(6) transcript turned into an issue outline with 44 page and line cites.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow"><div class="t">07:02</div><div><div class="k">Partner brief</div><div class="d">Revenue by practice area, utilization, matter aging, and pipeline on one page.</div><span class="tag done">Ready</span></div></div>
+        </div>
+        <div class="console-foot"><span><b>Nothing is filed, served, or sent</b> until a person approves it.</span><span class="ill">Illustrative</span></div>
+      </div>
+  </div>
+</header>
+
+<div class="path-band">
+  <div class="wrap path-in">
+    <span><b>01</b> BLUEPRINT</span><i>&rarr;</i>
+    <span><b>02</b> ORGANIZE</span><i>&rarr;</i>
+    <span><b>03</b> ORCHESTRATE</span><i>&rarr;</i>
+    <span><b>04</b> AUTOMATE</span><i>&rarr;</i>
+    <span><b>05</b> OPTIMIZE</span>
+  </div>
+</div>
+
+<section id="blueprint">
+  <div class="wrap split2">
+    <div>
+      <span class="eyebrow">Step 01 · Blueprint audit</span>
+      <h2 style="font-size:clamp(28px,3.6vw,44px)">First, a blueprint.</h2>
+      <p style="margin-top:14px;color:var(--muted);font-size:16.5px">We interview your team and audit your data and systems. You leave with a written blueprint for automation: what to build, in what order, what each piece saves, and a fixed price for every line. Nothing gets built until you approve it.</p>
+    </div>
+    <div class="bp-flow">
+      <div class="bp-in">Team interviews</div>
+      <div class="bp-in">Data &amp; document audit</div>
+      <div class="bp-in">Systems &amp; software audit</div>
+      <div class="bp-arrow">&darr;</div>
+      <div class="bp-doc"><span class="k">DELIVERABLE</span><strong>The Blueprint</strong><p>What to build, in what order, at what price. Yours to keep either way.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="organize" class="wash" style="padding:84px 0">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Step 02 · Organize</span>
+      <h2>Organize the raw material.</h2>
+      <p style="margin-top:12px;color:var(--muted);font-size:16.5px">Documents and data organized. Systems and workflows mapped. All of it made searchable. The deliverables: document templates, workflow SOPs, and systems maps that your team and every future agent build on.</p>
+    </div>
+    <div class="fs-svg" aria-label="Animated diagram: a messy shared drive scanned, classified, deduplicated, and reorganized into a governed structure, producing systems maps, templates, and SOPs">
+      <svg viewBox="0 0 1000 500" xmlns="http://www.w3.org/2000/svg">
+
+        <!-- BEFORE window -->
+        <rect x="20" y="20" width="330" height="310" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/>
+        <rect x="20" y="20" width="330" height="28" rx="10" fill="#E9EBF7"/>
+        <text x="36" y="38" class="fs-mono" font-size="10" fill="#8181AC">SHARED DRIVE · AS FOUND</text>
+
+        <!-- file rows -->
+        <g class="fs-mono" font-size="9.5">
+          <g><rect x="36" y="68" width="10" height="12" rx="2" fill="#CFD3E8"/><text x="54" y="78" fill="#B9821F">Clients/Smith J/scan_0042 (1).pdf</text></g>
+          <g><rect x="36" y="96" width="10" height="12" rx="2" fill="#CFD3E8"/><text x="54" y="106" fill="#B9821F">New folder (3)/scan_0042.pdf</text></g>
+          <g><rect x="36" y="124" width="10" height="12" rx="2" fill="#CFD3E8"/><text x="54" y="134" fill="#3A3A6B">Desktop copy/Demand_FINAL_v3.docx</text></g>
+          <g><rect x="36" y="152" width="10" height="12" rx="2" fill="#CFD3E8"/><text x="54" y="162" fill="#3A3A6B">misc/records_lakeview_2019.pdf</text></g>
+          <g><rect x="36" y="180" width="10" height="12" rx="2" fill="#CFD3E8"/><text x="54" y="190" fill="#3A3A6B">Intake stuff/JSmith_intake.msg</text></g>
+          <g><rect x="36" y="208" width="10" height="12" rx="2" fill="#CFD3E8"/><text x="54" y="218" fill="#3A3A6B">Templates old/Fee Agreement (2).doc</text></g>
+          <g><rect x="36" y="236" width="10" height="12" rx="2" fill="#CFD3E8"/><text x="54" y="246" fill="#3A3A6B">inv_march_FIXED.xlsx</text></g>
+          <g><rect x="36" y="264" width="10" height="12" rx="2" fill="#CFD3E8"/><text x="54" y="274" fill="#3A3A6B">IMG_2214.jpg</text></g>
+        </g>
+
+        <!-- scan beam -->
+        <g>
+          <rect x="24" y="62" width="322" height="24" fill="#216FED" opacity=".1" rx="4">
+            <animateTransform attributeName="transform" type="translate" values="0 0;0 210;0 210;0 0" keyTimes="0;.32;.97;1" dur="12s" repeatCount="indefinite"/>
+          </rect>
+          <line x1="24" y1="86" x2="346" y2="86" stroke="#216FED" stroke-width="1.5">
+            <animateTransform attributeName="transform" type="translate" values="0 0;0 210;0 210;0 0" keyTimes="0;.32;.97;1" dur="12s" repeatCount="indefinite"/>
+            <animate attributeName="opacity" values="1;1;0;0;1" keyTimes="0;.32;.36;.97;1" dur="12s" repeatCount="indefinite"/>
+          </line>
+        </g>
+
+        <!-- classification chips (appear as beam passes) -->
+        <g class="fs-mono" font-size="8">
+          <g><rect x="270" y="67" width="70" height="14" rx="7" fill="#fff" stroke="#D14D5E"/><text x="305" y="77" text-anchor="middle" fill="#D14D5E">MED · DUP</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.06;.08;.97;1" dur="12s" repeatCount="indefinite"/></g>
+          <g><rect x="270" y="95" width="70" height="14" rx="7" fill="#fff" stroke="#D14D5E"/><text x="305" y="105" text-anchor="middle" fill="#D14D5E">MED · DUP</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.095;.115;.97;1" dur="12s" repeatCount="indefinite"/></g>
+          <g><rect x="284" y="123" width="56" height="14" rx="7" fill="#fff" stroke="#216FED"/><text x="312" y="133" text-anchor="middle" fill="#216FED">PLEADING</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.13;.15;.97;1" dur="12s" repeatCount="indefinite"/></g>
+          <g><rect x="284" y="151" width="56" height="14" rx="7" fill="#fff" stroke="#0FA383"/><text x="312" y="161" text-anchor="middle" fill="#0FA383">MEDICAL</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.165;.185;.97;1" dur="12s" repeatCount="indefinite"/></g>
+          <g><rect x="284" y="179" width="56" height="14" rx="7" fill="#fff" stroke="#282876"/><text x="312" y="189" text-anchor="middle" fill="#282876">MATTER</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.20;.22;.97;1" dur="12s" repeatCount="indefinite"/></g>
+          <g><rect x="284" y="207" width="56" height="14" rx="7" fill="#fff" stroke="#282876"/><text x="312" y="217" text-anchor="middle" fill="#282876">TEMPLATE</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.235;.255;.97;1" dur="12s" repeatCount="indefinite"/></g>
+          <g><rect x="284" y="235" width="56" height="14" rx="7" fill="#fff" stroke="#B9821F"/><text x="312" y="245" text-anchor="middle" fill="#B9821F">BILLING</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.27;.29;.97;1" dur="12s" repeatCount="indefinite"/></g>
+          <g><rect x="284" y="263" width="56" height="14" rx="7" fill="#fff" stroke="#8181AC"/><text x="312" y="273" text-anchor="middle" fill="#8181AC">MEDIA</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.305;.325;.97;1" dur="12s" repeatCount="indefinite"/></g>
+        </g>
+
+        <!-- center engine -->
+        <g class="fs-mono" font-size="8.5">
+          <line x1="500" y1="104" x2="500" y2="158" stroke="#CFD3E8" stroke-dasharray="3 4"/>
+          <line x1="500" y1="184" x2="500" y2="238" stroke="#CFD3E8" stroke-dasharray="3 4"/>
+          <rect x="462" y="80" width="76" height="24" rx="12" fill="#282876"><animate attributeName="opacity" values=".75;1;.75" dur="2.5s" repeatCount="indefinite"/></rect>
+          <text x="500" y="96" text-anchor="middle" fill="#A9B8FF">SCAN</text>
+          <rect x="462" y="160" width="76" height="24" rx="12" fill="#282876"><animate attributeName="opacity" values=".75;1;.75" dur="2.5s" begin=".8s" repeatCount="indefinite"/></rect>
+          <text x="500" y="176" text-anchor="middle" fill="#A9B8FF">CLASSIFY</text>
+          <rect x="462" y="240" width="76" height="24" rx="12" fill="#282876"><animate attributeName="opacity" values=".75;1;.75" dur="2.5s" begin="1.6s" repeatCount="indefinite"/></rect>
+          <text x="500" y="256" text-anchor="middle" fill="#A9B8FF">FILE</text>
+        </g>
+
+        <!-- flyers -->
+        <circle r="4.5" fill="#0FA383"><animateMotion dur="12s" repeatCount="indefinite" path="M334,74 C450,76 540,150 648,161" keyPoints="0;0;1;1" keyTimes="0;.36;.44;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.36;.37;.43;.44;1" dur="12s" repeatCount="indefinite"/></circle>
+        <circle r="4.5" fill="#0FA383"><animateMotion dur="12s" repeatCount="indefinite" path="M334,102 C420,106 470,140 500,150" keyPoints="0;0;1;1" keyTimes="0;.40;.44;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.40;.41;.435;.445;1" dur="12s" repeatCount="indefinite"/></circle>
+        <g class="fs-mono" font-size="8.5"><text x="500" y="145" text-anchor="middle" fill="#D14D5E">1 DUPLICATE ARCHIVED</text><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.435;.45;.52;.54;1" dur="12s" repeatCount="indefinite"/></g>
+        <circle r="4.5" fill="#216FED"><animateMotion dur="12s" repeatCount="indefinite" path="M334,130 C450,136 540,190 648,205" keyPoints="0;0;1;1" keyTimes="0;.44;.52;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.44;.45;.51;.52;1" dur="12s" repeatCount="indefinite"/></circle>
+        <circle r="4.5" fill="#0FA383"><animateMotion dur="12s" repeatCount="indefinite" path="M334,158 C450,160 540,158 648,161" keyPoints="0;0;1;1" keyTimes="0;.48;.56;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.48;.49;.55;.56;1" dur="12s" repeatCount="indefinite"/></circle>
+        <circle r="4.5" fill="#282876"><animateMotion dur="12s" repeatCount="indefinite" path="M334,186 C450,176 540,128 648,117" keyPoints="0;0;1;1" keyTimes="0;.52;.60;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.52;.53;.59;.60;1" dur="12s" repeatCount="indefinite"/></circle>
+        <circle r="4.5" fill="#282876"><animateMotion dur="12s" repeatCount="indefinite" path="M334,214 C450,218 540,242 648,249" keyPoints="0;0;1;1" keyTimes="0;.56;.64;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.56;.57;.63;.64;1" dur="12s" repeatCount="indefinite"/></circle>
+        <circle r="4.5" fill="#B9821F"><animateMotion dur="12s" repeatCount="indefinite" path="M334,242 C450,248 540,286 648,293" keyPoints="0;0;1;1" keyTimes="0;.60;.68;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.60;.61;.67;.68;1" dur="12s" repeatCount="indefinite"/></circle>
+        <circle r="4.5" fill="#8181AC"><animateMotion dur="12s" repeatCount="indefinite" path="M334,270 C450,266 560,140 648,117" keyPoints="0;0;1;1" keyTimes="0;.64;.72;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.64;.65;.71;.72;1" dur="12s" repeatCount="indefinite"/></circle>
+
+        <!-- AFTER window -->
+        <rect x="650" y="20" width="330" height="310" rx="10" fill="#fff" stroke="#282876"/>
+        <rect x="650" y="20" width="330" height="28" rx="10" fill="#282876"/>
+        <text x="666" y="38" class="fs-mono" font-size="10" fill="#A9B8FF">SHARED DRIVE · GOVERNED</text>
+        <rect x="666" y="60" width="298" height="24" rx="6" fill="#1E1E5A"/>
+        <text x="678" y="76" class="fs-mono" font-size="9.5" fill="#A9B8FF">/ FIRM ROOT</text>
+        <g fill="#F4F5FD" stroke="#CFD3E8">
+          <rect x="666" y="100" width="298" height="34" rx="6"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#282876;#CFD3E8" keyTimes="0;.59;.61;.66" dur="12s" repeatCount="indefinite"/></rect>
+          <rect x="666" y="144" width="298" height="34" rx="6"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#0FA383;#CFD3E8" keyTimes="0;.43;.45;.50" dur="12s" repeatCount="indefinite"/></rect>
+          <rect x="666" y="188" width="298" height="34" rx="6"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#216FED;#CFD3E8" keyTimes="0;.51;.53;.58" dur="12s" repeatCount="indefinite"/></rect>
+          <rect x="666" y="232" width="298" height="34" rx="6"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#282876;#CFD3E8" keyTimes="0;.63;.65;.70" dur="12s" repeatCount="indefinite"/></rect>
+          <rect x="666" y="276" width="298" height="34" rx="6"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#B9821F;#CFD3E8" keyTimes="0;.67;.69;.74" dur="12s" repeatCount="indefinite"/></rect>
+        </g>
+        <g class="fs-mono" font-size="9.5" fill="#282876">
+          <text x="682" y="121">01 · MATTERS</text>
+          <text x="682" y="165">02 · MEDICAL RECORDS</text>
+          <text x="682" y="209">03 · PLEADINGS &amp; DRAFTS</text>
+          <text x="682" y="253">04 · TEMPLATES</text>
+          <text x="682" y="297">05 · BILLING</text>
+        </g>
+        <g class="fs-mono" font-size="10" fill="#8181AC" text-anchor="end">
+          <text x="948" y="121" id="fsB1">0</text><text x="948" y="165" id="fsB2">0</text><text x="948" y="209" id="fsB3">0</text><text x="948" y="253" id="fsB4">0</text><text x="948" y="297" id="fsB5">0</text>
+        </g>
+
+        <!-- deliverable cards -->
+        <g>
+          <rect x="20" y="352" width="300" height="130" rx="12" fill="#fff" stroke="#CFD3E8"/>
+          <text x="36" y="376" class="fs-mono" font-size="9" fill="#216FED">DELIVERABLE · SYSTEMS MAP</text>
+          <g fill="#F4F5FD" stroke="#282876"><rect x="36" y="392" width="72" height="26" rx="5"/><rect x="130" y="392" width="72" height="26" rx="5"/><rect x="224" y="392" width="76" height="26" rx="5"/></g>
+          <g class="fs-mono" font-size="8.5" fill="#282876"><text x="72" y="409" text-anchor="middle">EMAIL</text><text x="166" y="409" text-anchor="middle">PM SYSTEM</text><text x="262" y="409" text-anchor="middle">BILLING</text></g>
+          <line x1="108" y1="405" x2="130" y2="405" stroke="#282876" stroke-width="1.5" stroke-dasharray="22" stroke-dashoffset="22"><animate attributeName="stroke-dashoffset" values="22;22;0;0;22" keyTimes="0;.74;.78;.97;1" dur="12s" repeatCount="indefinite"/></line>
+          <line x1="202" y1="405" x2="224" y2="405" stroke="#282876" stroke-width="1.5" stroke-dasharray="22" stroke-dashoffset="22"><animate attributeName="stroke-dashoffset" values="22;22;0;0;22" keyTimes="0;.77;.81;.97;1" dur="12s" repeatCount="indefinite"/></line>
+          <text x="36" y="458" font-family="'Plus Jakarta Sans',sans-serif" font-size="11" font-weight="700" fill="#282876">How your systems actually connect</text>
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.70;.74;.98;1" dur="12s" repeatCount="indefinite"/>
+        </g>
+        <g>
+          <rect x="350" y="352" width="300" height="130" rx="12" fill="#fff" stroke="#CFD3E8"/>
+          <text x="366" y="376" class="fs-mono" font-size="9" fill="#216FED">DELIVERABLE · TEMPLATES</text>
+          <rect x="366" y="390" width="86" height="76" rx="6" fill="#F4F5FD" stroke="#CFD3E8"/>
+          <g fill="#CFD3E8"><rect x="376" y="402" width="62" height="5" rx="2.5"/><rect x="376" y="416" width="50" height="5" rx="2.5"/><rect x="376" y="444" width="58" height="5" rx="2.5"/></g>
+          <g class="fs-mono" font-size="8.5">
+            <g><rect x="470" y="396" width="88" height="16" rx="8" fill="#FFF8EC" stroke="#B9821F"/><text x="514" y="407" text-anchor="middle" fill="#B9821F">{client_name}</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.76;.79;.98;1" dur="12s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="420" width="88" height="16" rx="8" fill="#FFF8EC" stroke="#B9821F"/><text x="514" y="431" text-anchor="middle" fill="#B9821F">{matter_no}</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.79;.82;.98;1" dur="12s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="444" width="88" height="16" rx="8" fill="#FFF8EC" stroke="#B9821F"/><text x="514" y="455" text-anchor="middle" fill="#B9821F">{deadline}</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.82;.85;.98;1" dur="12s" repeatCount="indefinite"/></g>
+          </g>
+          <text x="576" y="430" class="fs-mono" font-size="8.5" fill="#8181AC" transform="rotate(90 576 430)"></text>
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.73;.77;.98;1" dur="12s" repeatCount="indefinite"/>
+        </g>
+        <g>
+          <rect x="680" y="352" width="300" height="130" rx="12" fill="#fff" stroke="#CFD3E8"/>
+          <text x="696" y="376" class="fs-mono" font-size="9" fill="#216FED">DELIVERABLE · SOPS</text>
+          <g font-family="'Plus Jakarta Sans',sans-serif" font-size="11.5" font-weight="600" fill="#3A3A6B">
+            <g><text x="696" y="404"><tspan class="fs-mono" font-size="9" fill="#8181AC">01 · </tspan>Where new files go</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.78;.81;.98;1" dur="12s" repeatCount="indefinite"/></g>
+            <g><text x="696" y="430"><tspan class="fs-mono" font-size="9" fill="#8181AC">02 · </tspan>Naming that sticks</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.81;.84;.98;1" dur="12s" repeatCount="indefinite"/></g>
+            <g><text x="696" y="456"><tspan class="fs-mono" font-size="9" fill="#8181AC">03 · </tspan>Who approves what</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.84;.87;.98;1" dur="12s" repeatCount="indefinite"/></g>
+          </g>
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.76;.80;.98;1" dur="12s" repeatCount="indefinite"/>
+        </g>
+      </svg>
+    </div>
+    <div class="flow-ticker"><span>ORGANIZE &gt;&gt;&gt; <b id="fsPhase">SCANNING DRIVE</b></span><span>Illustrative</span></div>
+  </div>
+</section>
+
+<section id="orchestrate">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Step 03 · Orchestrate</span>
+      <h2>Get every system rowing in the same direction.</h2>
+      <p style="margin-top:12px;color:var(--muted);font-size:16.5px">FirmOS is the layer that connects what you keep, what we build, and what we bridge, so knowledge, agents, and visibility sit on one foundation instead of a dozen logins.</p>
+    </div>
+    <div class="arch">
+      <svg viewBox="0 0 1000 460" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="lgA" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#b45309" stop-opacity=".95"/><stop offset="100%" stop-color="#f59e0b" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="lgB" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#6B46C1" stop-opacity=".95"/><stop offset="100%" stop-color="#7C3AED" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="lgC" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#0e7490" stop-opacity=".95"/><stop offset="100%" stop-color="#06b6d4" stop-opacity=".95"/></linearGradient>
+          <linearGradient id="lgD" x1="0%" y1="0%" x2="100%" y2="0%"><stop offset="0%" stop-color="#3A3A9C" stop-opacity=".95"/><stop offset="100%" stop-color="#282876" stop-opacity=".95"/></linearGradient>
+          <marker id="arrowhead" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto"><polygon points="0 0, 10 3, 0 6" fill="#A9B8FF" opacity=".7"/></marker>
+        </defs>
+        <rect x="80" y="20" width="840" height="90" rx="12" fill="url(#lgA)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" repeatCount="indefinite"/></rect>
+        <text x="110" y="50" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 4 · VISIBILITY</text>
+        <text x="110" y="77" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">Dashboards · Briefings · Ask-the-file chat</text>
+        <rect x="80" y="130" width="840" height="90" rx="12" fill="url(#lgB)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" begin="1.5s" repeatCount="indefinite"/></rect>
+        <text x="110" y="160" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 3 · APPLICATION</text>
+        <text x="110" y="187" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">Custom agents: drafting, filing, chasing, briefing</text>
+        <rect x="80" y="240" width="840" height="90" rx="12" fill="url(#lgC)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" begin="3s" repeatCount="indefinite"/></rect>
+        <text x="110" y="270" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 2 · KNOWLEDGE</text>
+        <text x="110" y="297" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">Firm wiki · Structured record · Templates &amp; SOPs</text>
+        <rect x="80" y="350" width="840" height="90" rx="12" fill="url(#lgD)" opacity=".92"><animate attributeName="opacity" values=".85;1;.85" dur="6s" begin="4.5s" repeatCount="indefinite"/></rect>
+        <text x="110" y="380" font-family="'Source Code Pro',monospace" font-size="11" font-weight="700" fill="#fff" letter-spacing="2" opacity=".85">LAYER 1 · FOUNDATION</text>
+        <text x="110" y="407" font-family="'Plus Jakarta Sans',sans-serif" font-size="20" font-weight="800" fill="#fff" letter-spacing="-.5">Your systems · The Dodonai App · Bridged tools</text>
+        <line x1="940" y1="350" x2="940" y2="330" stroke="#A9B8FF" stroke-width="2" stroke-dasharray="4 3" opacity=".6" marker-end="url(#arrowhead)"/>
+        <line x1="940" y1="240" x2="940" y2="220" stroke="#A9B8FF" stroke-width="2" stroke-dasharray="4 3" opacity=".6" marker-end="url(#arrowhead)"/>
+        <line x1="940" y1="130" x2="940" y2="110" stroke="#A9B8FF" stroke-width="2" stroke-dasharray="4 3" opacity=".6" marker-end="url(#arrowhead)"/>
+      </svg>
+    </div>
+    <div class="marq"><div class="marq-track" id="marq"></div></div>
+    <p class="marq-note">Plus <b>anything with an inbox, an API, or a screen</b>. No API? We bridge it anyway.</p>
+  </div>
+</section>
+
+<section id="automate" class="wash" style="padding:84px 0">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Step 04 · Automate</span>
+      <h2>Then the agents go to work.</h2>
+      <p style="margin-top:12px;color:var(--muted);font-size:16.5px">The templates, SOPs, and maps from Organize plus the FirmOS layer are the starting point. Every automation drops onto a foundation that already understands your firm.</p>
+    </div>
+    <div class="flow-ticker" style="margin:0 0 10px"><span class="fs-mono" style="font-size:10px;letter-spacing:.16em;color:var(--blue)">EXAMPLE · DOCUMENT INGESTION</span><span>Illustrative</span></div>
+    <div class="flow-svg" aria-label="Animated diagram: firm data flowing through agents, past a human review gate, into finished work">
+      <svg viewBox="0 0 1000 430" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="agGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#282876"/><stop offset="1" stop-color="#3A3A9C"/></linearGradient>
+          <linearGradient id="recGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#15154A"/><stop offset="1" stop-color="#282876"/></linearGradient>
+          <marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#282876" opacity=".55"/></marker>
+        </defs>
+
+        <!-- source nodes -->
+        <g font-family="'Source Code Pro',monospace" font-size="11" letter-spacing="2">
+          <rect x="20" y="40" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="68" text-anchor="middle" fill="#282876" font-weight="500">EMAIL</text>
+          <rect x="20" y="134" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="162" text-anchor="middle" fill="#282876" font-weight="500">DOCUMENTS</text>
+          <rect x="20" y="228" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="256" text-anchor="middle" fill="#282876" font-weight="500">CALENDAR</text>
+          <rect x="20" y="322" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="350" text-anchor="middle" fill="#282876" font-weight="500">BILLING</text>
+        </g>
+
+        <!-- source -> agents paths -->
+        <path id="pS1" class="ants" d="M170,63 C265,63 265,140 358,140" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pS2" class="ants" d="M170,157 C265,157 265,156 358,156" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pS3" class="ants" d="M170,251 C265,251 265,172 358,172" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pS4" class="ants" d="M170,345 C265,345 265,188 358,188" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+
+        <!-- agents stack (firmOS-style pulsing layers) -->
+        <rect x="360" y="118" width="270" height="80" rx="12" fill="url(#agGrad)"><animate attributeName="opacity" values=".88;1;.88" dur="5s" repeatCount="indefinite"/></rect>
+        <text x="380" y="146" font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="2" fill="#A9B8FF">AGENTS</text>
+        <text x="380" y="172" font-family="'Plus Jakarta Sans',sans-serif" font-size="17" font-weight="800" fill="#fff">Read · draft · flag</text>
+
+        <rect x="360" y="238" width="270" height="66" rx="12" fill="url(#recGrad)"><animate attributeName="opacity" values=".88;1;.88" dur="5s" begin="2.5s" repeatCount="indefinite"/></rect>
+        <text x="380" y="264" font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="2" fill="#A9B8FF">STRUCTURED RECORD</text>
+        <text x="380" y="286" font-family="'Plus Jakarta Sans',sans-serif" font-size="14" font-weight="700" fill="#E6E8FA">Every run remembered</text>
+
+        <!-- record <-> agents loop -->
+        <line x1="430" y1="200" x2="430" y2="236" stroke="#282876" stroke-width="1.5" stroke-dasharray="4 3" opacity=".5" marker-end="url(#ah)"/>
+        <line x1="560" y1="236" x2="560" y2="200" stroke="#282876" stroke-width="1.5" stroke-dasharray="4 3" opacity=".5" marker-end="url(#ah)"/>
+
+        <!-- agents -> gate -->
+        <path id="pG" class="ants" d="M630,158 L688,158" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+
+        <!-- review gate -->
+        <rect x="690" y="126" width="122" height="64" rx="12" fill="#FFF8EC" stroke="#B9821F" stroke-width="1.5"/>
+        <text x="751" y="152" text-anchor="middle" font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="2" fill="#B9821F">REVIEW</text>
+        <text x="751" y="172" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="12.5" font-weight="700" fill="#7A5510">a person approves</text>
+
+        <!-- gate -> outputs -->
+        <path id="pO1" class="ants" d="M812,158 C842,158 842,83 858,83" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pO2" class="ants" d="M812,158 C838,158 838,189 858,189" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pO3" class="ants" d="M812,158 C842,158 842,295 858,295" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+
+        <!-- output nodes -->
+        <g font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="1.5">
+          <rect x="860" y="60" width="122" height="46" rx="10" fill="#fff" stroke="#0FA383"/><text x="921" y="88" text-anchor="middle" fill="#0FA383" font-weight="500">DRAFT TO SIGN</text>
+          <rect x="860" y="166" width="122" height="46" rx="10" fill="#fff" stroke="#0FA383"/><text x="921" y="194" text-anchor="middle" fill="#0FA383" font-weight="500">DATES STAGED</text>
+          <rect x="860" y="272" width="122" height="46" rx="10" fill="#fff" stroke="#0FA383"/><text x="921" y="300" text-anchor="middle" fill="#0FA383" font-weight="500">OWNER BRIEF</text>
+        </g>
+
+        <!-- moving data dots (Conductor-style) -->
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#pS1"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" begin="0.8s" repeatCount="indefinite"><mpath href="#pS2"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#pS3"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" begin="2.4s" repeatCount="indefinite"><mpath href="#pS4"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="1.4s" begin="0.5s" repeatCount="indefinite"><mpath href="#pG"/></animateMotion></circle>
+        <circle r="4" fill="#0FA383"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#pO1"/></animateMotion></circle>
+        <circle r="4" fill="#0FA383"><animateMotion dur="2s" begin="0.7s" repeatCount="indefinite"><mpath href="#pO2"/></animateMotion></circle>
+        <circle r="4" fill="#0FA383"><animateMotion dur="2s" begin="1.4s" repeatCount="indefinite"><mpath href="#pO3"/></animateMotion></circle>
+      </svg>
+    </div>
+    <div class="flow-ticker"><span>RUN &gt;&gt;&gt; <b id="ftLine">INTAKE TRIAGE · SCORING 7 NEW LEADS</b></span><span>Illustrative</span></div>
+    <div class="pills" style="margin-top:26px">
+      <span class="pill">Intake triage</span><span class="pill">Deadline monitor</span><span class="pill">Demand packages</span><span class="pill">Records chasing</span><span class="pill">Client digests</span><span class="pill">Invoice follow-up</span><span class="pill">Partner briefs</span><span class="pill">+ whatever the Blueprint finds</span>
+    </div>
+  </div>
+</section>
+
+<section id="optimize">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Step 05 · Optimize</span>
+      <h2>It keeps getting better after launch.</h2>
+      <p style="margin-top:12px;color:var(--muted);font-size:16.5px">We host the harness, the automations, and the record. Then we keep improving them.</p>
+    </div>
+    <div class="opt-rules">
+      <div><h4>Hosted and watched</h4><p>Your environment runs in infrastructure you own, monitored by us, with every run logged and reviewable.</p></div>
+      <div><h4>Smarter overnight</h4><p>When better models ship, we move your agents onto them. The system you bought this year is not the system you have next year.</p></div>
+      <div><h4>No long-term contract</h4><p>Monthly reviews, priority support, a simple retainer. If we ever part ways, everything keeps running and it is yours.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="wash" style="padding:84px 0">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Why firms do this</span>
+      <h2>Four returns.</h2>
+    </div>
+    <div class="vp-grid">
+      <div class="vp"><h3>Reduce overhead</h3><p>Fewer subscriptions, less re-keying, none of the work about work.</p></div>
+      <div class="vp"><h3>Execute faster</h3><p>Drafts, filings, and follow-ups staged before anyone asks for them.</p></div>
+      <div class="vp"><h3>Take on more matters</h3><p>The same team carries a bigger caseload without the late nights.</p></div>
+      <div class="vp"><h3>A happier team</h3><p>People keep the judgment calls. The drudgery goes to the agents.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="app" style="padding:84px 0 0">
+  <div class="wrap">
+    <div class="appstrip">
+      <span class="eyebrow">And the software</span>
+      <h3>Want proof before you commit to a build?</h3>
+      <p>The Dodonai App is the same engine, packaged, and it becomes part of your foundation layer. Deposition summaries with page and line cites, medical chronologies from records of any length, AI OCR, and semantic e-discovery. Free trial, no card required.</p>
+      <div class="applinks">
+        <a class="btn btn-primary" href="https://app.dodon.ai/signup">Start a free trial</a>
+        <a class="pill" href="https://www.dodon.ai/deposition-summary-software/">Deposition summaries</a>
+        <a class="pill" href="https://www.dodon.ai/ai-medical-record-summaries-chronologies/">Medical chronologies</a>
+        <a class="pill" href="https://www.dodon.ai/ai-pdf-ocr/">AI OCR</a>
+        <a class="pill" href="https://www.dodon.ai/electronic-discovery-software/">E-discovery</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="security">
+  <div class="wrap">
+    <div class="hitl">
+      <div class="split">
+        <div>
+          <span class="eyebrow">Security &amp; control</span>
+          <h2>The work is automated. The judgment never is.</h2>
+          <p class="lead">Agents produce drafts, flags, and signals. Not one of them is a decision. Everything waits until someone at the firm approves it, inside an environment that is SOC 2 certified and HIPAA compliant end to end.</p>
+          <div style="margin-top:26px;display:flex;gap:10px;flex-wrap:wrap">
+            <span class="chip" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff"><img src="https://www.dodon.ai/images/brand/icon-soc2.svg" alt="" style="height:15px;vertical-align:-3px;margin-right:6px">SOC 2</span>
+            <span class="chip" style="background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.2);color:#fff"><img src="https://www.dodon.ai/images/brand/icon-hipaa.svg" alt="" style="height:15px;vertical-align:-3px;margin-right:6px">HIPAA</span>
+          </div>
+        </div>
+        <div class="rules">
+          <div class="rule"><h4>A person releases everything</h4><p>Drafts queue in your folders and your drafts box. Nothing reaches a client, a court, or a counterparty until someone inside the firm sends it.</p></div>
+          <div class="rule"><h4>You own what we build</h4><p>Full source, running in infrastructure you control. If we part ways, it keeps running.</p></div>
+          <div class="rule"><h4>Never trained on your data</h4><p>Your work product improves nothing for anyone else, not even anonymized.</p></div>
+          <div class="rule"><h4>It flags rather than guesses</h4><p>Anything that fails a check stops and asks. Confident wrong answers are the one failure mode we refuse.</p></div>
+          <div class="rule"><h4>Your data stays where it is</h4><p>Everything runs inside your own cloud, reading the storage and mail you already own.</p></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final">
+  <div class="wrap">
+    <span class="eyebrow">Start here</span>
+    <h2>Bring us one painful task.</h2>
+    <p>Thirty minutes tells you whether an agent can take it, what the build costs, and how fast it goes live.</p>
+    <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+    <p class="fineprint">No pitch deck · No long-term contract · SOC 2 certified · HIPAA compliant</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in"><span style="display:flex;align-items:center;gap:10px"><img src="https://www.dodon.ai/images/brand/logo-main.webp" alt="Dodonai" style="height:22px;width:auto;opacity:.8">© 2026 Dodonai</span><span>hello@dodon.ai</span></div>
+</footer>
+
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// hero cycling word (echoes the existing site hero)
+const cyc=document.getElementById('cycleWord');
+if(cyc&&!reduce){
+  const words=['Organize.','Orchestrate.','Automate.'];let wi=0;
+  setInterval(()=>{cyc.style.opacity=0;setTimeout(()=>{wi=(wi+1)%words.length;cyc.textContent=words[wi];cyc.style.opacity=1},350)},2400);
+}
+
+// integrations marquee
+const platforms=['Clio','MyCase','Filevine','Litify','Smokeball','PracticePanther','CASEpeer','Neos','Actionstep','NetDocuments','iManage','Egnyte','SharePoint','Google Drive','Dropbox','OneDrive','Gmail','Outlook','Google Calendar','DocuSign','Adobe Sign','QuickBooks','Xero','LawPay','Stripe','Slack','Teams','Zoom','RingCentral','Calendly','Salesforce','HubSpot'];
+const mq=document.getElementById('marq');
+if(mq){const line=platforms.map(p=>'<b>'+p+'</b>').join('');mq.innerHTML=line+line;}
+
+// document ingestion ticker
+const ftLines=["INTAKE TRIAGE · SCORING 7 NEW LEADS","DEADLINE MONITOR · 11 DATES STAGED","DEMAND PACKAGE · 1,847 PAGES READ","CLIENT DIGEST · 23 UPDATES DRAFTED","AT THE REVIEW GATE · 4 DRAFTS WAITING"];
+const ftEl=document.getElementById('ftLine');
+if(ftEl&&!reduce){let i=0;setInterval(()=>{ftEl.style.opacity=0;setTimeout(()=>{i=(i+1)%ftLines.length;ftEl.textContent=ftLines[i];ftEl.style.opacity=1},300)},2800);}
+
+// organize (file system) timeline, synced to the 12s SMIL loop
+if(!reduce){
+  const fsStart=performance.now();
+  const set=(id,v)=>{const e=document.getElementById(id);if(e&&e.textContent!==String(v))e.textContent=v};
+  setInterval(()=>{
+    const t=((performance.now()-fsStart)/1000)%12;
+    set('fsB1',(t>7.2?1:0)+(t>8.64?1:0));
+    set('fsB2',(t>5.28?1:0)+(t>6.72?1:0));
+    set('fsB3',t>6.24?1:0);
+    set('fsB4',t>7.68?1:0);
+    set('fsB5',t>8.16?1:0);
+    const ph=document.getElementById('fsPhase');
+    if(ph){
+      const label=t<3.9?'SCANNING DRIVE · 8 FILES FOUND':t<8.7?'CLASSIFYING · MAPPING · 1 DUPLICATE ARCHIVED':t<11.6?'EXTRACTING MAPS · TEMPLATES · SOPS':'FOUNDATION READY';
+      if(ph.textContent!==label)ph.textContent=label;
+    }
+  },120);
+}
+</script>
+</body>
+</html>

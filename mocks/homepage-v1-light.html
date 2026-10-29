@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dodonai — V1 Light Enterprise</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter+Tight:wght@500;600;700;800&family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#101322; --muted:#5A6072; --faint:#9AA0B0;
+  --indigo:#282876; --indigo-dk:#1E1E5A;
+  --bg:#FFFFFF; --panel:#F7F8FB; --line:#E4E7EE; --line-2:#D2D7E2;
+  --blue:#2154F5; --blue-dk:#173CB6; --teal:#0E9F7E; --amber:#B97F1F;
+  --sans:'Inter',system-ui,sans-serif; --disp:'Inter Tight',system-ui,sans-serif;
+  --mono:'JetBrains Mono',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:var(--ink);font-family:var(--sans);font-size:16px;line-height:1.55;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+h1,h2,h3{font-family:var(--disp);letter-spacing:-.03em;line-height:1.04;color:var(--indigo)}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);margin-bottom:14px;display:block}
+.blueprint{background-image:linear-gradient(var(--line) 1px,transparent 1px),linear-gradient(90deg,var(--line) 1px,transparent 1px);background-size:44px 44px;background-position:center top}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:26px;height:66px}
+.logo{font-family:var(--disp);font-weight:800;font-size:21px;letter-spacing:-.02em;color:var(--indigo)}
+.logo em{font-style:normal;color:var(--blue)}
+.nav-links{display:flex;gap:22px;margin-left:auto;font-family:var(--mono);font-size:11.5px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+.nav-links a:hover{color:var(--ink)}
+.btn{display:inline-block;font-family:var(--sans);font-size:14.5px;font-weight:600;padding:12px 24px;border-radius:8px;border:1px solid transparent;transition:.18s;white-space:nowrap}
+.btn-primary{background:var(--indigo);color:#fff}
+.btn-primary:hover{background:var(--indigo-dk)}
+.btn-ghost{border-color:var(--line-2);color:var(--indigo)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-lg{padding:15px 30px;font-size:15.5px}
+
+.hero{padding:88px 0 84px;border-bottom:1px solid var(--line)}
+.hero-grid{display:grid;grid-template-columns:1.04fr 1fr;gap:54px;align-items:center}
+.hero h1{font-size:clamp(40px,5.4vw,68px);font-weight:800}
+.hero h1 .alt{color:var(--blue)}
+.hero .sub{margin:24px 0 0;font-size:18px;color:var(--muted);max-width:34em;line-height:1.6}
+.hero-cta{display:flex;gap:12px;margin:32px 0 26px;flex-wrap:wrap}
+.chips{display:flex;gap:9px;flex-wrap:wrap}
+.chip{font-family:var(--mono);font-size:10.5px;letter-spacing:.07em;text-transform:uppercase;color:var(--muted);border:1px solid var(--line-2);border-radius:999px;padding:7px 13px;background:#fff}
+.chip i{font-style:normal;color:var(--teal);margin-right:6px}
+
+.console{background:#fff;border:1px solid var(--line-2);border-radius:12px;overflow:hidden;box-shadow:0 24px 50px -30px rgba(16,19,34,.25)}
+.console-bar{display:flex;align-items:center;gap:10px;padding:13px 16px;border-bottom:1px solid var(--line);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);background:var(--panel)}
+.dot{width:7px;height:7px;border-radius:50%;background:var(--teal)}
+.console-bar b{color:var(--ink);font-weight:500}
+.crow{display:grid;grid-template-columns:52px 1fr;gap:13px;padding:13px 16px;border-bottom:1px solid var(--line);opacity:0;transform:translateY(6px);animation:rise .5s ease forwards}
+.crow:nth-child(1){animation-delay:.2s}.crow:nth-child(2){animation-delay:.45s}
+.crow:nth-child(3){animation-delay:.7s}.crow:nth-child(4){animation-delay:.95s}
+.crow:nth-child(5){animation-delay:1.2s}
+@keyframes rise{to{opacity:1;transform:none}}
+.crow .t{font-family:var(--mono);font-size:11.5px;color:var(--blue);padding-top:2px}
+.crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.12em;text-transform:uppercase;color:var(--faint);margin-bottom:3px}
+.crow .d{font-size:13.5px;color:#3A4054;line-height:1.45}
+.tag{display:inline-block;margin-top:7px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);border:1px solid #E4CFA6;border-radius:4px;padding:2px 8px}
+.tag.done{color:var(--teal);border-color:#A9DECF}
+.console-foot{padding:13px 16px;background:var(--panel);font-size:13px;color:var(--muted);display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.console-foot b{color:var(--ink);font-weight:600}
+.ill{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--faint)}
+
+section{padding:92px 0}
+.head{max-width:46rem;margin-bottom:48px}
+.head h2{font-size:clamp(30px,3.8vw,46px);font-weight:700}
+.head p{margin-top:14px;color:var(--muted);font-size:17px}
+.panel{background:var(--panel)}
+
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:10px;padding:26px 24px;transition:.2s}
+.card:hover{border-color:var(--blue);transform:translateY(-3px);box-shadow:0 16px 32px -20px rgba(33,84,245,.35)}
+.card h3{font-size:19px;font-weight:700;margin-bottom:8px}
+.card p{font-size:14px;color:var(--muted);line-height:1.5}
+.card .go{display:block;margin-top:14px;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue)}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.step{background:#fff;padding:32px 28px}
+.step .n{font-family:var(--mono);font-size:12px;color:var(--blue);letter-spacing:.14em}
+.step h3{font-size:22px;font-weight:700;margin:10px 0 10px}
+.step p{font-size:14.5px;color:var(--muted)}
+.step .when{margin-top:16px;display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--ink);background:var(--panel);border:1px solid var(--line);border-radius:999px;padding:5px 11px}
+
+.builds{border-top:1px solid var(--line)}
+.build{display:grid;grid-template-columns:1fr 2fr auto;gap:24px;align-items:baseline;padding:22px 8px;border-bottom:1px solid var(--line);transition:.15s}
+.build:hover{background:var(--panel)}
+.build h3{font-size:19px;font-weight:700}
+.build p{font-size:14px;color:var(--muted)}
+.dur{font-family:var(--mono);font-size:11px;color:var(--teal);white-space:nowrap;border:1px solid #A9DECF;border-radius:999px;padding:4px 11px}
+
+.shape{display:grid;grid-template-columns:repeat(4,1fr);gap:1px;background:var(--line);border:1px solid var(--line);border-radius:12px;overflow:hidden}
+.shape > div{background:#fff;padding:24px 22px}
+.shape .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.shape h4{font-family:var(--disp);font-size:16.5px;font-weight:700;margin-bottom:6px;letter-spacing:-.01em}
+.shape p{font-size:13.5px;color:var(--muted);line-height:1.5}
+
+.split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.split h2{font-size:clamp(28px,3.4vw,42px);font-weight:700}
+.split .lead{margin-top:16px;color:var(--muted);font-size:16.5px;line-height:1.6}
+.rules{display:grid;gap:14px}
+.rule{border-left:3px solid var(--indigo);padding-left:18px}
+.rule h4{font-family:var(--disp);font-size:15.5px;font-weight:700;margin-bottom:4px}
+.rule p{font-size:13.5px;color:var(--muted)}
+
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;font-size:13.5px;color:var(--muted);background:#fff;transition:.15s}
+.pill:hover{border-color:var(--blue);color:var(--blue)}
+.explore-note{margin-top:22px;font-size:15px;color:var(--muted);max-width:40em}
+.explore-note b{color:var(--ink);font-weight:600}
+
+.appstrip{border:1px solid var(--line-2);border-radius:14px;padding:42px;background:linear-gradient(120deg,#F7F8FB, #EEF2FC)}
+.appstrip h3{font-size:25px;font-weight:700;margin:10px 0}
+.appstrip p{color:var(--muted);max-width:44rem;font-size:15.5px}
+.applinks{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;align-items:center}
+
+.final{text-align:center;padding:110px 0}
+.final h2{font-size:clamp(34px,4.6vw,54px);font-weight:800;margin:14px auto 18px;max-width:18ch}
+.final p{color:var(--muted);max-width:34rem;margin:0 auto 32px;font-size:17px}
+.final .fineprint{margin-top:26px;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--faint)}
+
+footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(--faint)}
+.foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:980px){
+  .hero-grid,.split{grid-template-columns:1fr;gap:40px}
+  .fgrid{grid-template-columns:repeat(2,1fr)}
+  .steps,.shape{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .build{grid-template-columns:1fr;gap:6px}
+}
+@media (max-width:600px){.fgrid{grid-template-columns:1fr}section{padding:64px 0}.appstrip{padding:28px 22px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.crow{opacity:1;transform:none}}
+</style>
+</head>
+<body>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <a href="#" class="logo">dodon<em>.ai</em></a>
+    <div class="nav-links">
+      <a href="#work">What we build</a>
+      <a href="#how">How it works</a>
+      <a href="#builds">Packages</a>
+      <a href="#pricing">Pricing</a>
+    </div>
+    <a class="btn btn-primary" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+  </div>
+</nav>
+
+<header class="hero blueprint">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Dodonai · AI services for firms</span>
+      <h1>Agents that never sleep.<br><span class="alt">Partners who finally can.</span></h1>
+      <p class="sub">We build them around the way your firm already runs, wire them into your systems, and keep them running. Start with one painful task. Let it grow into the system the firm runs on.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+        <a class="btn btn-ghost btn-lg" href="#how">How it works</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><i>&#10022;</i>SOC 2 certified</span>
+        <span class="chip"><i>&#10022;</i>HIPAA compliant</span>
+        <span class="chip"><i>&#10022;</i>You own what we build</span>
+      </div>
+    </div>
+    <div class="console" aria-label="Example overnight agent activity">
+      <div class="console-bar"><span class="dot"></span> <b>Overnight run</b> · Tuesday 7:12 AM</div>
+      <div>
+        <div class="crow"><div class="t">04:12</div><div><div class="k">Intake triage</div><div class="d">Seven new leads scored against your criteria. Two flagged high value, engagement letters drafted.</div><span class="tag">Awaiting your review</span></div></div>
+        <div class="crow"><div class="t">05:03</div><div><div class="k">Deadline monitor</div><div class="d">Three new orders parsed. Eleven dates staged for your calendar, two conflicts flagged.</div><span class="tag">Awaiting your review</span></div></div>
+        <div class="crow"><div class="t">05:40</div><div><div class="k">Demand package</div><div class="d">1,847 pages reduced to a dated treatment timeline, a records gap list, and a draft demand.</div><span class="tag">Awaiting your review</span></div></div>
+        <div class="crow"><div class="t">06:15</div><div><div class="k">Deposition prep</div><div class="d">A 30(b)(6) transcript turned into an issue outline with 44 page and line cites.</div><span class="tag">Awaiting your review</span></div></div>
+        <div class="crow"><div class="t">07:02</div><div><div class="k">Partner brief</div><div class="d">Revenue by practice area, utilization, matter aging, and pipeline on one page.</div><span class="tag done">Ready</span></div></div>
+      </div>
+      <div class="console-foot"><span><b>Nothing is filed, served, or sent</b> until a person approves it.</span><span class="ill">Illustrative</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="flow" class="panel" style="padding:84px 0">
+  <style>
+    .flow-head{max-width:46rem;margin-bottom:38px}
+    .flow-svg{background:#fff;border:1px solid var(--line-2);border-radius:14px;padding:18px 10px 6px;box-shadow:0 20px 44px -30px rgba(40,40,118,.3)}
+    .flow-svg svg{width:100%;height:auto;display:block}
+    .ants{stroke-dasharray:5 6;animation:ants 1.1s linear infinite}
+    @keyframes ants{to{stroke-dashoffset:-11}}
+    .flow-ticker{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+    .flow-ticker b{color:var(--blue);font-weight:500;transition:opacity .3s}
+    @media (prefers-reduced-motion:reduce){.ants{animation:none}.flow-svg animate,.flow-svg animateMotion{display:none}}
+  </style>
+  <div class="wrap">
+    <div class="flow-head">
+      <span class="eyebrow">One system</span>
+      <h2 style="font-size:clamp(28px,3.6vw,44px);font-weight:700">From inbox to signed work.</h2>
+      <p style="margin-top:12px;color:var(--muted);font-size:16.5px">The sources you already have flow through agents, past a person, into finished work. Every run leaves a record that makes the next one smarter.</p>
+    </div>
+    <div class="flow-svg" aria-label="Animated diagram: firm data flowing through agents, past a human review gate, into finished work">
+      <svg viewBox="0 0 1000 430" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="agGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#282876"/><stop offset="1" stop-color="#3A3A9C"/></linearGradient>
+          <linearGradient id="recGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#1E1E5A"/><stop offset="1" stop-color="#282876"/></linearGradient>
+          <marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#282876" opacity=".55"/></marker>
+        </defs>
+
+        <!-- source nodes -->
+        <g font-family="'JetBrains Mono',monospace" font-size="11" letter-spacing="2">
+          <rect x="20" y="40" width="150" height="46" rx="8" fill="#fff" stroke="#D2D7E2"/><text x="95" y="68" text-anchor="middle" fill="#282876" font-weight="500">EMAIL</text>
+          <rect x="20" y="134" width="150" height="46" rx="8" fill="#fff" stroke="#D2D7E2"/><text x="95" y="162" text-anchor="middle" fill="#282876" font-weight="500">DOCUMENTS</text>
+          <rect x="20" y="228" width="150" height="46" rx="8" fill="#fff" stroke="#D2D7E2"/><text x="95" y="256" text-anchor="middle" fill="#282876" font-weight="500">CALENDAR</text>
+          <rect x="20" y="322" width="150" height="46" rx="8" fill="#fff" stroke="#D2D7E2"/><text x="95" y="350" text-anchor="middle" fill="#282876" font-weight="500">BILLING</text>
+        </g>
+
+        <!-- source -> agents paths -->
+        <path id="pS1" class="ants" d="M170,63 C265,63 265,140 358,140" fill="none" stroke="#C4CADF" stroke-width="1.5"/>
+        <path id="pS2" class="ants" d="M170,157 C265,157 265,156 358,156" fill="none" stroke="#C4CADF" stroke-width="1.5"/>
+        <path id="pS3" class="ants" d="M170,251 C265,251 265,172 358,172" fill="none" stroke="#C4CADF" stroke-width="1.5"/>
+        <path id="pS4" class="ants" d="M170,345 C265,345 265,188 358,188" fill="none" stroke="#C4CADF" stroke-width="1.5"/>
+
+        <!-- agents stack (firmOS-style pulsing layers) -->
+        <rect x="360" y="118" width="270" height="80" rx="10" fill="url(#agGrad)"><animate attributeName="opacity" values=".88;1;.88" dur="5s" repeatCount="indefinite"/></rect>
+        <text x="380" y="146" font-family="'JetBrains Mono',monospace" font-size="10" letter-spacing="2" fill="#A9B8FF">AGENTS</text>
+        <text x="380" y="172" font-family="'Inter Tight',sans-serif" font-size="17" font-weight="700" fill="#fff">Read · draft · flag</text>
+
+        <rect x="360" y="238" width="270" height="66" rx="10" fill="url(#recGrad)"><animate attributeName="opacity" values=".88;1;.88" dur="5s" begin="2.5s" repeatCount="indefinite"/></rect>
+        <text x="380" y="264" font-family="'JetBrains Mono',monospace" font-size="10" letter-spacing="2" fill="#A9B8FF">STRUCTURED RECORD</text>
+        <text x="380" y="286" font-family="'Inter Tight',sans-serif" font-size="14" font-weight="600" fill="#E6E8FA">Every run remembered</text>
+
+        <!-- record <-> agents loop -->
+        <line x1="430" y1="200" x2="430" y2="236" stroke="#282876" stroke-width="1.5" stroke-dasharray="4 3" opacity=".5" marker-end="url(#ah)"/>
+        <line x1="560" y1="236" x2="560" y2="200" stroke="#282876" stroke-width="1.5" stroke-dasharray="4 3" opacity=".5" marker-end="url(#ah)"/>
+
+        <!-- agents -> gate -->
+        <path id="pG" class="ants" d="M630,158 L688,158" fill="none" stroke="#C4CADF" stroke-width="1.5"/>
+
+        <!-- review gate -->
+        <rect x="690" y="126" width="122" height="64" rx="10" fill="#FFF8EC" stroke="#B97F1F" stroke-width="1.5"/>
+        <text x="751" y="152" text-anchor="middle" font-family="'JetBrains Mono',monospace" font-size="10" letter-spacing="2" fill="#B97F1F">REVIEW</text>
+        <text x="751" y="172" text-anchor="middle" font-family="'Inter Tight',sans-serif" font-size="12.5" font-weight="600" fill="#7A5510">a person approves</text>
+
+        <!-- gate -> outputs -->
+        <path id="pO1" class="ants" d="M812,158 C842,158 842,83 858,83" fill="none" stroke="#C4CADF" stroke-width="1.5"/>
+        <path id="pO2" class="ants" d="M812,158 C838,158 838,189 858,189" fill="none" stroke="#C4CADF" stroke-width="1.5"/>
+        <path id="pO3" class="ants" d="M812,158 C842,158 842,295 858,295" fill="none" stroke="#C4CADF" stroke-width="1.5"/>
+
+        <!-- output nodes -->
+        <g font-family="'JetBrains Mono',monospace" font-size="10" letter-spacing="1.5">
+          <rect x="860" y="60" width="122" height="46" rx="8" fill="#fff" stroke="#0E9F7E"/><text x="921" y="88" text-anchor="middle" fill="#0E9F7E" font-weight="500">DRAFT TO SIGN</text>
+          <rect x="860" y="166" width="122" height="46" rx="8" fill="#fff" stroke="#0E9F7E"/><text x="921" y="194" text-anchor="middle" fill="#0E9F7E" font-weight="500">DATES STAGED</text>
+          <rect x="860" y="272" width="122" height="46" rx="8" fill="#fff" stroke="#0E9F7E"/><text x="921" y="300" text-anchor="middle" fill="#0E9F7E" font-weight="500">OWNER BRIEF</text>
+        </g>
+
+        <!-- moving data dots (Conductor-style) -->
+        <circle r="4" fill="#2154F5"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#pS1"/></animateMotion></circle>
+        <circle r="4" fill="#2154F5"><animateMotion dur="3.2s" begin="0.8s" repeatCount="indefinite"><mpath href="#pS2"/></animateMotion></circle>
+        <circle r="4" fill="#2154F5"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#pS3"/></animateMotion></circle>
+        <circle r="4" fill="#2154F5"><animateMotion dur="3.2s" begin="2.4s" repeatCount="indefinite"><mpath href="#pS4"/></animateMotion></circle>
+        <circle r="4" fill="#2154F5"><animateMotion dur="1.4s" begin="0.5s" repeatCount="indefinite"><mpath href="#pG"/></animateMotion></circle>
+        <circle r="4" fill="#0E9F7E"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#pO1"/></animateMotion></circle>
+        <circle r="4" fill="#0E9F7E"><animateMotion dur="2s" begin="0.7s" repeatCount="indefinite"><mpath href="#pO2"/></animateMotion></circle>
+        <circle r="4" fill="#0E9F7E"><animateMotion dur="2s" begin="1.4s" repeatCount="indefinite"><mpath href="#pO3"/></animateMotion></circle>
+      </svg>
+    </div>
+    <div class="flow-ticker"><span>RUN &gt;&gt;&gt; <b id="ftLine">INTAKE TRIAGE · SCORING 7 NEW LEADS</b></span><span>Illustrative</span></div>
+  </div>
+</section>
+
+<section id="work">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">What we take off your plate</span>
+      <h2>The parts of practice nobody went to law school for.</h2>
+      <p>Pick where the pain is. We build the agents for that function, wire them into the tools you already use, and hand you the keys.</p>
+    </div>
+    <div class="fgrid">
+      <a class="card" href="#"><h3>Intake &amp; growth</h3><p>Every lead scored, routed, and answered within minutes. Follow-up that never slips on a Friday afternoon.</p><span class="go">Explore &rarr;</span></a>
+      <a class="card" href="#"><h3>Deadlines &amp; compliance</h3><p>Orders parsed the day they arrive, dates staged to your calendar, conflicts surfaced before they become problems.</p><span class="go">Explore &rarr;</span></a>
+      <a class="card" href="#"><h3>Casework &amp; drafting</h3><p>Chronologies, deposition outlines, demand packages, and discovery responses drafted from your templates, in your voice.</p><span class="go">Explore &rarr;</span></a>
+      <a class="card" href="#"><h3>Client communications</h3><p>Status updates written and queued for every open matter. The biggest driver of referrals, finally consistent.</p><span class="go">Explore &rarr;</span></a>
+      <a class="card" href="#"><h3>Operations &amp; billing</h3><p>Time captured from the work itself, invoices assembled, receivables chased. Less leakage, faster collection.</p><span class="go">Explore &rarr;</span></a>
+      <a class="card" href="#"><h3>Practice intelligence</h3><p>One screen for revenue, utilization, matter aging, and pipeline. Ask for the status on any matter and get an answer.</p><span class="go">Explore &rarr;</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="how" class="panel">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">How it works</span>
+      <h2>Three phases. You approve the price before anything gets built.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="n">PHASE 01</div><h3>Blueprint</h3><p>We sit with your people, map the highest leverage workflows, and audit the software you already pay for. You leave with a written plan: which agents to build, in what order, and what each is expected to save.</p><span class="when">1 to 2 weeks · flat fee</span></div>
+      <div class="step"><div class="n">PHASE 02</div><h3>Build</h3><p>Agents tuned to your firm and wired into your practice management, email, calendar, and document systems. Integrations, training, and documentation included, at a fixed fee you approve first.</p><span class="when">Weeks, not quarters</span></div>
+      <div class="step"><div class="n">PHASE 03</div><h3>Run</h3><p>We keep the agents running, roll them out to the next group, and move them onto better models as they ship. Monthly reviews and priority support on a simple retainer.</p><span class="when">Ongoing · no long-term contract</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="builds">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Where firms start</span>
+      <h2>Start with one painful task.</h2>
+      <p>Fixed-scope builds with a defined exit point. Take one, blend two, or assemble agents one at a time. Not sure? That is what the Discovery Audit is for.</p>
+    </div>
+    <div class="builds">
+      <a class="build" href="#"><h3>AI Discovery Audit</h3><p>Maps your current work to specific agents, sequenced by return, plus a line by line software audit. You leave with an implementation plan and fixed pricing.</p><span class="dur">1 to 2 weeks</span></a>
+      <a class="build" href="#"><h3>File System Blueprint</h3><p>We scan your existing drive, map what you actually produce into a data model, standardize the folder structure, and hand back document templates and SOPs your team and every future agent build on.</p><span class="dur">2 to 4 weeks</span></a>
+      <a class="build" href="#"><h3>Firm Brain</h3><p>Your SOPs, templates, voice, and prior work product turned into a queryable brain every future drafting agent reads from.</p><span class="dur">2 to 4 weeks</span></a>
+      <a class="build" href="#"><h3>Discovery Operations Pack</h3><p>Issue surfacing, thread parsing, production inventory with cite back, deficiency letters, and a deadline parser that writes to your calendar.</p><span class="dur">4 to 6 weeks</span></a>
+      <a class="build" href="#"><h3>Managing Partner Dashboard</h3><p>Revenue, utilization, matter aging, pipeline, per matter status chat, and an auto compiled Monday morning brief.</p><span class="dur">3 to 4 weeks</span></a>
+      <a class="build" href="#"><h3>Modern Software Stack</h3><p>Replace narrow tools with internal apps and bridge the systems you keep. One system instead of a dozen logins.</p><span class="dur">6 to 16 weeks</span></a>
+      <a class="build" href="#"><h3>Marketing Suite</h3><p>Blog publisher, social repurposer, SEO topic scout, newsletter drafter, and an AI editor working from your voice.</p><span class="dur">3 to 4 weeks</span></a>
+    </div>
+  </div>
+</section>
+
+<section id="pricing" class="panel">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">How pricing works</span>
+      <h2>Every line priced on its own.</h2>
+      <p>Nobody has to buy the whole vision to fix one miserable task. Exact numbers come with your Blueprint.</p>
+    </div>
+    <div class="shape">
+      <div><div class="k">Once</div><h4>Environment setup</h4><p>Your own isolated cloud environment, connected to the email and document systems you already use.</p></div>
+      <div><div class="k">Per automation</div><h4>Fixed fee, adoption included</h4><p>Each agent priced before it is built, with the training and correction period included in the price.</p></div>
+      <div><div class="k">Monthly</div><h4>Small hosting fee</h4><p>Keeping the environment running, routed, and measured. Not a consulting retainer in disguise.</p></div>
+      <div><div class="k">Pass through</div><h4>Model usage at cost</h4><p>No markup on tokens. We are paid to keep the system running and to drive that number down.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap split">
+    <div>
+      <span class="eyebrow">Human in the loop</span>
+      <h2>The work is automated. The judgment never is.</h2>
+      <p class="lead">The overnight run produces drafts, flags, and signals. Not one of them is a decision. Everything waits at your desk until someone at the firm approves it. That is not a limitation we engineered around. It is the architecture.</p>
+    </div>
+    <div class="rules">
+      <div class="rule"><h4>A person releases everything</h4><p>Drafts queue in your folders and your drafts box. Nothing reaches a client, a court, or a counterparty until someone inside the firm sends it.</p></div>
+      <div class="rule"><h4>You own what we build</h4><p>Full source, running in infrastructure you control. If we part ways, it keeps running.</p></div>
+      <div class="rule"><h4>Never trained on your data</h4><p>Your work product improves nothing for anyone else, not even anonymized.</p></div>
+      <div class="rule"><h4>It flags rather than guesses</h4><p>Anything that fails a check stops and asks. Confident wrong answers are the one failure mode we refuse.</p></div>
+      <div class="rule"><h4>Your data stays where it is</h4><p>Everything runs inside your own cloud, reading the storage and mail you already own. No second copy in somebody else's vault.</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="panel">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow">Find what fits</span>
+      <h2>Built for law firms first. Not only law firms.</h2>
+    </div>
+    <div class="pills">
+      <a class="pill" href="#">Personal Injury</a>
+      <a class="pill" href="#">Family Law</a>
+      <a class="pill" href="#">Real Estate</a>
+      <a class="pill" href="#">Tax</a>
+      <a class="pill" href="#">Immigration</a>
+      <a class="pill" href="#">Estates &amp; Probate</a>
+      <a class="pill" href="#">Disability</a>
+    </div>
+    <p class="explore-note">The same system runs anywhere partners review high stakes paperwork. <b>Private equity, accounting, insurance, and title teams</b> run on the same agents with different source material.</p>
+  </div>
+</section>
+
+<section style="padding-top:0">
+  <div class="wrap">
+    <div class="appstrip">
+      <span class="eyebrow">And the software</span>
+      <h3>Want proof before you commit to a build?</h3>
+      <p>The Dodonai app is the same engine, packaged. Deposition summaries with page and line cites, medical chronologies from records of any length, AI OCR, and semantic e-discovery. Free trial, no card required.</p>
+      <div class="applinks">
+        <a class="btn btn-primary" href="https://app.dodon.ai/signup">Start a free trial</a>
+        <a class="pill" href="https://www.dodon.ai/deposition-summary-software/">Deposition summaries</a>
+        <a class="pill" href="https://www.dodon.ai/ai-medical-record-summaries-chronologies/">Medical chronologies</a>
+        <a class="pill" href="https://www.dodon.ai/ai-pdf-ocr/">AI OCR</a>
+        <a class="pill" href="https://www.dodon.ai/electronic-discovery-software/">E-discovery</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="final blueprint" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <span class="eyebrow">Start here</span>
+    <h2>Bring us one painful task.</h2>
+    <p>Thirty minutes tells you whether an agent can take it, what the build costs, and how fast it goes live.</p>
+    <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+    <p class="fineprint">No pitch deck · No long-term contract · SOC 2 certified · HIPAA compliant</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in"><span>© 2026 Dodonai</span><span>hello@dodon.ai</span></div>
+</footer>
+
+<script>
+const ftLines=[
+  "INTAKE TRIAGE · SCORING 7 NEW LEADS",
+  "DEADLINE MONITOR · 11 DATES STAGED",
+  "DEMAND PACKAGE · 1,847 PAGES READ",
+  "CLIENT DIGEST · 23 UPDATES DRAFTED",
+  "AT THE REVIEW GATE · 4 DRAFTS WAITING"
+];
+const ftEl=document.getElementById('ftLine');
+if(ftEl && !matchMedia('(prefers-reduced-motion: reduce)').matches){
+  let i=0;
+  setInterval(()=>{ftEl.style.opacity=0;setTimeout(()=>{i=(i+1)%ftLines.length;ftEl.textContent=ftLines[i];ftEl.style.opacity=1},300)},2800);
+}
+</script>
+</body>
+</html>

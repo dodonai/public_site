@@ -1,0 +1,1349 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Dodonai — V5 Go AI Native</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@800&text=%CE%94%CF%89%CE%B4%CF%8E%CE%BD%CE%B7&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&family=Caveat:wght@700&family=Source+Code+Pro:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --indigo:#282876; --indigo-dk:#1E1E5A; --indigo-deep:#15154A;
+  --blue:#216FED; --muted:#8181AC; --ink:#282876;
+  --bg:#FFFFFF; --wash:#F4F5FD; --line:#E3E5F2; --line-2:#CFD3E8;
+  --teal:#0FA383; --amber:#B9821F; --lav:#A9B8FF;
+  --sans:'Plus Jakarta Sans',system-ui,sans-serif; --mono:'Source Code Pro',ui-monospace,monospace;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+body{background:var(--bg);color:#3A3A6B;font-family:var(--sans);font-size:16px;line-height:1.58;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+.wrap{max-width:1160px;margin:0 auto;padding:0 28px}
+h1,h2,h3{color:var(--indigo);letter-spacing:-.02em;line-height:1.08;font-weight:800}
+.eyebrow{font-family:var(--mono);font-size:11px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);display:block;margin-bottom:13px;font-weight:500}
+
+.nav{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.94);backdrop-filter:blur(12px);border-bottom:1px solid var(--line)}
+.nav-in{display:flex;align-items:center;gap:26px;height:68px}
+.logo{font-weight:800;font-size:21px;color:var(--indigo);letter-spacing:-.02em}
+.logo em{font-style:normal;color:var(--blue)}
+.nav-links{display:flex;gap:22px;margin-left:auto;font-size:14px;font-weight:600;color:var(--muted)}
+.nav-links a:hover{color:var(--indigo)}
+.btn{display:inline-block;font-size:14.5px;font-weight:700;padding:12px 26px;border-radius:999px;border:1px solid transparent;transition:.18s;white-space:nowrap}
+.btn-primary{background:var(--indigo);color:#fff;box-shadow:0 8px 20px -10px rgba(40,40,118,.55)}
+.btn-primary:hover{background:var(--indigo-dk);transform:translateY(-1px)}
+.btn-ghost{border-color:var(--line-2);color:var(--indigo)}
+.btn-ghost:hover{border-color:var(--blue);color:var(--blue)}
+.btn-lg{padding:15px 32px;font-size:15.5px}
+.btn-inverse{background:#fff;color:var(--indigo)}
+.btn-inverse:hover{background:var(--lav)}
+
+.hero{padding:84px 0 90px;background:
+  radial-gradient(700px 360px at 85% -10%, rgba(33,111,237,.08), transparent 70%),
+  radial-gradient(560px 320px at 0% 100%, rgba(40,40,118,.06), transparent 70%)}
+.hero-grid{display:grid;grid-template-columns:1.02fr 1fr;gap:56px;align-items:center}
+.hero h1{font-size:clamp(38px,5.2vw,64px)}
+.hero h1 .alt{color:var(--blue)}
+.hero .sub{margin:22px 0 0;font-size:18px;color:var(--muted);max-width:34em;line-height:1.62}
+.hero-cta{display:flex;gap:12px;margin:32px 0 26px;flex-wrap:wrap}
+.chips{display:flex;gap:9px;flex-wrap:wrap}
+.chip{font-size:12.5px;font-weight:700;color:var(--indigo);border:1px solid rgba(40,40,118,.12);background:var(--wash);border-radius:999px;padding:8px 15px}
+.chip i{font-style:normal;color:var(--teal);margin-right:6px}
+
+.console{background:linear-gradient(180deg,var(--indigo-dk),var(--indigo-deep));border:1px solid rgba(40,40,118,.35);border-radius:16px;overflow:hidden;box-shadow:0 32px 64px -32px rgba(40,40,118,.55)}
+.console-bar{display:flex;align-items:center;gap:10px;padding:13px 17px;border-bottom:1px solid rgba(255,255,255,.1);font-family:var(--mono);font-size:10.5px;letter-spacing:.1em;text-transform:uppercase;color:var(--lav)}
+.dot{width:7px;height:7px;border-radius:50%;background:#5EE6C4;animation:pulse 2.6s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 0 rgba(94,230,196,.4)}70%{box-shadow:0 0 0 7px rgba(94,230,196,0)}}
+.console-bar b{color:#fff;font-weight:500}
+.crow{display:grid;grid-template-columns:52px 1fr;gap:13px;padding:13px 17px;border-bottom:1px solid rgba(255,255,255,.06);opacity:0;transform:translateY(7px);animation:rise .55s ease forwards}
+.crow:nth-child(1){animation-delay:.25s}.crow:nth-child(2){animation-delay:.5s}
+.crow:nth-child(3){animation-delay:.75s}.crow:nth-child(4){animation-delay:1s}
+.crow:nth-child(5){animation-delay:1.25s}
+@keyframes rise{to{opacity:1;transform:none}}
+.crow .t{font-family:var(--mono);font-size:11.5px;color:#8FB3FF;padding-top:2px}
+.crow .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:#9A9AC6;margin-bottom:3px}
+.crow .d{font-size:13.5px;color:#E6E8FA;line-height:1.45}
+.tag{display:inline-block;margin-top:7px;font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;text-transform:uppercase;color:#F0C87E;border:1px solid rgba(240,200,126,.35);border-radius:4px;padding:2px 8px}
+.tag.done{color:#5EE6C4;border-color:rgba(94,230,196,.35)}
+.console-foot{padding:14px 17px;background:rgba(33,111,237,.15);border-top:1px solid rgba(255,255,255,.1);font-size:13px;color:#C9D2F4;display:flex;justify-content:space-between;gap:10px;flex-wrap:wrap}
+.console-foot b{color:#fff;font-weight:600}
+.ill{font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:#9A9AC6}
+
+section{padding:92px 0}
+.head{max-width:46rem;margin-bottom:48px}
+.head h2{font-size:clamp(30px,3.8vw,46px)}
+.head p{margin-top:14px;color:var(--muted);font-size:17px}
+.wash{background:var(--wash)}
+
+.fgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.card{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px;transition:.2s}
+.card:hover{border-color:rgba(33,111,237,.5);transform:translateY(-3px);box-shadow:0 18px 36px -22px rgba(40,40,118,.35)}
+.card h3{font-size:19px;margin-bottom:8px;font-weight:800}
+.card p{font-size:14px;color:var(--muted);line-height:1.55}
+.card .go{display:block;margin-top:14px;font-size:13.5px;font-weight:700;color:var(--indigo)}
+
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.step{background:#fff;border:1px solid var(--line);border-radius:14px;padding:30px 26px}
+.step .n{display:inline-flex;align-items:center;justify-content:center;width:38px;height:38px;border-radius:10px;background:var(--indigo);color:#fff;font-weight:800;font-size:15px}
+.step h3{font-size:21px;margin:14px 0 9px;font-weight:800}
+.step p{font-size:14.5px;color:var(--muted)}
+.step .when{margin-top:16px;display:inline-block;font-family:var(--mono);font-size:10px;letter-spacing:.1em;text-transform:uppercase;color:var(--indigo);background:var(--wash);border-radius:999px;padding:6px 12px}
+
+.builds{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.build{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px 24px;display:flex;gap:18px;align-items:flex-start;justify-content:space-between;transition:.18s}
+.build:hover{border-color:rgba(33,111,237,.5)}
+.build h3{font-size:17.5px;font-weight:800;margin-bottom:5px}
+.build p{font-size:13.5px;color:var(--muted)}
+.dur{font-family:var(--mono);font-size:10.5px;color:var(--teal);white-space:nowrap;border:1px solid rgba(15,163,131,.3);border-radius:999px;padding:4px 11px;flex:none;margin-top:3px}
+
+.shape{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.shape > div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:24px 22px}
+.shape .k{font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--blue);margin-bottom:8px}
+.shape h4{font-size:16px;font-weight:800;color:var(--indigo);margin-bottom:6px}
+.shape p{font-size:13.5px;color:var(--muted);line-height:1.5}
+
+.hitl{background:linear-gradient(135deg,var(--indigo),var(--indigo-dk));border-radius:24px;padding:56px;color:#fff}
+.hitl .split{display:grid;grid-template-columns:1fr 1fr;gap:56px;align-items:start}
+.hitl h2{color:#fff;font-size:clamp(28px,3.4vw,42px)}
+.hitl .eyebrow{color:var(--lav)}
+.hitl .lead{margin-top:16px;color:#C9D2F4;font-size:16.5px;line-height:1.6}
+.rules{display:grid;gap:14px}
+.rule{border-left:3px solid var(--lav);padding-left:18px}
+.rule h4{font-size:15.5px;font-weight:800;color:#fff;margin-bottom:4px}
+.rule p{font-size:13.5px;color:#C9D2F4}
+
+.pills{display:flex;flex-wrap:wrap;gap:8px;margin-top:14px}
+.pill{border:1px solid var(--line-2);border-radius:999px;padding:8px 16px;font-size:13.5px;font-weight:600;color:var(--muted);background:#fff;transition:.15s}
+.pill:hover{border-color:var(--blue);color:var(--blue)}
+.explore-note{margin-top:22px;font-size:15px;color:var(--muted);max-width:40em}
+.explore-note b{color:var(--indigo);font-weight:700}
+
+.appstrip{border:1px solid var(--line);border-radius:20px;padding:42px;background:var(--wash)}
+.appstrip h3{font-size:24px;margin:10px 0}
+.appstrip p{color:var(--muted);max-width:44rem;font-size:15.5px}
+.applinks{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;align-items:center}
+
+.final{text-align:center;padding:104px 0;background:linear-gradient(180deg,#fff,var(--wash))}
+.final h2{font-size:clamp(32px,4.4vw,52px);margin:14px auto 18px;max-width:18ch}
+.final p{color:var(--muted);max-width:34rem;margin:0 auto 32px;font-size:17px}
+.final .fineprint{margin-top:26px;font-family:var(--mono);font-size:10px;letter-spacing:.13em;text-transform:uppercase;color:var(--muted)}
+
+footer{border-top:1px solid var(--line);padding:34px 0;font-size:13px;color:var(--muted)}
+.foot-in{display:flex;justify-content:space-between;gap:16px;flex-wrap:wrap}
+
+@media (max-width:980px){
+  .hero-grid,.hitl .split{grid-template-columns:1fr;gap:40px}
+  .fgrid{grid-template-columns:repeat(2,1fr)}
+  .steps,.shape{grid-template-columns:1fr}
+  .builds{grid-template-columns:1fr}
+  .nav-links{display:none}
+  .hitl{padding:36px 28px}
+}
+@media (max-width:600px){.fgrid{grid-template-columns:1fr}section{padding:62px 0}.appstrip{padding:28px 22px}}
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}.crow{opacity:1;transform:none}}
+
+/* v4 additions */
+.hero{position:relative;overflow:hidden}
+.hero .wrap{position:relative;z-index:2}
+.blob{position:absolute;pointer-events:none;opacity:.5;z-index:0}
+.cycle{display:inline-block;min-width:7.5ch;color:var(--blue);transition:opacity .35s}
+.path-band{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:16px 0}
+.path-in{display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-family:var(--mono);font-size:11px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.path-in b{color:var(--indigo);font-weight:500}
+.path-in i{font-style:normal;color:var(--line-2)}
+.split2{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.bp-flow{display:grid;gap:10px}
+.bp-in{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--indigo);background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:10px 18px;width:max-content}
+.bp-arrow{font-family:var(--mono);color:var(--muted);padding-left:18px}
+.bp-doc{background:linear-gradient(135deg,var(--indigo),var(--indigo-dk));color:#fff;border-radius:14px;padding:20px 22px;max-width:340px}
+.bp-doc .k{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;color:var(--lav);display:block;margin-bottom:6px}
+.bp-doc p{font-size:13.5px;color:#C9D2F4}
+.flow-svg,.fs-svg{background:#fff;border:1px solid var(--line);border-radius:18px;padding:16px 10px 6px;box-shadow:0 24px 48px -30px rgba(40,40,118,.35)}
+.flow-svg svg,.fs-svg svg{width:100%;height:auto;display:block}
+.ants{stroke-dasharray:5 6;animation:ants 1.1s linear infinite}
+@keyframes ants{to{stroke-dashoffset:-11}}
+.flow-ticker{display:flex;justify-content:space-between;gap:12px;align-items:center;margin-top:14px;font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.flow-ticker b{color:var(--blue);font-weight:500;transition:opacity .3s}
+.fs-mono{font-family:'Source Code Pro',monospace;letter-spacing:1.2px}
+.arch{background:linear-gradient(135deg,#15154A,var(--indigo));border-radius:24px;padding:46px}
+.arch svg{width:100%;height:auto;display:block}
+.marq{border-top:1px solid var(--line);border-bottom:1px solid var(--line);background:#fff;padding:15px 0;overflow:hidden;position:relative;margin-top:44px}
+.marq::before,.marq::after{content:"";position:absolute;top:0;bottom:0;width:120px;z-index:2}
+.marq::before{left:0;background:linear-gradient(90deg,#fff,transparent)}
+.marq::after{right:0;background:linear-gradient(270deg,#fff,transparent)}
+.marq-track{display:flex;white-space:nowrap;animation:scroll 60s linear infinite;font-family:var(--mono);font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.marq-track b{font-weight:400;padding:0 20px;position:relative}
+.marq-track b::after{content:"";position:absolute;right:0;top:50%;width:4px;height:4px;border-radius:50%;background:var(--blue);opacity:.7;transform:translateY(-50%)}
+@keyframes scroll{to{transform:translateX(-50%)}}
+.marq-note{text-align:center;font-size:13.5px;color:var(--muted);margin-top:14px}
+.marq-note b{color:var(--indigo);font-weight:700}
+.vp-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vp{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px}
+.vp h3{font-size:18px;margin-bottom:8px}
+.vp p{font-size:13.5px;color:var(--muted)}
+.opt-rules{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:36px}
+.opt-rules > div{background:#fff;border:1px solid var(--line);border-radius:14px;padding:22px}
+.opt-rules h4{font-size:15px;font-weight:800;color:var(--indigo);margin-bottom:5px}
+.opt-rules p{font-size:13.5px;color:var(--muted)}
+@media (max-width:980px){.split2{grid-template-columns:1fr;gap:36px}.vp-grid{grid-template-columns:repeat(2,1fr)}.opt-rules{grid-template-columns:1fr}.arch{padding:28px 20px}}
+@media (max-width:600px){.vp-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){.ants{animation:none}.marq-track{animation:none}svg animate,svg animateMotion,svg animateTransform{display:none}}
+
+/* ===== V5 system ===== */
+.grad{background:linear-gradient(95deg,var(--indigo) 10%,var(--blue) 90%);-webkit-background-clip:text;background-clip:text;color:transparent}
+.dotgrid{background-image:radial-gradient(rgba(40,40,118,.10) 1px,transparent 1px);background-size:22px 22px}
+.stepchip{display:inline-flex;align-items:center;gap:10px;margin-bottom:16px}
+.stepchip .ic{width:34px;height:34px;border-radius:9px;background:var(--indigo);display:inline-flex;align-items:center;justify-content:center;flex:none}
+.stepchip .ic svg{width:18px;height:18px;stroke:#fff;fill:none;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+.stepchip .st{font-family:var(--mono);font-size:10.5px;letter-spacing:.18em;text-transform:uppercase;color:var(--blue)}
+.stepchip .sn{font-size:14px;font-weight:800;color:var(--indigo);letter-spacing:-.01em}
+.lede{color:var(--muted);font-size:17px;max-width:44rem;margin-top:14px;line-height:1.62}
+h2.disp{font-size:clamp(32px,4.2vw,52px);letter-spacing:-.028em}
+
+/* path band v2 */
+.path2{background:#fff;border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0}
+.path2-in{display:grid;grid-template-columns:repeat(5,1fr);gap:0;position:relative}
+.path2-in::before{content:"";position:absolute;top:26px;left:9%;right:9%;border-top:2px dashed var(--line-2);z-index:0}
+.pstep{position:relative;z-index:1;text-align:center;padding:0 8px;display:block}
+.pstep .pic{width:52px;height:52px;border-radius:14px;background:linear-gradient(150deg,var(--indigo),#3A3A9C);margin:0 auto;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 22px -10px rgba(40,40,118,.5);transition:.2s}
+.pstep:hover .pic{transform:translateY(-3px)}
+.pstep .pic svg{width:24px;height:24px;stroke:#fff;fill:none;stroke-width:1.7;stroke-linecap:round;stroke-linejoin:round}
+.pstep .pn{font-family:var(--mono);font-size:9.5px;letter-spacing:.18em;color:var(--blue);margin-top:10px;display:block}
+.pstep .pt{font-size:15px;font-weight:800;color:var(--indigo)}
+.pstep .pd{font-size:11.5px;color:var(--muted);margin-top:2px}
+
+/* consoles (motif reuse) */
+.console.slim .crow{padding:11px 15px}
+.console-title{font-weight:800;color:#fff}
+
+/* organize storyboard */
+.story{display:grid;grid-template-columns:repeat(3,1fr);gap:16px}
+.panel{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px 18px 14px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.panel .ph{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:3px}
+.panel h3{font-size:17px;margin-bottom:10px}
+.panel svg{width:100%;height:auto;display:block;background:var(--wash);border-radius:10px}
+.dlv-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.dlv{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;display:flex;gap:14px;align-items:center}
+.dlv .dic{width:44px;height:56px;border-radius:6px;background:var(--wash);border:1px solid var(--line-2);position:relative;flex:none}
+.dlv .dic::before{content:"";position:absolute;left:8px;right:8px;top:10px;height:4px;border-radius:2px;background:var(--indigo);opacity:.75}
+.dlv .dic::after{content:"";position:absolute;left:8px;right:14px;top:20px;height:3px;border-radius:2px;background:var(--line-2);box-shadow:0 8px 0 var(--line-2),0 16px 0 var(--line-2)}
+.dlv .dt{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.dlv h4{font-size:15.5px;font-weight:800;color:var(--indigo)}
+.dlv p{font-size:12.5px;color:var(--muted)}
+
+/* dark ink sections */
+.ink{background:linear-gradient(160deg,#12123E,#1E1E5A 60%,#232368);color:#fff}
+.ink h2{color:#fff}
+.ink .lede{color:#B9C0E8}
+.ink .stepchip .ic{background:rgba(255,255,255,.14)}
+.ink .stepchip .sn{color:#fff}
+.ink .stepchip .st{color:var(--lav)}
+
+/* xform (ported from brief) */
+.xform{display:grid;grid-template-columns:1fr 70px 1fr;gap:10px;align-items:stretch;margin-top:8px}
+.xcol{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:20px}
+.xlabel{font-family:var(--mono);font-size:10px;letter-spacing:.16em;text-transform:uppercase;color:#B9C0E8;display:flex;align-items:center;gap:8px;margin-bottom:12px}
+.scatter{position:relative;height:300px}
+.tool-chip{position:absolute;font-family:var(--mono);font-size:10.5px;background:rgba(255,255,255,.08);color:#DDE1F5;border:1px solid rgba(255,255,255,.16);border-radius:8px;padding:6px 10px;white-space:nowrap}
+.runner{position:absolute;width:10px;height:10px;border-radius:50%;background:#F0C87E;box-shadow:0 0 12px rgba(240,200,126,.8);animation:runAround 7s linear infinite}
+@keyframes runAround{
+  0%{left:12%;top:8%}12%{left:66%;top:14%}25%{left:30%;top:38%}38%{left:74%;top:48%}
+  52%{left:10%;top:62%}66%{left:60%;top:72%}80%{left:26%;top:86%}100%{left:12%;top:8%}
+}
+.handlabel{position:absolute;bottom:-4px;left:0;right:0;text-align:center;font-size:11.5px;color:#8B92BE}
+.xarrow{display:flex;flex-direction:column;align-items:center;justify-content:center;gap:6px}
+.xarrow .at{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--lav);writing-mode:vertical-rl;transform:rotate(180deg)}
+.xarrow .ah{font-size:26px;color:#fff}
+.hub{position:relative;height:300px;display:flex;align-items:center;justify-content:center}
+.hub-core{width:128px;height:128px;border-radius:26px;background:linear-gradient(150deg,var(--blue),var(--indigo));display:flex;flex-direction:column;align-items:center;justify-content:center;color:#fff;position:relative;z-index:3;animation:hubPulse 2.8s ease-in-out infinite;box-shadow:0 0 0 0 rgba(33,111,237,.45)}
+@keyframes hubPulse{0%,100%{box-shadow:0 0 0 0 rgba(33,111,237,.45)}55%{box-shadow:0 0 0 22px rgba(33,111,237,0)}}
+.hub-core .hw{font-weight:800;font-size:16px;letter-spacing:-.01em}
+.hub-core .hs{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:#CFE0FF;margin-top:4px}
+.spoke{position:absolute;font-family:var(--mono);font-size:10.5px;font-weight:600;background:#1B1B52;color:#fff;border:1px solid rgba(169,184,255,.45);border-radius:8px;padding:6px 10px;white-space:nowrap;z-index:2;opacity:0;animation:spokeIn .5s ease forwards}
+@keyframes spokeIn{from{opacity:0;transform:scale(.7)}to{opacity:1;transform:scale(1)}}
+.spoke:nth-of-type(1){top:2%;left:50%;transform:translateX(-50%);animation-delay:.3s}
+.spoke:nth-of-type(2){top:20%;right:2%;animation-delay:.5s}
+.spoke:nth-of-type(3){bottom:20%;right:0;animation-delay:.7s}
+.spoke:nth-of-type(4){bottom:2%;left:50%;transform:translateX(-50%);animation-delay:.9s}
+.spoke:nth-of-type(5){bottom:20%;left:0;animation-delay:1.1s}
+.spoke:nth-of-type(6){top:20%;left:2%;animation-delay:1.3s}
+.spoke.app{background:var(--blue);border-color:#CFE0FF}
+.hub svg.links{position:absolute;inset:0;width:100%;height:100%;z-index:1}
+.hub svg.links line{stroke:rgba(169,184,255,.35);stroke-width:1;stroke-dasharray:4 5;animation:ants 1.4s linear infinite}
+.xcap{display:grid;grid-template-columns:1fr 70px 1fr;gap:10px;margin-top:10px}
+.xcap p{font-size:12.5px;color:#8B92BE;padding:0 6px}
+
+/* logo scroller (pure CSS, static content) */
+.logos{margin-top:40px;overflow:hidden;position:relative;-webkit-mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent);mask-image:linear-gradient(90deg,transparent,#000 12%,#000 88%,transparent)}
+.logorow{display:flex;gap:10px;width:max-content;padding:6px 0}
+.logorow.r1{animation:lscroll 46s linear infinite}
+.logorow.r2{animation:lscroll 46s linear infinite reverse}
+@keyframes lscroll{to{transform:translateX(-50%)}}
+.lbadge{font-family:var(--mono);font-size:12px;letter-spacing:.08em;color:#DDE1F5;background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.13);border-radius:10px;padding:10px 18px;white-space:nowrap}
+.logos-note{text-align:center;font-size:13.5px;color:#8B92BE;margin-top:16px}
+.logos-note b{color:#fff;font-weight:700}
+
+/* automate foundation graphic */
+.found{background:#fff;border:1px solid var(--line);border-radius:16px;padding:14px 10px 4px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3);margin-bottom:16px}
+.found svg{width:100%;height:auto;display:block}
+.bento{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.bento .wide{grid-column:1/-1}
+.excard{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.excard .ph{font-family:var(--mono);font-size:9.5px;letter-spacing:.16em;text-transform:uppercase;color:var(--blue)}
+.excard h3{font-size:17px;margin:3px 0 4px}
+.excard .pd{font-size:13px;color:var(--muted);margin-bottom:12px}
+
+/* app showcase */
+.appwin{border-radius:16px;overflow:hidden;border:1px solid var(--line-2);box-shadow:0 40px 80px -40px rgba(40,40,118,.5);background:#fff}
+.appwin-bar{display:flex;align-items:center;gap:8px;padding:10px 14px;background:var(--wash);border-bottom:1px solid var(--line)}
+.appwin-bar i{width:10px;height:10px;border-radius:50%;display:inline-block}
+.appwin-url{font-family:var(--mono);font-size:11px;color:var(--muted);background:#fff;border:1px solid var(--line);border-radius:999px;padding:4px 14px;margin-left:8px}
+.appwin-body{display:grid;grid-template-columns:150px 1fr;min-height:290px}
+.appnav{background:var(--wash);border-right:1px solid var(--line);padding:14px 0}
+.appnav div{font-size:12px;font-weight:600;color:var(--muted);padding:9px 16px}
+.appnav div.on{color:var(--blue);background:rgba(33,111,237,.08);border-right:2px solid var(--blue)}
+.appmain{padding:20px 22px}
+.appmain .doc{font-family:var(--mono);font-size:11px;color:var(--indigo)}
+.appbar{height:6px;border-radius:3px;background:var(--line);margin:12px 0 16px;overflow:hidden}
+.appbar i{display:block;height:100%;border-radius:3px;background:linear-gradient(90deg,var(--blue),var(--indigo));animation:appfill 5s ease-in-out infinite}
+@keyframes appfill{0%{width:4%}55%{width:100%}100%{width:100%}}
+.sumline{height:9px;border-radius:5px;background:var(--wash);margin-bottom:9px;opacity:0;animation:sumin 5s ease-in-out infinite}
+.sumline:nth-child(1){width:92%;animation-delay:2.6s}
+.sumline:nth-child(2){width:84%;animation-delay:2.9s}
+.sumline:nth-child(3){width:88%;animation-delay:3.2s}
+.sumline:nth-child(4){width:60%;animation-delay:3.5s}
+@keyframes sumin{0%,52%{opacity:0;transform:translateY(4px)}62%,100%{opacity:1;transform:none}}
+.appfoot{display:flex;gap:10px;align-items:center;margin-top:14px;opacity:0;animation:sumin 5s ease-in-out infinite;animation-delay:3.8s}
+.appfoot .cite{font-family:var(--mono);font-size:10px;color:var(--teal);border:1px solid rgba(15,163,131,.35);border-radius:999px;padding:4px 10px}
+.appfoot .exp{font-size:12px;font-weight:700;color:#fff;background:var(--indigo);border-radius:8px;padding:7px 14px}
+
+/* value props */
+.vp2-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:16px}
+.vp2{background:#fff;border:1px solid var(--line);border-radius:16px;padding:26px 24px;position:relative;overflow:hidden}
+.vp2::before{content:"";position:absolute;top:0;left:0;right:0;height:3px;background:linear-gradient(90deg,var(--indigo),var(--blue))}
+.vp2 .ar{font-family:var(--mono);font-size:22px;color:var(--blue)}
+.vp2 h3{font-size:17.5px;margin:8px 0 6px}
+.vp2 p{font-size:13px;color:var(--muted)}
+
+/* security */
+.sec-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:14px;margin-top:34px}
+.sec-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.13);border-radius:14px;padding:20px 18px}
+.sec-card img{height:26px;margin-bottom:10px;display:block}
+.sec-card h4{font-size:14px;font-weight:800;color:#fff;margin-bottom:5px}
+.sec-card p{font-size:12px;color:#B9C0E8}
+
+@media (max-width:980px){
+  .path2-in{grid-template-columns:repeat(2,1fr);gap:20px}
+  .path2-in::before{display:none}
+  .story,.dlv-row{grid-template-columns:1fr}
+  .xform,.xcap{grid-template-columns:1fr}
+  .xarrow .at{writing-mode:horizontal-tb;transform:none}
+  .bento{grid-template-columns:1fr}
+  .vp2-grid,.sec-grid{grid-template-columns:repeat(2,1fr)}
+  .appwin-body{grid-template-columns:1fr}
+  .appnav{display:flex;overflow-x:auto;padding:0}
+}
+@media (max-width:600px){.vp2-grid,.sec-grid{grid-template-columns:1fr}}
+@media (prefers-reduced-motion:reduce){
+  .runner,.logorow.r1,.logorow.r2,.appbar i,.sumline,.appfoot,.hub-core,.spoke{animation:none}
+  .spoke,.sumline,.appfoot{opacity:1}
+}
+
+/* v6 */
+.announce{display:inline-flex;align-items:center;gap:9px;font-size:13px;font-weight:600;color:var(--indigo);background:#fff;border:1px solid var(--line-2);border-radius:999px;padding:7px 16px 7px 8px;margin-bottom:22px;transition:.18s;box-shadow:0 6px 16px -10px rgba(40,40,118,.35)}
+.announce:hover{border-color:var(--blue);color:var(--blue)}
+.announce .an-tag{font-family:var(--mono);font-size:9px;letter-spacing:.12em;background:var(--blue);color:#fff;border-radius:999px;padding:4px 9px}
+.proof{border-bottom:1px solid var(--line)}
+.proof-top{background:#F7F8FE;border-top:1px solid var(--line);padding:34px 0}
+.proof-grid{display:grid;grid-template-columns:1.3fr 1fr 1fr;gap:36px;align-items:center}
+.proof-grid h3{font-size:19px;line-height:1.3;color:var(--indigo);max-width:24rem}
+.pstat b{display:block;font-size:38px;font-weight:800;color:var(--indigo);letter-spacing:-.03em}
+.pstat span{font-size:13.5px;color:var(--muted)}
+.proof-bot{background:var(--wash);padding:20px 0}
+.proof-bot-in{display:flex;align-items:center;gap:12px;flex-wrap:wrap}
+.p2label{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--muted);margin-right:8px}
+.pchip{font-size:13px;font-weight:700;color:var(--indigo);background:#fff;border:1px solid var(--line-2);border-radius:10px;padding:10px 16px}
+.pslot{font-family:var(--mono);font-size:10px;letter-spacing:.12em;color:#A5A9C8;border:1.5px dashed var(--line-2);border-radius:10px;padding:11px 16px}
+.bpdoc{grid-column:1/-1;margin-top:8px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:22px 24px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.bpdoc .bh{display:flex;justify-content:space-between;align-items:center;margin-bottom:14px}
+.bpdoc .bh .t{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--blue)}
+.bprow{display:grid;grid-template-columns:44px 1fr auto auto;gap:14px;align-items:center;padding:11px 4px;border-top:1px solid var(--line);opacity:0;animation:bpin 9s ease infinite}
+.bprow:nth-child(2){animation-delay:.0s}.bprow:nth-child(3){animation-delay:.5s}.bprow:nth-child(4){animation-delay:1s}.bprow:nth-child(5){animation-delay:1.5s}
+@keyframes bpin{0%{opacity:0;transform:translateY(5px)}6%,92%{opacity:1;transform:none}97%,100%{opacity:0}}
+.bprow .n{font-family:var(--mono);font-size:11px;color:var(--blue)}
+.bprow .w{font-size:14.5px;font-weight:700;color:var(--indigo)}
+.bprow .w small{display:block;font-weight:500;font-size:12px;color:var(--muted)}
+.bprow .seq{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--muted)}
+.bprow .fp{font-family:var(--mono);font-size:9.5px;letter-spacing:.1em;color:var(--teal);border:1px solid rgba(15,163,131,.35);border-radius:999px;padding:4px 10px}
+.qa{background:var(--wash);border-radius:10px;padding:14px;min-height:252px}
+.qabar{display:flex;align-items:center;gap:8px;background:#fff;border:1.5px solid var(--indigo);border-radius:999px;padding:9px 14px}
+.qabar svg{width:14px;height:14px;stroke:var(--muted);fill:none;stroke-width:2;flex:none}
+.qabar span{font-family:var(--mono);font-size:11px;color:var(--indigo);white-space:nowrap;overflow:hidden}
+.qaans{background:#fff;border:1px solid var(--line);border-left:3px solid var(--teal);border-radius:10px;padding:13px 14px;margin-top:12px;opacity:0;animation:qain 8s ease infinite;animation-delay:1.6s}
+@keyframes qain{0%{opacity:0;transform:translateY(5px)}12%,88%{opacity:1;transform:none}96%,100%{opacity:0}}
+.qaans p{font-size:12.5px;color:#3A3A6B;line-height:1.5}
+.qasrc{display:flex;gap:6px;flex-wrap:wrap;margin-top:9px}
+.qasrc span{font-family:var(--mono);font-size:8px;letter-spacing:.08em;color:var(--teal);border:1px solid rgba(15,163,131,.3);border-radius:5px;padding:3px 7px}
+.qacap{font-family:var(--mono);font-size:9px;letter-spacing:.1em;color:#8181AC;text-align:center;margin-top:12px}
+.dlv2-row{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-top:16px}
+.dlv2{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.dlv2 .dt{font-family:var(--mono);font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:var(--blue)}
+.dlv2 h4{font-size:15.5px;font-weight:800;color:var(--indigo);margin:2px 0 10px}
+.tplprev{background:var(--wash);border:1px solid var(--line);border-radius:8px;padding:14px 14px 10px;font-size:10.5px;line-height:1.75;color:#3A3A6B;min-height:170px}
+.tplprev .tk{font-family:var(--mono);font-size:9px;background:#FFF3D6;color:#8a6410;border-radius:4px;padding:1px 5px;border:1px solid #EDD9A3}
+.tplprev .cond{display:block;border:1.5px dashed #B9821F;border-radius:6px;padding:6px 8px;margin-top:8px;font-size:9.5px;color:#8a6410;background:#FFFBF0}
+.tplprev .cond b{font-family:var(--mono);font-size:8.5px;letter-spacing:.06em}
+.sopprev{background:var(--wash);border:1px solid var(--line);border-radius:8px;padding:12px 14px;min-height:170px}
+.sopstep{display:flex;gap:9px;align-items:baseline;padding:5px 0;font-size:11px;color:#3A3A6B}
+.sopstep .sn2{font-family:var(--mono);font-size:9px;color:var(--blue);flex:none}
+.sopbranch{margin-left:24px;border-left:1.5px dashed #B9821F;padding:4px 0 4px 10px;font-size:10px;color:#8a6410}
+.sopbranch b{font-family:var(--mono);font-size:8.5px}
+.exscroll{display:grid;grid-auto-flow:column;grid-auto-columns:min(660px,88%);gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;padding:4px 4px 14px;scrollbar-width:thin}
+.exscroll .excard{scroll-snap-align:start;margin:0}
+.exscroll::-webkit-scrollbar{height:8px}
+.exscroll::-webkit-scrollbar-thumb{background:var(--line-2);border-radius:4px}
+.exhint{display:flex;align-items:center;gap:8px;font-family:var(--mono);font-size:9.5px;letter-spacing:.14em;color:var(--muted);margin-bottom:10px}
+.dash{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden;box-shadow:0 24px 48px -30px rgba(40,40,118,.4)}
+.dash-bar{display:flex;justify-content:space-between;align-items:center;padding:12px 16px;background:var(--indigo);color:#fff;font-family:var(--mono);font-size:10px;letter-spacing:.12em}
+.dash-bar .ill2{color:var(--lav)}
+.dash-kpis{display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--line)}
+.kpi{background:#fff;padding:16px 18px}
+.kpi .kl{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.kpi b{display:block;font-size:26px;font-weight:800;color:var(--indigo);letter-spacing:-.02em;margin:2px 0}
+.kpi .kd{font-size:10.5px;color:var(--teal);font-weight:700}
+.kpi .kd.neg{color:#D14D5E}
+.dash-charts{display:grid;grid-template-columns:1.2fr 1fr;gap:1px;background:var(--line);border-top:1px solid var(--line)}
+.dchart{background:#fff;padding:14px 16px}
+.dchart .kl{font-family:var(--mono);font-size:8.5px;letter-spacing:.12em;text-transform:uppercase;color:var(--muted);display:block;margin-bottom:8px}
+.dchart svg{width:100%;height:auto;display:block}
+.vpx .bigvps{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+.bigvp{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.12);border-radius:16px;padding:28px 24px;transition:.25s;position:relative;overflow:hidden}
+.bigvp:hover{transform:translateY(-5px);background:rgba(255,255,255,.09);border-color:rgba(169,184,255,.5)}
+.bigvp .word{font-size:clamp(22px,2.2vw,28px);font-weight:800;letter-spacing:-.02em;color:#fff}
+.bigvp .dir{font-family:var(--mono);font-size:34px;line-height:1;background:linear-gradient(120deg,#A9B8FF,#5EE6C4);-webkit-background-clip:text;background-clip:text;color:transparent;display:block;margin-bottom:12px}
+.bigvp p{font-size:12.5px;color:#B9C0E8;margin-top:8px}
+.bigvp::after{content:"";position:absolute;left:24px;right:24px;bottom:18px;height:2px;background:linear-gradient(90deg,var(--blue),transparent);transform:scaleX(0);transform-origin:left;transition:transform .4s}
+.bigvp:hover::after{transform:scaleX(1)}
+@media (max-width:980px){.proof-grid{grid-template-columns:1fr;gap:18px}.dlv2-row{grid-template-columns:1fr}.vpx .bigvps{grid-template-columns:repeat(2,1fr)}.exscroll{grid-auto-columns:92%}}
+@media (max-width:600px){.vpx .bigvps{grid-template-columns:1fr}}
+
+/* v7 */
+.cyc-row{display:flex;gap:16px;flex-wrap:wrap;margin-top:12px}
+.cw{font-size:clamp(24px,3vw,34px);font-weight:800;letter-spacing:-.02em;background:linear-gradient(95deg,var(--indigo) 10%,var(--blue) 90%);-webkit-background-clip:text;background-clip:text;color:transparent;opacity:0}
+.cw.c1{animation:cw1 9s ease infinite}.cw.c2{animation:cw2 9s ease infinite}.cw.c3{animation:cw3 9s ease infinite}
+@keyframes cw1{0%{opacity:0;transform:translateY(8px)}5%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes cw2{0%,14%{opacity:0;transform:translateY(8px)}20%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+@keyframes cw3{0%,28%{opacity:0;transform:translateY(8px)}34%,90%{opacity:1;transform:none}97%,100%{opacity:0}}
+.logo-line{display:flex;align-items:center;gap:22px;flex-wrap:wrap}
+.wm{font-weight:800;font-size:16.5px;color:#8F94B8;letter-spacing:-.01em;filter:grayscale(1)}
+.wm.serif{font-family:Georgia,serif;font-weight:700}
+.wm.mono2{font-family:var(--mono);font-weight:500;font-size:14px;letter-spacing:.04em}
+.bp-svg{background:linear-gradient(150deg,#1B1B52,#282876);border-radius:16px;padding:14px;box-shadow:0 24px 48px -30px rgba(40,40,118,.55)}
+.bp-svg svg{width:100%;height:auto;display:block}
+.orow{display:grid;grid-template-columns:.85fr 1.15fr;gap:48px;align-items:center;padding:44px 0;border-top:1px solid var(--line)}
+.orow:first-of-type{border-top:none}
+.orow .num{font-family:var(--mono);font-size:11px;letter-spacing:.16em;color:var(--blue)}
+.orow h3{font-size:clamp(22px,2.4vw,30px);margin:6px 0 10px}
+.orow .od{font-size:15px;color:var(--muted);line-height:1.6}
+.orow .vis{background:#fff;border:1px solid var(--line);border-radius:16px;padding:16px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.orow .vis svg{width:100%;height:auto;display:block;background:var(--wash);border-radius:10px}
+.orow:nth-of-type(even){grid-template-columns:1.15fr .85fr}
+.orow:nth-of-type(even) .vis{order:-1}
+.keep-head{margin:56px 0 6px;display:flex;align-items:baseline;gap:14px}
+.keep-head h3{font-size:clamp(20px,2.2vw,26px)}
+.keep-head span{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--blue)}
+.ready{display:grid;grid-template-columns:1fr 60px 1.2fr;gap:14px;align-items:stretch;margin-bottom:20px}
+.rcheck{background:#fff;border:1px solid var(--line);border-radius:16px;padding:20px;box-shadow:0 16px 36px -26px rgba(40,40,118,.3)}
+.rcheck .rh{font-family:var(--mono);font-size:10px;letter-spacing:.16em;color:var(--blue);margin-bottom:12px}
+.ritem{display:flex;align-items:center;gap:12px;padding:11px 4px;border-top:1px solid var(--line)}
+.ritem .box{width:20px;height:20px;border-radius:6px;border:1.5px solid var(--line-2);display:flex;align-items:center;justify-content:center;flex:none;position:relative}
+.ritem .box i{font-style:normal;font-size:12px;font-weight:800;color:#fff;opacity:0}
+.ritem .rl{font-size:14px;font-weight:700;color:var(--indigo)}
+.ritem .rs{font-family:var(--mono);font-size:8.5px;letter-spacing:.1em;color:var(--muted);display:block}
+.ritem.i1 .box{animation:boxon 12s ease infinite;animation-delay:0s}.ritem.i1 .box i{animation:chkon 12s ease infinite}
+.ritem.i2 .box{animation:boxon2 12s ease infinite}.ritem.i2 .box i{animation:chkon2 12s ease infinite}
+.ritem.i3 .box{animation:boxon3 12s ease infinite}.ritem.i3 .box i{animation:chkon3 12s ease infinite}
+.ritem.i4 .box{animation:boxon4 12s ease infinite}.ritem.i4 .box i{animation:chkon4 12s ease infinite}
+@keyframes boxon{0%,4%{background:transparent;border-color:var(--line-2)}8%,94%{background:var(--teal);border-color:var(--teal)}100%{background:transparent}}
+@keyframes chkon{0%,4%{opacity:0}8%,94%{opacity:1}100%{opacity:0}}
+@keyframes boxon2{0%,12%{background:transparent;border-color:var(--line-2)}16%,94%{background:var(--teal);border-color:var(--teal)}100%{background:transparent}}
+@keyframes chkon2{0%,12%{opacity:0}16%,94%{opacity:1}100%{opacity:0}}
+@keyframes boxon3{0%,20%{background:transparent;border-color:var(--line-2)}24%,94%{background:var(--teal);border-color:var(--teal)}100%{background:transparent}}
+@keyframes chkon3{0%,20%{opacity:0}24%,94%{opacity:1}100%{opacity:0}}
+@keyframes boxon4{0%,28%{background:transparent;border-color:var(--line-2)}32%,94%{background:var(--teal);border-color:var(--teal)}100%{background:transparent}}
+@keyframes chkon4{0%,28%{opacity:0}32%,94%{opacity:1}100%{opacity:0}}
+.rarrow{display:flex;align-items:center;justify-content:center;font-size:26px;color:var(--line-2)}
+.ragent{animation:wake 12s ease infinite}
+@keyframes wake{0%,34%{opacity:.4;filter:saturate(.15)}42%,96%{opacity:1;filter:none}100%{opacity:.4}}
+.rstat-off{animation:soff 12s ease infinite}.rstat-on{animation:son 12s ease infinite;color:#5EE6C4!important}
+@keyframes soff{0%,36%{opacity:1}40%,100%{opacity:0;position:absolute}}
+@keyframes son{0%,38%{opacity:0}44%,96%{opacity:1}100%{opacity:0}}
+.rrow{opacity:0}
+.rrow.r1{animation:rin1 12s ease infinite}.rrow.r2{animation:rin2 12s ease infinite}.rrow.r3{animation:rin3 12s ease infinite}
+@keyframes rin1{0%,46%{opacity:0;transform:translateY(6px)}52%,95%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes rin2{0%,58%{opacity:0;transform:translateY(6px)}64%,95%{opacity:1;transform:none}100%{opacity:0}}
+@keyframes rin3{0%,70%{opacity:0;transform:translateY(6px)}76%,95%{opacity:1;transform:none}100%{opacity:0}}
+.vband{background:linear-gradient(135deg,#231E66 0%,#3A2E9C 48%,#1B4FD8 100%);color:#fff;position:relative;overflow:hidden}
+.vband::before{content:"";position:absolute;width:640px;height:640px;border-radius:50%;top:-320px;right:-180px;background:radial-gradient(circle,rgba(94,230,196,.14),transparent 70%)}
+.vband::after{content:"";position:absolute;width:520px;height:520px;border-radius:50%;bottom:-300px;left:-160px;background:radial-gradient(circle,rgba(169,184,255,.16),transparent 70%)}
+.vband .wrap{position:relative;z-index:1}
+.vband h2{color:#fff}
+.bigvp2{background:rgba(255,255,255,.07);backdrop-filter:blur(6px);border:1px solid rgba(255,255,255,.16);border-radius:18px;padding:30px 26px;transition:.25s;position:relative;overflow:hidden;min-height:190px}
+.bigvp2:hover{transform:translateY(-6px);background:rgba(255,255,255,.12);border-color:rgba(255,255,255,.35)}
+.bigvp2 .idx{position:absolute;top:18px;right:20px;font-family:var(--mono);font-size:10px;color:rgba(255,255,255,.4)}
+.bigvp2 .dir{font-family:var(--mono);font-size:38px;line-height:1;background:linear-gradient(120deg,#5EE6C4,#A9B8FF);-webkit-background-clip:text;background-clip:text;color:transparent;display:block}
+.bigvp2 .word{font-size:clamp(24px,2.4vw,30px);font-weight:800;letter-spacing:-.02em;color:#fff;display:block;margin-top:10px}
+.bigvp2 p{font-size:13px;color:#C7CCEF;margin-top:9px;transition:.25s}
+.bigvp2 .eg{position:absolute;left:26px;right:26px;bottom:22px;font-size:12.5px;font-style:italic;color:#5EE6C4;opacity:0;transform:translateY(6px);transition:.28s}
+.bigvp2:hover p{opacity:0}
+.bigvp2:hover .eg{opacity:1;transform:none}
+@media (max-width:980px){.orow,.orow:nth-of-type(even){grid-template-columns:1fr;gap:22px}.orow:nth-of-type(even) .vis{order:0}.ready{grid-template-columns:1fr}.rarrow{transform:rotate(90deg)}}
+
+/* v8 */
+.lg-row{display:flex;align-items:center;gap:28px;flex-wrap:wrap;padding:6px 0}
+.lg-label{font-family:var(--mono);font-size:10px;letter-spacing:.18em;text-transform:uppercase;color:#A5A9C8;flex:0 0 120px}
+.lg-items{display:flex;align-items:center;gap:34px;flex-wrap:wrap}
+.lg{display:inline-flex;align-items:center;gap:10px;font-weight:800;font-size:18px;letter-spacing:-.015em;color:#7A80A6;filter:grayscale(1);transition:.2s;white-space:nowrap}
+.lg:hover{color:var(--indigo);filter:none}
+.lg .mark{width:30px;height:30px;border-radius:8px;background:#E7E9F4;color:#6E7494;display:inline-flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;letter-spacing:0;flex:none;transition:.2s}
+.lg:hover .mark{background:var(--indigo);color:#fff}
+.lg .mark.pm{background:#DDE3F8;color:#4A5384}
+.lg.partner{font-weight:700}
+.lg-div{border-top:1px solid var(--line);margin:10px 0 10px 148px}
+/* qa icon fix: .orow .vis svg was inflating the magnifier */
+.orow .vis .qabar svg{width:14px;height:14px;background:transparent;border-radius:0}
+/* bigger deliverables */
+.dlv2{padding:24px}
+.dlv2 h4{font-size:18px}
+.dlv2 .dt{font-size:10px}
+.tplprev{font-size:12.5px;line-height:1.9;min-height:230px;padding:18px 18px 14px}
+.tplprev .tk{font-size:10.5px;padding:2px 7px}
+.tplprev .cond{font-size:11.5px;padding:8px 10px}
+.tplprev .cond b{font-size:10px}
+.sopprev{min-height:230px;padding:16px 18px}
+.sopstep{font-size:12.5px;padding:7px 0}
+.sopstep .sn2{font-size:10.5px}
+.sopbranch{font-size:11.5px}
+/* compact value cards */
+.bigvp2{padding:22px 20px;min-height:0}
+.bigvp2 .dir{font-size:26px;display:inline-block;vertical-align:middle;margin-right:10px}
+.bigvp2 .word{display:inline;font-size:21px;vertical-align:middle;margin-top:0}
+.bigvp2 p{margin-top:12px;font-size:12.5px}
+.bigvp2 .eg{bottom:16px;font-size:12px}
+.bigvp2 .idx{top:14px;right:16px}
+@media (max-width:980px){.lg-label{flex-basis:100%}.lg-div{margin-left:0}}
+
+/* v9 */
+.skip{position:absolute;left:-9999px;top:8px;background:var(--indigo);color:#fff;padding:10px 18px;border-radius:8px;z-index:100;font-weight:700;font-size:14px}
+.skip:focus{left:12px}
+.greek{display:inline-flex;align-items:baseline;font-weight:800;font-size:16px;font-family:'Noto Sans',system-ui,sans-serif;color:#A5A9C8;border-bottom:1px dotted var(--line-2);margin-left:4px;transition:.2s}
+.greek:hover{color:var(--indigo);border-bottom-color:var(--indigo)}
+.greek .colon{margin-right:6px;color:var(--line-2);font-weight:400}
+@media (max-width:1180px){.greek{display:none}}
+.cycler{margin:20px 0 4px;padding-left:16px;border-left:2px solid var(--line-2);max-width:34em}
+.cyc-label{display:block;font-family:var(--mono);font-size:10px;letter-spacing:.14em;text-transform:uppercase;color:#A5A9C8;margin-bottom:7px}
+.cyc-track{position:relative;height:48px}
+.cyc-track span{position:absolute;left:0;top:0;font-size:15.5px;font-weight:700;color:var(--indigo);line-height:1.35;opacity:0;animation:cyc 21s infinite}
+.cyc-track span:nth-child(1){animation-delay:0s}.cyc-track span:nth-child(2){animation-delay:3s}
+.cyc-track span:nth-child(3){animation-delay:6s}.cyc-track span:nth-child(4){animation-delay:9s}
+.cyc-track span:nth-child(5){animation-delay:12s}.cyc-track span:nth-child(6){animation-delay:15s}
+.cyc-track span:nth-child(7){animation-delay:18s}
+@keyframes cyc{0%{opacity:0;transform:translateY(7px)}1.7%{opacity:1;transform:none}12.6%{opacity:1;transform:none}14.3%{opacity:0;transform:translateY(-7px)}100%{opacity:0}}
+.whyquote{max-width:44rem;margin:52px auto 0;text-align:center}
+.whyquote blockquote{font-size:clamp(22px,2.8vw,32px);font-weight:800;font-style:italic;color:var(--indigo);letter-spacing:-.02em;line-height:1.25}
+.whyquote blockquote::before{content:"\201C";display:block;font-size:64px;line-height:.4;color:var(--blue);opacity:.4;margin-bottom:14px}
+.whyquote p{margin-top:14px;font-size:14.5px;color:var(--muted)}
+.aside2{margin-top:34px;font-size:15px;color:var(--muted);max-width:52em;line-height:1.65}
+.aside2 b{color:var(--indigo)}
+.aside2 a{color:var(--blue);font-weight:700}
+.beunique{text-align:center;margin-top:34px;font-size:0;line-height:0}
+.handwrite{display:inline-block;font-family:'Caveat','Segoe Script','Bradley Hand',ui-rounded,cursive;font-weight:700;font-size:clamp(52px,6.4vw,82px);line-height:1.05;color:var(--indigo);transform:rotate(-1.8deg);padding:0 .12em .06em 0}
+.handwrite.armed{clip-path:inset(0 100% -12% 0)}
+.handwrite.write{animation:hwrite 1.45s cubic-bezier(.42,.03,.4,1) forwards}
+@keyframes hwrite{from{clip-path:inset(0 100% -12% 0)}to{clip-path:inset(0 -8% -12% 0)}}
+.faqhead{display:grid;grid-template-columns:1fr 296px;gap:56px;align-items:start;max-width:none}
+.askbox{background:#fff;border:1px solid var(--line);border-radius:14px;padding:26px 24px}
+.askbox h4{font-size:17px;font-weight:800;color:var(--indigo);margin-bottom:8px}
+.askbox p{font-size:14px;color:var(--muted);line-height:1.55;margin-bottom:18px}
+.askbox .btn{width:100%;text-align:center}
+.faq{max-width:52rem}
+.faq details{border-bottom:1px solid var(--line)}
+.faq summary{cursor:pointer;list-style:none;padding:20px 34px 20px 0;font-size:16.5px;font-weight:800;color:var(--indigo);position:relative}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary::after{content:"+";position:absolute;right:4px;top:18px;font-size:22px;font-weight:400;color:#A5A9C8;line-height:1}
+.faq details[open] summary::after{content:"\2212"}
+.faq details p{padding:0 0 22px;font-size:15px;color:var(--muted);max-width:46em}
+.originband{position:relative;overflow:hidden;padding:52px 0 46px;background:linear-gradient(180deg,var(--wash),#fff)}
+.origin-in{max-width:42rem;position:relative}
+.origin-copy{margin-top:2px;font-size:15.5px;line-height:1.6;color:var(--muted)}
+.origin-copy .o-name{font-weight:700;color:var(--indigo)}
+.origin-copy .o-turn{display:block;margin-top:.7em;font-weight:600;color:var(--indigo)}
+.origin-mark{position:absolute;left:calc(42rem + 56px);top:50%;transform:translateY(-50%);font-family:'Noto Sans',system-ui,sans-serif;font-weight:800;font-size:clamp(56px,7vw,104px);line-height:1;white-space:nowrap;color:var(--indigo);opacity:.06;user-select:none;pointer-events:none}
+@media (max-width:900px){.origin-mark{position:static;transform:none;display:block;margin-top:18px;font-size:clamp(46px,13vw,68px);opacity:.07}.faqhead{grid-template-columns:1fr;gap:28px}}
+.flink{position:relative;font-weight:700;color:var(--indigo);padding-bottom:2px;transition:color .18s}
+.flink:hover{color:var(--blue)}
+.flink::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1.5px;background:currentColor;transform:scaleX(0);transform-origin:left;transition:transform .28s cubic-bezier(.22,.85,.3,1)}
+.flink:hover::after{transform:scaleX(1)}
+.flink .arw{display:inline-block;margin-left:4px;transition:transform .28s cubic-bezier(.22,.85,.3,1)}
+.flink:hover .arw{transform:translateX(4px)}
+.pre{opacity:0;transform:translateY(15px)}
+.in{opacity:1;transform:none;transition:opacity .6s ease,transform .6s cubic-bezier(.22,.85,.3,1)}
+@media (prefers-reduced-motion:reduce){.pre{opacity:1;transform:none}.cyc-track{position:static;height:auto;min-height:24px}.cyc-track span{display:none}.cyc-track span:first-child{display:block;position:static;opacity:1}.handwrite.armed{clip-path:none}}
+</style>
+</head>
+<body>
+<span id="top"></span>
+<a href="#organize" class="skip">Skip to content</a>
+
+<nav class="nav">
+  <div class="wrap nav-in">
+    <span style="display:flex;align-items:center"><a href="#" aria-label="Dodonai"><img src="https://www.dodon.ai/images/brand/logo-main.webp" alt="Dodonai" style="height:32px;width:auto;display:block"></a><a href="#origin" class="greek" aria-label="Dodona: where the name comes from"><span class="colon" aria-hidden="true">:</span>&#916;&#969;&#948;&#974;&#957;&#951;</a></span>
+    <div class="nav-links">
+      <a href="#blueprint">How it works</a>
+      <a href="#orchestrate">Integrations</a>
+      <a href="#app">The app</a>
+      <a href="#security">Security</a>
+    </div>
+    <a class="btn btn-primary" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+  </div>
+</nav>
+
+<header class="hero dotgrid">
+  <img class="blob" src="https://www.dodon.ai/images/brand/ellipse-blue.webp" alt="" style="width:540px;top:-170px;right:-130px">
+  <img class="blob" src="https://www.dodon.ai/images/brand/ellipse-lavender.webp" alt="" style="width:430px;bottom:-150px;left:-130px">
+  <div class="wrap hero-grid">
+    <div>
+      <a class="announce" href="https://www.dodon.ai/"><span class="an-tag">APP</span> Looking for the Dodonai App? Visit the product site &rarr;</a>
+      <span class="eyebrow">AI-native operations for law firms</span>
+      <h1>Go AI Native<br>with Dodonai.</h1>
+      <div class="cyc-row"><span class="cw c1">Organize.</span><span class="cw c2">Orchestrate.</span><span class="cw c3">Automate.</span></div>
+      <p class="sub">One partner to organize your documents, orchestrate your systems, and automate the work between the work. Live in weeks, priced line by line.</p>
+      <div class="cycler" aria-label="Tasks firms bring us">
+        <span class="cyc-label">Tasks firms bring us</span>
+        <div class="cyc-track">
+          <span>Reading the ten thousand pages nobody has time to read.</span>
+          <span>Pulling every date out of an order the day it lands.</span>
+          <span>Drafting against your precedent instead of from scratch.</span>
+          <span>Scoring intake against the cases you actually take.</span>
+          <span>Chasing the records request nobody answered.</span>
+          <span>Finding the matters where the next step never happened.</span>
+          <span>Assembling the Monday report nobody wants to build.</span>
+        </div>
+      </div>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+        <a class="btn btn-ghost btn-lg" href="#blueprint">See the path</a>
+      </div>
+      <div class="chips">
+        <span class="chip"><img src="https://www.dodon.ai/images/brand/icon-soc2.svg" alt="" style="height:15px;vertical-align:-3px;margin-right:6px">SOC 2 certified</span>
+        <span class="chip"><img src="https://www.dodon.ai/images/brand/icon-hipaa.svg" alt="" style="height:15px;vertical-align:-3px;margin-right:6px">HIPAA compliant</span>
+        <span class="chip"><i>&#10003;</i>You own what we build</span>
+      </div>
+    </div>
+      <div class="console" aria-label="Example overnight agent activity">
+        <div class="console-bar"><span class="dot"></span> <b>Overnight run</b> · Tuesday 7:12 AM</div>
+        <div>
+          <div class="crow"><div class="t">04:12</div><div><div class="k">Intake triage</div><div class="d">Seven new leads scored against your criteria. Two flagged high value, engagement letters drafted.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow"><div class="t">05:03</div><div><div class="k">Deadline monitor</div><div class="d">Three new orders parsed. Eleven dates staged for your calendar, two conflicts flagged.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow"><div class="t">05:40</div><div><div class="k">Demand package</div><div class="d">1,847 pages reduced to a dated treatment timeline, a records gap list, and a draft demand.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow"><div class="t">06:15</div><div><div class="k">Stalled matter watch</div><div class="d">Thirty-one matters where the next step never happened, with the reason attached to each one.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow"><div class="t">07:02</div><div><div class="k">Partner brief</div><div class="d">Revenue by practice area, utilization, matter aging, and pipeline on one page.</div><span class="tag done">Ready</span></div></div>
+        </div>
+        <div class="console-foot"><span><b>Nothing is filed, served, or sent</b> until a person approves it.</span><span class="ill">Illustrative</span></div>
+      </div>
+  </div>
+</header>
+
+<div class="proof">
+  <div class="proof-top">
+    <div class="wrap proof-grid">
+      <div><span class="eyebrow" style="margin-bottom:8px">In production</span><h3>Proven first in legal. Built for consequential knowledge work.</h3></div>
+      <div class="pstat"><b>250+</b><span>Firms running Dodonai software</span></div>
+      <div class="pstat"><b>50+</b><span>Custom agents live in client environments</span></div>
+    </div>
+  </div>
+  <div class="proof-bot">
+    <div class="wrap">
+      <div class="lg-row">
+        <span class="lg-label">Trusted by</span>
+        <div class="lg-items">
+          <span class="lg"><span class="mark">DL</span>Dabdoub Law</span>
+          <span class="lg"><span class="mark">JBY</span>JBY Accounting</span>
+          <span class="lg"><span class="mark">CL</span>Core Litigation</span>
+          <span class="lg"><span class="mark">NBC</span>NBC Law</span>
+          <span class="lg"><span class="mark">GL</span>Ginsberg Law</span>
+        </div>
+      </div>
+      <div class="lg-div"></div>
+      <div class="lg-row">
+        <span class="lg-label">Partners with</span>
+        <div class="lg-items">
+          <span class="lg partner"><span class="mark pm">A\</span>Anthropic</span>
+          <span class="lg partner"><span class="mark pm">&#10057;</span>OpenAI</span>
+          <span class="lg partner"><span class="mark pm">G</span>Google Gemini</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<section id="why" class="dotgrid" style="padding:84px 0;border-bottom:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head" style="max-width:52rem">
+      <span class="eyebrow">Why custom</span>
+      <h2 class="disp">Your firm is unique. <span class="grad">That is the advantage.</span></h2>
+      <p class="lede">Everyone has the same models. The edge is everything built around them: your precedent, your process, your standards. Off-the-shelf tools cannot carry those, so we build AI that does.</p>
+    </div>
+    <div class="fgrid">
+      <div class="card"><h3>It knows you</h3><p>Built on your precedent, your templates, and the corrections your reviewers make on the third draft. It writes the way your firm writes, because that is what it learned from.</p></div>
+      <div class="card"><h3>It knows your rules</h3><p>Which systems it may touch, which checks it must pass, where it stops and asks, whose approval it needs. Your answers, built in from day one, not a vendor's assumptions about everybody.</p></div>
+      <div class="card"><h3>It fits the work</h3><p>Built around the job, inside the tools your team already uses. The rollout sticks because nothing about the way your people work had to change.</p></div>
+    </div>
+    <div class="whyquote">
+      <blockquote>One size fits all fits almost nobody.</blockquote>
+      <p>The technology meant to differentiate firms should not make them all run the same way.</p>
+    </div>
+    <p class="aside2">It is how we build our own software, too. The <a href="https://www.dodon.ai/">Dodonai App</a> handles the document work every firm shares: summaries, chronologies, OCR, discovery. <b>Everything above it gets built around yours.</b></p>
+    <div class="beunique"><span class="handwrite">Be unique.</span></div>
+  </div>
+</section>
+
+<div class="path2">
+  <div class="wrap path2-in">
+    <a class="pstep" href="#blueprint"><span class="pic"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M3 8.5h14M8.5 3v14"/></svg></span><span class="pn">STEP 01</span><div class="pt">Blueprint</div><div class="pd">Audit &amp; plan</div></a>
+    <a class="pstep" href="#organize"><span class="pic"><svg viewBox="0 0 20 20"><path d="M2.5 5.5h5l1.6 2h8.4v8a1.5 1.5 0 0 1-1.5 1.5H4a1.5 1.5 0 0 1-1.5-1.5z"/><path d="M2.5 5.5V4A1.5 1.5 0 0 1 4 2.5h4"/></svg></span><span class="pn">STEP 02</span><div class="pt">Organize</div><div class="pd">Docs, data, maps</div></a>
+    <a class="pstep" href="#orchestrate"><span class="pic"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="3"/><path d="M10 2.5v3M10 14.5v3M2.5 10h3M14.5 10h3"/><circle cx="10" cy="2.5" r="1.2"/><circle cx="10" cy="17.5" r="1.2"/><circle cx="2.5" cy="10" r="1.2"/><circle cx="17.5" cy="10" r="1.2"/></svg></span><span class="pn">STEP 03</span><div class="pt">Orchestrate</div><div class="pd">One operating layer</div></a>
+    <a class="pstep" href="#automate"><span class="pic"><svg viewBox="0 0 20 20"><path d="M11 2 4.5 11H9l-1 7 7.5-10H11z"/></svg></span><span class="pn">STEP 04</span><div class="pt">Automate</div><div class="pd">Agents at work</div></a>
+    <a class="pstep" href="#optimize"><span class="pic"><svg viewBox="0 0 20 20"><path d="M3 15l4.5-4.5 3 3L17 6"/><path d="M13 6h4v4"/></svg></span><span class="pn">STEP 05</span><div class="pt">Optimize</div><div class="pd">Better every month</div></a>
+  </div>
+</div>
+
+<section id="blueprint">
+  <div class="wrap split2">
+    <div>
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><rect x="3" y="3" width="14" height="14" rx="2"/><path d="M3 8.5h14M8.5 3v14"/></svg></span><span><span class="st">Step 01</span><br><span class="sn">Blueprint Audit</span></span></div>
+      <h2 class="disp">Two weeks in, you hold <span class="grad">the plan.</span></h2>
+      <p class="lede">We interview your team and audit your data and systems. You leave with a written blueprint for automation: what to build, in what order, what each piece saves, and a fixed price for every line. Nothing gets built until you approve it.</p>
+    </div>
+    <div class="bp-svg" aria-label="A blueprint of the firm drawing itself, with automations stamped on">
+      <svg viewBox="0 0 560 430" xmlns="http://www.w3.org/2000/svg">
+        <defs><pattern id="bgrid" width="28" height="28" patternUnits="userSpaceOnUse"><path d="M28 0H0V28" fill="none" stroke="rgba(255,255,255,.07)" stroke-width="1"/></pattern></defs>
+        <rect x="0" y="0" width="560" height="430" fill="url(#bgrid)"/>
+        <text x="24" y="34" class="fs-mono" font-size="10" letter-spacing="2" fill="#A9B8FF">FIRM BLUEPRINT &middot; DRAFT 1</text>
+        <text x="536" y="34" text-anchor="end" class="fs-mono" font-size="9" fill="#6B71A8">ILLUSTRATIVE</text>
+        <g fill="none" stroke="#fff" stroke-width="1.3" opacity=".9">
+          <rect x="30" y="60" width="220" height="100" rx="6" stroke-dasharray="640" stroke-dashoffset="640"><animate attributeName="stroke-dashoffset" values="640;0;0;640" keyTimes="0;.12;.94;1" dur="11s" repeatCount="indefinite"/></rect>
+          <rect x="310" y="60" width="220" height="100" rx="6" stroke-dasharray="640" stroke-dashoffset="640"><animate attributeName="stroke-dashoffset" values="640;640;0;0;640" keyTimes="0;.1;.22;.94;1" dur="11s" repeatCount="indefinite"/></rect>
+          <rect x="30" y="200" width="220" height="100" rx="6" stroke-dasharray="640" stroke-dashoffset="640"><animate attributeName="stroke-dashoffset" values="640;640;0;0;640" keyTimes="0;.2;.32;.94;1" dur="11s" repeatCount="indefinite"/></rect>
+          <rect x="310" y="200" width="220" height="100" rx="6" stroke-dasharray="640" stroke-dashoffset="640"><animate attributeName="stroke-dashoffset" values="640;640;0;0;640" keyTimes="0;.3;.42;.94;1" dur="11s" repeatCount="indefinite"/></rect>
+          <path d="M250,110 H310" stroke-dasharray="60" stroke-dashoffset="60"><animate attributeName="stroke-dashoffset" values="60;60;0;0;60" keyTimes="0;.24;.3;.94;1" dur="11s" repeatCount="indefinite"/></path>
+          <path d="M140,160 V200" stroke-dasharray="40" stroke-dashoffset="40"><animate attributeName="stroke-dashoffset" values="40;40;0;0;40" keyTimes="0;.34;.4;.94;1" dur="11s" repeatCount="indefinite"/></path>
+          <path d="M250,250 H310" stroke-dasharray="60" stroke-dashoffset="60"><animate attributeName="stroke-dashoffset" values="60;60;0;0;60" keyTimes="0;.42;.48;.94;1" dur="11s" repeatCount="indefinite"/></path>
+          <path d="M420,160 V200" stroke-dasharray="40" stroke-dashoffset="40"><animate attributeName="stroke-dashoffset" values="40;40;0;0;40" keyTimes="0;.38;.44;.94;1" dur="11s" repeatCount="indefinite"/></path>
+        </g>
+        <g class="fs-mono" font-size="11" fill="#DDE1F5">
+          <g><text x="46" y="88">INTAKE</text><text x="46" y="106" font-size="8.5" fill="#8B92BE">7 LEADS / DAY &middot; 3 TOUCHES EACH</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.1;.14;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><text x="326" y="88">DRAFTING</text><text x="326" y="106" font-size="8.5" fill="#8B92BE">TEMPLATES LIVE IN 4 PLACES</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.2;.24;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><text x="46" y="228">RECORDS</text><text x="46" y="246" font-size="8.5" fill="#8B92BE">CHASED BY HAND, 3 STAFF</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.3;.34;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><text x="326" y="228">BILLING</text><text x="326" y="246" font-size="8.5" fill="#8B92BE">INVOICES LAG 12 DAYS</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.4;.44;.94;1" dur="11s" repeatCount="indefinite"/></g>
+        </g>
+        <g class="fs-mono" font-size="8.5">
+          <g><circle cx="220" cy="132" r="12" fill="#F0C87E"/><text x="220" y="136" text-anchor="middle" fill="#282876" font-size="11">&#9889;</text><rect x="146" y="120" width="62" height="16" rx="8" fill="#1B1B52" stroke="#F0C87E"/><text x="177" y="131" text-anchor="middle" fill="#F0C87E">AGENT 01</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.5;.55;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><circle cx="500" cy="132" r="12" fill="#F0C87E"/><text x="500" y="136" text-anchor="middle" fill="#282876" font-size="11">&#9889;</text><rect x="426" y="120" width="62" height="16" rx="8" fill="#1B1B52" stroke="#F0C87E"/><text x="457" y="131" text-anchor="middle" fill="#F0C87E">AGENT 02</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.58;.63;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><circle cx="220" cy="272" r="12" fill="#F0C87E"/><text x="220" y="276" text-anchor="middle" fill="#282876" font-size="11">&#9889;</text><rect x="146" y="260" width="62" height="16" rx="8" fill="#1B1B52" stroke="#F0C87E"/><text x="177" y="271" text-anchor="middle" fill="#F0C87E">AGENT 03</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.66;.71;.94;1" dur="11s" repeatCount="indefinite"/></g>
+          <g><circle cx="500" cy="272" r="12" fill="#F0C87E"/><text x="500" y="276" text-anchor="middle" fill="#282876" font-size="11">&#9889;</text><rect x="426" y="260" width="62" height="16" rx="8" fill="#1B1B52" stroke="#F0C87E"/><text x="457" y="271" text-anchor="middle" fill="#F0C87E">AGENT 04</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.74;.79;.94;1" dur="11s" repeatCount="indefinite"/></g>
+        </g>
+        <g><rect x="120" y="336" width="320" height="42" rx="21" fill="rgba(94,230,196,.1)" stroke="#5EE6C4"/><text x="280" y="356" text-anchor="middle" class="fs-mono" font-size="9.5" fill="#5EE6C4">4 AUTOMATIONS FOUND &middot; SEQUENCED BY RETURN</text><text x="280" y="370" text-anchor="middle" class="fs-mono" font-size="8.5" fill="#8FF5DC">EACH AT A FIXED PRICE YOU APPROVE FIRST</text>
+          <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.8;.86;.96;1" dur="11s" repeatCount="indefinite"/></g>
+        <text x="280" y="412" text-anchor="middle" class="fs-mono" font-size="9" fill="#6B71A8">WE DRAW HOW THE FIRM RUNS &middot; THEN MARK WHERE AGENTS TAKE OVER</text>
+      </svg>
+    </div>
+    </div>
+  
+    <div class="bpdoc" aria-label="Example blueprint output">
+      <div class="bh"><span class="t">OUTPUT · THE BLUEPRINT (EXCERPT)</span><span class="ill">Illustrative</span></div>
+      <div>
+        <div class="bprow"><span class="n">01</span><span class="w">Records chase agent<small>Highest leverage: 3 people spend mornings on provider follow-up.</small></span><span class="seq">WAVE 1 · WKS 1-3</span><span class="fp">FIXED PRICE</span></div>
+        <div class="bprow"><span class="n">02</span><span class="w">Document ingestion<small>Everything arriving by mail and email, classified and filed.</small></span><span class="seq">WAVE 1 · WKS 2-4</span><span class="fp">FIXED PRICE</span></div>
+        <div class="bprow"><span class="n">03</span><span class="w">Deadline capture<small>Orders parsed to calendar, conflicts flagged, nothing missed.</small></span><span class="seq">WAVE 2 · WKS 4-6</span><span class="fp">FIXED PRICE</span></div>
+        <div class="bprow"><span class="n">04</span><span class="w">Client digest<small>Status updates drafted in the firm voice for every open matter.</small></span><span class="seq">WAVE 2 · WKS 5-7</span><span class="fp">FIXED PRICE</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="organize" class="wash">
+  <div class="wrap">
+    <div class="head" style="max-width:52rem">
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><path d="M2.5 5.5h5l1.6 2h8.4v8a1.5 1.5 0 0 1-1.5 1.5H4a1.5 1.5 0 0 1-1.5-1.5z"/><path d="M2.5 5.5V4A1.5 1.5 0 0 1 4 2.5h4"/></svg></span><span><span class="st">Step 02</span><br><span class="sn">Organize</span></span></div>
+      <h2 class="disp">Turn the pile into <span class="grad">raw material.</span></h2>
+      <p class="lede">Documents and data classified. Systems and workflows mapped. All of it searchable. This is the foundation every agent builds on.</p>
+    </div>
+
+    <div class="orow">
+      <div>
+        <span class="num">02.1 &middot; DOCUMENTS &amp; DATA</span>
+        <h3>Storage, standardized.</h3>
+        <p class="od">One structure for every matter, created automatically the moment a case opens. Existing files migrate into it; new files are born organized. No more "New folder (3)".</p>
+      </div>
+      <div class="vis" style="max-width:560px;justify-self:center;width:100%"><svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+          <g><rect x="60" y="18" width="260" height="28" rx="14" fill="#282876"/><text x="190" y="36" text-anchor="middle" class="fs-mono" font-size="10" fill="#A9B8FF">&#9889; NEW MATTER &middot; SINGH V. ALLIED</text>
+            <animate attributeName="opacity" values="0;1;1;0" keyTimes="0;.06;.95;1" dur="9s" repeatCount="indefinite"/></g>
+          <line x1="190" y1="46" x2="190" y2="66" stroke="#CFD3E8" stroke-width="1.5" class="ants"/>
+          <g><rect x="30" y="68" width="320" height="26" rx="6" fill="#1E1E5A"/><text x="44" y="85" class="fs-mono" font-size="9.5" fill="#A9B8FF">/ MATTERS / SINGH-V-ALLIED</text>
+            <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.12;.18;.95;1" dur="9s" repeatCount="indefinite"/></g>
+          <g class="fs-mono" font-size="9.5">
+            <g><rect x="52" y="104" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="120" fill="#282876">01 &middot; INTAKE &amp; ENGAGEMENT</text><text x="332" y="120" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.2;.25;.95;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="52" y="134" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="150" fill="#282876">02 &middot; PLEADINGS &amp; DRAFTS</text><text x="332" y="150" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.27;.32;.95;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="52" y="164" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="180" fill="#282876">03 &middot; MEDICAL RECORDS</text><text x="332" y="180" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.34;.39;.95;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="52" y="194" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="210" fill="#282876">04 &middot; CORRESPONDENCE</text><text x="332" y="210" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.41;.46;.95;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="52" y="224" width="298" height="24" rx="5" fill="#fff" stroke="#CFD3E8"/><text x="66" y="240" fill="#282876">05 &middot; BILLING &amp; COSTS</text><text x="332" y="240" text-anchor="end" fill="#0FA383">&#10003;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.48;.53;.95;1" dur="9s" repeatCount="indefinite"/></g>
+          </g>
+          <circle r="3.5" fill="#216FED"><animateMotion dur="9s" repeatCount="indefinite" path="M20,150 C30,140 40,120 56,116" keyPoints="0;0;1;1" keyTimes="0;.6;.68;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.6;.64;.69;1" dur="9s" repeatCount="indefinite"/></circle>
+          <circle r="3.5" fill="#0FA383"><animateMotion dur="9s" repeatCount="indefinite" path="M20,190 C30,185 40,178 56,176" keyPoints="0;0;1;1" keyTimes="0;.7;.78;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.7;.74;.79;1" dur="9s" repeatCount="indefinite"/></circle>
+          <text x="190" y="284" text-anchor="middle" class="fs-mono" font-size="9" fill="#8181AC">SAME STRUCTURE, EVERY MATTER &middot; CREATED ON INTAKE</text>
+        </svg></div>
+    </div>
+    <div class="orow">
+      <div>
+        <span class="num">02.2 &middot; SYSTEMS &amp; WORKFLOWS</span>
+        <h3>Every workflow traced.</h3>
+        <p class="od">We follow the work through your systems and write down what we find: every handoff, every re-key, every place a matter waits on a human router.</p>
+      </div>
+      <div class="vis" style="max-width:560px;justify-self:center;width:100%"><svg viewBox="0 0 380 300" xmlns="http://www.w3.org/2000/svg">
+          <g fill="#fff" stroke="#CFD3E8">
+            <rect x="130" y="24" width="120" height="34" rx="8"><animate attributeName="stroke" values="#CFD3E8;#216FED;#CFD3E8;#CFD3E8" keyTimes="0;.1;.2;1" dur="8s" repeatCount="indefinite"/></rect>
+            <rect x="24" y="128" width="120" height="34" rx="8"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#216FED;#CFD3E8" keyTimes="0;.25;.35;.45" dur="8s" repeatCount="indefinite"/></rect>
+            <rect x="236" y="128" width="120" height="34" rx="8"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#216FED;#CFD3E8" keyTimes="0;.5;.6;.7" dur="8s" repeatCount="indefinite"/></rect>
+            <rect x="130" y="232" width="120" height="34" rx="8"><animate attributeName="stroke" values="#CFD3E8;#CFD3E8;#216FED;#CFD3E8" keyTimes="0;.72;.82;.92" dur="8s" repeatCount="indefinite"/></rect>
+          </g>
+          <g class="fs-mono" font-size="9.5" fill="#282876">
+            <text x="190" y="45" text-anchor="middle">CASE MGMT</text>
+            <text x="84" y="149" text-anchor="middle">OUTLOOK</text>
+            <text x="296" y="149" text-anchor="middle">ONEDRIVE</text>
+            <text x="190" y="253" text-anchor="middle">BILLING</text>
+          </g>
+          <path id="w1" d="M150,60 C120,88 100,103 90,126" stroke="#CFD3E8" stroke-width="1.5" fill="none" class="ants"/>
+          <path id="w2" d="M144,150 C190,150 230,150 234,148" stroke="#CFD3E8" stroke-width="1.5" fill="none" class="ants"/>
+          <path id="w3" d="M296,164 C280,195 245,215 215,230" stroke="#CFD3E8" stroke-width="1.5" fill="none" class="ants"/>
+          <circle r="4" fill="#216FED"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.1;.3;1" calcMode="linear"><mpath href="#w1"/></animateMotion><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.1;.28;.32;1" dur="8s" repeatCount="indefinite"/></circle>
+          <circle r="4" fill="#216FED"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.35;.55;1" calcMode="linear"><mpath href="#w2"/></animateMotion><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.35;.53;.57;1" dur="8s" repeatCount="indefinite"/></circle>
+          <circle r="4" fill="#216FED"><animateMotion dur="8s" repeatCount="indefinite" keyPoints="0;0;1;1" keyTimes="0;.6;.8;1" calcMode="linear"><mpath href="#w3"/></animateMotion><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.6;.78;.82;1" dur="8s" repeatCount="indefinite"/></circle>
+          <g class="fs-mono" font-size="8" fill="#B9821F">
+            <g><rect x="30" y="80" width="88" height="16" rx="8" fill="#FFF8EC" stroke="#B9821F"/><text x="74" y="91" text-anchor="middle">RE-KEYED DAILY</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.14;.2;.94;1" dur="8s" repeatCount="indefinite"/></g>
+            <g><rect x="152" y="122" width="76" height="16" rx="8" fill="#FFF8EC" stroke="#B9821F"/><text x="190" y="133" text-anchor="middle">NO SYNC</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.4;.46;.94;1" dur="8s" repeatCount="indefinite"/></g>
+            <g><rect x="238" y="196" width="104" height="16" rx="8" fill="#FFF8EC" stroke="#B9821F"/><text x="290" y="207" text-anchor="middle">MANUAL EXPORT</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.64;.7;.94;1" dur="8s" repeatCount="indefinite"/></g>
+          </g>
+          <text x="190" y="290" text-anchor="middle" class="fs-mono" font-size="9" fill="#8181AC">EVERY HANDOFF TRACED &middot; EVERY GAP PRICED</text>
+        </svg></div>
+    </div>
+    <div class="orow">
+      <div>
+        <span class="num">02.3 &middot; SEARCHABLE</span>
+        <h3>Ask your workspace anything.</h3>
+        <p class="od">Not keyword search: answers. Documents, mail, and billing in one semantic index, so the firm's knowledge responds in sentences with sources attached.</p>
+      </div>
+      <div class="vis" style="max-width:560px;justify-self:center;width:100%"><div class="qa">
+          <div class="qabar"><svg viewBox="0 0 20 20"><circle cx="9" cy="9" r="6"/><path d="M13.5 13.5 18 18"/></svg><span id="qaQ">What did we agree to in the Singh fee agreement?</span></div>
+          <div class="qaans">
+            <p><b>33% contingency, costs advanced,</b> signed March 12. The signed copy is filed to the matter; the current template has since moved to v4.</p>
+            <div class="qasrc"><span>FEE AGREEMENT &middot; SIGNED PDF</span><span>EMAIL &middot; MAR 12</span><span>TEMPLATES / V4</span></div>
+          </div>
+          <div class="qacap">ANSWERS WITH SOURCES &middot; DOCUMENTS, MAIL, BILLING, ONE INDEX</div>
+        </div></div>
+    </div>
+
+    <div class="keep-head"><span>WHAT YOU KEEP</span><h3>Three deliverables, yours on day one.</h3></div>
+    <div class="dlv2-row" style="grid-template-columns:repeat(auto-fit,minmax(360px,1fr));gap:22px;margin-top:18px">
+      <div class="dlv2"><span class="dt">Deliverable</span><h4>Document templates</h4>
+        <div class="tplprev">
+          <b style="font-size:11px;color:#282876">ENGAGEMENT LETTER &middot; v4</b><br>
+          Dear <span class="tk">{client_name}</span>, this letter confirms that <span class="tk">{firm_name}</span> will represent you in <span class="tk">{matter_desc}</span> on a <span class="tk">{fee_pct}</span> contingency basis&hellip;
+          <span class="cond"><b>&#8627; IF</b> client is a minor <b>&rarr;</b> insert guardian signature block</span>
+          <span class="cond"><b>&#8627; IF</b> fee is hourly <b>&rarr;</b> swap contingency clause for rate schedule</span>
+        </div>
+      </div>
+      <div class="dlv2"><span class="dt">Deliverable</span><h4>Workflow SOPs</h4>
+        <div class="sopprev">
+          <b style="font-size:11px;color:#282876">SOP &middot; NEW MATTER INTAKE</b>
+          <div class="sopstep"><span class="sn2">01</span>Lead scored against firm criteria within the hour</div>
+          <div class="sopstep"><span class="sn2">02</span>Conflict check across contacts and prior matters</div>
+          <div class="sopstep"><span class="sn2">03</span>Engagement letter generated from template</div>
+          <div class="sopbranch"><b>IF</b> conflict found <b>&rarr;</b> route to managing partner, halt</div>
+          <div class="sopstep"><span class="sn2">04</span>On signature: standard folder set created, matter opened</div>
+        </div>
+      </div>
+      <div class="dlv2"><span class="dt">Deliverable</span><h4>Systems maps</h4>
+        <div class="sopprev" style="display:flex;align-items:center;justify-content:center">
+          <svg viewBox="0 0 300 160" style="width:100%">
+            <g fill="#fff" stroke="#CFD3E8"><rect x="110" y="10" width="80" height="24" rx="6"/><rect x="14" y="68" width="80" height="24" rx="6"/><rect x="206" y="68" width="80" height="24" rx="6"/><rect x="110" y="126" width="80" height="24" rx="6"/></g>
+            <g stroke="#216FED" stroke-width="1.2"><line x1="130" y1="34" x2="70" y2="66"/><line x1="170" y1="34" x2="230" y2="66"/><line x1="70" y1="92" x2="130" y2="126"/><line x1="230" y1="92" x2="170" y2="126"/><line x1="94" y1="80" x2="206" y2="80"/></g>
+            <g class="fs-mono" font-size="8" fill="#282876"><text x="150" y="26" text-anchor="middle">CASE MGMT</text><text x="54" y="84" text-anchor="middle">EMAIL</text><text x="246" y="84" text-anchor="middle">DOCS</text><text x="150" y="142" text-anchor="middle">BILLING</text></g>
+            <circle cx="150" cy="80" r="3" fill="#B9821F"/><text x="150" y="70" text-anchor="middle" class="fs-mono" font-size="7" fill="#B9821F">GAP</text>
+          </svg>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="orchestrate" class="ink">
+  <div class="wrap">
+    <div class="head" style="max-width:52rem">
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><circle cx="10" cy="10" r="3"/><path d="M10 2.5v3M10 14.5v3M2.5 10h3M14.5 10h3"/><circle cx="10" cy="2.5" r="1.2"/><circle cx="10" cy="17.5" r="1.2"/><circle cx="2.5" cy="10" r="1.2"/><circle cx="17.5" cy="10" r="1.2"/></svg></span><span><span class="st">Step 03</span><br><span class="sn">Orchestrate</span></span></div>
+      <h2 class="disp">Every system rowing in the same direction.</h2>
+      <p class="lede">Today, a person is the integration layer. FirmOS replaces the clicking-between with one operating layer that connects what you keep, what we build, and what we bridge.</p>
+    </div>
+
+    <div class="xform">
+      <div class="xcol">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:#F0C87E;display:inline-block"></span> Today</div>
+        <div class="scatter">
+          <span class="tool-chip" style="top:6%;left:8%;transform:rotate(-4deg)">Case Management</span>
+          <span class="tool-chip" style="top:10%;left:58%;transform:rotate(3deg)">Outlook</span>
+          <span class="tool-chip" style="top:34%;left:24%;transform:rotate(2deg)">OneDrive</span>
+          <span class="tool-chip" style="top:42%;left:66%;transform:rotate(-3deg)">Billing</span>
+          <span class="tool-chip" style="top:58%;left:6%;transform:rotate(4deg)">DocuSign</span>
+          <span class="tool-chip" style="top:66%;left:48%;transform:rotate(-2deg)">Teams</span>
+          <span class="tool-chip" style="top:82%;left:20%;transform:rotate(-3deg)">Calendar</span>
+          <span class="tool-chip" style="top:84%;left:64%;transform:rotate(2deg)">Payments</span>
+          <span class="runner"></span>
+          <span class="handlabel">one person, clicking between all of them</span>
+        </div>
+      </div>
+      <div class="xarrow"><span class="at">Build &amp; own</span><span class="ah">&rarr;</span></div>
+      <div class="xcol">
+        <div class="xlabel"><span style="width:9px;height:9px;border-radius:50%;background:#216FED;display:inline-block"></span> FirmOS</div>
+        <div class="hub">
+          <svg class="links" viewBox="0 0 100 100" preserveAspectRatio="none">
+            <line x1="50" y1="50" x2="50" y2="8"/><line x1="50" y1="50" x2="92" y2="28"/>
+            <line x1="50" y1="50" x2="92" y2="72"/><line x1="50" y1="50" x2="50" y2="92"/>
+            <line x1="50" y1="50" x2="8" y2="72"/><line x1="50" y1="50" x2="8" y2="28"/>
+          </svg>
+          <div class="hub-core"><span class="hw">FirmOS</span><span class="hs">the brain</span></div>
+          <span class="spoke">Case Management</span><span class="spoke">Email &amp; Calendar</span><span class="spoke">OneDrive</span>
+          <span class="spoke app">Dodonai App</span><span class="spoke">Billing</span><span class="spoke">Teams</span>
+        </div>
+      </div>
+    </div>
+    <div class="xcap">
+      <p>Eight tabs, one human router, and every handoff a chance to drop the ball.</p>
+      <span></span>
+      <p>One layer reads and writes them all. The agents work here, and your team works where they always did.</p>
+    </div>
+
+    <div class="logos" aria-label="Platforms Dodonai integrates with">
+      <div class="logorow r1">
+        <span class="lbadge">Clio</span><span class="lbadge">MyCase</span><span class="lbadge">Filevine</span><span class="lbadge">Litify</span><span class="lbadge">Smokeball</span><span class="lbadge">PracticePanther</span><span class="lbadge">CASEpeer</span><span class="lbadge">Neos</span><span class="lbadge">Actionstep</span><span class="lbadge">NetDocuments</span><span class="lbadge">iManage</span><span class="lbadge">Egnyte</span><span class="lbadge">SharePoint</span><span class="lbadge">Google Drive</span><span class="lbadge">Dropbox</span><span class="lbadge">OneDrive</span>
+        <span class="lbadge">Clio</span><span class="lbadge">MyCase</span><span class="lbadge">Filevine</span><span class="lbadge">Litify</span><span class="lbadge">Smokeball</span><span class="lbadge">PracticePanther</span><span class="lbadge">CASEpeer</span><span class="lbadge">Neos</span><span class="lbadge">Actionstep</span><span class="lbadge">NetDocuments</span><span class="lbadge">iManage</span><span class="lbadge">Egnyte</span><span class="lbadge">SharePoint</span><span class="lbadge">Google Drive</span><span class="lbadge">Dropbox</span><span class="lbadge">OneDrive</span>
+      </div>
+      <div class="logorow r2">
+        <span class="lbadge">Gmail</span><span class="lbadge">Outlook</span><span class="lbadge">Google Calendar</span><span class="lbadge">DocuSign</span><span class="lbadge">Adobe Sign</span><span class="lbadge">QuickBooks</span><span class="lbadge">Xero</span><span class="lbadge">LawPay</span><span class="lbadge">Stripe</span><span class="lbadge">Slack</span><span class="lbadge">Teams</span><span class="lbadge">Zoom</span><span class="lbadge">RingCentral</span><span class="lbadge">Calendly</span><span class="lbadge">Salesforce</span><span class="lbadge">HubSpot</span>
+        <span class="lbadge">Gmail</span><span class="lbadge">Outlook</span><span class="lbadge">Google Calendar</span><span class="lbadge">DocuSign</span><span class="lbadge">Adobe Sign</span><span class="lbadge">QuickBooks</span><span class="lbadge">Xero</span><span class="lbadge">LawPay</span><span class="lbadge">Stripe</span><span class="lbadge">Slack</span><span class="lbadge">Teams</span><span class="lbadge">Zoom</span><span class="lbadge">RingCentral</span><span class="lbadge">Calendly</span><span class="lbadge">Salesforce</span><span class="lbadge">HubSpot</span>
+      </div>
+    </div>
+    <p class="logos-note">Plus <b>anything with an inbox, an API, or a screen</b>. No API? We bridge it anyway.</p>
+  </div>
+</section>
+
+<section id="automate">
+  <div class="wrap">
+    <div class="head" style="max-width:52rem">
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><path d="M11 2 4.5 11H9l-1 7 7.5-10H11z"/></svg></span><span><span class="st">Step 04</span><br><span class="sn">Automate</span></span></div>
+      <h2 class="disp">Now the agents <span class="grad">go to work.</span></h2>
+      <p class="lede">This is why the order matters. The templates, SOPs, and maps from Organize, plus the FirmOS layer, mean every automation starts from a foundation that already understands your firm.</p>
+    </div>
+
+    <div class="ready" aria-label="When the foundation is in place, the agent powers on">
+      <div class="rcheck">
+        <div class="rh">READY CHECK &middot; BEFORE ANY AGENT SHIPS</div>
+        <div class="ritem i1"><span class="box"><i>&#10003;</i></span><div><span class="rl">Document templates</span><span class="rs">FROM ORGANIZE</span></div></div>
+        <div class="ritem i2"><span class="box"><i>&#10003;</i></span><div><span class="rl">Workflow SOPs</span><span class="rs">FROM ORGANIZE</span></div></div>
+        <div class="ritem i3"><span class="box"><i>&#10003;</i></span><div><span class="rl">Systems maps</span><span class="rs">FROM ORGANIZE</span></div></div>
+        <div class="ritem i4"><span class="box"><i>&#10003;</i></span><div><span class="rl">FirmOS connected</span><span class="rs">FROM ORCHESTRATE</span></div></div>
+      </div>
+      <div class="rarrow">&rarr;</div>
+      <div class="console slim ragent" aria-label="Agent activates once the checklist completes">
+        <div class="console-bar"><span class="dot"></span> <b>Drafting agent</b> &middot; <span class="rstat-off" style="color:#F0C87E">STANDBY</span><span class="rstat-on">LIVE</span></div>
+        <div>
+          <div class="crow rrow r1" style="animation-name:rin1"><div class="t">9:02</div><div><div class="k">First run</div><div class="d">New demand letter drafted from your template, your SOP, your matter data. Not a blank prompt.</div><span class="tag">Awaiting your review</span></div></div>
+          <div class="crow rrow r2" style="animation-name:rin2"><div class="t">9:04</div><div><div class="k">Filed</div><div class="d">Draft saved to 02 &middot; Pleadings &amp; Drafts in the standard structure. Findable forever.</div><span class="tag done">Filed</span></div></div>
+          <div class="crow rrow r3" style="animation-name:rin3"><div class="t">9:05</div><div><div class="k">Logged</div><div class="d">Run recorded to the structured record. The next agent starts smarter.</div><span class="tag done">Logged</span></div></div>
+        </div>
+        <div class="console-foot"><span><b>No blank-slate AI.</b> The agent inherits everything steps 02 and 03 built.</span><span class="ill">Illustrative</span></div>
+      </div>
+    </div>
+
+    <div class="exhint"><span>EXAMPLES</span><span style="letter-spacing:0">&larr; &rarr;</span><span>SCROLL</span></div>
+    <div class="exscroll">
+      <div class="excard">
+        <div class="ph">Example 01 &middot; Document ingestion</div>
+        <h3>From inbox to filed work</h3>
+        <div class="pd">Everything that arrives gets read, classified, filed to the right matter, and turned into staged work, waiting on a person.</div>
+        <div style="background:var(--wash);border-radius:12px;padding:10px 6px 2px"><svg viewBox="0 0 1000 430" xmlns="http://www.w3.org/2000/svg">
+        <defs>
+          <linearGradient id="agGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#282876"/><stop offset="1" stop-color="#3A3A9C"/></linearGradient>
+          <linearGradient id="recGrad" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#15154A"/><stop offset="1" stop-color="#282876"/></linearGradient>
+          <marker id="ah" markerWidth="8" markerHeight="8" refX="7" refY="3" orient="auto"><polygon points="0 0, 8 3, 0 6" fill="#282876" opacity=".55"/></marker>
+        </defs>
+
+        <!-- source nodes -->
+        <g font-family="'Source Code Pro',monospace" font-size="11" letter-spacing="2">
+          <rect x="20" y="40" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="68" text-anchor="middle" fill="#282876" font-weight="500">EMAIL</text>
+          <rect x="20" y="134" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="162" text-anchor="middle" fill="#282876" font-weight="500">DOCUMENTS</text>
+          <rect x="20" y="228" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="256" text-anchor="middle" fill="#282876" font-weight="500">CALENDAR</text>
+          <rect x="20" y="322" width="150" height="46" rx="10" fill="#F4F5FD" stroke="#CFD3E8"/><text x="95" y="350" text-anchor="middle" fill="#282876" font-weight="500">BILLING</text>
+        </g>
+
+        <!-- source -> agents paths -->
+        <path id="pS1" class="ants" d="M170,63 C265,63 265,140 358,140" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pS2" class="ants" d="M170,157 C265,157 265,156 358,156" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pS3" class="ants" d="M170,251 C265,251 265,172 358,172" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pS4" class="ants" d="M170,345 C265,345 265,188 358,188" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+
+        <!-- agents stack (firmOS-style pulsing layers) -->
+        <rect x="360" y="118" width="270" height="80" rx="12" fill="url(#agGrad)"><animate attributeName="opacity" values=".88;1;.88" dur="5s" repeatCount="indefinite"/></rect>
+        <text x="380" y="146" font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="2" fill="#A9B8FF">AGENTS</text>
+        <text x="380" y="172" font-family="'Plus Jakarta Sans',sans-serif" font-size="17" font-weight="800" fill="#fff">Read · draft · flag</text>
+
+        <rect x="360" y="238" width="270" height="66" rx="12" fill="url(#recGrad)"><animate attributeName="opacity" values=".88;1;.88" dur="5s" begin="2.5s" repeatCount="indefinite"/></rect>
+        <text x="380" y="264" font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="2" fill="#A9B8FF">STRUCTURED RECORD</text>
+        <text x="380" y="286" font-family="'Plus Jakarta Sans',sans-serif" font-size="14" font-weight="700" fill="#E6E8FA">Every run remembered</text>
+
+        <!-- record <-> agents loop -->
+        <line x1="430" y1="200" x2="430" y2="236" stroke="#282876" stroke-width="1.5" stroke-dasharray="4 3" opacity=".5" marker-end="url(#ah)"/>
+        <line x1="560" y1="236" x2="560" y2="200" stroke="#282876" stroke-width="1.5" stroke-dasharray="4 3" opacity=".5" marker-end="url(#ah)"/>
+
+        <!-- agents -> gate -->
+        <path id="pG" class="ants" d="M630,158 L688,158" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+
+        <!-- review gate -->
+        <rect x="690" y="126" width="122" height="64" rx="12" fill="#FFF8EC" stroke="#B9821F" stroke-width="1.5"/>
+        <text x="751" y="152" text-anchor="middle" font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="2" fill="#B9821F">REVIEW</text>
+        <text x="751" y="172" text-anchor="middle" font-family="'Plus Jakarta Sans',sans-serif" font-size="12.5" font-weight="700" fill="#7A5510">a person approves</text>
+
+        <!-- gate -> outputs -->
+        <path id="pO1" class="ants" d="M812,158 C842,158 842,83 858,83" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pO2" class="ants" d="M812,158 C838,158 838,189 858,189" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+        <path id="pO3" class="ants" d="M812,158 C842,158 842,295 858,295" fill="none" stroke="#CFD3E8" stroke-width="1.5"/>
+
+        <!-- output nodes -->
+        <g font-family="'Source Code Pro',monospace" font-size="10" letter-spacing="1.5">
+          <rect x="860" y="60" width="122" height="46" rx="10" fill="#fff" stroke="#0FA383"/><text x="921" y="88" text-anchor="middle" fill="#0FA383" font-weight="500">DRAFT TO SIGN</text>
+          <rect x="860" y="166" width="122" height="46" rx="10" fill="#fff" stroke="#0FA383"/><text x="921" y="194" text-anchor="middle" fill="#0FA383" font-weight="500">DATES STAGED</text>
+          <rect x="860" y="272" width="122" height="46" rx="10" fill="#fff" stroke="#0FA383"/><text x="921" y="300" text-anchor="middle" fill="#0FA383" font-weight="500">OWNER BRIEF</text>
+        </g>
+
+        <!-- moving data dots (Conductor-style) -->
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" repeatCount="indefinite"><mpath href="#pS1"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" begin="0.8s" repeatCount="indefinite"><mpath href="#pS2"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" begin="1.6s" repeatCount="indefinite"><mpath href="#pS3"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="3.2s" begin="2.4s" repeatCount="indefinite"><mpath href="#pS4"/></animateMotion></circle>
+        <circle r="4" fill="#216FED"><animateMotion dur="1.4s" begin="0.5s" repeatCount="indefinite"><mpath href="#pG"/></animateMotion></circle>
+        <circle r="4" fill="#0FA383"><animateMotion dur="2s" repeatCount="indefinite"><mpath href="#pO1"/></animateMotion></circle>
+        <circle r="4" fill="#0FA383"><animateMotion dur="2s" begin="0.7s" repeatCount="indefinite"><mpath href="#pO2"/></animateMotion></circle>
+        <circle r="4" fill="#0FA383"><animateMotion dur="2s" begin="1.4s" repeatCount="indefinite"><mpath href="#pO3"/></animateMotion></circle>
+      </svg></div>
+      </div>
+      <div class="excard">
+        <div class="ph">Example 02 &middot; Deadline capture</div>
+        <h3>Orders become calendar entries</h3>
+        <div class="pd">Every scheduling order parsed the day it arrives. Conflicts surface before they cost anything.</div>
+        <div style="background:var(--wash);border-radius:12px;padding:10px 6px 2px">
+        <svg viewBox="0 0 620 330" xmlns="http://www.w3.org/2000/svg">
+          <g><rect x="20" y="40" width="170" height="40" rx="8" fill="#fff" stroke="#CFD3E8"/><text x="105" y="59" text-anchor="middle" class="fs-mono" font-size="9.5" fill="#282876">SCHEDULING ORDER.PDF</text><text x="105" y="72" text-anchor="middle" class="fs-mono" font-size="8" fill="#8181AC">RECEIVED 2:14 PM</text></g>
+          <rect x="36" y="96" width="138" height="24" rx="12" fill="#282876"><animate attributeName="opacity" values=".8;1;.8" dur="2.4s" repeatCount="indefinite"/></rect>
+          <text x="105" y="112" text-anchor="middle" class="fs-mono" font-size="9" fill="#A9B8FF">PARSE &middot; 11 DATES</text>
+          <g stroke="#CFD3E8" fill="#fff"><rect x="250" y="30" width="350" height="240" rx="10"/>
+            <line x1="250" y1="70" x2="600" y2="70"/><line x1="250" y1="120" x2="600" y2="120"/><line x1="250" y1="170" x2="600" y2="170"/><line x1="250" y1="220" x2="600" y2="220"/>
+            <line x1="320" y1="70" x2="320" y2="270"/><line x1="390" y1="70" x2="390" y2="270"/><line x1="460" y1="70" x2="460" y2="270"/><line x1="530" y1="70" x2="530" y2="270"/></g>
+          <text x="425" y="55" text-anchor="middle" class="fs-mono" font-size="10" fill="#282876">APRIL</text>
+          <g class="fs-mono" font-size="8">
+            <g><rect x="256" y="128" width="58" height="18" rx="4" fill="#E8EEFF" stroke="#216FED"/><text x="285" y="140" text-anchor="middle" fill="#216FED">DISC CUTOFF</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.2;.26;.95;1" dur="7s" repeatCount="indefinite"/></g>
+            <g><rect x="396" y="178" width="58" height="18" rx="4" fill="#E8EEFF" stroke="#216FED"/><text x="425" y="190" text-anchor="middle" fill="#216FED">EXPERT DDL</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.32;.38;.95;1" dur="7s" repeatCount="indefinite"/></g>
+            <g><rect x="536" y="228" width="58" height="18" rx="4" fill="#E8EEFF" stroke="#216FED"/><text x="565" y="240" text-anchor="middle" fill="#216FED">PRETRIAL</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.44;.5;.95;1" dur="7s" repeatCount="indefinite"/></g>
+          </g>
+          <g><rect x="466" y="128" width="58" height="34" fill="#F8D7DC"><animate attributeName="opacity" values=".25;.9;.25" dur="1.8s" repeatCount="indefinite"/></rect>
+            <text x="495" y="143" text-anchor="middle" class="fs-mono" font-size="7.5" fill="#D14D5E">CONFLICT</text><text x="495" y="154" text-anchor="middle" class="fs-mono" font-size="7.5" fill="#D14D5E">TRIAL BLOCK</text>
+            <animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.55;.6;.95;1" dur="7s" repeatCount="indefinite"/></g>
+          <circle r="4" fill="#216FED"><animateMotion dur="7s" repeatCount="indefinite" path="M174,108 C210,110 220,130 254,136" keyPoints="0;0;1;1" keyTimes="0;.12;.2;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.12;.19;.22;1" dur="7s" repeatCount="indefinite"/></circle>
+          <circle r="4" fill="#216FED"><animateMotion dur="7s" repeatCount="indefinite" path="M174,108 C240,120 300,160 394,186" keyPoints="0;0;1;1" keyTimes="0;.24;.32;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.24;.31;.34;1" dur="7s" repeatCount="indefinite"/></circle>
+          <circle r="4" fill="#216FED"><animateMotion dur="7s" repeatCount="indefinite" path="M174,108 C260,130 380,200 534,236" keyPoints="0;0;1;1" keyTimes="0;.36;.44;1" calcMode="linear"/><animate attributeName="opacity" values="0;0;1;0;0" keyTimes="0;.36;.43;.46;1" dur="7s" repeatCount="indefinite"/></circle>
+          <text x="310" y="310" text-anchor="middle" class="fs-mono" font-size="9" fill="#8181AC">STAGED WITH REMINDERS &middot; A PERSON CONFIRMS</text>
+        </svg>
+        </div>
+      </div>
+      <div class="excard">
+        <div class="ph">Example 03 &middot; Records chase</div>
+        <h3>Follow-up that never forgets</h3>
+        <div class="pd">Requests tracked to completion. Silence gets re-chased automatically on day 14, and again on day 21.</div>
+        <div style="background:var(--wash);border-radius:12px;padding:10px 6px 2px">
+        <svg viewBox="0 0 620 330" xmlns="http://www.w3.org/2000/svg">
+          <g class="fs-mono" font-size="10" fill="#282876">
+            <text x="30" y="64">LAKEVIEW IMAGING</text><text x="30" y="144">DR. PATEL</text><text x="30" y="224">ST. MARY'S</text>
+          </g>
+          <g fill="#E3E5F2"><rect x="30" y="76" width="420" height="10" rx="5"/><rect x="30" y="156" width="420" height="10" rx="5"/><rect x="30" y="236" width="420" height="10" rx="5"/></g>
+          <rect x="30" y="76" height="10" rx="5" fill="#0FA383"><animate attributeName="width" values="0;420;420;0" keyTimes="0;.25;.96;1" dur="9s" repeatCount="indefinite"/></rect>
+          <rect x="30" y="156" height="10" rx="5" fill="#0FA383"><animate attributeName="width" values="0;0;420;420;0" keyTimes="0;.15;.45;.96;1" dur="9s" repeatCount="indefinite"/></rect>
+          <rect x="30" y="236" height="10" rx="5" fill="#B9821F"><animate attributeName="width" values="0;0;168;168;420;420;0" keyTimes="0;.2;.4;.62;.85;.96;1" dur="9s" repeatCount="indefinite"/></rect>
+          <g class="fs-mono" font-size="8.5">
+            <g><rect x="470" y="66" width="120" height="22" rx="11" fill="#EAF6F2" stroke="#0FA383"/><text x="530" y="81" text-anchor="middle" fill="#0FA383">RECEIVED &middot; FILED</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.26;.32;.96;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="146" width="120" height="22" rx="11" fill="#EAF6F2" stroke="#0FA383"/><text x="530" y="161" text-anchor="middle" fill="#0FA383">GAPS FLAGGED</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.46;.52;.96;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="226" width="120" height="22" rx="11" fill="#FFF8EC" stroke="#B9821F"/><text x="530" y="241" text-anchor="middle" fill="#B9821F">DAY 14 &middot; SILENT</text><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.42;.48;.6;.64;1" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="226" width="120" height="22" rx="11" fill="#E8EEFF" stroke="#216FED"/><text x="530" y="241" text-anchor="middle" fill="#216FED">RE-CHASED &#8635;</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.62;.68;.82;.86" dur="9s" repeatCount="indefinite"/></g>
+            <g><rect x="470" y="226" width="120" height="22" rx="11" fill="#EAF6F2" stroke="#0FA383"/><text x="530" y="241" text-anchor="middle" fill="#0FA383">RECEIVED</text><animate attributeName="opacity" values="0;0;1;1;0" keyTimes="0;.86;.9;.96;1" dur="9s" repeatCount="indefinite"/></g>
+          </g>
+          <g><text x="132" y="270" class="fs-mono" font-size="8" fill="#B9821F">STALLED HERE FOR 14 DAYS</text><line x1="198" y1="252" x2="198" y2="246" stroke="#B9821F"/><animate attributeName="opacity" values="0;0;1;1;0;0" keyTimes="0;.42;.48;.6;.64;1" dur="9s" repeatCount="indefinite"/></g>
+          <text x="310" y="310" text-anchor="middle" class="fs-mono" font-size="9" fill="#8181AC">EVERY REQUEST TRACKED TO COMPLETION &middot; NOBODY KEEPS A SPREADSHEET</text>
+        </svg>
+        </div>
+      </div>
+      <div class="excard">
+        <div class="ph">Example 04 &middot; Client digest</div>
+        <h3>Updates drafted in your voice</h3>
+        <div class="pd">A status update staged for every open matter, grouped and ready to send.</div>
+        <div class="console slim">
+          <div class="console-bar"><span class="dot"></span> <b>Digest agent</b> &middot; Friday 4:00 PM</div>
+          <div>
+            <div class="crow"><div class="t">23</div><div><div class="k">Updates drafted</div><div class="d">One per open matter, in the firm voice, grouped by attorney.</div><span class="tag">Awaiting your review</span></div></div>
+            <div class="crow"><div class="t">4</div><div><div class="k">Held back</div><div class="d">Four matters had nothing new. No filler sent, ever.</div><span class="tag done">Skipped</span></div></div>
+            <div class="crow"><div class="t">1</div><div><div class="k">Escalated</div><div class="d">One client asked a settlement question. Routed to the attorney, not answered.</div><span class="tag">Flagged to you</span></div></div>
+          </div>
+          <div class="console-foot"><span><b>Send happens from your outbox,</b> not ours.</span><span class="ill">Illustrative</span></div>
+        </div>
+      </div>
+    </div>
+    <div class="pills" style="margin-top:22px">
+      <span class="pill">Intake triage</span><span class="pill">Demand packages</span><span class="pill">Client digests</span><span class="pill">Invoice follow-up</span><span class="pill">Partner briefs</span><span class="pill">+ whatever your Blueprint finds</span>
+    </div>
+  </div>
+</section>
+
+<section id="optimize" class="wash">
+  <div class="wrap split2">
+    <div>
+      <div class="stepchip"><span class="ic"><svg viewBox="0 0 20 20"><path d="M3 15l4.5-4.5 3 3L17 6"/><path d="M13 6h4v4"/></svg></span><span><span class="st">Step 05</span><br><span class="sn">Optimize</span></span></div>
+      <h2 class="disp">It gets better <span class="grad">after launch.</span></h2>
+      <p class="lede">We host the harness, the automations, and the record, and we keep improving them. When better models ship, your agents move onto them. The system you buy this year is not the system you have next year.</p>
+      <p class="lede" style="margin-top:10px;font-size:15px">Monthly reviews. Priority support. A simple retainer, no long-term contract, and everything is yours if we ever part ways.</p>
+    </div>
+    <div class="dash" aria-label="Example firm dashboard">
+      <div class="dash-bar"><span>FIRM DASHBOARD &middot; THIS MONTH</span><span class="ill2">ILLUSTRATIVE</span></div>
+      <div class="dash-kpis">
+        <div class="kpi"><span class="kl">Agent runs</span><b id="kRuns">0</b><span class="kd">&uarr; every automation, logged</span></div>
+        <div class="kpi"><span class="kl">Hours returned to the team</span><b id="kHrs">0</b><span class="kd">&uarr; vs. doing it by hand</span></div>
+        <div class="kpi"><span class="kl">Drafts approved</span><b id="kDrafts">0</b><span class="kd">&uarr; every one released by a person</span></div>
+        <div class="kpi"><span class="kl">Cost per run</span><b id="kCost">$0.00</b><span class="kd neg">&darr; rerouted to cheaper models</span></div>
+      </div>
+      <div class="dash-charts">
+        <div class="dchart"><span class="kl">Runs per week</span>
+          <svg viewBox="0 0 300 110">
+            <g fill="#282876">
+              <rect x="16" y="70" width="26" rx="3" height="30"><animate attributeName="height" values="0;30" dur="1s" fill="freeze"/><animate attributeName="y" values="100;70" dur="1s" fill="freeze"/></rect>
+              <rect x="56" y="60" width="26" rx="3" height="40"><animate attributeName="height" values="0;40" dur="1s" begin=".15s" fill="freeze"/><animate attributeName="y" values="100;60" dur="1s" begin=".15s" fill="freeze"/></rect>
+              <rect x="96" y="64" width="26" rx="3" height="36"><animate attributeName="height" values="0;36" dur="1s" begin=".3s" fill="freeze"/><animate attributeName="y" values="100;64" dur="1s" begin=".3s" fill="freeze"/></rect>
+              <rect x="136" y="46" width="26" rx="3" height="54"><animate attributeName="height" values="0;54" dur="1s" begin=".45s" fill="freeze"/><animate attributeName="y" values="100;46" dur="1s" begin=".45s" fill="freeze"/></rect>
+              <rect x="176" y="38" width="26" rx="3" height="62"><animate attributeName="height" values="0;62" dur="1s" begin=".6s" fill="freeze"/><animate attributeName="y" values="100;38" dur="1s" begin=".6s" fill="freeze"/></rect>
+              <rect x="216" y="24" width="26" rx="3" height="76" fill="#216FED"><animate attributeName="height" values="0;76" dur="1s" begin=".75s" fill="freeze"/><animate attributeName="y" values="100;24" dur="1s" begin=".75s" fill="freeze"/></rect>
+              <rect x="256" y="14" width="26" rx="3" height="86" fill="#216FED"><animate attributeName="height" values="0;86" dur="1s" begin=".9s" fill="freeze"/><animate attributeName="y" values="100;14" dur="1s" begin=".9s" fill="freeze"/></rect>
+            </g>
+          </svg>
+        </div>
+        <div class="dchart"><span class="kl">Cost per run</span>
+          <svg viewBox="0 0 300 110">
+            <polyline points="14,20 60,34 106,30 152,52 198,60 244,78 290,88" fill="none" stroke="#0FA383" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="340" stroke-dashoffset="340">
+              <animate attributeName="stroke-dashoffset" values="340;0" dur="1.8s" fill="freeze"/>
+            </polyline>
+            <circle cx="290" cy="88" r="4" fill="#0FA383"><animate attributeName="opacity" values="0;0;1" keyTimes="0;.85;1" dur="1.8s" fill="freeze"/></circle>
+            <g class="fs-mono" font-size="8" fill="#8181AC"><text x="14" y="104">JAN</text><text x="270" y="104">AUG</text></g>
+          </svg>
+        </div>
+      </div>
+      <div class="console-foot" style="background:var(--wash);border-top:1px solid var(--line);color:var(--muted)"><span style="color:#3A3A6B"><b style="color:var(--indigo)">Reviewed monthly, together.</b> Three new automations proposed from what the record shows.</span></div>
+    </div>
+    <p class="aside2" style="grid-column:1/-1;margin-top:6px">Models improve for everyone on the same day. <b>The structured record of how your firm works is the part nobody else can buy.</b></p>
+    </div>
+  </div>
+</section>
+
+<section id="app">
+  <div class="wrap split2">
+    <div>
+      <span class="eyebrow">The Dodonai App</span>
+      <h2 class="disp">The same engine, <span class="grad">packaged.</span></h2>
+      <p class="lede">The packaged engine behind the agents, and the fastest way to judge the quality for yourself. Upload a deposition or a medical record today; when we build, the app becomes part of your foundation layer.</p>
+      <div class="hero-cta">
+        <a class="btn btn-primary btn-lg" href="https://app.dodon.ai/signup">Start a free trial</a>
+        <a class="btn btn-ghost btn-lg" href="https://www.dodon.ai/">Explore the app &rarr;</a>
+      </div>
+      <div class="pills">
+        <span class="pill">Deposition summaries</span><span class="pill">Medical chronologies</span><span class="pill">AI OCR</span><span class="pill">E-discovery</span>
+      </div>
+    </div>
+    <div class="appwin" aria-label="Illustration of the Dodonai App">
+      <div class="appwin-bar"><i style="background:#F87171"></i><i style="background:#FBBF24"></i><i style="background:#34D399"></i><span class="appwin-url">app.dodon.ai</span></div>
+      <div class="appwin-body">
+        <div class="appnav">
+          <div class="on">Summaries</div><div>Chronologies</div><div>OCR</div><div>E-discovery</div>
+        </div>
+        <div class="appmain">
+          <div class="doc">Cruz_30b6_transcript.pdf · 212 pages</div>
+          <div class="appbar"><i></i></div>
+          <div>
+            <div class="sumline"></div><div class="sumline"></div><div class="sumline"></div><div class="sumline"></div>
+          </div>
+          <div class="appfoot"><span class="cite">44 PAGE &amp; LINE CITES</span><span class="exp">Export to Word</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="vband">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" style="color:#5EE6C4">What changes</span>
+      <h2 class="disp">Run the firm you always meant to run.</h2>
+      <p class="lede" style="color:#C7CCEF">Hover each card for what it looks like on the ground.</p>
+    </div>
+    <div class="bigvps">
+      <div class="bigvp2"><span class="idx">01</span><span class="dir">&darr;</span><span class="word">Overhead</span><p>Fewer subscriptions, less re-keying, none of the work about work.</p><span class="eg">Three tools cancelled. One login left.</span></div>
+      <div class="bigvp2"><span class="idx">02</span><span class="dir">&uarr;</span><span class="word">Speed</span><p>Drafts, filings, and follow-ups staged before anyone asks.</p><span class="eg">The demand package is drafted the morning the records arrive.</span></div>
+      <div class="bigvp2"><span class="idx">03</span><span class="dir">&uarr;</span><span class="word">Capacity</span><p>The same team carries a bigger caseload without the late nights.</p><span class="eg">Intake answered in minutes, not on Monday.</span></div>
+      <div class="bigvp2"><span class="idx">04</span><span class="dir">&uarr;</span><span class="word">Morale</span><p>People keep the judgment calls. The drudgery goes to the agents.</p><span class="eg">Nobody builds a chronology at 9 PM again.</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="security" class="ink">
+  <div class="wrap">
+    <div class="head">
+      <span class="eyebrow" style="color:var(--lav)">Security</span>
+      <h2 class="disp">Built for firms that answer to clients, courts, and regulators.</h2>
+    </div>
+    <div class="sec-grid">
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-soc2.svg" alt=""><h4>SOC 2 certified</h4><p>Audited controls across the platform and every environment we run.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-hipaa.svg" alt=""><h4>HIPAA compliant</h4><p>Medical records handled the way your clients' providers are required to.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-encryption.svg" alt=""><h4>Your cloud, your data</h4><p>Everything runs in infrastructure you own. No second copy in our vault.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/icon-access-control.svg" alt=""><h4>Never trained on</h4><p>Your work product improves nothing for anyone else, not even anonymized.</p></div>
+      <div class="sec-card"><img src="https://www.dodon.ai/images/brand/checkmark.svg" alt=""><h4>A person releases everything</h4><p>Nothing reaches a client, court, or counterparty until your team sends it.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="faq" class="wash" style="border-top:1px solid var(--line)">
+  <div class="wrap">
+    <div class="head faqhead">
+      <div>
+        <span class="eyebrow">Before you book</span>
+        <h2 class="disp">The questions we get in the first ten minutes.</h2>
+        <p class="lede">Answered here so the call can be about your work instead of ours.</p>
+      </div>
+      <aside class="askbox">
+        <h4>Not on this list?</h4>
+        <p>Ask it on the call. Thirty minutes, no deck, and you will leave knowing whether an agent can take the task.</p>
+        <a class="btn btn-primary" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+      </aside>
+    </div>
+    <div class="faq">
+      <details open>
+        <summary>What do you actually need from our people?</summary>
+        <p>Time from the people who do the work, and not much of it. The Blueprint runs on interviews; after that the build is on us. We also need access to the work your firm has already approved, because a system that has never seen your standards cannot meet them.</p>
+      </details>
+      <details>
+        <summary>How long until something is actually running?</summary>
+        <p>The Blueprint takes one to two weeks. A first automation goes live in weeks rather than quarters, and the exact timeline is in the Blueprint before you approve it. If we cannot say when it will be live, we have not understood the work well enough to build it.</p>
+      </details>
+      <details>
+        <summary>Do we have to leave the software we already use?</summary>
+        <p>No. We build into the case management, email, document, and billing systems you already run, and bridge the ones without an API. Adoption fails when the tool sits outside the workflow, so we put it inside.</p>
+      </details>
+      <details>
+        <summary>Where does our data go, and does it train anything?</summary>
+        <p>Your systems of record stay where they are, and the environment we build runs in infrastructure you control. Generating output means sending the relevant material to the model providers you approve, under your agreements with them. Your work product is never used to train models for anyone else.</p>
+      </details>
+      <details>
+        <summary>What happens when the output is wrong?</summary>
+        <p>A workflow that fails a defined check stops and routes for review rather than proceeding, and consequential output waits for a person at the firm to approve it. Corrections feed the structured record, so the same mistake gets rarer instead of recurring.</p>
+      </details>
+      <details>
+        <summary>What does it cost?</summary>
+        <p>Three things, matching how we work: a flat fee for the Blueprint, a fixed price per automation approved before we build, and a monthly fee for the managed service that keeps it all running. Model usage is passed through at cost. Exact numbers come with your Blueprint.</p>
+      </details>
+      <details>
+        <summary>What if we want to stop?</summary>
+        <p>You keep the system. Full source, running in infrastructure you control, no long-term contract to exit. Stopping after one automation that works is a perfectly good outcome.</p>
+      </details>
+    </div>
+  </div>
+</section>
+
+<section class="final dotgrid">
+  <div class="wrap">
+    <span class="eyebrow">Start here</span>
+    <h2>Bring us one painful task.</h2>
+    <p>Thirty minutes tells you whether an agent can take it, what the build costs, and how fast it goes live.</p>
+    <a class="btn btn-primary btn-lg" href="https://calendly.com/nick-dodonai">Book an intro call</a>
+    <p class="fineprint">No pitch deck · No long-term contract · SOC 2 certified · HIPAA compliant</p>
+  </div>
+</section>
+
+<section class="originband" id="origin" aria-label="Why the name Dodonai">
+  <div class="wrap">
+    <div class="origin-in">
+      <span class="eyebrow">The name</span>
+      <p class="origin-copy"><span class="o-name">Dodona:</span> an ancient sanctuary where people brought their own questions to the whispering oaks. The signal was already there; the value was in interpreting it for the question at hand. <span class="o-turn">Dodonai is built on the same idea. Your firm already holds the knowledge. We turn it into working systems.</span></p>
+      <span class="origin-mark" aria-hidden="true">&#916;&#969;&#948;&#974;&#957;&#951;</span>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot-in">
+    <span style="display:flex;align-items:center;gap:10px"><img src="https://www.dodon.ai/images/brand/logo-main.webp" alt="Dodonai" style="height:22px;width:auto;opacity:.8">© <span id="yr">2026</span> Dodonai</span>
+    <span style="display:flex;gap:22px;flex-wrap:wrap">
+      <a class="flink" href="https://www.dodon.ai/ai-managed-services/">For legal teams <span class="arw">&rarr;</span></a>
+      <a class="flink" href="https://www.dodon.ai/">Dodonai App <span class="arw">&rarr;</span></a>
+    </span>
+    <span style="display:flex;gap:22px;align-items:center"><a class="flink" href="mailto:hello@dodon.ai">hello@dodon.ai</a><a class="flink" href="#top">Top <span class="arw">&uarr;</span></a></span>
+  </div>
+</footer>
+
+<script>
+const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+// semantic Q&A typewriter
+const q=document.getElementById('qaQ');
+if(q&&!reduce){
+  const qs=['What did we agree to in the Singh fee agreement?','Which matters are waiting on records right now?','When is the expert deadline in Cruz?'];let qi=0;
+  setInterval(()=>{qi=(qi+1)%qs.length;const t=qs[qi];let c=0;
+    const iv=setInterval(()=>{c++;q.textContent=t.slice(0,c);if(c>=t.length)clearInterval(iv)},40);
+  },8000);
+}
+// dashboard counters (illustrative)
+function countTo(id,target,fmt){const e=document.getElementById(id);if(!e)return;let s0=null;
+  requestAnimationFrame(function st(ts){if(!s0)s0=ts;const p=Math.min((ts-s0)/1600,1);const v=target*(1-Math.pow(1-p,3));e.textContent=fmt(v);if(p<1)requestAnimationFrame(st)});}
+if(!reduce){
+  const run=()=>{countTo('kRuns',1284,v=>Math.round(v).toLocaleString());countTo('kHrs',312,v=>Math.round(v));countTo('kDrafts',417,v=>Math.round(v));countTo('kCost',0.42,v=>'$'+(0.90-v).toFixed(2));};
+  run();
+}
+
+// self-updating year
+const yr=document.getElementById('yr'); if(yr)yr.textContent=new Date().getFullYear();
+// scroll reveal (applied only when motion allowed)
+if(!reduce && 'IntersectionObserver' in window){
+  const els=document.querySelectorAll('.head,.split2>div,.orow,.dlv2,.excard,.bigvp2,.sec-card,.bpdoc,.rcheck,.ragent,.xform>*,.dash,.appwin,.faq details,.whyquote,.aside2,.fgrid>.card,.origin-copy');
+  els.forEach((el,i)=>{el.classList.add('pre');el.style.transitionDelay=Math.min(i%6,5)*60+'ms'});
+  const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){io.unobserve(e.target);e.target.classList.remove('pre');e.target.classList.add('in')}}),{threshold:.12,rootMargin:'0px 0px -8% 0px'});
+  els.forEach(el=>io.observe(el));
+}
+// the handwritten line writes itself when it arrives
+const pen=document.querySelector('.handwrite'), penBox=document.querySelector('.beunique');
+if(pen&&penBox&&!reduce&&'IntersectionObserver' in window){
+  pen.classList.add('armed');
+  const po=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){po.unobserve(e.target);pen.classList.remove('armed');pen.classList.add('write')}}),{threshold:.35});
+  po.observe(penBox);
+}
+</script>
+</body>
+</html>
