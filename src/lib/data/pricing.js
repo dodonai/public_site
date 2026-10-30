@@ -20,14 +20,14 @@ export const pricingFaq = [
 			billing.processes
 				.map(
 					(p) =>
-						`${p.name} use ${p.multiplier} credit${p.multiplier === 1 ? '' : 's'} per billable page.`
+						`${p.name} (${p.covers}): ${p.upTo ? 'up to ' : ''}${p.multiplier} credit${p.multiplier === 1 ? '' : 's'} per billable page.`
 				)
 				.join(' ') +
-			` For 100 billable pages, that is ${billing.processes.map((p) => 100 * p.multiplier).join(', ')} credits respectively. OCR is free. Audio transcription is separate: ${billing.audioCreditsPerMinute} credits per minute on subscriptions or $${billing.audioInvoiceRate.toFixed(2)} per minute on invoice billing. Subscription audio minutes are rounded up with a one-minute minimum per file.`
+			` Advanced Analysis is billed at actual usage under that cap, so a run can cost less. An executive summary or data extraction added to an advanced run is billed on top, at actual usage. For 100 billable pages, that is ${billing.processes.map((p) => (p.upTo ? 'at most ' : '') + 100 * p.multiplier).join(' and ')} credits respectively, before those add-ons. OCR is free. Audio transcription is separate: ${billing.audioCreditsPerMinute} credits per minute on subscriptions or $${billing.audioInvoiceRate.toFixed(2)} per minute on invoice billing. Subscription audio minutes are rounded up with a one-minute minimum per file.`
 	},
 	{
 		question: 'Do unused credits roll over?',
-		answer: `Monthly credits ${billing.monthlyRollover ? 'roll over' : 'reset each billing cycle and do not roll over'}. Annual credits ${billing.annualRollover ? 'carry forward on annual renewal' : 'reset on renewal'}.`
+		answer: `Monthly plan credits ${billing.monthlyRollover ? 'roll over' : 'reset each billing cycle and do not roll over'}. Annual plan credits ${billing.annualRollover ? "carry forward at renewal, up to one year's allotment of your plan" : 'reset on renewal'}. Purchased credit packs stay on your account from month to month. Canceling your subscription removes any remaining credits.`
 	},
 	{
 		question: 'Can I change plans?',

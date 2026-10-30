@@ -387,8 +387,11 @@
 				>
 				<tbody
 					>{#each billing.processes as process}<tr class="border-t border-[#e8e8f0]"
-							><th class="p-4">{process.name}</th><td class="p-4">{process.multiplier}</td
-							>{#each pps as rate}<td class="p-4">{fmt(rate, process.multiplier)}</td>{/each}</tr
+							><th class="p-4">{process.name}</th><td class="p-4"
+								>{process.upTo ? 'Up to ' : ''}{process.multiplier}</td
+							>{#each pps as rate}<td class="p-4"
+									>{process.upTo ? 'up to ' : ''}{fmt(rate, process.multiplier)}</td
+								>{/each}</tr
 						>{/each}
 					<tr class="border-t border-[#e8e8f0]"
 						><th class="p-4">OCR</th><td class="p-4">{billing.ocrCredits}</td><td
@@ -401,7 +404,8 @@
 		</div>
 		<p class="mt-4 text-center text-xs text-[#9898b8]">
 			A billable page ≈ {billing.tokensPerPage} tokens of text; it may differ from a physical PDF page.
-			Rates are rounded to three decimal places.
+			Advanced Analysis is billed at actual usage up to the cap shown; an executive summary or data extraction
+			on an advanced run is billed on top, at actual usage. Rates are rounded to three decimal places.
 		</p>
 	</div>
 </section>
