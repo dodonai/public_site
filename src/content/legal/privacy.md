@@ -1,6 +1,6 @@
 ---
 title: "Website Privacy Policy"
-lastUpdated: "2026-10-30"
+lastUpdated: "2023-04-15"
 ---
 
 <script>
@@ -14,7 +14,7 @@ This privacy notice for {company.name} ("Company," "we," "us," or "our"), descri
 
 • Engage with us in other related ways, including any sales, marketing, or events
 
-This policy does not apply to the use of the Dodon.ai software platform and related services, except that section 15 below applies to any Dodon.ai service you connect to your accounting system (such as QuickBooks Online).
+This policy does not apply to the use of the Dodon.ai software platform and related services.
 
 Questions or concerns? Reading this privacy notice will help you understand your privacy rights and choices. If you do not agree with our policies and practices, please do not use our Services. If you still have any questions or concerns, please contact us at hello@dodon.ai.
 
@@ -47,8 +47,6 @@ TABLE OF CONTENTS
 13\. HOW CAN YOU CONTACT US ABOUT THIS NOTICE?
 
 14\. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
-
-15\. HOW DO WE HANDLE DATA FROM YOUR ACCOUNTING SYSTEM (QUICKBOOKS ONLINE)?
 
 1\. WHAT INFORMATION DO WE COLLECT?
 
@@ -393,25 +391,5 @@ If you have questions or comments about this notice, you may email us at hello@d
 14\. HOW CAN YOU REVIEW, UPDATE, OR DELETE THE DATA WE COLLECT FROM YOU?
 
 You have the right to request access to the personal information we collect from you, change that information, or delete it. To request to review, update, or delete your personal information, please visit: https://www.dodon.ai
-
-15\. HOW DO WE HANDLE DATA FROM YOUR ACCOUNTING SYSTEM (QUICKBOOKS ONLINE)?
-
-In Short: When you connect a QuickBooks Online company to a Dodon.ai service, we use its data only to do the work you asked for, we keep it in your engagement's own environment, and you can disconnect at any time.
-
-Some Dodon.ai services, such as accounts payable automation, connect to your QuickBooks Online company through Intuit's authorization screen. A person with authority over that company must approve the connection, and the connection covers only that company.
-
-What we access. With your approval we access accounting data in the connected company that the service needs: your chart of accounts, classes, vendors, and the bills and expenses we create for you, including the source documents (such as invoice PDFs) we attach to them. We do not request or store your Intuit user ID or your QuickBooks password.
-
-How we use it. We use this data only to provide the service you engaged us for: for example, to code incoming invoices to your accounts and classes, to post bills or expenses that your staff have reviewed and approved, to attach the source document, and to record the QuickBooks transaction ID so each bill is posted once. We do not sell this data, use it for advertising, or share one customer's data with another customer.
-
-AI processing. Some services use AI models to read invoices and suggest coding. Where they do, the data may be processed by our model providers under agreements that prohibit them from using it to train their models.
-
-Where it is stored and how it is protected. Your accounting data and connection credentials are stored in the United States, in cloud infrastructure dedicated to your engagement. Connection tokens are encrypted and kept in a secrets manager, never in application code. Dodon.ai is SOC 2 certified and HIPAA compliant.
-
-Disconnecting. You can disconnect at any time from your QuickBooks Online company (Apps, then manage your connected apps) or by asking us. When you disconnect, we revoke and delete the connection tokens. Bills already posted stay in your QuickBooks company, because they are your records.
-
-Retention. We keep accounting data received through the connection only as long as needed to provide the service and meet our contractual and legal obligations, and we delete it when your engagement ends unless you ask us to return it or the law requires us to keep it.
-
-Questions about accounting integrations can be sent to hello@dodon.ai.
 
 ### ‍
