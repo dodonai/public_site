@@ -27,7 +27,7 @@ export const pricingFaq = [
 	},
 	{
 		question: 'Do unused credits roll over?',
-		answer: `Monthly plan credits ${billing.monthlyRollover ? 'roll over' : 'reset each billing cycle and do not roll over'}. Annual plan credits ${billing.annualRollover ? "carry forward at renewal, up to one year's allotment of your plan" : 'reset on renewal'}. Purchased credit packs stay on your account from month to month. When you change plans, unused plan and pack credits carry over together, up to one billing period's allotment of your previous plan. Canceling your subscription removes any remaining credits.`
+		answer: `Monthly plan credits ${billing.monthlyRollover ? 'roll over' : 'reset each billing cycle and do not roll over'}. Annual plan credits ${billing.annualRollover ? "carry forward at renewal, up to one year's allotment of your plan" : 'reset on renewal'}. Purchased credit packs stay on your account from month to month. Canceling your subscription removes any remaining credits.`
 	},
 	{
 		question: 'Can I change plans?',
@@ -37,7 +37,7 @@ export const pricingFaq = [
 	{
 		question: 'What happens if I run out of credits?',
 		answer:
-			"Processing that requires credits pauses when the available balance is insufficient. If a job that was already running takes you past your balance, the extra is deducted from your next cycle's credits. Check the App for available credit purchases and plan changes."
+			'Processing that requires credits pauses when the available balance is insufficient. Check the App for available credit purchases and plan changes.'
 	}
 ];
 export const pricingSchema = {
