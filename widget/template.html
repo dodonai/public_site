@@ -25,6 +25,8 @@
   /* lead strip — persistent until captured */
   #leadstrip { border-top:1px solid #eceef1; padding:8px 10px; display:flex; gap:6px; flex-wrap:wrap; align-items:center; background:#fbfcfd; }
   #leadstrip input[type=text], #leadstrip input#name, #leadstrip input#email { flex:1 1 40%; min-width:120px; font:inherit; padding:6px 8px; border:1px solid #d6d9de; border-radius:8px; }
+  #send-contact { background:var(--brand); color:#fff; border:0; border-radius:8px; padding:8px 10px; cursor:pointer; font:inherit; }
+  #send-contact:disabled { opacity:.6; cursor:default; }
   #optin { display:flex; gap:6px; align-items:flex-start; padding:0 10px 8px; font-size:12px; line-height:1.35; color:#3a3f45; cursor:pointer; background:#fbfcfd; }
   #optin input { flex:0 0 auto; margin:2px 0 0; }
   #leadchip { border-top:1px solid #eceef1; padding:6px 10px; font-size:12px; color:#2b8a3e; background:#f4fbf6; }
@@ -60,12 +62,15 @@
   </form>
 
   <!-- lead capture, below the chat window: name/email, then the (non-US) opt-in, then the notice -->
+  <form id="contact-form">
   <div id="leadstrip">
     <input id="name"  placeholder="First name" aria-label="First name" autocomplete="given-name">
     <input id="email" type="email" placeholder="Email" aria-label="Email address" autocomplete="email">
+    <button id="send-contact" type="submit" disabled>Send contact details</button>
   </div>
   <!-- express marketing consent (CASL) — non-US only; marketing-only label, distinct from the notice -->
   <label id="optin" hidden><input type="checkbox" id="optin-box"> Keep me posted with occasional Dodonai news and updates.</label>
+  </form>
   <div id="leadchip" hidden></div>
   <div id="privacyline">We'll use your email to reply and may send occasional updates — unsubscribe anytime. See our <a href="https://www.dodon.ai/privacy-policy/" target="_blank" rel="noopener">Privacy Policy</a>.</div>
 </div>
