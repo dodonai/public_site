@@ -20,7 +20,9 @@ const staticPages = [
 	{ path: '/ai-managed-services/our-agents', priority: '0.8' },
 	{ path: '/ai-managed-services/agents', priority: '0.8' },
 	{ path: '/terms-and-conditions', priority: '0.3' },
-	{ path: '/privacy-policy', priority: '0.3' }
+	{ path: '/privacy-policy', priority: '0.3' },
+	{ path: '/quickbooks-privacy-policy', lastmod: '2026-10-30', priority: '0.3' },
+	{ path: '/quickbooks', lastmod: '2026-10-30', priority: '0.3' }
 ];
 
 export const prerender = true;
